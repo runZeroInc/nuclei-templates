@@ -11,7 +11,9 @@ info:
   metadata:
     max-request: 1
     shodan-query: title:"3ware"
-  tags: default-login,3ware,3dm2
+    rz-service-query: |-
+        result["html.title"] contains "3ware"
+  tags: default-login,3ware,3dm2,rz-default-login
 
 http:
   - raw:

@@ -16,7 +16,10 @@ info:
     max-request: 1
     shodan-query: http.title:"ManageEngine Password"
     fofa-query: body="NJ2000"
-  tags: default-login,3com,nj2000
+    rz-service-query: |-
+        result["http.body"] contains "NJ2000"
+
+  tags: default-login,3com,nj2000,rz-default-login
 
 http:
   - raw:
