@@ -9,7 +9,9 @@ info:
     - https://knowledge.broadcom.com/external/article/142813/vulnerability-apache-activemq-admin-con.html
   metadata:
     max-request: 2
-  tags: apache,activemq,default-login
+    runzero-match: |-
+        lastHTTPAttribute(service, "html.title") contains "Apache ActiveMQ"
+  tags: apache,activemq,default-login,default-login,rz-default-login
 
 http:
   - raw:
