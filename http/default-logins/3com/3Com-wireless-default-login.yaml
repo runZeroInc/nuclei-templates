@@ -11,8 +11,8 @@ info:
   metadata:
     max-request: 2
     fofa-query: "title=\"3COM\""
-    rz-service-query: |-
-        result["html.title"] contains "3COM"
+    runzero-match: |-
+        lastHTTPAttribute(service, "html.title") contains "3COM"
   tags: default-login,3com,rz-default-login
 
 http:
