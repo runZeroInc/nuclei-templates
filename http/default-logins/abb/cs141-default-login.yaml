@@ -15,8 +15,8 @@ info:
     shodan-query: http.html:"CS141"
     product: cs141
     vendor: generex
-    rz-service-query: |-
-        result["http.body"] contains "CS141"
+    runzero-match: |-
+        lastHTTPAttribute(service, "http.body") contains "CS141"
   tags: hiawatha,iot,default-login,rz-default-login
 
 http:
