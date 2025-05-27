@@ -17,6 +17,8 @@ info:
     product: netman_204_firmware
     shodan-query: title:"Netman"
     censys-query: services.http.response.body:"Netman204"
+    runzero-match:
+        service["http.body"] contains "Netman204"
   tags: default-login,netman
 
 http:

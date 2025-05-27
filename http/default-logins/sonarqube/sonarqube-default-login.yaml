@@ -19,6 +19,8 @@ info:
     shodan-query: title:"Sonarqube"
     product: sonarqube
     vendor: sonarsource
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "Sonarqube"})
   tags: default-login,sonarqube
 
 http:

@@ -18,6 +18,7 @@ info:
     shodan-query: title:"Flex VNF Web-UI"
     product: versa_operating_system
     vendor: versa-networks
+    any(each(service["html.titles"]), {# contains "Flex VNF Web-UI"})
   tags: default-login,versa,flexvnf
 
 http:

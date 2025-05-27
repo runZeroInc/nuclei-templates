@@ -16,6 +16,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Trassir Webview"
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "Trassir Webview"})
   tags: default-login,trassir,webview
 
 http:

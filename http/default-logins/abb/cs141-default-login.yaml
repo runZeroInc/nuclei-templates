@@ -16,8 +16,8 @@ info:
     product: cs141
     vendor: generex
     runzero-match: |-
-        lastHTTPAttribute(service, "http.body") contains "CS141"
-  tags: hiawatha,iot,default-login,rz-default-login
+        service["http.body"] contains "CS141"
+  tags: hiawatha,iot,default-login
 
 http:
   - raw:

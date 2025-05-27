@@ -19,6 +19,8 @@ info:
     shodan-query: title:"SyncThru Web Service"
     product: scx-6555n
     vendor: samsung
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "SyncThru Web Service"})
   tags: default-login,iot,samsung,printer
 
 http:

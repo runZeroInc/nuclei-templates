@@ -17,8 +17,8 @@ info:
     shodan-query: http.title:"ManageEngine Password"
     fofa-query: body="NJ2000"
     runzero-match: |-
-        lastHTTPAttribute(service, "http.body") contains "NJ2000"
-  tags: default-login,3com,nj2000,rz-default-login
+        any(each(service["http.body"]), {# contains "NJ2000"})
+  tags: default-login,3com,nj2000
 
 http:
   - raw:
