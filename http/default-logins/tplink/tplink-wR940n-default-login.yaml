@@ -8,6 +8,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"/userRpm/"
+    runzero-match:
+        service["http.body"] contains "/userRpm/"
   tags: tplink,wR940n,default-login,misconfig
 
 variables:

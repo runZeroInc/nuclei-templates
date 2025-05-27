@@ -17,6 +17,8 @@ info:
       - html:"soplanning"
       - http.html:"soplanning"
     fofa-query: body="soplanning"
+    runzero-match:
+        service["http.body"] contains "soplanning"
   tags: soplanning,default-login
 
 http:

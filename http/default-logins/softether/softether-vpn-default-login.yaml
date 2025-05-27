@@ -16,6 +16,8 @@ info:
     vendor: softether
     product: vpn
     shodan-query: title:"SoftEther VPN Server"
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "SoftEther VPN Server"})
   tags: misconfig,vpn,softether,default-login
 
 http:

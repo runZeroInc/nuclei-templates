@@ -10,6 +10,8 @@ info:
     shodan-query: html:"WAGO Ethernet Web-based Management"
     verified: true
     max-request: 1
+    runzero-match:
+        service["http.body"] contains "WAGO Ethernet Web-based Management"
   tags: wago,default-login
 
 http:
