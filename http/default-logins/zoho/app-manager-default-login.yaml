@@ -12,6 +12,8 @@ info:
     shodan-query: title:"Applications Manager Login Screen"
     verified: true
     max-request: 1
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "Applications Manager Login Screen"})
   tags: default-login,manageengine,zoho
 
 variables:

@@ -18,6 +18,8 @@ info:
     vendor: wazuh
     product: wazuh
     shodan-query: "title:\"Wazuh\""
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "Wazuh"})
   tags: wazuh,default-login
 
 http:

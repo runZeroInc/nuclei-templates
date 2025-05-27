@@ -18,6 +18,8 @@ info:
     shodan-query: title:"Webmin"
     product: webmin
     vendor: webmin
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "Webmin"})
   tags: webmin,default-login
 
 http:

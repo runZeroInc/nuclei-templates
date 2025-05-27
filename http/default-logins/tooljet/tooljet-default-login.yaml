@@ -19,6 +19,8 @@ info:
     shodan-query: title:"tooljet"
     product: tooljet
     vendor: tooljet
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "tooljet"})
   tags: default-login,tooljet
 
 http:

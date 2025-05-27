@@ -19,6 +19,8 @@ info:
     shodan-query: html:"Tiny File Manager"
     product: tinyfilemanager
     vendor: tinyfilemanager_project
+    runzero-match:
+        service["http.body"] contains "Tiny File Manager"
   tags: default-login,tiny,filemanager
 
 http:

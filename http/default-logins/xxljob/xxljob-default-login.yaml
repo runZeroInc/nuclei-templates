@@ -18,6 +18,8 @@ info:
     product: xxl-job
     vendor: xuxueli
     fofa-query: icon_hash=1691956220
+    runzero-match:
+        service["favicon.ico.image.mmh3"] == "1691956220"
   tags: default-login,xxljob
 
 http:
