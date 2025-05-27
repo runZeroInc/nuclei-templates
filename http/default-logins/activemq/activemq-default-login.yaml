@@ -10,8 +10,8 @@ info:
   metadata:
     max-request: 2
     runzero-match: |-
-        lastHTTPAttribute(service, "html.title") contains "Apache ActiveMQ"
-  tags: apache,activemq,default-login,default-login,rz-default-login
+        any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
+  tags: apache,activemq,default-login,default-login
 
 http:
   - raw:

@@ -12,8 +12,8 @@ info:
     max-request: 1
     shodan-query: title:"3ware"
     runzero-match: |-
-        lastHTTPAttribute(service, "html.title") contains "3ware"
-  tags: default-login,3ware,3dm2,rz-default-login
+        any(each(service["html.titles"]), {# contains "3ware"})
+  tags: default-login,3ware,3dm2
 
 http:
   - raw:
