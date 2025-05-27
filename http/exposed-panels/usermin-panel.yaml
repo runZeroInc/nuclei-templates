@@ -10,6 +10,8 @@ info:
     verified: true
     max-request: 1
     fofa-query: "Login to Usermin"
+    runzero-match:
+        any(each(service["html.titles"]), {# contains "Login to Usermin"})
   tags: panel,login,usermin,detect
 
 http:
