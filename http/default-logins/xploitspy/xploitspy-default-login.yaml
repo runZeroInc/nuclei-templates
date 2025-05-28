@@ -11,7 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: html:XploitSPY
-    runzero-match:
+    runzero-match: |-
         service["http.body"] contains "XploitSPY"
   tags: xploitspy,default-login
 

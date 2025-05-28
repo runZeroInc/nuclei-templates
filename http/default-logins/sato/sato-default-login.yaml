@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Sato"
-    runzero-match:
+    runzero-match: |-
         any(each(service["html.titles"]), {# contains "Sato"})
   tags: sato,default-login,printer
 

@@ -14,7 +14,7 @@ info:
     vendor: splunk
     product: splunk
     shodan-query: http.title:"Splunk"
-    runzero-match:
+    runzero-match: |-
         any(each(service["html.titles"]), {# contains "Splunk"})
   tags: default-login,splunk
 
