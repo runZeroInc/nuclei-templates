@@ -21,7 +21,7 @@ info:
     google-query: intitle:"SteVe - Steckdosenverwaltung"
     product: steve
     vendor: steve-community
-    runzero-match:
+    runzero-match: |-
         any(each(service["html.titles"]), {# contains "SteVe - Steckdosenverwaltung"})
   tags: panel,default-login,steve
 

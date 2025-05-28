@@ -10,7 +10,7 @@ info:
     max-request: 1
     verified: true
     shodan-query: title:"Miniweb Start Page"
-    runzero-match:
+    runzero-match: |-
         any(each(service["html.titles"]), {# contains "Miniweb Start Page"})
   tags: ics,siemens,default-login
 

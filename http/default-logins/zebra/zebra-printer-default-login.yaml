@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 4
     shodan-query: title:"Zebra"
-    runzero-match:
+    runzero-match: |-
         any(each(service["html.titles"]), {# contains "Zebra"})
   tags: zebra,default-login,misconfig,printer
 

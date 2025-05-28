@@ -18,7 +18,7 @@ info:
     shodan-query: http.title:"XNAT"
     product: xnat
     vendor: xnat
-    runzero-match:
+    runzero-match: |-
         any(each(service["html.titles"]), {# contains "XNAT"})
   tags: default-login,xnat
 

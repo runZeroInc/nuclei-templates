@@ -19,7 +19,7 @@ info:
     shodan-query: title:"X-UI Login"
     product: x-ui
     vendor: vaxilu
-    runzero-match:
+    runzero-match: |-
         any(each(service["html.titles"]), {# contains "X-UI Login"})
   tags: x-ui,default-login
 
