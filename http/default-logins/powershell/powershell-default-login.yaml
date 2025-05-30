@@ -9,6 +9,7 @@ info:
   reference:
     - https://ironmansoftware.com/powershell-universal
   metadata:
+    runzero-match: service["http.body"] contains "PowerShell Universal"
     verified: true
     max-request: 3
     shodan-query: "html:\"PowerShell Universal\""

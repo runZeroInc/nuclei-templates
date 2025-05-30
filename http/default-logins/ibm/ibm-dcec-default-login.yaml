@@ -7,6 +7,7 @@ info:
   reference:
     - https://www.ibm.com/docs/en/odm/8.5.1?topic=console-tutorial-getting-started-decision-center-enterprise
   metadata:
+    runzero-match: service["http.body"] contains "Decision Center Enterprise console"
     verified: true
     max-request: 1
     shodan-query: "html=\"Decision Center Enterprise console\""

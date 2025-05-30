@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:paessler:prtg_network_monitor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-655683626"
     max-request: 1
     shodan-query: http.favicon.hash:-655683626
     product: prtg_network_monitor

@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:pyload:pyload:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] contains "pyload"
     verified: true
     max-request: 1
     vendor: pyload

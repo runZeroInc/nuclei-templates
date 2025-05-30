@@ -7,6 +7,7 @@ info:
   description: |
     Caprover defaultl login has been detected.
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "988422585"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:988422585

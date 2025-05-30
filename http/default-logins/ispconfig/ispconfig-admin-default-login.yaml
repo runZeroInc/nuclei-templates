@@ -7,6 +7,7 @@ info:
   description: |
     ISPConfig Admin Default Password Vulnerability exposes systems to unauthorized access, compromising data integrity and security.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# contains "ispconfig"})
     verified: true
     max-request: 9
     shodan-query: "http.title:\"ispconfig\""

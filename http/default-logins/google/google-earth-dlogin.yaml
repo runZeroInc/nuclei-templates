@@ -19,6 +19,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# contains "GEE Server"})
     max-request: 1
     shodan-query: title:"GEE Server"
   tags: default-login,google-earth

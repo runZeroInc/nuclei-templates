@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:sap:hybris:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# contains "Hybris"})
     verified: true
     max-request: 3
     shodan-query: title:"Hybris"

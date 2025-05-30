@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:h:ibm:integrated_management_module:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] contains "ibmdojo"
     verified: true
     max-request: 1
     shodan-query: html:"ibmdojo"

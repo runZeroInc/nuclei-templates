@@ -9,6 +9,7 @@ info:
   reference:
     - https://voyager-docs.devdojo.com/getting-started/installation
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# contains "Voyager"})
     verified: true
     max-request: 5
     shodan-query: title:"Voyager"

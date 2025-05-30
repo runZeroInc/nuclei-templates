@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:powerjob:powerjob:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# contains "PowerJob"})
     verified: true
     max-request: 1
     vendor: powerjob

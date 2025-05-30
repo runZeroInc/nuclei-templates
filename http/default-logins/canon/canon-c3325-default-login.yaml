@@ -7,6 +7,7 @@ info:
   reference:
     - https://oip.manual.canon/USRMA-0618-zz-CS-enLN/contents/1T0002902253.html#:~:text=The%20default%20user%20name%20for,in%20order%20to%20increase%20security.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# contains "c3325"})
     verified: true
     max-request: 1
     shodan-query: title:"c3325"

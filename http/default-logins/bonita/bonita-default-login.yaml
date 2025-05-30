@@ -7,6 +7,7 @@ info:
   description: |
     Bonita login was using default credentials which can led to gain super administrator access.
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1197926023"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-1197926023

@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:ctrip:apollo:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "11794165"
     max-request: 2
     shodan-query: http.favicon.hash:11794165
     product: apollo
