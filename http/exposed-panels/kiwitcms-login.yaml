@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:kiwitcms:kiwi_tcms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Kiwi TCMS - Login"}) || any(each(service["html.titles"]), {# contains "kiwi tcms - login"})
     max-request: 1
     vendor: kiwitcms
     product: kiwi_tcms

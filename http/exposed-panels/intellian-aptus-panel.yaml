@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:intelliantech:aptus_web:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Intellian Aptus Web"}) || any(each(service["html.titles"]), {# contains "intellian aptus web"})
     max-request: 1
     vendor: intelliantech
     product: aptus_web

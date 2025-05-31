@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:influxdata:influxdb:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "InfluxDB - Admin Interface"}) || any(each(service["html.titles"]), {# contains "influxdb - admin interface"})
     max-request: 1
     vendor: influxdata
     product: influxdb

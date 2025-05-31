@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:dockge.kuma:dockge:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Dockge"})
     verified: true
     max-request: 1
     vendor: dockge.kuma

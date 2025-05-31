@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:librephotos_project:librephotos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "LibrePhotos"})
     verified: true
     max-request: 1
     vendor: librephotos_project

@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oracle:business_intelligence:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Oracle Business Intelligence Sign In"}) || any(each(service["html.titles"]), {# contains "oracle business intelligence sign in"})
     verified: true
     max-request: 3
     vendor: oracle

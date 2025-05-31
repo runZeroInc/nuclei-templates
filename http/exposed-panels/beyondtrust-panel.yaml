@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:beyondtrust:beyondinsight:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "BeyondInsight"
     max-request: 1
     shodan-query: http.html:"BeyondInsight"
     product: beyondinsight

@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:tufin:securetrack:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "SecureTrack - Tufin Technologies"}) || any(each(service["html.titles"]), {# contains "securetrack - tufin technologies"})
     max-request: 1
     vendor: tufin
     product: securetrack

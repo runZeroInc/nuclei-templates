@@ -9,6 +9,8 @@ info:
   reference:
     - https://icehrm.com
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Ice Hrm Login"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Ice Hrm Login"

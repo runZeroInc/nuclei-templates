@@ -9,6 +9,8 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Advanced Setup - Security - Admin User Name &amp; Password"})
     max-request: 1
     shodan-query: http.title:"Advanced Setup - Security - Admin User Name &amp; Password"
   tags: panel,quest,login,detect

@@ -9,6 +9,8 @@ info:
   reference:
     - https://start.docuware.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Docuware"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Docuware"

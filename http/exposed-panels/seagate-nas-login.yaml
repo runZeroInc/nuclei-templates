@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:o:seagate:nas_os:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Seagate NAS - SEAGATE"}) || any(each(service["html.titles"]), {# contains "seagate nas - seagate"})
     verified: true
     max-request: 1
     vendor: seagate

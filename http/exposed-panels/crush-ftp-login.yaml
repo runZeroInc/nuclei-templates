@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "crushftp"
     verified: true
     max-request: 1
     vendor: crushftp

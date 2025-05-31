@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dataiku:data_science_studio:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "dataiku"})
     verified: true
     max-request: 1
     shodan-query: title:"dataiku"

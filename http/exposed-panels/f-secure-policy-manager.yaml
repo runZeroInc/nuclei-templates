@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:withsecure:f-secure_policy_manager:*:*:*:*:windows:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "F-Secure Policy Manager Server"}) || any(each(service["html.titles"]), {# contains "f-secure policy manager server"})
     max-request: 1
     vendor: withsecure
     product: f-secure_policy_manager

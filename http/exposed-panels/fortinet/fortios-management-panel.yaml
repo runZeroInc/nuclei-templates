@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:fortinet:fortios:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "945408572" || service["http.body"] contains "/remote/login"
     verified: true
     max-request: 1
     vendor: fortinet

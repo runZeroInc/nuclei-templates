@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:zeroshell:zeroshell:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "ZeroShell"}) || any(each(service["html.titles"]), {# contains "zeroshell"})
     max-request: 1
     vendor: zeroshell
     product: zeroshell

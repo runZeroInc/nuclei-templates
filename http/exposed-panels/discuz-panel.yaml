@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:comsenz:discuz\\!:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Discuz!"})
     verified: true
     max-request: 1
     vendor: comsenz

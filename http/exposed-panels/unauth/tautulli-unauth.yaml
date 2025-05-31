@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:tautulli:tautulli:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Tautulli - Home"}) || any(each(service["html.titles"]), {# contains "tautulli"}) || any(each(service["html.titles"]), {# contains "tautulli - home"})
     verified: true
     max-request: 1
     vendor: tautulli

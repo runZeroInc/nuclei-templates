@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ampache:ampache:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "For the Love of Music"}) || any(each(service["html.titles"]), {# contains "for the love of music"})
     verified: true
     max-request: 3
     vendor: ampache

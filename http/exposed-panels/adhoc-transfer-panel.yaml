@@ -6,6 +6,8 @@ info:
   severity: info
   description: WS_FTP Ad Hoc panel was detected.
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Ad Hoc Transfer"}) || any(each(service["html.titles"]), {# contains "ad hoc transfer"}) || any(each(service["html.titles"]), {# contains "ws_ftp server web transfer"})
     verified: true
     max-request: 1
     vendor: progress

@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:h2database:h2:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "H2 Console"}) || any(each(service["html.titles"]), {# contains "h2 console"})
     max-request: 1
     vendor: h2database
     product: h2

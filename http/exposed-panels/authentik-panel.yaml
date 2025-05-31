@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/searxng/searxng
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-178113786"
     max-request: 1
     verified: true
     shodan-query: http.favicon.hash:-178113786

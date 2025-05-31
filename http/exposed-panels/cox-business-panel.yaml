@@ -9,6 +9,8 @@ info:
   reference:
     - https://samcurry.net/hacking-millions-of-modems
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Cox Business"
     verified: true
     max-request: 1
     shodan-query: html:"Cox Business"

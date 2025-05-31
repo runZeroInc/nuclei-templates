@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:roxyfileman:roxy_fileman:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "roxy file manager"})
     verified: true
     max-request: 4
     vendor: roxyfileman

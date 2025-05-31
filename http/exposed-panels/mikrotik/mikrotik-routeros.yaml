@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:mikrotik:routeros:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "mikrotik routeros > administration"})
     max-request: 1
     vendor: mikrotik
     product: routeros

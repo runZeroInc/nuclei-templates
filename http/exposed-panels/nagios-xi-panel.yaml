@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nagios:nagios_xi:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Nagios XI"}) || any(each(service["html.titles"]), {# contains "nagios xi"})
     verified: true
     max-request: 2
     vendor: nagios

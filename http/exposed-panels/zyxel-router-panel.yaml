@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:zyxel:nr5101:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Web-Based Configurator"}) || any(each(service["html.titles"]), {# contains "web-based configurator"})
     verified: true
     max-request: 2
     vendor: zyxel

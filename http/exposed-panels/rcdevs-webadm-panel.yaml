@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.rcdevs.com/solutions/
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "WebADM"
     verified: true
     max-request: 4
     shodan-query: http.html:"WebADM"

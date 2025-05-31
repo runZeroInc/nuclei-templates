@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bitdefender:gravityzone:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Bitdefender GravityZone"}) || any(each(service["html.titles"]), {# contains "bitdefender gravityzone"})
     verified: true
     max-request: 1
     vendor: bitdefender

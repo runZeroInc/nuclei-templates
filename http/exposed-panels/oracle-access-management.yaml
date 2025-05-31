@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:oracle:access_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Oracle Access Management"}) || any(each(service["html.titles"]), {# contains "oracle access management"}) || service["http.body"] contains "/oam/pages/css/login_page.css"
     verified: true
     max-request: 2
     vendor: oracle

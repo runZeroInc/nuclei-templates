@@ -9,6 +9,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:ict:protege_wx_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "ICT Protege WX&reg;"}) || any(each(service["html.titles"]), {# contains "ict protege wx&reg;"})
     verified: true
     max-request: 1
     vendor: ict

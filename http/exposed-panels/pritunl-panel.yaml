@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:pritunl:pritunl:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Pritunl"})
     max-request: 1
     product: pritunl
     shodan-query: title:"Pritunl"

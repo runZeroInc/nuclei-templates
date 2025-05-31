@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "GLPI"}) || any(each(service["html.titles"]), {# contains "glpi"}) || service["favicon.ico.image.mmh3"] == "-1474875778"
     verified: true
     max-request: 3
     vendor: glpi-project

@@ -9,6 +9,8 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Adapt authoring tool"})
     max-request: 1
     shodan-query: http.title:"Adapt authoring tool"
     verified: true

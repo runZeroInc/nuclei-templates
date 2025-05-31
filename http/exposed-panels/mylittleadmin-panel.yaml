@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mylittletools:mylittleadmin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "myLittleAdmin"
     verified: true
     max-request: 2
     shodan-query: http.html:"myLittleAdmin"

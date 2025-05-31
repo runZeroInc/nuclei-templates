@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:servicenow:servicenow:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1701804003" || any(each(service["html.titles"]), {# contains "servicenow"})
     verified: true
     max-request: 1
     vendor: servicenow

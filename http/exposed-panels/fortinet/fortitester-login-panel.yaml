@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortitester:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "FortiTester"}) || any(each(service["html.titles"]), {# contains "fortitester"})
     verified: true
     max-request: 2
     vendor: fortinet

@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:intelbras:iwr_3000n:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Intelbras"})
     max-request: 1
     shodan-query: http.title:"Intelbras"
     google-query: intitle:"Intelbras" "All Rights Reserved" -.com

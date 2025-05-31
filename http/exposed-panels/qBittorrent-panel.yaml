@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:qbittorrent:qbittorrent:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "qbittorrent"}) || any(each(service["html.titles"]), {# contains "qbittorrent"})
     verified: true
     max-request: 1
     vendor: qbittorrent

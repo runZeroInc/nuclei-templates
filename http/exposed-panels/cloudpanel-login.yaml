@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:mgt-commerce:cloudpanel:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "151132309" || any(each(service["html.titles"]), {# contains "cloudpanel"}) || service["favicon.ico.image.mmh3"] == "151132309"
     verified: true
     max-request: 1
     vendor: mgt-commerce

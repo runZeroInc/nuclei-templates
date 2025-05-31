@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ibm:financial_transaction_manager:*:*:*:*:digital_payments:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "FTM manager" || service["http.body"] contains "ftm manager" || any(each(service["html.titles"]), {# contains "ftm manager"})
     verified: true
     max-request: 1
     vendor: ibm

@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:o:acti:camera_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Web Configurator"})
     verified: true
     max-request: 1
     vendor: acti

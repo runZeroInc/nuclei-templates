@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:avigilon:avigilon_control_center:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Login - Avigilon Control Center"}) || any(each(service["html.titles"]), {# contains "login - avigilon control center"})
     verified: true
     max-request: 1
     vendor: avigilon

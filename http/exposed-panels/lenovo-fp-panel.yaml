@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:lenovo:fan_power_controller:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Fan and Power Controller" || service["http.body"] contains "fan and power controller"
     verified: true
     max-request: 2
     vendor: lenovo

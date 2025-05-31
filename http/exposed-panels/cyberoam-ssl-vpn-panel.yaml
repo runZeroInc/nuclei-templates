@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:sophos:cyberoam:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Cyberoam SSL VPN Portal"}) || any(each(service["html.titles"]), {# contains "cyberoam ssl vpn portal"})
     max-request: 1
     vendor: sophos
     product: cyberoam

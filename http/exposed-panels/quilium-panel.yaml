@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.quilium.io/
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "CMS Quilium"
     verified: true
     max-request: 2
     shodan-query: http.html:"CMS Quilium"

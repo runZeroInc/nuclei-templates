@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gitea:gitea:*:*:*:*:jenkins:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Powered by Gitea Version" || service["http.body"] contains "powered by gitea version" || any(each(service["html.titles"]), {# contains "gitea"})
     max-request: 1
     vendor: gitea
     product: gitea

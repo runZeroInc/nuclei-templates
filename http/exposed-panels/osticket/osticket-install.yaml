@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-284
     cpe: cpe:2.3:a:osticket:osticket:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "osTicket Installer"}) || any(each(service["html.titles"]), {# contains "osticket"}) || service["http.body"] contains "powered by osticket" || any(each(service["html.titles"]), {# contains "osticket installer"})
     verified: true
     max-request: 2
     vendor: osticket

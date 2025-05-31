@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cybelesoft:thinfinity_virtualui:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Thinfinity VirtualUI"}) || any(each(service["html.titles"]), {# contains "thinfinity virtualui"})
     max-request: 1
     vendor: cybelesoft
     product: thinfinity_virtualui

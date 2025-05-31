@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:arcserve:udp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1889244460" || service["favicon.ico.image.mmh3"] == "-1889244460"
     verified: true
     max-request: 1
     vendor: arcserve

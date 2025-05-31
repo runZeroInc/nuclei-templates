@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:o:schneider-electric:evlink_charging_station_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "EVSE Web Interface"}) || any(each(service["html.titles"]), {# contains "evse web interface"})
     verified: true
     max-request: 2
     vendor: schneider-electric

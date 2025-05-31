@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:dialogic:powermedia_xms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Dialogic XMS Admin Console"})
     verified: true
     max-request: 1
     vendor: dialogic

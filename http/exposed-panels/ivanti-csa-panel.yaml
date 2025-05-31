@@ -9,6 +9,8 @@ info:
   reference:
     - https://help.ivanti.com/ld/help/en_US/LDMS/10.0/Windows/csa-h-help.htm
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Cloud Services Appliance"})
     verified: true
     max-request: 1
     shodan-query: title:"Cloud Services Appliance"

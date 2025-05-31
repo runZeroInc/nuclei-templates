@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pfsense:pfsense:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "pfSense - Login"}) || any(each(service["html.titles"]), {# contains "pfsense - login"})
     max-request: 1
     vendor: pfsense
     product: pfsense

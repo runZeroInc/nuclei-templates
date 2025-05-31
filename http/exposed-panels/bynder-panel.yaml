@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.bynder.com/en/
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1017650009"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1017650009

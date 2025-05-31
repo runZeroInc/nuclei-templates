@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:pulsar:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Pulsar Admin Console"}) || any(each(service["html.titles"]), {# contains "pulsar admin ui"}) || any(each(service["html.titles"]), {# contains "pulsar admin console"})
     verified: true
     max-request: 1
     vendor: apache

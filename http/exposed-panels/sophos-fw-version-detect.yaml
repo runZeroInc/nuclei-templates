@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:sophos:sfos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Sophos"}) || any(each(service["html.titles"]), {# contains "sophos"})
     verified: true
     max-request: 2
     vendor: sophos

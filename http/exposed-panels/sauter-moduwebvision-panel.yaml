@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:o:sauter:moduweb_vision:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1663319756"
     verified: true
     max-request: 1
     vendor: sauter

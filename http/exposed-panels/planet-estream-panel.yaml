@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:planetestream:planet_estream:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Login - Planet eStream"}) || any(each(service["html.titles"]), {# contains "login - planet estream"})
     verified: true
     max-request: 1
     vendor: planetestream

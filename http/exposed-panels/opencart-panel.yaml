@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "OpenCart" || service["http.body"] contains "opencart"
     verified: true
     max-request: 2
     vendor: opencart

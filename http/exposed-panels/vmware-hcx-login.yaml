@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:vmware_hcx:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "VMware HCX"})
     verified: true
     max-request: 1
     shodan-query: title:"VMware HCX"

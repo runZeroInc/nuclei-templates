@@ -9,6 +9,8 @@ info:
   reference:
     - https://photoprism.app/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "PhotoPrism"})
     verified: true
     max-request: 1
     shodan-query: http.title:PhotoPrism

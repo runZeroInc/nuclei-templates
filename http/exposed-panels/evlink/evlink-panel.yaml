@@ -5,6 +5,8 @@ info:
   author: ritikchaddha
   severity: info
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "EVlink Local Controller"})
     verified: true
     max-request: 1
     shodan-query: title:"EVlink Local Controller"

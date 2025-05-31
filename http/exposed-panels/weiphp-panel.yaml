@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:weiphp:weiphp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "weiphp" || service["http.body"] contains "weiphp5.0"
     verified: true
     max-request: 1
     vendor: weiphp

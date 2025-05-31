@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:securityonionsolutions:security_onion:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Security Onion"}) || any(each(service["html.titles"]), {# contains "security onion"})
     verified: true
     max-request: 2
     vendor: securityonionsolutions

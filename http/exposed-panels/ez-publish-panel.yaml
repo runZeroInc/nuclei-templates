@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ez:ez_publish:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "eZ Publish"
     verified: true
     max-request: 1
     shodan-query: http.html:"eZ Publish"

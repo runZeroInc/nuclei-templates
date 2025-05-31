@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:dahuasecurity:xvr5xxx:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "XVR LOGIN"}) || any(each(service["html.titles"]), {# contains "xvr login"})
     max-request: 1
     vendor: dahuasecurity
     product: xvr5xxx

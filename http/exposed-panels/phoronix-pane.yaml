@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phoronix-media:phoronix_test_suite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "phoronix-test-suite"})
     max-request: 1
     vendor: phoronix-media
     product: phoronix_test_suite

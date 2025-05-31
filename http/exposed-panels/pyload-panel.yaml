@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:pyload:pyload:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Login - pyLoad"}) || any(each(service["html.titles"]), {# contains "login - pyload"}) || service["http.body"] contains "pyload" || any(each(service["html.titles"]), {# contains "pyload"})
     verified: true
     max-request: 2
     vendor: pyload

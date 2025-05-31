@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nzbget:nzbget:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "NZBGet" || service["http.body"] contains "nzbget"
     verified: true
     max-request: 1
     vendor: nzbget

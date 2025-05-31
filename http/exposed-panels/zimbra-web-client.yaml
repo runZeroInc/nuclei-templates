@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:synacor:zimbra_collaboration_suite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Zimbra Web Client Sign In"}) || any(each(service["html.titles"]), {# contains "zimbra collaboration suite"}) || any(each(service["html.titles"]), {# contains "zimbra web client sign in"})
     verified: true
     max-request: 1
     vendor: synacor

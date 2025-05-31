@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:progress:whatsup_gold:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "WhatsUp Gold"})
     verified: true
     max-request: 2
     vendor: progress

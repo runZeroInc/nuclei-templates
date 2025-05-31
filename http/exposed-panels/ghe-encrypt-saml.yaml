@@ -9,6 +9,8 @@ info:
   reference:
     - https://docs.github.com/en/enterprise-server@3.10/admin/managing-iam/using-saml-for-enterprise-iam/enabling-encrypted-assertions
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "GitHub Enterprise"})
     verified: true
     max-request: 1
     shodan-query: title:"GitHub Enterprise"

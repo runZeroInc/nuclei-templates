@@ -5,6 +5,8 @@ info:
   author: DhiyaneshDK
   severity: info
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "PowerChute Network Shutdown"
     verified: true
     max-request: 1
     shodan-query: html:"PowerChute Network Shutdown"

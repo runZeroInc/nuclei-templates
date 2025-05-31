@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:outsystems:platform_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "outsystems"
     verified: true
     max-request: 2
     vendor: outsystems

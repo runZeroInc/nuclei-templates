@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-668
     cpe: cpe:2.3:a:avantfax:avantfax:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "AvantFAX - Login"}) || any(each(service["html.titles"]), {# contains "avantfax - login"})
     max-request: 1
     vendor: avantfax
     product: avantfax

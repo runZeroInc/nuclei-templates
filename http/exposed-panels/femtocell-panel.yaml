@@ -10,6 +10,8 @@ info:
     - https://en.wikipedia.org/wiki/Femtocell
     - https://www.facebook.com/photo/?fbid=844447314392456&set=a.467014098802448
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Femtocell Access Point"
     verified: true
     max-request: 1
     shodan-query: html:"Femtocell Access Point"

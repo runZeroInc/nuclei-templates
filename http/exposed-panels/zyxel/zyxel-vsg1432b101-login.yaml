@@ -5,6 +5,8 @@ info:
   author: princechaddha
   severity: info
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "VSG1432-B101"
     verified: true
     max-request: 1
     shodan-query: http.html:"VSG1432-B101"

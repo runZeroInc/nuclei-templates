@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sage:x3:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Sage X3"}) || any(each(service["html.titles"]), {# contains "sage x3"})
     max-request: 1
     vendor: sage
     product: x3

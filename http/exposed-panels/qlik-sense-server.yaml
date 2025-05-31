@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:qlik:qlik_sense:*:*:*:*:windows:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Qlik-Sense"}) || service["favicon.ico.image.mmh3"] == "-74348711" || service["http.body"] contains "qlik" || any(each(service["html.titles"]), {# contains "qlik-sense"})
     verified: true
     max-request: 2
     vendor: qlik

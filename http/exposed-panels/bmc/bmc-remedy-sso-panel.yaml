@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.bmc.com/it-solutions/remedy-itsm.html
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "BMC Remedy Single Sign-On domain data entry"})
     verified: true
     max-request: 2
     shodan-query: http.title:"BMC Remedy Single Sign-On domain data entry"

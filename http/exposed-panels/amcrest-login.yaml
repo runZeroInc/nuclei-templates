@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:amcrest:ip2m-853ew:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "amcrest" || service["http.body"] contains "amcrest" || service["http.body"] contains "amcrest"
     max-request: 1
     vendor: amcrest
     product: ip2m-853ew

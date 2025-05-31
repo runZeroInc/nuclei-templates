@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:centreon:centreon_web:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Centreon"}) || any(each(service["html.titles"]), {# contains "centreon"})
     max-request: 1
     vendor: centreon
     product: centreon_web

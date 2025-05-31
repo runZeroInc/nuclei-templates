@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zblogcn:zblogphp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Z-BlogPHP"
     max-request: 1
     shodan-query: http.html:"Z-BlogPHP"
     product: zblogphp

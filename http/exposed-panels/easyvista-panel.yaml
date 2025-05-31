@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.easyvista.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Easyvista"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Easyvista"

@@ -9,6 +9,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:satellite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "redhat"
     verified: true
     max-request: 1
     shodan-query: http.html:"redhat" "Satellite"

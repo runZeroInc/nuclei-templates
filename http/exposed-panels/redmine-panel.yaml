@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:redmine:redmine:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "'content=\"Redmine'"
     verified: true
     max-request: 1
     vendor: redmine

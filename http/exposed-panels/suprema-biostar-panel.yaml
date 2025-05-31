@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:supremainc:biostar_2:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Biostar"})
     verified: true
     max-request: 1
     vendor: supremainc

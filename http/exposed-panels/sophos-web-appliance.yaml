@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:sophos:web_appliance:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-893681401" || any(each(service["html.titles"]), {# contains "sophos web appliance"})
     verified: true
     max-request: 1
     vendor: sophos

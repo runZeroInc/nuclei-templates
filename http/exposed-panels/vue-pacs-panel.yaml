@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:philips:vue_pacs:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Vue PACS"}) || any(each(service["html.titles"]), {# contains "vue pacs"})
     verified: true
     max-request: 1
     vendor: philips

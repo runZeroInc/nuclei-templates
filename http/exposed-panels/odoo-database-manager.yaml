@@ -8,6 +8,8 @@ info:
   classification:
     cpe: cpe:2.3:a:odoo:odoo:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Odoo"}) || any(each(service["html.titles"]), {# contains "odoo"})
     verified: true
     max-request: 1
     vendor: odoo

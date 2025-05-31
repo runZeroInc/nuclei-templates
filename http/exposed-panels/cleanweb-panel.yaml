@@ -9,6 +9,8 @@ info:
   reference:
     - https://tentelemed.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "CleanWeb"})
     verified: true
     max-request: 1
     shodan-query: http.title:"CleanWeb"

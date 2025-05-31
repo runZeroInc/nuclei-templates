@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:ibm:operational_decision_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Decision Center | Business Console"})
     verified: true
     max-request: 1
     vendor: ibm

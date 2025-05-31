@@ -9,6 +9,8 @@ info:
   reference:
     - https://digital.ai/products/teamforge/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "TeamForge :"})
     verified: true
     max-request: 1
     shodan-query: title:"TeamForge :"

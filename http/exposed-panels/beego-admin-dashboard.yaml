@@ -14,6 +14,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:beego:beego:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Beego Admin Dashboard" || service["http.body"] contains "beego admin dashboard"
     verified: true
     max-request: 1
     vendor: beego

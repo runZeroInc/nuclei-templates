@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pivotal_software:concourse:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Concourse"})
     max-request: 1
     shodan-query: title:"Concourse"
     product: concourse

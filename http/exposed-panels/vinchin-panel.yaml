@@ -9,6 +9,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vinchin:vinchin_backup_and_recovery:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "VinChin"
     verified: true
     max-request: 1
     shodan-query: html:"VinChin"

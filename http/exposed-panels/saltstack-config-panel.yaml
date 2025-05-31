@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:saltstack:saltstack:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "SaltStack Config"})
     verified: true
     max-request: 1
     shodan-query: title:"SaltStack Config"

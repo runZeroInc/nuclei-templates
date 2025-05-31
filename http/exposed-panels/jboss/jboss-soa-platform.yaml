@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:jboss_soa_platform:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Welcome to the JBoss SOA Platform"}) || any(each(service["html.titles"]), {# contains "welcome to the jboss soa platform"})
     verified: true
     max-request: 1
     vendor: redhat

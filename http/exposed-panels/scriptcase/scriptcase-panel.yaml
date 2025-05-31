@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:scriptcase:scriptcase:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "ScriptCase"})
     verified: true
     max-request: 2
     vendor: scriptcase

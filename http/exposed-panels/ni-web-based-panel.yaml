@@ -5,6 +5,8 @@ info:
   author: DhiyaneshDK
   severity: info
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "NI Web-based Configuration & Monitoring"})
     verified: true
     max-request: 1
     shodan-query: title:"NI Web-based Configuration & Monitoring"

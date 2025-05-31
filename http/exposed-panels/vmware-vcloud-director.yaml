@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:vcloud_director:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "VMware vCloud Director"}) || any(each(service["html.titles"]), {# contains "vmware vcloud director"})
     verified: true
     max-request: 1
     vendor: vmware

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:esphome:esphome:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Login - ESPHome"}) || any(each(service["html.titles"]), {# contains "login - esphome"})
     verified: true
     max-request: 1
     vendor: esphome

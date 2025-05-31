@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:symantec:data_loss_prevention:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Symantec Data Loss Prevention"}) || any(each(service["html.titles"]), {# contains "symantec data loss prevention"})
     max-request: 1
     vendor: symantec
     product: data_loss_prevention

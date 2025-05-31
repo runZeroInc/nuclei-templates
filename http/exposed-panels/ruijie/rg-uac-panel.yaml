@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:ruijie:rg-uac_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Get_Verify_Info" || service["http.body"] contains "get_verify_info"
     max-request: 1
     vendor: ruijie
     product: rg-uac_firmware

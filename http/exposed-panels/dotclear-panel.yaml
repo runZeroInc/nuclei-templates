@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dotclear:dotclear:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Dotclear"}) || any(each(service["html.titles"]), {# contains "dotclear"})
     max-request: 2
     vendor: dotclear
     product: dotclear

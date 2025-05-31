@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:helpproject:help:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Project Insight - Login"}) || any(each(service["html.titles"]), {# contains "project insight - login"})
     max-request: 1
     vendor: helpproject
     product: help

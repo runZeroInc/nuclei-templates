@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:yellowfinbi:yellowfin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Yellowfin Information Collaboration"})
     verified: true
     max-request: 1
     vendor: yellowfinbi

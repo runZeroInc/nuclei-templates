@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:qnap:photo_station:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Photo Station"}) || any(each(service["html.titles"]), {# contains "photo station"}) || any(each(service["html.titles"]), {# contains "qnap"})
     verified: true
     max-request: 1
     vendor: qnap

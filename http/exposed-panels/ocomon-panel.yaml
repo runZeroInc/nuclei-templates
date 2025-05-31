@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ocomon_project:ocomon:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "OcoMon" || service["http.body"] contains "ocomon"
     verified: true
     max-request: 1
     vendor: ocomon_project

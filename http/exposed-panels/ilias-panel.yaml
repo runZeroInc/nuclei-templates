@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ilias:ilias:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "ILIAS" || service["http.body"] contains "ilias"
     verified: true
     max-request: 2
     vendor: ilias

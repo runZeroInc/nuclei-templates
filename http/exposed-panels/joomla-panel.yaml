@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:joomla:joomla\!:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "joomla! - open source content management"
     max-request: 1
     vendor: joomla
     product: joomla\!

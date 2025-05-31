@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:nsx-t_data_center:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "vmw_nsx_logo-black-triangle-500w.png"
     verified: true
     max-request: 1
     shodan-query: html:"vmw_nsx_logo-black-triangle-500w.png"

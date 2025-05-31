@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:commscope:dg3450:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "phy.htm" || service["http.body"] contains "phy.htm"
     verified: true
     max-request: 1
     vendor: commscope

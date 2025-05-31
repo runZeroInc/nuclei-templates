@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bmc:footprints_service_core:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "FootPrints Service Core Login"})
     verified: true
     max-request: 2
     shodan-query: title:"FootPrints Service Core Login"

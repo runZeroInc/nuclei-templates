@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.veritas.com/
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Veritas NetBackup OpsCenter Analytics"
     verified: true
     max-request: 1
     shodan-query: html:"Veritas NetBackup OpsCenter Analytics"

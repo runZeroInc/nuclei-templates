@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:parallels:h-sphere:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Parallels H-Sphere"}) || any(each(service["html.titles"]), {# contains "h-sphere"}) || any(each(service["html.titles"]), {# contains "parallels h-sphere"})
     verified: true
     max-request: 1
     vendor: parallels

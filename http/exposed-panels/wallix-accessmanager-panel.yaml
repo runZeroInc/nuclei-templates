@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:wallix:bastion_access_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Wallix Access Manager"})
     max-request: 2
     shodan-query: http.title:"Wallix Access Manager"
     product: bastion_access_manager

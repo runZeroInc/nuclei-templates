@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:versa-networks:versa_director:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "VERSA DIRECTOR Login"})
     verified: true
     max-request: 1
     shodan-query: http.title:"VERSA DIRECTOR Login"

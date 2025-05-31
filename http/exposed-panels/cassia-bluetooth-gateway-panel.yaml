@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.cassianetworks.com/products/x1000-outdoor-bluetooth-router/
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Cassia Bluetooth Gateway Management Platform"
     verified: true
     max-request: 1
     shodan-query: html:"Cassia Bluetooth Gateway Management Platform"

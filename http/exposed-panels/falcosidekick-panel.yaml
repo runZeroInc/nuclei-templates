@@ -8,6 +8,8 @@ info:
   reference:
     - https://github.com/falcosecurity/falcosidekick-ui
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Falcosidekick"})
     max-request: 1
     verified: true
     shodan-query: http.title:"Falcosidekick"

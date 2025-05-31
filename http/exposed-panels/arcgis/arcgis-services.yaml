@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:esri:arcgis_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "ArcGIS"}) || any(each(service["html.titles"]), {# contains "arcgis"})
     verified: true
     max-request: 1
     vendor: esri

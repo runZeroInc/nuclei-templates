@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:icewhale:casaos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "CasaOS"
     verified: true
     max-request: 2
     shodan-query: html:"CasaOS"

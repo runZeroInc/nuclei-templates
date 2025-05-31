@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adminer:adminer:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Login - Adminer"}) || any(each(service["html.titles"]), {# contains "login - adminer"})
     verified: true
     max-request: 8
     vendor: adminer

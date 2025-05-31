@@ -8,6 +8,8 @@ info:
   reference:
     - https://www.haivision.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Haivision Gateway"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Haivision Gateway"

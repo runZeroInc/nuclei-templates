@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.ercom.com/solutions/cryptobox-presentation
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Cryptobox"})
     verified: true
     max-request: 1
     shodan-query: title:"Cryptobox"

@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:open-xchange:open-xchange_appsuite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Appsuite" || service["http.body"] contains "appsuite"
     verified: true
     max-request: 1
     vendor: open-xchange

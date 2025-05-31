@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:x-wrt:luci:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "OpenWrt - LuCI"}) || any(each(service["html.titles"]), {# contains "openwrt - luci"})
     max-request: 1
     vendor: x-wrt
     product: luci

@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.riello-ups.com
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "netman 204"})
     vendor: riello-ups
     product: netman_204_firmware
     shodan-query: title:"netman 204"

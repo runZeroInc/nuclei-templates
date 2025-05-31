@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:osgeo:geoserver:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "GeoServer"}) || any(each(service["html.titles"]), {# contains "geoserver"})
     verified: true
     max-request: 2
     vendor: osgeo

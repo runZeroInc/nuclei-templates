@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:cisco:smart_software_manager_on-prem:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "On-Prem License Workspace"}) || any(each(service["html.titles"]), {# contains "on-prem license workspace"})
     verified: true
     max-request: 2
     vendor: cisco

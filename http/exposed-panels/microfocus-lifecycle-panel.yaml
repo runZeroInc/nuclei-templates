@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.opentext.com/products/alm-quality-center
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Micro\u00a0Focus\u00a0Application\u00a0Lifecycle\u00a0Management"
     verified: true
     max-request: 1
     shodan-query: http.html:"Micro Focus Application Lifecycle Management"

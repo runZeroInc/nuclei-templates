@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:heartex:label_studio:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1649949475"
     verified: true
     max-request: 1
     vendor: heartex

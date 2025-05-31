@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.tixeo.com/en/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "tixeo"})
     verified: true
     max-request: 3
     shodan-query: "http.title:\"tixeo\""

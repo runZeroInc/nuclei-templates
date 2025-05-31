@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:wazuh:wazuh:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Wazuh"}) || any(each(service["html.titles"]), {# contains "wazuh"})
     max-request: 1
     vendor: wazuh
     product: wazuh

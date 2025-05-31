@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.sonatype.com/products/sonatype-nexus-repository
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Sonatype Nexus Repository"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Sonatype Nexus Repository"

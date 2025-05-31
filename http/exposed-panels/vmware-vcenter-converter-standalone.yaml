@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:vcenter_converter_standalone:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "VMware vCenter Converter Standalone"}) || any(each(service["html.titles"]), {# contains "vmware vcenter converter standalone"})
     verified: true
     max-request: 1
     vendor: vmware

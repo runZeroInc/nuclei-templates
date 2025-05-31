@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:o:microchip:syncserver_s650_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Symmetricom SyncServer" || service["http.body"] contains "symmetricom syncserver"
     verified: true
     max-request: 1
     vendor: microchip

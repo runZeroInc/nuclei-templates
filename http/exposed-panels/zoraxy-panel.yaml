@@ -10,6 +10,8 @@ info:
     - https://github.com/tobychui/zoraxy
     - https://zoraxy.aroz.org/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Login | Zoraxy"})
     max-request: 1
     verified: true
     shodan-query: http.title:"Login | Zoraxy"
