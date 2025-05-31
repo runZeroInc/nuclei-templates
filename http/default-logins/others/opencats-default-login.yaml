@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:opencats:opencats:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "opencats"})
     verified: true
     max-request: 4
     shodan-query: title:"opencats"

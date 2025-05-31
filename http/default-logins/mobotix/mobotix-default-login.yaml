@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:h:mobotix:s14:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Mobotix"})
     max-request: 2
     shodan-query: title:"Mobotix"
     product: s14

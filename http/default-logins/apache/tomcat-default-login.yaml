@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Apache Tomcat"})
     max-request: 405
     vendor: apache
     product: tomcat

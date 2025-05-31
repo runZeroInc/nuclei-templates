@@ -11,6 +11,8 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Lucee"
     verified: true
     max-request: 1
     shodan-query: "html:\"Lucee\""

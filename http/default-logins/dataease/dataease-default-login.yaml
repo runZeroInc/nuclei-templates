@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:dataease_project:dataease:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "Dataease"
     verified: true
     max-request: 1
     vendor: dataease_project

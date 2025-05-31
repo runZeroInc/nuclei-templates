@@ -7,6 +7,8 @@ info:
   description: |
     Tests if Apache Doris Panel, it is an easy-to-use, high performance and unified analytics database, is using the default password on root/admin user accounts.
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "24048806"
     verified: true
     max-request: 2
     vendor: apache
