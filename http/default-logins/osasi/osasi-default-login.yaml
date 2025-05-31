@@ -7,6 +7,8 @@ info:
   description: |
     Detected OSASI PLC web interface accessible with default credentials, potentially allowing unauthorized administrative access to industrial control systems.
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-268676052"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-268676052

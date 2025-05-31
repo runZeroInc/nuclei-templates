@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:openmediavault:openmediavault:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "OpenMediaVault"})
     verified: true
     max-request: 1
     shodan-query: title:"OpenMediaVault"

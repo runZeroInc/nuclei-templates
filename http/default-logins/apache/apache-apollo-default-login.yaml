@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:activemq_apollo:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Apache Apollo"})
     verified: true
     max-request: 1
     vendor: apache

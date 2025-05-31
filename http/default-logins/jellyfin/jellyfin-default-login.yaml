@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:jellyfin:jellyfin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "Jellyfin"})
     verified: true
     fofa-query: title="Jellyfin"
     product: jellyfin

@@ -13,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "262502857"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:262502857

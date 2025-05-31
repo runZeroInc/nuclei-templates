@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] contains "CrushFTP"
     verified: true
     max-request: 2
     vendor: crushftp

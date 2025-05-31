@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:zoneland:o2oa:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# contains "O2OA"})
     verified: true
     max-request: 1
     vendor: zoneland
