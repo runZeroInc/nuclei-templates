@@ -13,14 +13,14 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:vaxilu:x-ui:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "X-UI Login"})
     verified: true
     max-request: 2
     fofa-query: title="X-UI Login"
     shodan-query: title:"X-UI Login"
     product: x-ui
     vendor: vaxilu
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "X-UI Login"})
   tags: x-ui,default-login
 
 http:

@@ -10,7 +10,7 @@ info:
     cpe: cpe:2.3:a:azkaban_project:azkaban:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Azkaban Web Client"})
+        any(each(service["html.titles"]), {# matches "Azkaban Web Client"})
     max-request: 1
     shodan-query: http.title:"Azkaban Web Client"
     product: azkaban

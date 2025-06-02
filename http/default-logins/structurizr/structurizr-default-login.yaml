@@ -9,14 +9,14 @@ info:
   reference:
     - https://docs.structurizr.com/onpremises/quickstart
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1199592666"
     verified: true
     max-request: 3
     shodan-query: http.favicon.hash:1199592666
     product: on-premises_installation
     vendor: structurizr
     fofa-query: icon_hash=1199592666
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "1199592666"
   tags: structurizr,default-login
 
 http:

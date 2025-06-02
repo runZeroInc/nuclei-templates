@@ -13,13 +13,13 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:webmin:webmin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Webmin"})
     verified: true
     max-request: 2
     shodan-query: title:"Webmin"
     product: webmin
     vendor: webmin
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Webmin"})
   tags: webmin,default-login
 
 http:

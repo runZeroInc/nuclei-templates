@@ -9,13 +9,13 @@ info:
   classification:
     cpe: cpe:2.3:a:splunk:splunk:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Splunk"})
     verified: true
     max-request: 9
     vendor: splunk
     product: splunk
     shodan-query: http.title:"Splunk"
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Splunk"})
   tags: default-login,splunk
 
 http:

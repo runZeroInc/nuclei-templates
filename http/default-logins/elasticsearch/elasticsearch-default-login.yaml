@@ -13,7 +13,7 @@ info:
     cpe: cpe:2.3:a:elastic:elasticsearch:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Elastic"})
+        any(each(service["html.titles"]), {# matches "Elastic"})
     verified: true
     max-request: 1
     vendor: elastic

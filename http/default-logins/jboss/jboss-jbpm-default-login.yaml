@@ -14,7 +14,7 @@ info:
     cpe: cpe:2.3:a:redhat:jbpm:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        service["http.body"] contains "JBossWS"
+        service["http.body"] matches "JBossWS"
     verified: true
     max-request: 12
     shodan-query: html:"JBossWS"

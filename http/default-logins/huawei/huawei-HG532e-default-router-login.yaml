@@ -12,7 +12,7 @@ info:
     cpe: cpe:2.3:h:huawei:hg532e:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        service["http.body"] contains "HG532e"
+        service["http.body"] matches "HG532e"
     max-request: 1
     shodan-query: http.html:"HG532e"
     product: hg532e

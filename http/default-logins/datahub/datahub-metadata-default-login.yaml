@@ -14,7 +14,7 @@ info:
     cpe: cpe:2.3:a:datahub_project:datahub:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "DataHub"})
+        any(each(service["html.titles"]), {# matches "DataHub"})
     verified: true
     max-request: 1
     shodan-query: http.title:"DataHub"

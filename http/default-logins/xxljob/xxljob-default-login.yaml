@@ -12,14 +12,14 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1691956220"
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:1691956220
     product: xxl-job
     vendor: xuxueli
     fofa-query: icon_hash=1691956220
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "1691956220"
   tags: default-login,xxljob
 
 http:

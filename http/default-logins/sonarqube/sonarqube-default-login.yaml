@@ -14,13 +14,13 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:sonarsource:sonarqube:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Sonarqube"})
     verified: true
     max-request: 4
     shodan-query: title:"Sonarqube"
     product: sonarqube
     vendor: sonarsource
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Sonarqube"})
   tags: default-login,sonarqube
 
 http:

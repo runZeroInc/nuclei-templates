@@ -11,7 +11,7 @@ info:
     cpe: cpe:2.3:a:inspur:clusterengine:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "TSCEV4.0"})
+        any(each(service["html.titles"]), {# matches "(?i)TSCEV4\\.0"})
     max-request: 1
     vendor: inspur
     product: clusterengine

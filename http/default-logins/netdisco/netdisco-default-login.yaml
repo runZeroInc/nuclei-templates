@@ -12,7 +12,7 @@ info:
     Update the application to remove hard-coded credentials and implement secure credential management practices.
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Netdisco"})
+        any(each(service["html.titles"]), {# matches "Netdisco"})
     verified: true
     max-request: 1
     shodan-query: title:"Netdisco"

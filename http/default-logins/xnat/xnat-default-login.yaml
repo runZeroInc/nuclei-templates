@@ -13,13 +13,13 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:xnat:xnat:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "XNAT"})
     verified: true
     max-request: 1
     shodan-query: http.title:"XNAT"
     product: xnat
     vendor: xnat
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "XNAT"})
   tags: default-login,xnat
 
 http:

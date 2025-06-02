@@ -11,7 +11,7 @@ info:
     - http://www.networktechinc.com/pdf/man154.pdf
   metadata:
     runzero-match: |-
-        service["http.body"] contains "ENVIROMUX"
+        service["http.body"] matches "ENVIROMUX"
     verified: true
     max-request: 1
     shodan-query: html:"ENVIROMUX"

@@ -8,7 +8,7 @@ info:
     - https://www.ibm.com/docs/en/odm/8.0.1?topic=users-tutorial-getting-started-decision-center-business-console
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Decision Center | Business Console"})
+        any(each(service["html.titles"]), {# matches "Decision Center \\| Business Console"})
     verified: true
     max-request: 1
     shodan-query: "title=\"Decision Center | Business Console\""

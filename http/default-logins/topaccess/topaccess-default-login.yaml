@@ -7,11 +7,11 @@ info:
   reference:
     - https://business.toshiba.com/downloads/KB/f1Ulds/11646/KH-1020_TAG_EN_0002.pdf
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)topaccess"})
     verified: true
     max-request: 2
     shodan-query: title:"topaccess"
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "topaccess"})
   tags: topaccess,default-login,misconfig
 
 variables:

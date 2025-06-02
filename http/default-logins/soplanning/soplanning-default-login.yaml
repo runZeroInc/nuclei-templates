@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.soplanning.org/en/
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)soplanning" || service["http.body"] matches "(?i)soplanning"
     verified: true
     max-request: 1
     vendor: soplanning
@@ -17,8 +19,6 @@ info:
       - html:"soplanning"
       - http.html:"soplanning"
     fofa-query: body="soplanning"
-    runzero-match: |-
-        service["http.body"] contains "soplanning"
   tags: soplanning,default-login
 
 http:

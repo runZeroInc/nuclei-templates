@@ -20,7 +20,7 @@ info:
     cwe-id: CWE-522
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "GEE Server"})
+        any(each(service["html.titles"]), {# matches "GEE Server"})
     max-request: 1
     shodan-query: title:"GEE Server"
   tags: default-login,google-earth
