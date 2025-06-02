@@ -1,7 +1,7 @@
 id: jboss-jbpm-default-login
 
 info:
-  name: JBoss jBPM Administration Console Default Login - Detect
+  name: JBoss jBPM Administration Console - Default Login
   author: DhiyaneshDk
   severity: high
   description: JBoss jBPM Administration Console default login information was detected.

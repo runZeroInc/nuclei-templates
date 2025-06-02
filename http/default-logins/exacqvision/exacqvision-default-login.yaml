@@ -1,7 +1,7 @@
 id: exacqvision-default-login
 
 info:
-  name: ExacqVision Default Login
+  name: ExacqVision - Default Login
   author: ELSFA7110
   severity: high
   description: ExacqVision Web Service default login credentials (admin/admin256) were discovered.

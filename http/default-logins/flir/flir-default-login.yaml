@@ -1,10 +1,10 @@
 id: flir-default-login
 
 info:
-  name: Flir Default Login
+  name: FLIR - Default Login
   author: pikpikcu
   severity: medium
-  description: Flir default login credentials (admin/admin) were discovered.
+  description: FLIR default login credentials (admin/admin) were discovered.
   reference:
     - https://securitycamcenter.com/flir-default-password/
   classification:

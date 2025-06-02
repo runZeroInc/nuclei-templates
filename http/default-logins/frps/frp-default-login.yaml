@@ -1,7 +1,7 @@
 id: frp-default-login
 
 info:
-  name: FRP Default Login
+  name: FRP - Default Login
   author: pikpikcu
   severity: high
   description: FRP default login credentials were discovered.
