@@ -5,7 +5,7 @@ info:
   author: clem9669,parzival
   severity: high
   description: |
-    Empire C2 / Starkiller Default Administrator Credentials Discovered.
+    Empire C2 / Starkiller default login credentials were discovered.
   reference:
     - https://github.com/BC-SECURITY/Empire
     - https://github.com/BC-SECURITY/empire-docs/blob/main/restful-api/README.md

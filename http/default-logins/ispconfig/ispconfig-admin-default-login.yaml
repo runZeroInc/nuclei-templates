@@ -1,11 +1,11 @@
 id: ispconfig-admin-default-login
 
 info:
-  name: ISPConfig Admin - Default Password
+  name: ISPConfig Admin Panel - Default Login
   author: pussycat0x
   severity: high
   description: |
-    ISPConfig Admin Default Password Vulnerability exposes systems to unauthorized access, compromising data integrity and security.
+    ISPConfig Admin Panel default login credentials were discovered.
   metadata:
     runzero-match: |-
         any(each(service["html.titles"]), {# matches "(?i)ispconfig"})

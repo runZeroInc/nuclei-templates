@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |
-    Dialogic XMS Admin Console was using default credentials and it was discovered.
+    Dialogic XMS Admin Console default login information were discovered.
   metadata:
     runzero-match: |-
         any(each(service["html.titles"]), {# matches "Dialogic XMS Admin Console"})

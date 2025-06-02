@@ -1,7 +1,7 @@
 id: google-earth-dlogin
 
 info:
-  name: Google Earth Enterprise Default Login
+  name: Google Earth Enterprise - Default Login
   author: orpheus,johnjhacking
   severity: high
   description: |

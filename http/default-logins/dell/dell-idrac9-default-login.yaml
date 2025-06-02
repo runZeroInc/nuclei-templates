@@ -10,6 +10,8 @@ info:
   classification:
     cwe-id: cwe-798
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "Integrated (?:Dell )?Remote Access Controller"})
     max-request: 1
   tags: dell,idrac,default-login
 

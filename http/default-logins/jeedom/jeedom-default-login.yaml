@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |
-    Jeedom default login has been detected.
+    Jeedom default login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:jeedom:jeedom:*:*:*:*:*:*:*:*
   metadata:

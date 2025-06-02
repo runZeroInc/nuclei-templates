@@ -1,10 +1,10 @@
 id: jupyterhub-default-login
 
 info:
-  name: Jupyterhub - Default Admin Discovery
+  name: Jupyterhub - Default Login
   author: For3stCo1d
   severity: high
-  description: Jupyterhub default admin credentials were discovered.
+  description: Jupyterhub default login information was discovered.
   reference:
     - https://github.com/jupyterhub/jupyterhub
   classification:

@@ -1,7 +1,7 @@
 id: guacamole-default-login
 
 info:
-  name: Guacamole Default Login
+  name: Guacamole - Default Login
   author: r3dg33k
   severity: high
   description: Guacamole default admin login credentials were detected.

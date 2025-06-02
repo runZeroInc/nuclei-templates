@@ -1,10 +1,10 @@
 id: emqx-default-login
 
 info:
-  name: Emqx Default Admin Login
+  name: Emqx - Default Login
   author: For3stCo1d
   severity: high
-  description: Emqx default admin credentials were discovered.
+  description: Emqx default login credentials were discovered.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3

@@ -1,10 +1,10 @@
 id: smartsense-default-login
 
 info:
-  name: HortonWorks SmartSense Default Login
+  name: HortonWorks SmartSense - Default Login
   author: Techryptic (@Tech)
   severity: high
-  description: HortonWorks SmartSense default admin login information was detected.
+  description: HortonWorks SmartSense default login credentials were detected.
   reference:
     - https://docs.cloudera.com/HDPDocuments/SS1/SmartSense-1.2.2/bk_smartsense_admin/content/manual_server_login.html
   classification:

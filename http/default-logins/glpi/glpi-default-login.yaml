@@ -1,10 +1,10 @@
 id: glpi-default-login
 
 info:
-  name: GLPI Default Login
+  name: GLPI - Default Login
   author: andysvints
   severity: high
-  description: GLPI default login credentials were discovered. GLPI is an ITSM software tool that helps you plan and manage IT changes. This template checks if a default super admin account (glpi/glpi) is enabled.
+  description: GLPI default login credentials were discovered.
   reference:
     - https://glpi-project.org/
   classification:

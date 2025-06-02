@@ -4,6 +4,7 @@ info:
   name: EasyReport - Default Login
   author: SleepingBag945
   severity: high
+  description: EasyReport default login credentials were discovered.
   classification:
     cwe-id: CWE-798
   metadata:
