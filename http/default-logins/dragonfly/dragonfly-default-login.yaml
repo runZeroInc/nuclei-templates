@@ -7,6 +7,8 @@ info:
   description: |
     Dragonfly was using the default username, and the password was discovered.
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)logo-dragonfly\\.png"
     verified: true
     max-request: 1
     fofa-query: body="logo-dragonfly.png"

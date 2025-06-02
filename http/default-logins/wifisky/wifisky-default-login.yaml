@@ -12,12 +12,12 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "WIFISKY-7层流控路由器"})
     verified: true
     max-request: 1
     shodan-query: title:"WIFISKY-7层流控路由器"
     fofa-query: app="WIFISKY-7层流控路由器"
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "WIFISKY-7层流控路由器"})
   tags: default-login,wifisky
 
 http:

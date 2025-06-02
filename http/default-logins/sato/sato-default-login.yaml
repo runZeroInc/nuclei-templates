@@ -7,11 +7,11 @@ info:
   description: |
     Sato using default credentials was discovered.
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Sato"})
     verified: true
     max-request: 1
     shodan-query: title:"Sato"
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Sato"})
   tags: sato,default-login,printer
 
 http:

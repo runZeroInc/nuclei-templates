@@ -13,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)adminer"})
     verified: true
     max-request: 5
     shodan-query: http.title:adminer

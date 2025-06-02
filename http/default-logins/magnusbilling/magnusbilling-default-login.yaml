@@ -9,6 +9,8 @@ info:
   impact: |
     An unauthenticated attacker can gain full administrative control over the MagnusBilling platform, leading to compromise of billing systems, data leakage, and potential pivoting into internal infrastructure.
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "MagnusBilling"
     verified: true
     max-request: 1
     shodan-query: html:"MagnusBilling"

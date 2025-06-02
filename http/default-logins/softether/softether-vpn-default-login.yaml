@@ -11,13 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:softether:vpn:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "SoftEther VPN Server"})
     verified: true
     max-request: 1
     vendor: softether
     product: vpn
     shodan-query: title:"SoftEther VPN Server"
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "SoftEther VPN Server"})
   tags: misconfig,vpn,softether,default-login
 
 http:

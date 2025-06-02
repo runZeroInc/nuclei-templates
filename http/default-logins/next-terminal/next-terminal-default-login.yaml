@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/dushixiang/next-terminal
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Next Terminal"})
     verified: true
     max-request: 1
     fofa-query: title="Next Terminal"

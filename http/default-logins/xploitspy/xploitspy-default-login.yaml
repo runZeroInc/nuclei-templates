@@ -9,10 +9,10 @@ info:
   reference:
     - https://github.com/XploitWizer-Community/XploitSPY
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "XploitSPY"
     max-request: 1
     shodan-query: html:XploitSPY
-    runzero-match: |-
-        service["http.body"] contains "XploitSPY"
   tags: xploitspy,default-login
 
 http:

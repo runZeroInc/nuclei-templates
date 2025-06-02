@@ -9,14 +9,14 @@ info:
   reference:
     - https://fsmlabs.com
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "2134367771"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:2134367771
     product: timekeeper
     vendor: fsmlabs
     fofa-query: icon_hash=2134367771
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "2134367771"
   tags: timekeeper,default-login
 
 http:

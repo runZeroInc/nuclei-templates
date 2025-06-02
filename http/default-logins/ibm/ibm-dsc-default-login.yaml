@@ -7,6 +7,8 @@ info:
   reference:
     - https://www.ibm.com/docs/en/odm/8.8.0?topic=center-overview-decision
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Rule Execution Server"})
     verified: true
     max-request: 1
     shodan-query: "title:\"Rule Execution Server\""

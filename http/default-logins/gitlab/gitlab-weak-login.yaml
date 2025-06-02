@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "GitLab"})
     max-request: 6
     shodan-query: http.title:"GitLab"
     product: gitlab

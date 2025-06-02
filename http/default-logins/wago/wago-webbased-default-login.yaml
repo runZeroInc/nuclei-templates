@@ -7,11 +7,11 @@ info:
   description: |
       Identified WAGO Web-Based Management interfaces that were accessible using default credentials (admin:wago).These interfaces are used to configure and monitor WAGO programmable logic controllers (PLCs) and automation systems. Use of factory-default credentials exposed critical OT infrastructure to unauthorized access.
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "WAGO Ethernet Web-based Management"
     shodan-query: html:"WAGO Ethernet Web-based Management"
     verified: true
     max-request: 1
-    runzero-match: |-
-        service["http.body"] contains "WAGO Ethernet Web-based Management"
   tags: wago,default-login
 
 http:
