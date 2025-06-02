@@ -11,12 +11,12 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:h:generex:cs141:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "CS141"
     max-request: 3
     shodan-query: http.html:"CS141"
     product: cs141
     vendor: generex
-    runzero-match: |-
-        service["http.body"] contains "CS141"
   tags: hiawatha,iot,default-login
 
 http:

@@ -14,7 +14,7 @@ info:
     cpe: cpe:2.3:a:apache:ranger:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Ranger - Sign In"})
+        any(each(service["html.titles"]), {# matches "Ranger - Sign In"})
     max-request: 1
     shodan-query: http.title:"Ranger - Sign In"
     product: ranger

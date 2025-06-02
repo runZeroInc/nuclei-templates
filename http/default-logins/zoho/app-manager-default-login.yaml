@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.manageengine.com/products/applications_manager/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Applications Manager Login Screen"})
     shodan-query: title:"Applications Manager Login Screen"
     verified: true
     max-request: 1
-    runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Applications Manager Login Screen"})
   tags: default-login,manageengine,zoho
 
 variables:

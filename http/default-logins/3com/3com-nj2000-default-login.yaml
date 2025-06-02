@@ -12,12 +12,12 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "ManageEngine Password"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ManageEngine Password"
     fofa-query: body="NJ2000"
-    runzero-match: |-
-        any(each(service["http.body"]), {# contains "NJ2000"})
   tags: default-login,3com,nj2000
 
 http:

@@ -10,7 +10,7 @@ info:
     - https://github.com/apache/hertzbeat
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "HertzBeat"})
+        any(each(service["html.titles"]), {# matches "HertzBeat"})
     max-request: 4
     verified: true
     shodan-query: title:"HertzBeat"

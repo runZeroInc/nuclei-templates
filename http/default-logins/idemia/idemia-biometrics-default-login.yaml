@@ -15,7 +15,7 @@ info:
     cpe: cpe:2.3:h:idemia:sigma_wide:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "IDEMIA"})
+        any(each(service["html.titles"]), {# matches "IDEMIA"})
     verified: true
     max-request: 1
     shodan-query: title:"IDEMIA"

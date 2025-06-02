@@ -8,7 +8,7 @@ info:
     Camaleon CMS default login credentials was discovered.
   metadata:
     runzero-match: |-
-        service["http.body"] contains "camaleon_cms"
+        service["http.body"] matches "(?i)camaleon_cms"
     vendor: tuzitio
     product: camaleon_cms
     shodan-query: html:"camaleon_cms"

@@ -12,7 +12,7 @@ info:
     cpe: cpe:2.3:h:feiyuxing:vec40g:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "飞鱼星企业级智能上网行为管理系统"})
+        any(each(service["html.titles"]), {# matches "(?i)飞鱼星企业级智能上网行为管理系统"})
     verified: true
     max-request: 1
     vendor: feiyuxing

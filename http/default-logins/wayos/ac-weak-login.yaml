@@ -11,7 +11,7 @@ info:
     - https://github.com/chaitin/xray/blob/master/pocs/secnet-ac-default-password.yml
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "安网科技-智能路由系统"})
+        any(each(service["html.titles"]), {# matches "(?i)安网科技-智能路由系统"})
     verified: "true"
     max-request: 1
     fofa-query: 'title="安网科技-智能路由系统"'

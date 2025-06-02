@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-1392
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "ChirpStack LoRaWAN"})
+        any(each(service["html.titles"]), {# matches "ChirpStack LoRaWAN"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ChirpStack LoRaWAN"

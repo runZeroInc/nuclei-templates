@@ -8,7 +8,7 @@ info:
     Datagerry was using default username and password was discovered.
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "datagerry"})
+        any(each(service["html.titles"]), {# matches "(?i)datagerry"})
     verified: true
     max-request: 1
     shodan-query: http.title:"datagerry"

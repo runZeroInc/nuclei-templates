@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-522
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "BigAnt"})
+        any(each(service["html.titles"]), {# matches "BigAnt"})
     verified: true
     max-request: 2
     shodan-query: title:"BigAnt"

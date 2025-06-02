@@ -8,7 +8,7 @@ info:
     Cambium Networks / Motorola Canopy 5750AP ADVANTAGE Access Point 5.7GHz login credentials were discovered.
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "Welcome to Canopy"})
+        any(each(service["html.titles"]), {# matches "(?i)Welcome to Canopy"})
     verified: true
     max-request: 2
     fofa-query: "title=\"Welcome to Canopy\""

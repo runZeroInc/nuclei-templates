@@ -10,7 +10,7 @@ info:
     cpe: cpe:2.3:a:ispconfig:ispconfig:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# contains "ISPConfig"})
+        any(each(service["html.titles"]), {# matches "ISPConfig"})
     verified: true
     max-request: 1
     vendor: ispconfig
