@@ -1,10 +1,10 @@
 id: fuelcms-default-login
 
 info:
-  name: Fuel CMS - Default Admin Discovery
+  name: Fuel CMS - Default Login
   author: Adam Crosser
   severity: high
-  description: Fuel CMS default admin credentials were discovered.
+  description: Fuel CMS default login credentials were discovered.
   reference:
     - https://docs.getfuelcms.com/general/security
   classification:

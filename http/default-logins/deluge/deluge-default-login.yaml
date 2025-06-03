@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |
-    Deluge Default login credentials were discovered.
+    Deluge default login credentials were discovered.
   reference:
     - https://docs.linuxserver.io/images/docker-deluge/#:~:text=The%20admin%20interface%20is%20available,%2D%3EInterface%2D%3EPassword.
   metadata:

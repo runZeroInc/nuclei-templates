@@ -5,7 +5,7 @@ info:
   author: SleepingBag945
   severity: high
   description: |
-    Attackers can log in through admin:admin, check the system status, and configure the device.
+    Feiyuxing Enterprise-Level Management System default login credentials were discovered.
   reference:
     - https://github.com/wushigudan/poc/blob/main/%E9%A3%9E%E9%B1%BC%E6%98%9F%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81.py
   classification:

@@ -1,9 +1,10 @@
 id: filegator-default-login
 
 info:
-  name: Filegator - Default-Login
+  name: Filegator - Default Login
   author: ritikchaddha
   severity: high
+  description: Filegator default login credentials were discovered.
   reference:
     - https://serverpilot.io/docs/how-to-install-a-file-manager-on-your-server/#:~:text=You%20should%20see%20the%20FileGator,Password%3A%20admin123
   metadata:

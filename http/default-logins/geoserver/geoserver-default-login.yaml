@@ -4,7 +4,7 @@ info:
   name: Geoserver Admin - Default Login
   author: For3stCo1d,professorabhay,ritikchaddha
   severity: high
-  description: Geoserver default admin credentials were discovered.
+  description: Geoserver default credentials were discovered.
   reference:
     - http://geoserver.org/
   classification:
@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:geoserver:geoserver:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})
     verified: true
     max-request: 2
     fofa-query: app="GeoServer"

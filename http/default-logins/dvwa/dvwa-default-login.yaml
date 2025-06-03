@@ -1,7 +1,7 @@
 id: dvwa-default-login
 
 info:
-  name: DVWA Default Login
+  name: DVWA - Default Login
   author: pdteam
   severity: critical
   description: Damn Vulnerable Web App (DVWA) is a test application for security professionals. The hard coded credentials are part of a security testing scenario.

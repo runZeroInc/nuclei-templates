@@ -1,7 +1,7 @@
 id: hongdian-default-login
 
 info:
-  name: Hongdian Default Login
+  name: Hongdian - Default Login
   author: gy741
   severity: high
   description: Hongdian default login information was detected.

@@ -1,7 +1,7 @@
 id: druid-default-login
 
 info:
-  name: Alibaba Druid Monitor Default Login
+  name: Alibaba Druid Monitor - Default Login
   author: pikpikcu,j4vaovo
   severity: high
   description: Alibaba Druid Monitor default login information (admin/admin) was discovered.

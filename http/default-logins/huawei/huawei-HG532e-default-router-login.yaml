@@ -1,7 +1,7 @@
 id: huawei-HG532e-default-login
 
 info:
-  name: Huawei HG532e Default Credential
+  name: Huawei HG532e - Default Credential
   author: pussycat0x
   severity: high
   description: Huawei HG532e default admin credentials were discovered.
