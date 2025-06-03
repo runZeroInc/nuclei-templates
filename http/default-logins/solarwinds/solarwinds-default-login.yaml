@@ -1,10 +1,10 @@
 id: solarwinds-default-admin
 
 info:
-  name: SolarWinds Orion Default Login
+  name: SolarWinds Orion - Default Login
   author: dwisiswant0
   severity: high
-  description: SolarWinds Orion default admin credentials were discovered.
+  description: SolarWinds Orion default login credentials were discovered.
   reference:
     - https://github.com/solarwinds/OrionSDK/wiki/REST
   classification:

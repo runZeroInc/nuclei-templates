@@ -1,11 +1,11 @@
 id: steve-default-login
 
 info:
-  name: SteVe Login Panel - Detect
+  name: SteVe OCPP server - Default Login
   author: clem9669
   severity: info
   description: |
-    SteVe login panel was detected.
+    SteVe OCPP server default login credentials were discovered.
   reference:
     - https://github.com/steve-community/steve
     - https://github.com/steve-community/steve/blob/e42ddcf1acf6c4ad2287bb466b2d3550663ce978/src/main/resources/config/test/main.properties
