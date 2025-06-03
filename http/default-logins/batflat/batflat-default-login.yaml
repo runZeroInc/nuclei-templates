@@ -17,6 +17,8 @@ info:
     vendor: batflat
     product: batflat
     google-query: intext:"Powered by Batflat."
+    runzero-match: |-
+        service["http.body"] contains "Powered by Batflat"
   tags: default-login,batflat
 
 http:

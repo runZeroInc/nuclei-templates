@@ -12,6 +12,8 @@ info:
     cvss-score: 5.8
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+        service["http.body"] contains ">AlphaWeb XE<"
     max-request: 1
   tags: default-login,AlphaWeb
 
