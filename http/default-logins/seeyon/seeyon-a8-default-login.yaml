@@ -5,7 +5,7 @@ info:
   author: SleepingBag945
   severity: high
   description: |
-    Seeyon (seeyon) OA A8+ Enterprise Edition has a weak password vulnerability, which can be used to log in to the background
+    Seeyon OA A8 default login credentials were discovered.
   metadata:
     verified: true
     max-request: 1

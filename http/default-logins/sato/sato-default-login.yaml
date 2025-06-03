@@ -5,7 +5,7 @@ info:
   author: y0no
   severity: high
   description: |
-    Sato using default credentials was discovered.
+    Sato default login credentials were discovered.
   metadata:
     runzero-match: |-
         any(each(service["html.titles"]), {# matches "Sato"})

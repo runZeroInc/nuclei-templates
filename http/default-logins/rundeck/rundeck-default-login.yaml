@@ -5,18 +5,21 @@ info:
   author: karkis3c
   severity: high
   description: |
-    Rundeck default login was discovered.
+    Rundeck default login credentials were discovered.
   reference:
     - https://raw.githubusercontent.com/karkis3c/bugbounty/main/nuclei-templates/default-login/rundeck-default-login.yaml
     - https://docs.rundeck.com/docs/learning/
   classification:
     cpe: cpe:2.3:a:pagerduty:rundeck:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "Rundeck - Login"})
     verified: true
     max-request: 2
     vendor: pagerduty
     product: rundeck
     fofa-query: app="Rundeck-Login"
+    shodan-query: http.html:"Rundeck - Login"
   tags: default-login,rundeck
 variables:
   username: admin
