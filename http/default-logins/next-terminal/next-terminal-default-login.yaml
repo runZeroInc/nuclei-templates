@@ -5,12 +5,10 @@ info:
   author: ritikchaddha
   severity: high
   description: |
-    Next Terminal default login was discovered.
+    Next Terminal default login credentials were discovered.
   reference:
     - https://github.com/dushixiang/next-terminal
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Next Terminal"})
     verified: true
     max-request: 1
     fofa-query: title="Next Terminal"

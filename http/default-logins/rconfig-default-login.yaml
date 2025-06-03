@@ -5,14 +5,12 @@ info:
   author: theamanrawat
   severity: high
   description: |
-    rConfig contains default credentials. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+    rConfig default login credentials were discovered.
   reference:
     - https://github.com/rconfig/rconfig
   classification:
     cpe: cpe:2.3:a:rconfig:rconfig:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "rConfig"})
     verified: true
     max-request: 2
     vendor: rconfig

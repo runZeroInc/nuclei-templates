@@ -5,14 +5,12 @@ info:
   author: jpg0mez
   severity: high
   description: |
-    Lucee admin panel using the default login password was discovered.
+    Lucee admin panel default login credentials were discovered.
   reference:
     - https://support.intranetconnections.com/hc/en-us/articles/115012060627-Lucee-Configuration
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "Lucee"
     verified: true
     max-request: 1
     shodan-query: "html:\"Lucee\""

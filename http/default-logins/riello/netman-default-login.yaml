@@ -5,20 +5,20 @@ info:
   author: mabdullah22
   severity: high
   description: |
-    Default logins on Riello UPS NetMan 204 is used. Attacker can access to UPS and attacker can manipulate the UPS settings to disrupt the onsite systems.
+    Riello UPS NetMan 204 default login credentials were discovered.
   reference:
     - https://www.riello-ups.com/
   classification:
     cpe: cpe:2.3:o:riello-ups:netman_204_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Netman"})
     verified: "true"
     max-request: 1
     vendor: riello-ups
     product: netman_204_firmware
     shodan-query: title:"Netman"
     censys-query: services.http.response.body:"Netman204"
+    runzero-match:
+      service["http.body"] contains "Netman204"
   tags: default-login,netman
 
 http:

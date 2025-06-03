@@ -5,7 +5,7 @@ info:
   author: SleepingBag945
   severity: high
   description: |
-    Attackers can control the entire platform through the default password （initpass） vulnerability, and use administrator privileges to operate core functions.
+    Ciphertrust default login credentials were discovered.
   reference:
     - https://www.thalesdocs.com/ctp/cm/2.6/get_started/deployment/initial-password/index.html#:~:text=The%20username%20of%20the%20initial,to%20%22admin%22%20in%20lowercase.
   metadata:

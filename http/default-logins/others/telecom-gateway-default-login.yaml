@@ -4,7 +4,8 @@ info:
   name: Telecom Gateway - Default Admin Login
   author: ritikchaddha
   severity: high
-  description: Telecom Gateway default admin login credentials were successful.
+  description: |
+    Telecom Gateway default admin credentials were discovered.
   metadata:
     max-request: 1
   tags: default-login,telecom,gateway

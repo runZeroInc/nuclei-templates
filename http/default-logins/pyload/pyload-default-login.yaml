@@ -5,14 +5,12 @@ info:
   author: DhiyaneshDk
   severity: high
   description: |
-    PyLoad Default Credentials were discovered.
+    PyLoad default login credentials were discovered.
   reference:
     - https://pypi.org/project/pyload-ng/#:~:text=Default%20username%3A%20pyload%20.,Default%20password%3A%20pyload%20.
   classification:
     cpe: cpe:2.3:a:pyload:pyload:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)pyload"
     verified: true
     max-request: 1
     vendor: pyload

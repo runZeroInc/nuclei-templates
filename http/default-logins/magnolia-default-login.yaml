@@ -4,7 +4,8 @@ info:
   name: Magnolia CMS Default Login - Detect
   author: pussycat0x
   severity: high
-  description: Magnolia CMS default login credentials were detected.
+  description: |
+    Magnolia CMS default login credentials were discovered.
   reference:
     - https://www.magnolia-cms.com/
   classification:
@@ -13,8 +14,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:magnolia-cms:magnolia_cms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "Magnolia is a registered trademark"
     verified: true
     max-request: 3
     shodan-query: html:"Magnolia is a registered trademark"
