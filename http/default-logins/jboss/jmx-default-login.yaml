@@ -12,6 +12,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+        service["http.head.xPoweredBy"] matches "JBossAS"
     max-request: 28
   tags: jboss,jmx,default-login
 
