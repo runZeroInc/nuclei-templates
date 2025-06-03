@@ -1,10 +1,10 @@
 id: azkaban-default-login
 
 info:
-  name: Azkaban Web Client Default Credential
+  name: Azkaban Web Client Default Credentials
   author: pussycat0x
   severity: high
-  description: Azkaban is a batch workflow job scheduler created at LinkedIn to run Hadoop jobs.  Default web client credentials were discovered.
+  description: Azkaban web client default login credentials were discovered.
   classification:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:azkaban_project:azkaban:*:*:*:*:*:*:*:*
