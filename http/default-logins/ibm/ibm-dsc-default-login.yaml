@@ -4,6 +4,7 @@ info:
   name: IBM Decision Server Console - Default Login
   author: DhiyaneshDK
   severity: high
+  description: IBM Decision Server Console default login credentials were discovered.
   reference:
     - https://www.ibm.com/docs/en/odm/8.8.0?topic=center-overview-decision
   metadata:

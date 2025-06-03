@@ -1,10 +1,10 @@
 id: jinher-oa-default-login
 
 info:
-  name: Jinher-OA C6 - Default Admin Discovery
+  name: Jinher-OA C6 - Default Login
   author: ritikchaddha
   severity: high
-  description: Jinher-OA C6 default admin credentials were discovered.
+  description: Jinher-OA C6 default login credentials were discovered.
   reference:
     - https://github.com/nu0l/poc-wiki/blob/main/%E9%87%91%E5%92%8COA-C6-default-password.md
   classification:

@@ -1,15 +1,17 @@
 id: jenkins-weak-password
 
 info:
-  name: Jenkins Default Login
+  name: Jenkins - Default Login
   author: Zandros0
   severity: high
-  description: Jenkins default admin login information was discovered.
+  description: Jenkins default login information was discovered.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "Jenkins"})
     max-request: 3
   tags: jenkins,default-login
 

@@ -4,7 +4,7 @@ info:
   name: Kettle - Default Login
   author: For3stCo1d
   severity: medium
-  description: Kettle contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: Kettle default login credentials were discovered.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N
     cvss-score: 5.8
