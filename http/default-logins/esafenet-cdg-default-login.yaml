@@ -5,7 +5,7 @@ info:
   author: chesterblue
   severity: high
   description: |
-    Esafenet electronic document security management system default  credentials were discovered.
+    Esafenet electronic document security management system default login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:esafenet:cdg:*:*:*:*:*:*:*:*
   metadata:
