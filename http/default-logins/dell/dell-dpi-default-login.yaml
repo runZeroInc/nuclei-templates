@@ -5,7 +5,7 @@ info:
   author: megamansec
   severity: medium
   description: |-
-    Dell DPI Remote Power Management Default Credentials default login credentials were discovered.
+    Dell DPI Remote Power Management default login credentials were discovered.
   reference:
   - https://dl.dell.com/manuals/all-products/esuprt_ser_stor_net/esuprt_rack_infrastructure/dell-metered-pdu_user%27s%20guide3_en-us.pdf
   classification:

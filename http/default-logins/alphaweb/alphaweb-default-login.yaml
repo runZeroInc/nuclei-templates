@@ -4,7 +4,7 @@ info:
   name: AlphaWeb XE Default Credentials
   author: Lark Lab
   severity: medium
-  description: AlphaWeb XE Default Credentials default login credentials were discovered.
+  description: AlphaWeb XE default login credentials were discovered.
   reference:
   - https://wiki.zenitel.com/wiki/AlphaWeb
   classification:

@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |-
-    ASUS RT-N16 Default Credentials default login credentials were discovered.
+    ASUS RT-N16 default login credentials were discovered.
   classification:
     cpe: cpe:2.3:h:asus:rt-n16:*:*:*:*:*:*:*:*
   metadata:

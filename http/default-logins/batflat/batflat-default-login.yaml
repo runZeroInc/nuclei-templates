@@ -5,7 +5,7 @@ info:
   author: r3Y3r53
   severity: high
   description: |-
-    Batflat CMS Default Credentials default login credentials were discovered.
+    Batflat CMS default login credentials were discovered.
   reference:
   - https://www.exploitalert.com/view-details.html?id=34749
   - https://cxsecurity.com/issue/WLB-2020010100

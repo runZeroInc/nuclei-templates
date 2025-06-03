@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |-
-    ASUS WL-520GU Default Credentials default login credentials were discovered.
+    ASUS WL-520GU default login credentials were discovered.
   metadata:
     verified: true
     max-request: 1

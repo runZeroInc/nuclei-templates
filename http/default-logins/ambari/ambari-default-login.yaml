@@ -4,7 +4,7 @@ info:
   name: Apache Ambari Default Credentials
   author: pdteam
   severity: high
-  description: Apache Ambari Default Credentials default login credentials were discovered.
+  description: Apache Ambari default login credentials were discovered.
   reference:
   - https://ambari.apache.org/1.2.0/installing-hadoop-using-ambari/content/ambari-chap3-1.html
   classification:

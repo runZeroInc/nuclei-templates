@@ -4,7 +4,7 @@ info:
   name: Apache Karaf Default Credentials
   author: s0obi
   severity: high
-  description: Apache Karaf Default Credentials default login credentials were discovered.
+  description: Apache Karaf default login credentials were discovered.
   reference:
   - https://karaf.apache.org/manual/latest/webconsole
   classification:

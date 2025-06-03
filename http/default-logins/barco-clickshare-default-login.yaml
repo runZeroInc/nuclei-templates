@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |-
-    Barco ClickShare Default Credentials default login credentials were discovered.
+    Barco ClickShare default login credentials were discovered.
   classification:
     cpe: cpe:2.3:o:barco:clickshare_cs-100_huddle_firmware:*:*:*:*:*:*:*:*
   metadata:

@@ -4,7 +4,7 @@ info:
   name: Apache Dubbo Default Credentials
   author: ritikchaddha
   severity: high
-  description: Apache Dubbo Default Credentials default login credentials were discovered.
+  description: Apache Dubbo default login credentials were discovered.
   reference:
   - https://www.cnblogs.com/wishwzp/p/9438658.html
   classification:

@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |-
-    ASUS WL-500G Default Credentials default login credentials were discovered.
+    ASUS WL-500G default login credentials were discovered.
   metadata:
     verified: true
     max-request: 1

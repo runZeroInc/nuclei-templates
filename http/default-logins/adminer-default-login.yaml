@@ -5,7 +5,7 @@ info:
   author: j4vaovo
   severity: high
   description: |-
-    Adminer Default Credentials default login credentials were discovered.
+    Adminer default login credentials were discovered.
   reference:
   - https://www.adminer.org
   classification:

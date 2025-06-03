@@ -5,7 +5,7 @@ info:
   author: gy741
   severity: high
   description: |-
-    Datagerry Default Credentials default login credentials were discovered.
+    Datagerry default login credentials were discovered.
   metadata:
     runzero-match: |-
       any(each(service["html.titles"]), {# matches "(?i)datagerry"})

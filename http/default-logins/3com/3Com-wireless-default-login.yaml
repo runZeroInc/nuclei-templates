@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |-
-    3Com Wireless 8760 Dual Radio Default Credentials default login credentials were discovered.
+    3Com Wireless 8760 Dual Radio default login credentials were discovered.
   reference:
   - https://www.speedguide.net/routers/3com-wl-546-3com-wireless-8760-dual-radio-11abg-1256
   metadata:

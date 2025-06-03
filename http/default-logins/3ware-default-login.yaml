@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: high
   description: |-
-    3ware Controller 3DM2 Default Credentials default login credentials were discovered.
+    3ware Controller 3DM2 default login credentials were discovered.
   reference:
   - https://www.thomas-krenn.com/en/wiki/3ware_Controller_3DM2_Password
   metadata:

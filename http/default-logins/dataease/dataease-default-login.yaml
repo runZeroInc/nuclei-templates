@@ -5,7 +5,7 @@ info:
   author: DhiyaneshDK
   severity: high
   description: |-
-    Dataease Default Credentials default login credentials were discovered.
+    Dataease default login credentials were discovered.
   reference:
   - https://github.com/dataease/dataease/issues/5995
   classification:
