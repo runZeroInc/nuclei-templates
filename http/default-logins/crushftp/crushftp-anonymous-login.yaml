@@ -1,11 +1,11 @@
 id: crushftp-anonymous-login
 
 info:
-  name: CrushFTP - Anonymous Login
+  name: CrushFTP Anonymous Login
   author: pussycat0x
   severity: high
   description: |
-    CrushFTP Anonymous login credentials were discovered.
+    CrushFTP anonymous login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:

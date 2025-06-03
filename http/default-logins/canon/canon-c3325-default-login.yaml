@@ -1,7 +1,8 @@
 id: canon-c3325-default-login
 
 info:
-  name: Canon R-ADV C3325 - Default-Login
+  name: Canon R-ADV C3325 Default Credentials
+  description: Canon R-ADV C3325 default login credentials were discovered.
   author: ritikchaddha
   severity: high
   reference:
