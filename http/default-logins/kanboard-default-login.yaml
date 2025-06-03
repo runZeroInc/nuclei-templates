@@ -4,7 +4,7 @@ info:
   name: Kanboard - Default Login
   author: shelled
   severity: high
-  description: Kanboard contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: Kanboard default login credentials were discovered.
   reference:
     - https://twitter.com/0x_rood/status/1607068644634157059
     - https://github.com/kanboard/kanboard
@@ -15,6 +15,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:kanboard:kanboard:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      service["http.body.mmh3"] == "1605834045"
     verified: true
     max-request: 2
     fofa-query: app="Kanboard"
