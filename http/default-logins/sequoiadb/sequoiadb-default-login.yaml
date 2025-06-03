@@ -1,10 +1,10 @@
 id: sequoiadb-default-login
 
 info:
-  name: SequoiaDB Default Login
+  name: SequoiaDB - Default Login
   author: dhiyaneshDk
   severity: high
-  description: SequoiaDB default admin credentials were discovered.
+  description: SequoiaDB default login credentials were discovered.
   reference:
     - https://www.sequoiadb.com/en/
   classification:

@@ -5,7 +5,7 @@ info:
   author: biero-el-corridor
   severity: high
   description: |
-    Identified Siemens SIMATIC HMI MiniWeb interfaces that were accessible using default credentials.These interfaces are used to remotely monitor and control Human-Machine Interface (HMI) panels deployed in industrial environments. Leaving the default login in place posed a significant risk to operational technology (OT) systems.
+    Siemens SIMATIC HMI Miniweb default login credentials were discovered.
   metadata:
     runzero-match: |-
         any(each(service["html.titles"]), {# matches "Miniweb Start Page"})
