@@ -10,7 +10,7 @@ info:
   classification:
     cwe-id: CWE-798
   metadata:
-      runzero-match: |-
+    runzero-match: |-
         any(each(service["html.titles"]), {# matches "Login :: Damn Vulnerable Web Application"})
     max-request: 2
   tags: dvwa,default-login
