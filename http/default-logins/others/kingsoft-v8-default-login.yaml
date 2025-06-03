@@ -4,7 +4,8 @@ info:
   name: Kingsoft 8 - Default Login
   author: ritikchaddha
   severity: high
-  description: Kingsoft version 8 contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: |
+    Kingsoft default login credentials were discovered.
   reference:
     - https://idc.wanyunshuju.com/aqld/2123.html
   classification:

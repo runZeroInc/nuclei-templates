@@ -4,7 +4,8 @@ info:
   name: OpenEMR - Default Admin Discovery
   author: Geekby
   severity: high
-  description: OpenEMR default admin credentials were discovered.
+  description: |
+    OpenEMR default admin credentials were discovered.
   reference:
     - https://github.com/openemr/openemr-devops/tree/master/docker/openemr/6.1.0/#openemr-official-docker-image
   classification:
@@ -13,8 +14,6 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:open-emr:openemr:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "OpenEMR"
     max-request: 1
     shodan-query: http.html:"OpenEMR"
     fofa-query: app="OpenEMR"

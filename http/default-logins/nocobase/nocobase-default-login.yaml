@@ -5,7 +5,7 @@ info:
   author: Fur1na
   severity: high
   description: |
-    NocoBase default login was discovered.
+    NocoBase default login credentials were discovered.
   reference:
     - https://www.nocobase.com/
     - https://github.com/nocobase/nocobase

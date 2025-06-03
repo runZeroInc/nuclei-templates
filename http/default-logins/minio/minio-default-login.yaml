@@ -4,7 +4,8 @@ info:
   name: Minio Default Login
   author: pikpikcu
   severity: high
-  description: Minio default admin credentials were discovered.
+  description: |
+    Minio default admin credentials were discovered.
   reference:
     - https://docs.min.io/docs/minio-quickstart-guide.html#
   classification:
@@ -13,8 +14,6 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:minio:minio:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "symfony Profiler"
     verified: true
     max-request: 2
     shodan-query: http.html:"symfony Profiler"

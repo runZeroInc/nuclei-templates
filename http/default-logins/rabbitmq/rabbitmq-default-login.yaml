@@ -4,7 +4,8 @@ info:
   name: RabbitMQ Default Login
   author: fyoorer,dwisiswant0
   severity: high
-  description: RabbitMQ default admin credentials were discovered.
+  description: |
+    RabbitMQ default admin credentials were discovered.
   reference:
     - https://onlinehelp.coveo.com/en/ces/7.0/administrator/changing_the_rabbitmq_administrator_password.htm
   classification:

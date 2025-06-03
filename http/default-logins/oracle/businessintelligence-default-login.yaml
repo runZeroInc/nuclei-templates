@@ -4,7 +4,8 @@ info:
   name: Oracle Business Intelligence Default Login
   author: milo2012
   severity: high
-  description: Oracle Business Intelligence default admin credentials were discovered.
+  description: |
+    Oracle Business Intelligence default admin credentials were discovered.
   reference:
     - https://docs.oracle.com/cd/E12096_01/books/AnyDeploy/AnyDeployMisc2.html
   classification:

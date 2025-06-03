@@ -4,15 +4,14 @@ info:
   name: PRTG Network Monitor - Hardcoded Credentials
   author: johnk3r
   severity: high
-  description: PRTG Network Monitor contains a hardcoded credential vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: |
+    PRTG Network Monitor default login credentials were discovered.
   reference:
     - https://www.paessler.com/manuals/prtg/login
   classification:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:paessler:prtg_network_monitor:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-655683626"
     max-request: 1
     shodan-query: http.favicon.hash:-655683626
     product: prtg_network_monitor

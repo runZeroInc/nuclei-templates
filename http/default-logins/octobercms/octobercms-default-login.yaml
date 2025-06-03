@@ -4,7 +4,8 @@ info:
   name: OctoberCMS - Default Admin Discovery
   author: princechaddha
   severity: high
-  description: OctoberCMS default admin credentials were discovered.
+  description: |
+    OctoberCMS default admin credentials were discovered.
   reference:
     - https://github.com/octobercms/october
     - https://octobercms.com/

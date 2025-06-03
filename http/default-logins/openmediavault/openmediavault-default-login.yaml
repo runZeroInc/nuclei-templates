@@ -4,6 +4,8 @@ info:
   name: OpenMediaVault - Default Login
   author: DhiyaneshDK
   severity: high
+  description:
+    OpenMediaVault default login credentials were discovered.
   reference:
     - https://forum.openmediavault.org/index.php?thread/7784-default-login/
     - https://soltveit.org/openmediavault-default-password/
@@ -13,8 +15,6 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:openmediavault:openmediavault:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "OpenMediaVault"})
     verified: true
     max-request: 1
     shodan-query: title:"OpenMediaVault"
