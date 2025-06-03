@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
+    runzero-match: |-
+        service["http.url"] contains ":5003/" && service["http.body"] contains "Powered by TCC" && service["http.body"] contains "ARL"
   tags: arl,default-login
 
 http:

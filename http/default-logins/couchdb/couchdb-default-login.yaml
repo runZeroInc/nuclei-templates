@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:apache:couchdb:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.head.server"] matches `^CouchDB/`
     verified: true
     max-request: 16
     fofa-query: app="APACHE-CouchDB"

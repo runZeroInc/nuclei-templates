@@ -17,6 +17,8 @@ info:
     vendor: bloofox
     product: bloofoxcms
     fofa-query: "Powered by bloofoxCMS"
+    runzero-match: |-
+        service["http.body"] matches "(?i)Powered by bloofoxCMS"
   tags: bloofox,cms,default-login
 
 http:

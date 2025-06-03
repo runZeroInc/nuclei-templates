@@ -13,6 +13,8 @@ info:
     vendor: barco
     product: clickshare_cs-100_huddle_firmware
     shodan-query: "ClickShareSession"
+    runzero-match: |-
+        service["http.head.setCookie"] contains "ClickShareSession"
   tags: default-login,barco,clickshare
 
 http:
