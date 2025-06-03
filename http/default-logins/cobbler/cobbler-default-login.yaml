@@ -4,7 +4,7 @@ info:
   name: Cobbler Default Credentials
   author: c-sh0
   severity: high
-  description: Cobbler Default Credentials default login credentials were discovered.
+  description: Cobbler default login credentials were discovered.
   reference:
   - https://seclists.org/oss-sec/2022/q1/146
   - https://github.com/cobbler/cobbler/issues/2307

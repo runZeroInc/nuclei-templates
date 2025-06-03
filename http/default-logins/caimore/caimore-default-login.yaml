@@ -5,7 +5,7 @@ info:
   author: pussycat0x
   severity: high
   description: |-
-    CAIMORE Gateway Default Credentials default login credentials were discovered.
+    CAIMORE Gateway default login credentials were discovered.
   metadata:
     verified: true
     max-request: 1

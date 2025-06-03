@@ -5,7 +5,7 @@ info:
   author: bhutch
   severity: high
   description: |-
-    Camunda Default Credentials default login credentials were discovered.
+    Camunda default login credentials were discovered.
   reference:
   - https://github.com/camunda/camunda-docs-manual/blob/master/content/webapps/admin/user-management.md
   classification:

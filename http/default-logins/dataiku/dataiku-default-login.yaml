@@ -4,7 +4,7 @@ info:
   name: Dataiku Default Credentials
   author: random-robbie
   severity: high
-  description: Dataiku Default Credentials default login credentials were discovered.
+  description: Dataiku default login credentials were discovered.
   reference:
   - https://www.dataiku.com
   classification:

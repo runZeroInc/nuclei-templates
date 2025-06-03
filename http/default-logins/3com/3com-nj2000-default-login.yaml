@@ -4,7 +4,7 @@ info:
   name: 3COM NJ2000 Default Credentials
   author: daffainfo
   severity: high
-  description: 3COM NJ2000 Default Credentials default login credentials were discovered.
+  description: 3COM NJ2000 default login credentials were discovered.
   reference:
   - https://www.manualslib.com/manual/204158/3com-Intellijack-Nj2000.html?page=12
   classification:

@@ -5,7 +5,7 @@ info:
   author: theamanrawat
   severity: high
   description: |-
-    bloofoxCMS Default Credentials default login credentials were discovered.
+    bloofoxCMS default login credentials were discovered.
   reference:
   - https://www.bloofox.com/automated_setup.113.html
   - https://www.bloofox.com

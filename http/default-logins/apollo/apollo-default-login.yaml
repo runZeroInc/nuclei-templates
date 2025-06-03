@@ -4,7 +4,7 @@ info:
   name: Apollo Default Credentials
   author: PaperPen
   severity: high
-  description: Apollo Default Credentials default login credentials were discovered.
+  description: Apollo default login credentials were discovered.
   reference:
   - https://github.com/apolloconfig/apollo
   classification:

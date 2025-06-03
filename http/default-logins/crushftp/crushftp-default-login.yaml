@@ -5,7 +5,7 @@ info:
   author: pussycat0x
   severity: high
   description: |-
-    CrushFTP Default Credentials default login credentials were discovered.
+    CrushFTP default login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:

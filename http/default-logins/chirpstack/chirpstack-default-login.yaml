@@ -5,7 +5,7 @@ info:
   author: t3l3machus
   severity: high
   description: |-
-    ChirpStack Default Credentials default login credentials were discovered.
+    ChirpStack default login credentials were discovered.
   reference:
   - https://www.chirpstack.io/docs/chirpstack/use/login.html
   classification:

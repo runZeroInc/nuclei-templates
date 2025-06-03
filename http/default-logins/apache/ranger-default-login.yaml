@@ -4,7 +4,7 @@ info:
   name: Apache Ranger Default Credentials
   author: For3stCo1d
   severity: high
-  description: Apache Ranger Default Credentials default login credentials were discovered.
+  description: Apache Ranger default login credentials were discovered.
   reference:
   - https://github.com/apache/ranger
   classification:

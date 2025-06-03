@@ -5,7 +5,7 @@ info:
   author: ritikchaddha
   severity: critical
   description: |-
-    BigAnt Default Credentials default login credentials were discovered.
+    BigAnt default login credentials were discovered.
   reference:
   - https://www.bigantsoft.com/support/faq/2-4_How_to_switch_login_accounts_System_admin_Security_admin_Audit_admin_super_admin.html#:~:text=How%2Dto-,How%20to%20switch%20login%20accounts%3A%20System%20admin%2FSecurity%20admin%2F,password%20is%20123456%20by%20default.
   classification:

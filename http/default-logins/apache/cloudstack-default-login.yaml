@@ -5,7 +5,7 @@ info:
   author: DhiyaneshDK
   severity: high
   description: |-
-    Apache CloudStack Default Credentials default login credentials were discovered.
+    Apache CloudStack default login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:apache:cloudstack:*:*:*:*:*:*:*:*
   metadata:

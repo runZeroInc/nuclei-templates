@@ -4,7 +4,7 @@ info:
   name: Adobe AEM Default Credentials
   author: random-robbie
   severity: high
-  description: Adobe AEM Default Credentials default login credentials were discovered.
+  description: Adobe AEM default login credentials were discovered.
   reference:
   - https://experienceleague.adobe.com/docs/experience-manager-64/administering/security/security-checklist.html?lang=en
   classification:

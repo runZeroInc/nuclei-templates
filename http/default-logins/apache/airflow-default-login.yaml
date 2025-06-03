@@ -4,7 +4,7 @@ info:
   name: Apache Airflow Default Credentials
   author: pdteam
   severity: high
-  description: Apache Airflow Default Credentials default login credentials were discovered.
+  description: Apache Airflow default login credentials were discovered.
   reference:
   - https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html
   classification:
