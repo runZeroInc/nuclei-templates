@@ -1,11 +1,11 @@
 id: splunk-default-login
 
 info:
-  name: Splunk - Default Password
+  name: Splunk - Default Login
   author: pussycat0x
   severity: high
   description: |
-    Splunk Default Password Vulnerability exposes systems to unauthorized access, compromising data integrity and security.
+    Splunk default login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:splunk:splunk:*:*:*:*:*:*:*:*
   metadata:

@@ -1,10 +1,10 @@
 id: spectracom-default-login
 
 info:
-  name: Spectracom Default Login
+  name: Spectracom - Default Login
   author: madrobot
   severity: high
-  description: Spectracom default admin credentials were discovered.
+  description: Spectracom default login credentials were discovered.
   reference:
     - https://orolia.com/manuals/NC/Content/NC_and_SS/Com/Topics/ADMIN/Passwords.htm
   classification:
