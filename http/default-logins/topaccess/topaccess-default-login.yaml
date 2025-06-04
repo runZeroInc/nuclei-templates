@@ -1,9 +1,11 @@
 id: topaccess-default-login
 
 info:
-  name: Toshiba TopAccess - Default-Login
+  name: Toshiba TopAccess - Default Login
   author: ritikchaddha
   severity: high
+  description: |
+    Toshiba TopAccess default login credentials were discovered.
   reference:
     - https://business.toshiba.com/downloads/KB/f1Ulds/11646/KH-1020_TAG_EN_0002.pdf
   metadata:
