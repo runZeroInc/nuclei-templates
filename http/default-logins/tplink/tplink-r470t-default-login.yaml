@@ -1,9 +1,11 @@
 id: tplink-r470t-default-login
 
 info:
-  name: TP-LINK Router R470T - Default-Login
+  name: TP-LINK Router R470T - Default Login
   author: ritikchaddha
   severity: high
+  description: |
+    TP-LINK Router R470T default login credentials were discovered.
   reference:
     - http://cdn.cnetcontent.com/73/f6/73f6abc0-ef95-48d8-a55f-5ea3f5816332.pdf
   metadata:
