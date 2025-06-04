@@ -14,6 +14,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:netentsec:application_security_gateway:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      service["http.head.server"] matches "(?i)netentsec"
     verified: true
     max-request: 2
     fofa-query: "NS-ICG"

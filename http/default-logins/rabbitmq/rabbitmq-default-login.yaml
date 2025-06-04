@@ -13,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# match "RabbitMQ Management"})
     max-request: 1
   tags: rabbitmq,default-login
 

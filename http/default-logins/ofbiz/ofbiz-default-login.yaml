@@ -13,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      service["http.head.setCookie"] matches "^OFBiz.Visitor="
     max-request: 1
   tags: ofbiz,default-login,apache
 

@@ -13,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      any(each(service["html.bodies"]), {# contains "window.Pan = window.Pan || {}"})
     max-request: 1
   tags: panos,default-login
 

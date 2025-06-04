@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:rainloop:webmail:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      any(each(service["html.bodies"]), {# match "rainloop/"})
     verified: true
     max-request: 2
     vendor: rainloop
