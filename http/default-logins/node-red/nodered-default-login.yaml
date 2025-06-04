@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:nodered:node-red:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      service["favicon.ico.image.mmh3"] == "321591353"
     verified: true
     max-request: 1
     vendor: nodered
