@@ -1,10 +1,10 @@
 id: szhe-default-login
 
 info:
-  name: Szhe Default Login
+  name: SZhe_Scan - Default Login
   author: pikpikcu
   severity: medium
-  description: Szhe default login information was discovered.
+  description: SZhe_Scan default login credentials were discovered.
   reference:
     - https://github.com/Cl0udG0d/SZhe_Scan
   classification:
