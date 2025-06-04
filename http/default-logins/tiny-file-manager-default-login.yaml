@@ -4,7 +4,7 @@ info:
   name: Tiny File Manager - Default Login
   author: shelled
   severity: high
-  description: Tiny File Manager contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: Tiny File Manager default login credentials were discovered.
   reference:
     - https://github.com/prasathmani/tinyfilemanager
     - https://tinyfilemanager.github.io/docs/

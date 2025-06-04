@@ -5,7 +5,7 @@ info:
   author: theamanrawat
   severity: high
   description: |
-    TimeKeeper contains default credentials. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+    TimeKeeper default login credentials were discovered.
   reference:
     - https://fsmlabs.com
   metadata:
