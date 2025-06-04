@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-522
   metadata:
     runzero-match: |-
-      any(each(service["html.titles"]), {# match "^Pentaho User Console"})
+      any(each(service["html.titles"]), {# matches "^Pentaho User Console"})
     max-request: 1
     shodan-query: pentaho
     product: vantara_pentaho
