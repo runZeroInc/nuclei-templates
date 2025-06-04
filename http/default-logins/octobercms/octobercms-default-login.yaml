@@ -4,7 +4,8 @@ info:
   name: OctoberCMS - Default Admin Discovery
   author: princechaddha
   severity: high
-  description: OctoberCMS default admin credentials were discovered.
+  description: |
+    OctoberCMS default admin credentials were discovered.
   reference:
     - https://github.com/octobercms/october
     - https://octobercms.com/
@@ -14,6 +15,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:octobercms:october:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      service["favicon.ico.image.mmh3"] == "3823102"
     verified: true
     max-request: 4
     shodan-query: http.component:"October CMS"

@@ -4,14 +4,15 @@ info:
   name: Inspur Clusterengine 4 - Default Admin Login
   author: ritikchaddha
   severity: high
-  description: Inspur Clusterengine version 4 default admin login credentials were successful.
+  description: |
+    Inspur Clusterengine default admin credentials were discovered.
   reference:
     - https://blog.csdn.net/qq_36197704/article/details/115665793
   classification:
     cpe: cpe:2.3:a:inspur:clusterengine:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)TSCEV4\\.0"})
+      any(each(service["html.titles"]), {# matches "(?i)TSCEV4\\.0"})
     max-request: 1
     vendor: inspur
     product: clusterengine

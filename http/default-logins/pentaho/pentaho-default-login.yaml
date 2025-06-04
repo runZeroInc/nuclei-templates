@@ -4,7 +4,8 @@ info:
   name: Pentaho Default Login
   author: pussycat0x
   severity: high
-  description: Pentaho default admin credentials were discovered.
+  description: |
+    Pentaho default admin credentials were discovered.
   reference:
     - https://www.hitachivantara.com/en-us/pdfd/training/pentaho-lesson-1-user-console-overview.pdf
   classification:
@@ -12,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "^Pentaho User Console"})
     max-request: 1
     shodan-query: pentaho
     product: vantara_pentaho

@@ -5,14 +5,14 @@ info:
   author: SleepingBag945
   severity: high
   description: |
-    Aruba Instant is an AP device. The device has a default password, and attackers can control the entire platform through the default password admin/admin vulnerability, and use administrator privileges to operate core functions.
+    Aruba Instant default login credentials were discovered.
   reference:
     - https://www.192-168-1-1-ip.co/aruba-networks/routers/179/#:~:text=The%20default%20username%20for%20your,control%20panel%20of%20your%20router.
   classification:
     cpe: cpe:2.3:a:arubanetworks:aruba_instant:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        service["http.body"] matches "(?i)jscripts/third_party/raphael-treemap\\.min\\.js"
+      service["http.body"] matches "(?i)jscripts/third_party/raphael-treemap\\.min\\.js"
     verified: true
     max-request: 1
     vendor: arubanetworks

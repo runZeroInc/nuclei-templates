@@ -5,7 +5,7 @@ info:
   author: pikpikcu
   severity: high
   description: |
-    Netentsec NS-ICG contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+    Netentsec NS-ICG default login credentials were discovered.
   reference: |
     - https://www.cnvd.org.cn/flaw/show/CNVD-2016-08603
   classification:
@@ -14,6 +14,8 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:netentsec:application_security_gateway:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      service["http.head.server"] matches "(?i)netentsec"
     verified: true
     max-request: 2
     fofa-query: "NS-ICG"

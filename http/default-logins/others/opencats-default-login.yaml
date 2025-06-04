@@ -4,7 +4,8 @@ info:
   name: OpenCATS - Default Login
   author: arafatansari
   severity: high
-  description: OpenCATS contains a default admin login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: |
+    OpenCATS default login credentials were discovered.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -12,7 +13,7 @@ info:
     cpe: cpe:2.3:a:opencats:opencats:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)opencats"})
+      any(each(service["html.titles"]), {# matches "(?i)opencats"})
     verified: true
     max-request: 4
     shodan-query: title:"opencats"
