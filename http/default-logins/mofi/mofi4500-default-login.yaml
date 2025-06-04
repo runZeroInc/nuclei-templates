@@ -13,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "^MOFI4500"})
     max-request: 1
   tags: mofi,default-login
 

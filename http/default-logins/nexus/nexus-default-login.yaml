@@ -11,6 +11,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      service["http.head.setCookie"] contains "NXSESSIONID"
     max-request: 1
   tags: nexus,default-login
 
