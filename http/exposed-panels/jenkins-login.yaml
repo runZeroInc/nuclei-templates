@@ -33,6 +33,7 @@ http:
         words:
           - 'Sign in [Jenkins]'
           - 'Sign in to Jenkins'
+        condition: or
       - type: status
         status:
           - 200
