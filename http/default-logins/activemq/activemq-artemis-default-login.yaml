@@ -18,14 +18,6 @@ info:
   tags: apache,activemq,artemis,default-login
 
 http:
-- method: GET
-  path:
-    - "{{BaseURL}}/console/login"
-  matchers:
-  - type: word
-    words:
-    - 'ActiveMQ Artemis Console'
-
 - method: POST
   path: 
     - "{{BaseURL}}/console/auth/login"
