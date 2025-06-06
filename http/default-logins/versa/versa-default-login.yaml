@@ -1,10 +1,10 @@
 id: versa-default-login
 
 info:
-  name: Versa Networks SD-WAN Application Default Login
+  name: Versa Networks SD-WAN Application - Default Login
   author: davidmckennirey
   severity: high
-  description: Versa Networks SD-WAN application default admin credentials were discovered.
+  description: Versa Networks SD-WAN Application default login credentials were discovered.
   reference:
     - https://versa-networks.com/products/sd-wan.php
   classification:

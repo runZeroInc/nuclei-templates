@@ -1,9 +1,10 @@
 id: webmethod-integration-default-login
 
 info:
-  name: WebMethod Integration Server Default Login
+  name: WebMethod Integration Server - Default Login
   author: ChristianPoeschl,OleWagner,usdAG
   severity: high
+  description: WebMethod Integration Server default login credentials were discovered.
   reference:
     - https://documentation.softwareag.com/
   classification:

@@ -1,7 +1,7 @@
 id: weblogic-weak-login
 
 info:
-  name: WebLogic Default Login
+  name: WebLogic - Default Login
   author: pdteam
   severity: high
   description: WebLogic default login credentials were discovered.

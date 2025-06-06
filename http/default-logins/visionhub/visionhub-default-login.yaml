@@ -1,10 +1,10 @@
 id: visionhub-default-login
 
 info:
-  name: VisionHub Default Login
+  name: VisionHub - Default Login
   author: Techryptic (@Tech)
   severity: high
-  description: VisionHub application default admin credentials were accepted.
+  description: VisionHub default login credentials were discovered.
   reference:
     - https://www.qognify.com/products/visionhub/
   classification:

@@ -1,7 +1,7 @@
 id: ac-default-login
 
 info:
-  name: AC Centralized Management System - Default password
+  name: AC Centralized Management System - Default Login
   author: SleepingBag945
   severity: high
   description: |
