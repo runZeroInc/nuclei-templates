@@ -10,7 +10,7 @@ info:
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-      service["http.body"] matches "CrushFTP"
+        service["http.body"] contains "CrushFTP" || service["http.head.server"] contains "CrushFTP"
     verified: true
     max-request: 2
     vendor: crushftp

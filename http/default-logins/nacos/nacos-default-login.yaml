@@ -5,12 +5,12 @@ info:
   author: SleepingBag945
   severity: high
   description: |
-    The default username and password for Nacos are both nacos.
+    Nacos default login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:alibaba:nacos:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Nacos"})
+      any(each(service["html.titles"]), {# matches "(?i)Nacos"})
     verified: true
     max-request: 2
     vendor: alibaba

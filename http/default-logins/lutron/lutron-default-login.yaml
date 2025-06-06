@@ -4,7 +4,8 @@ info:
   name: Lutron - Default Account
   author: geeknik
   severity: critical
-  description: Multiple Lutron devices contain a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: |
+    Lutron default login credentials were discovered.
   reference:
     - https://www.lutron.com
     - https://vulners.com/openvas/OPENVAS:1361412562310113206

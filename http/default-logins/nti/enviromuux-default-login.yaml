@@ -5,13 +5,13 @@ info:
   author: M.Sarmad Shafiq
   severity: high
   description: |
-    The ENVIROMUX environment monitoring system from Network Technologies Inc was found to be using its default login credentials. This default configuration could have allowed unauthorized users to gain access to the web management interface without authentication, potentially leading to information disclosure or unauthorized control over environmental monitoring systems.
+    Network Technologies ENVIROMUX default login credentials were discovered.
   reference:
     - http://www.networktechinc.com/download/d-environment-monitor-16.html
     - http://www.networktechinc.com/pdf/man154.pdf
   metadata:
     runzero-match: |-
-        service["http.body"] matches "ENVIROMUX"
+      service["http.body"] matches "ENVIROMUX"
     verified: true
     max-request: 1
     shodan-query: html:"ENVIROMUX"

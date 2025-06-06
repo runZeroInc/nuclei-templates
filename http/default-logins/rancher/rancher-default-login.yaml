@@ -4,7 +4,8 @@ info:
   name: Rancher Default Login
   author: princechaddha
   severity: high
-  description: Rancher default admin credentials were discovered. Rancher is an open-source multi-cluster orchestration platform that lets operations teams deploy, manage and secure enterprise Kubernetes.
+  description: |
+    Rancher default admin credentials were discovered.
   reference:
     - https://github.com/rancher/rancher
     - https://rancher.com/docs/rancher/v2.5/en/admin-settings/authentication/local/
@@ -13,6 +14,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      service["favicon.ico.image.mmh3"] == "464587962"
     max-request: 2
   tags: default-login,rancher,kubernetes,devops,cloud
 

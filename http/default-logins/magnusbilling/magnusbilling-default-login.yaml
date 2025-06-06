@@ -5,12 +5,12 @@ info:
   author: DhiyaneshDk
   severity: high
   description: |
-    MagnusBilling installs with a default administrative account using the credentials root / magnus. If unchanged, these credentials grant full access to the system, allowing attackers to manage billing data, modify configurations, and potentially execute arbitrary code or commands via exposed interfaces.
+    MagnusBilling default admin credentials were discovered.
   impact: |
     An unauthenticated attacker can gain full administrative control over the MagnusBilling platform, leading to compromise of billing systems, data leakage, and potential pivoting into internal infrastructure.
   metadata:
     runzero-match: |-
-        service["http.body"] matches "MagnusBilling"
+      service["http.body"] matches "MagnusBilling"
     verified: true
     max-request: 1
     shodan-query: html:"MagnusBilling"

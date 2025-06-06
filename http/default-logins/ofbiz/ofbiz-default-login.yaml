@@ -4,7 +4,8 @@ info:
   name: Apache OfBiz Default Login
   author: pdteam
   severity: high
-  description: Apache OfBiz default admin credentials were discovered.
+  description: |
+    Apache OfBiz default admin credentials were discovered.
   reference:
     - https://cwiki.apache.org/confluence/display/OFBIZ/Apache+OFBiz+Technical+Production+Setup+Guide
   classification:
@@ -12,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      service["http.head.setCookie"] matches "^OFBiz.Visitor="
     max-request: 1
   tags: ofbiz,default-login,apache
 

@@ -4,7 +4,8 @@ info:
   name: Palo Alto Networks PAN-OS Default Login
   author: Techryptic (@Tech)
   severity: high
-  description: Palo Alto Networks PAN-OS application default admin credentials were discovered.
+  description: |
+    Palo Alto Networks PAN-OS default admin credentials were discovered.
   reference:
     - https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/getting-started/integrate-the-firewall-into-your-management-network/perform-initial-configuration.html#:~:text=By%20default%2C%20the%20firewall%20has,with%20other%20firewall%20configuration%20tasks.
   classification:
@@ -12,6 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: |-
+      any(each(service["html.bodies"]), {# contains "window.Pan = window.Pan || {}"})
     max-request: 1
   tags: panos,default-login
 

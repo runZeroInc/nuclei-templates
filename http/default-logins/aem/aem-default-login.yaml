@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
-    rz-match: |-
+    runzero-match: |-
       service["http.body"] contains `href="/etc.clientlibs/`
     max-request: 8
     shodan-query: http.component:"Adobe Experience Manager"

@@ -5,13 +5,13 @@ info:
   author: SleepingBag945
   severity: high
   description: |
-    Supershell is a WEB management platform that integrates the reverse_ssh service.
+    Supershell default login credentials were discovered.
   reference:
     - https://github.com/tdragon6/Supershell
     - https://www.ctfiot.com/129689.html
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)supershell"})
+      any(each(service["html.titles"]), {# matches "(?i)supershell"})
     verified: true
     max-request: 1
     fofa-query: title="supershell"

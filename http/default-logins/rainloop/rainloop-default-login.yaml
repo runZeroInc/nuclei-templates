@@ -4,12 +4,15 @@ info:
   name: Rainloop WebMail - Default Admin Login
   author: For3stCo1d
   severity: high
-  description: Rainloop WebMail default admin login credentials were successful.
+  description: |
+    Rainloop WebMail default admin credentials were successful.
   reference:
     - https://github.com/RainLoop/rainloop-webmail/issues/28
   classification:
     cpe: cpe:2.3:a:rainloop:webmail:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+      any(each(service["html.bodies"]), {# matches "rainloop/"})
     verified: true
     max-request: 2
     vendor: rainloop
