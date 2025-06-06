@@ -52,7 +52,7 @@ http:
   matchers:
   - type: dsl
     dsl:
-    - contains(body_1, "Sign In - Airflow")
+    - contains(body_1, "Airflow")
     - contains(header_2, "session=.")
     - status_code_2 == 302
     condition: and
