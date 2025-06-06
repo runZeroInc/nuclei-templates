@@ -5,7 +5,7 @@ info:
   author: SleepingBag945
   severity: high
   description: |
-    Smartbi Default User Weak Password were discovered.
+    SmartBI default login credentials were discovered.
   reference:
     - https://mp.weixin.qq.com/s?__biz=MzIwMDk1MjMyMg==&mid=2247491565&idx=1&sn=eb2af62a72167c6f82ae8ec3db878511
     - https://github.com/zan8in/afrog/blob/main/v2/pocs/afrog-pocs/vulnerability/smartbi-default-user-weakpass.yaml

@@ -5,12 +5,12 @@ info:
   author: s4e-io
   severity: high
   description: |
-    SOPlanning contains default credentials. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+    SOPlanning default login credentials were discovered.
   reference:
     - https://www.soplanning.org/en/
   metadata:
     runzero-match: |-
-        service["http.body"] matches "(?i)soplanning" || service["http.body"] matches "(?i)soplanning"
+        service["http.body"] matches "(?i)soplanning"
     verified: true
     max-request: 1
     vendor: soplanning
