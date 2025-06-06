@@ -1,10 +1,10 @@
 id: vidyo-default-login
 
 info:
-  name: Vidyo Default Login
+  name: Vidyo - Default Login
   author: izn0u
   severity: medium
-  description: Vidyo default credentials were discovered.
+  description: Vidyo default login credentials were discovered.
   reference:
     - https://support.vidyocloud.com/hc/en-us/articles/226265128
   classification:

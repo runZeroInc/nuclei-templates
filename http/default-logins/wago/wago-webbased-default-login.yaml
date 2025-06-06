@@ -1,14 +1,14 @@
 id: wago-webbased-default-login
 
 info:
-  name: WAGO Web based Management - Default Login
+  name: WAGO Web-based Management - Default Login
   author: biero-el-corridor
   severity: high
   description: |
-      Identified WAGO Web-Based Management interfaces that were accessible using default credentials (admin:wago).These interfaces are used to configure and monitor WAGO programmable logic controllers (PLCs) and automation systems. Use of factory-default credentials exposed critical OT infrastructure to unauthorized access.
+    WAGO Web-based Management default login credentials were discovered.
   metadata:
     runzero-match: |-
-        service["http.body"] matches "WAGO Ethernet Web-based Management"
+        service["http.body"] matches "(?i)WAGO Ethernet Web-based Management"
     shodan-query: html:"WAGO Ethernet Web-based Management"
     verified: true
     max-request: 1

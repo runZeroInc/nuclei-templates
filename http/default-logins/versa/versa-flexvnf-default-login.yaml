@@ -4,7 +4,7 @@ info:
   name: Versa FlexVNF - Default Login
   author: c-sh0
   severity: high
-  description: Versa FlexVNF contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+  description: Versa FlexVNF default login credentials were discovered.
   reference:
     - https://versa-networks.com/products/
   classification:

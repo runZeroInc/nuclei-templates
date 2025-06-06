@@ -1,11 +1,11 @@
 id: umami-default-login
 
 info:
-  name: Umami Default Login
+  name: Umami - Default Login
   author: barthy.koeln
   severity: high
   description: |
-    Umami default admin credentials were discovered.
+    Umami default login credentials were discovered.
   reference:
     - https://umami.is/docs/login
   classification:

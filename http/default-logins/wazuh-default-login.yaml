@@ -5,7 +5,7 @@ info:
   author: theamanrawat,denandz,PulseSecurity.co.nz
   severity: high
   description: |
-    Wazuh contains default credentials. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
+    Wazuh default login credentials were discovered.
   reference:
     - https://documentation.wazuh.com/current/user-manual/user-administration/password-management.html
     - https://wazuh.com
