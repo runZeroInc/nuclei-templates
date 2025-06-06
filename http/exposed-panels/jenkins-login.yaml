@@ -32,8 +32,14 @@ http:
       - type: word
         words:
           - 'Sign in [Jenkins]'
-
+          - 'Sign in to Jenkins'
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502206a36c4799a580fdfc3c650b0f319a98699103d0550126984e59e23161b988f3b022100bc04bf2e5f74c7d0931a4c9559a15724f8deb2078d569e1fe49c91d652832331:922c64590222798bb761d5b6d8e72950
+    extractors:
+      - type: regex
+        name: version
+        part: header
+        group: 1
+        regex:
+          - 'X-Jenkins:\s*(\d.*)'
