@@ -13,9 +13,9 @@ info:
     cwe-id: CWE-522
   metadata:
     runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
+      any(each(service["html.titles"]), {# matches "Airflow"})
     max-request: 2
-    shodan-query: title:"Sign In - Airflow"
+    shodan-query: title:"Airflow"
   tags: airflow,default-login,apache
 
 http:
