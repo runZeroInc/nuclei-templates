@@ -4,7 +4,7 @@ info:
   name: DataHub Metadata Default Credentials
   author: queencitycyber
   severity: high
-  description: DataHub Metadata Default Credentials default login credentials were
+  description: DataHub Metadata default login credentials were
     discovered.
   reference:
   - https://github.com/datahub-project/datahub/blob/master/docs/rfc/active/access-control/access-control.md

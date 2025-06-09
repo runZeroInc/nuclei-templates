@@ -4,7 +4,7 @@ info:
   name: UPS Adapter CS141 SNMP Module Default Credentials
   author: socketz
   severity: medium
-  description: UPS Adapter CS141 SNMP Module Default Credentials default login credentials
+  description: UPS Adapter CS141 SNMP Module default login credentials
     were discovered.
   reference:
   - https://www.generex.de/media/pages/packages/documents/manuals/f65348d5b6-1628841637/manual_CS141_en.pdf

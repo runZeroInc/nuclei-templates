@@ -4,7 +4,7 @@ info:
   name: Apache Tomcat Manager Default Credentials
   author: pdteam,sinKettu,nybble04
   severity: high
-  description: Apache Tomcat Manager Default Credentials default login credentials
+  description: Apache Tomcat Manager default login credentials
     were discovered.
   reference:
   - https://www.rapid7.com/db/vulnerabilities/apache-tomcat-default-ovwebusr-password/

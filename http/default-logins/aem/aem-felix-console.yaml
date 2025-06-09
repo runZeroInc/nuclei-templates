@@ -4,8 +4,7 @@ info:
   name: Adobe Experience Manager Felix Console Default Credentials
   author: DhiyaneshDk
   severity: high
-  description: Adobe Experience Manager Felix Console Default Credentials default
-    login credentials were discovered.
+  description: Adobe Experience Manager Felix Console default login credentials were discovered.
   reference:
   - https://github.com/0ang3el/aem-hacker/blob/master/aem_hacker.py
   - https://github.com/0ang3el/aem-rce-bundle

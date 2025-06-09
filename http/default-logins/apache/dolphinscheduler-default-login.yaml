@@ -4,7 +4,7 @@ info:
   name: Apache DolphinScheduler Default Credentials
   author: For3stCo1d
   severity: high
-  description: Apache DolphinScheduler Default Credentials default login credentials
+  description: Apache DolphinScheduler default login credentials
     were discovered.
   reference:
   - https://github.com/apache/dolphinscheduler

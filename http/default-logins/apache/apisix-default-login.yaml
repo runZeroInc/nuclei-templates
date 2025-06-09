@@ -4,7 +4,7 @@ info:
   name: Apache Apisix Admin Default Credentials
   author: pdteam
   severity: high
-  description: Apache Apisix Admin Default Credentials default login credentials were
+  description: Apache Apisix Admin default login credentials were
     discovered.
   reference:
   - https://apisix.apache.org/

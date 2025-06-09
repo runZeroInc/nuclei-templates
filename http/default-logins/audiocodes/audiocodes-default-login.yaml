@@ -4,8 +4,7 @@ info:
   name: AudioCodes 310HD, 320HD, 420HD, 430HD & 440HD Default Credentials
   author: d4vy
   severity: high
-  description: AudioCodes 310HD, 320HD, 420HD, 430HD & 440HD Default Credentials default
-    login credentials were discovered.
+  description: AudioCodes 310HD, 320HD, 420HD, 430HD & 440HD default login credentials were discovered.
   reference:
   - https://wiki.freepbx.org/display/FPG/Supported+Devices-Audio+Codes#:~:text=Reset%20to%20Factory%20Defaults,-Press%20the%20Menu&text=Then%2C%20enter%20the%20Admin%20password,is%20%221234%22%20by%20default
   classification:
