@@ -5,7 +5,7 @@ info:
   author: parzival
   severity: high
   description: |
-    Yealink CTP18 Default Administrator Credentials Discovered.
+    Yealink CTP18 default login credentials were discovered.
   reference:
     - https://support.yealink.com
   metadata:

@@ -1,15 +1,18 @@
 id: wildfly-default-login
 
 info:
-  name: Wildfly - Default Admin Login
+  name: Wildfly - Default Login
   author: s0obi
   severity: high
   description: |
-    Wildfly default admin login credentials were successful.
+    Wildfly default login credentials were discovered.
   reference:
     - https://docs.wildfly.org/26.1/#administrator-guides
   metadata:
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "Welcome to WildFly"})
     max-request: 1
+    shodan-query: title:"Welcome to WildFly"
   tags: wildfly,default-login
 
 http:

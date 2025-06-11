@@ -1,10 +1,10 @@
 id: zmanda-default-login
 
 info:
-  name: Zmanda Default Login
+  name: Zmanda - Default Login
   author: Techryptic (@Tech)
   severity: high
-  description: Zmanda default admin credentials admin:admin were discovered.
+  description: Zmanda default login credentials were discovered.
   reference:
     - https://www.zmanda.com
   classification:
