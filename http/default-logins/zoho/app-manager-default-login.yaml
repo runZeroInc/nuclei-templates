@@ -1,11 +1,11 @@
 id: app-manager-default-login
 
 info:
-  name: ManageEngine Applications Manager - Default Credentials
+  name: ManageEngine Applications Manager - Default Login
   author: 0midC13
   severity: high
   description: |
-    Default credentials grants administrative access to ManageEngine Applications Manager, which can be later escalated into a RCE via DB queries.
+    ManageEngine Applications Manager default login credentials were discovered.
   reference:
     - https://www.manageengine.com/products/applications_manager/
   metadata:

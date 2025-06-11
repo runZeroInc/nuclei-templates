@@ -1,10 +1,10 @@
 id: xerox7-default-login
 
 info:
-  name: Xerox WorkCentre 7xxx Printer Default Login
+  name: Xerox WorkCentre 7xxx Printer - Default Login
   author: MiroslavSotak
   severity: high
-  description: Xerox WorkCentre 7xxx printer. default admin credentials admin:1111 were discovered.
+  description: Xerox WorkCentre 7xxx Printer default login credentials were discovered.
   reference:
     - https://www.support.xerox.com/en-us/article/en/x_wc7556_en-O23530
   classification:

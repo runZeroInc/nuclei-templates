@@ -5,7 +5,7 @@ info:
   author: andreluna
   severity: high
   description: |
-    Default login and password to access administrator panel
+    XploitSPY default login credentials were discovered.
   reference:
     - https://github.com/XploitWizer-Community/XploitSPY
   metadata:
