@@ -1,7 +1,7 @@
 id: activemq-artemis-default-login
 
 info:
-  name: Apache ActiveMQ Artemis Console Default Credentials
+  name: Apache ActiveMQ Artemis Console Default Login
   author: pdteam
   severity: high
   description: Apache ActiveMQ Artemis console default login credentials were discovered.
@@ -28,14 +28,14 @@ http:
   stop-at-first-match: true
   payloads:
     username:
-    - artemis
+      - artemis
     password:
-    - artemis
+      - artemis
   attack: pitchfork
   matchers:
-  - type: word
-    words:
-    - '{"credentials"'
+    - type: word
+      words:
+        - '{"credentials"'
   extractors:
     - type: regex
       name: credential
