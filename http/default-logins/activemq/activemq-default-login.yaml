@@ -11,9 +11,9 @@ info:
     product: activemq
     vendor: apache
     max-request: 2
+    shodan-query: title:"ActiveMQ Artemis Console"
     runzero-match: |-
       any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
-    shodan-query: title:"ActiveMQ Artemis Console"
   tags: apache,activemq,default-login
 
 http:
