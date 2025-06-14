@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"americanexpress.com")'
-# digest: 490a004630440220705b242447bb0cc7826fb8b35e5367ba2c5c9e3f237b1f0d9722b7a1148fba120220555c40850f6710c4d04978c6753f7beb65536a36a619676081d2fd8af0e0ac54:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220035013f6c035fac8d8ea2d0a8f8bf4eba9f7c02e46403a2d9fbe10e837ac0b7d022100b3f5477cee3c254efa3d87653dd47b6bf0c360b756d42fe86eb46366f47861bd:922c64590222798bb761d5b6d8e72950

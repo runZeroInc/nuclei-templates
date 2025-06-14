@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -33,4 +33,4 @@ http:
         dsl:
           - '!contains(host,"bitdefender.com")'
           - '!contains(host,"bitdefender.co.uk")'
-# digest: 4b0a00483046022100ecbf382aaf125eb08d39395004caf57de6aa115cab95a4d54dbd9f5fbcdfb901022100f4233ee410cf0b7784c1751db1f30e63a0a54335505a35a261fadd97e1a44ae7:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210098d23ea77b35dca6fc220cb7bb86563925205580531e5bad232c9b004570146b022079e10cfee0e2d7dc1d97ae4eab34febbb0d0b48754364bdc95d4d3d9987e37c9:922c64590222798bb761d5b6d8e72950

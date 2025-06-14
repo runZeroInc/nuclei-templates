@@ -16,11 +16,11 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers:
       - type: word
         part: body
         words:
           - 'content="SLiMS'
-# digest: 4a0a00473045022100f0a76ecffe9de813954f27a30d7716e86a25be72deece1387e47fe53b738e35e02201ff10d71a3840d3082e326920836f8a7ebd1295952940d71218d63b9b2d6e089:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b3e4830a3ebd413bababe9a4dc184df9f4dd1e6ff6d9cf0ddbba3a0c19d304a80220666ede28798e97bbea70109c4aab351804d1bd1948bce3bd94b2eec7255ed907:922c64590222798bb761d5b6d8e72950

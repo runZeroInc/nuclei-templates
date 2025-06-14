@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"videolan.org")'
-# digest: 490a0046304402204f159062ba3a8cd9ca0e74f14e9bef367f856f19f70e32bc1a1a0c7a0d8bbaf402207502c060ec81c21d7e9c9f82277a18dab428530cbc6e9b0a0fe6ffcb7f7b373f:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d4b97055b2a6f528097916cfc95c6363afe592346978172deda5913b6c49c4c7022026bcf812d987bfaeb33303f00f7e9c1c4fe0283d44452b46d821ed514744bfaa:922c64590222798bb761d5b6d8e72950

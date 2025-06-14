@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"roblox.com")'
-# digest: 4a0a0047304502203730b374a0b802d5e9ddfdc3bdd85930bcc542bfb8657798a673627d7d92e8eb022100eea19c1642fbcc2741d96747caa4f41ea1313743e0b52b925e88df8c6afdffda:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220191758cc4a5db0caeb92355e2c6f520d0f110bcb4e94cb93b2bd5205baa8f41102201eedf71d7e1616feb6f9b7dcd4d4dc5c6a68890a4489bb918462331f56eb2ecd:922c64590222798bb761d5b6d8e72950

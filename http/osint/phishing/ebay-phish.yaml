@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"ebay.com")'
-# digest: 4a0a004730450220220bdbf26ff012e892d033ea3eb4f8b13cb9f4181abd64cd019ef63c3d197b3402210097f1753df90020735cc7c423586503674d8d7fe3dcf76d8269194e809e6c3a15:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100fdf37e8ecc92e025d0fdd86b1555a3d421ddba07abc46a6f8a12969a337f6f9d022100ae85273d75cf75e3fe9b471975cc7afe4a0ad11997bda961d44e4dd6a0195636:922c64590222798bb761d5b6d8e72950

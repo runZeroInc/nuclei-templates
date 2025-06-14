@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     matchers-condition: and
@@ -25,9 +25,9 @@ http:
       - type: word
         part: body
         words:
-          - "<title>PhotoPrism</title>"
+          - '<title>PhotoPrism</title>'
 
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100b6b54eca53b317bd90c62c987e1dcbe8c651abfef5e6c0bb33b7e23f1d3661d5022029d88c38e89e63f358a4f06f85b7bc4d3e66b08ba5501e8c58a1ff3a4340b240:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100aa50879e6d1467e2abc70427b3c06f8288be304e93bf9e8cf82da8b0a952462a022100f635527b2921499652460ee78b7c1c9e027f28d91b91fe432bce0f92c61cbd4a:922c64590222798bb761d5b6d8e72950

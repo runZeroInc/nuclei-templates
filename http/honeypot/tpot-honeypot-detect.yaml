@@ -14,19 +14,19 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "<title>T-Pot</title>"
-          - "T-Pot @ Github"
-          - "T-Pot ReadMe"
+          - '<title>T-Pot</title>'
+          - 'T-Pot @ Github'
+          - 'T-Pot ReadMe'
         condition: and
 
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100fb5bd4f3a05b3118b53ccc69d9cda7fe792555f7fb69b7968ebec2a8f849226802210080f04e928b52c1850e5f0030e6fbf5812518de24a1c5531b5ff96279c6dcfaf7:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220719da50e838e26c794da01984ba8a620029ea91fe681677b67d7882df8a973f002210081d6274549bf7eb60ba661062b86c254bf537ef49811d8001f5fff3c58823b44:922c64590222798bb761d5b6d8e72950

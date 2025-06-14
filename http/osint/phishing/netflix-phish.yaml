@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"netflix.com")'
-# digest: 4a0a00473045022100d1e161f0f7b11cd09b99d7536a00a4edc9c0aa6463fcb10dedfa36b410bb271602205d0852b0c065f486d7587732553fd8d3f6a474c9f22efc5d1864c2feced5c66d:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022060070c637be40ff84ec3452491e4738647bf8018342e76fcef9881589670523e022038969aef27bdc3e43af1cf301633de1d630d0ca07470e1b6275b9ffddf57e84f:922c64590222798bb761d5b6d8e72950

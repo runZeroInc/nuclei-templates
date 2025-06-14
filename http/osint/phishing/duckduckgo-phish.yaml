@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"duckduckgo.com")'
-# digest: 4b0a00483046022100f7cd436ef60f57e9ee539dec731fdda3bd7765ddf3642aea0908dcd49f5d390a02210092ffb536bc34c0d0f1dbea7cdebeb463197f023dd029d6d66adcb8759f6dbc63:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d6916e85a8efb4f9a0c53e3e22805bf0c17d5b25e838fe4197cdcef3da9add400220410a24c05fbdd301e1557273fb832d8dff0d32a769affe21213aa5b06b3f9549:922c64590222798bb761d5b6d8e72950

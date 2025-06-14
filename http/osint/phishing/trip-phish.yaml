@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"trip.com")'
-# digest: 4b0a00483046022100f5464ada4553dfe35b08d193bbeaed642461c1aa873fe39be4ff0fa397121d1c022100d17d6154a26fdabb6f881b557ec8c1c4db208f2ef6cb843540071747bddd3edb:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220381a92d88e994368aac948d2611b638f9fd5787deb85378ed7cd0d92b0ae34d60220151e6d62db6ec6fef7de1e032da2effb7578b28c64e6b76210a445469a05ee31:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"bankofamerica.com")'
-# digest: 490a00463044022001f83920b3908a043c17d40f38a7a005b5a97941b639ddbf5daef4cb61c63d3602205d1810fbc1b846504d48b3cce076f2111d7496aa5ff49044cc42bd3571b57f3a:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100adc680bf8dac5765f72cdbd5bb842954198c8f6f4caf30b3b978a42b01230de0022100a07c4941aac7972129ab716c94f550232ac7aaf525ec16588b989631ae446b26:922c64590222798bb761d5b6d8e72950

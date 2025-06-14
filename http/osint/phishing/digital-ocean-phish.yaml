@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -27,7 +27,6 @@ http:
           - 'DigitalOcean'
         condition: and
 
-
       - type: status
         status:
           - 200
@@ -35,4 +34,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"digitalocean.com")'
-# digest: 4a0a00473045022100a5fad93c19f8053e7df4fc6d6f062f9d0ccabf7406cb8f5c2ee1872e3f78c7c102204de3c442526de71dba23c0b0552c87b1796c353a0658d9b7e0ce4e9c64c400f0:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e820b73097f183cbbb2fc47d133d1aa466d5d363f8ea60c5635961c297e134e0022100b052fcb726b005b80660560eb2be9bd9bce9ee976448b572272e85f4c84a53bb:922c64590222798bb761d5b6d8e72950

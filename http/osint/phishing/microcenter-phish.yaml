@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"microcenter.com")'
-# digest: 4b0a00483046022100a8d9b16ea8e0c1b24a8a809c99db070da5b38f256784091bb09465907a506b81022100e3ee289e94f647c09863b09af8a5d4b0142965d854a98975b5bdeabb669597de:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100852a1496521def02dd8906ff45e34df739a76b5dbd5dc9516116b1132e871b28022100fea6b9c1fed6cdba21cd480bc5170cbd67a61085716957cf8825f7da5fedf0dd:922c64590222798bb761d5b6d8e72950

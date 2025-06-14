@@ -16,16 +16,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "<title>Mirth Connect Administrator</title>"
+          - '<title>Mirth Connect Administrator</title>'
 
       - type: status
         status:
           - 200
-# digest: 4a0a004730450221009cf440bbd5dfa3ce846cc269ab5c05cfa95013a176ba3b20a3812a2dcc71af6c02204cad4083833f867345ae33c5f4806a41a930d281fb1ae462245764162ef55511:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a7b55ec51f95470fd6d408a5b680a9e82bacb304c6be085f2ed2e3c21daedb7d0221009709f0ae47158f711891319b4aea54bbab049e0e756010543d3f1d722871f3ff:922c64590222798bb761d5b6d8e72950

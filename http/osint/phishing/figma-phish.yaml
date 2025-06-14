@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"figma.com")'
-# digest: 4b0a00483046022100f6c5bd1bee726d20a0fb28c26c663b547232d98608a9d26b4b6b62920c9cb9aa0221009f0d20a80dd9fc534e748713da5c81f0309c793018be39301977609fae8fa4e4:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210092a26143cc36e2f8e87268a87001db3bdb86c60633d3b3054972a121d25e302f0220225c07d6bb8d796f55e2ef0ee76a77874f2cf77ad3b9480601ba9717dfa754dc:922c64590222798bb761d5b6d8e72950

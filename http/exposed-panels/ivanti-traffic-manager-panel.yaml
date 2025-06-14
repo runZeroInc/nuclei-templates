@@ -17,16 +17,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/apps/zxtm/login.cgi"
+      - '{{BaseURL}}/apps/zxtm/login.cgi'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "Login (Virtual Traffic Manager"
+          - 'Login (Virtual Traffic Manager'
 
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100976b2febee3019834ec6dc0d277453ad6985cae1d66558d23064fdf04459ca4102206883cff103b0388f5fb484d0dce27f2e4fa1659fb2070e45d5bff2ddbb1782ac:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d797f38537885d637106fffbfa579f7556bb83dc77ac7fe1d002e7960809133f02206488263bcdb244973cbfb8a902ce44c3ca10be70267616173b5c2e61ea537574:922c64590222798bb761d5b6d8e72950

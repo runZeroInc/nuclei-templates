@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402206dd8fc5e1348d17b620ba212c93f069e858388fa63c55fa9e92fb339d1277ead0220641c77e3c8cc5b21859c2dad9b0780ae7fb069ecce4be215e9703924e5e28dff:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402206ee10b36ad410a6ac0004fd4a0fcc5108dd3873059a7faba2535cfeb06e10460022072941668843581aff3f7f414e5fc4e32f137ef2db1b1df10a4557a0da816f5d5:922c64590222798bb761d5b6d8e72950

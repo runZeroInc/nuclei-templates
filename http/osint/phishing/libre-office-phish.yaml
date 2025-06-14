@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"libreoffice.org")'
-# digest: 4a0a00473045022100a3fbc9deed949233db1acd4caf86c57cd385846f60b76b4a41abc5cec1c5a5af0220317d481ad2876b4e8da836ebba425da3acdcf2bba389403460a45ec53d1ac568:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100e31abef1d21fcc6f018e1caf4c2b128cf9b53fd22bc26fd1135139ce1288ac7002207cd4ed4624f3b145248231517eefcb9ff34c27d0a87a3b8908e4fb0217cdd97f:922c64590222798bb761d5b6d8e72950

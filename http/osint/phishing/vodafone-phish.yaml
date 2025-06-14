@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"vodafone.co.uk")'
-# digest: 4b0a00483046022100c670d1da6167f42c2be1250325ae5773287d56f45c7b6f3a19b009443f8e84820221008c875c5398b68dacbec7606c0f521abc6e02610668e0e454927d8140f4f86282:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100aa9fcdfb8524618f60cee0d9c645244dfef425f4d13532d4e55aa443bb0fabe5022100e56b8a2cc4dc022f8faddaf29cd94f7e5f8cacf4f30b03535a8bafd072cb79f4:922c64590222798bb761d5b6d8e72950

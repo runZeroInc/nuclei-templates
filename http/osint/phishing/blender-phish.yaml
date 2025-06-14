@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"blender.org")'
-# digest: 4a0a0047304502210084faed2f08dfcbf38082e5892c7039536d1ed098cd7332e7185b462af68319f6022064e3c817c5cedcce05e529c14e6d866b382b420049f40c5e5277c26aac73cea7:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b075d84d75b751a08a1d1cd9fe67900938c4c0e700165d3bb10c7bf2a4fe2a4c022020264fa8c28a099a16b405dcaf20ea3e19fa34766c2b4348be66fe9587b40576:922c64590222798bb761d5b6d8e72950

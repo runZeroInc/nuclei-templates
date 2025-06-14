@@ -14,71 +14,71 @@ info:
   tags: dns,soa
 
 dns:
-  - name: "{{FQDN}}"
+  - name: '{{FQDN}}'
 
     type: SOA
 
     matchers-condition: or
     matchers:
       - type: word
-        name: "cloudflare"
+        name: 'cloudflare'
         words:
-          - "dns.cloudflare.com"
+          - 'dns.cloudflare.com'
 
       - type: word
-        name: "amazon-web-services"
+        name: 'amazon-web-services'
         words:
-          - "awsdns"
+          - 'awsdns'
 
       - type: word
-        name: "akamai"
+        name: 'akamai'
         words:
-          - "hostmaster.akamai.com"
+          - 'hostmaster.akamai.com'
 
       - type: word
-        name: "azure"
+        name: 'azure'
         words:
-          - "azure-dns.com"
+          - 'azure-dns.com'
 
       - type: word
-        name: "ns1"
+        name: 'ns1'
         words:
-          - "nsone.net"
+          - 'nsone.net'
 
       - type: word
-        name: "verizon"
+        name: 'verizon'
         words:
-          - "verizon.com"
+          - 'verizon.com'
 
       - type: word
-        name: "google-cloud-platform"
+        name: 'google-cloud-platform'
         words:
-          - "googledomains.com"
-          - "google.com"
+          - 'googledomains.com'
+          - 'google.com'
 
       - type: word
-        name: "alibaba"
+        name: 'alibaba'
         words:
-          - "alibabadns.com"
+          - 'alibabadns.com'
 
       - type: word
-        name: "safeway"
+        name: 'safeway'
         words:
-          - "safeway.com"
+          - 'safeway.com'
 
       - type: word
-        name: "mark-monitor"
+        name: 'mark-monitor'
         words:
-          - "markmonitor.com"
-          - "markmonitor.zone"
+          - 'markmonitor.com'
+          - 'markmonitor.zone'
 
       - type: word
-        name: "hetznet"
+        name: 'hetznet'
         words:
-          - "hetzner.com"
+          - 'hetzner.com'
 
       - type: word
-        name: "edge-cast"
+        name: 'edge-cast'
         words:
-          - "edgecastdns.net"
-# digest: 4a0a00473045022100a8d0d865af8d650f3b361fddb2106c7e62e14e90289af1b184dd1a660fca781d022012b2ae572fd968ee22c190b894da629732a6eb5decbff0a3471f5ec8ae395377:922c64590222798bb761d5b6d8e72950
+          - 'edgecastdns.net'
+# digest: 4a0a00473045022100fd5d05fc7e9359eb6630f10e818c5c86655c06aceec1de41df9b43b8285015aa02202f922fe89a6307c8b6b394fe987223303bab0bc057369b2dda027616399743b5:922c64590222798bb761d5b6d8e72950

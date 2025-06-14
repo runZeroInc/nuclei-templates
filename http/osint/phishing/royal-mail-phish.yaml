@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"royalmail.com")'
-# digest: 4a0a00473045022050f25bb4a38dda2ab5c340a74eadb4944bc5d6446d8a66c1b57b5fa2e62cbf2d022100aba2c307675819d9832de585b71f30f07eb33c000300cd0962e423ebfd27addd:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100c0f84b8d2411c5e136a7efbd96a5e4c80406fa8b2006e17505bba2035a487a6002201968184a281d201e5088b5b746e685b26ca197847fde07d0302d4acbd082f117:922c64590222798bb761d5b6d8e72950

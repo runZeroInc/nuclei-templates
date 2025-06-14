@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"mozilla.org")'
-# digest: 490a004630440220373c0e4b9ddf110ff3aa988cabf14018ace79007e43b86f90d5c3bfc5fa30a9f0220172162953475bfddbbe7746b0fbc5bddb6b4f19320a46302aadfefbc7b020962:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210088659d727aee9d9ea9fad45cc76b603bf53400b0502588213037a2bbf4daa3d7022060089a5bd80d7368cb1a7f589edd24d9b7d8144ed129e07144189d325c9e4cc0:922c64590222798bb761d5b6d8e72950

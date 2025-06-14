@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -27,7 +27,6 @@ http:
           - 'Steam is the ultimate destination for playing, discussing, and creating games.'
         condition: and
 
-
       - type: status
         status:
           - 200
@@ -35,4 +34,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"steampowered.com")'
-# digest: 4a0a0047304502207fb6fbaff4a54b22b6f5ea4b9fa143180a1db09f81cd10dddac6d34bf7baf5c1022100833b91a1201e3e216c55e96a92dd3f6e02889b09ccabb910993fc5d6554b344c:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044021f4469f939ac322b854365548bf2a2aaa2c06b30ba068d8bce28d30191d07c410221008fb767061fad2cee0c2c4780eec0f572596516017bbe685bc5a356b8684dcab4:922c64590222798bb761d5b6d8e72950

@@ -17,20 +17,20 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: or
     matchers:
       - type: word
         part: body
         words:
-          - "<title>nPerfServer</title>"
+          - '<title>nPerfServer</title>'
 
       - type: word
         part: header
         words:
-          - "Nperfserver-Remote-Endpoint"
-          - "nPerf/"
+          - 'Nperfserver-Remote-Endpoint'
+          - 'nPerf/'
         condition: or
 
     extractors:
@@ -38,4 +38,4 @@ http:
         part: header
         kval:
           - Server
-# digest: 490a004630440220791f998e9f3aa3e46883021bc3d6213c4f79a4e8c0f5671e6ea9515765ff5a8d022043bc0c856dcdf9a5ced9da6dd5ebfd6a72b0fda4e04152a952c44fddee737c52:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100e0e2799e2d9dd3a148b8371feb5c9d1fd867e51f1b8234363414471b49011000022056c1384c462da4ceef4048211ffd718fc539ad13ec99bc1414e9505919ecf16b:922c64590222798bb761d5b6d8e72950

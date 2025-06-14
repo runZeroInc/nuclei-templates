@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"bitwarden.com")'
-# digest: 490a0046304402203594c5458657a677ce0115a1d672facce37b2728b53388ec8f16f2e12955d5960220274abe9772efd3972e321c6297e60258817692c875df9884e559846b03772f31:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502201a24a6fad82a42d7421f046dfd2d8c0d1d43f8e5025a84eb67525ea0067e2c30022100d0b2ea33da91e9477c60e68b016a0ff758cd7a2c2f0d1ec6abf4b1befea3f08d:922c64590222798bb761d5b6d8e72950

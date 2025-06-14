@@ -17,9 +17,9 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/"
-      - "{{BaseURL}}/BACLIENT"
-      - "{{BaseURL}}/JNLP"
+      - '{{BaseURL}}/'
+      - '{{BaseURL}}/BACLIENT'
+      - '{{BaseURL}}/JNLP'
 
     stop-at-first-match: true
     matchers:
@@ -36,4 +36,4 @@ http:
         regex:
           - '(?i)"guiVersion"\s*:\s*"([0-9.\-]+)"'
           - '(?i)name="?version"?\s+value="?([0-9.\-]+)"?'
-# digest: 4b0a00483046022100a872db6616b812fb398d305d38711a70dc9c6cfb64d05005f25202138bbb7dc4022100b563d19eeb94e02562dc54fd12b276c99a94e8a7cc4aeceef87465a797a48ed5:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221008cade388e57df75a5f69daec08e4fb09893c5f429c887aa91a5743118db0c186022100decc6dc123a8e31806496918612eecdf803da55021e3b3e7f147757ecaf6b52d:922c64590222798bb761d5b6d8e72950

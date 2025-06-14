@@ -11,14 +11,14 @@ info:
   metadata:
     verified: true
     max-request: 3
-    shodan-query: "http.title:\"tixeo\""
+    shodan-query: 'http.title:"tixeo"'
   tags: panel,tixeo,login,detect
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/meet/services/json/v1/settings"
-      - "{{BaseURL}}/meet/login.html"
-      - "{{BaseURL}}/meet/"
+      - '{{BaseURL}}/meet/services/json/v1/settings'
+      - '{{BaseURL}}/meet/login.html'
+      - '{{BaseURL}}/meet/'
 
     stop-at-first-match: true
 
@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - '"applicationVersion"\s*:\s*"([0-9.]+)"'
-# digest: 4a0a0047304502203d404cdde9895af5d1112fb67fa0b7204bd1e9e123804fadd75f422475ca8e9e022100900e7dc4add8d08d05c2c7fa2e147f1d5d1f29c628d25f4c0644295f4f7fd1ea:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220543036b944eae463d621a694ba1e10fc9254af7b46c089492f79f500d7d754ba022100a2d009f62d4bc45f21dcbc9cea48d9b6f9202e14e6be531adf7af1dfdd54dfb8:922c64590222798bb761d5b6d8e72950

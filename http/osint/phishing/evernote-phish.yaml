@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"evernote.com")'
-# digest: 4a0a00473045022100870d80f16700206c4c0047b1057be0cd9c313064657ea5df85a671dd691430c802202a31a0c4591f6f1ab0e68613e6cfdeacaecb83053e7ed4beae14e4ffdc4b9488:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210095b384d44a83080a07868f96088a6200bf5a5fdaaf1f8cc0022c7bedd4909031022100a361236a04f78002f78d47939ce809c7c8b173dd6e6815dcece1420bfcca57cf:922c64590222798bb761d5b6d8e72950

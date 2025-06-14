@@ -15,7 +15,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -25,9 +25,9 @@ http:
       - type: word
         part: body
         words:
-          - "uni-xtheme-"
-          - "ext-all.js"
-          - "uniVars._extVer="
+          - 'uni-xtheme-'
+          - 'ext-all.js'
+          - 'uniVars._extVer='
         condition: or
 
       - type: regex
@@ -48,4 +48,4 @@ http:
         name: ext_js_version
         regex:
           - 'uniVars._extVer="(\d+\.\d+\.\d+)"'
-# digest: 4b0a00483046022100c1962339696c9e67fa047e2f92d25d6d05d58909baf0e65a4e83c1433a1c58800221008c66c6b09a16fbd6ac80ea6bf9bf161e790f4e870000d0797a33e063e8e532ca:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221008a80c2adac9868d039e37668b51ab7a4692506c816d480837a162b25d3b93432022100cf32fff60763970cf89daaac14230b937abf8f2038639a2839f34370a4c2fc2b:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"avg.com")'
-# digest: 4a0a00473045022051c4ff33c67fc53407d21b174c3b5eabe0b7f50721ab7e1cbe1794f863bfba12022100dd6eb9501c9a6a7236bf0c72e37fd05d0bf4b292d8e28fcbda82f79f43fa357b:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f04e0f10db254bd4d48193b1c03ff55d46586d4d23e339572bdf8c4fde33f42f022038437bac5b034ae02994006845721c7c932ac3f5506785744b3bba7214129c6d:922c64590222798bb761d5b6d8e72950

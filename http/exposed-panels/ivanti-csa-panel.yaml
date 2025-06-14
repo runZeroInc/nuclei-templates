@@ -17,16 +17,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "<title>Ivanti(R) Cloud Services Appliance</title>"
+          - '<title>Ivanti(R) Cloud Services Appliance</title>'
 
       - type: status
         status:
           - 200
-# digest: 490a0046304402202afea6a8cd0633efb75a16a34c2be680b964ebe0ac827f51ecfc25d18a02b57a022047b6b0c49266c0a4a6f5f95fc83cb3f41ad5eff031c5969be2b454da45d50457:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100fb0d9fbe906baf880ab4340c2fc0a3c4c53f2998d7e16d9fcf997d8581170092022012fca2b7b0d41d58eb2bc716832e75eb7439a770aa884fb19207b258c10d8a45:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"walmart.com")'
-# digest: 4b0a00483046022100ceed0fbb05326eff19abd6510c4db6aed9c4f93af10cc29fa50bb40c050c73bc022100e3d7bc4452d6d94e7afc2084c5bf5ad5eda4cda028575cf59344568b2ec7ff77:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008e024ec0420f84ea96bdc644cab12f309066f0f6f6edbb87d0b6400b84f9f21302203cbb5501907abfd15f473783d5134c400ba83fcc1750f5fe059045d2167147ee:922c64590222798bb761d5b6d8e72950

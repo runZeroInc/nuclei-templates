@@ -13,7 +13,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/wp-content/plugins/flexmls-idx/readme.txt"
+      - '{{BaseURL}}/wp-content/plugins/flexmls-idx/readme.txt'
 
     payloads:
       last_version: helpers/wordpress/plugins/flexmls-idx.txt
@@ -37,7 +37,7 @@ http:
     matchers-condition: or
     matchers:
       - type: dsl
-        name: "outdated_version"
+        name: 'outdated_version'
         dsl:
           - compare_versions(internal_detected_version, concat("< ", last_version))
 
@@ -45,4 +45,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a0046304402206ed0f2f33941862b49405885578b63669aa237507f2d033818f30de8ba28a49f0220434a6553a875588f241806463fdb1733870be755b7bc4906b7874d91e652c179:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402207751987b4554ab2f9a311dbcbeb3f710ad67b04c55e1d07a7dbf7f8b4d92ec91022062f5d8c3e58f6f2706b5ca960d7cfc64bfb4b809c71db1de6d66e33fa5829b86:922c64590222798bb761d5b6d8e72950

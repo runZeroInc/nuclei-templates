@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"lastpass.com")'
-# digest: 4b0a00483046022100fd274279d8002ffb3534718d10e1b88eeddcea5b43d450ca7a044642ae97f3dd022100d5e42384d3e4b9666c57e793fe3e789465a7d0bf0829381fd70f4a8769a510d2:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022058abb38439977982ba62b62ed30ce004def0780dd5cb822fea297920184dac77022100d5078affefc2cbe4f2d0ed2afa252aed2822e371c42dd81538736b2647745985:922c64590222798bb761d5b6d8e72950

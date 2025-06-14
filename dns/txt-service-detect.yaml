@@ -14,208 +14,208 @@ info:
   tags: dns,txt
 
 dns:
-  - name: "{{FQDN}}"
+  - name: '{{FQDN}}'
     type: TXT
 
     matchers-condition: or
     matchers:
       - type: word
-        name: "keybase"
+        name: 'keybase'
         words:
-          - "keybase-site-verification"
+          - 'keybase-site-verification'
 
       - type: word
-        name: "proton-mail"
+        name: 'proton-mail'
         words:
-          - "protonmail-verification"
+          - 'protonmail-verification'
 
       - type: word
-        name: "webex"
+        name: 'webex'
         words:
-          - "webexdomainverification"
+          - 'webexdomainverification'
 
       - type: word
-        name: "apple"
+        name: 'apple'
         words:
-          - "apple-domain-verification"
+          - 'apple-domain-verification'
 
       - type: word
-        name: "facebook"
+        name: 'facebook'
         words:
-          - "facebook-domain-verification"
+          - 'facebook-domain-verification'
 
       - type: word
-        name: "autodesk"
+        name: 'autodesk'
         words:
-          - "autodesk-domain-verification"
+          - 'autodesk-domain-verification'
 
       - type: word
-        name: "stripe"
+        name: 'stripe'
         words:
-          - "stripe-verification"
+          - 'stripe-verification'
 
       - type: word
-        name: "atlassian"
+        name: 'atlassian'
         words:
-          - "atlassian-domain-verification"
+          - 'atlassian-domain-verification'
 
       - type: word
-        name: "adobe-sign"
+        name: 'adobe-sign'
         words:
-          - "adobe-sign-verification"
+          - 'adobe-sign-verification'
 
       - type: word
-        name: "zoho"
+        name: 'zoho'
         words:
-          - "zoho-verification"
+          - 'zoho-verification'
 
       - type: word
-        name: "have-i-been-pwned"
+        name: 'have-i-been-pwned'
         words:
-          - "have-i-been-pwned-verification"
+          - 'have-i-been-pwned-verification'
 
       - type: word
-        name: "knowbe4"
+        name: 'knowbe4'
         words:
-          - "knowbe4-site-verification"
+          - 'knowbe4-site-verification'
 
       - type: word
-        name: "jamf"
+        name: 'jamf'
         words:
-          - "jamf-site-verification"
+          - 'jamf-site-verification'
 
       - type: word
-        name: "parallels"
+        name: 'parallels'
         words:
-          - "parallels-domain-verification"
+          - 'parallels-domain-verification'
 
       - type: word
-        name: "dropbox"
+        name: 'dropbox'
         words:
-          - "dropbox-domain-verification"
+          - 'dropbox-domain-verification'
 
       - type: word
-        name: "vmware-cloud"
+        name: 'vmware-cloud'
         words:
-          - "vmware-cloud-verification"
+          - 'vmware-cloud-verification'
 
       - type: word
-        name: "canva"
+        name: 'canva'
         words:
-          - "canva-site-verification"
+          - 'canva-site-verification'
 
       - type: word
-        name: "mongodb"
+        name: 'mongodb'
         words:
-          - "mongodb-site-verification"
+          - 'mongodb-site-verification'
 
       - type: word
-        name: "slack"
+        name: 'slack'
         words:
-          - "slack-domain-verification"
+          - 'slack-domain-verification'
 
       - type: word
-        name: "teamViewer"
+        name: 'teamViewer'
         words:
-          - "teamviewer-sso-verification"
+          - 'teamviewer-sso-verification'
 
       - type: word
-        name: "bugcrowd"
+        name: 'bugcrowd'
         words:
-          - "bugcrowd-verification"
+          - 'bugcrowd-verification'
 
       - type: word
-        name: "cisco"
+        name: 'cisco'
         words:
-          - "cisco-site-verification"
+          - 'cisco-site-verification'
 
       - type: word
-        name: "palo-alto-networks"
+        name: 'palo-alto-networks'
         words:
-          - "paloaltonetworks-site-verification"
+          - 'paloaltonetworks-site-verification'
 
       - type: word
-        name: "twilio"
+        name: 'twilio'
         words:
-          - "twilio-domain-verification"
+          - 'twilio-domain-verification'
 
       - type: word
-        name: "dell-technologies"
+        name: 'dell-technologies'
         words:
-          - "dell-technologies-domain-verification"
+          - 'dell-technologies-domain-verification'
 
       - type: word
-        name: "1password"
+        name: '1password'
         words:
-          - "1password-site-verification"
+          - '1password-site-verification'
 
       - type: word
-        name: "duo"
+        name: 'duo'
         words:
-          - "duo_sso_verification"
+          - 'duo_sso_verification'
 
       - type: word
-        name: "sophos"
+        name: 'sophos'
         words:
-          - "sophos-domain-verification"
+          - 'sophos-domain-verification'
 
       - type: word
-        name: "pinterest"
+        name: 'pinterest'
         words:
-          - "pinterest-site-verification"
+          - 'pinterest-site-verification'
 
       - type: word
-        name: "citrix"
+        name: 'citrix'
         words:
-          - "citrix-verification-code"
+          - 'citrix-verification-code'
 
       - type: word
-        name: "zapier"
+        name: 'zapier'
         words:
-          - "zapier-domain-verification-challenge"
+          - 'zapier-domain-verification-challenge'
 
       - type: word
-        name: "uber"
+        name: 'uber'
         words:
-          - "uber-domain-verification"
+          - 'uber-domain-verification'
 
       - type: word
-        name: "zoom"
+        name: 'zoom'
         words:
-          - "zoom-domain-verification"
+          - 'zoom-domain-verification'
 
       - type: word
-        name: "lastpass"
+        name: 'lastpass'
         words:
-          - "lastpass-verification-code"
+          - 'lastpass-verification-code'
 
       - type: word
-        name: "google-workspace"
+        name: 'google-workspace'
         words:
-          - "google-site-verification"
+          - 'google-site-verification'
 
       - type: word
-        name: "flexera"
+        name: 'flexera'
         words:
-          - "flexera-domain-verification"
+          - 'flexera-domain-verification'
 
       - type: word
-        name: "yandex"
+        name: 'yandex'
         words:
-          - "yandex-verification"
+          - 'yandex-verification'
 
       - type: word
-        name: "calendly"
+        name: 'calendly'
         words:
-          - "calendly-site-verification"
+          - 'calendly-site-verification'
 
       - type: word
-        name: "docusign"
+        name: 'docusign'
         words:
-          - "docusign"
+          - 'docusign'
 
       - type: word
-        name: "whimsical"
+        name: 'whimsical'
         words:
-          - "whimsical"
-# digest: 4a0a0047304502207b891218c0431660e5b70c695b63939dcfa3d801ab096008833a7cae29e9d6dd022100b7ee22a3eff6765c082c5a43901bc83869426e989a2dde3a73c0f57ec3847a40:922c64590222798bb761d5b6d8e72950
+          - 'whimsical'
+# digest: 4a0a0047304502202e4e8de17ec382d479781c83a03899b75c460405ba696f060d4de9b6d9f32af6022100b6ca338d94eb89259351c034fb8f72da5b87d295bd9fafa7b198185df13a1aa1:922c64590222798bb761d5b6d8e72950

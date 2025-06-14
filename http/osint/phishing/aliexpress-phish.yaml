@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"aliexpress.com")'
-# digest: 4b0a00483046022100b8e3de409746e35cd47ef0984fd123706181313c2cc83f282d27d563553fa5b6022100c6d55b05fe295564b2b69d379b65fdfcf6e874f75576716853b1c334d15ff08a:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c2ad6db0ebed3faba0f9345f5ddf9912546be5fe0a5c8dd285905f0655b6a29f022100f6e153ff09b6cfa0e4f871d130602f5c99fc59e2688f854cd5c30bf1cd18d685:922c64590222798bb761d5b6d8e72950

@@ -15,16 +15,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/ui/login.action"
+      - '{{BaseURL}}/ui/login.action'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "<title>VMware Aria Operations</title>"
+          - '<title>VMware Aria Operations</title>'
 
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100c3116b2f269f20cab207d06d83fb38bd697d69395b013863c1ef0bacb7427c170220256db86e792b5f3b7576810b057c6fc6a3556ccbd2e22c1ddd9a1b9b89d4f832:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210080dd7f8159c48e9193b18384438cc6c1aabe999bcb2970fcf46a17dd92e51147022100ff87e4ec5587735ac553a88251673b765616026765394ad809e055b29a724a2e:922c64590222798bb761d5b6d8e72950

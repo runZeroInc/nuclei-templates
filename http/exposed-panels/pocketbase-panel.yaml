@@ -18,7 +18,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/_/#/login"
+      - '{{BaseURL}}/_/#/login'
 
     matchers-condition: and
     matchers:
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a004830460221009c90f5a0062d3506e3c64a745d197b47a43389794c8e3ffacf4ad7ccebecee7f022100f48bc76cad52caac124c11bb4a292162eb0500a9fb2ebd2f034a0ae84678f215:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210095a4965dd79a0dd05d27de267b5f6629b92b64f3818ff88a3bd883f9cadae6020220613c4aa0e3bae13fcca79c3fadb47d506e2928498ca76f5d9a4682568bcf50b6:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"yahoo.com")'
-# digest: 4b0a004830460221008a1197ca91f23455bf95685fc8f3ff8190399b5f1ac2e37865d0dc5488a9feb3022100b2884391565a8a9a3bde86258d0c0b5e37604758c9d5af659379c46f1c9e0184:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022005470ba5677df80e9773e6bcfc19d547833b0da3e204f9bcc3f64fffc0ce80e8022043667f1163e4173f03a907e7124e9769c01c3440df4979b5eb57b2ce1d3fe08e:922c64590222798bb761d5b6d8e72950

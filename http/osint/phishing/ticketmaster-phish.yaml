@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"ticketmaster.com")'
-# digest: 4a0a0047304502201cfc9c0e7f282d50da39dbc6359754aa9435649b82c6bb1f3a0801ceea8e6ce3022100db442aabd5cf581863bb0e6941febc4222a4da05c3e20af7d132041df1ce5488:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b5b56a8c8175435d516bc377626193efc940b6f7b76fe4116415563f441ba9ba022077fe66a05ccfe5e6303ee99326aa869dcf2c0b890dbf0aff365e21f6f76419df:922c64590222798bb761d5b6d8e72950

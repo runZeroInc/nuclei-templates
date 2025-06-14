@@ -17,8 +17,8 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/domibus/rest/application/info"
-      - "{{BaseURL}}/domibus/"
+      - '{{BaseURL}}/domibus/rest/application/info'
+      - '{{BaseURL}}/domibus/'
 
     stop-at-first-match: true
     matchers:
@@ -34,4 +34,4 @@ http:
         group: 1
         regex:
           - '"versionNumber":\s*"([0-9.]+)"'
-# digest: 490a0046304402202249d7b1b98f147417520ee8682f69658c1b917fb618ac6074409334b185fe650220248473eaf5c5d9d23c2e80de64148649b168fbd09f91225a3a5d2b4826671a90:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c51aad7998feb2de9d45b08dc104cd7ec6cae14dedf73ed7cc188eaa41b077ab022100c0493abb3e434366628064137a09730d54957c6adfc8ebf6a2f41ae3e1b21e4f:922c64590222798bb761d5b6d8e72950

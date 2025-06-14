@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100d98e39afc8e971f792341d603990f962d0f3f92dca5451aef52dfd52cc39176c0221009c2443f2fae91af9cd07cdb71db443092d6bf86516169af8cbc21e717f1aefe8:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221008f06355f0b1f8408d45e88a924772362e34ef087e99c2e92349c4f630074b5f402210096a31cb8d655fe2e24c0a882f459e426b5e362bcfb1b888041b66faf040a6388:922c64590222798bb761d5b6d8e72950

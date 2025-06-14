@@ -17,9 +17,9 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/akuiteo.collabs/login/login.html"
-      - "{{BaseURL}}/akuiteo/login.html/"
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/akuiteo.collabs/login/login.html'
+      - '{{BaseURL}}/akuiteo/login.html/'
 
     redirects: true
     max-redirects: 2
@@ -37,4 +37,4 @@ http:
         group: 1
         regex:
           - '(?i)x-akuiteo-masterhash:\s+([0-9a-f]+)'
-# digest: 490a00463044022010a0b9b0376790807cd324ebb30b6bf30d7071f6e7b960abf76bf4a8d10b1ce102202fa4fb32b33b12464f1c0ff05b8cbe574225592aa189061037957395bc96a189:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100fedf0f3345c405d50d6471be11bca1a703dbffb9c0e9b9402ecd4118d61ef7ba022100a560798db59063b59c492f4972cab3125d96316999f8e979fe6f76d2db2d123b:922c64590222798bb761d5b6d8e72950

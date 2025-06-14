@@ -17,35 +17,35 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}{{paths}}"
+      - '{{BaseURL}}{{paths}}'
 
     payloads:
       paths:
-        - "/sa.bak"
-        - "/wwwroot.bak"
-        - "/backup.bak"
-        - "/database.bak"
-        - "/data.bak"
-        - "/db_backup.bak"
-        - "/dbdump.bak"
-        - "/db.bak"
-        - "/dump.bak"
-        - "/{{Hostname}}.bak"
-        - "/{{Hostname}}_db.bak"
-        - "/localhost.bak"
-        - "/mysqldump.bak"
-        - "/mysql.bak"
-        - "/site.bak"
-        - "/sql.bak"
-        - "/temp.bak"
-        - "/translate.bak"
-        - "/users.bak"
-        - "/www.bak"
-        - "/wp-content/uploads/dump.bak"
-        - "/wp-content/mysql.bak"
+        - '/sa.bak'
+        - '/wwwroot.bak'
+        - '/backup.bak'
+        - '/database.bak'
+        - '/data.bak'
+        - '/db_backup.bak'
+        - '/dbdump.bak'
+        - '/db.bak'
+        - '/dump.bak'
+        - '/{{Hostname}}.bak'
+        - '/{{Hostname}}_db.bak'
+        - '/localhost.bak'
+        - '/mysqldump.bak'
+        - '/mysql.bak'
+        - '/site.bak'
+        - '/sql.bak'
+        - '/temp.bak'
+        - '/translate.bak'
+        - '/users.bak'
+        - '/www.bak'
+        - '/wp-content/uploads/dump.bak'
+        - '/wp-content/mysql.bak'
 
     headers:
-      Range: "bytes=0-500"
+      Range: 'bytes=0-500'
     max-size: 500 # Size in bytes - Max Size to read from server response
 
     matchers-condition: and
@@ -53,9 +53,9 @@ http:
       - type: binary
         part: body
         binary:
-          - "54415045" # Microsoft Tape Format
+          - '54415045' # Microsoft Tape Format
 
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502210083bc4c748a11c71f493cbce9bf3f94e93bbb942ddad205ab6dea98cf0eb3e27e02206e2edc1d99d35554d37e5b743766562ba382fa54603be305453a2502bb0412ed:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502206d57586a32757d3a5304afa83428b989f5a933baf3f565c2925ea4a1e25eb78d022100f12acf61d7fa3a9121f58071dfb3a7c4210ebb96a66c04351257ab81f647b5c6:922c64590222798bb761d5b6d8e72950

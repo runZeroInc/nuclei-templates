@@ -17,8 +17,8 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/arsys/"
-      - "{{BaseURL}}/webUI/userHome.do"
+      - '{{BaseURL}}/arsys/'
+      - '{{BaseURL}}/webUI/userHome.do'
 
     stop-at-first-match: true
 
@@ -28,4 +28,4 @@ http:
           - 'status_code == 200'
           - 'contains(to_lower(body), "<title>bmc remedy single sign-on domain data entry")'
         condition: and
-# digest: 4b0a00483046022100b472ba073c1f5f2970a1ca06e135595268b6db995aa7181aa45f2399973988ca022100b6f203a3a369901b62fa95e2401e7a74bf71edfccb57d48e1d2ae6453b436b8d:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210080e07322cb0f13021952a54a625d660b924d5f6fb7803b7b3d9107095f0b294e022100a117661377448f39e856a73c48d527a678ebf49c823ccdbfb3bd447010499c96:922c64590222798bb761d5b6d8e72950

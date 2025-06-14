@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"amazon.com")'
-# digest: 4b0a00483046022100cb5fdceb92f529a574ba4fde9bef5ce5763f20bb9664b5438dd57763c796e129022100dcf1bc45a24324ac1bfd48c01f587131adad925cae462a629c04257e5da34e81:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502201985b8fa9516a888a8ac3016108665e7dc5d9e7bf1d1c98bbb0e993ceb034c2c022100ad6cc47fb8dd261bc725a0b6493fb2a10a3c82f168e217188bd6f239faeab121:922c64590222798bb761d5b6d8e72950

@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/login"
+      - '{{BaseURL}}/login'
 
     matchers:
       - type: dsl
@@ -25,4 +25,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "vince - high performance", "vince · open source web", "Welcome to Vince")'
         condition: and
-# digest: 490a00463044022073b9ec674a5a4ef8d0901309e43e2686abe057e6ad60b19f9d7ed517879ba5790220734540c0e52854a22d06f29664401614021e07b043f4f95bcfc6e904c811f5e2:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008e97437a5f8b802cf751d6a0cf9c9c2e241ec16ccbe2851dfa1963d941d46a5502207f87e82075cfa15d77546d9970ecb0ab7f6e98839e6c49270ceaac72eea55034:922c64590222798bb761d5b6d8e72950

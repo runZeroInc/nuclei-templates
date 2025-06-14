@@ -17,16 +17,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "<title>SearXNG</title>"
+          - '<title>SearXNG</title>'
 
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100bd998c245cd29a496bada9db88eed472b991fafcb7b0a62ebab25f2b93c3b4100220771bf531e38788e821e8c840f9c16bcac34723222278769ec65c289c26d9230e:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e4cd7e8ff9b594ca9b51a2bb8b4c60b87fbd89453263a49a63bb2f02af9ff7c8022100d57564d17648ab1c24b7d55440ae68acbd948aa29d8542947a9fb0222621f035:922c64590222798bb761d5b6d8e72950

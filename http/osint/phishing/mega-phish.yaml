@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -34,4 +34,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"mega.io")'
-# digest: 4b0a00483046022100cd0be4ac8cd50454296567dd62dbd4bb7261e9f67202d6b11dddd182a0800390022100e8605c829efeb69c0caee06b97ccd100135e9e7e848f2227ad2602e7bd8370e1:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a731da3eb709156b357d675221d425eae8a010bb53de49f5e60ac5b581fefd69022100b59f686c2c80e316dbbd787c1b001cb954bbe0c85cf0f7b6f31f7145a63c1bad:922c64590222798bb761d5b6d8e72950

@@ -15,16 +15,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "Web Interface is Disabled - CUPS"
-          - "Forbidden - CUPS"
-          - "Server: CUPS"
+          - 'Web Interface is Disabled - CUPS'
+          - 'Forbidden - CUPS'
+          - 'Server: CUPS'
         condition: or
 
       - type: status
@@ -40,4 +40,4 @@ http:
         name: version
         regex:
           - 'CUPS v([0-9.]+)>'
-# digest: 4a0a00473045022100f5a7f7dc88e4526743491a32e6881921e0afc2d099f90f4af855af874bde7e4c022030e3c31484b35d37941e0ff155751114e16015c051552d48f73d99898a202e9b:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502205728d03d3339ab0528dc6a1b249df7081e6b31c4f3e59bf1dd6a53aaa312ba3502210083c351bb49b37ad69bd7d05f85752a6695fbe0fa6071fc6d4674c1969a324bea:922c64590222798bb761d5b6d8e72950

@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/adfinity/login"
+      - '{{BaseURL}}/adfinity/login'
 
     matchers:
       - type: dsl
@@ -32,4 +32,4 @@ http:
         group: 1
         regex:
           - '(?i)Version\s+Adfinity([0-9.]+)'
-# digest: 490a0046304402205053368a98419ea607c572c6a8a006277cd358db5735705e661ce53edb54992702204c5f0ad2559389cc19d1e56a773dfb10700b032f05c98ec7dc0846c2d5d1c24f:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100863ec1bd00bfff654d60d8a6608988cca50ce4143dd3c7d1398881ac9429faae0221008133f19238c990c327a2754aaefb99a9992d1ee9b5994b74636bfe0f09e765c6:922c64590222798bb761d5b6d8e72950

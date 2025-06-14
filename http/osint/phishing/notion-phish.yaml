@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"notion.so")'
-# digest: 490a004630440220164dd2c6dc38d7ef4259ad0aac9a0607f791c62ee61cbe0c830faa79d8f6bdf102203392221ef68fd1f2f0305d98cd6f09f0bc69e5434507f5bed0e39a2da49ba426:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210083f7cc12b1d54caad78ee3ae4d2acb181f11bcba6f7b875382c494a2f37b3370022100f3ae49b54bba1f7e30ff39a0d2d8bfac0ae00998e69913665ed1b377cb2cddec:922c64590222798bb761d5b6d8e72950

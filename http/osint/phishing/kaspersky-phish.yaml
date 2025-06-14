@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -33,4 +33,4 @@ http:
         dsl:
           - '!contains(host,"kaspersky.co.uk")'
           - '!contains(host,"kaspersky.com")'
-# digest: 4b0a00483046022100f77bf8ac49448cc5b4d845d6b2bb317e08310d38dece0710187c7e3bcc3e23be022100a34e6eb8c9df01e1507b635f4ca25c4e3bbe324f1aa2c684f09fa396785a0d7f:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220429822f25339aa11f2a8e0fad889cf7eafd2d83b56427494a4846daf9a7047e9022075b69fd734180816613d5372f23e838cdc84caa117e01099ada72b0a231fabd7:922c64590222798bb761d5b6d8e72950

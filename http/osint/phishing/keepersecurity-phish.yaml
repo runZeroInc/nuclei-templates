@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"keepersecurity.com")'
-# digest: 4a0a00473045022100c6336c108b6e55aa0cdcc7ae2fdc89764e0d9ec7bf20a697c675dbd54938539702202ade226bb4c88b1edbc35b221d598b0b9e907a1c9d846a1c3515ebf535b43315:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100cb8c5fd22d8cf1a8cb8718c0d715ae54768195a277656150e86a9aab8588ef17022100e567a39e3e1b6693a74026c1aa5a88e203e85b3b60dc83e7796456cdcc42413d:922c64590222798bb761d5b6d8e72950

@@ -17,8 +17,8 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/backend/login"
-      - "{{BaseURL}}"
+      - '{{BaseURL}}/backend/login'
+      - '{{BaseURL}}'
 
     stop-at-first-match: true
 
@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - 'Version\s+([0-9\.]+)\s+-'
-# digest: 4a0a0047304502202b835d446becbc24a0ff72f4729d5e8ef932dcb1ae5c0a85f19f3500e87b5a81022100b9f41e9b08f04b4c1a1a216992110271ec62cc1ec1b62323012abea8174d49d8:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022035d5cd9ba68a5f3d640a98f31dccf82ebbe9248a9dbb7c4f29a6815d5ebb9d9b022100b62797393b4664ebccbc2bef7ec5a20f73b89d7f4aabe620498c394891a5e884:922c64590222798bb761d5b6d8e72950

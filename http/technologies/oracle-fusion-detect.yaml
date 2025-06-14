@@ -15,16 +15,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "<title>Welcome to Oracle Fusion Middleware"
+          - '<title>Welcome to Oracle Fusion Middleware'
 
       - type: status
         status:
           - 200
-# digest: 490a004630440220307105683bd38a81a507f80af54ad579a11be1bcd0fe4566e0bfbd7f3c66f1fb022043454e29df97b07762f04deed788d67d865c0f670c83073b1e8067b58be6f5f4:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100c5a2dc29a0d6c1c1050a113594793d7bec3bc75998eee108ca5d6cd8d4aa5d78022052acbf58d72569f1138985052dc21364635d1ecc00152a893034c524d6ffd1a4:922c64590222798bb761d5b6d8e72950

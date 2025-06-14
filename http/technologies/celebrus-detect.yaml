@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - 'Celebrus\s+([0-9.]+)\s+Collection'
-# digest: 4a0a004730450220796e1375c6479cb299d5a2fe5259156b0dfc11a031c91f43fe05dca524c74472022100d2179bea92d80f18b1057829c13d67f0ebbbf30350f9c96cdfc6b73e1546fd4d:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100ecf17d3a809d6b205a56283a32019de53e82a95a33eb11eb39553529aa518de6022049e84185cdd0525f9a86e2048c118339ed4268eae15c6626707ef6615fe370ef:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -33,4 +33,4 @@ http:
         dsl:
           - '!contains(host,"deliveroo.com")'
           - '!contains(host,"deliveroo.co.uk")'
-# digest: 4a0a00473045022100e6d6704f0ac764960c4bd761a80d2283e438854714ff6a4be92d08f39977c82502202e728eb0f0249dff507058eeca266f76b4a1474cf41b512efe275e4031ef0a8c:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b8f225fd35da4b72b1bf4d0ccd8215bdcbb9dc7f609c10f21225248a78eb550402206c1481933f2cf2b905b17977207f89e0850d8236786df9e13d63f1c6d71b2b11:922c64590222798bb761d5b6d8e72950

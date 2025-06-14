@@ -16,7 +16,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers:
       - type: word
@@ -25,4 +25,4 @@ http:
           - 'sekolahku.web.id'
           - 'CMS Sekolahku'
         condition: or
-# digest: 490a00463044022029ed29fd3e63d27be067fbd919f617c25b3220b1316b4db21bfbcbeca8d2794002200aad832faa6745c1fff3a563a04549243883ff8f0903ccf985809e4f49758ee8:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502205b185f08bd4c14ef87a75480842e21326efad0651137e5dd34a67c8c951d26be022100b68234ba3b258158fcfeb11bb062a6e73047046d6db497ea5e27ab5eb99fcc05:922c64590222798bb761d5b6d8e72950

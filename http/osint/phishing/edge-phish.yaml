@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"microsoft.com")'
-# digest: 4a0a0047304502207a59cd6ba039431a60a45bf51768d190ec3279e6107a9c1147c4f847680e403d022100f64688e4fb74f1895e8e3d467ab62a6f7db54abab7aa43aad7c6091f0206c3f3:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402207e9ed1f9018c7155b4f83a59831802b92a0fe00830fabd99ffce3437b836c18d0220744213e7e14f024146868272894e69375418376c1d30b1554c4dd466e082ffbd:922c64590222798bb761d5b6d8e72950

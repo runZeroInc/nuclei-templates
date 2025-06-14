@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"ee.co.uk")'
-# digest: 4a0a004730450220646d819a297cca8e4498815864c39046c8a91a209306c2bed6f8181588946d76022100b2f7c3118589e74350801a48867206a181c4b941ecac6052db08fd3c5d908e79:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220642d835bed53189deaa8c378ba0ac54ab558a2d3b87d40ee1330e1dd30bd62cf02210098edc19a357c01f1749f596333470815d7588c335da7bc2b326931c16581f0cf:922c64590222798bb761d5b6d8e72950

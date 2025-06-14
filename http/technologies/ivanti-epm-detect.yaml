@@ -17,12 +17,12 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/favicon.ico"
-      - "{{BaseURL}}/images/favicon.ico"
+      - '{{BaseURL}}/favicon.ico'
+      - '{{BaseURL}}/images/favicon.ico'
 
     stop-at-first-match: true
     matchers:
       - type: dsl
         dsl:
-          - "status_code==200 && (\"362091310\" == mmh3(base64_py(body)))"
-# digest: 490a0046304402202228f898c343537bed04542270281ed2e732c089c4d1f36ac75f78935f23b955022051d9142012f2ebf101a4fb99af8e8b2ce223b41c04af855d8611a8d69bf9670e:922c64590222798bb761d5b6d8e72950
+          - 'status_code==200 && ("362091310" == mmh3(base64_py(body)))'
+# digest: 4a0a00473045022100ca729b2601192697b52597b7dcb27a8c66504dab2813b31680747fce557a66da02202a650a66a68c6f3abf996168c6abe6df71befe76435382b1b1a81489ebcada93:922c64590222798bb761d5b6d8e72950

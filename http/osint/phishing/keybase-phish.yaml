@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"keybase.io")'
-# digest: 4b0a004830460221008c159cdd7d86e5aad7c8292a8627cc229d6fedfcbac33d72109940ec1eba6622022100d520b51f95342d5eb2e2b2832e3d95b33619def8ef8fb03146dd5dcfb93ab772:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022042d34a697772341b9033dcf660ef52df20929cf7eb072cfa52dd031e7881a818022036eadbadc415e69bc9cd5bef0e91ab744a9c1647352d732592de584e65a85d34:922c64590222798bb761d5b6d8e72950

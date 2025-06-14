@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"openai.com")'
-# digest: 4b0a004830460221009a4312d2ff18fad004295fa149a606a2a60a1f441dc8fdc189634563f37fb1f702210080cdf2c43503213c0a4f652d922cfcb2234137e0434cc7b9fe29a4d801b5ff12:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402204abe7b2978a7f188dec2f768356b40ed6a464c855ce3530e1360895874528e9802205106b468015edc0dfedb1949ec69224156adf500aeb97d1199450d53a8c9aea1:922c64590222798bb761d5b6d8e72950

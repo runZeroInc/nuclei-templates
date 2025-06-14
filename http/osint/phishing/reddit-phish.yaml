@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"reddit.com")'
-# digest: 4a0a0047304502200d899ff5cd902dde67ff37ba0ba65f93c5b69e0161341d3ddb83e62fe670b068022100c3744cacbf183a6a4925486d3a3ef402323675272a57101483d5b174df94cd66:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c205ae5f4708b3543edf89f373ae8d2bff27faca66f2d9135f793c6cfa25ebbc022100989add7fff9840de98c8417d673990507092011dbefae61bc092dd3aeed59690:922c64590222798bb761d5b6d8e72950

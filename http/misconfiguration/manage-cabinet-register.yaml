@@ -5,7 +5,7 @@ info:
   author: noel
   severity: low
   description: |
-   The path to the Cabinet Storage is omniapp/pages/cabinet/managecabinet.jsf?Action=1. If exposed, it gives an attacker insight into information such as Storage Volume Name, Cabinet Name, it's alias, Deployed AppServer IP Address and Port
+    The path to the Cabinet Storage is omniapp/pages/cabinet/managecabinet.jsf?Action=1. If exposed, it gives an attacker insight into information such as Storage Volume Name, Cabinet Name, it's alias, Deployed AppServer IP Address and Port
   reference:
     - https://www.edms-consultants.com/newgen-rlos/
   metadata:
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402202e09188d6225a61f832860cd0923a539dc7c76b01f5e1530f9ed0be99a936ad402206f59676166f2fb37ab5bd26f431e3df7143a8b22d136381cd2268e03de945f5c:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022055e8ebf32ce8749646be6f2933c521c8c08af56d79b8301a4ff26ec1652c677002205fa7b6504dc8723702014be561f080565f993c58d30927d6b61e7f6c43d95bd0:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"wetransfer.com")'
-# digest: 4a0a004730450220590e08d1306a465174e902c15c0cf47c91b4c7a919e2de4fdcebc525933a7d6202210081893a5e887b0e4aba182ddba0741c735b70d130df1f3434c8d52b23045ba0fe:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a66bed9d82c75cab3bfc9366f383c67fccd84f835a973a13750fef6591e441f1022100b8c4c914b367ddbc6118eab46dd911e028d41d0c9286c9017cccea9983f6d810:922c64590222798bb761d5b6d8e72950

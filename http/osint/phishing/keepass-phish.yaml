@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"keepass.info")'
-# digest: 4b0a004830460221008fc8b31acf9637002d6f1b2fa5344c7fb6434aec1605d31153b650d11e1e011c022100e67da2979288c86da3a4925614ae44cefd11bc59795ccdd72f31f5ad77757c23:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100851cdd5267391dc0333ec4e087d666ca7015f3ffb5b754d61ceab230ba63935d02205e63959ea9f834cf59264cae7deaa58041ac0dd90970bcaf4e7584dabf71088a:922c64590222798bb761d5b6d8e72950

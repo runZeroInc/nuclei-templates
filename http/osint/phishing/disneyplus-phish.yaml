@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"disneyplus.com")'
-# digest: 4a0a0047304502201c46c409d4f4532a0f0994c3fd920f53767f0c489f7609a87404c2067e2586640221008704161580d1765958512d1495e1260bc811132e5d1cf61f16fd590ae667bdb6:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100afdae7de3cfa61ecb10420f78227b504a1268c9c73389f35b15db04e9bfa7496022052b3de7aae31bd42fd5ffda0fa056946f9cc84ea0714c268a13a8b9711f0f6c9:922c64590222798bb761d5b6d8e72950

@@ -18,7 +18,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/portal/loginpage.aspx"
+      - '{{BaseURL}}/portal/loginpage.aspx'
 
     matchers-condition: and
     matchers:
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100b2227cd01f9f73041d1f4be00d276bffc2a0d2f6d4b85f20b0be6ba981542fe4022100ac1154cfcc4ae25d6383ce15b179f40cbb3adac3f0ed64db0464ae87171f8c4e:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100feb8961894a767535594254bb6174165fde59a95d659a26dcb3adf61eed22eb0022100a251f185a696fe922c6ea422e2f46ee80acb12d68bf4eb9e55de12b523ff03c7:922c64590222798bb761d5b6d8e72950

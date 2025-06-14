@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"slack.com")'
-# digest: 4a0a0047304502207a6ed8561dc3eb0ff95068f814ea3c601b2cb5e942aa9e7d37e03bb53d2afd220221008024cf9a0456170f9ae33a273f94e179980975eaea492018b450d4606498551b:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402200bfb996911799ffc7e08c8ec90610b135de8cf8001c5cf138571e042a533f74e02203e5d2cb3d32d01b461c2c4049927f3b1688adafd2583f6ae02874849f69c5699:922c64590222798bb761d5b6d8e72950

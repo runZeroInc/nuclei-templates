@@ -17,16 +17,16 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "<title>MeTube</title>"
+          - '<title>MeTube</title>'
 
       - type: status
         status:
           - 200
-# digest: 490a0046304402202dc2670890806ec05d61d11ab5315a5e03a5fa312716a6b71a6ae374a144e6ba02207fcbd97eb4f05b4c69d1f551c1448e8a53d0725acba035cabc6586369289253d:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a36a618f45bfac8c15449947849529c3e08702aa22bc9544b69b7ee53af545c4022100bb9fa7806163bb0a531ad8e11e0c4224e928056b7e01a9aa4fa9d7aa8e3f4939:922c64590222798bb761d5b6d8e72950

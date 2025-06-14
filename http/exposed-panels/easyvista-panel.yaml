@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/index.php"
+      - '{{BaseURL}}/index.php'
 
     matchers:
       - type: dsl
@@ -33,4 +33,4 @@ http:
         regex:
           - '(?i)package:\s+"([a-z0-9._-]+)"'
           - '(?i)version&nbsp;:&nbsp;([a-z0-9._-]+)'
-# digest: 4a0a0047304502204ca4e805dece0207105b1df76aaae9ba0c9cd16edcc4ef84a605e97191ff715a022100ea893c13f7d3b3536a04165ff5eb0250c51a88f5e0b8e939d28bc3ce3fbfe25b:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204aab9494e937e206ff0eeb9900936119ecbd2da3cfe70b491c2881dda93d1b650221009536fce8c04dd03543ff37413b3b37bd3cc739f4f082f6efe0e0abb42602fb7b:922c64590222798bb761d5b6d8e72950

@@ -12,14 +12,14 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: "Max-Forwards:"
+    shodan-query: 'Max-Forwards:'
     fofa-query: header="max-forwards"
   tags: miscellaneous,misc,max-forwards
 
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers:
       - type: dsl
@@ -31,4 +31,4 @@ http:
         part: header
         regex:
           - '(?i)max-forwards:\s+([0-9]+)'
-# digest: 490a00463044022100e5682b95b48de58c1a2a685455075985284eaf39af286147c03612306cc1c863021f35c9833cd8a017d4b619f83526bf0ab2e2c379ce60d18cd3ae6d79068aa02a:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100c0b3fcdd34400cbedfc6f18e5bd77bd39d27434723c301e5415c88caf7b27daa02206b40a1df92f71a748d0793de6df73f9dbbff66fbe7b1147aeb6716058a753252:922c64590222798bb761d5b6d8e72950

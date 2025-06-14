@@ -16,7 +16,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     matchers:
       - type: dsl
@@ -24,4 +24,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>Haivision Media Platform", "content=\"Haivision Network Video")'
         condition: and
-# digest: 4b0a00483046022100afd3b375bb4ba0b09fcd92463fa90fcb76fdbd485f6f1badbbce85ed37234c8f022100fe805ccbb5e2b263a53b57e6616b298010aa229eb412120abc7f573add27ce5c:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100ef4d6b03fdc9ec95555eaffc9336944036b000e76afe53c5c70f57fc56cedd84022100a517659e9b90936e46336af039882b5dbeaa2658f151752479cbbb9d0d7d4a3c:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"ccleaner.com")'
-# digest: 490a00463044022040f7f3caaf9191849202620d48147d0064c522b5b6b6997162d67d8594e38535022044741902dd2b238904c3aff28f3c324ce3b2ade5d4e1a0d2d372177112584b1b:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221008f51454653d9fa66e5cd26998b63aafb8c14cff5f770a558492c7f4c277ee6c3022100eac469088304b2c8296034cc9050cd7c9c3cf52deaf12aa36b9bd1bf94396f63:922c64590222798bb761d5b6d8e72950

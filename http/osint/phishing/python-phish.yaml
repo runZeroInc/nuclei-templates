@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -27,7 +27,6 @@ http:
           - 'The official home of the Python Programming Language'
         condition: and
 
-
       - type: status
         status:
           - 200
@@ -35,4 +34,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"python.org")'
-# digest: 4b0a00483046022100ad9523a57e1f8347cf7d9346e9504a25e2abebe52b8f60e35cd4aaa726b5898b022100b3654508dc8fa940008a4a4344025e2b2e68b3e2c875dbfb8bb3f101486219c0:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221009b547f5003f610af0cf02992c83c3479cde6a7098a3c17ac263405fc4a3ab76e022021b150b80c762900c579059fa68d7eadc738336acb188880d2437c813cf5b0d9:922c64590222798bb761d5b6d8e72950

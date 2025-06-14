@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"winscp.net")'
-# digest: 4b0a0048304602210091ab88023ecc1df5c6274c2b9632ef5c2edee913f1abd0d31776c1776f4c1e89022100837d3e29b7bdd87f2773815a70315cdafcc240f5e8ea77cb7baeebd9d8abc228:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100db1bb6f2a0f8925e8a929124fff1186237399ee02ff2aceefcef21840a69f74a02206bb281d94f5084e309a66d37400cd4a912648c082f5abe600945f1209b6d5932:922c64590222798bb761d5b6d8e72950

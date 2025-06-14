@@ -1,3 +1,4 @@
+code/audit/cis/ubuntu/ssh-hostbasedauth-disabled.yaml
 code/cves/2024/CVE-2024-10443.yaml
 http/cves/2017/CVE-2017-14942.yaml
 http/cves/2017/CVE-2017-8046.yaml
@@ -10,6 +11,7 @@ http/cves/2019/CVE-2019-9757.yaml
 http/cves/2019/CVE-2019-9762.yaml
 http/cves/2019/CVE-2019-9879.yaml
 http/cves/2020/CVE-2020-12262.yaml
+http/cves/2020/CVE-2020-12641.yaml
 http/cves/2020/CVE-2020-13886.yaml
 http/cves/2020/CVE-2020-24285.yaml
 http/cves/2020/CVE-2020-26879.yaml
@@ -53,14 +55,18 @@ http/cves/2024/CVE-2024-7399.yaml
 http/cves/2024/CVE-2024-9707.yaml
 http/cves/2024/CVE-2024-9916.yaml
 http/cves/2025/CVE-2025-0107.yaml
+http/cves/2025/CVE-2025-0133.yaml
 http/cves/2025/CVE-2025-0674.yaml
 http/cves/2025/CVE-2025-20188.yaml
 http/cves/2025/CVE-2025-4008.yaml
+http/cves/2025/CVE-2025-4009.yaml
 http/cves/2025/CVE-2025-4322.yaml
+http/cves/2025/CVE-2025-46822.yaml
 http/cves/2025/CVE-2025-47539.yaml
 http/cves/2025/CVE-2025-49113.yaml
 http/cves/2025/CVE-2025-5086.yaml
 http/default-logins/apc-nmc/apc-nmc-default-login.yaml
+http/exposed-panels/apex-central-panel.yaml
 http/exposed-panels/cisco/cisco-ise-admin-panel.yaml
 http/exposed-panels/fortirecorder-panel.yaml
 http/exposed-panels/mattermost-panel.yaml

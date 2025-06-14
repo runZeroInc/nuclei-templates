@@ -16,7 +16,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/config/public"
+      - '{{BaseURL}}/config/public'
 
     matchers:
       - type: dsl
@@ -31,4 +31,4 @@ http:
         group: 1
         regex:
           - '"envTitle":"([A-Z0-9a-z]+)"'
-# digest: 490a00463044022072eaf64a222fa7b4e552649108b2ca64f8b4db75bf422126e68fddbcf6dcb0e6022048b9b5633bf3a08014838c63dc0c2b0e604200f77ee0f7958c8dbce849c75ce0:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402202423c6f8ed76c85008926a8daddd3320c23ffeafbfada8d2d05448a5b557abd9022068e857634bf546352627abfe86f203d808accc6e8acff04d48fa62212b8ad277:922c64590222798bb761d5b6d8e72950

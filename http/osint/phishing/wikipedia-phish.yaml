@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}"
+      - '{{BaseURL}}'
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"wikipedia.org")'
-# digest: 4a0a00473045022100a2f07d69f56ae2b7b32d1d1bb2312a35e37d9afbd6e28bd4a2d6584524a8c34a0220738d578a06af45769936f5419b3af05dba505fa322575a03c88f1b0b27548a35:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221008deceff9954057b0f8bdbb53000116ebc4e2c084f598636553fbcd32a16c6dab022100db7850cdb5d78337af50d51c68fa23a6d5a5734b62592c5f18e3ecd5d023aeff:922c64590222798bb761d5b6d8e72950
