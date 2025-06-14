@@ -6,7 +6,7 @@ info:
   severity: high
   description: Apache Ranger default login credentials were discovered.
   reference:
-  - https://github.com/apache/ranger
+    - https://github.com/apache/ranger
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -22,31 +22,31 @@ info:
   tags: apache,ranger,default-login
 
 http:
-- raw:
-  - |
-    POST /login HTTP/1.1
-    Host: {{Hostname}}
-    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+  - raw:
+      - |
+        POST /login HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
-    username={{user}}&password={{pass}}
+        username={{user}}&password={{pass}}
 
-  attack: pitchfork
-  payloads:
-    user:
-    - admin
-    pass:
-    - admin
+    attack: pitchfork
+    payloads:
+      user:
+        - admin
+      pass:
+        - admin
 
-  matchers-condition: and
-  matchers:
-  - type: word
-    part: body
-    words:
-    - '"statusCode":200'
-    - '"msgDesc":"Login Successful"'
-    condition: and
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '"statusCode":200'
+          - '"msgDesc":"Login Successful"'
+        condition: and
 
-  - type: status
-    status:
-    - 200
+      - type: status
+        status:
+          - 200
 # digest: 490a0046304402203c0ca17eead918e4b9afe5f6bb924853d80a5daa61691b4913bbc468818a1283022063fe3fb0d1b1093239db4e91ea1cc536f5f0e413cc1f966aa8fa4347ede65330:922c64590222798bb761d5b6d8e72950
