@@ -18,7 +18,7 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/console/hawtconfig.json"
+      - '{{BaseURL}}/console/hawtconfig.json'
 
     matchers-condition: and
     matchers:
@@ -29,9 +29,9 @@ http:
         condition: and
 
     extractors:
-    - type: regex
-      part: body
-      name: version
-      group: 1
-      regex:
-        - '"productInfo":.*"value":\s*"(.*)"'
+      - type: regex
+        part: body
+        name: version
+        group: 1
+        regex:
+          - '"productInfo":.*"value":\s*"(.*)"'
