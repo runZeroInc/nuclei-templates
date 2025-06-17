@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dell:emc_idrac_service_module:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "thisIDRACText"
     verified: true
     max-request: 2
     shodan-query: html:"thisIDRACText"

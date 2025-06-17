@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:h:ixsystems:truenas:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "TrueNAS" || service["http.body"] matches "(?i)truenas"
     verified: true
     max-request: 1
     vendor: ixsystems

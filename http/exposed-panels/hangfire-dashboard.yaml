@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hangfire:hangfire:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Overview – Hangfire Dashboard"}) || any(each(service["html.titles"]), {# matches "(?i)overview – hangfire dashboard"})
     verified: true
     max-request: 2
     vendor: hangfire

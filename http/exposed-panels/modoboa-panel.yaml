@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:modoboa:modoboa:*:*:*:*:modoboa:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1949005079" || service["http.body"] matches "(?i)modoboa"
     verified: true
     max-request: 2
     vendor: modoboa

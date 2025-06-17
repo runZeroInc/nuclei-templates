@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:ivanti:connect_secure:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Ivanti Connect Secure"}) || any(each(service["html.titles"]), {# matches "(?i)ivanti connect secure"}) || service["http.body"] matches "(?i)welcome\\.cgi\\?p=logo"
     verified: true
     max-request: 2
     vendor: ivanti

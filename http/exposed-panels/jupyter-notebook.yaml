@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jupyter:notebook:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "JupyterHub"
     max-request: 4
     shodan-query: http.html:"JupyterHub"
     product: notebook

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:yzmcms:yzmcms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "YzmCMS"}) || any(each(service["html.titles"]), {# matches "(?i)yzmcms"})
     max-request: 1
     vendor: yzmcms
     product: yzmcms

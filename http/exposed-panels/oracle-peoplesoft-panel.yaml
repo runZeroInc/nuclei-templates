@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oracle:peoplesoft_enterprise_peopletools:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Oracle PeopleSoft Sign-in"})
     verified: true
     max-request: 12
     shodan-query: "http.title:\"Oracle PeopleSoft Sign-in\""

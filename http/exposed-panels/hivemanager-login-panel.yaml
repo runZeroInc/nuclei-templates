@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:aerohive:hivemanager_classic:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1604363273"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1604363273

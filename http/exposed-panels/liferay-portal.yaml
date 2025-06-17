@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:liferay:liferay_portal:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "129457226"
     verified: true
     max-request: 3
     vendor: liferay

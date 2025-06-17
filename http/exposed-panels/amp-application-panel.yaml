@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cubecoders:amp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "AMP - Application Management Panel"}) || any(each(service["html.titles"]), {# matches "(?i)amp - application management panel"})
     verified: true
     max-request: 1
     vendor: cubecoders

@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hestiacp:control_panel:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Hestia Control Panel"}) || service["favicon.ico.image.mmh3"] == "-476299640" || any(each(service["html.titles"]), {# matches "(?i)hestia control panel"})
     verified: true
     max-request: 1
     vendor: hestiacp

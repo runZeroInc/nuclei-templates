@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bitrix:bitrix24:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)/bitrix/"
     max-request: 1
     verified: true
     vendor: bitrix

@@ -7,6 +7,8 @@ info:
   description: |
     txAdmin panel was discovered.
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)txAdmin Login"})
     verified: true
     max-request: 1
     fofa-query: title="txAdmin Login"

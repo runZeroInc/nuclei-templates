@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:diagrams:drawio:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Flowchart Maker"}) || any(each(service["html.titles"]), {# matches "(?i)flowchart maker"})
     verified: true
     max-request: 1
     vendor: diagrams

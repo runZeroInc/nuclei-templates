@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:sentry:sentry:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Login \\| Sentry"}) || any(each(service["html.titles"]), {# matches "(?i)login \\| sentry"})
     verified: true
     max-request: 1
     vendor: sentry

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:concrete5:concrete5:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)concrete5"}) || any(each(service["html.titles"]), {# matches "(?i)install concrete5"})
     max-request: 1
     vendor: concrete5
     product: concrete5

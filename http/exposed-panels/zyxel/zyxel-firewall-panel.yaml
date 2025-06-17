@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:zyxel:zywall_vpn50_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-440644339"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-440644339

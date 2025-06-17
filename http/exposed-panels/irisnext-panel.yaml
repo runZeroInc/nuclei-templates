@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.irislink.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)irisnext"})
     max-request: 1
     verified: true
     shodan-query: http.title:"irisnext"

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:nortekcontrol:linear_emerge_essential_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "eMerge"}) || any(each(service["html.titles"]), {# matches "(?i)emerge"})
     verified: true
     max-request: 1
     vendor: nortekcontrol

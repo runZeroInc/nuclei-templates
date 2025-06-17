@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zohocorp:manageengine_opmanager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "OpManager Plus"}) || any(each(service["html.titles"]), {# matches "(?i)opmanager plus"})
     max-request: 1
     vendor: zohocorp
     product: manageengine_opmanager

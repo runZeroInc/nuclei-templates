@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:sonicwall:sma1000_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Appliance Management Console Login"}) || any(each(service["html.titles"]), {# matches "(?i)appliance management console login"})
     verified: true
     max-request: 1
     vendor: sonicwall

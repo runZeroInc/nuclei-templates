@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:icewarp:icewarp_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)icewarp"}) || any(each(service["html.titles"]), {# matches "(?i)icewarp"})
     verified: true
     max-request: 1
     vendor: icewarp

@@ -10,6 +10,8 @@ info:
     - https://github.com/henrygd/beszel
     - https://beszel.dev/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)beszel"})
     max-request: 1
     verified: true
     shodan-query: http.title:"beszel"

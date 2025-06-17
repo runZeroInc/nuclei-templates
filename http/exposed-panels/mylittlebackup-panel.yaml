@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mylittletools:mylittlebackup:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "myLittleBackup"
     verified: true
     max-request: 3
     shodan-query: http.html:"myLittleBackup"
