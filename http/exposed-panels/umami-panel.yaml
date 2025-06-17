@@ -10,6 +10,8 @@ info:
     - https://umami.is/
     - https://umami.is/docs
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-130447705"
     verified: true
     max-request: 3
     shodan-query: http.favicon.hash:-130447705

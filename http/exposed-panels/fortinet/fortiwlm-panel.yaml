@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortiwlm:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)fortiwlm" || service["http.body"] matches "(?i)fortiwlm" || any(each(service["html.titles"]), {# matches "(?i)fortiwlm"})
     max-request: 1
     vendor: fortinet
     product: fortiwlm

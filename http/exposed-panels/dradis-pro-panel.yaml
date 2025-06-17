@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dradisframework:dradis:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Dradis Professional Edition"})
     verified: true
     max-request: 1
     shodan-query: title:"Dradis Professional Edition"

@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/TabbyML/tabby
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Tabby"})
     verified: true
     max-request: 1
     fofa-query: title="Tabby"

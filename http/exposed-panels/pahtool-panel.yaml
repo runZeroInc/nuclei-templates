@@ -9,6 +9,8 @@ info:
   reference:
     - http://www.inovultus.com/index.html
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "PAHTool"})
     verified: true
     max-request: 1
     shodan-query: http.title:"PAHTool"

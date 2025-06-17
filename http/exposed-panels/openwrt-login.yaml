@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:o:openwrt:openwrt:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "OpenWrt - LuCI"}) || any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
     max-request: 2
     vendor: openwrt
     product: openwrt

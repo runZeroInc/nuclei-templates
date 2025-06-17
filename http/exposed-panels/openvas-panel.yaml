@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:openvas:openvas_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1606029165"
     verified: true
     max-request: 1
     vendor: openvas

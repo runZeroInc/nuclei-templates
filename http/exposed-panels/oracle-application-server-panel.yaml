@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.oracle.com/middleware/technologies/internet-application-server.html
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Oracle Containers for J2EE"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Oracle Containers for J2EE"

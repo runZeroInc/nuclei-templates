@@ -9,6 +9,8 @@ info:
   reference:
     - https://skeepers.io
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Skeepers"})
     verified: true
     max-request: 2
     shodan-query: http.title:"Skeepers"

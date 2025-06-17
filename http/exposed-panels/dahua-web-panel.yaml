@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:dahuasecurity:sd22204db-gny-w:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1653394551"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1653394551

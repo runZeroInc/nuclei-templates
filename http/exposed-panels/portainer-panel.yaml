@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:portainer:portainer:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Portainer"}) || any(each(service["html.titles"]), {# matches "(?i)portainer"})
     verified: true
     max-request: 2
     vendor: portainer

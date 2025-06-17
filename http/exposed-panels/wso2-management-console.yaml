@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:wso2:api_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1398055326"
     max-request: 1
     vendor: wso2
     product: api_manager

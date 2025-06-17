@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.advantive.com/brands/veracore/
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "veraCoreScreenHeight"
     verified: true
     max-request: 1
     shodan-query: html:"veraCoreScreenHeight"

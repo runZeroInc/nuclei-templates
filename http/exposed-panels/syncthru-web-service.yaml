@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:samsung:syncthru_web_service:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "SyncThru Web Service"}) || any(each(service["html.titles"]), {# matches "(?i)syncthru web service"})
     verified: true
     max-request: 1
     vendor: samsung

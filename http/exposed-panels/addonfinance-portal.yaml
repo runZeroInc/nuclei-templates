@@ -6,6 +6,8 @@ info:
   severity: info
   description: AddOnFinance Portal Panel was detected.
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "AddOnFinancePortal"})
     verified: "true"
     max-request: 1
     shodan-query: title:"AddOnFinancePortal"

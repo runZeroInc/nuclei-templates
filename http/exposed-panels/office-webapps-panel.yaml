@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-668
     cpe: cpe:2.3:a:microsoft:office_web_apps_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "Provide a link that opens Word" || service["http.body"] matches "(?i)provide a link that opens word"
     verified: true
     max-request: 2
     vendor: microsoft

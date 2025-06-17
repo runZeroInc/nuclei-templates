@@ -10,6 +10,8 @@ info:
     - https://github.com/cockpit-project/cockpit
     - https://cockpit-project.org/
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)cockpit/static/login\\.css"
     max-request: 1
     verified: true
     shodan-query: http.html:"cockpit/static/login.css"

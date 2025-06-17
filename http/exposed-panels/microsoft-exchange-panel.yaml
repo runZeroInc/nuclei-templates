@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:microsoft:exchange_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1768726119" || any(each(service["html.titles"]), {# matches "(?i)outlook"})
     max-request: 1
     vendor: microsoft
     product: exchange_server

@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gnu:mailman:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Mailing Lists"}) || any(each(service["html.titles"]), {# matches "(?i)mailing lists"})
     verified: true
     max-request: 2
     vendor: gnu

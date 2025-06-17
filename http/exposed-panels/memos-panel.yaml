@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:usememos:memos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Memos"}) || any(each(service["html.titles"]), {# matches "(?i)memos"})
     verified: true
     max-request: 2
     vendor: usememos

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:intelliantech:aptus:*:*:*:*:android:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Aptus Login"})
     max-request: 1
     shodan-query: http.title:"Aptus Login"
     product: aptus

@@ -7,6 +7,8 @@ info:
   description: |
     Detects the presence of Bonita Portal login page.
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1197926023"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-1197926023

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:lansweeper:lansweeper:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Lansweeper - Login"}) || any(each(service["html.titles"]), {# matches "(?i)lansweeper - login"})
     verified: true
     max-request: 1
     vendor: lansweeper

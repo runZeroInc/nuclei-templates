@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jorani:jorani:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "Login - Jorani"
     verified: true
     max-request: 2
     shodan-query: html:"Login - Jorani"

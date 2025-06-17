@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:telesquare:tlr-2005ksh_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "TLR-2005KSH" || service["http.body"] matches "(?i)tlr-2005ksh"
     verified: true
     max-request: 1
     vendor: telesquare

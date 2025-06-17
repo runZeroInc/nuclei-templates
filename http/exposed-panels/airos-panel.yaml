@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:o:ui:airos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-697231354"
     verified: true
     max-request: 1
     vendor: ui

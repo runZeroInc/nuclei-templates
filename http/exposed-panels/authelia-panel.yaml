@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:authelia:authelia:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Login - Authelia"})
     verified: true
     max-request: 1
     vendor: authelia

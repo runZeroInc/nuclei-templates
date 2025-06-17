@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:directum:directum:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Directum"})
     max-request: 1
     fofa-query: title="Directum"
     product: directum

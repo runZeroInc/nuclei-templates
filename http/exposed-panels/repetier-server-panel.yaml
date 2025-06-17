@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:repetier-server:repetier-server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Repetier-Server"}) || any(each(service["html.titles"]), {# matches "(?i)repetier-server"})
     verified: true
     max-request: 1
     vendor: repetier-server

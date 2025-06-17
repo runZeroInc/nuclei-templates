@@ -7,6 +7,8 @@ info:
   reference:
     - http://compalex.net/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "COMPALEX"})
     verified: true
     max-request: 15
     shodan-query: title:"COMPALEX"

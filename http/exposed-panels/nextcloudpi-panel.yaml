@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/nextcloud/nextcloudpi
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "NextcloudPi"})
     verified: true
     max-request: 1
     vendor: nextcloud

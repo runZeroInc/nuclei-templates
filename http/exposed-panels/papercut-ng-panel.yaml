@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:papercut:papercut_ng:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)'content=\"papercut'" || service["http.body"] matches "(?i)content=\\\\"
     verified: true
     max-request: 1
     vendor: papercut

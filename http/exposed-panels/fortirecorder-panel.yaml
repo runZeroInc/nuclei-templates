@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.fortinet.com/content/dam/fortinet/assets/data-sheets/FortiRecorder.pdf
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "FortiRecorder"})
     max-request: 1
     verified: true
     shodan-query: title:FortiRecorder

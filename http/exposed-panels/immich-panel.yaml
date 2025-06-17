@@ -10,6 +10,8 @@ info:
     - https://immich.app/
     - https://github.com/immich-app/immich
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-43504595"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-43504595

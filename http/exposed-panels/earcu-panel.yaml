@@ -8,6 +8,8 @@ info:
   reference:
     - https://www.earcu.com/products
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "'content=\"eArcu'"
     verified: "true"
     max-request: 1
     shodan-query: html:'content="eArcu'

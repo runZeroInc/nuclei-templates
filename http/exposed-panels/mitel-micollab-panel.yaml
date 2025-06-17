@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:mitel:micollab:*:*:*:*:-:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "MiCollab End User Portal"
     verified: true
     max-request: 1
     vendor: mitel

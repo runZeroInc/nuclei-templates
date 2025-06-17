@@ -10,6 +10,8 @@ info:
     - https://pocketbase.io/
     - https://pocketbase.io/docs/
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "981081715"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:981081715

@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.ngsurvey.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "ngSurvey enterprise survey software"})
     max-request: 1
     verified: true
     shodan-query: http.title:"ngSurvey enterprise survey software"

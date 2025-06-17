@@ -10,6 +10,8 @@ info:
     - https://homebridge.io/
     - https://github.com/homebridge
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Homebridge"})
     verified: true
     max-request: 1
     shodan-query: title:"Homebridge"

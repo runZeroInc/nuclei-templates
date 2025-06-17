@@ -9,6 +9,8 @@ info:
   reference:
     - https://lomnido.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Lomnido Login"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Lomnido Login"
