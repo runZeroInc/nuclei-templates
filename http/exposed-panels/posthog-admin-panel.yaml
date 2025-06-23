@@ -1,22 +1,25 @@
 id: posthog-admin-panel
 
 info:
-  name: PostHog Login Panel - Detect
+  name: PostHog - Exposed Panel
   author: theabhinavgaur
   severity: info
-  description: PostHog login panel was detected.
+  description: PostHog panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
     cpe: cpe:2.3:a:posthog:posthog:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)posthog"})
+        any(each(service["html.titles"]), {# matches "(?i)posthog"}) || service["favicon.ico.image.mmh3"] == "1818843460" || service["favicon.ico.image.mmh3"] == "-1309131233"
     verified: true
     max-request: 1
     vendor: posthog
     product: posthog
-    shodan-query: http.title:"posthog"
+    shodan-query:
+      - http.title:"posthog"
+      - http.favicon.hash:1818843460
+      - http.favicon.hash:-1309131233
     fofa-query: title="posthog"
     google-query: intitle:"posthog"
   tags: panel,posthog

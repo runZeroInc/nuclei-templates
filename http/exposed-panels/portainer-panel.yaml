@@ -1,16 +1,17 @@
 id: portainer-panel
 
 info:
-  name: Portainer Login Panel - Detect
+  name: Portainer - Exposed Panel
   author: ritikchaddha
   severity: info
+  description: Portainer panel was detected.
   reference:
     - https://github.com/portainer/portainer
   classification:
     cpe: cpe:2.3:a:portainer:portainer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Portainer"}) || any(each(service["html.titles"]), {# matches "(?i)portainer"})
+        any(each(service["html.titles"]), {# matches "(?i)portainer"})
     verified: true
     max-request: 2
     vendor: portainer

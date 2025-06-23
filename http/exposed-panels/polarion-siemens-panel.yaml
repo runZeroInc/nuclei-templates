@@ -1,11 +1,11 @@
 id: polarion-siemens-panel
 
 info:
-  name: Polarion Siemens Login - Panel
+  name: Siemens Polarion - Exposed Panel
   author: Th3l0newolf
   severity: info
   description: |
-    Detects the exposed Polarion Siemens login page.
+    Siemens Polarion panel was detected.
   reference:
     - https://polarion.plm.automation.siemens.com/
   metadata:

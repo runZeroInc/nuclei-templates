@@ -1,9 +1,10 @@
 id: powerchute-network-panel
 
 info:
-  name: PowerChute Network Shutdown Panel - Detect
+  name: PowerChute Network Shutdown - Exposed Panel
   author: DhiyaneshDK
   severity: info
+  description: PowerChute Network Shutdown panel was detected.
   metadata:
     runzero-match: |-
         service["http.body"] matches "PowerChute Network Shutdown"

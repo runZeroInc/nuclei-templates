@@ -1,10 +1,10 @@
 id: pichome-panel
 
 info:
-  name: Pichome Login Panel - Detect
+  name: PicHome - Exposed Panel
   author: ritikchaddha
   severity: info
-  description: Pichome login panel was detected.
+  description: PicHome panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

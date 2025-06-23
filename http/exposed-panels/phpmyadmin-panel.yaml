@@ -1,7 +1,7 @@
 id: phpmyadmin-panel
 
 info:
-  name: phpMyAdmin Panel - Detect
+  name: phpMyAdmin - Exposed Panel
   author: pdteam,righettod
   severity: info
   description: phpMyAdmin panel was detected.
@@ -11,7 +11,7 @@ info:
     cpe: cpe:2.3:a:phpmyadmin:phpmyadmin:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "phpMyAdmin"}) || any(each(service["html.titles"]), {# matches "(?i)phpmyadmin"})
+        any(each(service["html.titles"]), {# matches "(?i)phpmyadmin"})
     max-request: 14
     vendor: phpmyadmin
     product: phpmyadmin
