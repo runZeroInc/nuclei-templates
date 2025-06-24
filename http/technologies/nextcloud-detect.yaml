@@ -1,11 +1,11 @@
 id: nextcloud-detect
 
 info:
-  name: Nextcloud Detect
+  name: Nextcloud Server - Detection
   author: skeltavik
   severity: info
   description: |
-    Nextcloud is a suite of client-server software for creating and using file hosting services
+    Nextcloud Server was detected.
   reference:
     - https://nextcloud.com
   classification:
@@ -16,6 +16,9 @@ info:
     vendor: nextcloud
     product: nextcloud_server
     shodan-query: http.title:"Nextcloud"
+    runzero-match: any(each(service["html.titles"]), {# matches "Nextcloud"})
+    runzero-vendor: "Nextcloud"
+    runzero-product: "Nextcloud Server"
   tags: tech,nextcloud,storage
 
 http:
@@ -45,6 +48,7 @@ http:
 
     extractors:
       - type: regex
+        name: version
         group: 1
         regex:
           - '(?m)"version":"([0-9.]+)",'
