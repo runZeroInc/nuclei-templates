@@ -16,8 +16,8 @@ info:
     shodan-query: http.html:"owncloud"
     runzero-match: |-
       any(each(service["html.titles"]), {# matches "ownCloud"})
-    runzero-vendor: "ownCloud"
-    runzero-product: "ownCloud Server"
+    runzero-vendor: ownCloud
+    runzero-product: ownCloud Server
   tags: tech,owncloud,status
 
 http:

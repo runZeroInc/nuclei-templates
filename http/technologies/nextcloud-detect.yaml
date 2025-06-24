@@ -17,8 +17,8 @@ info:
     product: nextcloud_server
     shodan-query: http.title:"Nextcloud"
     runzero-match: any(each(service["html.titles"]), {# matches "Nextcloud"})
-    runzero-vendor: "Nextcloud"
-    runzero-product: "Nextcloud Server"
+    runzero-vendor: Nextcloud
+    runzero-product: Nextcloud Server
   tags: tech,nextcloud,storage
 
 http:
