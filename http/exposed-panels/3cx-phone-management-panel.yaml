@@ -1,7 +1,7 @@
 id: 3cx-phone-management-panel
 
 info:
-  name: 3CX Phone System Management Console - Panel Detect
+  name: 3CX Phone System Management Console - Exposed Panel
   author: idealphase
   severity: info
   description: 3CX Phone System Management Console panel was detected.

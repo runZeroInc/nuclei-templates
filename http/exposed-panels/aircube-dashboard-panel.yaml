@@ -1,10 +1,10 @@
 id: aircube-dashboard-panel
 
 info:
-  name: airCube Dashboard Login Panel - Detect
+  name: airCube Dashboard - Exposed Panel
   author: theamanrawat
   severity: info
-  description: airCube Dashboard login panel was detected.
+  description: airCube Dashboard panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

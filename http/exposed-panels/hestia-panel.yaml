@@ -1,10 +1,10 @@
 id: hestia-panel
 
 info:
-  name: Hestia Control Panel Login - Detect
+  name: Hestia Control Panel - Exposed Panel
   author: JustaAcat
   severity: info
-  description: Hestia Control Panel login was detected.
+  description: Hestia Control Panel was detected.
   reference:
     - https://hestiacp.com/
   classification:

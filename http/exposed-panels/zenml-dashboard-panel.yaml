@@ -1,9 +1,10 @@
 id: zenml-dashboard-panel
 
 info:
-  name: ZenML Dashboard Panel - Detect
+  name: ZenML Dashboard - Exposed Panel
   author: DhiyaneshDK
   severity: info
+  description: ZenML Dashboard panel was detected.
   classification:
     cpe: cpe:2.3:a:zenml:zenml:*:*:*:*:*:*:*:*
   metadata:

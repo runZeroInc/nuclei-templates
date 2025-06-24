@@ -1,10 +1,10 @@
 id: gyra-master-admin
 
 info:
-  name: GYRA Master Admin Login Panel - Detect
+  name: GYRA Master Admin - Exposed Panel
   author: Hardik-Solanki
   severity: info
-  description: GYRA Master Admin login panel was detected.
+  description: GYRA Master Admin panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

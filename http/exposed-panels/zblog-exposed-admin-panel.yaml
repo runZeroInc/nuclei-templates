@@ -1,10 +1,10 @@
 id: zblog-admin-panel
 
 info:
-  name: Z-BlogPHP Admin Login Panel - Detect
+  name: Z-BlogPHP - Exposed Panel
   author: Aayush Vishnoi
   severity: info
-  description: Z-BlogPHP admin login panel was detected.
+  description: Z-BlogPHP panel was detected.
   reference:
     - https://github.com/zblogcn/zblogphp
   classification:

@@ -1,7 +1,7 @@
 id: zblogphp-panel
 
 info:
-  name: Z-BlogPHP Panel - Detect
+  name: Z-BlogPHP - Exposed Panel
   author: princechaddha
   severity: info
   description: Z-BlogPHP panel was detected.

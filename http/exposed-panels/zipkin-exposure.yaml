@@ -1,10 +1,10 @@
 id: zipkin-exposure
 
 info:
-  name: Zipkin Login Panel - Detect
+  name: Zipkin - Exposed Panel
   author: pdteam
   severity: info
-  description: Zipkin login panel was detected.
+  description: Zipkin panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

@@ -1,9 +1,10 @@
 id: acti-panel
 
 info:
-  name: ACTi Video Monitoring Panel - Detection
+  name: ACTi Video Monitoring - Exposed Panel
   author: DhiyaneshDk
   severity: info
+  description: ACTi Video Monitoring panel was detected.
   classification:
     cpe: cpe:2.3:o:acti:camera_firmware:*:*:*:*:*:*:*:*
   metadata:

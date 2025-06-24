@@ -1,7 +1,7 @@
 id: zeroshell-login
 
 info:
-  name: ZeroShell Panel - Detect
+  name: ZeroShell - Exposed Panel
   author: dhiyaneshDK
   severity: info
   description: ZeroShell panel was detected.

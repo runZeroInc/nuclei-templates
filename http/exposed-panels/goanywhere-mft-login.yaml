@@ -1,10 +1,10 @@
 id: goanywhere-mft-login
 
 info:
-  name: GoAnywhere Managed File Transfer Login Panel - Detect
+  name: GoAnywhere Managed File Transfer - Exposed Panel
   author: ritikchaddha,righettod
   severity: info
-  description: GoAnywhere Managed File Transfer login panel was detected.
+  description: GoAnywhere Managed File Transfer panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

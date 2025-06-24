@@ -1,10 +1,10 @@
 id: hashicorp-consul-webgui
 
 info:
-  name: HashiCorp Consul Web UI Login Panel - Detect
+  name: HashiCorp Consul - Exposed Panel
   author: c-sh0
   severity: info
-  description: HashiCorp Consul Web UI login panel was detected,
+  description: HashiCorp Consul panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

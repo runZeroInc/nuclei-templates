@@ -1,11 +1,10 @@
 id: hal-management-panel
 
 info:
-  name: HAL Management Console Panel
+  name: HAL Management Console - Exposed Panel
   author: DhiyaneshDK
   severity: info
-  description: |
-    HAL Management Console login panel was discovered.
+  description: HAL Management Console panel was detected.
   metadata:
     verified: true
     max-request: 1

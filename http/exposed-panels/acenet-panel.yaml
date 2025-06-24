@@ -1,9 +1,10 @@
 id: acenet-panel
 
 info:
-  name: AceNet AceReporter Report Panel - Detect
+  name: AceNet AceReporter - Exposed Panel
   author: DhiyaneshDk
   severity: info
+  description: AceNet AceReporter panel was detected.
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:-1595726841

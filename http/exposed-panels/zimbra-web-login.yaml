@@ -1,11 +1,10 @@
 id: zimbra-web-login
 
 info:
-  name: Zimbra Collaboration Suite Login Panel - Detect
+  name: Zimbra Collaboration Suite - Exposed Panel
   author: powerexploit
   severity: info
-  description: |
-    Zimbra Collaboration Suite panel was detected. Zimbra Collaboration Suite simplifies the communication environment, connects people over multiple channels, and provides a single place to manage collaboration and communication.
+  description: Zimbra Collaboration Suite panel was detected.
   reference:
     - https://www.zimbra.com/
   classification:

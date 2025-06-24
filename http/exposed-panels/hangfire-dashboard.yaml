@@ -1,7 +1,7 @@
 id: hangfire-dashboard
 
 info:
-  name: Hangfire Dashboard Panel - Detect
+  name: Hangfire Dashboard - Exposed Panel
   author: DhiyaneshDk
   severity: info
   description: Hangfire Dashboard panel was detected.

@@ -1,10 +1,10 @@
 id: hivemanager-login-panel
 
 info:
-  name: HiveManager Login Panel - Detect
+  name: HiveManager - Exposed Panel
   author: binaryfigments,daffainfo
   severity: info
-  description: HiveManager login panel was detected.
+  description: HiveManager panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

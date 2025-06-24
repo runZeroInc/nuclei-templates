@@ -1,10 +1,10 @@
 id: adminer-panel
 
 info:
-  name: Adminer Login Panel - Detect
+  name: Adminer - Exposed Panel
   author: random_robbie,meme-lord,ritikchaddha
   severity: info
-  description: An Adminer login panel was detected.
+  description: Adminer panel was detected.
   reference:
     - https://blog.sorcery.ie/posts/adminer/
   classification:

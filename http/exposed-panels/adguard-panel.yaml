@@ -1,11 +1,10 @@
 id: adguard-panel
 
 info:
-  name: AdGuard Panel - Detect
+  name: AdGuard - Exposed Panel
   author: ritikchaddha
   severity: info
-  description: |
-    AdGuard panel has been detected.
+  description: AdGuard panel was detected.
   classification:
     cpe: cpe:2.3:a:adguard:adguard:*:*:*:*:*:*:*:*
   metadata:
