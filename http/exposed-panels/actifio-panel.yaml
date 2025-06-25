@@ -4,8 +4,7 @@ info:
   name: Actifio Resource Center - Exposed Panel
   author: Splint3r7
   severity: info
-  description: |
-    Actifio Resource Center panel was detected.
+  description: Actifio Resource Center panel was detected.
   classification:
     cwe-id: CWE-200
   metadata:

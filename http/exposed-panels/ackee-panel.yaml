@@ -4,8 +4,7 @@ info:
   name: Ackee - Exposed Panel
   author: userdehghani
   severity: info
-  description: |
-    Ackee panel was detected.
+  description: Ackee panel was detected.
   reference:
     - https://ackee.electerious.com/
     - https://docs.ackee.electerious.com/
