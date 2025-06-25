@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:exagrid:backup_appliance:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "ExaGrid Manager"}) || any(each(service["html.titles"]), {# matches "(?i)exagrid manager"})
     verified: true
     max-request: 1
     vendor: exagrid

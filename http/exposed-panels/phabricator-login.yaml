@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phacility:phabricator:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)phabricator-standard-page" || service["http.body"] matches "(?i)phabricator-standard-page"
     max-request: 1
     vendor: phacility
     product: phabricator

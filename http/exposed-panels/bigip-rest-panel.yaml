@@ -15,6 +15,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:f5:big-ip_access_policy_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "BIG-IP&reg;-\\+Redirect"}) || any(each(service["html.titles"]), {# matches "(?i)big-ip&reg;-\\+redirect"})
     max-request: 1
     vendor: f5
     product: big-ip_access_policy_manager

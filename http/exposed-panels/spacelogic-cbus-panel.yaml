@@ -5,6 +5,8 @@ info:
   author: ritikchaddha
   severity: info
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "SpaceLogic C-Bus" || service["http.body"] matches "(?i)spacelogic c-bus"
     verified: true
     max-request: 1
     vendor: schneider-electric

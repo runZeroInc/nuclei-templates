@@ -8,6 +8,8 @@ info:
   classification:
     cpe: cpe:2.3:a:fortinet:fortisiem:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1341442175"
     verified: true
     max-request: 2
     shodan-query: "http.favicon.hash:-1341442175"

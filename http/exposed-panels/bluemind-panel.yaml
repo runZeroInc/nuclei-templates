@@ -9,6 +9,8 @@ info:
   reference:
     - https://bluemind.net/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Welcome to BlueMind"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Welcome to BlueMind"

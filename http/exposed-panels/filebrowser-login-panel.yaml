@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:filebrowser:filebrowser:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1052926265"
     verified: true
     max-request: 3
     vendor: filebrowser

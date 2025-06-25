@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:casbin:casdoor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Casdoor"}) || any(each(service["html.titles"]), {# matches "(?i)casdoor"})
     max-request: 1
     vendor: casbin
     product: casdoor

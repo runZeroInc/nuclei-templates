@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:cisco:expressway_software:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "Cisco Expressway"
     verified: true
     max-request: 1
     vendor: cisco

@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:beyondtrust:privileged_remote_access:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "BeyondTrust Privileged Remote Access Login"
     verified: true
     max-request: 2
     vendor: beyondtrust

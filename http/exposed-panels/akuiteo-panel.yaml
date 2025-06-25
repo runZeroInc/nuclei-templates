@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.akuiteo.com/en/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Akuiteo"})
     verified: true
     max-request: 1
     shodan-query: title:"Akuiteo"

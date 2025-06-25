@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.index-education.com/fr/logiciel-gestion-vie-scolaire.php
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "PRONOTE"})
     max-request: 1
     shodan-query: http.title:"PRONOTE"
   tags: panel,pronote,login

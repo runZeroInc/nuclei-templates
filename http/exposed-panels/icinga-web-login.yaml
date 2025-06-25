@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:icinga:icinga_web_2:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Icinga Web 2 Login"}) || any(each(service["html.titles"]), {# matches "(?i)icinga"}) || any(each(service["html.titles"]), {# matches "(?i)icinga web 2 login"})
     max-request: 1
     vendor: icinga
     product: icinga_web_2

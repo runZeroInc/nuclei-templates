@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oracle:commerce:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Oracle Commerce"}) || any(each(service["html.titles"]), {# matches "(?i)oracle commerce"})
     max-request: 2
     vendor: oracle
     product: commerce

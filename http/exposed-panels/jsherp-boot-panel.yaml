@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:jishenghua:jsherp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1298131932"
     verified: true
     max-request: 1
     vendor: jishenghua

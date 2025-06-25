@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hospital_management_system_project:hospital_management_system:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "Hospital Management System" || service["http.body"] matches "(?i)hospital management system"
     verified: true
     max-request: 1
     vendor: hospital_management_system_project

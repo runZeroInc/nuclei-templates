@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:tautulli:tautulli:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "TAUTULLI"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli - home"})
     verified: true
     max-request: 2
     vendor: tautulli

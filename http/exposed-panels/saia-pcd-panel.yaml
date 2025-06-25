@@ -7,6 +7,8 @@ info:
   description: |
     Saia PCD Web Server panel was detected.
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "Saia PCD Web Server"
     max-request: 1
     shodan-query: html:"Saia PCD Web Server"
   tags: saia,login,panel,pcd

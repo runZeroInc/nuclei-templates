@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bedita:bedita:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "BEdita"}) || any(each(service["html.titles"]), {# matches "(?i)bedita"})
     max-request: 1
     vendor: bedita
     product: bedita

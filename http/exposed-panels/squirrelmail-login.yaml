@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:squirrelmail:squirrelmail:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "SquirrelMail"}) || any(each(service["html.titles"]), {# matches "(?i)squirrelmail"})
     max-request: 4
     vendor: squirrelmail
     product: squirrelmail

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nagvis:nagvis:*:*:*:*:nagios_xi:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "NagVis" || service["http.body"] matches "(?i)nagvis"
     verified: true
     max-request: 2
     vendor: nagvis

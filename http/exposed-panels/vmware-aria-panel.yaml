@@ -7,6 +7,8 @@ info:
   description: |
     Detects VMware Aria Operations Panel.
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "VMware Aria Operations"})
     verified: true
     max-request: 1
     shodan-query: title:"VMware Aria Operations"

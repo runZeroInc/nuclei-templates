@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:fortinet:forticlient_endpoint_management_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-800551065"
     verified: true
     max-request: 1
     vendor: fortinet

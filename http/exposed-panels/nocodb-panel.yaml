@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:xgenecloud:nocodb:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "206985584"
     verified: true
     max-request: 2
     vendor: xgenecloud

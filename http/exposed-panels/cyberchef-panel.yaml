@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:gchq:cyberchef:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "CyberChef"})
     verified: true
     max-request: 1
     vendor: gchq

@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:zohocorp:manageengine_exchange_reporter_plus:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "ManageEngine - Exchange Reporter Plus"}) || service["favicon.ico.image.mmh3"] == "230963457"
     verified: true
     max-request: 1
     vendor: zohocorp

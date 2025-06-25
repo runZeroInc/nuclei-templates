@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:qlik:qlikview:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "QlikView - AccessPoint"})
     verified: true
     max-request: 1
     vendor: qlik

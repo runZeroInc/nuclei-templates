@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cacti:cacti:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1797138069" || any(each(service["html.titles"]), {# matches "(?i)login to cacti"}) || any(each(service["html.titles"]), {# matches "(?i)cacti"}) || service["favicon.ico.image.mmh3"] == "-1797138069"
     verified: true
     max-request: 2
     vendor: cacti

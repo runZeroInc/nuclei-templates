@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:audiobookshelf:audiobookshelf:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Audiobookshelf"})
     verified: true
     max-request: 2
     shodan-query: title:"Audiobookshelf"

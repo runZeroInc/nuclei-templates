@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:livehelperchat:live_helper_chat:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Live Helper Chat"}) || any(each(service["html.titles"]), {# matches "(?i)live helper chat"})
     verified: true
     max-request: 1
     vendor: livehelperchat

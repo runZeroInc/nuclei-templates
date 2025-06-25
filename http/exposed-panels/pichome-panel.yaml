@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oaooa:pichome:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "933976300"
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:933976300

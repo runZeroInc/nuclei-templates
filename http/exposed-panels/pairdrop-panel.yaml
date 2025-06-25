@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/schlagmichdoch/pairdrop
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "PairDrop"})
     verified: true
     max-request: 1
     shodan-query: title:"PairDrop"

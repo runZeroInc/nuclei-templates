@@ -8,6 +8,8 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)officescan"})
     verified: true
     max-request: 1
     shodan-query: http.title:"officescan"

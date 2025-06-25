@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:h:samsung:dvr:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Web Viewer for Samsung DVR"}) || any(each(service["html.titles"]), {# matches "(?i)web viewer for samsung dvr"})
     verified: true
     max-request: 1
     vendor: samsung

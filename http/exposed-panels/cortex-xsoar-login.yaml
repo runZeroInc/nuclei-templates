@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:paloaltonetworks:cortex_xsoar:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Cortex XSOAR"}) || any(each(service["html.titles"]), {# matches "(?i)cortex xsoar"})
     max-request: 1
     vendor: paloaltonetworks
     product: cortex_xsoar

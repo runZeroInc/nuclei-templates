@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:spotweb_project:spotweb:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "SpotWeb - overview"}) || any(each(service["html.titles"]), {# matches "(?i)spotweb - overview"})
     verified: true
     max-request: 1
     vendor: spotweb_project

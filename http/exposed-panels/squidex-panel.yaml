@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/Squidex/squidex
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1099097618"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1099097618

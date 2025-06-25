@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:a:redis:redis_enterprise:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Enterprise-Class Redis for Developers"})
     verified: true
     max-request: 1
     vendor: redis

@@ -11,6 +11,8 @@ info:
     - https://github.com/Mintplex-Labs/vector-admin
     - https://elest.io/open-source/vectoradmin/resources
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)VectorAdmin - Vector database management made easy\\."})
     verified: true
     max-request: 1
     fofa-query: title=="VectorAdmin - Vector database management made easy."

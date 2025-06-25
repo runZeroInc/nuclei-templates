@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:labkey:labkey_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Sign In: /home"}) || any(each(service["html.titles"]), {# matches "(?i)sign in: /home"})
     verified: true
     max-request: 2
     vendor: labkey

@@ -5,6 +5,8 @@ info:
   author: ritikchaddha
   severity: info
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)c3325"})
     verified: true
     max-request: 2
     shodan-query: title:"c3325"

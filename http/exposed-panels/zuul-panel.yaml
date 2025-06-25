@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zuul-ci:zuul:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1127895693"
     max-request: 2
     shodan-query: http.favicon.hash:-1127895693
     product: zuul

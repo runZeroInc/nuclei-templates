@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:speed_test_project:speed_test:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Speedtest Tracker"})
     verified: true
     max-request: 1
     vendor: speed_test_project

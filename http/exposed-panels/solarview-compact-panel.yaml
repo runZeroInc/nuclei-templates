@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:contec:solarview_compact_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "SolarView Compact" || service["favicon.ico.image.mmh3"] == "-244067125" || service["http.body"] matches "(?i)solarview compact"
     verified: true
     max-request: 1
     vendor: contec

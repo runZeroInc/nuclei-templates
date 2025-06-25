@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:umbraco:umbraco_cms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Umbraco"}) || any(each(service["html.titles"]), {# matches "(?i)umbraco"})
     verified: true
     max-request: 1
     vendor: umbraco

@@ -10,6 +10,8 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cve-id: CWE-200
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)veeam backup enterprise manager"})
     max-request: 1
     verified: true
     shodan-query: title:"veeam backup enterprise manager"

@@ -7,6 +7,8 @@ info:
   description: |
     Hookbot panel were detected.
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)hookbot"})
     verified: true
     max-request: 1
     shodan-query: title:"hookbot"

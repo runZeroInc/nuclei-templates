@@ -8,6 +8,8 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:doris:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "24048806"
     verified: true
     max-request: 1
     vendor: apache

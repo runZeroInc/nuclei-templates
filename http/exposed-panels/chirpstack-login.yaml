@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.chirpstack.io/docs/chirpstack/use/login.html
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "ChirpStack LoRaWAN"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ChirpStack LoRaWAN"

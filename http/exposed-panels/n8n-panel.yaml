@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:n8n:n8n:*:*:*:*:node.js:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-831756631"
     verified: true
     max-request: 1
     vendor: n8n

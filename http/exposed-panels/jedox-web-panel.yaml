@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:jedox:jedox:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Jedox Web - Login"}) || any(each(service["html.titles"]), {# matches "(?i)jedox web - login"}) || any(each(service["html.titles"]), {# matches "(?i)jedox web login"})
     verified: true
     max-request: 2
     vendor: jedox

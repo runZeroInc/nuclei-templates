@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:kafka:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)kafka center"}) || any(each(service["html.titles"]), {# matches "(?i)kafka consumer offset monitor"})
     max-request: 1
     vendor: apache
     product: kafka

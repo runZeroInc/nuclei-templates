@@ -7,6 +7,8 @@ info:
   description: |
     Detects the presence of FileCatalyst file transfer solution login panel
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "FileCatalyst file transfer solution"
     verified: true
     max-request: 1
     shodan-query: html:"FileCatalyst file transfer solution"

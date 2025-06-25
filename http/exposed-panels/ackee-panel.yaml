@@ -10,6 +10,8 @@ info:
     - https://ackee.electerious.com/
     - https://docs.ackee.electerious.com/
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1495233116"
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:-1495233116

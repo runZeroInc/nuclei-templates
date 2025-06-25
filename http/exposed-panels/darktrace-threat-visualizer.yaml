@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:darktrace:threat_visualizer:*:*:*:*:android:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "Darktrace Threat Visualizer" || service["http.body"] matches "(?i)darktrace threat visualizer"
     verified: true
     max-request: 1
     vendor: darktrace

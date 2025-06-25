@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.asys.fr/chronos
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)chronoslogin\\.js"
     verified: true
     max-request: 1
     shodan-query: http.html:"chronoslogin.js"

@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:accellion:kiteworks:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-1215318992"
     verified: true
     max-request: 1
     vendor: accellion

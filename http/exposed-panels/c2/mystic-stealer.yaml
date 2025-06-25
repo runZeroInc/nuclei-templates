@@ -7,6 +7,8 @@ info:
   description: |
     Mystic Stealer panel were detected.
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Mystic Stealer"})
     verified: "true"
     max-request: 1
     shodan-query: http.title:"Mystic Stealer"

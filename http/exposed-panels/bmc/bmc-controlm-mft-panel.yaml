@@ -10,6 +10,8 @@ info:
     - https://documents.bmc.com/supportu/9.0.21/en-US/Documentation/Managed_File_Transfer.htm
     - https://documents.bmc.com/supportu/9.0.21/en-US/Documentation/home.htm
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "File Exchange"})
     max-request: 1
     verified: true
     shodan-query: http.title:"File Exchange"

@@ -7,6 +7,8 @@ info:
   classification:
     cpe: cpe:2.3:o:zyxel:vmg1312-b10d_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "VMG1312-B10D" || service["http.body"] matches "(?i)vmg1312-b10d"
     verified: true
     max-request: 1
     vendor: zyxel

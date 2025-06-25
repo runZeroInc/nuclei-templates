@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/Stirling-Tools/Stirling-PDF
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)StirlingPDF"})
     verified: true
     max-request: 1
     fofa-query: title="StirlingPDF"

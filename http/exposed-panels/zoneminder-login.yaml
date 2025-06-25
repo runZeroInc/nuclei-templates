@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zoneminder:zoneminder:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)zm - login"
     max-request: 1
     vendor: zoneminder
     product: zoneminder

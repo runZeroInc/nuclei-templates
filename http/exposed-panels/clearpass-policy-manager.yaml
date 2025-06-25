@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:arubanetworks:clearpass_policy_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "ClearPass Policy Manager"}) || any(each(service["html.titles"]), {# matches "(?i)clearpass policy manager"})
     max-request: 1
     vendor: arubanetworks
     product: clearpass_policy_manager

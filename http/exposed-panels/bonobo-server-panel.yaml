@@ -9,6 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:bonobogitserver:bonobo_git_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-219625874"
     verified: true
     max-request: 2
     vendor: bonobogitserver

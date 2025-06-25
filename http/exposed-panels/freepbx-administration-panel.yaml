@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sangoma:freepbx:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "FreePBX Administration"}) || any(each(service["html.titles"]), {# matches "(?i)freepbx administration"})
     verified: true
     max-request: 1
     vendor: sangoma

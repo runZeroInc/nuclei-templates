@@ -10,6 +10,8 @@ info:
     - https://github.com/smartloli/efak
     - https://www.kafka-eagle.org/
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "1693580324"
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:1693580324

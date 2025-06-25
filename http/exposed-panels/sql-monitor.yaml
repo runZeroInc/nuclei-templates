@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:red-gate:sql_monitor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "SQL Monitor" || service["http.body"] matches "(?i)sql monitor"
     max-request: 1
     vendor: red-gate
     product: sql_monitor

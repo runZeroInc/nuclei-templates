@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/zylon-ai/private-gpt
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)private gpt"
     verified: true
     max-request: 1
     shodan-query: html:"private gpt"

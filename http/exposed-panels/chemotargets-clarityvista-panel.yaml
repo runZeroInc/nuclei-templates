@@ -9,6 +9,8 @@ info:
   reference:
     - https://chemotargets.com/clarityvista/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "ClarityVista"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ClarityVista"

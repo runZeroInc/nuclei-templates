@@ -13,6 +13,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phpminiadmin_project:phpminiadmin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "phpMiniAdmin"
     verified: true
     max-request: 1
     shodan-query: http.html:"phpMiniAdmin"

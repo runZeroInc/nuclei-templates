@@ -9,6 +9,8 @@ info:
   reference:
     - https://datagerry.com/
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)datagerry"})
     verified: true
     max-request: 1
     vendor: becon

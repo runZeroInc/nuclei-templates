@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.temenos.com/products/core-banking
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "T24 Sign in"})
     max-request: 1
     verified: true
     shodan-query: http.title:"T24 Sign in"

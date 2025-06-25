@@ -14,6 +14,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:3cx:3cx:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "3CX Phone System Management Console"}) || service["favicon.ico.image.mmh3"] == "970132176" || any(each(service["html.titles"]), {# matches "(?i)3cx webclient"}) || any(each(service["html.titles"]), {# matches "(?i)3cx phone system management console"})
     max-request: 1
     vendor: 3cx
     product: 3cx

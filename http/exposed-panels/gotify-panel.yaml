@@ -10,6 +10,8 @@ info:
   classification:
     cpe: cpe:2.3:a:gotify:server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Gotify"}) || any(each(service["html.titles"]), {# matches "(?i)gotify"})
     verified: true
     max-request: 1
     vendor: gotify

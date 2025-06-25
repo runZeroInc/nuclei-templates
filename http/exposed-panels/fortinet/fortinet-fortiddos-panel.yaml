@@ -11,6 +11,8 @@ info:
   classification:
     cpe: cpe:2.3:a:fortinet:fortiddos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "FortiDDoS"}) || any(each(service["html.titles"]), {# matches "(?i)fortiddos"})
     verified: true
     max-request: 1
     vendor: fortinet

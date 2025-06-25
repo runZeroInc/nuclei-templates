@@ -7,6 +7,8 @@ info:
   description: |
     Dragonfly Login Panel was discovered
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)logo-dragonfly\\.png"
     verified: true
     max-request: 1
     fofa-query: body="logo-dragonfly.png"

@@ -9,6 +9,8 @@ info:
   reference:
     - https://syfadis.fr/xperience
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Syfadis Xperience"})
     verified: true
     max-request: 1
     fofa-query: title="Syfadis Xperience"

@@ -5,6 +5,8 @@ info:
   author: DhiyaneshDk
   severity: info
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "JC-e converter webinterface"})
     verified: true
     max-request: 1
     shodan-query: title:"JC-e converter webinterface"

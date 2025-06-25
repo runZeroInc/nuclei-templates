@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:shellinabox_project:shellinabox:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-629968763"
     verified: true
     max-request: 1
     vendor: shellinabox_project

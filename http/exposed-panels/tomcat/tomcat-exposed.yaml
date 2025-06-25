@@ -8,6 +8,8 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Apache Tomcat"}) || any(each(service["html.titles"]), {# matches "(?i)apache tomcat"}) || service["http.body"] matches "(?i)apache tomcat"
     max-request: 1
     verified: true
     vendor: apache

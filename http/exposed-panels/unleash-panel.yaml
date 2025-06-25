@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.getunleash.io/
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "-608690655"
     verified: true
     max-request: 3
     shodan-query: http.favicon.hash:-608690655

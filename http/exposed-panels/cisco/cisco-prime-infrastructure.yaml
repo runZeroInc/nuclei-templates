@@ -11,6 +11,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cisco:prime_infrastructure:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)prime infrastructure"})
     max-request: 1
     vendor: cisco
     product: prime_infrastructure

@@ -6,6 +6,8 @@ info:
   severity: info
   description: HAL Management Console panel was detected.
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "HAL Management Console"
     verified: true
     max-request: 1
     shodan-query: html:"HAL Management Console"

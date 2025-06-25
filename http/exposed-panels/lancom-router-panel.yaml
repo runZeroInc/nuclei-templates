@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:lancom-systems:wlc-4006:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "LANCOM Systems GmbH"
     verified: true
     max-request: 1
     shodan-query: html:"LANCOM Systems GmbH"

@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nconf_project:nconf:*:*:*:*:node.js:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)nconf"})
     verified: true
     max-request: 1
     shodan-query: http.title:"nconf"

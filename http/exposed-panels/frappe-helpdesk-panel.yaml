@@ -10,6 +10,8 @@ info:
     - https://frappe.io/helpdesk
     - https://github.com/frappe/helpdesk
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)window\\.frappe_version"
     max-request: 1
     verified: true
     shodan-query: http.html:"window.frappe_version"
