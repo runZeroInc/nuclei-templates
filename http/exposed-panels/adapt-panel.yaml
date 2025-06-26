@@ -1,11 +1,10 @@
 id: adapt-panel
 
 info:
-  name: Adapt Authoring Tool - Panel
+  name: Adapt Authoring Tool - Exposed Panel
   author: Splint3r7
   severity: info
-  description: |
-    Login panel for adapt was detected.
+  description: Adapt panel was detected.
   classification:
     cwe-id: CWE-200
   metadata:

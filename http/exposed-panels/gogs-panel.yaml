@@ -1,10 +1,10 @@
 id: gogs-panel
 
 info:
-  name: Gogs Login Panel - Detect
+  name: Gogs - Exposed Panel
   author: DhiyaneshDk,daffainfo
   severity: info
-  description: Gogs login panel was detected.
+  description: Gogs panel was detected.
   reference:
     - https://gogs.io/
   classification:
@@ -13,7 +13,7 @@ info:
     cpe: cpe:2.3:a:gogs:gogs:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Sign In - Gogs"}) || any(each(service["html.titles"]), {# matches "(?i)sign in - gogs"})
+        any(each(service["html.titles"]), {# matches "(?i)sign in - gogs"})
     verified: true
     max-request: 1
     vendor: gogs

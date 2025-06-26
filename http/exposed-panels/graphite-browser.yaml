@@ -1,10 +1,10 @@
 id: graphite-browser
 
 info:
-  name: Graphite Browser Login Panel - Detect
+  name: Graphite Browser - Exposed Panel
   author: 0x_Akoko
   severity: info
-  description: Graphite Browser login panel was detected.
+  description: Graphite Browser panel was detected.
   reference:
     - https://graphiteapp.org/
   classification:

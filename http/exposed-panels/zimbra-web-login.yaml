@@ -1,11 +1,10 @@
 id: zimbra-web-login
 
 info:
-  name: Zimbra Collaboration Suite Login Panel - Detect
+  name: Zimbra Collaboration Suite - Exposed Panel
   author: powerexploit
   severity: info
-  description: |
-    Zimbra Collaboration Suite panel was detected. Zimbra Collaboration Suite simplifies the communication environment, connects people over multiple channels, and provides a single place to manage collaboration and communication.
+  description: Zimbra Collaboration Suite panel was detected.
   reference:
     - https://www.zimbra.com/
   classification:
@@ -14,7 +13,7 @@ info:
     cpe: cpe:2.3:a:synacor:zimbra_collaboration_suite:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Zimbra Collaboration Suite"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra collaboration suite"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra web client sign in"})
+        any(each(service["html.titles"]), {# matches "(?i)zimbra collaboration suite"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra web client sign in"})
     verified: true
     max-request: 1
     vendor: synacor

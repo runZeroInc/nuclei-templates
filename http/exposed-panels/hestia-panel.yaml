@@ -1,10 +1,10 @@
 id: hestia-panel
 
 info:
-  name: Hestia Control Panel Login - Detect
+  name: Hestia Control Panel - Exposed Panel
   author: JustaAcat
   severity: info
-  description: Hestia Control Panel login was detected.
+  description: Hestia Control Panel was detected.
   reference:
     - https://hestiacp.com/
   classification:
@@ -13,7 +13,7 @@ info:
     cpe: cpe:2.3:a:hestiacp:control_panel:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Hestia Control Panel"}) || service["favicon.ico.image.mmh3"] == "-476299640" || any(each(service["html.titles"]), {# matches "(?i)hestia control panel"})
+        any(each(service["html.titles"]), {# matches "(?i)hestia control panel"}) || service["favicon.ico.image.mmh3"] == "-476299640"
     verified: true
     max-request: 1
     vendor: hestiacp

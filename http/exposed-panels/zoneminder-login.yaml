@@ -1,7 +1,7 @@
 id: zoneminder-login
 
 info:
-  name: ZoneMinder Login Panel - Detect
+  name: ZoneMinder - Exposed Panel
   author: princechaddha
   severity: info
   description: ZoneMinder panel was detected.

@@ -1,10 +1,10 @@
 id: adminer-panel
 
 info:
-  name: Adminer Login Panel - Detect
+  name: Adminer - Exposed Panel
   author: random_robbie,meme-lord,ritikchaddha
   severity: info
-  description: An Adminer login panel was detected.
+  description: Adminer panel was detected.
   reference:
     - https://blog.sorcery.ie/posts/adminer/
   classification:
@@ -12,7 +12,7 @@ info:
     cpe: cpe:2.3:a:adminer:adminer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Login - Adminer"}) || any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
+        any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
     verified: true
     max-request: 8
     vendor: adminer

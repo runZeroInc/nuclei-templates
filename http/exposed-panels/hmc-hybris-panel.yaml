@@ -1,10 +1,10 @@
 id: hmc-hybris-panel
 
 info:
-  name: Hybris Management Console Login Panel - Detect
+  name: Hybris Management Console - Exposed Panel
   author: dogasantos
   severity: info
-  description: Hybris Management Console login panel was detected.
+  description: Hybris Management Console panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

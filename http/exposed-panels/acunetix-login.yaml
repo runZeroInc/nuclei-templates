@@ -1,10 +1,10 @@
 id: acunetix-login
 
 info:
-  name: Acunetix Login Panel - Detect
+  name: Acunetix - Exposed Panel
   author: tess
   severity: info
-  description: Acunetix login panel was detected.
+  description: Acunetix panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200

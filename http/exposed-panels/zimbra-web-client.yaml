@@ -1,10 +1,10 @@
 id: zimbra-web-client
 
 info:
-  name: Zimbra Panel - Detect
+  name: Zimbra - Exposed Panel
   author: dhiyaneshDk,idealphase
   severity: info
-  description: Zimbra panel was detected. Zimbra provides open source server and client software for messaging and collaboration.
+  description: Zimbra panel was detected.
   reference:
     - https://www.exploit-db.com/ghdb/7409
     - https://www.zimbra.com/
@@ -14,7 +14,7 @@ info:
     cpe: cpe:2.3:a:synacor:zimbra_collaboration_suite:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Zimbra Web Client Sign In"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra collaboration suite"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra web client sign in"})
+        any(each(service["html.titles"]), {# matches "(?i)zimbra web client sign in"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra collaboration suite"})
     verified: true
     max-request: 1
     vendor: synacor

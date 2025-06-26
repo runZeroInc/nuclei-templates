@@ -1,11 +1,10 @@
 id: ackee-panel
 
 info:
-  name: Ackee Panel - Detect
+  name: Ackee - Exposed Panel
   author: userdehghani
   severity: info
-  description: |
-    self-hosted, node.js based analytics tool for those who care about privacy.
+  description: Ackee panel was detected.
   reference:
     - https://ackee.electerious.com/
     - https://docs.ackee.electerious.com/

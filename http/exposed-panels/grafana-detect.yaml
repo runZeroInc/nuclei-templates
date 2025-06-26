@@ -1,17 +1,17 @@
 id: grafana-detect
 
 info:
-  name: Grafana Login Panel - Detect
+  name: Grafana - Exposed Panel
   author: organiccrap,AdamCrosser,bhutch
   severity: info
-  description: Grafana login panel was detected.
+  description: Grafana panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Grafana"}) || any(each(service["html.titles"]), {# matches "(?i)grafana"})
+        any(each(service["html.titles"]), {# matches "(?i)grafana"})
     max-request: 2
     vendor: grafana
     product: grafana

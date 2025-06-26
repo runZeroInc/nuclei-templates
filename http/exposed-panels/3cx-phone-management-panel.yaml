@@ -1,7 +1,7 @@
 id: 3cx-phone-management-panel
 
 info:
-  name: 3CX Phone System Management Console - Panel Detect
+  name: 3CX Phone System Management Console - Exposed Panel
   author: idealphase
   severity: info
   description: 3CX Phone System Management Console panel was detected.
@@ -15,7 +15,7 @@ info:
     cpe: cpe:2.3:a:3cx:3cx:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "3CX Phone System Management Console"}) || service["favicon.ico.image.mmh3"] == "970132176" || any(each(service["html.titles"]), {# matches "(?i)3cx webclient"}) || any(each(service["html.titles"]), {# matches "(?i)3cx phone system management console"})
+        any(each(service["html.titles"]), {# matches "(?i)3cx phone system management console"}) || service["favicon.ico.image.mmh3"] == "970132176" || any(each(service["html.titles"]), {# matches "(?i)3cx webclient"})
     max-request: 1
     vendor: 3cx
     product: 3cx

@@ -1,11 +1,10 @@
 id: homebridge-panel
 
 info:
-  name: Homebridge Panel - Detect
+  name: Homebridge - Exposed Panel
   author: rxerium
   severity: info
-  description: |
-    Homebridge allows you to integrate with smart home devices that do not natively support HomeKit.
+  description: Homebridge panel was detected.
   reference:
     - https://homebridge.io/
     - https://github.com/homebridge

@@ -1,16 +1,16 @@
 id: highmail-admin-panel
 
 info:
-  name: HighMail Admin Login Panel - Detect
+  name: HighMail - Exposed Panel
   author: ritikchaddha
   severity: info
-  description: HighMail admin login panel was detected.
+  description: HighMail panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "HighMail"}) || any(each(service["html.titles"]), {# matches "(?i)highmail"})
+        any(each(service["html.titles"]), {# matches "(?i)highmail"})
     verified: true
     max-request: 2
     vendor: aryanic

@@ -1,9 +1,11 @@
 id: owncloud-status-page
 
 info:
-  name: Owncloud StatusPage detection
+  name: ownCloud Server - Detection
   author: myztique,invisiblethreat
   severity: info
+  description: |
+    ownCloud Server was detected.
   classification:
     cpe: cpe:2.3:a:owncloud:owncloud:*:*:*:*:*:*:*:*
   metadata:
@@ -12,6 +14,10 @@ info:
     vendor: owncloud
     product: owncloud
     shodan-query: http.html:"owncloud"
+    runzero-match: |-
+      any(each(service["html.titles"]), {# matches "ownCloud"})
+    runzero-vendor: ownCloud
+    runzero-product: ownCloud Server
   tags: tech,owncloud,status
 
 http:
@@ -30,6 +36,7 @@ http:
 
     extractors:
       - type: json
+        name: version
         json:
           - .version
 # digest: 4a0a00473045022100d61fa1daed9fac927962a14a508d9e07567a8ef955b9fb021c679e723e10136e02206baad4e765aa8890f6bb0086ada5c9c0f78437ba5de31faac000089e34eb8866:922c64590222798bb761d5b6d8e72950

@@ -1,7 +1,8 @@
 id: roundcube-webmail-portal
 
 info:
-  name: Roundcube webmail
+  name: Roundcube Webmail - Detection
+  description: Roundcube Webmail detected.
   author: ritikchaddha
   severity: info
   classification:
@@ -11,6 +12,9 @@ info:
     vendor: roundcube
     product: webmail
     shodan-query: http.component:"RoundCube"
+    runzero-match: any(each(service["html.titles"]), {# matches "Roundcube"})
+    runzero-vendor: Roundcube
+    runzero-product: Webmail
   tags: roundcube,portal,tech
 
 http:

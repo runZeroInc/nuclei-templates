@@ -1,10 +1,10 @@
 id: harbor-panel
 
 info:
-  name: Harbor Login Panel - Detect
+  name: Harbor - Exposed Panel
   author: daffainfo,righettod
   severity: info
-  description: Harbor login panel was detected.
+  description: Harbor panel was detected.
   reference:
     - https://github.com/goharbor/harbor
   classification:

@@ -1,9 +1,10 @@
 id: acenet-panel
 
 info:
-  name: AceNet AceReporter Report Panel - Detect
+  name: AceNet AceReporter - Exposed Panel
   author: DhiyaneshDk
   severity: info
+  description: AceNet AceReporter panel was detected.
   metadata:
     runzero-match: |-
         service["favicon.ico.image.mmh3"] == "-1595726841"

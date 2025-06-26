@@ -1,14 +1,15 @@
 id: acti-panel
 
 info:
-  name: ACTi Video Monitoring Panel - Detection
+  name: ACTi Video Monitoring - Exposed Panel
   author: DhiyaneshDk
   severity: info
+  description: ACTi Video Monitoring panel was detected.
   classification:
     cpe: cpe:2.3:o:acti:camera_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Web Configurator"})
+        any(each(service["html.titles"]), {# matches "Web Configurator"}) && service["http.body"] matches "ACTi"
     verified: true
     max-request: 1
     vendor: acti

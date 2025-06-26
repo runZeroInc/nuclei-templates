@@ -1,17 +1,17 @@
 id: gocd-login
 
 info:
-  name: GoCD Login Panel - Detect
+  name: GoCD - Exposed Panel
   author: dhiyaneshDK
   severity: info
-  description: GoCD login panel was detected.
+  description: GoCD panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
     cpe: cpe:2.3:a:thoughtworks:gocd:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        service["http.body"] matches "GoCD Version" || service["http.body"] matches "(?i)gocd version" || any(each(service["html.titles"]), {# matches "(?i)create a pipeline - go"})
+        service["http.body"] matches "(?i)gocd version" || any(each(service["html.titles"]), {# matches "(?i)create a pipeline - go"})
     max-request: 1
     vendor: thoughtworks
     product: gocd

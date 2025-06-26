@@ -1,10 +1,10 @@
 id: addonfinance-portal
 
 info:
-  name: AddOnFinance Portal - Detect
+  name: AddOnFinance Portal - Exposed Panel
   author: ritikchaddha
   severity: info
-  description: AddOnFinance Portal Panel was detected.
+  description: AddOnFinance Portal panel was detected.
   metadata:
     runzero-match: |-
         any(each(service["html.titles"]), {# matches "AddOnFinancePortal"})

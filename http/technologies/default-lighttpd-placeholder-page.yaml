@@ -1,7 +1,9 @@
 id: lighttpd-placeholder-page
 
 info:
-  name: Lighttpd Placeholder Page
+  name: Lighttpd - Detection
+  description: |
+    Lighttpd was detected.
   author: idealphase
   severity: info
   classification:
@@ -11,6 +13,9 @@ info:
     vendor: lighttpd
     product: lighttpd
     shodan-query: "If you find a bug in this Lighttpd package, or in Lighttpd itself"
+    runzero-match: service["http.body"] matches "Lighttpd"
+    runzero-vendor: Lighttpd
+    runzero-product: Lighttpd
   tags: tech,lighttpd
 
 http:

@@ -1,16 +1,15 @@
 id: greenbone-panel
 
 info:
-  name: Greenbone Security Assistant Panel  - Detect
+  name: Greenbone Security Assistant - Exposed Panel
   author: pbuff07
   severity: info
-  description: |
-    Greenbone Security Assistant Web Panel is detected
+  description: Greenbone Security Assistant panel was detected.
   classification:
     cpe: cpe:2.3:a:greenbone:greenbone_security_assistant:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Greenbone Security Assistant"}) || any(each(service["html.titles"]), {# matches "(?i)greenbone security assistant"})
+        any(each(service["html.titles"]), {# matches "(?i)greenbone security assistant"})
     verified: true
     max-request: 1
     vendor: greenbone
