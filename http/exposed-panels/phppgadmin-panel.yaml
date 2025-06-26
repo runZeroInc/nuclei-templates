@@ -1,11 +1,11 @@
 id: phppgadmin-panel
 
 info:
-  name: phpPgAdmin Login Panel - Detect
+  name: phpPgAdmin - Exposed Panel
   author: Ganofins,Nullfuzz
   severity: info
   description: |
-    phpPgAdmin login ipanel was detected.
+    phpPgAdmin panel was detected.
   reference:
     - https://docs.cpanel.net/cpanel/databases/phppgadmin/
   classification:
@@ -14,7 +14,7 @@ info:
     cpe: cpe:2.3:a:phppgadmin_project:phppgadmin:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "phpPgAdmin"}) || any(each(service["html.titles"]), {# matches "(?i)phppgadmin"})
+        any(each(service["html.titles"]), {# matches "(?i)phppgadmin"})
     verified: true
     max-request: 2
     vendor: phppgadmin_project

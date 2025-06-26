@@ -1,11 +1,11 @@
 id: plausible-panel
 
 info:
-  name: Plausible Panel - Detect
+  name: Plausible - Exposed Panel
   author: rxerium
   severity: info
   description: |
-    Plausible is intuitive, lightweight and open source web analytics.
+    Plausible panel was detected.
   reference:
     - https://plausible.io/
     - https://github.com/plausible/analytics

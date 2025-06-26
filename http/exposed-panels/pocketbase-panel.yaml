@@ -1,11 +1,11 @@
 id: pocketbase-panel
 
 info:
-  name: PocketBase Panel - Detect
+  name: PocketBase - Exposed Panel
   author: userdehghani
   severity: info
   description: |
-    PocketBase Login panel was discovered.
+    PocketBase panel was detected.
   reference:
     - https://pocketbase.io/
     - https://pocketbase.io/docs/

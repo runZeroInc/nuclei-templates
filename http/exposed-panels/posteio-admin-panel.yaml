@@ -1,20 +1,22 @@
 id: posteio-admin-panel
 
 info:
-  name: Poste.io Admin Panel - Detect
+  name: Poste.io - Exposed Panel
   author: ritikchaddha
   severity: info
-  description: Poste.io login panel was detected.
+  description: Poste.io panel was detected.
   classification:
     cpe: cpe:2.3:a:analogic:poste.io:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Administration login"})
+        any(each(service["html.titles"]), {# matches "Administration login"}) && (service["http.body"] matches "poste<span" || service["favicon.ico.image.mmh3"] == "-835596734")
     verified: true
     max-request: 1
     vendor: analogic
     product: poste.io
-    shodan-query: title:"Administration login" html:"poste<span"
+    shodan-query:
+      - title:"Administration login" html:"poste<span"
+      - title:"Administration login" http.favicon.hash:-835596734
   tags: panel,poste,login,detect
 
 http:

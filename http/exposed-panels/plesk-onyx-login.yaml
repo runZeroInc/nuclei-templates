@@ -14,7 +14,7 @@ info:
     cpe: cpe:2.3:a:plesk:onyx:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
-        service["http.body"] matches "Plesk Onyx" || service["http.body"] matches "(?i)plesk onyx"
+        service["http.body"] matches "(?i)Plesk Onyx" && service["http.body"] matches "plesk-build"
     verified: true
     max-request: 1
     vendor: plesk
