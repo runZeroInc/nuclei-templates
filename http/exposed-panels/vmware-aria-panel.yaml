@@ -15,14 +15,14 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/ui/login.action'
+      - "{{BaseURL}}/ui/login.action"
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - '<title>VMware Aria Operations</title>'
+          - "<title>VMware Aria Operations</title>"
 
       - type: status
         status:

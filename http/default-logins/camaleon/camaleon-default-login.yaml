@@ -47,5 +47,5 @@ http:
     matchers:
       - type: dsl
         dsl:
-          - contains(location,"/admin/dashboard")
+          - 'contains(location,"/admin/dashboard")'
 

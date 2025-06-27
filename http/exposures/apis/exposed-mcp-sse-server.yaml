@@ -19,7 +19,7 @@ http:
     path:
       - "{{BaseURL}}"
       - "{{BaseURL}}/sse"
-
+    max-size: 100
     stop-at-first-match: true
 
     matchers:

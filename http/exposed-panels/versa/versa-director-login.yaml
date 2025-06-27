@@ -2,7 +2,7 @@ id: versa-director-login
 
 info:
   name: Versa Director Login Panel - Detect
-  author: c-sh0
+  author: c-sh0,darses
   severity: info
   description: Versa Director login panel was detected.
   reference:
@@ -14,7 +14,12 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:"VERSA DIRECTOR Login"
+    shodan-query:
+      - http.title:"Versa Director"
+      - "Set-Cookie: VD-CSRF-TOKEN"
+    fofa-query:
+      - title="Versa Director"
+      - "Set-Cookie: VD-CSRF-TOKEN"
     product: versa_director
     vendor: versa-networks
   tags: panel,versa,director
@@ -28,9 +33,9 @@ http:
     matchers:
       - type: word
         words:
+          - "versa-login-logo"
           - "VERSA DIRECTOR"
-          - "Login"
-        condition: and
+        condition: or
 
       - type: status
         status:

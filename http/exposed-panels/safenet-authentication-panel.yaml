@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/selfenrollment/Enrollment.aspx'
+      - "{{BaseURL}}/selfenrollment/Enrollment.aspx"
 
     matchers:
       - type: dsl

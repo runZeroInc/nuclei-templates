@@ -28,8 +28,8 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/oam/pages/login.jsp'
-      - '{{BaseURL}}'
+      - "{{BaseURL}}/oam/pages/login.jsp"
+      - "{{BaseURL}}"
 
     stop-at-first-match: true
     host-redirects: true
@@ -40,9 +40,9 @@ http:
       - type: word
         part: body
         words:
-          - '<title>Login - Oracle Access Management'
-          - '/oam/pages/images'
-          - '/oam/server/'
+          - "<title>Login - Oracle Access Management"
+          - "/oam/pages/images"
+          - "/oam/server/"
         condition: or
 
     extractors:

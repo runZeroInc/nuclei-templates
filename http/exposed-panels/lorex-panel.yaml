@@ -13,13 +13,13 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: 'Lorex'
+    shodan-query: "Lorex"
   tags: panel,login,detect,lorex
 
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2

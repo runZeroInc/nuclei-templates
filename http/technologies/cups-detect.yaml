@@ -15,16 +15,16 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - 'Web Interface is Disabled - CUPS'
-          - 'Forbidden - CUPS'
-          - 'Server: CUPS'
+          - "Web Interface is Disabled - CUPS"
+          - "Forbidden - CUPS"
+          - "Server: CUPS"
         condition: or
 
       - type: status

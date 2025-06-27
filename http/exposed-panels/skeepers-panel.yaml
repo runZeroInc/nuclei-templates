@@ -17,8 +17,8 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/backend/login'
-      - '{{BaseURL}}'
+      - "{{BaseURL}}/backend/login"
+      - "{{BaseURL}}"
 
     stop-at-first-match: true
 

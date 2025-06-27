@@ -81,4 +81,3 @@ dns:
         name: 'edge-cast'
         words:
           - 'edgecastdns.net'
-

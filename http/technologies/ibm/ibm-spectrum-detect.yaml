@@ -17,9 +17,9 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/'
-      - '{{BaseURL}}/BACLIENT'
-      - '{{BaseURL}}/JNLP'
+      - "{{BaseURL}}/"
+      - "{{BaseURL}}/BACLIENT"
+      - "{{BaseURL}}/JNLP"
 
     stop-at-first-match: true
     matchers:

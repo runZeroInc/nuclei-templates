@@ -23,4 +23,3 @@ dns:
       - type: regex
         regex:
           - 'v=spf1(.+)'
-

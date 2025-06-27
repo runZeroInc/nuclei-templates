@@ -22,8 +22,10 @@ http:
   - method: POST
     path:
       - "{{BaseURL}}"
+      - "{{BaseURL}}/mcp/"
 
     headers:
+      Accept: application/json, text/event-stream
       Content-Type: application/json
 
     payloads:

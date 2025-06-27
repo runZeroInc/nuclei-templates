@@ -12,10 +12,18 @@ info:
   metadata:
     max-request: 1
   tags: ssl,tls,revoked
+
 ssl:
   - address: "{{Host}}:{{Port}}"
+
+    matchers-condition: and
     matchers:
       - type: dsl
         dsl:
           - "revoked == true"
+
+      - type: dsl
+        dsl:
+          - "expired == true"
+        negative: true
 

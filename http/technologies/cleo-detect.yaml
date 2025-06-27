@@ -26,16 +26,16 @@ http:
       - type: word
         part: server
         words:
-          - 'Cleo VLTrader'
-          - 'Cleo Harmony'
-          - 'Cleo LexiCom'
+          - "Cleo VLTrader"
+          - "Cleo Harmony"
+          - "Cleo LexiCom"
         condition: or
 
     extractors:
       - type: regex
         part: server
         regex:
-          - 'Cleo VLTrader/([0-9.]+)'
-          - 'Cleo Harmony/([0-9.]+)'
-          - 'Cleo LexiCom/([0-9.]+)'
+          - "Cleo VLTrader/([0-9.]+)"
+          - "Cleo Harmony/([0-9.]+)"
+          - "Cleo LexiCom/([0-9.]+)"
 

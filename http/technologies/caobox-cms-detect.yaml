@@ -17,28 +17,28 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     payloads:
       paths:
-        - '/'
-        - '/admin/'
-        - '/index.php'
-        - '/admin/login.php'
+        - "/"
+        - "/admin/"
+        - "/index.php"
+        - "/admin/login.php"
 
     matchers-condition: or
     matchers:
       - type: word
         words:
-          - 'Caobox CMS'
-          - 'powered by Caobox'
-          - 'Welcome to Caobox'
-          - 'Caobox version'
+          - "Caobox CMS"
+          - "powered by Caobox"
+          - "Welcome to Caobox"
+          - "Caobox version"
         condition: or
 
       - type: regex
         regex:
-          - '(?i)caobox'
+          - "(?i)caobox"
           - "(?i)caobox\\s+(v[0-9.]+)"
-          - '(?i)<title>Caobox CMS'
+          - "(?i)<title>Caobox CMS"
 

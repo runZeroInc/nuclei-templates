@@ -17,14 +17,14 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/apps/zxtm/login.cgi'
+      - "{{BaseURL}}/apps/zxtm/login.cgi"
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - 'Login (Virtual Traffic Manager'
+          - "Login (Virtual Traffic Manager"
 
       - type: status
         status:

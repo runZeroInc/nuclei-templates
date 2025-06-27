@@ -17,8 +17,8 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/domibus/rest/application/info'
-      - '{{BaseURL}}/domibus/'
+      - "{{BaseURL}}/domibus/rest/application/info"
+      - "{{BaseURL}}/domibus/"
 
     stop-at-first-match: true
     matchers:

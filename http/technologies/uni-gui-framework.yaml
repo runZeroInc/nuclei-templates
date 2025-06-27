@@ -15,7 +15,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2
@@ -25,9 +25,9 @@ http:
       - type: word
         part: body
         words:
-          - 'uni-xtheme-'
-          - 'ext-all.js'
-          - 'uniVars._extVer='
+          - "uni-xtheme-"
+          - "ext-all.js"
+          - "uniVars._extVer="
         condition: or
 
       - type: regex

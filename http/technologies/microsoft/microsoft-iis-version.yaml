@@ -28,9 +28,8 @@ http:
           - "IIS"
 
     extractors:
-      - type: regex
-        name: version
-        group: 1
-        regex:
-          - 'Microsoft-IIS/([0-9.]{2,3})'
+      - type: kval
+        part: header
+        kval:
+          - Server
 

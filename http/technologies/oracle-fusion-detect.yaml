@@ -15,14 +15,14 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - '<title>Welcome to Oracle Fusion Middleware'
+          - "<title>Welcome to Oracle Fusion Middleware"
 
       - type: status
         status:

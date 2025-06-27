@@ -15,7 +15,12 @@ info:
     max-request: 1
     vendor: privatebin
     product: privatebin
-    shodan-query: title:"PrivateBin"
+    shodan-query:
+      - title:"PrivateBin"
+      - http.favicon.hash:1358855492
+    fofa-query:
+      - title="PrivateBin"
+      - icon_hash="1358855492"
   tags: tech,privatebin,detect
 
 http:

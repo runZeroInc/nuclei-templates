@@ -58,5 +58,4 @@ http:
         part: header_2
         group: 1
         regex:
-          - currentAuth=([0-9a-zA-Z]+)
-
+          - 'currentAuth=([0-9a-zA-Z]+)'

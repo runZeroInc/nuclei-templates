@@ -21,14 +21,14 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/bagisto-common/search?query={{228*'98'}}"
+      - "{{BaseURL}}/bagisto-common/search?query={{2288*'9876'}}"
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - "22344"
+          - "22596288"
           - "bagisto"
         condition: and
 

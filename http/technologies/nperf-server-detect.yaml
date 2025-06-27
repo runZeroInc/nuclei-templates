@@ -17,20 +17,20 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     matchers-condition: or
     matchers:
       - type: word
         part: body
         words:
-          - '<title>nPerfServer</title>'
+          - "<title>nPerfServer</title>"
 
       - type: word
         part: header
         words:
-          - 'Nperfserver-Remote-Endpoint'
-          - 'nPerf/'
+          - "Nperfserver-Remote-Endpoint"
+          - "nPerf/"
         condition: or
 
     extractors:

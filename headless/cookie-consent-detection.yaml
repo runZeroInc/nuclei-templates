@@ -31,4 +31,3 @@ headless:
       - type: status
         status:
           - 200
-

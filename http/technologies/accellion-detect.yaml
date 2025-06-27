@@ -15,7 +15,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/cfadmin/'
+      - "{{BaseURL}}/cfadmin/"
 
     matchers-condition: and
     matchers:

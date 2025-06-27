@@ -16,13 +16,13 @@ tcp:
       - data: "\r\n"
 
     host:
-      - '{{Hostname}}'
+      - "{{Hostname}}"
     port: 2002
 
     matchers:
       - type: word
         words:
-          - 'TS3'
-          - 'TeamSpeak 3 ServerQuery interface'
+          - "TS3"
+          - "TeamSpeak 3 ServerQuery interface"
         condition: and
 

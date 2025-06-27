@@ -19,7 +19,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2
@@ -28,5 +28,5 @@ http:
       - type: word
         part: server
         words:
-          - 'wildix'
+          - "wildix"
 

@@ -18,7 +18,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/server'
+      - "{{BaseURL}}/server"
 
     matchers-condition: and
     matchers:

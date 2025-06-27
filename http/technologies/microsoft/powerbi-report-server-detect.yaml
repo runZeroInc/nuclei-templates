@@ -17,8 +17,8 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/reports/api/v2.0/System'
-      - '{{BaseURL}}/reports/browse'
+      - "{{BaseURL}}/reports/api/v2.0/System"
+      - "{{BaseURL}}/reports/browse"
 
     stop-at-first-match: true
     redirects: true

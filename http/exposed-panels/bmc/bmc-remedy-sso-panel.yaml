@@ -17,8 +17,8 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/arsys/'
-      - '{{BaseURL}}/webUI/userHome.do'
+      - "{{BaseURL}}/arsys/"
+      - "{{BaseURL}}/webUI/userHome.do"
 
     stop-at-first-match: true
 

@@ -5,7 +5,7 @@ info:
   author: righettod
   severity: info
   description: |
-    LuxTrust COSI was detected.
+     LuxTrust COSI was detected.
   reference:
     - https://luxtrust.com/en/professionals/our-digital-solutions/sign-electronically
   metadata:
@@ -16,7 +16,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/web/thanks'
+      - "{{BaseURL}}/web/thanks"
 
     matchers:
       - type: dsl

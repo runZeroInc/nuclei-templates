@@ -14,16 +14,16 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - '<title>T-Pot</title>'
-          - 'T-Pot @ Github'
-          - 'T-Pot ReadMe'
+          - "<title>T-Pot</title>"
+          - "T-Pot @ Github"
+          - "T-Pot ReadMe"
         condition: and
 
       - type: status

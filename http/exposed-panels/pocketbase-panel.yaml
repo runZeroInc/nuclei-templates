@@ -18,7 +18,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/_/#/login'
+      - "{{BaseURL}}/_/#/login"
 
     matchers-condition: and
     matchers:

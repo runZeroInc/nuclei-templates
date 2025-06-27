@@ -17,14 +17,14 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - '<title>Ivanti(R) Cloud Services Appliance</title>'
+          - "<title>Ivanti(R) Cloud Services Appliance</title>"
 
       - type: status
         status:

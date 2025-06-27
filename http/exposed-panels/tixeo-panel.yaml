@@ -16,9 +16,9 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/meet/services/json/v1/settings'
-      - '{{BaseURL}}/meet/login.html'
-      - '{{BaseURL}}/meet/'
+      - "{{BaseURL}}/meet/services/json/v1/settings"
+      - "{{BaseURL}}/meet/login.html"
+      - "{{BaseURL}}/meet/"
 
     stop-at-first-match: true
 
