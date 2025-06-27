@@ -10,3 +10,4 @@ workflows:
       - name: apache-ofbiz
         subtemplates:
           - tags: ofbiz
+

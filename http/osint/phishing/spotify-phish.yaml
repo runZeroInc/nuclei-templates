@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"spotify.com")'
-# digest: 490a0046304402207855749a7b547a8877dd237d3b41bbff7be79a3890cea5eb59e734d31e97d254022038d1aa12dbf70916c547c669766c6275320ccf34f470895daef93b77b37f0b88:922c64590222798bb761d5b6d8e72950
+

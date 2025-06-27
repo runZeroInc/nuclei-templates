@@ -36,4 +36,4 @@ http:
           - "status_code==200"
           - 'contains(body, "SEAFILE_GLOBAL") && contains(body, "seafile-ui.css")'
         condition: and
-# digest: 490a004630440220378acb10c3776f1cd577f115702b40196509a3ffe7045b11a148c66b6e1d17eb02206a13e0744295f9dc86dc7efdf81e42b67470329594513bff03bd2b7c9dc9bf5d:922c64590222798bb761d5b6d8e72950
+

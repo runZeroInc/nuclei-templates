@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"thunderbird.net")'
-# digest: 490a0046304402207c8ed08ec9a49d713010bccfef68391d752cd93c319e716aa70312fef1dfe09102207a0d1021370d8b46bd5b15631bb20e91a250dc8ae04e836d057a9aa0921ab7fd:922c64590222798bb761d5b6d8e72950
+

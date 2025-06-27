@@ -37,10 +37,4 @@ http:
       - type: status
         status:
           - 200
-    extractors:
-      - type: regex
-        name: version
-        part: header
-        group: 1
-        regex:
-          - 'X-Jenkins:\s*(\d.*)'
+

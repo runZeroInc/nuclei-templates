@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/grav-cms-detect.yaml
     subtemplates:
       - tags: grav
+

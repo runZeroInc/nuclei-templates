@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"chase.com")'
-# digest: 4b0a00483046022100953d158d8057bc264bcb733408f1aa6f573fb45373364a27e2fac9714b712f23022100d5c8165dff5d9f3cfbd4384f23e771255a3cf44464000eb3aaadf03214432f3e:922c64590222798bb761d5b6d8e72950
+

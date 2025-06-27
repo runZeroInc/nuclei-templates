@@ -14,7 +14,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"linkedin.com")'
-# digest: 4a0a004730450220101b92ec269c7ad2a2ceaba5e0051e21ceadf686a916c352116923d53a73293e022100a71ef45bea85839b5dd33713b6191e96ae338db46888101e4e30a1f590885e5a:922c64590222798bb761d5b6d8e72950
+

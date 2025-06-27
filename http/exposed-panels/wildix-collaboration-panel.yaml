@@ -19,7 +19,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     max-redirects: 2
@@ -28,5 +28,5 @@ http:
       - type: word
         part: server
         words:
-          - 'wildix'
-# digest: 4a0a00473045022037b602941c8b8158a591aa58841e8eb90641590b0fde6dceb89575a1ffb6cc5602210083a22a8b5c36ca5ac8ac7a40db596abecc4bab1d3c49403b117a1e4b0cc10a6e:922c64590222798bb761d5b6d8e72950
+          - "wildix"
+

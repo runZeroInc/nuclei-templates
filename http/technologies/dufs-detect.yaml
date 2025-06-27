@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     host-redirects: true
     matchers:
@@ -33,4 +33,4 @@ http:
         group: 1
         regex:
           - '(?i)__dufs_v([0-9.]+)_'
-# digest: 4b0a00483046022100c47139f6fbb9b768e45c731ecf0eacc5f50a4671267e337135ddfb12e1e10ddd022100b5bb19e23d0fa471b042ce33122b6c47c360a4a57852e37161adc1578d6989b5:922c64590222798bb761d5b6d8e72950
+

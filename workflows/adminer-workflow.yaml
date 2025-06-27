@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/adminer-panel.yaml
     subtemplates:
       - tags: adminer
+

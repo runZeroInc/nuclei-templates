@@ -10,3 +10,4 @@ workflows:
       - name: mida-eframework
         subtemplates:
           - template: http/vulnerabilities/other/mida-eframework-xss.yaml
+

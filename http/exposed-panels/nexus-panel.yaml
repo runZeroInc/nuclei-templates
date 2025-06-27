@@ -17,7 +17,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
+      - "{{BaseURL}}"
 
     matchers:
       - type: dsl
@@ -32,4 +32,4 @@ http:
         group: 1
         regex:
           - '_v=([0-9\.\-]+)'
-# digest: 4a0a00473045022100ca9c36f662c00db31d243f5a44bc07f1e146718faeb4e4c17ab1f8889cf9bacf0220163485b28c822050254cc7d5f0792ddf6d2913920a6bada734de6002a687207c:922c64590222798bb761d5b6d8e72950
+
