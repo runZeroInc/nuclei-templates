@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/phpmyadmin-panel.yaml
     subtemplates:
       - tags: phpmyadmin
+

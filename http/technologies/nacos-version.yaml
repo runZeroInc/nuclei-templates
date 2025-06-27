@@ -46,4 +46,4 @@ http:
         part: body
         regex:
           - '"version":"(\d+\.\d+\.\d+)"'
-# digest: 490a004630440220674f4faf39bf1e50c0ba692e65fb9a4189d461e22ea64fdd6e03ca0868db573c0220330b90d8be42d96ce19765eba2e7f664965e81e59c5647b391713ab690293630:922c64590222798bb761d5b6d8e72950
+

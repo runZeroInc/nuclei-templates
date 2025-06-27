@@ -10,3 +10,4 @@ workflows:
       - name: umbraco
         subtemplates:
           - tags: umbraco
+

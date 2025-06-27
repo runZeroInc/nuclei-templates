@@ -27,4 +27,4 @@ tcp:
       - type: regex
         regex:
           - "ProFTPD ([0-9.a-z]+) Server"
-# digest: 4a0a0047304502206648778769023b73eab0fb2a068221ba06055a4de7960b2cf5084daf71ec8dff022100d4ae30192c8499b8a4fbec337388be58f2d596f2a65fa055b145b3e97495bae1:922c64590222798bb761d5b6d8e72950
+

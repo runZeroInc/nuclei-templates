@@ -10,3 +10,4 @@ workflows:
       - name: chamilo
         subtemplates:
           - tags: chamilo
+

@@ -10,3 +10,4 @@ workflows:
       - name: sugarcrm
         subtemplates:
           - tags: sugarcrm
+

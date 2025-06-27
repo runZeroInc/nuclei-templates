@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"anydesk.com")'
-# digest: 4a0a0047304502206b9511b4d403259a9453463b038b4bbe2bf4a3d6801c193bf4de25a16b3cfef7022100f31bcb4d2917909772c74ba040105cc14e8f5b468fc4c8a66bc0b840aa1634fe:922c64590222798bb761d5b6d8e72950
+

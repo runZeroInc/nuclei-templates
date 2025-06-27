@@ -10,3 +10,4 @@ workflows:
       - name: episerver
         subtemplates:
           - tags: episerver
+

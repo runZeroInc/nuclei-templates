@@ -52,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "ovoenergy_js_smb_csp_xss == true"
-# digest: 490a0046304402201f61e941388e04626a2ba63a58348d0ed886fda7cf3bbd2c4a33e5de5d4bb63e022003e3457f9ce0b3562997cc4aa78bbd050814ee113fda97d9fdf5c9f219978c51:922c64590222798bb761d5b6d8e72950
+

@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/weblogic-detect.yaml
     subtemplates:
       - tags: weblogic
+

@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/sidekiq-dashboard.yaml
     subtemplates:
       - tags: sidekiq
+

@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/cwp-webpanel.yaml
     subtemplates:
       - tags: centos
+

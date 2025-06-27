@@ -10,3 +10,4 @@ workflows:
       - name: saltstack
         subtemplates:
           - tags: saltstack
+

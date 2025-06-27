@@ -10,3 +10,4 @@ workflows:
       - name: vbulletin
         subtemplates:
           - tags: vbulletin
+
