@@ -10,3 +10,4 @@ workflows:
       - name: opensns
         subtemplates:
           - tags: opensns
+

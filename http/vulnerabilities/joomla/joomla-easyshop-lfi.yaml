@@ -26,4 +26,4 @@ http:
           - 'contains_any(body, "$user", "$password", "$dbtype")'
           - 'status_code == 200'
         condition: and
-# digest: 4b0a00483046022100f7d37b910794026d389fc6e69702589443195bd0f0f61df12d41ac5d92de9182022100ec309484364d3b811be8a3386c11836b27a86ed388de5579e3b660a2e4b5b864:922c64590222798bb761d5b6d8e72950
+

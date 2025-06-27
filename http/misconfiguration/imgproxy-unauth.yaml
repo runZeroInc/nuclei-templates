@@ -35,4 +35,4 @@ http:
           - 'contains(content_type, "image/png")'
           - '("386116288" == mmh3(base64_py(body)))'
         condition: and
-# digest: 4a0a00473045022100af65fcb564e9bf04aeb44e0e33a63f073c847c89760161ea2bbb8c1736db14f2022065df1ec961c3c778338c31ece08edd64202c9272d93f35594e3cc2750f8ce0ea:922c64590222798bb761d5b6d8e72950
+

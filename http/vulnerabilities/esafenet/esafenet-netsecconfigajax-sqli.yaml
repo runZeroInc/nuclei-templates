@@ -32,4 +32,4 @@ http:
           - 'contains(body,"操作成功")'
           - 'status_code == 200'
         condition: and
-# digest: 490a004630440220647b92b80ee43fa2538fda766fbd134f952b7b90f57b2d992d6a2f631f037a190220525ac4f6ead3e8cbcf40ade3942d5542cf81f4c71bb505c08edb75467d0705ef:922c64590222798bb761d5b6d8e72950
+

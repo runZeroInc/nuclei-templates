@@ -52,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "aliexpress_acs_csp_xss == true"
-# digest: 4a0a00473045022100fa5fa04e0d6d342b8a2a9745f37314bb2befc956c119460fbb3f4964e05dddc202205de0610bbff0eb23ce4ad9424538f13010dd514d8dbcd6e2a227d5ecbd467907:922c64590222798bb761d5b6d8e72950
+

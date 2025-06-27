@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/jboss-detect.yaml
     subtemplates:
       - tags: jboss
+

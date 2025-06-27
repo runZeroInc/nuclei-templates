@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"gimp.org")'
-# digest: 4a0a00473045022068616507f95c9628d166933e62b5d20656c780fb23d8aff55d383151d5c1e189022100c24c1d4d1ecedc51b3b3e94b62bdadff84e9972e4e92cb248f52c53f8ad589dd:922c64590222798bb761d5b6d8e72950
+

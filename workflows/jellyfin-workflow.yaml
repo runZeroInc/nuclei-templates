@@ -10,3 +10,4 @@ workflows:
       - template: http/cves/2020/CVE-2020-26948.yaml
 
       - template: http/cves/2021/CVE-2021-21402.yaml
+

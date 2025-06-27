@@ -8,3 +8,4 @@ workflows:
   - template: http/misconfiguration/installer/circarlife-setup.yaml
     subtemplates:
       - tags: circarlife
+

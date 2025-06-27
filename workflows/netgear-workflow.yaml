@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/netgear-version-detect.yaml
     subtemplates:
       - tags: netgear
+

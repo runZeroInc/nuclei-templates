@@ -10,3 +10,4 @@ workflows:
       - name: b2evolution
         subtemplates:
           - tags: b2evolution
+
