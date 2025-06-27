@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/fortinet/fortinet-panel.yaml
     subtemplates:
       - tags: fortinet
+

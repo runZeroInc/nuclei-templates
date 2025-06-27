@@ -30,4 +30,4 @@ http:
           - 'contains(body, "Log Helper")'
           - 'status_code == 200'
         condition: and
-# digest: 4a0a004730450221008d342b3efd644c739106ff8afa4211ba667bbb4f5607dc3bb25a708b0d0d294502207d22b7a0020610ddfd2e067d58afecaa66eaa6a61f06611f1ca6a14e60f2681e:922c64590222798bb761d5b6d8e72950
+

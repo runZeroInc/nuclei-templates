@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"facebook.com")'
-# digest: 4b0a00483046022100ba548afb1eda970b0be41155cad351b58d9149b7efe28c554506c701f310ed4c022100b928ab53a485f77882c47a5d661846e660ca694e900a688cccf384ff725e55d2:922c64590222798bb761d5b6d8e72950
+

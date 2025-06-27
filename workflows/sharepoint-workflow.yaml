@@ -10,3 +10,4 @@ workflows:
       - name: sharepoint
         subtemplates:
           - tags: sharepoint
+

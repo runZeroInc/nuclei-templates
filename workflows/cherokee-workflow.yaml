@@ -10,3 +10,4 @@ workflows:
       - name: cherokee
         subtemplates:
           - tags: cherokee
+

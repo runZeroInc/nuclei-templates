@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/kibana-panel.yaml
     subtemplates:
       - tags: kibana
+

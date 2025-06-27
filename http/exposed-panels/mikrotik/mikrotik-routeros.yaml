@@ -66,4 +66,4 @@ http:
           - '<div class="top">mikrotik routeros (.[0-9.]+) configuration page</div>'
           - 'routeros (.[0-9.]+) '
           - '<b>MikroTik RouterOS (.[0-9.]+)</b>'
-# digest: 4b0a00483046022100ba53e5f294d91eaa84a3bd441546a80ff42d9256dc6097e2c072149c13ca5d3402210080440e0a6c8e37974113195bda0787c9601fda27827fbce53a6522a89fafe468:922c64590222798bb761d5b6d8e72950
+

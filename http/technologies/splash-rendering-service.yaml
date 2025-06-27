@@ -41,4 +41,4 @@ http:
         part: body
         regex:
           - "Splash v([0-9.]+)"
-# digest: 490a004630440220627223494478e6e5290416ef70dab9babba99792d29d085507b7658fef4c46c002207afcf2253dbfb43ebd9ee8def77b0cb48a01f52ebf106a1af565a57755a4292a:922c64590222798bb761d5b6d8e72950
+

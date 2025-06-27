@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/solr-panel-exposure.yaml
     subtemplates:
       - tags: solr
+

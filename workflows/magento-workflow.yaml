@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/magento-version-detect.yaml
     subtemplates:
       - template: http/technologies/magento-eol.yaml
+

@@ -10,3 +10,4 @@ workflows:
       - name: websvn
         subtemplates:
           - tags: websvn
+

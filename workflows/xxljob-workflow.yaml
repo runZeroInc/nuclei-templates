@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/xxljob-panel.yaml
     subtemplates:
       - template: http/default-logins/xxljob/xxljob-default-login.yaml
+

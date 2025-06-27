@@ -10,3 +10,4 @@ workflows:
       - name: dedecms
         subtemplates:
           - tags: dedecms
+
