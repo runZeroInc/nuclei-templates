@@ -9,6 +9,8 @@ info:
   reference:
     - https://github.com/librespeed/speedtest
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "LibreSpeed"})
     verified: true
     max-request: 1
     shodan-query: title:"LibreSpeed"
@@ -33,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

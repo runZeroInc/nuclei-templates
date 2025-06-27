@@ -10,6 +10,8 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:sophos:sfos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "Sophos"}) || any(each(service["html.titles"]), {# matches "(?i)sophos"})
     verified: true
     max-request: 2
     vendor: sophos
@@ -48,4 +50,3 @@ http:
         group: 1
         regex:
           - 'href="\/themes\/lite1\/css\/typography\.css\?version=(([0-9a-z]+)([0-9.]+))'
-

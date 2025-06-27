@@ -8,6 +8,8 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "AlienVault USM"})
     max-request: 1
     shodan-query: http.title:"AlienVault USM"
   tags: panel,alienvault
@@ -26,4 +28,3 @@ http:
       - type: status
         status:
           - 200
-
