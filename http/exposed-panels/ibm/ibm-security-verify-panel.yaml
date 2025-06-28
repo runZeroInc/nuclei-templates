@@ -9,6 +9,8 @@ info:
   reference:
     - https://www.ibm.com/docs/en/sva/10.0.8?topic=overview-introduction-security-verify-access
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)IBM Security Verify Access"})
     max-request: 1
     vendor: ibm
     shodan-query: http.title:"IBM Security Verify Access"
@@ -31,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-
