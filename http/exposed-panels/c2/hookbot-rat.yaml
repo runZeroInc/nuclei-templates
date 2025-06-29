@@ -23,3 +23,4 @@ http:
       - type: dsl
         dsl:
           - "status_code == 200 && contains(body, 'HOOKBOT PANEL')"
+

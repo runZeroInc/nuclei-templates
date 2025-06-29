@@ -34,3 +34,4 @@ http:
       - type: regex
         regex:
           - '<title(.*)>Semaphore</title>'
+

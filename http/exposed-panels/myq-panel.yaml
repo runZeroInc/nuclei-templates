@@ -47,3 +47,4 @@ http:
         group: 1
         regex:
           - "<span class=\"version\">MyQ ([\\d\\.\\w\\s\\(\\)]+)<\\/span>"
+

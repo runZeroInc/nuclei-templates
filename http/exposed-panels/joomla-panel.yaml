@@ -31,3 +31,4 @@ http:
             />'
           - '/administrator/templates/isis/images/joomla.png'
         condition: or
+

@@ -49,3 +49,4 @@ http:
         group: 1
         regex:
           - '"(v\d+.\d+.\d+.?\d?)"'
+

@@ -38,3 +38,4 @@ http:
       - type: word
         words:
           - "fortiSIEM_current_login_salt"
+

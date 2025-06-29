@@ -47,3 +47,4 @@ http:
         group: 1
         regex:
           - '(?i)webadm\s+(free|enterprise)\s+edition'
+
