@@ -20,7 +20,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/'
+      - "{{BaseURL}}/"
 
     matchers:
       - type: dsl
@@ -49,3 +49,4 @@ http:
       - type: dsl
         dsl:
           - '"OS: " + os + " | Hostname: " + hostname'
+

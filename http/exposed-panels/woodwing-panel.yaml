@@ -35,3 +35,4 @@ http:
         group: 1
         regex:
           - '<!---->v([0-9.]+\s+Build\s+[0-9]+)'
+

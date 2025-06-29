@@ -24,7 +24,7 @@ http:
       - type: word
         part: body
         words:
-          - '<title>FortiSwitch'
+          - "<title>FortiSwitch"
 
       - type: status
         status:

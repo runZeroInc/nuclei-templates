@@ -16,7 +16,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/config/public'
+      - "{{BaseURL}}/config/public"
 
     matchers:
       - type: dsl

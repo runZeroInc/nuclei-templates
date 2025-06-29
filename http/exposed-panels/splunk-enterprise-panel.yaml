@@ -49,3 +49,4 @@ http:
           - '"version": "(.*)"'
           - 'versionNumber": "([0-9.]+)"'
           - '"VERSION_LABEL": "([0-9.]+)"'
+

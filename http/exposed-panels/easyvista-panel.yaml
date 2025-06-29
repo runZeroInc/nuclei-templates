@@ -19,7 +19,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/index.php'
+      - "{{BaseURL}}/index.php"
 
     matchers:
       - type: dsl
@@ -35,3 +35,4 @@ http:
         regex:
           - '(?i)package:\s+"([a-z0-9._-]+)"'
           - '(?i)version&nbsp;:&nbsp;([a-z0-9._-]+)'
+

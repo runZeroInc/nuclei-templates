@@ -19,7 +19,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/adfinity/login'
+      - "{{BaseURL}}/adfinity/login"
 
     matchers:
       - type: dsl
@@ -34,3 +34,4 @@ http:
         group: 1
         regex:
           - '(?i)Version\s+Adfinity([0-9.]+)'
+

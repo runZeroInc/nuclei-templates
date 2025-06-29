@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - '<title>Phoronix Test Suite (.*) - Phoromatic - Welcome</title>'
+

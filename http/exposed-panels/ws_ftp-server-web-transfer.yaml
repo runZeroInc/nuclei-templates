@@ -44,3 +44,4 @@ http:
           - contains(body, 'Web Transfer Client')
           - status_code == 200
         condition: and
+

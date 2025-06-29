@@ -19,7 +19,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/login/'
+      - "{{BaseURL}}/login/"
 
     matchers:
       - type: dsl
@@ -34,3 +34,4 @@ http:
         group: 1
         regex:
           - 'http-equiv="version"\s+content="([0-9\.]+)"'
+

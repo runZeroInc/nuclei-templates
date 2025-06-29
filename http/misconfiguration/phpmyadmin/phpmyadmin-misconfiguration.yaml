@@ -13,6 +13,16 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 2
+    vendor: phpmyadmin
+    product: phpmyadmin
+    shodan-query:
+      - "http.title:phpMyAdmin"
+      - http.title:"phpmyadmin"
+      - http.component:"phpmyadmin"
+      - cpe:"cpe:2.3:a:phpmyadmin:phpmyadmin"
+    fofa-query:
+      - body="pma_servername" && body="4.8.4"
+      - title="phpmyadmin"
   tags: phpmyadmin,misconfig,edb
 
 http:
@@ -22,8 +32,7 @@ http:
       - "{{BaseURL}}/phpMyAdmin/index.php?db=information_schema"
 
     stop-at-first-match: true
-
-    matchers-condition: and
+    matchers-condition: or
     matchers:
       - type: word
         words:
@@ -31,7 +40,9 @@ http:
           - "var opendb_url = 'db_structure.php';"
         condition: and
 
-      - type: status
-        status:
-          - 200
+      - type: word
+        words:
+          - "db:\"information_schema\""
+          - "opendb_url:\"db_structure.php\""
+        condition: and
 
