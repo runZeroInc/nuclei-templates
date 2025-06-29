@@ -52,3 +52,4 @@ http:
         group: 1
         regex:
           - '<span>GeoServer ([0-9.]+)'
+

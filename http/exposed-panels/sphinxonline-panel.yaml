@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - 'Sphinxonline ([a-f0-9.]+)</a>'
+

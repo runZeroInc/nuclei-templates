@@ -26,3 +26,4 @@ http:
           - 'contains(body, "<title>AlternC Desktop")'
           - 'status_code == 200'
         condition: and
+

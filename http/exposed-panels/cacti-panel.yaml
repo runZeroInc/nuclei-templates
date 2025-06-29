@@ -60,3 +60,4 @@ http:
         group: 1
         regex:
           - "<div class='versionInfo'>Version (.*) |"
+

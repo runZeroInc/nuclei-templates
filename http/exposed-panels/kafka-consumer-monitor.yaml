@@ -38,3 +38,4 @@ http:
       - type: word
         words:
           - '<title>Kafka Consumer Offset Monitor</title>'
+

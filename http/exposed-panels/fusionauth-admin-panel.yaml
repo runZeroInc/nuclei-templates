@@ -49,3 +49,4 @@ http:
         group: 1
         regex:
           - 'FusionAuth\.Version = "([0-9.]+)";'
+

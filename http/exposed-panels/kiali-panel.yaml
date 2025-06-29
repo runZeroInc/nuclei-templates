@@ -42,3 +42,4 @@ http:
         group: 1
         regex:
           - '(?i)"Kiali version":\s*"([a-z0-9.]+)"'
+

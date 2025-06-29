@@ -54,3 +54,4 @@ http:
         name: build
         regex:
           - "Version</span> [0-9.]+ \\(build (.*)\\)</span>"
+

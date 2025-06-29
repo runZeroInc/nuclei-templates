@@ -27,3 +27,4 @@ http:
           - 'contains(body, "Advanced eMail Solution DEEPMail</title>")'
           - 'status_code == 200'
         condition: and
+
