@@ -14,71 +14,71 @@ info:
   tags: dns,soa
 
 dns:
-  - name: '{{FQDN}}'
+  - name: "{{FQDN}}"
 
     type: SOA
 
     matchers-condition: or
     matchers:
       - type: word
-        name: 'cloudflare'
+        name: "cloudflare"
         words:
-          - 'dns.cloudflare.com'
+          - "dns.cloudflare.com"
 
       - type: word
-        name: 'amazon-web-services'
+        name: "amazon-web-services"
         words:
-          - 'awsdns'
+          - "awsdns"
 
       - type: word
-        name: 'akamai'
+        name: "akamai"
         words:
-          - 'hostmaster.akamai.com'
+          - "hostmaster.akamai.com"
 
       - type: word
-        name: 'azure'
+        name: "azure"
         words:
-          - 'azure-dns.com'
+          - "azure-dns.com"
 
       - type: word
-        name: 'ns1'
+        name: "ns1"
         words:
-          - 'nsone.net'
+          - "nsone.net"
 
       - type: word
-        name: 'verizon'
+        name: "verizon"
         words:
-          - 'verizon.com'
+          - "verizon.com"
 
       - type: word
-        name: 'google-cloud-platform'
+        name: "google-cloud-platform"
         words:
-          - 'googledomains.com'
-          - 'google.com'
+          - "googledomains.com"
+          - "google.com"
 
       - type: word
-        name: 'alibaba'
+        name: "alibaba"
         words:
-          - 'alibabadns.com'
+          - "alibabadns.com"
 
       - type: word
-        name: 'safeway'
+        name: "safeway"
         words:
-          - 'safeway.com'
+          - "safeway.com"
 
       - type: word
-        name: 'mark-monitor'
+        name: "mark-monitor"
         words:
-          - 'markmonitor.com'
-          - 'markmonitor.zone'
+          - "markmonitor.com"
+          - "markmonitor.zone"
 
       - type: word
-        name: 'hetznet'
+        name: "hetznet"
         words:
-          - 'hetzner.com'
+          - "hetzner.com"
 
       - type: word
-        name: 'edge-cast'
+        name: "edge-cast"
         words:
-          - 'edgecastdns.net'
+          - "edgecastdns.net"
 

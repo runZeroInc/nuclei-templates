@@ -9,8 +9,11 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+<<<<<<< HEAD
     runzero-match: |-
         service["http.body"] matches "(?i)title=\\\\"
+=======
+>>>>>>> upstream-staging
     verified: true
     max-request: 2
     shodan-query: html:"title=\"blue yonder\""
@@ -19,8 +22,8 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}'
-      - '{{BaseURL}}/base/home'
+      - "{{BaseURL}}"
+      - "{{BaseURL}}/base/home"
 
     stop-at-first-match: true
     host-redirects: true

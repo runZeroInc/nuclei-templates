@@ -12,7 +12,7 @@ headless:
   - steps:
       - action: navigate
         args:
-          url: '{{BaseURL}}'
+          url: "{{BaseURL}}"
       - action: waitload
 
     matchers-condition: and

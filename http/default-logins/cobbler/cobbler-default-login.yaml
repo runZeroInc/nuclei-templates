@@ -69,5 +69,5 @@ http:
       - type: regex
         part: body
         regex:
-          - '(.*[a-zA-Z0-9].+==)</string></value>'
+          - "(.*[a-zA-Z0-9].+==)</string></value>"
 
