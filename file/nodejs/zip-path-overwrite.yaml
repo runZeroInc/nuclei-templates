@@ -24,4 +24,4 @@ file:
           - "[\\w\\W]+?\\.writeFile\\([\\w\\W]*?\\)"
           - "[\\w\\W]+?\\.writeFileSync\\([\\w\\W]*?\\)"
         condition: or
-# digest: 4a0a004730450220051b7e529570643f08f54cd24e69fe9494adb8e7c1d79ab595a576f94996696402210094a3684b3e8f12168d03d6156848ef21e135895f17fac97ed1c0e9ca1140f423:922c64590222798bb761d5b6d8e72950
+

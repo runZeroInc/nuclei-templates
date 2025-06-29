@@ -40,4 +40,4 @@ http:
         name: version
         regex:
           - 'CUPS v([0-9.]+)>'
-# digest: 4a0a00473045022100a5b45106f260fc6cba3cba2bb277d42cbfcc5a9762bc43d8491d3011b202d65402203771ae0cc837cbf24eba3374ce0b91f49cd014ee098ba2eefe00e2ed5dbc75e9:922c64590222798bb761d5b6d8e72950
+

@@ -37,4 +37,4 @@ http:
           - 'status_code_1 == 200 && !contains(body_1,"result\":\"failed")'
           - 'contains(header_1,"token=ey") && contains(body_1,"{\"result\":\"success")'
         condition: and
-# digest: 4a0a004730450220143923e43067c329caf625e823adf5f0517db69791d43d30c1c19084ee371898022100ef73eb15caf4f9cc202edeb3fd416637c1ee5668a89bd282b76407f582c03299:922c64590222798bb761d5b6d8e72950
+

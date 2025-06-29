@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/gophish-login.yaml
     subtemplates:
       - tags: gophish
+

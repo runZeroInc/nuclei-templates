@@ -58,4 +58,4 @@ http:
         part: header
         regex:
           - 'Set-Cookie: CSRF=([a-z0-9]+)'
-# digest: 4b0a004830460221008791384d45578bc58c39bddda7b6eb3e618d219aa7cf0ceda3ada5358595e8ca022100f6108d70bf5f6037108711e4c0fffe3f4434ec8c6a67eafdc9ee2199d2ccdaa9:922c64590222798bb761d5b6d8e72950
+

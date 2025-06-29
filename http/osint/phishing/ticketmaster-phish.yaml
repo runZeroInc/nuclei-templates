@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"ticketmaster.com")'
-# digest: 4b0a00483046022100b4199325e9f1efdc776fd97479e7459272f15dd84179307dbea419e822007eae022100b8b78f9b7146da5939c3d7a661c4df8986f33f85b5411df87d89caea3a6dbc80:922c64590222798bb761d5b6d8e72950
+

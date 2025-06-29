@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/glpi-panel.yaml
     subtemplates:
       - tags: glpi
+

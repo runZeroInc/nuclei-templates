@@ -38,4 +38,4 @@ http:
         group: 1
         regex:
           - '(?i)build\s+([a-z0-9.-]+)'
-# digest: 4a0a0047304502202d335bd3f5b42a8cae5d27ed368cca46b6e9a86ff3f9f8065c296b626acd648c022100b8302a3d64d5f422d29fe9c48e025aca0f97b91e473dcffec4fad2a49fef2e1d:922c64590222798bb761d5b6d8e72950
+

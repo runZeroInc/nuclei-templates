@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/harbor-detect.yaml
     subtemplates:
       - template: http/cves/2019/CVE-2019-16097.yaml
+

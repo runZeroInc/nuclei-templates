@@ -39,4 +39,4 @@ http:
         part: body
         regex:
           - 'ALEOS Version ([0-9.]+) \| Copyright &co'
-# digest: 4a0a0047304502204502bac1825cab2610024d5e3e2edc4865b7868a6384622faebbe1df61bad29b022100eac65b032282693d93d99cf19728d65a54caf5ce0a40dff6b0a8e6054e588082:922c64590222798bb761d5b6d8e72950
+

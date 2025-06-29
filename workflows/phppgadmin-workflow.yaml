@@ -10,3 +10,4 @@ workflows:
       - name: phppgadmin
         subtemplates:
           - tags: phppgadmin
+

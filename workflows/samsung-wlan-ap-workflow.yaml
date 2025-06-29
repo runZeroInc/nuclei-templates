@@ -8,3 +8,4 @@ workflows:
   - template: http/default-logins/samsung/
 
   - template: http/vulnerabilities/samsung/
+

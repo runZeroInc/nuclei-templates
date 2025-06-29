@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"o2.co.uk")'
-# digest: 4b0a00483046022100eb051d5d8cd7dfe9c8354890d1271ed1e2de6c73721e5ae403d330e805cc8d51022100fc40d8757bc08f5d8728fa0ab268c22d8ef565cb2dc38c925881295bf5d55511:922c64590222798bb761d5b6d8e72950
+

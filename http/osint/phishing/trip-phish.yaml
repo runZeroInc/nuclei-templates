@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"trip.com")'
-# digest: 4a0a0047304502205074a1d299ba2f7f6880ca297337b55211646ed8ee7cd14e252f08e606481572022100dba776dedbdf8868ac5dbab1514d725b72edd5a3b5a45a9f0ebf05ac0a26adec:922c64590222798bb761d5b6d8e72950
+

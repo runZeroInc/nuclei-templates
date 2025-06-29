@@ -19,3 +19,4 @@ workflows:
   - template: http/technologies/oracle/default-oracle-application-page.yaml
   - template: http/technologies/ibm/ibm-http-server.yaml
   - template: http/technologies/default-detect-generic.yaml
+

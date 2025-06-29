@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/thinfinity-virtualui-panel.yaml
     subtemplates:
       - tags: thinfinity
+
