@@ -6,6 +6,8 @@ dns/fbi-seized-nameserver.yaml
 http/cves/2018/CVE-2018-11686.yaml
 http/cves/2018/CVE-2018-14933.yaml
 http/cves/2018/CVE-2018-19207.yaml
+http/cves/2019/CVE-2019-17564.yaml
+http/cves/2019/CVE-2019-7194.yaml
 http/cves/2019/CVE-2019-9194.yaml
 http/cves/2020/CVE-2020-11984.yaml
 http/cves/2020/CVE-2020-36333.yaml
@@ -14,6 +16,9 @@ http/cves/2023/CVE-2023-48022.yaml
 http/cves/2023/CVE-2023-7116.yaml
 http/cves/2024/CVE-2024-3272.yaml
 http/cves/2024/CVE-2024-4325.yaml
+http/cves/2024/CVE-2024-51977.yaml
+http/cves/2025/CVE-2024-51977.yaml
+http/cves/2025/CVE-2024-51978.yaml
 http/cves/2025/CVE-2025-30220.yaml
 http/cves/2025/CVE-2025-34031.yaml
 http/cves/2025/CVE-2025-34032.yaml
@@ -34,6 +39,7 @@ http/default-logins/nuuo-nvr-default-login.yaml
 http/default-logins/opensearch-default-login.yaml
 http/default-logins/photoprism-default-login.yaml
 http/exposed-panels/beyondtrust-remotesupport-panel.yaml
+http/exposed-panels/brother-printer-panel.yaml
 http/exposed-panels/ibm/ibm-security-verify-panel.yaml
 http/exposed-panels/motive-eim-panel.yaml
 http/exposed-panels/myq-panel.yaml
@@ -50,13 +56,16 @@ http/misconfiguration/opensearch-dashboard-unauth.yaml
 http/misconfiguration/photoprism-unauth.yaml
 http/takeovers/greatpages-takeover.yaml
 http/technologies/apache/apache-kyuubi-detect.yaml
+http/technologies/beyondtrust-remotesupport-version.yaml
 http/technologies/cryptshare-detect.yaml
 http/technologies/mitel-version-detect.yaml
 http/technologies/wordpress/plugins/blocksy-companion.yaml
 http/technologies/wordpress/plugins/gosmtp.yaml
+http/technologies/wordpress/plugins/honeypot.yaml
 http/technologies/wordpress/plugins/pagelayer.yaml
 http/technologies/wordpress/plugins/siteseo.yaml
 http/technologies/wordpress/plugins/unlimited-elements-for-elementor.yaml
 http/vulnerabilities/dahua/dahua-icc-getclassvalue-rce.yaml
 http/vulnerabilities/totolink-boaform-rce.yaml
 http/vulnerabilities/ueditor-arbitrary-file-upload.yaml
+network/cves/2020/CVE-2020-0796.yaml

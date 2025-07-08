@@ -19,7 +19,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/index.php'
+      - "{{BaseURL}}/index.php"
 
     matchers:
       - type: dsl

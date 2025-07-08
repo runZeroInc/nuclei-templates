@@ -19,7 +19,7 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/login'
+      - "{{BaseURL}}/login"
 
     matchers:
       - type: dsl
