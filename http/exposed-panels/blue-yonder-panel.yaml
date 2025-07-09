@@ -9,12 +9,9 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-<<<<<<< HEAD
     runzero-match: |-
         service["http.body"] matches "(?i)title=\\\\"
-=======
     verified: true
->>>>>>> upstream-staging
     max-request: 2
     shodan-query: html:"title=\"blue yonder\""
   tags: panel,login,blue-yonder,detect

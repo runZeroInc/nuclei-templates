@@ -32,10 +32,3 @@ http:
           - 'contains_any(body, "<title>Cortex XSOAR</title>", "content=\"Cortex XSOAR\">")'
         condition: and
 
-<<<<<<< HEAD
-      - type: status
-        status:
-          - 200
-
-=======
->>>>>>> upstream-staging
