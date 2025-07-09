@@ -10,3 +10,4 @@ workflows:
       - name: symfony
         subtemplates:
           - tags: symfony
+

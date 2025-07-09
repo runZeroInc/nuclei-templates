@@ -56,4 +56,4 @@ http:
           - "/config/global/resources/default_setup/connection/username"
           - "/config/global/resources/default_setup/connection/password"
           - "/config/global/resources/default_setup/connection/dbname"
-# digest: 4a0a00473045022100d42ed8743ec92ae31d666108fc90debd35380531f5f16d4f9c0c45e4494b625402201e7f20a001514b634348564ea1a3a8388895dcdb61e479b001a8dafe711bcb7e:922c64590222798bb761d5b6d8e72950
+

@@ -26,3 +26,4 @@ workflows:
   - template: network/detection/sap-router.yaml # Network Templates
     subtemplates:
       - template: network/misconfig/sap-router-info-leak.yaml
+

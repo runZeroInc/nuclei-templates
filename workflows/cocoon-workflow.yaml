@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/apache/apache-cocoon-detect.yaml
     subtemplates:
       - tags: cocoon
+

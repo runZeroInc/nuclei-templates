@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"deezer.com")'
-# digest: 4a0a00473045022071c71286f5a32f7cc5495d9a5e752cb299ac4fe60a4a458174fee09ddeabc0c3022100dac31c210b7a7cda9715da0655f45782fd1ee4dfe69d60d20e31d1a8d5c00419:922c64590222798bb761d5b6d8e72950
+

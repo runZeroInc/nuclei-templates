@@ -23,4 +23,4 @@ dns:
       - type: regex
         regex:
           - "v=BIMI1(.+)"
-# digest: 4a0a00473045022100c9f9e0892a2ea828b54d8a0ea9ae67b9e14e15a01cd926cba777a84dc8e1131a022023dd05b1158d93e3729cb5f758522dcc2d39e60d7094efc81d9843a90bfdaed9:922c64590222798bb761d5b6d8e72950
+

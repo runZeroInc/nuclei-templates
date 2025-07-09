@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"bestbuy.com")'
-# digest: 490a0046304402200a4542035a754830d6e8e5db4d9f570dd25a7bd0106b91ef9307645bc0aa2a5c02204b9c1281e7e18ff956688bd6a1cbddc9103913a28c85a5bf78162182cccd3ba3:922c64590222798bb761d5b6d8e72950
+

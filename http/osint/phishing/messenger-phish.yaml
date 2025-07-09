@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"messenger.com")'
-# digest: 490a0046304402203169b31baf3bedbfb031d6af9cd4bd884d3aeb8749e6bfd6f0d73ddf0029569b02205da7d871023410eed816577eb4808c820756b850a49abecd026be819369cca76:922c64590222798bb761d5b6d8e72950
+

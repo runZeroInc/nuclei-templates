@@ -10,3 +10,4 @@ workflows:
       - name: thinkadmin
         subtemplates:
           - tags: thinkadmin
+

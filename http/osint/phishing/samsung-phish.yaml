@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"samsung.com")'
-# digest: 490a0046304402203f5ff9cf2203a36f49cd93a0e96e3614197bb5ea2d3b3e5fa51d6cf661d45d7a022042d573a0d7ce259abc68f22de6d7cf1b4c02b057a031bf93dfd9980c45145d5c:922c64590222798bb761d5b6d8e72950
+

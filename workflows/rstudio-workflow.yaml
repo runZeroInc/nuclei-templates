@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/rstudio-detect.yaml
     subtemplates:
       - tags: rstudio
+

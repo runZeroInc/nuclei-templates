@@ -10,3 +10,4 @@ workflows:
       - name: dotnetnuke
         subtemplates:
           - tags: dotnetnuke
+

@@ -23,4 +23,4 @@ http:
         part: body
         regex:
           - \b(00[a-zA-Z0-9]{13}![a-zA-Z0-9._]{96})(?:\b|$|[^a-zA-Z0-9._])
-# digest: 4a0a0047304502206980028e14ffed5b2e82fe14d7badb4a319747eb5e139a6765986a3aa8f183f00221008b6e2d5132b7d6e1ea532b650976f4f4fee59f06cd31560ba6d4845c46a489f4:922c64590222798bb761d5b6d8e72950
+

@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"mcafee.com")'
-# digest: 4a0a0047304502205109e90522bf7a769ea22c47666ebdbddf80967dcbceecff18665c1bb8cacb4802210085ad908c0c276b7c330d00fe7a81a428644d4ae5e0eed10aed40c32ef1d85240:922c64590222798bb761d5b6d8e72950
+

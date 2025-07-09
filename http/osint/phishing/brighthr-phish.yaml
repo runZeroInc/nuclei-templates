@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"brighthr.com")'
-# digest: 4a0a00473045022051d4e03d555c9dcc904c35e3571128380f41d94173282a7290ee95b2f9ddeb800221008468a77599b149d3332e445145d3bd699ee7d34cccf2bcff949b3adc4cf01501:922c64590222798bb761d5b6d8e72950
+

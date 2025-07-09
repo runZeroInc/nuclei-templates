@@ -10,3 +10,4 @@ workflows:
       - name: thinkphp
         subtemplates:
           - tags: thinkphp
+

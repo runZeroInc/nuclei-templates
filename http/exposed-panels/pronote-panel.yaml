@@ -33,4 +33,4 @@ http:
         group: 1
         regex:
           - '(?i)Server:\s+PRONOTE\s+([0-9.\s\-]+)'
-# digest: 4a0a00473045022100c654d4a3fc426fd991b34654c0cc6208bc433b27f8a1fa02693e148d9ac13b09022065469c6e7cc5e3dae258d46c60ebc0e518bb1e12141ef566f8ebfcce1c05b4b1:922c64590222798bb761d5b6d8e72950
+

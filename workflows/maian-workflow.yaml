@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/maian-cart-detect.yaml
     subtemplates:
       - tags: maian
+

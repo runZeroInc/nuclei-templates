@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"ccleaner.com")'
-# digest: 4a0a0047304502207f5f88108fea01d3ecf23213ebf3e95e2a2d692e74441400bbc5b7349aff340e022100daad647649dc1e438e0ee452a2563eff6bb91c333131a630ff3e6dc8b76812f5:922c64590222798bb761d5b6d8e72950
+

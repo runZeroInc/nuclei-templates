@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"yahoo.com")'
-# digest: 490a0046304402205985951778b286f8d45f63fbecaa5bce7f641ae580cd3b0018ead2acf28ff9e602205582d2b2be609ab8e836cc691a0482354a32eda26b37250226745c7f30d0fac2:922c64590222798bb761d5b6d8e72950
+
