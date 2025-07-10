@@ -11,6 +11,7 @@ info:
   metadata:
     runzero-match: |-
         service["http.body"] matches "(?i)title=\\\\"
+    verified: true
     max-request: 2
     shodan-query: html:"title=\"blue yonder\""
   tags: panel,login,blue-yonder,detect

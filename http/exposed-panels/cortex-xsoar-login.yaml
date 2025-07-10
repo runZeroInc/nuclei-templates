@@ -2,7 +2,7 @@ id: cortex-xsoar-login
 
 info:
   name: Cortex XSOAR Login Panel - Detect
-  author: dhiyaneshDK
+  author: dhiyaneshDK,r3dg33k
   severity: info
   description: Cortex XSOAR login panel was detected.
   classification:
@@ -15,25 +15,20 @@ info:
     max-request: 1
     vendor: paloaltonetworks
     product: cortex_xsoar
-    shodan-query:
-      - http.title:"Cortex XSOAR"
-      - http.title:"cortex xsoar"
+    shodan-query: http.title:"Cortex XSOAR"
     fofa-query: title="cortex xsoar"
     google-query: intitle:"cortex xsoar"
-  tags: panel,soar,login,paloaltonetworks
+  tags: panel,soar,login,paloaltonetworks,detect
 
 http:
   - method: GET
     path:
       - '{{BaseURL}}/#/login'
 
-    matchers-condition: and
     matchers:
-      - type: word
-        words:
-          - '<title>Cortex XSOAR</title>'
-
-      - type: status
-        status:
-          - 200
+      - type: dsl
+        dsl:
+          - 'status_code == 200'
+          - 'contains_any(body, "<title>Cortex XSOAR</title>", "content=\"Cortex XSOAR\">")'
+        condition: and
 
