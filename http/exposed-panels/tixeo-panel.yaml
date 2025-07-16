@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - '"applicationVersion"\s*:\s*"([0-9.]+)"'
-# digest: 4a0a004730450221009c0a2e72cc297caad2013758524a0e9e802c946f14e426876ef37bc4d7e83b92022077ae2956f1059c7f26a4a0e855616ee4b48bcb86c1f784e915b6ea5b36ad6994:922c64590222798bb761d5b6d8e72950
+

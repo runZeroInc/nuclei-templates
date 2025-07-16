@@ -33,4 +33,4 @@ http:
         dsl:
           - '!contains(host,"battle.net")'
           - '!contains(host,"blizzard.com")'
-# digest: 4a0a0047304502206e50a5fd1713c11efa59b0861d54b8232386ab0b1662d7431092b09717c8379a022100e6863bd70c2d223b6fe70897a477a49cd1a75e1f05f8e2d9c0d19f8885b38c2c:922c64590222798bb761d5b6d8e72950
+

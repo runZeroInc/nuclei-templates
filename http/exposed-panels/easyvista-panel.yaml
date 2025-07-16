@@ -33,4 +33,4 @@ http:
         regex:
           - '(?i)package:\s+"([a-z0-9._-]+)"'
           - '(?i)version&nbsp;:&nbsp;([a-z0-9._-]+)'
-# digest: 4a0a0047304502205e7eeb70894af098bcf55166a72ff4db0e0ed74f3ea8e52706d8791e05a3c5a9022100babc6f49f8398957c7804d72b7dbfe50dc9e597998d926da00e0e986bb3ded98:922c64590222798bb761d5b6d8e72950
+

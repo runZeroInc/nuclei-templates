@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"nordpass.com")'
-# digest: 490a004630440220646b3cad7a96b7e6ee266e977dda2ce7d5e6a0a29d2209abb1b77b9b0d02d13c02202ebbac84bca11bf5ab16f5bc68ef96033ad5055c2444276bf89957b37ef67f0b:922c64590222798bb761d5b6d8e72950
+

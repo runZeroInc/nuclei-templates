@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"reddit.com")'
-# digest: 4a0a00473045022100f27e0bfe8925b49ec2e5e18f27ef7dc1805b0e2b214dfc6113da349b089f3c0e02206aa05a3d589cde6c7e858bf3effcabae4aedb8e24f8d3a0f01ed98be0308fe47:922c64590222798bb761d5b6d8e72950
+

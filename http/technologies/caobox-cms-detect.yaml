@@ -41,4 +41,4 @@ http:
           - "(?i)caobox"
           - "(?i)caobox\\s+(v[0-9.]+)"
           - "(?i)<title>Caobox CMS"
-# digest: 490a0046304402201e5833af1a63feba874f2967d8e9211058a3161f4caa1bf4e308c41bdc0a349002203947b66478a97d63e68dac3a386fc32e7746605d0e237c4cd1e5ba1cb745a028:922c64590222798bb761d5b6d8e72950
+

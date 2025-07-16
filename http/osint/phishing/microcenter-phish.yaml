@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"microcenter.com")'
-# digest: 4b0a00483046022100fb587a50f915e2999d8e590f6781016beda51794132c04ca0e08179b0a1416cb022100a9098d67a100ea5e24af09d360f6601d941b667a0779d51afcacae434649ed4f:922c64590222798bb761d5b6d8e72950
+

@@ -10,3 +10,4 @@ workflows:
       - name: emby
         subtemplates:
           - tags: emby
+

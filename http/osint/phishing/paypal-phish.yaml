@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"paypal.com")'
-# digest: 4b0a00483046022100afdd7fd677489e37e4cb8e3ccf9d343d682ef8ad797b9b6fbec2290d547be2d9022100d227caf243f5ca7cc08bcd9dec429c9894e163121edeea84f1a4f5a458f5f40c:922c64590222798bb761d5b6d8e72950
+

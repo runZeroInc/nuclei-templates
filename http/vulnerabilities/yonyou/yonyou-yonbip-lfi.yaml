@@ -26,4 +26,4 @@ http:
           - 'contains(content_type, "application/javascript")'
           - "status_code == 200"
         condition: and
-# digest: 4a0a00473045022100d1cd71593085767b53673a334385dadf165aefaa7f53fa930d953c5dbb36db82022010422e6a590ea530833f107b89868d6dcc451791dbe113eb4fa98e9cb1dbaa87:922c64590222798bb761d5b6d8e72950
+

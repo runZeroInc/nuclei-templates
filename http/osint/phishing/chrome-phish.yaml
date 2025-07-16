@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"google.com")'
-# digest: 4b0a004830460221008fcef74d52c01193c48aa3c82232d788ab5bab6d93a3da81db917b931702befb022100fda8597bde6caf51ff58f6cbc817f489cb5e1774b3f6d69898703b0afe3ff563:922c64590222798bb761d5b6d8e72950
+

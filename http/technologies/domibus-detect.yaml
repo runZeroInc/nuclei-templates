@@ -34,4 +34,4 @@ http:
         group: 1
         regex:
           - '"versionNumber":\s*"([0-9.]+)"'
-# digest: 4b0a00483046022100db87e46cb598a28790ded6034f0ae8dff0b5d23dd9bb7e2cddbd1ac24dbdc0e002210095d5c7ebec9cbea3998e775954db83571f2d7a1cd3ded12e8b69021a3e408caf:922c64590222798bb761d5b6d8e72950
+

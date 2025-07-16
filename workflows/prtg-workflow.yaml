@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/prtg-detect.yaml
     subtemplates:
       - tags: prtg
+

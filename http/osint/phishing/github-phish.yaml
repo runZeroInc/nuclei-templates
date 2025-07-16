@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"github.com")'
-# digest: 4a0a0047304502204d060ce8e3b288f765e84b5d3cda9e7ae1bff483479ce605b5cf9a0c96864326022100aae808acb00b1f3d4371e7394e4b32ec9e52b7ac6f8a567fede3445f7b19404b:922c64590222798bb761d5b6d8e72950
+

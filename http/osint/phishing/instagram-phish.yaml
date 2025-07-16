@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"instagram.com")'
-# digest: 4b0a004830460221009c07064aa5f53ae0d73e33a1d0c425cddfe17a62eca1d2d62f701b9d1ac9069e02210084175bf01b5673f0020dfccdd3d4aa9818e37342e537c3f3d2970f85b6ffb4e0:922c64590222798bb761d5b6d8e72950
+

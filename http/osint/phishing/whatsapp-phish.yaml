@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"whatsapp.com")'
-# digest: 4a0a0047304502201b5b7de62b8e37635411ddd8128b9e2f1064049f1ff9c892886bbe1fc99193f0022100d480cbf7c6c564012b1c6adfaae90ff37c26b34ec3a94c4cb754cc83e1f8592c:922c64590222798bb761d5b6d8e72950
+

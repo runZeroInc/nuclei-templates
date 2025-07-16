@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"wetransfer.com")'
-# digest: 4a0a00473045022100f12240469bef6c7d4cea220968b0ae56cea5c5c7df7845a26064541e0bfef54102200a056d469c7697923f8b8b0eefcca8ba770117d166b497e3099b149fef5c6bc9:922c64590222798bb761d5b6d8e72950
+

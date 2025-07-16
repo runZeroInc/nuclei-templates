@@ -36,4 +36,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"accounts.kakao.com")'
-# digest: 4b0a00483046022100985d3a59c613b22a93ae9395a68c3288a148601e2798006aad17a5ee33e6af0b022100a6c152c767f1e6e84df078ee7b315960aaf16322ced5eb888d3800cafdaf0016:922c64590222798bb761d5b6d8e72950
+

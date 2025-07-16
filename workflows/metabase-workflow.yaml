@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/metabase-panel.yaml
     subtemplates:
       - tags: metabase
+

@@ -51,4 +51,4 @@ http:
           - "<script>alert('document.domain');</script>"
           - "wrapper for"
         condition: and
-# digest: 4a0a0047304502205509ab4fb3ccf422d477ca68806b6ccc107ad2ac2e9ec18d1cd6ece81238dedf022100f5dffd6335836ba306bbf27b9e94bc5f0e13482a3cab49521b1797060bbcf0a1:922c64590222798bb761d5b6d8e72950
+

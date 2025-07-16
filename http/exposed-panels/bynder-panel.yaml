@@ -32,4 +32,4 @@ http:
         group: 1
         regex:
           - 'http-equiv="version"\s+content="([0-9\.]+)"'
-# digest: 4a0a00473045022100e86589fe8aad08ac5929a8aac4374366f5f90f3908ce3a17d625a0710720a69c02204c4c35bdc1d0971b1d1aa1dd6fd760c68c777a6b503270e713da798cf758d6b4:922c64590222798bb761d5b6d8e72950
+

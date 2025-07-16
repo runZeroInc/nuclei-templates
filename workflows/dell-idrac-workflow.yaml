@@ -24,3 +24,4 @@ workflows:
   - template: http/technologies/dell/dell-idrac9-detect.yaml
     subtemplates:
       - template: http/default-logins/dell/dell-idrac9-default-login.yaml
+

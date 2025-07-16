@@ -10,3 +10,4 @@ workflows:
       - name: gitlist
         subtemplates:
           - tags: gitlist
+

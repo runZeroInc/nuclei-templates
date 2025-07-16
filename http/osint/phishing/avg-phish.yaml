@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"avg.com")'
-# digest: 4a0a00473045022100f04baf10b1717969f341fdabf1d83a7dd851a52a320d4b2ca418c1aa96d3471e022047a0a6a0d340a096385513b90db22f04c066864c59df9f40d7e032dc29a62e00:922c64590222798bb761d5b6d8e72950
+

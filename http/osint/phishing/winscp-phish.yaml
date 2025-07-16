@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"winscp.net")'
-# digest: 4a0a00473045022045ab622a398875f9beea8f6f0d0b7ee86b62eebbeca1624d451c52cbc7503f38022100cbd9f41939d5455d8a66d8a499f284380b2866f2db118cd41316ab717dcdacd2:922c64590222798bb761d5b6d8e72950
+

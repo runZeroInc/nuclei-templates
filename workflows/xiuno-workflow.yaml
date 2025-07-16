@@ -10,3 +10,4 @@ workflows:
       - name: xiuno
         subtemplates:
           - tags: xiuno
+
