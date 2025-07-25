@@ -14,13 +14,28 @@ info:
   metadata:
     runzero-match: |-
       any(each(service["html.titles"]), {# matches "Apache Tomcat"})
-    max-request: 405
+    max-request: 406
     vendor: apache
     product: tomcat
     shodan-query: title:"Apache Tomcat"
   tags: tomcat,apache,default-login
 
+flow: http(1) && http(2)
+
 http:
+  - raw:
+      - |
+        GET /manager/html HTTP/1.1
+        Host: {{Hostname}}
+
+    matchers:
+      - type: word
+        words:
+          - "Apache Tomcat"
+          - "401 Unauthorized"
+        condition: or
+        internal: true
+
   - raw:
       - |
         GET /manager/html HTTP/1.1

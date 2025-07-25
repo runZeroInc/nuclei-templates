@@ -38,8 +38,7 @@ http:
           - 200
         condition: or
 
-      - type: word
-        part: body
-        words:
-          - '"authResult":0'
-
+      - type: regex
+        name: authresult
+        regex:
+          - '"authResult"\s*:\s*0'

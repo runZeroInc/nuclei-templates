@@ -28,20 +28,21 @@ http:
 
         username={{username}}&password={{password}}
 
+      - |
+        GET /menu/admin/logmanager HTTP/1.1
+        Host: {{Hostname}}
+
     matchers-condition: and
     matchers:
       - type: word
-        part: location
-        words:
-          - "/login?error"
-        negative: true
-
-      - type: word
-        part: header
+        part: header_1
         words:
           - "Set-Cookie: JSESSIONID="
 
-      - type: status
-        status:
-          - 302
+      - type: word
+        part: body_2
+        words:
+          - "Sign out</button>"
+          - "Log manager</a>"
+        condition: and
 
