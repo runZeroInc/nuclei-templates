@@ -11,3 +11,4 @@ workflows:
       - name: drupal
         subtemplates:
           - tags: drupal
+

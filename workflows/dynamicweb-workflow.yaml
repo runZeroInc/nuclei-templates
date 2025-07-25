@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/dynamicweb-panel.yaml
     subtemplates:
       - tags: dynamicweb
+

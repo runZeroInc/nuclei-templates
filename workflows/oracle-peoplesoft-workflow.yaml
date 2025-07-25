@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/oracle-peoplesoft-panel.yaml
     subtemplates:
       - tags: oracle
+

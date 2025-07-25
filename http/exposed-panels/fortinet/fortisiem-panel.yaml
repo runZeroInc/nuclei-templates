@@ -36,4 +36,4 @@ http:
       - type: word
         words:
           - "fortiSIEM_current_login_salt"
-# digest: 490a0046304402203d644778258aac373cae19503ef869c01107957203ea85904fe4b929e8b0377902207ff03722daa69de262bd68e3886773f7dfaabf6bb1683903dd87c2862fdc85f9:922c64590222798bb761d5b6d8e72950
+

@@ -22,4 +22,4 @@ http:
           - "contains(tolower(header), 'x-cache: refreshhit from cloudfront')"
           - "contains(tolower(header), 'x-cache: miss from cloudfront')"
           - "contains(tolower(header), 'x-cache: error from cloudfront')"
-# digest: 4b0a00483046022100f0f0cc2b17a54916cdc26ad3ecb15e6384bd0e7e8286385b7398cb4d9ee1a028022100ecedeea45f03b1020840a9ad5806547551e786421fa751d1969855df70238215:922c64590222798bb761d5b6d8e72950
+

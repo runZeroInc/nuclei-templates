@@ -50,4 +50,4 @@ http:
         group: 1
         regex:
           - "version (.*) - Free software"
-# digest: 490a0046304402207f8d1bd6027eb1504aee31ce3488e214c89d64dcef176a0f38cbf81a881cee0a022029f9c4c8a524483be77a2822a762e52c4ce3e6efd4d308b5cc074d0bbe669cb8:922c64590222798bb761d5b6d8e72950
+

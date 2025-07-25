@@ -120,4 +120,4 @@ file:
         regex:
           - 'gethostbyname'
           - 'gethostbyaddr'
-# digest: 4a0a0047304502201297885c8b0afb3dc34f60daeb1f730ea3479e2b23b54419ac514a9e7c3fc054022100cb3a600b39cb974db2969b21bf4deec1222e86bfc7076a9a8224edd23fb6349b:922c64590222798bb761d5b6d8e72950
+

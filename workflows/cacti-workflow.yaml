@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/cacti-panel.yaml
     subtemplates:
       - tags: cacti
+

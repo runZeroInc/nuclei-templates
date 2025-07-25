@@ -10,3 +10,4 @@ workflows:
       - name: ricoh
         subtemplates:
           - tags: ricoh
+

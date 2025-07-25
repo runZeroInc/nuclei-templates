@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/ambari-exposure.yaml
     subtemplates:
       - tags: ambari
+

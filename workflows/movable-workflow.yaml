@@ -12,3 +12,4 @@ workflows:
   - template: http/exposed-panels/movable-type-login.yaml
     subtemplates:
       - template: http/cves/2021/CVE-2021-20837.yaml
+

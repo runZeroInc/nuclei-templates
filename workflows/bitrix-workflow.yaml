@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/bitrix-panel.yaml
     subtemplates:
       - tags: bitrix
+

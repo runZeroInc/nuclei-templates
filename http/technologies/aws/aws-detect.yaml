@@ -119,4 +119,4 @@ http:
           - 'X-Amz-Target:'
         condition: or
         case-insensitive: true
-# digest: 490a0046304402205828c545f1c2ef21362b46fbe9c4e95f2bb562c7487e72c25a8bf53dd02efc8302206fcdf8749d14e13bdcfde3a60c507a6315e51dbac402f0f824a198b7426e5543:922c64590222798bb761d5b6d8e72950
+

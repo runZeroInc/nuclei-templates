@@ -37,4 +37,4 @@ javascript:
           - '"Version: "+ .Version '
           - '"TLS "+ .TLS'
           - '"Transport: "+ .Transport '
-# digest: 490a0046304402206252031c1abc63be7f1be1bc31a593a0bf89748ef5a569eb72200690f694b626022054e62d9011599035e2904e7d1c97552cf4f90364197fea82b5707816721cc9af:922c64590222798bb761d5b6d8e72950
+

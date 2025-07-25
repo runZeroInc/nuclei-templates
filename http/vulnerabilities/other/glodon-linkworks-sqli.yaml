@@ -37,4 +37,4 @@ http:
         group: 1
         regex:
           - '在将 nvarchar 值 &#39;(.*)&#39; 转换成数据类型 int 时失败。'
-# digest: 490a00463044022073d03613c1ef5605c2f45ffef5f2c01ed22f44bd0f1aa63f16d2da96d75dbcff0220665b465dd4ebb698045da94c5752aff668004d3c44e6cd9129da311213b74ed2:922c64590222798bb761d5b6d8e72950
+

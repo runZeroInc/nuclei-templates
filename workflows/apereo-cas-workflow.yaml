@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/cas-login.yaml
     subtemplates:
       - tags: cas
+

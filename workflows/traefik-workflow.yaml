@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/traefik-dashboard.yaml
     subtemplates:
       - tags: traefik
+

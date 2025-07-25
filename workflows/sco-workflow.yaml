@@ -10,3 +10,4 @@ workflows:
       - name: sco
         subtemplates:
           - tags: sco
+

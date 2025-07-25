@@ -10,3 +10,4 @@ workflows:
       - name: subrion
         subtemplates:
           - tags: subrion
+

@@ -10,3 +10,4 @@ workflows:
       - name: kentico
         subtemplates:
           - tags: kentico
+

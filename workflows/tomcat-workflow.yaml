@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/apache/tomcat-detect.yaml
     subtemplates:
       - tags: tomcat
+

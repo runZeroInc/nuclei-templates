@@ -30,4 +30,4 @@ http:
           - '<title>Concourse</title>'
           - 'login to Concourse'
         condition: or
-# digest: 4b0a00483046022100cc40b2b793ac15a4beadb4086a608494f8dcc7a111f9e13db3162cec2fa28d90022100f757bf6855c6514c5e9065160e8211c84b39928ded3738c1310fa700faac2c9d:922c64590222798bb761d5b6d8e72950
+

@@ -39,4 +39,4 @@ http:
         group: 1
         regex:
           - '<div class="top">mikrotik routeros (.[0-9.]+) configuration page</div>'
-# digest: 4b0a0048304602210082b11c2701e02d0fdaecb39593bdfc4d45ababa7ed40ccb46003db20e0418fad022100bd2b8d1f28ce535b2aa380c5b5af41b34a53c9ae04f5e36f3a3fe0a081eb592c:922c64590222798bb761d5b6d8e72950
+

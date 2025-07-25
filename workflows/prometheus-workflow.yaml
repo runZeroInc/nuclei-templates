@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/prometheus-exposed-panel.yaml
     subtemplates:
       - tags: prometheus
+

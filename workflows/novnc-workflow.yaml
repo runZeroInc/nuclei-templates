@@ -10,3 +10,4 @@ workflows:
       - name: novnc
         subtemplates:
           - tags: novnc
+

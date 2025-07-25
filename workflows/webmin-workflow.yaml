@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/webmin-panel.yaml
     subtemplates:
       - tags: webmin
+

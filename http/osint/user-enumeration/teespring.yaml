@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - "sellerToken"
-# digest: 4a0a004730450220189ab4b72b3f140af6cd3ac054fa33e04879f40ae58c70bbb0c27ae88276672a022100a047eab16390f86e6a632aea690b3783056ccfa77c9be55b9f86e5aaf5b9b96f:922c64590222798bb761d5b6d8e72950
+

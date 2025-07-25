@@ -41,4 +41,4 @@ http:
         regex:
           - '\* Version (.+) \('
           - "elFinder.prototype.version = '([0-9.]+)';"
-# digest: 4a0a00473045022100ba55ad23cc320cce901dc53bc3d573c0576f4efa58bc4d507a7b1c9e8aef525502201255874bf5dddbc7e91add058fcc47abe018c7998ef4ad6c018ca37bd9f9f637:922c64590222798bb761d5b6d8e72950
+

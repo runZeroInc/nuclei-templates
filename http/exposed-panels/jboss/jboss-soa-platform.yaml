@@ -48,4 +48,4 @@ http:
         group: 1
         regex:
           - '(?i)Version\s+([A-Z0-9.]+)'
-# digest: 4b0a00483046022100ac6d1bf18fd3f8dd7a6fcd3d3b74fa6816313309c5ba69df10a8b365fb4b5710022100ea6f6767ea2afb84ac3d754ed7f4e323048d7823902bdff8ca848817ae3c0f1e:922c64590222798bb761d5b6d8e72950
+

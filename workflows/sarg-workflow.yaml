@@ -10,3 +10,4 @@ workflows:
       - name: sarg
         subtemplates:
           - tags: sarg
+

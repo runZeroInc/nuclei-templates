@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/opensis-panel.yaml
     subtemplates:
       - tags: opensis
+

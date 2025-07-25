@@ -10,3 +10,4 @@ workflows:
       - name: yonyou-ism
         subtemplates:
           - tags: yonyou
+

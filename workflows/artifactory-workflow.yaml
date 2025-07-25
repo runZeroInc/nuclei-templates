@@ -10,3 +10,4 @@ workflows:
       - name: artifactory
         subtemplates:
           - tags: artifactory
+

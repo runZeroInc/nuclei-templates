@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/azkaban-web-client.yaml
     subtemplates:
       - template: http/default-logins/azkaban/
+

@@ -40,4 +40,4 @@ http:
           - "status_code==302"
           - contains(location, "login")
         condition: and
-# digest: 4b0a00483046022100fce31a63aab6e8bcaf7cb16745a7d23c0e735104e0b6ff47a0c77e2561e4cb4b022100853c57600af362b2fa7bd3e6551df494fa81dd043de250b32406130b65b183da:922c64590222798bb761d5b6d8e72950
+

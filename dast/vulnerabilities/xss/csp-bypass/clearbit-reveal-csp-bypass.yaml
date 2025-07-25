@@ -52,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "clearbit_reveal_csp_xss == true"
-# digest: 4a0a00473045022100f5b2455ac20ac8c50e8c6d59e618e197b92590cf7e434c51e3ad9d77fa075ddb02207ef45df9fa4aa705aa5444a71a8316cc02442565c546135edc1495fa9b47d7ce:922c64590222798bb761d5b6d8e72950
+

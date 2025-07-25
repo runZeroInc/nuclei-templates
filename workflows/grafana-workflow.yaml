@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/grafana-detect.yaml
     subtemplates:
       - tags: grafana
+

@@ -10,3 +10,4 @@ workflows:
       - name: moodle
         subtemplates:
           - tags: moodle
+

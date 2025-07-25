@@ -10,3 +10,4 @@ workflows:
       - name: laravel
         subtemplates:
           - tags: laravel
+

@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/liferay-portal.yaml
     subtemplates:
       - template: http/cves/2020/CVE-2020-7961.yaml
+

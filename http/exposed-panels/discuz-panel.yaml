@@ -39,4 +39,4 @@ http:
         group: 1
         regex:
           - '<em>X([0-9.]+)<\/em><\/p>'
-# digest: 4a0a0047304502201bc3d651edd067e62d697218fc6058c0fdb156d8e3f8fb30233a26ea7c754cab022100fb165447fdbd548b63fd2086dc5115183269e116dd9a8afbfbf1d950233e9042:922c64590222798bb761d5b6d8e72950
+

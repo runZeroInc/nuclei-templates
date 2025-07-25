@@ -10,3 +10,4 @@ workflows:
       - name: nette
         subtemplates:
           - tags: nette
+

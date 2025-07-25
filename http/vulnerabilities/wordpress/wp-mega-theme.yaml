@@ -27,4 +27,4 @@ http:
           - 'contains(content_type, "text/html")'
           - 'contains(body, "script&gt;alert(`document.domain`)&lt;/script") && contains(body, "mega-theme")'
         condition: and
-# digest: 4b0a00483046022100c4c690e3340c089cd675d04dccd4b98b2281c66005e3ac2473749277f437cc9b0221009a82192dfb87746eed63ff2430fca649b293c7bdf5cb1ca0bcc8510dcb123d76:922c64590222798bb761d5b6d8e72950
+

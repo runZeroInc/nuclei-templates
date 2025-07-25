@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/sonarqube-login.yaml
     subtemplates:
       - tags: sonarqube
+

@@ -52,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "apple_developer_csp_xss == true"
-# digest: 490a0046304402203b9010e7897ca61d8bd2ad7ab3f2d103a1ba1cc77032d5bcfa54d370cbb32c1a02206e636d8a5add26e8ee56f01bf75baa9c497e79dd9fc6b6513faf33fc4c3168bf:922c64590222798bb761d5b6d8e72950
+

@@ -27,4 +27,4 @@ tcp:
       - type: word
         words:
           - "502 Error: command \"HELP\" not implemented"
-# digest: 4a0a00473045022100e8e945714f5d28fa391be7ef51e1b62c993b81de3dffaf9aa62a0af740b12bd10220367c9c1aa0526b6dd422e9c7bb31d2a83fed5a4aa3682f1878b27be85a701837:922c64590222798bb761d5b6d8e72950
+

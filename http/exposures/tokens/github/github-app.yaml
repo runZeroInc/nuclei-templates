@@ -24,4 +24,4 @@ http:
         part: body
         regex:
           - '\b((?:ghu|ghs)_[a-zA-Z0-9]{36})\b'
-# digest: 490a00463044022011e1ecca163d6ed4e4a3893daf3b41008913440ccd4b42c627343cc5697d74ed02203dc2e1ce26caac44db20894f83884ae309e6742f482274c8e1dc011a3f673cab:922c64590222798bb761d5b6d8e72950
+

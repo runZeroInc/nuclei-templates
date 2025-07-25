@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/magmi-detect.yaml
     subtemplates:
       - tags: magmi
+

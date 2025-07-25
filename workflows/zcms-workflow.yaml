@@ -10,3 +10,4 @@ workflows:
       - name: zcms
         subtemplates:
           - tags: zcms
+

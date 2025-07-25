@@ -10,3 +10,4 @@ workflows:
       - name: tpshop
         subtemplates:
           - tags: tpshop
+

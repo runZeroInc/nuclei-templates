@@ -10,3 +10,4 @@ workflows:
       - name: skywalking
         subtemplates:
           - tags: skywalking
+

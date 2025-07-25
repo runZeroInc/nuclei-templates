@@ -12,3 +12,4 @@ workflows:
           - template: http/technologies/lotus-domino-version.yaml
             subtemplates:
               - template: http/cves/2005/CVE-2005-2428.yaml
+

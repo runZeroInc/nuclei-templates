@@ -10,3 +10,4 @@ workflows:
       - name: metinfo
         subtemplates:
           - tags: metinfo
+

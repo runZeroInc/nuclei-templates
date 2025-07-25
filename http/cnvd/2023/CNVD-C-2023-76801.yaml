@@ -49,4 +49,4 @@ http:
           - 'contains_all(body,"Windows", "<?xml", "DNS")'
           - 'status_code == 200 || status_code == 404'
         condition: and
-# digest: 4a0a00473045022046a169261dc45f5611da72f345a618ce25248f20422d07e68fe68d51f296530e022100e777ae40200be3c0cc2b9fad210394f03a553f72c7052b6dca5ed1349b64decb:922c64590222798bb761d5b6d8e72950
+

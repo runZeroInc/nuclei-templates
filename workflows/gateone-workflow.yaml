@@ -10,3 +10,4 @@ workflows:
       - name: gateone
         subtemplates:
           - tags: gateone
+

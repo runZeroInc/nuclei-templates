@@ -10,3 +10,4 @@ workflows:
       - name: kindeditor
         subtemplates:
           - tags: kindeditor
+

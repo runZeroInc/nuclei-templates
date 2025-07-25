@@ -35,4 +35,4 @@ http:
           - 'Welcome to the Apache ActiveMQ Console of <b>'
           - '<h2>Broker</h2>'
         condition: and
-# digest: 4a0a00473045022026a4f89055e9e0e6bed1e2180338f1cb9bd0599fdedc12659527d6906399f586022100adca32d25c736c86efdab586c6a668f8519f1671b18baba2e5e828c46e450dd1:922c64590222798bb761d5b6d8e72950
+

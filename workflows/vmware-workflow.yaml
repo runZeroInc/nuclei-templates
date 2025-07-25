@@ -8,3 +8,4 @@ workflows:
   - template: http/technologies/vmware/vmware-detect.yaml
     subtemplates:
       - tags: vmware
+

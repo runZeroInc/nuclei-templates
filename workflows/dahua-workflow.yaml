@@ -10,3 +10,4 @@ workflows:
       - name: dahua
         subtemplates:
           - tags: dahua
+

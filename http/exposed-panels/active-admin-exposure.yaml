@@ -27,4 +27,4 @@ http:
           - "active_admin_content"
           - "active_admin-"
         condition: and
-# digest: 490a0046304402204b77aac8be32826465902417f4cbafde537b7d0a2cc2d841774f3d3f7a183dda02207f916cee2a5bd7ad429eeec6152ddf8f3fac1d1e391671a0938b7a1bc7fde0ff:922c64590222798bb761d5b6d8e72950
+

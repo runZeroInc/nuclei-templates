@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/pandora-fms-console.yaml
     subtemplates:
       - tags: pandora
+

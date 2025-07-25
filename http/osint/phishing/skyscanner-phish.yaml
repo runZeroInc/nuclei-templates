@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"skyscanner.net")'
-# digest: 4a0a0047304502207463f0d33b5eed031cbe3619781a5adcc038812e60ee3febe87c87c2753e4ed8022100f8fdddb3f46eb7af1a371de1c6a1cfe9eb4b5d3c7b4bd52087f61030fa60a820:922c64590222798bb761d5b6d8e72950
+

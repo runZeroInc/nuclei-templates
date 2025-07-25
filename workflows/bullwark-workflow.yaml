@@ -10,3 +10,4 @@ workflows:
       - name: bullwark
         subtemplates:
           - tags: bullwark
+

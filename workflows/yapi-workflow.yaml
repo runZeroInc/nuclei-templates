@@ -10,3 +10,4 @@ workflows:
       - name: yapi
         subtemplates:
           - tags: yapi
+

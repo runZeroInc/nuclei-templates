@@ -8,3 +8,4 @@ workflows:
   - template: http/exposed-panels/mantisbt-panel.yaml
     subtemplates:
       - tags: mantisbt
+
