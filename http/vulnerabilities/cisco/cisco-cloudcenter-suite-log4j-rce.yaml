@@ -17,6 +17,8 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-77
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)CloudCenter Suite"})
     max-request: 1
     shodan-query: title:"CloudCenter Suite"
     fofa-query: title="CloudCenter Suite"
@@ -69,4 +71,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

@@ -16,6 +16,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:vmware:vrealize_operations_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)vRealize Operations Manager"})
     verified: true
     max-request: 1
     shodan-query: title:"vRealize Operations Manager"
@@ -74,4 +76,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

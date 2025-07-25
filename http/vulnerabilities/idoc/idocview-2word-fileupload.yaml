@@ -5,6 +5,8 @@ info:
   author: DhiyaneshDK
   severity: high
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)在线文档预览 - I Doc View"})
     verified: true
     max-request: 1
     fofa-query: title=="在线文档预览 - I Doc View"
@@ -28,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

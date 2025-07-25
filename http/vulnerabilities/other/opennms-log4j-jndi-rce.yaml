@@ -18,6 +18,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:opennms:horizon:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)OpenNMS Web Console"})
     verified: true
     max-request: 1
     shodan-query: title:"OpenNMS Web Console"
@@ -65,4 +67,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

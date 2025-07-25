@@ -14,6 +14,8 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-77
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Okta"})
     max-request: 1
     shodan-query: title:"Okta"
   tags: cve,cve2021,rce,jndi,log4j,okta,oast,kev
@@ -56,4 +58,3 @@ http:
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print extracted ${:-{{rand1}}}${:-{{rand2}}}.${hostName} in output
         part: interactsh_request
-

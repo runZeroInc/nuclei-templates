@@ -15,6 +15,8 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-77
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)GoAnywhere Managed File Transfer"
     verified: true
     max-request: 2
     shodan-query: http.html:"GoAnywhere Managed File Transfer"
@@ -73,4 +75,3 @@ http:
           - 'javax\.faces\.ViewState:1" value="(.*)" autocomplete'
         internal: true
         part: body
-

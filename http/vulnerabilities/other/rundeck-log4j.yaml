@@ -16,6 +16,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:pagerduty:rundeck:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Rundeck"})
     verified: true
     max-request: 1
     shodan-query: title:"Rundeck"
@@ -71,4 +73,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

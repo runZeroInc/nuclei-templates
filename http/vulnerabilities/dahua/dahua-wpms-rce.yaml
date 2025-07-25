@@ -8,6 +8,8 @@ info:
   reference:
     - https://github.com/Vme18000yuan/FreePOC/blob/master/poc/pocsuite/dahua-zhyq-deleteftp-rce.py
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)src=\\\\"
     max-request: 1
     fofa-query: body="src=\"/WPMS/asset/common/js/jsencrypt.min.js\""
   tags: rce,dahua,wpms
@@ -34,4 +36,3 @@ http:
         part: interactsh_protocol # Confirms the DNS Interaction
         words:
           - "dns"
-

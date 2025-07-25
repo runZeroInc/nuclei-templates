@@ -11,6 +11,8 @@ info:
     - https://web.archive.org/web/20240229113710/https://github.com/polyfillpolyfill/polyfill-service/issues/2834
     - https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)polyfill\\.io"
     verified: true
     max-request: 1
     shodan-query: html:"polyfill.io"
@@ -30,4 +32,3 @@ http:
         part: body
         regex:
           - "<script[^>]* src=['\"]https?://([a-zA-Z0-9-]*.)?polyfill.io[/'\"]"
-

@@ -15,6 +15,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:papercut:papercut_mf:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Papercut"})
     max-request: 1
     shodan-query: title:"Papercut"
     product: papercut_mf
@@ -64,4 +66,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

@@ -16,6 +16,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:graylog:graylog:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Graylog Web Interface"})
     verified: true
     max-request: 1
     shodan-query: title:"Graylog Web Interface"
@@ -73,4 +75,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

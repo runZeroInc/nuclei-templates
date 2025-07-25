@@ -19,6 +19,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:vmware:vcenter_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)VMware VCenter"})
     max-request: 1
     shodan-query: title:"VMware VCenter"
     product: vcenter_server
@@ -50,4 +52,3 @@ http:
         regex:
           - '([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print extracted ${hostName} in output
         part: interactsh_request
-

@@ -15,6 +15,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:citrix:xenapp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)/citrix/xenapp"
     max-request: 1
     shodan-query: html:"/citrix/xenapp"
     product: xenapp
@@ -65,4 +67,3 @@ http:
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print extracted ${:-{{rand1}}}${:-{{rand2}}}.${hostName} in output
         part: interactsh_request
-

@@ -11,6 +11,8 @@ info:
     - https://github.com/projectdiscovery/nuclei-templates/issues/8716
     - https://www.zeroscience.mk/en/vulnerabilities/ZSL-2023-5801.php
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)TitanNit Web Control"})
     verified: true
     max-request: 1
     fofa-query: title="TitanNit Web Control"
@@ -34,4 +36,3 @@ http:
         part: body
         words:
           - "titan.css"
-

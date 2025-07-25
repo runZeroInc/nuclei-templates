@@ -16,6 +16,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:h2database:h2:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["favicon.ico.image.mmh3"] == "116323821"
     max-request: 1
     shodan-query: http.favicon.hash:116323821
     product: h2
@@ -44,4 +46,3 @@ http:
         part: body
         words:
           - '"spring.datasource.hikari.connection-test-query":"CREATE ALIAS EXEC AS CONCAT'
-

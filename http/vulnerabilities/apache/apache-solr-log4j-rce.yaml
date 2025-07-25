@@ -20,6 +20,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:apache:solr:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)Apache Solr"
     verified: true
     max-request: 2
     shodan-query: http.html:"Apache Solr"
@@ -76,4 +78,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

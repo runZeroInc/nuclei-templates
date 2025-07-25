@@ -13,6 +13,8 @@ info:
   classification:
     cpe: cpe:2.3:a:thinkphp:thinkphp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)ThinkPHP"})
     verified: true
     max-request: 2
     vendor: thinkphp
@@ -44,4 +46,3 @@ http:
       - type: dsl
         dsl:
           - "status_2 == 200"
-

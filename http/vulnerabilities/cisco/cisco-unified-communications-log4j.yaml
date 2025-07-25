@@ -16,6 +16,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:cisco:unified_communications_domain_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Cisco Unified"})
     verified: true
     max-request: 1
     shodan-query: title:"Cisco Unified"
@@ -65,4 +67,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

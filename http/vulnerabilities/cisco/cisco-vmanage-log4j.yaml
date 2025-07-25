@@ -15,6 +15,8 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-77
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)vManage"})
     verified: true
     max-request: 1
     shodan-query: title:"vManage"
@@ -68,4 +70,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

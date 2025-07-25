@@ -18,6 +18,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:ui:unifi_network_application:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)UniFi Network"})
     verified: true
     max-request: 1
     shodan-query: http.title:"UniFi Network"
@@ -67,4 +69,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

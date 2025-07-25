@@ -12,6 +12,8 @@ info:
     cwe-id: CWE-502
     cpe: cpe:2.3:a:apache:druid:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Apache Druid"})
     verified: true
     max-request: 1
     shodan-query: title:"Apache Druid"
@@ -39,4 +41,3 @@ http:
       - type: status
         status:
           - 404
-

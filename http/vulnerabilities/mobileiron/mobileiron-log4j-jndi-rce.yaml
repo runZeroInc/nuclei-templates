@@ -19,6 +19,8 @@ info:
     cwe-id: CWE-917
     cpe: cpe:2.3:a:ivanti:mobileiron:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)MobileIron"
     verified: true
     max-request: 1
     shodan-query: http.html:"MobileIron"
@@ -71,4 +73,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

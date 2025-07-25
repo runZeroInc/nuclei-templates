@@ -12,6 +12,8 @@ info:
   classification:
     cpe: cpe:2.3:a:gitea:gitea:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        any(each(service["html.titles"]), {# matches "(?i)Installation -  Gitea: Git with a cup of tea"})
     verified: true
     max-request: 3
     vendor: gitea
@@ -61,4 +63,3 @@ http:
         regex:
           - '"name":".*","full_name":"(.*)","description"'
         internal: true
-

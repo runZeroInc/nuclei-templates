@@ -19,6 +19,8 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:apache:ofbiz:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: |-
+        service["http.body"] matches "(?i)Apache OFBiz"
     max-request: 1
     shodan-query: http.html:"Apache OFBiz"
     product: ofbiz
@@ -63,4 +65,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
