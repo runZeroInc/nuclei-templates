@@ -15,9 +15,10 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: "title:\"NiFi\""
-    product: nifi
     vendor: apache
+    product: nifi
+    shodan-query: "title:\"NiFi\""
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NiFi"})
   tags: packetstorm,apache,nifi,rce
 
 http:

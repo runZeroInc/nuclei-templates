@@ -41,12 +41,11 @@ info:
       - CWE-20
       - CWE-269
   metadata:
+    max-request: 1
     vendor: Phoenix Contact
     product: CHARX SEC-3000
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Phoenix Contact - CHARX"})
-    max-request: 1
     shodan-query: title:"Phoenix Contact - CHARX"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Phoenix Contact - CHARX"})
   tags: cve,cve2025,phoenix-contact,phoenix-contact-charx
 
 http:
@@ -65,4 +64,3 @@ http:
         name: is_vulnerable_version
         json:
           - '.charging_controllers | .[].info._v_.firmware_version | capture("V(?<version>\\d+(?:\\.\\d+)*)"; "i") | .version | split(".") | map(tonumber) | if . < ("1.7.3" | split(".") | map(tonumber)) then true else false end'
-

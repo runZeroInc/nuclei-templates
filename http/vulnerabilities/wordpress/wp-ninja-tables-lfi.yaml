@@ -19,8 +19,8 @@ info:
     vendor: wpxpo
     product: ninja-tables
     fofa-query: body="/wp-content/plugins/ninja-tables/"
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/ninja-tables/"
   tags: ninja-tables,file-download,wordpress,unauth,lfi,wp-plugin
-
 flow: http(1) && http(2)
 
 http:
@@ -30,7 +30,6 @@ http:
         Host: {{Hostname}}
 
     redirects: true
-
     matchers:
       - type: dsl
         dsl:

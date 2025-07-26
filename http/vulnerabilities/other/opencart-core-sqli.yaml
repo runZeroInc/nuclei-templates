@@ -13,10 +13,11 @@ info:
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
+    vendor: opencart
+    product: opencart
     shodan-query: title:"OpenCart"
     fofa-query: icon_hash="-1443008128"
-    product: opencart
-    vendor: opencart
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenCart"})
   tags: time-based-sqli,opencart,sqli
 flow: http(1) && http(2)
 

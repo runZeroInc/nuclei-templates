@@ -17,10 +17,11 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: wuzhicms
+    product: wuzhicms
     shodan-query: http.html:"Wuzhicms"
     fofa-query: title="Wuzhicms"
-    product: wuzhicms
-    vendor: wuzhicms
+    runzero-match: service["http.body"] matches "(?i)Wuzhicms"
   tags: wuzhicms,sqli
 variables:
   num: "999999999"

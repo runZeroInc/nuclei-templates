@@ -12,6 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: title="用友U8CRM"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)用友U8CRM"})
   tags: yonyou,u8-crm,sqli
 
 http:

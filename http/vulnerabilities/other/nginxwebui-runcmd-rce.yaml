@@ -14,6 +14,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"nginxWebUI"
+    runzero-match: service["http.body"] matches "(?i)nginxWebUI"
   tags: nginx,nginxwebui,rce
 
 http:

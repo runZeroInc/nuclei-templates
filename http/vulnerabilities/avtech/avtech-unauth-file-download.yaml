@@ -11,6 +11,7 @@ info:
     max-request: 2
     shodan-query: title:"login" product:"Avtech"
     fofa-query: app="AVTECH-视频监控"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login\" product:\"Avtech"})
   tags: exposure,avtech,unauth,download,iot
 
 http:
