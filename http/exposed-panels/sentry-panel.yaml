@@ -11,8 +11,6 @@ info:
   classification:
     cpe: cpe:2.3:a:sentry:sentry:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)login \\| sentry"})
     verified: true
     max-request: 1
     vendor: sentry
@@ -22,6 +20,7 @@ info:
       - http.title:"login | sentry"
     fofa-query: title="login | sentry"
     google-query: intitle:"login | sentry"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login \\| sentry"})
   tags: panel,sentry,login
 
 http:
@@ -31,7 +30,6 @@ http:
 
     redirects: true
     max-redirects: 3
-
     matchers:
       - type: dsl
         dsl:
@@ -45,4 +43,3 @@ http:
         group: 1
         regex:
           - '(?i)"current":\s*"([0-9a-z.-]+)"'
-

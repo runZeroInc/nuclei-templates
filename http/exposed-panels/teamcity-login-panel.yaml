@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jetbrains:teamcity:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)teamcity"})
     verified: true
     max-request: 1
     vendor: jetbrains
@@ -22,6 +20,7 @@ info:
       - http.component:"teamcity"
     fofa-query: title=teamcity
     google-query: intitle:teamcity
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)teamcity"})
   tags: panel,teamcity,jetbrains,detect
 
 http:
@@ -54,4 +53,3 @@ http:
         name: build
         regex:
           - "Version</span> [0-9.]+ \\(build (.*)\\)</span>"
-

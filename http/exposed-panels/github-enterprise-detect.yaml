@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:github:enterprise_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Setup GitHub Enterprise"})
     verified: true
     max-request: 1
     vendor: github
@@ -19,6 +17,7 @@ info:
     shodan-query:
       - title:"Setup GitHub Enterprise"
       - micro focus dsd
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Setup GitHub Enterprise"})
   tags: panel,github
 
 http:
@@ -32,4 +31,3 @@ http:
       - type: word
         words:
           - "GitHub · Enterprise"
-

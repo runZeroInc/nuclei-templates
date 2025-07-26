@@ -12,13 +12,12 @@ info:
   classification:
     cpe: cpe:2.3:a:elastic:elasticsearch:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Elastic"})
     verified: true
     max-request: 1
     vendor: elastic
     product: elasticsearch
     shodan-query: http.title:"Elastic" || http.favicon.hash:1328449667
+    runzero-match: any(each(service["html.titles"]), {# matches "Elastic"})
   tags: default-login,elasticsearch
 
 http:
@@ -55,4 +54,3 @@ http:
       - type: status
         status:
           - 200
-

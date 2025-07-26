@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:a:gchq:cyberchef:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)CyberChef"})
     verified: true
     max-request: 1
     vendor: gchq
     product: cyberchef
     shodan-query: title:"CyberChef"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CyberChef"})
   tags: panel,cyberchef,login,detect
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

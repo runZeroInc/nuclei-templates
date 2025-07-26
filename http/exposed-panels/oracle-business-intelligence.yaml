@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oracle:business_intelligence:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)oracle business intelligence sign in"})
     verified: true
     max-request: 3
     vendor: oracle
@@ -23,6 +21,7 @@ info:
       - http.title:"oracle business intelligence sign in"
     fofa-query: title="oracle business intelligence sign in"
     google-query: intitle:"oracle business intelligence sign in"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)oracle business intelligence sign in"})
   tags: panel,oracle,login,detect
 
 http:
@@ -48,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

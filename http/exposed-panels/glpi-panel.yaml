@@ -13,8 +13,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)glpi"}) || service["favicon.ico.image.mmh3"] == "-1474875778"
     verified: true
     max-request: 3
     vendor: glpi-project
@@ -27,6 +25,7 @@ info:
       - title="glpi"
       - icon_hash="-1474875778"
     google-query: intitle:"glpi"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)glpi"}) || service["favicon.ico.image.mmh3"] == "-1474875778"
   tags: glpi,edb,panel,glpi-project
 
 http:
@@ -57,4 +56,3 @@ http:
           - '(?i)jquery\.min\.js\?v=([\d.|\d]+)">'
           - '(?i)# GLPI changes\n\n.*\n.*\n.*\n##\s\[(\d+\.\d+|\d+\.\d+\.\d+)\]'
           - '(?i)GLPI.*?([\d.|\d]+).copyright'
-

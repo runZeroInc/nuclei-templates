@@ -10,12 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ui:unifi_network_application:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)UniFi Network"})
     max-request: 1
-    shodan-query: http.title:"UniFi Network"
-    product: unifi_network_application
     vendor: ui
+    product: unifi_network_application
+    shodan-query: http.title:"UniFi Network"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)UniFi Network"})
   tags: unifi,ubnt,panel
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

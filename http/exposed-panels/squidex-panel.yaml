@@ -9,11 +9,10 @@ info:
   reference:
     - https://github.com/Squidex/squidex
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "1099097618"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1099097618
+    runzero-match: service["favicon.ico.image.mmh3"] == "1099097618"
   tags: panel,squidex,login
 
 http:
@@ -23,6 +22,7 @@ http:
       - "{{BaseURL}}/favicon.ico"
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: word
@@ -36,4 +36,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && (\"1099097618\" == mmh3(base64_py(body)))"
-

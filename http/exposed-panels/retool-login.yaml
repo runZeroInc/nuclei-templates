@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:retool:retool:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Retool"})
     verified: true
     max-request: 1
-    shodan-query: title:"Retool"
-    product: retool
     vendor: retool
+    product: retool
+    shodan-query: title:"Retool"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Retool"})
   tags: login,panel,retool
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

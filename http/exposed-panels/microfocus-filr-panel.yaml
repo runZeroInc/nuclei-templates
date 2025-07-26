@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:microfocus:filr:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)micro focus filr"
     verified: true
     max-request: 2
     vendor: microfocus
@@ -20,6 +18,7 @@ info:
       - "http.html:\"Micro Focus Filr\""
       - http.html:"micro focus filr"
     fofa-query: body="micro focus filr"
+    runzero-match: service["http.body"] matches "(?i)micro focus filr"
   tags: panel,microfocus,filr,detect
 
 http:
@@ -51,4 +50,3 @@ http:
         group: 1
         regex:
           - '(?i)\s+([0-9-]+)\s+Micro\s+Focus'
-

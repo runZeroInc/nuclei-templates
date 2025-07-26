@@ -11,8 +11,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:amcrest:ip2m-853ew:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)amcrest"
     max-request: 1
     vendor: amcrest
     product: ip2m-853ew
@@ -20,12 +18,13 @@ info:
       - html:"amcrest"
       - http.html:"amcrest" "ldap user"
       - http.html:"amcrest"
-    google-query:
-      - intext:"amcrest" "LDAP User"
-      - intext:"amcrest" "ldap user"
     fofa-query:
       - body="amcrest" "ldap user"
       - body="amcrest"
+    google-query:
+      - intext:"amcrest" "LDAP User"
+      - intext:"amcrest" "ldap user"
+    runzero-match: service["http.body"] matches "(?i)amcrest"
   tags: panel,camera,amcrest,edb
 
 http:
@@ -44,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

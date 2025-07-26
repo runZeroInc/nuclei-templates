@@ -10,11 +10,10 @@ info:
     - https://yunohost.org/
     - https://github.com/YunoHost/yunohost
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)YunoHost Admin"})
     verified: true
     max-request: 1
     fofa-query: title="YunoHost Admin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)YunoHost Admin"})
   tags: panel,login,yunohost,detect
 
 http:
@@ -30,4 +29,3 @@ http:
           - 'contains_any(body, "<title>YunoHost Admin", "href=\"/yunohost/admin/favicon")'
           - 'status_code == 200'
         condition: and
-

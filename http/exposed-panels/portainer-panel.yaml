@@ -9,8 +9,6 @@ info:
   classification:
     cpe: cpe:2.3:a:portainer:portainer:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)portainer"})
     verified: true
     max-request: 2
     vendor: portainer
@@ -20,6 +18,7 @@ info:
       - http.title:"portainer"
     fofa-query: title="portainer"
     google-query: intitle:"portainer"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)portainer"})
   tags: panel,portainer,detect
 
 http:
@@ -47,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

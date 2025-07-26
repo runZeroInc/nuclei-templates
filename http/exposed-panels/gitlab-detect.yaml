@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gitlab:gitlab:*:*:*:*:community:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)gitlab"})
     max-request: 1
     vendor: gitlab
     product: gitlab
@@ -21,6 +19,7 @@ info:
       - http.title:"gitlab"
     fofa-query: title="gitlab"
     google-query: intitle:"gitlab"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)gitlab"})
   tags: panel,gitlab
 
 http:
@@ -42,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

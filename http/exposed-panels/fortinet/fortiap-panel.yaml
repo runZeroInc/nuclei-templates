@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortiap:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)fortiap"})
     verified: true
     max-request: 1
     vendor: fortinet
@@ -23,6 +21,7 @@ info:
       - http.title:"fortiap"
     fofa-query: title="fortiap"
     google-query: intitle:"fortiap"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiap"})
   tags: panel,fortinet,fortiap
 
 http:
@@ -44,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

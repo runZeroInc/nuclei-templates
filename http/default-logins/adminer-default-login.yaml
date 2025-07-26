@@ -4,8 +4,7 @@ info:
   name: Adminer Default Credentials
   author: j4vaovo
   severity: high
-  description: |-
-    Adminer default login credentials were discovered.
+  description: Adminer default login credentials were discovered.
   reference:
     - https://www.adminer.org
   classification:
@@ -13,11 +12,10 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)adminer"})
     verified: true
     max-request: 5
     shodan-query: http.title:adminer
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adminer"})
   tags: default-login,adminer
 
 http:
@@ -63,4 +61,3 @@ http:
       - type: status
         status:
           - 200
-

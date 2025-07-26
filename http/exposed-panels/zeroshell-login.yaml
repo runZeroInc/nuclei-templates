@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:zeroshell:zeroshell:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)zeroshell"})
     max-request: 1
     vendor: zeroshell
     product: zeroshell
@@ -20,6 +18,7 @@ info:
       - http.title:"zeroshell"
     fofa-query: title="zeroshell"
     google-query: intitle:"zeroshell"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)zeroshell"})
   tags: panel,zeroshell
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

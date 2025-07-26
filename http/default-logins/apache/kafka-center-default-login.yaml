@@ -4,8 +4,7 @@ info:
   name: Apache Kafka Center Default Credentials
   author: dhiyaneshDK
   severity: high
-  description: Apache Kafka Center default login credentials were
-    discovered.
+  description: Apache Kafka Center default login credentials were discovered.
   reference:
     - https://developer.ibm.com/tutorials/kafka-authn-authz/
   classification:
@@ -13,10 +12,9 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Kafka Center"})
     max-request: 1
     shodan-query: http.title:"Kafka Center"
+    runzero-match: any(each(service["html.titles"]), {# matches "Kafka Center"})
   tags: kafka,default-login
 
 http:
@@ -46,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

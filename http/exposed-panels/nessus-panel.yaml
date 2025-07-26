@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:tenable:nessus:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)nessus"})
     verified: true
     max-request: 2
     vendor: tenable
@@ -21,6 +19,7 @@ info:
       - http.title:"nessus"
     fofa-query: title="nessus"
     google-query: intitle:"nessus"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nessus"})
   tags: panel,nessus,tenable
 
 http:
@@ -42,4 +41,3 @@ http:
           - "<title>Nessus</title>"
           - "window.location = '/unsupported6.html';"
         condition: and
-

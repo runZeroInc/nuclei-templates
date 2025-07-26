@@ -7,8 +7,6 @@ info:
   classification:
     cpe: cpe:2.3:a:tautulli:tautulli:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)tautulli - home"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli"})
     verified: true
     max-request: 1
     vendor: tautulli
@@ -23,6 +21,7 @@ info:
     google-query:
       - intitle:"tautulli"
       - intitle:"tautulli - home"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tautulli - home"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli"})
   tags: panel,misconfig,tautulli,unauth,exposure
 
 http:
@@ -42,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

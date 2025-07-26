@@ -13,12 +13,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:jupyter:jupyterhub:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "JupyterHub"})
     max-request: 2
-    shodan-query: http.title:"JupyterHub"
-    product: jupyterhub
     vendor: jupyter
+    product: jupyterhub
+    shodan-query: http.title:"JupyterHub"
+    runzero-match: any(each(service["html.titles"]), {# matches "JupyterHub"})
   tags: jupyterhub,default-login
 
 http:
@@ -50,4 +49,3 @@ http:
       - type: status
         status:
           - 302
-

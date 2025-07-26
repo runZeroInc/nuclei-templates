@@ -7,8 +7,6 @@ info:
   classification:
     cpe: cpe:2.3:a:misp:misp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-137577333" || any(each(service["html.titles"]), {# matches "(?i)users - misp"}) || any(each(service["html.titles"]), {# matches "(?i)errors - misp"})
     verified: "true"
     max-request: 1
     vendor: misp
@@ -24,6 +22,7 @@ info:
       - title="errors - misp"
       - icon_hash="-137577333"
     google-query: intitle:"users - misp"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-137577333" || any(each(service["html.titles"]), {# matches "(?i)users - misp"}) || any(each(service["html.titles"]), {# matches "(?i)errors - misp"})
   tags: panel,misp
 
 http:
@@ -44,4 +43,3 @@ http:
           - 200
           - 500
         condition: or
-

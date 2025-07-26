@@ -13,9 +13,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)Nagios Core"})
     max-request: 2
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nagios Core"})
   tags: nagios,default-login
 
 http:
@@ -51,4 +50,3 @@ http:
           - 'Current Status'
           - 'Reports'
         condition: and
-

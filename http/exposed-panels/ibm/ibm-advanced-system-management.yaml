@@ -11,12 +11,11 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Advanced System Management"})
-    max-request: 2
     verified: true
+    max-request: 2
     shodan-query: title:"Advanced System Management"
     fofa-query: title="Advanced System Management"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Advanced System Management"})
   tags: panel,ibm,login,detect
 
 http:
@@ -26,6 +25,7 @@ http:
       - '{{BaseURL}}/cgi-bin/cgi'
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - '(?i)Update\s+Access\s+Key\s+Exp\s+Date\s+\(YYYY-MM-DD\):\s+([0-9\-]+)'
-

@@ -11,11 +11,10 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Group-IB Managed XDR"})
     verified: true
     max-request: 1
     shodan-query: title:"Group-IB Managed XDR"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Group-IB Managed XDR"})
   tags: panel,groupib
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

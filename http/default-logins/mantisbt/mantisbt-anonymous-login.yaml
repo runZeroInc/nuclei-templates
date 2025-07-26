@@ -9,13 +9,12 @@ info:
   classification:
     cpe: cpe:2.3:a:mantisbt:mantisbt:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "662709064"
     verified: true
     max-request: 1
     vendor: mantisbt
     product: mantisbt
     shodan-query: http.favicon.hash:662709064
+    runzero-match: service["favicon.ico.image.mmh3"] == "662709064"
   tags: default-logins,anonymous,mantisbt,default-login
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

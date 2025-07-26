@@ -4,16 +4,13 @@ info:
   name: Caprover Default Credentials
   author: ritikchaddha
   severity: high
-  description: |-
-    Caprover default login credentials were discovered.
+  description: Caprover default login credentials were discovered.
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "988422585"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:988422585
+    runzero-match: service["favicon.ico.image.mmh3"] == "988422585"
   tags: caprover,default-login,misconfig
-
 variables:
   password: captain42
 
@@ -34,4 +31,3 @@ http:
           - contains(header, "application/json")
           - status_code == 200
         condition: and
-

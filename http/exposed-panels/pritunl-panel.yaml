@@ -12,13 +12,12 @@ info:
   classification:
     cpe: cpe:2.3:a:pritunl:pritunl:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
+    verified: true
     max-request: 1
+    vendor: pritunl
     product: pritunl
     shodan-query: title:"Pritunl"
-    vendor: pritunl
-    verified: true
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
   tags: pritunl,panel,login
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,8 +10,6 @@ info:
   classification:
     cpe: cpe:2.3:a:arcserve:udp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1889244460"
     verified: true
     max-request: 1
     vendor: arcserve
@@ -20,6 +18,7 @@ info:
       - http.favicon.hash:-1889244460
       - http.favicon.hash:"-1889244460"
     fofa-query: icon_hash="-1889244460"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1889244460"
   tags: panel,login,arcserve,detect
 
 http:
@@ -39,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

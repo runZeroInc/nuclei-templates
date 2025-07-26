@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:elastic:kibana:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)kibana"})
     max-request: 3
     vendor: elastic
     product: kibana
@@ -20,6 +18,7 @@ info:
       - http.title:"kibana"
     fofa-query: title="kibana"
     google-query: intitle:"kibana"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kibana"})
   tags: panel,kibana,elastic
 
 http:
@@ -47,4 +46,3 @@ http:
         part: header
         regex:
           - '(?i)(Kbn-Name)'
-

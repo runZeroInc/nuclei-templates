@@ -8,12 +8,11 @@ info:
   reference:
     - https://github.com/apache/activemq-artemis/
   metadata:
-    product: activemq
-    vendor: apache
     max-request: 2
+    vendor: apache
+    product: activemq
     shodan-query: title:"ActiveMQ Artemis Console"
-    runzero-match: |-
-      any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
+    runzero-match: any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
   tags: apache,activemq,default-login
 
 http:
@@ -37,4 +36,3 @@ http:
           - 'Welcome to the Apache ActiveMQ Console of <b>'
           - '<h2>Broker</h2>'
         condition: and
-

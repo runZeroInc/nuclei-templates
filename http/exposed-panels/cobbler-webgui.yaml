@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cobblerd:cobbler:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)cobbler web interface"})
     max-request: 1
     vendor: cobblerd
     product: cobbler
@@ -20,6 +18,7 @@ info:
       - http.title:"cobbler web interface"
     fofa-query: title="cobbler web interface"
     google-query: intitle:"cobbler web interface"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cobbler web interface"})
   tags: cobbler,webserver,panel,cobblerd
 
 http:
@@ -43,4 +42,3 @@ http:
           - "/cobbler_webui_content/"
           - "/cobbler_web/do_login"
         condition: or
-

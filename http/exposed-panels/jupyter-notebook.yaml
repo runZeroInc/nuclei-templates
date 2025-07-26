@@ -13,12 +13,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jupyter:notebook:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)JupyterHub"
     max-request: 4
-    shodan-query: http.html:"JupyterHub"
-    product: notebook
     vendor: jupyter
+    product: notebook
+    shodan-query: http.html:"JupyterHub"
+    runzero-match: service["http.body"] matches "(?i)JupyterHub"
   tags: edb,panel,jupyter,notebook,exposure
 
 http:
@@ -47,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

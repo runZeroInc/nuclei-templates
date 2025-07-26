@@ -10,8 +10,6 @@ info:
   classification:
     cpe: cpe:2.3:o:openwrt:openwrt:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
     max-request: 2
     vendor: openwrt
     product: openwrt
@@ -20,6 +18,7 @@ info:
       - http.title:"openwrt - luci"
     fofa-query: title="openwrt - luci"
     google-query: intitle:"openwrt - luci"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
   tags: openwrt,router,panel
 
 http:
@@ -45,4 +44,3 @@ http:
         group: 1
         regex:
           - '(?i)OpenWrt  ([A-Z0-9.]+)'
-

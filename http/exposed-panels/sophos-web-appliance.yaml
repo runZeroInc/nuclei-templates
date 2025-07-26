@@ -9,8 +9,6 @@ info:
   classification:
     cpe: cpe:2.3:a:sophos:web_appliance:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-893681401" || any(each(service["html.titles"]), {# matches "(?i)sophos web appliance"})
     verified: true
     max-request: 1
     vendor: sophos
@@ -22,6 +20,7 @@ info:
       - title="sophos web appliance"
       - icon_hash=-893681401
     google-query: intitle:"sophos web appliance"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-893681401" || any(each(service["html.titles"]), {# matches "(?i)sophos web appliance"})
   tags: panel,login,sophos
 
 http:
@@ -39,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

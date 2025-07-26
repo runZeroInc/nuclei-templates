@@ -8,10 +8,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Forcepoint Appliance"})
     max-request: 1
     shodan-query: http.title:"Forcepoint Appliance"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Forcepoint Appliance"})
   tags: panel,forcepoint
 
 http:
@@ -28,4 +27,3 @@ http:
       - type: status
         status:
           - 200
-

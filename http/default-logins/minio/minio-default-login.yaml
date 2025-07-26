@@ -14,13 +14,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:minio:minio:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "symfony Profiler"
     verified: true
     max-request: 2
-    shodan-query: http.html:"symfony Profiler"
-    product: minio
     vendor: minio
+    product: minio
+    shodan-query: http.html:"symfony Profiler"
+    runzero-match: service["http.body"] matches "symfony Profiler"
   tags: default-login,minio
 
 http:
@@ -62,4 +61,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,13 +10,12 @@ info:
   classification:
     cpe: cpe:2.3:a:scriptcase:scriptcase:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ScriptCase"})
     verified: true
     max-request: 2
     vendor: scriptcase
     product: scriptcase
     shodan-query: title:"ScriptCase"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ScriptCase"})
   tags: panel,scriptcase
 
 http:
@@ -47,4 +46,3 @@ http:
         group: 2
         regex:
           - '(Vers&atilde;o|Version|Versão)\b.*\s(\d.*\d)'
-

@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jamf:jamf:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Jamf Pro Setup"
     verified: true
     max-request: 1
-    shodan-query: http.html:"Jamf Pro Setup"
-    product: jamf
     vendor: jamf
+    product: jamf
+    shodan-query: http.html:"Jamf Pro Setup"
+    runzero-match: service["http.body"] matches "(?i)Jamf Pro Setup"
   tags: jamf,setup,panel
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

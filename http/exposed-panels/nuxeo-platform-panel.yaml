@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nuxeo:nuxeo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Nuxeo Platform"})
     verified: true
     max-request: 1
-    shodan-query: title:"Nuxeo Platform"
-    product: nuxeo
     vendor: nuxeo
+    product: nuxeo
+    shodan-query: title:"Nuxeo Platform"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nuxeo Platform"})
   tags: panel,nuxeo
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

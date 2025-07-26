@@ -5,11 +5,10 @@ info:
   author: DhiyaneshDk
   severity: info
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1595726841"
     max-request: 1
     shodan-query: http.favicon.hash:-1595726841
     fofa-query: body="Login @ Reporter"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1595726841"
   tags: panel,login,acenet,acereporter
 
 http:
@@ -28,4 +27,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,10 +9,9 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1148190371"
     max-request: 1
     shodan-query: http.favicon.hash:"-1148190371"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1148190371"
   tags: panel,login,detect,opnsense
 
 http:
@@ -26,4 +25,3 @@ http:
           - 'contains(body, "| OPNsense</title>")'
           - 'status_code == 200'
         condition: and
-

@@ -12,13 +12,12 @@ info:
   classification:
     cpe: cpe:2.3:a:changedetection:changedetection:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Change Detection"})
     verified: true
     max-request: 1
     vendor: changedetection
     product: changedetection
     shodan-query: title:"Change Detection"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Change Detection"})
   tags: panel,changedetection,detect
 
 http:
@@ -39,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

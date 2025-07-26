@@ -10,14 +10,13 @@ info:
     cpe: cpe:2.3:a:atlassian:confluence_server:*:*:*:*:*:*:*:*
   metadata:
     max-request: 5
-    runzero-match: any(each(service["html.titles"]), {# matches "Confluence"})
-    runzero-vendor: Atlassian
-    runzero-product: Confluence
     vendor: atlassian
     product: confluence_server
     shodan-query:
       - http.component:"Atlassian Confluence"
       - http.component:"atlassian confluence"
+    runzero-vendor: Atlassian
+    runzero-product: Confluence
     category: productivity
   tags: tech,confluence,atlassian,detect
 
@@ -53,4 +52,3 @@ http:
           - '<meta id="confluence-base-url" name="confluence-base-url" content="https://(.*)">'
           - '<meta name="ajs-base-url" content="https://(.*)">'
           - '<meta name="ajs-server-name" content="(.*)">'
-

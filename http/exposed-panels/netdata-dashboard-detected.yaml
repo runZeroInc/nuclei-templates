@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:netdata:netdata:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)netdata dashboard"})
     max-request: 1
     vendor: netdata
     product: netdata
@@ -21,6 +19,7 @@ info:
       - "server: netdata embedded http server"
     fofa-query: title="netdata dashboard"
     google-query: intitle:"netdata dashboard"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)netdata dashboard"})
   tags: netdata,panel,tech
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

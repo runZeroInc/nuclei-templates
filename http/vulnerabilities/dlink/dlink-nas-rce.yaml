@@ -12,6 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: 'body="/cgi-bin/login_mgr.cgi" && body="cmd=cgi_get_ssl_info"'
+    runzero-match: service["http.body"] matches "(?i)/cgi-bin/login_mgr\\.cgi"
   tags: dlink,nas,rce
 
 http:
@@ -33,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -4,13 +4,11 @@ info:
   name: AmpJuke Default Credentials
   author: ritikchaddha
   severity: high
-  description: |-
-    AmpJuke default login credentials were discovered.
+  description: AmpJuke default login credentials were discovered.
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "-121681558"
     max-request: 3
     shodan-query: http.favicon.hash:-121681558
+    runzero-match: service["favicon.ico.image.mmh3"] == "-121681558"
   tags: default-login,ampjuke
 
 http:
@@ -18,14 +16,12 @@ http:
       - |
         GET /login.php HTTP/2
         Host: {{Hostname}}
-
       - |
         POST /loginvalidate.php HTTP/2
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         uuid={{url_encode(token)}}&login={{username}}&password={{password}}&Submit=Submit
-
       - |
         GET /index.php?what=welcome HTTP/2
         Host: {{Hostname}}
@@ -61,4 +57,3 @@ http:
         regex:
           - name="uuid" value="([./a-z0-9-]+)">
         internal: true
-

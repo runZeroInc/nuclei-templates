@@ -9,11 +9,10 @@ info:
   reference:
     - https://github.com/TabbyML/tabby
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Tabby"})
     verified: true
     max-request: 1
     fofa-query: title="Tabby"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tabby"})
   tags: panel,login,tabby,detect
 
 http:
@@ -29,4 +28,3 @@ http:
           - 'contains(body, "<title>Tabby - Sign In")'
           - 'status_code == 200'
         condition: and
-

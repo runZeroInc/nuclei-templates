@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:coder:code-server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)code-server login"})
     verified: true
     max-request: 1
     vendor: coder
@@ -19,6 +17,7 @@ info:
     shodan-query: http.title:"code-server login"
     fofa-query: title="code-server login"
     google-query: intitle:"code-server login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)code-server login"})
   tags: panel,detect,misc,coder
 
 http:
@@ -35,11 +34,9 @@ http:
         part: body
         words:
           - "Welcome to code-server"
-          - "Please log in below. Check the config file at ~/.config/code-server/config.yaml
-            for the password."
+          - "Please log in below. Check the config file at ~/.config/code-server/config.yaml for the password."
         condition: and
 
       - type: status
         status:
           - 200
-

@@ -14,14 +14,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fit2cloud:jumpserver:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)'JumpServer'"})
     verified: true
     max-request: 2
-    shodan-query: http.title:'JumpServer'
-    zoomeye-query: app="JumpServer Bastion Host"
-    product: jumpserver
     vendor: fit2cloud
+    product: jumpserver
+    shodan-query: http.title:'JumpServer'
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)'JumpServer'"})
+    zoomeye-query: app="JumpServer Bastion Host"
   tags: panel,jumpserver,login
 
 http:
@@ -53,4 +52,3 @@ http:
         group: 1
         regex:
           - '(?i)&copy;\s+([0-9-]+)'
-

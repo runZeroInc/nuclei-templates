@@ -5,12 +5,11 @@ info:
   author: ritikchaddha
   severity: info
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)EVlink Local Controller"})
     verified: true
     max-request: 1
     shodan-query: title:"EVlink Local Controller"
     fofa-query: title="EVlink Local Controller"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)EVlink Local Controller"})
   tags: panel,evlink,login,detect
 
 http:
@@ -28,4 +27,3 @@ http:
       - type: status
         status:
           - 200
-

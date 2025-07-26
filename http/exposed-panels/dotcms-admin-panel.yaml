@@ -10,14 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dotcms:dotcms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)dotcms"})
     max-request: 1
     vendor: dotcms
     product: dotcms
     shodan-query: http.title:"dotcms"
     fofa-query: title="dotcms"
     google-query: intitle:"dotcms"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dotcms"})
   tags: panel,dotcms,cms
 
 http:
@@ -30,4 +29,3 @@ http:
       - type: word
         words:
           - '<title>dotCMS Content Management Platform</title>'
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zabbix:zabbix:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "892542951" || any(each(service["html.titles"]), {# matches "(?i)zabbix-server"})
     max-request: 1
     vendor: zabbix
     product: zabbix
@@ -24,6 +22,7 @@ info:
       - app="zabbix-监控系统" && body="saml"
       - title="zabbix-server"
     google-query: intitle:"zabbix-server"
+    runzero-match: service["favicon.ico.image.mmh3"] == "892542951" || any(each(service["html.titles"]), {# matches "(?i)zabbix-server"})
   tags: panel,zabbix
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

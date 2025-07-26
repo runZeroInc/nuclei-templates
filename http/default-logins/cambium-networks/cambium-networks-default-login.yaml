@@ -4,14 +4,12 @@ info:
   name: Canopy 5.7GHz Access Point Default Credentials
   author: defektive
   severity: high
-  description: |-
-    Canopy 5.7GHz Access Point default login credentials were discovered.
+  description: Canopy 5.7GHz Access Point default login credentials were discovered.
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)Welcome to Canopy"})
     verified: true
     max-request: 2
     fofa-query: title="Welcome to Canopy"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Welcome to Canopy"})
   tags: default-login,cambium,canopy
 
 http:
@@ -31,8 +29,8 @@ http:
       password:
         - root
         - admin
-
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -43,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

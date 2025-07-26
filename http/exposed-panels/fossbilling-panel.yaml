@@ -9,13 +9,12 @@ info:
   classification:
     cpe: cpe:2.3:a:fossbilling:fossbilling:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)FOSSBilling"})
     verified: true
     max-request: 1
     vendor: fossbilling
     product: fossbilling
     shodan-query: title:"FOSSBilling"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FOSSBilling"})
   tags: fossbilling,panel,detect
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

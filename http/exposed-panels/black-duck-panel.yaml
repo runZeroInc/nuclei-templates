@@ -14,13 +14,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:synopsys:black_duck_hub:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Black Duck"})
     verified: true
     max-request: 1
-    shodan-query: http.title:"Black Duck"
-    product: black_duck_hub
     vendor: synopsys
+    product: black_duck_hub
+    shodan-query: http.title:"Black Duck"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Black Duck"})
   tags: panel,blackduck,synopsys
 
 http:
@@ -48,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

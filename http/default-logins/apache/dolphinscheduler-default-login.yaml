@@ -4,8 +4,7 @@ info:
   name: Apache DolphinScheduler Default Credentials
   author: For3stCo1d
   severity: high
-  description: Apache DolphinScheduler default login credentials
-    were discovered.
+  description: Apache DolphinScheduler default login credentials were discovered.
   reference:
     - https://github.com/apache/dolphinscheduler
   classification:
@@ -14,12 +13,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:apache:dolphinscheduler:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "DolphinScheduler"})
     max-request: 1
-    shodan-query: http.title:"DolphinScheduler"
-    product: dolphinscheduler
     vendor: apache
+    product: dolphinscheduler
+    shodan-query: http.title:"DolphinScheduler"
+    runzero-match: any(each(service["html.titles"]), {# matches "DolphinScheduler"})
   tags: apache,dolphinscheduler,default-login,oss
 
 http:
@@ -50,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

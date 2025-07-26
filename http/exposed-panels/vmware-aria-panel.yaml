@@ -7,11 +7,10 @@ info:
   description: |
     Detects VMware Aria Operations Panel.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)VMware Aria Operations"})
     verified: true
     max-request: 1
     shodan-query: title:"VMware Aria Operations"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware Aria Operations"})
   tags: panel,aria,login,detect
 
 http:
@@ -29,4 +28,3 @@ http:
       - type: status
         status:
           - 200
-

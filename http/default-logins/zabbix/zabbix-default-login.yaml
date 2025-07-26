@@ -12,10 +12,9 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "892542951"
     max-request: 2
     shodan-query: http.favicon.hash:892542951
+    runzero-match: service["favicon.ico.image.mmh3"] == "892542951"
   tags: zabbix,default-login
 
 http:
@@ -32,6 +31,7 @@ http:
       path:
         - /index.php
         - /zabbix/index.php
+
       username:
         - Admin
       password:
@@ -48,4 +48,3 @@ http:
       - type: status
         status:
           - 302
-

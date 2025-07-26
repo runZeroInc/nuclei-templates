@@ -9,8 +9,6 @@ info:
   reference:
     - https://www.soplanning.org/en/
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)soplanning"
     verified: true
     max-request: 1
     vendor: soplanning
@@ -19,6 +17,7 @@ info:
       - html:"soplanning"
       - http.html:"soplanning"
     fofa-query: body="soplanning"
+    runzero-match: service["http.body"] matches "(?i)soplanning"
   tags: soplanning,default-login
 
 http:
@@ -36,9 +35,9 @@ http:
         - admin
       password:
         - admin
-
     host-redirects: true
     max-redirects: 2
+
     matchers-condition: and
     matchers:
       - type: word
@@ -51,4 +50,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -13,8 +13,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)opencart"
     verified: true
     max-request: 2
     vendor: opencart
@@ -24,6 +22,7 @@ info:
       - http.html:"opencart"
       - cpe:"cpe:2.3:a:opencart:opencart"
     fofa-query: body="opencart"
+    runzero-match: service["http.body"] matches "(?i)opencart"
   tags: panel,opencart
 
 http:
@@ -41,4 +40,3 @@ http:
           - '(?i)footer\s.*OpenCart.*All.Rights.Reserved|img\s.*logo.*\salt=.*OpenCart'
           - "(?i)Powered.By.*http.*OpenCart"
         condition: or
-

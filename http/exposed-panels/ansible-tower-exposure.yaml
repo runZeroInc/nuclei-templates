@@ -13,18 +13,17 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:ansible_tower:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ansible tower"})
     max-request: 1
     vendor: redhat
     product: ansible_tower
     shodan-query:
       - title:"Ansible Tower"
       - http.title:"ansible tower"
+    fofa-query: title="ansible tower"
     google-query:
       - intitle:"Ansible Tower"
       - intitle:"ansible tower"
-    fofa-query: title="ansible tower"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ansible tower"})
   tags: panel,ansible,redhat
 
 http:
@@ -45,4 +44,3 @@ http:
         part: body
         regex:
           - 'href="\/static\/assets\/favicon\.ico\?v=(.+)" \/>'
-

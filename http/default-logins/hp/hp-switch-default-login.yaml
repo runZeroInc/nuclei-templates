@@ -12,10 +12,9 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "J9979A"})
     max-request: 1
     fofa-query: HP 1820-8G Switch J9979A
+    runzero-match: any(each(service["html.titles"]), {# matches "J9979A"})
   tags: default-login,hp
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

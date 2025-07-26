@@ -9,11 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Vertex Tax Installer"
     verified: true
     max-request: 1
     shodan-query: http.html:"Vertex Tax Installer"
+    runzero-match: service["http.body"] matches "(?i)Vertex Tax Installer"
   tags: panel,vertex
 
 http:
@@ -31,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,8 +9,6 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ws_ftp server web transfer"}) || any(each(service["html.titles"]), {# matches "(?i)ad hoc transfer"})
     verified: true
     max-request: 1
     vendor: progress
@@ -20,15 +18,16 @@ info:
       - ws_ftp port:22
       - http.title:"ad hoc transfer"
       - http.title:"ws_ftp server web transfer"
-    censys-query:
-      - services.http.request.uri="*/ThinClient/WTM/public/index.html"
-      - services.http.request.uri="*/thinclient/wtm/public/index.html"
     fofa-query:
       - title="ws_ftp server web transfer"
       - title="ad hoc transfer"
+    censys-query:
+      - services.http.request.uri="*/ThinClient/WTM/public/index.html"
+      - services.http.request.uri="*/thinclient/wtm/public/index.html"
     google-query:
       - intitle:"ws_ftp server web transfer"
       - intitle:"ad hoc transfer"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ws_ftp server web transfer"}) || any(each(service["html.titles"]), {# matches "(?i)ad hoc transfer"})
   tags: panel,ws_ftp,progress
 
 http:
@@ -44,4 +43,3 @@ http:
           - contains(body, 'Web Transfer Client')
           - status_code == 200
         condition: and
-

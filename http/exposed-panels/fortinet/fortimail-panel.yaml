@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortimail:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)fortimail"})
     max-request: 1
     vendor: fortinet
     product: fortimail
@@ -23,6 +21,7 @@ info:
       - fortimail && port=443
       - title="fortimail"
     google-query: intitle:"fortimail"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortimail"})
   tags: panel,fortinet,fortimail,login
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

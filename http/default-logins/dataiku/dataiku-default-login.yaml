@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:dataiku:data_science_studio:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)dataiku"})
     verified: true
     max-request: 1
-    shodan-query: title:"dataiku"
-    product: data_science_studio
     vendor: dataiku
+    product: data_science_studio
+    shodan-query: title:"dataiku"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
   tags: default-login,dataiku
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

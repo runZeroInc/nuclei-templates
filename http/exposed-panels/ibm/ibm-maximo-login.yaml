@@ -13,14 +13,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ibm:maximo_asset_management:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-399298961"
     verified: true
     max-request: 1
     vendor: ibm
     product: maximo_asset_management
     shodan-query: http.favicon.hash:-399298961
     fofa-query: icon_hash=-399298961
+    runzero-match: service["favicon.ico.image.mmh3"] == "-399298961"
   tags: maximo,panel,ibm,login,detect
 
 http:
@@ -50,4 +49,3 @@ http:
         group: 1
         regex:
           - '(?i)Copyright\s+IBM\s+Corp\.\s+([0-9-]+)'
-

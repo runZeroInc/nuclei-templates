@@ -11,10 +11,9 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "NetSUS Server Login"})
     max-request: 1
     shodan-query: http.title:"NetSUS Server Login"
+    runzero-match: any(each(service["html.titles"]), {# matches "NetSUS Server Login"})
   tags: netsus,default-login
 
 http:
@@ -45,4 +44,3 @@ http:
       - type: status
         status:
           - 302
-

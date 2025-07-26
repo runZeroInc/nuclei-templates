@@ -20,6 +20,7 @@ info:
     product: WNR614
     shodan-query: http.title:"WNR614"
     fofa-query: title="NETGEAR WNR614"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WNR614"})
   tags: cve,cve2024,netgear,router,exposure,wnr614,unauth
 
 http:
@@ -33,4 +34,3 @@ http:
           - 'contains_all(body, "Router Information", "Show Statistics", "Internet Port")'
           - 'status_code == 200'
         condition: and
-

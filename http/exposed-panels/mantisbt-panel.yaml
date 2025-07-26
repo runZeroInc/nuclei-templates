@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mantisbt:mantisbt:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "662709064"
     verified: true
     max-request: 1
     vendor: mantisbt
@@ -22,6 +20,7 @@ info:
       - http.favicon.hash:662709064
       - cpe:"cpe:2.3:a:mantisbt:mantisbt"
     fofa-query: icon_hash=662709064
+    runzero-match: service["favicon.ico.image.mmh3"] == "662709064"
   tags: panel,mantisbt
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

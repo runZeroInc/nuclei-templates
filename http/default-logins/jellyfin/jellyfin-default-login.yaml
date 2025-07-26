@@ -11,12 +11,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:jellyfin:jellyfin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Jellyfin"})
     verified: true
-    fofa-query: title="Jellyfin"
-    product: jellyfin
     vendor: jellyfin
+    product: jellyfin
+    fofa-query: title="Jellyfin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Jellyfin"})
   tags: default-login,jellyfin,misconfig
 
 http:
@@ -40,8 +39,8 @@ http:
         - password
         - jellyfin
     attack: clusterbomb
-
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -60,4 +59,3 @@ http:
       - type: status
         status:
           - 200
-

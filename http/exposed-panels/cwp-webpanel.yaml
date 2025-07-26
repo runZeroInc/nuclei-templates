@@ -10,12 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:control-webpanel:webpanel:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)CWP \\|用户"})
     max-request: 1
-    fofa-query: title=="CWP |用户" || title=="Login | CentOS WebPanel" || body="CentOS WebPanel"
-    product: webpanel
     vendor: control-webpanel
+    product: webpanel
+    fofa-query: title=="CWP |用户" || title=="Login | CentOS WebPanel" || body="CentOS WebPanel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CWP \\|用户"})
   tags: panel,centos
 
 http:
@@ -41,4 +40,3 @@ http:
         part: header
         words:
           - "cwpsrv"
-

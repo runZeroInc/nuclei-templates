@@ -14,8 +14,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zohocorp:manageengine_adaudit_plus:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)adaudit plus"})
     verified: true
     max-request: 2
     vendor: zohocorp
@@ -25,6 +23,7 @@ info:
       - http.title:"adaudit plus" || http.title:"manageengine - admanager plus"
     fofa-query: title="adaudit plus" || http.title:"manageengine - admanager plus"
     google-query: intitle:"adaudit plus" || http.title:"manageengine - admanager plus"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adaudit plus"})
   tags: panel,zoho,manageengine,zohocorp
 
 http:
@@ -46,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -7,14 +7,13 @@ info:
   classification:
     cpe: cpe:2.3:a:monitorr:monitorr:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-211006074"
     verified: true
     max-request: 1
     vendor: monitorr
     product: monitorr
     shodan-query: http.favicon.hash:-211006074
     fofa-query: icon_hash="-211006074"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-211006074"
   tags: panel,monitorr,detect
 
 http:
@@ -28,4 +27,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "content=\"Monitorr", "Monitorr is loading", "title=\"Monitorr Settings")'
         condition: and
-

@@ -11,8 +11,6 @@ info:
     cwe-id: CWE-284
     cpe: cpe:2.3:a:osticket:osticket:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)osticket installer"}) || any(each(service["html.titles"]), {# matches "(?i)osticket"}) || service["http.body"] matches "(?i)powered by osticket"
     verified: true
     max-request: 2
     vendor: osticket
@@ -29,6 +27,7 @@ info:
     google-query:
       - intitle:"osticket"
       - intitle:"osticket installer"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)osticket installer"}) || any(each(service["html.titles"]), {# matches "(?i)osticket"}) || service["http.body"] matches "(?i)powered by osticket"
   tags: panel,osticket,install
 
 http:
@@ -55,4 +54,3 @@ http:
       - type: status
         status:
           - 200
-

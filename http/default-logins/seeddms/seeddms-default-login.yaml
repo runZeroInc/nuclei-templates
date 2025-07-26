@@ -14,12 +14,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:seeddms:seeddms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "SeedDMS"})
     max-request: 1
-    shodan-query: http.title:"SeedDMS"
-    product: seeddms
     vendor: seeddms
+    product: seeddms
+    shodan-query: http.title:"SeedDMS"
+    runzero-match: any(each(service["html.titles"]), {# matches "SeedDMS"})
   tags: default-login,seeddms
 
 http:
@@ -48,4 +47,3 @@ http:
       - type: status
         status:
           - 302
-

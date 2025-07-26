@@ -7,12 +7,11 @@ info:
   description: |
     Digital Watchdog panel was detected.
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "868509217"
     verified: true
     max-request: 2
     shodan-query: "http.favicon.hash:868509217"
     fofa-query: "icon_hash=\"868509217\""
+    runzero-match: service["favicon.ico.image.mmh3"] == "868509217"
   tags: digital-watchdog,panel,detect,login,dw,spectrum
 
 http:
@@ -22,9 +21,7 @@ http:
       - "{{BaseURL}}/static/customization/favicon.ico"
 
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:
           - "status_code==200 && ('868509217' == mmh3(base64_py(body)))"
-

@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phpminiadmin_project:phpminiadmin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)phpMiniAdmin"
     verified: true
     max-request: 1
-    shodan-query: http.html:"phpMiniAdmin"
-    product: phpminiadmin
     vendor: phpminiadmin_project
+    product: phpminiadmin
+    shodan-query: http.html:"phpMiniAdmin"
+    runzero-match: service["http.body"] matches "(?i)phpMiniAdmin"
   tags: panel,phpminiadmin
 
 http:
@@ -40,4 +39,3 @@ http:
         group: 1
         regex:
           - 'phpMiniAdmin ([0-9._]+)'
-

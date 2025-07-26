@@ -7,13 +7,12 @@ info:
   classification:
     cpe: cpe:2.3:a:redis:redis_enterprise:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Enterprise-Class Redis for Developers"})
     verified: true
     max-request: 1
     vendor: redis
     product: redis_enterprise
     shodan-query: title:"Enterprise-Class Redis for Developers"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Enterprise-Class Redis for Developers"})
   tags: panel,redis,enterprise
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -13,9 +13,10 @@ info:
     cpe: cpe:2.3:a:icewarp:icewarp:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: title:"icewarp"
-    product: icewarp
     vendor: icewarp
+    product: icewarp
+    shodan-query: title:"icewarp"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)icewarp"})
   tags: icewarp,rce
 
 http:
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 302
-

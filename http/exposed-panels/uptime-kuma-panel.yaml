@@ -12,13 +12,12 @@ info:
   classification:
     cpe: cpe:2.3:a:uptime.kuma:uptime_kuma:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Uptime Kuma"})
     verified: true
     max-request: 1
     vendor: uptime.kuma
     product: uptime_kuma
     shodan-query: title:"Uptime Kuma"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Uptime Kuma"})
   tags: uptime,kuma,panel,login,detect
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

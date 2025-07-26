@@ -12,9 +12,8 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      service["http.body"] contains `>See third-party tools/resources that Ambari uses and their respective authors<`
     max-request: 1
+    runzero-match: service["http.body"] contains `>See third-party tools/resources that Ambari uses and their respective authors<`
   tags: ambari,default-login,apache
 
 http:
@@ -36,4 +35,3 @@ http:
           - '"Users" : {'
           - AMBARI.
         condition: and
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ilias:ilias:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)ilias"
     verified: true
     max-request: 2
     vendor: ilias
@@ -20,6 +18,7 @@ info:
       - http.html:"ILIAS"
       - http.html:"ilias"
     fofa-query: body="ilias"
+    runzero-match: service["http.body"] matches "(?i)ilias"
   tags: panel,ilias
 
 http:
@@ -42,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

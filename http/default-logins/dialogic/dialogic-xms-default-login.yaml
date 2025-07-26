@@ -7,11 +7,10 @@ info:
   description: |
     Dialogic XMS Admin Console default login information were discovered.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Dialogic XMS Admin Console"})
     verified: true
     max-request: 1
     shodan-query: title:"Dialogic XMS Admin Console"
+    runzero-match: any(each(service["html.titles"]), {# matches "Dialogic XMS Admin Console"})
   tags: dialogic,admin,default-login
 
 http:
@@ -44,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

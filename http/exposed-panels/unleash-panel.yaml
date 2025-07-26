@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.getunleash.io/
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-608690655"
     verified: true
     max-request: 3
     shodan-query: http.favicon.hash:-608690655
+    runzero-match: service["favicon.ico.image.mmh3"] == "-608690655"
   tags: panel,unleash,login,detect
 
 http:
@@ -24,6 +23,7 @@ http:
       - "{{BaseURL}}/favicon.ico"
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: word
@@ -39,4 +39,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && (\"-608690655\" == mmh3(base64_py(body)))"
-

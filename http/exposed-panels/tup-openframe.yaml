@@ -7,11 +7,10 @@ info:
   reference:
     - https://www.facebook.com/photo/?fbid=642772827893240&set=a.467014098802448
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "824580113"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:824580113
+    runzero-match: service["favicon.ico.image.mmh3"] == "824580113"
   tags: exposure,login,tup,openframe,panel
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

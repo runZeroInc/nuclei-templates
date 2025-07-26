@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:geoserver:geoserver:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})
     verified: true
     max-request: 2
-    fofa-query: app="GeoServer"
-    product: geoserver
     vendor: geoserver
+    product: geoserver
+    fofa-query: app="GeoServer"
+    runzero-match: 'any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})'
   tags: geoserver,default-login
 
 http:
@@ -49,4 +48,3 @@ http:
           - "!contains(tolower(location_1), 'error=true')"
           - 'status_code_1 == 302'
         condition: and
-

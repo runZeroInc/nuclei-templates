@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:icewhale:casaos:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)CasaOS"
     verified: true
     max-request: 2
-    shodan-query: html:"CasaOS"
-    product: casaos
     vendor: icewhale
+    product: casaos
+    shodan-query: html:"CasaOS"
+    runzero-match: service["http.body"] matches "(?i)CasaOS"
   tags: panel,casaos,login,detect
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

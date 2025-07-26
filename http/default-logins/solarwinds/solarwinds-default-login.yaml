@@ -13,9 +13,8 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 2
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "SolarWinds Orion"})
     shodan-query: title:"SolarWinds Orion"
+    runzero-match: any(each(service["html.titles"]), {# matches "SolarWinds Orion"})
   tags: solarwinds,default-login
 
 # Optional:
@@ -54,4 +53,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:nsx-t_data_center:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)vmw_nsx_logo-black-triangle-500w\\.png"
     verified: true
     max-request: 1
-    shodan-query: html:"vmw_nsx_logo-black-triangle-500w.png"
-    product: nsx-t_data_center
     vendor: vmware
+    product: nsx-t_data_center
+    shodan-query: html:"vmw_nsx_logo-black-triangle-500w.png"
+    runzero-match: service["http.body"] matches "(?i)vmw_nsx_logo-black-triangle-500w\\.png"
   tags: panel,vmware
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

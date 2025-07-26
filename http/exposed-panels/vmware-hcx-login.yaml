@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:vmware_hcx:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)VMware HCX"})
     verified: true
     max-request: 1
-    shodan-query: title:"VMware HCX"
-    product: vmware_hcx
     vendor: vmware
+    product: vmware_hcx
+    shodan-query: title:"VMware HCX"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware HCX"})
   tags: panel,vmware
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

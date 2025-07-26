@@ -11,13 +11,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:backpackforlaravel:backpack\\\\crud:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Backpack Admin"})
-    max-request: 1
-    shodan-query: title:"Backpack Admin"
     verified: true
-    product: backpack\\\\crud
+    max-request: 1
     vendor: backpackforlaravel
+    product: backpack\\\\crud
+    shodan-query: title:"Backpack Admin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Backpack Admin"})
   tags: panel,backpack,admin
 
 http:
@@ -32,4 +31,3 @@ http:
           - 'Backpack Admin'
           - 'backpack_alerts'
         condition: or
-

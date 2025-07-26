@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:h:feiyuxing:vec40g:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)飞鱼星企业级智能上网行为管理系统"})
     verified: true
     max-request: 1
     vendor: feiyuxing
     product: vec40g
     fofa-query: title="飞鱼星企业级智能上网行为管理系统"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)飞鱼星企业级智能上网行为管理系统"})
   tags: feiyuxing,default-login,iot
 
 http:
@@ -53,4 +52,3 @@ http:
       - type: status
         status:
           - 200
-

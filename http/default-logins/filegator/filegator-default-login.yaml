@@ -8,13 +8,11 @@ info:
   reference:
     - https://serverpilot.io/docs/how-to-install-a-file-manager-on-your-server/#:~:text=You%20should%20see%20the%20FileGator,Password%3A%20admin123
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "FileGator"})
     verified: true
     max-request: 2
     shodan-query: title:"FileGator"
+    runzero-match: any(each(service["html.titles"]), {# matches "FileGator"})
   tags: filegator,default-login,misconfig
-
 variables:
   username: "admin"
   password: "admin123"
@@ -24,7 +22,6 @@ http:
       - |
         GET /#/ HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /?r=/login HTTP/1.1
         Host: {{Hostname}}
@@ -35,6 +32,7 @@ http:
 
     host-redirects: true
     max-redirects: 2
+
     matchers-condition: and
     matchers:
       - type: word
@@ -60,4 +58,3 @@ http:
         kval:
           - 'x_csrf_token'
         internal: true
-

@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:n-able:n-central:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
     verified: true
     max-request: 1
-    shodan-query: http.title:"N-central Login"
-    product: n-central
     vendor: n-able
+    product: n-central
+    shodan-query: http.title:"N-central Login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
   tags: panel,n-central
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

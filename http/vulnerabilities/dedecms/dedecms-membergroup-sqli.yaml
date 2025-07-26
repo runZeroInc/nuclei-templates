@@ -14,9 +14,10 @@ info:
     cpe: cpe:2.3:a:dedecms:dedecms:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.html:"DedeCms"
-    product: dedecms
     vendor: dedecms
+    product: dedecms
+    shodan-query: http.html:"DedeCms"
+    runzero-match: service["http.body"] matches "(?i)DedeCms"
   tags: sqli,dedecms
 variables:
   num: "999999999"
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

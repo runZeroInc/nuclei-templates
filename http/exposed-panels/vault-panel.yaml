@@ -14,14 +14,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hashicorp:vault:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-919788577"
     verified: true
     max-request: 4
     vendor: hashicorp
     product: vault
     shodan-query: http.favicon.hash:-919788577
     fofa-query: icon_hash=-919788577
+    runzero-match: service["favicon.ico.image.mmh3"] == "-919788577"
   tags: panel,vault,detect,hashicorp
 
 http:
@@ -46,4 +45,3 @@ http:
         name: version
         json:
           - ".version"
-

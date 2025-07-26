@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:webroot:secureanywhere:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Webroot - Login"})
     verified: true
     max-request: 1
-    shodan-query: title:"Webroot - Login"
-    product: secureanywhere
     vendor: webroot
+    product: secureanywhere
+    shodan-query: title:"Webroot - Login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Webroot - Login"})
   tags: panel,webroot
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -1,4 +1,5 @@
 id: couchdb-detect
+
 info:
   name: CouchDB - Detect
   author: pussycat0x
@@ -8,7 +9,8 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:""couchdb":"
+    shodan-query: html:"\"couchdb\":"
+    runzero-match: service["http.body"] matches "(?i)couchdb\":"
   tags: couchdb,tech,detect,db
 
 http:
@@ -41,4 +43,3 @@ http:
         group: 1
         regex:
           - '"version":"([0-9]+\.[0-9]+\.[0-9]+)"'
-

@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:a:rconfig:rconfig:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "rConfig"})
     verified: true
     max-request: 2
     vendor: rconfig
     product: rconfig
     shodan-query: http.title:"rConfig"
+    runzero-match: any(each(service["html.titles"]), {# matches "rConfig"})
   tags: rconfig,default-login
 
 http:
@@ -59,4 +58,3 @@ http:
         part: header_2
         status:
           - 200
-

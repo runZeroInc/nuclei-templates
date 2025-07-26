@@ -12,14 +12,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)crushftp"
     verified: true
     max-request: 1
     vendor: crushftp
     product: crushftp
     shodan-query: http.html:"crushftp"
     fofa-query: body="crushftp"
+    runzero-match: service["http.body"] matches "(?i)crushftp"
   tags: panel,edb,crushftp,detect
 
 http:
@@ -41,4 +40,3 @@ http:
         part: header
         words:
           - 'Server: CrushFTP HTTP Server'
-

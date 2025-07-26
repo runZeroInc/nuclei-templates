@@ -12,12 +12,11 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    product: airflow
-    vendor: apache
     max-request: 2
+    vendor: apache
+    product: airflow
     shodan-query: title:"Sign In - Airflow"
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
   tags: airflow,default-login,apache
 
 http:
@@ -62,4 +61,3 @@ http:
       - type: word
         words:
           - 'You should be redirected automatically to target URL: <a href="/">'
-

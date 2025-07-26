@@ -14,13 +14,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:tooljet:tooljet:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)tooljet"})
     verified: true
     max-request: 1
-    shodan-query: title:"tooljet"
-    product: tooljet
     vendor: tooljet
+    product: tooljet
+    shodan-query: title:"tooljet"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tooljet"})
   tags: default-login,tooljet
 
 http:
@@ -56,4 +55,3 @@ http:
       - type: status
         status:
           - 201
-

@@ -9,15 +9,10 @@ info:
   classification:
     cpe: cpe:2.3:a:papercut:papercut_ng:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)'content=\"papercut'" || service["http.body"] matches "(?i)content=\\\\"
     verified: true
     max-request: 1
     vendor: papercut
     product: papercut_ng
-    google-query:
-      - html:'content="PaperCut'
-      - html:'content="papercut'
     shodan-query:
       - http.html:'content="papercut'
       - cpe:"cpe:2.3:a:papercut:papercut_ng"
@@ -25,6 +20,10 @@ info:
     fofa-query:
       - body='content="papercut'
       - body="content=\"papercut\""
+    google-query:
+      - html:'content="PaperCut'
+      - html:'content="papercut'
+    runzero-match: service["http.body"] matches "(?i)'content=\"papercut'" || service["http.body"] matches "(?i)content=\\\\"
   tags: panel,papercut,detect
 
 http:
@@ -47,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

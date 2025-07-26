@@ -10,14 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mirantis:kubernetes_engine:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Mirantis Kubernetes Engine"
     verified: true
     max-request: 1
+    vendor: mirantis
+    product: kubernetes_engine
     shodan-query: http.html:"Mirantis Kubernetes Engine"
     fofa-query: app="Mirantis-Kubernetes-Engine"
-    product: kubernetes_engine
-    vendor: mirantis
+    runzero-match: service["http.body"] matches "(?i)Mirantis Kubernetes Engine"
   tags: tech,kubernetes,devops,kube,k8s,panel
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

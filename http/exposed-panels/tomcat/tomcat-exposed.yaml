@@ -8,10 +8,8 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)apache tomcat"}) || service["http.body"] matches "(?i)apache tomcat"
-    max-request: 1
     verified: true
+    max-request: 1
     vendor: apache
     product: tomcat
     shodan-query:
@@ -23,6 +21,7 @@ info:
       - body="apache tomcat"
       - title="apache tomcat"
     google-query: intitle:"apache tomcat"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache tomcat"}) || service["http.body"] matches "(?i)apache tomcat"
   tags: tomcat,panel,apache,detect
 
 http:
@@ -50,4 +49,3 @@ http:
           - 'Version\s+([0-9.]+),'
           - '(?i)/lib/([a-z0-9.]+)/webapps'
           - '(?i)<h3>Apache\s+Tomcat/([0-9.]+)'
-

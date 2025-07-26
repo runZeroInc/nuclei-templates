@@ -11,12 +11,11 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "Lucee"
     verified: true
     max-request: 1
     shodan-query: "html:\"Lucee\""
     fofa-query: "app=\"Lucee-Engine\""
+    runzero-match: service["http.body"] matches "Lucee"
   tags: lucee,default-login
 
 http:
@@ -33,9 +32,9 @@ http:
       path:
         - /lucee/admin/web.cfm
         - /lucee/admin/server.cfm
+
       password:
         - "connections"
-
     stop-at-first-match: true
     matchers:
       - type: dsl
@@ -44,4 +43,3 @@ http:
           - '!contains(body, "Access is protected")'
           - 'status_code == 200'
         condition: and
-

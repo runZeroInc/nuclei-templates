@@ -7,13 +7,12 @@ info:
   classification:
     cpe: cpe:2.3:a:jishenghua:jsherp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1298131932"
     verified: true
     max-request: 1
     vendor: jishenghua
     product: jsherp
     shodan-query: http.favicon.hash:-1298131932
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1298131932"
   tags: panel,jsherp,login,detect
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

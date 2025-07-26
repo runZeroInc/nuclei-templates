@@ -9,13 +9,12 @@ info:
   classification:
     cpe: cpe:2.3:a:ispconfig:ispconfig:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "ISPConfig"})
     verified: true
     max-request: 1
     vendor: ispconfig
     product: ispconfig
     shodan-query: title:"ISPConfig" http.favicon.hash:483383992
+    runzero-match: any(each(service["html.titles"]), {# matches "ISPConfig"})
   tags: ispconfig,hsp,default-login
 
 http:
@@ -49,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

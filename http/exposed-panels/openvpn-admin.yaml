@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:openvpn:openvpn:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)openvpn-admin"}) || service["http.body"] matches "(?i)router management - server openvpn"
     verified: true
     max-request: 3
     vendor: openvpn
@@ -25,6 +23,7 @@ info:
       - body="router management - server openvpn"
       - title="openvpn-admin"
     google-query: intitle:"openvpn-admin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openvpn-admin"}) || service["http.body"] matches "(?i)router management - server openvpn"
   tags: panel,openvpn,admin,config
 
 http:
@@ -48,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

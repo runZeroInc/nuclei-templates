@@ -9,11 +9,10 @@ info:
   reference:
     - https://github.com/dani-garcia/vaultwarden
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)vaultwarden"
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: http.html:"vaultwarden"
+    runzero-match: service["http.body"] matches "(?i)vaultwarden"
   tags: panel,vaultwarden,login
 
 http:
@@ -27,4 +26,3 @@ http:
           - 'status_code == 200'
           - 'contains(to_lower(body), "vaultwarden web</title>")'
         condition: and
-

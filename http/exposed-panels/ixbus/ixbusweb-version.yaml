@@ -9,10 +9,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)iXBus"})
     max-request: 1
     shodan-query: http.title:"iXBus"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)iXBus"})
   tags: panel,ixbusweb,cms
 
 http:
@@ -36,4 +35,3 @@ http:
         group: 2
         regex:
           - '(iXBusWeb[\n\t ]+\((([0-9]+(.[0-9]+)?(.[0-9]+)?(.[0-9]+)?))\))'
-

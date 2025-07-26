@@ -7,16 +7,15 @@ info:
   description: |
     Detect BeyondTrust Remote Support Panel.
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-694003434"
     verified: true
-    max-requests: 1
+    vendor: beyondtrust
+    product: remote_support
     shodan-query:
       - http.favicon.hash:-694003434
     fofa-query:
       - icon_hash="-694003434"
-    vendor: beyondtrust
-    product: remote_support
+    runzero-match: service["favicon.ico.image.mmh3"] == "-694003434"
+    max-requests: 1
   tags: panel,detect,beyondtrust
 
 http:
@@ -36,4 +35,3 @@ http:
           - "BeyondTrust Remote Support"
           - "powered_by_text"
         condition: and
-

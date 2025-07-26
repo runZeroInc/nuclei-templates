@@ -9,11 +9,10 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)O2 Easy Setup"})
     verified: true
     max-request: 1
     shodan-query: title:"O2 Easy Setup"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)O2 Easy Setup"})
   tags: panel,o2,easy,iot,router
 
 http:
@@ -31,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

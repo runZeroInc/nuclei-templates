@@ -11,10 +11,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Open Game Panel"})
     max-request: 1
     shodan-query: http.title:"Open Game Panel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Open Game Panel"})
   tags: panel,edb
 
 http:
@@ -32,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

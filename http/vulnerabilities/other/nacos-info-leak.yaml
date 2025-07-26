@@ -11,9 +11,10 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"Nacos"
-    product: nacos
     vendor: alibaba
+    product: nacos
+    shodan-query: title:"Nacos"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nacos"})
   tags: nacos,tech,config,exposure
 
 http:
@@ -29,4 +30,3 @@ http:
           - 'regex("attachment;filename=(.*).zip", content_disposition)'
           - 'status_code == 200'
         condition: and
-

@@ -9,13 +9,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:satellite:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)redhat"
     verified: true
     max-request: 1
-    shodan-query: http.html:"redhat" "Satellite"
-    product: satellite
     vendor: redhat
+    product: satellite
+    shodan-query: http.html:"redhat" "Satellite"
+    runzero-match: service["http.body"] matches "(?i)redhat"
   tags: panel,redhat,satellite
 
 http:
@@ -43,4 +42,3 @@ http:
         group: 1
         regex:
           - '&quot;version&quot;:&quot;([0-9.]+)&quot;,'
-

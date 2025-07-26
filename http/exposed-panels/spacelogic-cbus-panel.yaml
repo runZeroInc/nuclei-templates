@@ -5,8 +5,6 @@ info:
   author: ritikchaddha
   severity: info
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)spacelogic c-bus"
     verified: true
     max-request: 1
     vendor: schneider-electric
@@ -15,6 +13,7 @@ info:
       - html:"SpaceLogic C-Bus"
       - http.html:"spacelogic c-bus"
     fofa-query: body="spacelogic c-bus"
+    runzero-match: service["http.body"] matches "(?i)spacelogic c-bus"
   tags: panel,spacelogic,login,schneider-electric
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

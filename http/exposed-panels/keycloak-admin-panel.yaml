@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:keycloak:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1105083093" || any(each(service["html.titles"]), {# matches "(?i)keycloak"}) || service["http.body"] matches "(?i)keycloak"
     verified: true
     max-request: 3
     vendor: redhat
@@ -25,6 +23,7 @@ info:
       - body="keycloak"
       - title="keycloak"
     google-query: intitle:"keycloak"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1105083093" || any(each(service["html.titles"]), {# matches "(?i)keycloak"}) || service["http.body"] matches "(?i)keycloak"
   tags: panel,keycloak,redhat
 
 http:
@@ -53,4 +52,3 @@ http:
       - type: status
         status:
           - 200
-

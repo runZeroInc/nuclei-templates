@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ldap-account-manager:ldap_account_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)LDAP Account Manager"})
     verified: true
     max-request: 2
-    shodan-query: title:"LDAP Account Manager"
-    product: ldap_account_manager
     vendor: ldap-account-manager
+    product: ldap_account_manager
+    shodan-query: title:"LDAP Account Manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LDAP Account Manager"})
   tags: panel,ldap
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

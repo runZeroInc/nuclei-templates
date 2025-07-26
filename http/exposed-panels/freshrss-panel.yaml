@@ -9,13 +9,12 @@ info:
   classification:
     cpe: cpe:2.3:a:freshrss:freshrss:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Freshrss"})
     verified: true
     max-request: 1
     vendor: freshrss
     product: freshrss
     shodan-query: title:"Freshrss"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Freshrss"})
   tags: freshrss,panel,detect
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

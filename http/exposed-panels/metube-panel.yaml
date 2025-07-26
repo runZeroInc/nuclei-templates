@@ -9,11 +9,10 @@ info:
   reference:
     - https://github.com/alexta69/metube
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)MeTube"})
     verified: true
-    shodan-query: http.title:MeTube
     max-request: 1
+    shodan-query: http.title:MeTube
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MeTube"})
   tags: metube,detect,panel,login
 
 http:
@@ -31,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

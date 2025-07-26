@@ -14,14 +14,13 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:adobe:experience_manager_cloud_service:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "AEM Sign In"})
     max-request: 2
+    vendor: adobe
+    product: experience_manager_cloud_service
     shodan-query:
       - http.title:"AEM Sign In"
       - http.component:"Adobe Experience Manager"
-    product: experience_manager_cloud_service
-    vendor: adobe
+    runzero-match: any(each(service["html.titles"]), {# matches "AEM Sign In"})
   tags: default-login,misconfig,aem,adobe
 
 http:
@@ -55,4 +54,3 @@ http:
       - type: status
         status:
           - 200
-

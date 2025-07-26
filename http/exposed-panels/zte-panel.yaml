@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:zte:nr8120a:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)ZTE Corporation"
     verified: true
     max-request: 1
-    shodan-query: http.html:"ZTE Corporation"
-    product: nr8120a
     vendor: zte
+    product: nr8120a
+    shodan-query: http.html:"ZTE Corporation"
+    runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
   tags: panel,zte
 
 http:
@@ -46,4 +45,3 @@ http:
         group: 1
         regex:
           - '<div class="type"><font id="">(.+)<\/font><\/div>'
-

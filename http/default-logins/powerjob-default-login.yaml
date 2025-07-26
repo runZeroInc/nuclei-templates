@@ -11,14 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:powerjob:powerjob:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "PowerJob"})
     verified: true
     max-request: 1
     vendor: powerjob
     product: powerjob
     shodan-query: http.title:"PowerJob"
     fofa-query: title="PowerJob"
+    runzero-match: any(each(service["html.titles"]), {# matches "PowerJob"})
   tags: powerjob,default-login
 
 http:
@@ -52,4 +51,3 @@ http:
       - type: status
         status:
           - 200
-

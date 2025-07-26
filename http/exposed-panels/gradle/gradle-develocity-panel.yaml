@@ -10,13 +10,12 @@ info:
   classification:
     cpe: cpe:2.3:a:gradle:build_cache_node:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Develocity Build Cache Node"
     verified: true
     max-request: 1
     vendor: gradle
     product: build_cache_node
     shodan-query: http.html:"Develocity Build Cache Node"
+    runzero-match: service["http.body"] matches "(?i)Develocity Build Cache Node"
   tags: panel,gradle,detect,login
 
 http:
@@ -37,4 +36,3 @@ http:
         group: 1
         regex:
           - '(?i)"applicationVersion":"([0-9.]+)"'
-

@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.easyvista.com/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Easyvista"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Easyvista"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Easyvista"})
   tags: panel,easyvista,login,detect
 
 http:
@@ -35,4 +34,3 @@ http:
         regex:
           - '(?i)package:\s+"([a-z0-9._-]+)"'
           - '(?i)version&nbsp;:&nbsp;([a-z0-9._-]+)'
-

@@ -9,8 +9,6 @@ info:
   classification:
     cpe: cpe:2.3:a:bitwarden:bitwarden:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)bitwarden web vault"})
     verified: true
     max-request: 1
     vendor: bitwarden
@@ -20,6 +18,7 @@ info:
       - http.title:"bitwarden web vault"
     fofa-query: title="bitwarden web vault"
     google-query: intitle:"bitwarden web vault"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bitwarden web vault"})
   tags: panel,bitwarden,vault,detect
 
 http:
@@ -42,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

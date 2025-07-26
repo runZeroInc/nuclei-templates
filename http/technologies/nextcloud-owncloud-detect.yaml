@@ -14,8 +14,7 @@ info:
     vendor: owncloud
     product: owncloud
     shodan-query: http.html:"owncloud"
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "ownCloud"})
+    runzero-match: service["http.body"] matches "(?i)owncloud"
     runzero-vendor: ownCloud
     runzero-product: ownCloud Server
   tags: tech,owncloud,status
@@ -39,4 +38,3 @@ http:
         name: version
         json:
           - .version
-

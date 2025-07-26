@@ -10,12 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dell:openmanage:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
     max-request: 2
-    shodan-query: html:"Dell OpenManage Switch Administrator"
-    product: openmanage
     vendor: dell
+    product: openmanage
+    shodan-query: html:"Dell OpenManage Switch Administrator"
+    runzero-match: service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
   tags: panel,dell
 
 http:
@@ -35,4 +34,3 @@ http:
           - '<TITLE>Log In</TITLE>'
           - 'device/logOff_up_menu1.htm'
         condition: and
-

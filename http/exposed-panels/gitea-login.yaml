@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gitea:gitea:*:*:*:*:jenkins:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)powered by gitea version" || any(each(service["html.titles"]), {# matches "(?i)gitea"})
     max-request: 1
     vendor: gitea
     product: gitea
@@ -24,6 +22,7 @@ info:
       - title="gitea"
       - body="powered by gitea version"
     google-query: intitle:"gitea"
+    runzero-match: service["http.body"] matches "(?i)powered by gitea version" || any(each(service["html.titles"]), {# matches "(?i)gitea"})
   tags: gitea,panel
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

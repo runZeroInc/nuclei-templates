@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gitblit:gitblit:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)gitblit"}) || service["http.body"] matches "(?i)gitblit"
     verified: true
     max-request: 1
     vendor: gitblit
@@ -24,6 +22,7 @@ info:
       - body="gitblit"
       - title="gitblit"
     google-query: intitle:"gitblit"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)gitblit"}) || service["http.body"] matches "(?i)gitblit"
   tags: panel,gitblit
 
 http:
@@ -46,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-668
     cpe: cpe:2.3:h:tenda:11n:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Tenda 11N Wireless Router Login Screen"})
     max-request: 1
+    vendor: tenda
+    product: 11n
     shodan-query: http.title:"Tenda 11N Wireless Router Login Screen"
     google-query: intitle:"Tenda 11N Wireless Router Login Screen"
-    product: 11n
-    vendor: tenda
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tenda 11N Wireless Router Login Screen"})
   tags: panel,tenda
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

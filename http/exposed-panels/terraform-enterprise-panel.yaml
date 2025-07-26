@@ -12,18 +12,17 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hashicorp:terraform:*:*:*:*:-:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)terraform enterprise"})
     max-request: 1
     vendor: hashicorp
     product: terraform
     shodan-query:
       - title:"Terraform Enterprise"
       - http.title:"terraform enterprise"
+    fofa-query: title="terraform enterprise"
     google-query:
       - intitle:"Terraform Enterprise"
       - intitle:"terraform enterprise"
-    fofa-query: title="terraform enterprise"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)terraform enterprise"})
   tags: panel,terraform,hashicorp
 
 http:
@@ -43,4 +42,3 @@ http:
         group: 1
         regex:
           - '<span class="tag is-light is-lowercase">(.+)<\/span>'
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sap:hybris:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)hybris"})
     verified: true
     max-request: 1
     vendor: sap
@@ -21,6 +19,7 @@ info:
       - http.title:"hybris"
     fofa-query: title="hybris"
     google-query: intitle:"hybris"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hybris"})
   tags: panel,hybris,sap
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

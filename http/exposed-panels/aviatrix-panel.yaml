@@ -11,8 +11,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:aviatrix:controller:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)aviatrix cloud controller"})
     max-request: 1
     vendor: aviatrix
     product: controller
@@ -21,6 +19,7 @@ info:
       - http.title:"aviatrix cloud controller"
     fofa-query: title="aviatrix cloud controller"
     google-query: intitle:"aviatrix cloud controller"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)aviatrix cloud controller"})
   tags: panel,aviatrix
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

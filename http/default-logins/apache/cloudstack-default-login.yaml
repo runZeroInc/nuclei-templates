@@ -4,18 +4,16 @@ info:
   name: Apache CloudStack Default Credentials
   author: DhiyaneshDK
   severity: high
-  description: |-
-    Apache CloudStack default login credentials were discovered.
+  description: Apache CloudStack default login credentials were discovered.
   classification:
     cpe: cpe:2.3:a:apache:cloudstack:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Apache CloudStack"})
     verified: true
     max-request: 1
     vendor: apache
     product: cloudstack
     shodan-query: http.title:"Apache CloudStack"
+    runzero-match: any(each(service["html.titles"]), {# matches "Apache CloudStack"})
   tags: default-login,apache,cloudstack
 
 http:
@@ -42,4 +40,3 @@ http:
           - contains(content_type, 'application/json')
           - contains_all(body, 'sessionkey','domainid','userid')
         condition: and
-

@@ -7,8 +7,6 @@ info:
   classification:
     cpe: cpe:2.3:o:microchip:syncserver_s650_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)symmetricom syncserver"
     verified: true
     max-request: 1
     vendor: microchip
@@ -17,6 +15,7 @@ info:
       - html:"Symmetricom SyncServer"
       - http.html:"symmetricom syncserver"
     fofa-query: body="symmetricom syncserver"
+    runzero-match: service["http.body"] matches "(?i)symmetricom syncserver"
   tags: panel,login,syncserver,symmetricom,detect,microchip
 
 http:
@@ -43,4 +42,3 @@ http:
         group: 1
         regex:
           - "Symmetricom SyncServer ([A-Z0-9]+)"
-

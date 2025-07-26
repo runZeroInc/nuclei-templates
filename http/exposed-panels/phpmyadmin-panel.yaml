@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phpmyadmin:phpmyadmin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)phpmyadmin"})
     max-request: 14
     vendor: phpmyadmin
     product: phpmyadmin
@@ -24,6 +22,7 @@ info:
       - body="pma_servername" && body="4.8.4"
       - title="phpmyadmin"
     google-query: intitle:"phpmyadmin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpmyadmin"})
     hunter-query: app.name="phpmyadmin"&&web.body="pma_servername"&&web.body="4.8.4"
   tags: panel,phpmyadmin,detect
 
@@ -31,6 +30,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - ""
@@ -48,7 +48,6 @@ http:
         - "/phpMyAdmin/"
         - "/phpma/"
         - "/phpMyAdmin/index.php"
-
     stop-at-first-match: true
     matchers:
       - type: word
@@ -64,4 +63,3 @@ http:
         group: 1
         regex:
           - 'v=([a-z0-9-._]+)'
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:igniterealtime:openfire:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)openfire admin console"}) || any(each(service["html.titles"]), {# matches "(?i)openfire"})
     verified: true
     max-request: 2
     vendor: igniterealtime
@@ -26,6 +24,7 @@ info:
     google-query:
       - intitle:"openfire admin console"
       - intitle:"openfire"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openfire admin console"}) || any(each(service["html.titles"]), {# matches "(?i)openfire"})
   tags: panel,openfire,admin,console,igniterealtime
 
 http:
@@ -48,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

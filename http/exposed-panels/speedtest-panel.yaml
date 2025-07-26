@@ -12,13 +12,12 @@ info:
   classification:
     cpe: cpe:2.3:a:speed_test_project:speed_test:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Speedtest Tracker"})
     verified: true
     max-request: 1
     vendor: speed_test_project
     product: speed_test
     shodan-query: title:"Speedtest Tracker"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Speedtest Tracker"})
   tags: speedtest,tracker,panel,login
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

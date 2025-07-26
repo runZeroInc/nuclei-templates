@@ -13,6 +13,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: title="金和协同管理平台"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)金和协同管理平台"})
   tags: jinher,jc6,sqli
 variables:
   num: "{{rand_int(9000000, 9999999)}}"
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

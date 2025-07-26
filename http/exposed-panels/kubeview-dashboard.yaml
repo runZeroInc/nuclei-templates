@@ -10,8 +10,6 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-379154636" || any(each(service["html.titles"]), {# matches "(?i)kubeview"})
     verified: true
     max-request: 1
     vendor: kubeview_project
@@ -23,6 +21,7 @@ info:
       - icon_hash=-379154636
       - title="kubeview"
     google-query: intitle:"kubeview"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-379154636" || any(each(service["html.titles"]), {# matches "(?i)kubeview"})
   tags: exposure,k8s,kubernetes,kubeview,dashboard,panel,kubeview_project
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:buildbot:buildbot:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)buildbot"})
     verified: true
     max-request: 1
     vendor: buildbot
@@ -23,6 +21,7 @@ info:
       - http.title:"buildbot"
     fofa-query: title="buildbot"
     google-query: intitle:"buildbot"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)buildbot"})
   tags: panel,buildbot,cicd
 
 http:
@@ -51,4 +50,3 @@ http:
         part: body
         regex:
           - '\[\"Buildbot\", \"([0-9.]+)\"\]'
-

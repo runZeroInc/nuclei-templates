@@ -7,11 +7,10 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Oracle Opera"})
     verified: true
     max-request: 2
     shodan-query: title:"Oracle Opera" && html:"/OperaLogin/Welcome.do"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle Opera"})
   tags: panel,opera,oracle,detect
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

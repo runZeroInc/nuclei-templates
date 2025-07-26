@@ -16,6 +16,7 @@ info:
     product: phpmyadmin
     shodan-query: html:"server_databases.php"
     fofa-query: body="server_databases.php"
+    runzero-match: service["http.body"] matches "(?i)server_databases\\.php"
   tags: misconfig,phpmyadmin,unauth
 
 http:
@@ -60,4 +61,3 @@ http:
       - type: status
         status:
           - 200
-

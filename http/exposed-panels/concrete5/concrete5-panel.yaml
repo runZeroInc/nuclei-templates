@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:concrete5:concrete5:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)concrete5"}) || any(each(service["html.titles"]), {# matches "(?i)install concrete5"})
     max-request: 1
     vendor: concrete5
     product: concrete5
@@ -25,6 +23,7 @@ info:
     google-query:
       - intitle:"concrete5"
       - intitle:"install concrete5"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)concrete5"}) || any(each(service["html.titles"]), {# matches "(?i)install concrete5"})
   tags: panel,concrete5,cms
 
 http:
@@ -49,4 +48,3 @@ http:
         regex:
           - 'content="concrete5 \- ([0-9.]+)"\/>'
           - 'Version ([0-9.]+)'
-

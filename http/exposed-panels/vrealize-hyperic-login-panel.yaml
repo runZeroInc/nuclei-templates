@@ -11,13 +11,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:hyperic_hq:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Sign In - Hyperic"})
     verified: true
     max-request: 1
-    shodan-query: http.title:"Sign In - Hyperic"
-    product: hyperic_hq
     vendor: vmware
+    product: hyperic_hq
+    shodan-query: http.title:"Sign In - Hyperic"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sign In - Hyperic"})
   tags: login,panel,vrealize,hyperic,detect
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -11,13 +11,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:saltstack:saltstack:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)SaltStack Config"})
     verified: true
     max-request: 1
-    shodan-query: title:"SaltStack Config"
-    product: saltstack
     vendor: saltstack
+    product: saltstack
+    shodan-query: title:"SaltStack Config"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SaltStack Config"})
   tags: panel,vmware,login,saltstack
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:zyxel:nr5101:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)web-based configurator"})
     verified: true
     max-request: 2
     vendor: zyxel
@@ -21,6 +19,7 @@ info:
       - http.title:"web-based configurator" html:"zyxel"
     fofa-query: title="web-based configurator" html:"zyxel"
     google-query: intitle:"web-based configurator" html:"zyxel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)web-based configurator"})
   tags: panel,zyxel,router,iot
 
 http:
@@ -42,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

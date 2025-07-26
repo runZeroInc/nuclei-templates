@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:a:busybox:busybox:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Busybox Repository Browser"})
     verified: true
     max-request: 1
     vendor: busybox
     product: busybox
     fofa-query: title="Busybox Repository Browser"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Busybox Repository Browser"})
   tags: detect,busybox,oss,panel
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,14 +12,13 @@ info:
   classification:
     cpe: cpe:2.3:a:ibm:operational_decision_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Decision Center \\| Business Console"})
     verified: true
     max-request: 1
     vendor: ibm
     product: operational_decision_manager
     shodan-query: http.title:"Decision Center | Business Console"
     fofa-query: title="Decision Center | Business Console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Decision Center \\| Business Console"})
   tags: panel,ibm,login,detect,decision-center
 
 http:
@@ -47,4 +46,3 @@ http:
         group: 1
         regex:
           - '(?i)"js/dist/([0-9.]+)/decisioncenter"'
-

@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortitester:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)fortitester"})
     verified: true
     max-request: 2
     vendor: fortinet
@@ -23,6 +21,7 @@ info:
       - http.title:"fortitester"
     fofa-query: title="fortitester"
     google-query: intitle:"fortitester"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortitester"})
   tags: panel,fortinet
 
 http:
@@ -47,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

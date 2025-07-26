@@ -18,6 +18,7 @@ info:
     vendor: thinkphp
     product: thinkphp
     shodan-query: title:"ThinkPHP"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ThinkPHP"})
     zoomeye-query: app="ThinkPHP"
   tags: thinkphp,file-upload,rce
 variables:
@@ -44,4 +45,3 @@ http:
       - type: dsl
         dsl:
           - "status_2 == 200"
-

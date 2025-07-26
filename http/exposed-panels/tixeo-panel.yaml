@@ -9,12 +9,12 @@ info:
   reference:
     - https://www.tixeo.com/en/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)tixeo"})
     verified: true
     max-request: 3
     shodan-query: 'http.title:"tixeo"'
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tixeo"})
   tags: panel,tixeo,login,detect
+
 http:
   - method: GET
     path:
@@ -23,7 +23,6 @@ http:
       - "{{BaseURL}}/meet/"
 
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:
@@ -37,4 +36,3 @@ http:
         group: 1
         regex:
           - '"applicationVersion"\s*:\s*"([0-9.]+)"'
-

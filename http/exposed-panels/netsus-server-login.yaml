@@ -9,10 +9,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)NetSUS Server Login"})
     max-request: 1
     shodan-query: http.title:"NetSUS Server Login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NetSUS Server Login"})
   tags: panel,netsus,login
 
 http:
@@ -29,4 +28,3 @@ http:
       - type: status
         status:
           - 200
-

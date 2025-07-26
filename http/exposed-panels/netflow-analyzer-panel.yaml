@@ -7,13 +7,12 @@ info:
   classification:
     cpe: cpe:2.3:a:zohocorp:manageengine_netflow_analyzer:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Login - Netflow Analyzer"
     verified: true
     max-request: 1
     vendor: zohocorp
     product: manageengine_netflow_analyzer
     shodan-query: html:"Login - Netflow Analyzer"
+    runzero-match: service["http.body"] matches "(?i)Login - Netflow Analyzer"
   tags: netflow,analyzer,panel,login
 
 http:
@@ -32,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

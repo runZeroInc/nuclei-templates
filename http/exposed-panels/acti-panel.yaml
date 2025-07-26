@@ -7,14 +7,13 @@ info:
   classification:
     cpe: cpe:2.3:o:acti:camera_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Web Configurator"})
     verified: true
     max-request: 1
     vendor: acti
     product: camera_firmware
     shodan-query: title:"Web Configurator" html:"ACTi"
     fofa-query: app="ACTi-视频监控"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web Configurator"})
   tags: acti,panel,login,detect
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

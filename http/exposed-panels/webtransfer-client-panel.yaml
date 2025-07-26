@@ -10,13 +10,12 @@ info:
   classification:
     cpe: cpe:2.3:a:progress:moveit_transfer:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Web Transfer Client"})
     verified: true
     max-request: 1
     vendor: progress
     product: moveit_transfer
     shodan-query: http.title:"Web Transfer Client"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web Transfer Client"})
   tags: panel,webtransferclient,login,detect
 
 http:
@@ -30,4 +29,3 @@ http:
           - 'status_code == 200'
           - 'contains(body, "<title>Web Transfer Client")'
         condition: and
-

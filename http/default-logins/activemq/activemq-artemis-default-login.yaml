@@ -12,19 +12,18 @@ info:
     vendor: apache
     product: activemq
     shodan-query: title:"ActiveMQ Artemis Console"
-    runzero-match: |-
-      any(each(service["html.titles"]), {# contains "ActiveMQ Artemis Console"})
+    runzero-match: any(each(service["html.titles"]), {# contains "ActiveMQ Artemis Console"})
   tags: apache,activemq,artemis,default-login
 
 http:
   - method: POST
     path:
       - '{{BaseURL}}/console/auth/login'
+
     headers:
       Content-Type: application/json
-    body: |-
-      {"username":"{{username}}","password":"{{password}}"}
 
+    body: '{"username":"{{username}}","password":"{{password}}"}'
     stop-at-first-match: true
     payloads:
       username:
@@ -36,6 +35,7 @@ http:
       - type: word
         words:
           - '{"credentials"'
+
     extractors:
       - type: regex
         name: credential
@@ -43,4 +43,3 @@ http:
         group: 0
         regex:
           - '{"credentials":.*}'
-

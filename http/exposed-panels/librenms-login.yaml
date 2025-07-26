@@ -10,12 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:librenms:librenms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)librenms"})
     max-request: 1
     vendor: librenms
     product: librenms
     fofa-query: title="librenms"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)librenms"})
   tags: librenms,panel
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

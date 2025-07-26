@@ -13,12 +13,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:infoblox:nios:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Infoblox"})
     max-request: 1
     vendor: infoblox
     product: nios
     shodan-query: http.title:"Infoblox"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Infoblox"})
   tags: panel,infoblox,nios,login,detect
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

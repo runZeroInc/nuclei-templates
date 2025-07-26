@@ -12,13 +12,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:episerver:episerver:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)epihash"
     verified: true
     max-request: 1
-    shodan-query: html:"epihash"
-    product: episerver
     vendor: episerver
+    product: episerver
+    shodan-query: html:"epihash"
+    runzero-match: service["http.body"] matches "(?i)epihash"
   tags: panel,optimizely,episerver
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 302
-

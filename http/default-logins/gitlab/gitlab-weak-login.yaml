@@ -12,12 +12,11 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "GitLab"})
     max-request: 6
-    shodan-query: http.title:"GitLab"
-    product: gitlab
     vendor: gitlab
+    product: gitlab
+    shodan-query: http.title:"GitLab"
+    runzero-match: any(each(service["html.titles"]), {# matches "GitLab"})
   tags: gitlab,default-login
 
 http:
@@ -59,4 +58,3 @@ http:
           - '"token_type":'
           - '"refresh_token":'
         condition: and
-

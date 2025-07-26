@@ -15,12 +15,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Grafana"})
     max-request: 2
-    shodan-query: title:"Grafana"
-    product: grafana
     vendor: grafana
+    product: grafana
+    shodan-query: title:"Grafana"
+    runzero-match: any(each(service["html.titles"]), {# matches "Grafana"})
   tags: grafana,default-login
 
 http:
@@ -59,4 +58,3 @@ http:
       - type: status
         status:
           - 200
-

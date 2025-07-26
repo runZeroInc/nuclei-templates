@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jamf:jamf:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Jamf Pro"})
     verified: true
     max-request: 1
-    shodan-query: title:"Jamf Pro"
-    product: jamf
     vendor: jamf
+    product: jamf
+    shodan-query: title:"Jamf Pro"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Jamf Pro"})
   tags: panel,jamf
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 401
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cybelesoft:thinfinity_virtualui:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)thinfinity virtualui"})
     max-request: 1
     vendor: cybelesoft
     product: thinfinity_virtualui
@@ -20,6 +18,7 @@ info:
       - http.title:"thinfinity virtualui"
     fofa-query: title="thinfinity virtualui"
     google-query: intitle:"thinfinity virtualui"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)thinfinity virtualui"})
   tags: panel,thinfinity,virtualui,cybelesoft
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

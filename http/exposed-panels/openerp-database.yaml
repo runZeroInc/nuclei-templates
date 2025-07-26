@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:odoo:odoo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)odoo"})
     max-request: 1
     vendor: odoo
     product: odoo
@@ -20,6 +18,7 @@ info:
       - cpe:"cpe:2.3:a:odoo:odoo"
     fofa-query: title="odoo"
     google-query: intitle:"odoo"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)odoo"})
   tags: openerp,panel,odoo
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -4,8 +4,7 @@ info:
   name: Camunda Default Credentials
   author: bhutch
   severity: high
-  description: |-
-    Camunda default login credentials were discovered.
+  description: Camunda default login credentials were discovered.
   reference:
     - https://github.com/camunda/camunda-docs-manual/blob/master/content/webapps/admin/user-management.md
   classification:
@@ -13,11 +12,10 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "Camunda Welcome"
     verified: true
     max-request: 2
     shodan-query: http.html:"Camunda Welcome"
+    runzero-match: service["http.body"] matches "Camunda Welcome"
   tags: default-login,camunda
 
 http:
@@ -25,7 +23,6 @@ http:
       - |
         GET /camunda/app/welcome/default/ HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /camunda/api/admin/auth/user/default/login/welcome HTTP/1.1
         Host: {{Hostname}}
@@ -63,4 +60,3 @@ http:
         part: header
         regex:
           - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
-

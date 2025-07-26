@@ -9,11 +9,10 @@ info:
   reference:
     - https://github.com/huginn/huginn
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1951475503"
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: http.favicon.hash:-1951475503
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1951475503"
   tags: panel,huginn,login
 
 http:
@@ -27,4 +26,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "huginn</title>", "huginn</a>", "Huginn monitors")'
         condition: and
-

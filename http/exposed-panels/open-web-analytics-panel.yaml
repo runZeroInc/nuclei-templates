@@ -7,11 +7,10 @@ info:
   description: |
     Detects the presence of Open Web Analytics login page.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)OWA CONFIG SETTINGS"
     verified: true
     max-request: 1
     shodan-query: html:"OWA CONFIG SETTINGS"
+    runzero-match: service["http.body"] matches "(?i)OWA CONFIG SETTINGS"
   tags: open-web-analytics,login,panel
 
 http:
@@ -31,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

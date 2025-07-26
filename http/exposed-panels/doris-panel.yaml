@@ -8,13 +8,12 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:doris:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "24048806"
     verified: true
     max-request: 1
     vendor: apache
     product: doris
     shodan-query: http.favicon.hash:24048806
+    runzero-match: service["favicon.ico.image.mmh3"] == "24048806"
   tags: doris,panel,login,detect
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

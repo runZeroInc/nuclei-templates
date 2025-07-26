@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:softaculous:webuzo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)webuzo - admin panel"})
     verified: true
     max-request: 1
     vendor: softaculous
@@ -21,6 +19,7 @@ info:
       - http.title:"webuzo - admin panel"
     fofa-query: title="webuzo - admin panel"
     google-query: intitle:"webuzo - admin panel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)webuzo - admin panel"})
   tags: panel,webuzo,admin,softaculous
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

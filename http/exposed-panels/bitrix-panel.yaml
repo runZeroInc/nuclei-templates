@@ -10,14 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bitrix:bitrix24:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)/bitrix/"
-    max-request: 1
     verified: true
+    max-request: 1
     vendor: bitrix
     product: bitrix24
     shodan-query: http.html:"/bitrix/"
     fofa-query: body="/bitrix/"
+    runzero-match: service["http.body"] matches "(?i)/bitrix/"
   tags: panel,bitrix,login
 
 http:
@@ -35,4 +34,3 @@ http:
           - "USER_LOGIN"
           - "/bitrix/js/main/"
         condition: and
-

@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:kiwitcms:kiwi_tcms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)kiwi tcms - login"})
     max-request: 1
     vendor: kiwitcms
     product: kiwi_tcms
@@ -22,6 +20,7 @@ info:
       - http.title:"kiwi tcms - login" http.favicon.hash:-1909533337
     fofa-query: title="kiwi tcms - login" http.favicon.hash:-1909533337
     google-query: intitle:"kiwi tcms - login" http.favicon.hash:-1909533337
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kiwi tcms - login"})
   tags: kiwitcms,panel
 
 http:
@@ -39,4 +38,3 @@ http:
         group: 1
         regex:
           - "Version ([0-9.]+)"
-

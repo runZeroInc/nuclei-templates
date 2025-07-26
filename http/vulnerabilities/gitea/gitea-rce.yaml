@@ -17,6 +17,7 @@ info:
     vendor: gitea
     product: gitea
     shodan-query: 'title:"Installation -  Gitea: Git with a cup of tea"'
+    runzero-match: 'any(each(service["html.titles"]), {# matches "(?i)Installation -  Gitea: Git with a cup of tea"})'
   tags: gitea,rce,unauth,edb
 
 http:
@@ -61,4 +62,3 @@ http:
         regex:
           - '"name":".*","full_name":"(.*)","description"'
         internal: true
-

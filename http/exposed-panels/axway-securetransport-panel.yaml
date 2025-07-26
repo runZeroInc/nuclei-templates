@@ -13,8 +13,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:axway:securetransport:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)securetransport"}) || any(each(service["html.titles"]), {# matches "(?i)st web client"})
     verified: true
     max-request: 1
     vendor: axway
@@ -23,12 +21,13 @@ info:
       - http.title:"SecureTransport" || http.favicon.hash:1330269434
       - http.title:"st web client"
       - http.title:"securetransport" || http.favicon.hash:1330269434
-    google-query:
-      - intitle:"st web client"
-      - intitle:"securetransport" || http.favicon.hash:1330269434
     fofa-query:
       - title="securetransport" || http.favicon.hash:1330269434
       - title="st web client"
+    google-query:
+      - intitle:"st web client"
+      - intitle:"securetransport" || http.favicon.hash:1330269434
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)securetransport"}) || any(each(service["html.titles"]), {# matches "(?i)st web client"})
   tags: panel,axway,securetransport
 
 http:
@@ -60,4 +59,3 @@ http:
         group: 1
         regex:
           - '"SecureTransport", "([0-9.]+)",'
-

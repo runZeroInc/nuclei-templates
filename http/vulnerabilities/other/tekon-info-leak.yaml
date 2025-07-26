@@ -14,6 +14,7 @@ info:
     vendor: tekon
     product: kio_firmware
     shodan-query: title:"контроллер"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)контроллер"})
   tags: tekon,exposure,unauth
 
 http:
@@ -40,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

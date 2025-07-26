@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:helpproject:help:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)project insight - login"})
     max-request: 1
     vendor: helpproject
     product: help
@@ -22,6 +20,7 @@ info:
       - http.title:"project insight - login"
     fofa-query: title="project insight - login"
     google-query: intitle:"project insight - login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)project insight - login"})
   tags: panel,edb,helpproject
 
 http:
@@ -39,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nzbget:nzbget:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)nzbget"
     verified: true
     max-request: 1
     vendor: nzbget
@@ -20,6 +18,7 @@ info:
       - html:"NZBGet"
       - http.html:"nzbget"
     fofa-query: body="nzbget"
+    runzero-match: service["http.body"] matches "(?i)nzbget"
   tags: panel,nzbget
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

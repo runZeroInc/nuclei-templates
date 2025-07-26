@@ -2,9 +2,9 @@ id: roundcube-webmail-portal
 
 info:
   name: Roundcube Webmail - Detection
-  description: Roundcube Webmail detected.
   author: ritikchaddha
   severity: info
+  description: Roundcube Webmail detected.
   classification:
     cpe: cpe:2.3:a:roundcube:webmail:*:*:*:*:*:*:*:*
   metadata:
@@ -12,7 +12,6 @@ info:
     vendor: roundcube
     product: webmail
     shodan-query: http.component:"RoundCube"
-    runzero-match: any(each(service["html.titles"]), {# matches "Roundcube"})
     runzero-vendor: Roundcube
     runzero-product: Webmail
   tags: roundcube,portal,tech
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

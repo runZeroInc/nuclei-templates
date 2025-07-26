@@ -9,8 +9,6 @@ info:
   classification:
     cpe: cpe:2.3:a:greenbone:greenbone_security_assistant:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)greenbone security assistant"})
     verified: true
     max-request: 1
     vendor: greenbone
@@ -18,9 +16,10 @@ info:
     shodan-query:
       - http.title:"Greenbone Security Assistant"
       - http.title:"greenbone security assistant"
-    zoomeye-query: title="Greenbone Security Assistant"
     fofa-query: title="greenbone security assistant"
     google-query: intitle:"greenbone security assistant"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)greenbone security assistant"})
+    zoomeye-query: title="Greenbone Security Assistant"
   tags: panel,greenbone,login
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

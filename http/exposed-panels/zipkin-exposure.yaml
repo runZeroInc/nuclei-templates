@@ -9,11 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)webpackJsonpzipkin-lens"
     verified: true
     max-request: 2
     shodan-query: html:"webpackJsonpzipkin-lens"
+    runzero-match: service["http.body"] matches "(?i)webpackJsonpzipkin-lens"
   tags: panel,zipkin
 
 http:
@@ -27,4 +26,3 @@ http:
         part: body
         words:
           - "webpackJsonpzipkin-lens"
-

@@ -9,12 +9,11 @@ info:
   reference:
     - https://digital.ai/products/teamforge/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)TeamForge :"})
     verified: true
     max-request: 1
     shodan-query: title:"TeamForge :"
     fofa-query: title="TeamForge :"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TeamForge :"})
   tags: panel,teamforge,login
 
 http:
@@ -23,6 +22,7 @@ http:
       - "{{BaseURL}}"
 
     redirects: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -42,4 +42,3 @@ http:
         part: body
         regex:
           - "teamforge(\\d+)"
-

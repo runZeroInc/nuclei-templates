@@ -7,11 +7,10 @@ info:
   description: |
     Mystic Stealer panel were detected.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Mystic Stealer"})
     verified: "true"
     max-request: 1
     shodan-query: http.title:"Mystic Stealer"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Mystic Stealer"})
   tags: tech,rat,mystic-stealer,c2,panel
 
 http:
@@ -25,4 +24,3 @@ http:
         dsl:
           - "status_code == 200 && contains(body, 'Mystic Stealer')"
         condition: and
-

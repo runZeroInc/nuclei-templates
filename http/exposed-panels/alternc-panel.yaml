@@ -9,10 +9,9 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)AlternC Desktop"})
     max-request: 1
     shodan-query: http.title:"AlternC Desktop"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AlternC Desktop"})
   tags: panel,alternc,login,detect
 
 http:
@@ -26,4 +25,3 @@ http:
           - 'contains(body, "<title>AlternC Desktop")'
           - 'status_code == 200'
         condition: and
-

@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zoneminder:zoneminder:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)zm - login"
     max-request: 1
     vendor: zoneminder
     product: zoneminder
     shodan-query: http.html:"zm - login"
     fofa-query: body="zm - login"
+    runzero-match: service["http.body"] matches "(?i)zm - login"
   tags: panel,zoneminder
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

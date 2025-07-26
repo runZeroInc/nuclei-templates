@@ -7,13 +7,12 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:activemq_apollo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Apache Apollo"})
     verified: true
     max-request: 1
     vendor: apache
     product: activemq_apollo
     shodan-query: title:"Apache Apollo"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache Apollo"})
   tags: panel,apache,apollo,login,detect
 
 http:
@@ -31,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

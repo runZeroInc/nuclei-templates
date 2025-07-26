@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:home-assistant:home-assistant:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
     verified: true
     max-request: 1
-    shodan-query: http.title:"Home Assistant"
-    product: home-assistant
     vendor: home-assistant
+    product: home-assistant
+    shodan-query: http.title:"Home Assistant"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
   tags: panel,iot,homeassistant
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

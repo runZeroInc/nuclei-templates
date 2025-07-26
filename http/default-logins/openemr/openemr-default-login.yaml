@@ -14,13 +14,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:open-emr:openemr:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "OpenEMR"
     max-request: 1
+    vendor: open-emr
+    product: openemr
     shodan-query: http.html:"OpenEMR"
     fofa-query: app="OpenEMR"
-    product: openemr
-    vendor: open-emr
+    runzero-match: service["http.body"] matches "OpenEMR"
   tags: openemr,default-login
 
 http:
@@ -51,4 +50,3 @@ http:
       - type: status
         status:
           - 302
-

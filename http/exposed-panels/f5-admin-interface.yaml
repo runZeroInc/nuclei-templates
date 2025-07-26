@@ -7,11 +7,10 @@ info:
   description: |
     Detects F5 Admin Interfaces.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)BIG-IP Configuration Utility"
     verified: true
     max-request: 1
     shodan-query: html:"BIG-IP Configuration Utility"
+    runzero-match: service["http.body"] matches "(?i)BIG-IP Configuration Utility"
   tags: f5,admin,detect,panel,login
 
 http:
@@ -41,4 +40,3 @@ http:
         group: 1
         regex:
           - 'Copyright\s+([0-9\-]+),'
-

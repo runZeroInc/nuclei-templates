@@ -4,20 +4,16 @@ info:
   name: Camaleon CMS Default Credentials
   author: DhiyaneshDK
   severity: high
-  description: |-
-    Camaleon CMS default login credentials were discovered.
+  description: Camaleon CMS default login credentials were discovered.
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "(?i)camaleon_cms"
     vendor: tuzitio
     product: camaleon_cms
     shodan-query: html:"camaleon_cms"
+    runzero-match: service["http.body"] matches "(?i)camaleon_cms"
   tags: camaleon,default-login
-
 variables:
   username: admin
   password: admin123
-
 flow: http(1) && http(2)
 
 http:
@@ -48,4 +44,3 @@ http:
       - type: dsl
         dsl:
           - 'contains(location,"/admin/dashboard")'
-

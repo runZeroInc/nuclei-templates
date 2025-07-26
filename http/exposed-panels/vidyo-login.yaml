@@ -10,12 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vidyo:vidyo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1970367401"
     max-request: 2
-    shodan-query: http.favicon.hash:-1970367401
-    product: vidyo
     vendor: vidyo
+    product: vidyo
+    shodan-query: http.favicon.hash:-1970367401
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1970367401"
   tags: panel,vidyo
 
 http:
@@ -35,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

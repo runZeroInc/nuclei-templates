@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ocomon_project:ocomon:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)ocomon"
     verified: true
     max-request: 1
     vendor: ocomon_project
@@ -22,6 +20,7 @@ info:
       - http.html:"OcoMon"
       - http.html:"ocomon"
     fofa-query: body="ocomon"
+    runzero-match: service["http.body"] matches "(?i)ocomon"
   tags: panel,ocomon,oss,ocomon_project
 
 http:
@@ -49,4 +48,3 @@ http:
         regex:
           - 'Versão: ([0-9.]+)'
           - 'Versão:&nbsp;([0-9.]+)'
-

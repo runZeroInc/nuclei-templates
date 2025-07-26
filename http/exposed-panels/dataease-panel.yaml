@@ -11,8 +11,6 @@ info:
   classification:
     cpe: cpe:2.3:a:dataease:dataease:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)dataease"
     verified: true
     max-request: 1
     vendor: dataease
@@ -21,6 +19,7 @@ info:
       - html:"Dataease"
       - http.html:"dataease"
     fofa-query: body="dataease"
+    runzero-match: service["http.body"] matches "(?i)dataease"
   tags: login,panel,dataease
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

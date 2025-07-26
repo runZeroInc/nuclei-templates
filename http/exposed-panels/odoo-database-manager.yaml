@@ -8,8 +8,6 @@ info:
   classification:
     cpe: cpe:2.3:a:odoo:odoo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)odoo"})
     verified: true
     max-request: 1
     vendor: odoo
@@ -20,6 +18,7 @@ info:
       - cpe:"cpe:2.3:a:odoo:odoo"
     fofa-query: title="odoo"
     google-query: intitle:"odoo"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)odoo"})
   tags: panel,odoo,backup
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

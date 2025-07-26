@@ -7,11 +7,10 @@ info:
   description: |
     Camaleon CMS admin login panel was discovered.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)camaleon_cms"
     vendor: tuzitio
     product: camaleon_cms
     shodan-query: html:"camaleon_cms"
+    runzero-match: service["http.body"] matches "(?i)camaleon_cms"
   tags: camaleon,panel,login
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

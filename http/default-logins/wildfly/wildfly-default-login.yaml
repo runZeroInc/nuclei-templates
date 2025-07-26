@@ -9,10 +9,9 @@ info:
   reference:
     - https://docs.wildfly.org/26.1/#administrator-guides
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Welcome to WildFly"})
     max-request: 1
     shodan-query: title:"Welcome to WildFly"
+    runzero-match: any(each(service["html.titles"]), {# matches "Welcome to WildFly"})
   tags: wildfly,default-login
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:withsecure:f-secure_policy_manager:*:*:*:*:windows:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)f-secure policy manager server"})
     max-request: 1
     vendor: withsecure
     product: f-secure_policy_manager
@@ -20,6 +18,7 @@ info:
       - http.title:"f-secure policy manager server"
     fofa-query: title="f-secure policy manager server"
     google-query: intitle:"f-secure policy manager server"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)f-secure policy manager server"})
   tags: login,panel,withsecure
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:progress:telerik_report_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Telerik Report Server"
     verified: true
     max-request: 1
-    shodan-query: http.html:"Telerik Report Server"
-    product: telerik_report_server
     vendor: progress
+    product: telerik_report_server
+    shodan-query: http.html:"Telerik Report Server"
+    runzero-match: service["http.body"] matches "(?i)Telerik Report Server"
   tags: telerik,panel
 
 http:
@@ -36,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

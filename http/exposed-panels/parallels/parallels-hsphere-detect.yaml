@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:parallels:h-sphere:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)parallels h-sphere"}) || any(each(service["html.titles"]), {# matches "(?i)h-sphere"})
     verified: true
     max-request: 1
     vendor: parallels
@@ -26,6 +24,7 @@ info:
     google-query:
       - intitle:"h-sphere"
       - intitle:"parallels h-sphere"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)parallels h-sphere"}) || any(each(service["html.titles"]), {# matches "(?i)h-sphere"})
   tags: panel,parallels,hsphere
 
 http:
@@ -44,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

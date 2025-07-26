@@ -12,13 +12,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gargoyle-router:gargoyle:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Gargoyle Router Management Utility"})
     verified: true
     max-request: 1
-    shodan-query: title:"Gargoyle Router Management Utility"
-    product: gargoyle
     vendor: gargoyle-router
+    product: gargoyle
+    shodan-query: title:"Gargoyle Router Management Utility"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gargoyle Router Management Utility"})
   tags: panel,iot,gargoyle,router,edb
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

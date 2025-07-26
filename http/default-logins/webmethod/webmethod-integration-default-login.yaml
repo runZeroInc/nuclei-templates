@@ -10,13 +10,12 @@ info:
   classification:
     cpe: cpe:2.3:a:softwareag:webmethods:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-234335289"
     verified: true
     max-request: 5
-    shodan-query: "http.favicon.hash:-234335289"
-    product: webmethods
     vendor: softwareag
+    product: webmethods
+    shodan-query: "http.favicon.hash:-234335289"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-234335289"
   tags: default-login,webmethod
 flow: http(1) && http(2)
 
@@ -36,10 +35,10 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}/invoke/pub.file/getFile"
+
     headers:
       Authorization: "{{base64(username + ':' + password)}}"
       Cookie: ssnid=
-
     cookie-reuse: false
     threads: 10
     attack: pitchfork
@@ -70,4 +69,3 @@ http:
           - Invalid credentials
         negative: true
         condition: and
-

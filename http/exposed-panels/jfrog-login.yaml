@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jfrog:artifactory:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)JFrog"})
     verified: true
     max-request: 2
-    shodan-query: "http.title:\"JFrog\""
-    product: artifactory
     vendor: jfrog
+    product: artifactory
+    shodan-query: "http.title:\"JFrog\""
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)JFrog"})
   tags: panel,jfrog,edb,detect,login
 
 http:
@@ -35,4 +34,3 @@ http:
           - 'status_code==200 && contains(body, "<title>JFrog")'
           - "status_code==200 && (\"-595620639\" == mmh3(base64_py(body)))"
         condition: or
-

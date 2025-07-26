@@ -9,8 +9,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:ict:protege_wx_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ict protege wx&reg;"})
     verified: true
     max-request: 1
     vendor: ict
@@ -20,6 +18,7 @@ info:
       - http.title:"ict protege wx&reg;"
     fofa-query: title="ict protege wx&reg;"
     google-query: intitle:"ict protege wx&reg;"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ict protege wx&reg;"})
   tags: panel,ictprotege,ict
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

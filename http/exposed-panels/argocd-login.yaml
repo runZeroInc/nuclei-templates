@@ -11,12 +11,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:argoproj:argo_cd:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Argo CD"})
     max-request: 2
-    shodan-query: http.title:"Argo CD"
-    product: argo_cd
     vendor: argoproj
+    product: argo_cd
+    shodan-query: http.title:"Argo CD"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Argo CD"})
   tags: panel,argocd,login,kubernetes
 
 http:
@@ -45,4 +44,3 @@ http:
       - type: json
         json:
           - .Version
-

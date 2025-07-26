@@ -15,13 +15,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:kanboard:kanboard:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["http.body.mmh3"] == "1605834045"
     verified: true
     max-request: 2
-    fofa-query: app="Kanboard"
-    product: kanboard
     vendor: kanboard
+    product: kanboard
+    fofa-query: app="Kanboard"
+    runzero-match: service["http.body.mmh3"] == "1605834045"
   tags: default-login,kanboard
 
 http:
@@ -57,4 +56,3 @@ http:
           - contains(location, 'controller=DashboardController&action=show')
           - status_code == 302
         condition: and
-

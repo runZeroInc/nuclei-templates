@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gogs:gogs:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "917966895" || service["favicon.ico.image.mmh3"] == "1935513730" || any(each(service["html.titles"]), {# matches "(?i)sign in - gogs"}) || service["favicon.ico.image.mmh3"] == "-449283196"
     verified: true
     max-request: 1
     vendor: gogs
@@ -26,15 +24,16 @@ info:
       - http.favicon.hash:-449283196
       - http.favicon.hash:917966895
       - http.favicon.hash:1935513730
-    google-query:
-      - intitle:"Sign In - Gogs"
-      - intitle:"sign in - gogs"
     fofa-query:
       - title="sign in - gogs"
       - "Set-Cookie: i_like_gogs="
       - icon_hash="-449283196"
       - icon_hash="917966895"
       - icon_hash="1935513730"
+    google-query:
+      - intitle:"Sign In - Gogs"
+      - intitle:"sign in - gogs"
+    runzero-match: service["favicon.ico.image.mmh3"] == "917966895" || service["favicon.ico.image.mmh3"] == "1935513730" || any(each(service["html.titles"]), {# matches "(?i)sign in - gogs"}) || service["favicon.ico.image.mmh3"] == "-449283196"
   tags: panel,gogs
 
 http:
@@ -61,4 +60,3 @@ http:
         group: 1
         regex:
           - "Version: ([0-9.]+) Page:"
-

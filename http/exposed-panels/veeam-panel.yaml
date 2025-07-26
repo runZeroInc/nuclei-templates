@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:veeam:one_reporter:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-633512412"
+    verified: true
     max-request: 1
+    vendor: veeam
     product: one_reporter
     shodan-query: http.favicon.hash:-633512412
-    vendor: veeam
-    verified: true
+    runzero-match: service["favicon.ico.image.mmh3"] == "-633512412"
   tags: panel,veeam
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

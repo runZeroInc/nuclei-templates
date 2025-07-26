@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:a:dokuwiki:dokuwiki:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)/dokuwiki/"
     verified: true
     max-request: 1
     vendor: dokuwiki
     product: dokuwiki
     shodan-query: http.html:"/dokuwiki/"
+    runzero-match: service["http.body"] matches "(?i)/dokuwiki/"
   tags: panel,dokuwiki,login
 
 http:
@@ -31,4 +30,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "dokuwiki__header", "content=\"DokuWiki", "/dokuwiki/")'
         condition: and
-

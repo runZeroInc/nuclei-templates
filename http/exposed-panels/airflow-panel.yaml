@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-668
     cpe: cpe:2.3:a:apache:airflow:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)sign in - airflow"}) || any(each(service["html.titles"]), {# matches "(?i)airflow - dags"})
     max-request: 2
     vendor: apache
     product: airflow
@@ -29,6 +27,7 @@ info:
     google-query:
       - intitle:"airflow - dags" || http.html:"apache airflow"
       - intitle:"sign in - airflow"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sign in - airflow"}) || any(each(service["html.titles"]), {# matches "(?i)airflow - dags"})
   tags: panel,apache,airflow,admin
 
 http:
@@ -50,4 +49,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:springsignage:xibo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)/xibosignage/xibo-cms"
     verified: true
     max-request: 1
-    shodan-query: http.html:"/xibosignage/xibo-cms"
-    product: xibo
     vendor: springsignage
+    product: xibo
+    shodan-query: http.html:"/xibosignage/xibo-cms"
+    runzero-match: service["http.body"] matches "(?i)/xibosignage/xibo-cms"
   tags: panel,xibocms
 
 http:
@@ -43,4 +42,3 @@ http:
         group: 1
         regex:
           - '([0-9.]+)            | <a id="source-link"'
-

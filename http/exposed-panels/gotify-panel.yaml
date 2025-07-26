@@ -10,8 +10,6 @@ info:
   classification:
     cpe: cpe:2.3:a:gotify:server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)gotify"})
     verified: true
     max-request: 1
     vendor: gotify
@@ -21,6 +19,7 @@ info:
       - http.title:"gotify"
     fofa-query: title="gotify"
     google-query: intitle:"gotify"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)gotify"})
   tags: panel,gotify,login,detect
 
 http:
@@ -41,4 +40,3 @@ http:
         group: 1
         regex:
           - '"version":"([0-9.]+)"'
-

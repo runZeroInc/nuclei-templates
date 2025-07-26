@@ -13,14 +13,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:steve-community:steve:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)SteVe - Steckdosenverwaltung"})
     verified: true
     max-request: 2
+    vendor: steve-community
+    product: steve
     shodan-query: http.title:"SteVe - Steckdosenverwaltung"
     google-query: intitle:"SteVe - Steckdosenverwaltung"
-    product: steve
-    vendor: steve-community
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SteVe - Steckdosenverwaltung"})
   tags: panel,steve
 
 http:
@@ -43,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

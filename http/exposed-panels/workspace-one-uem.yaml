@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:workspace_one_uem:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)airwatch"
     verified: true
     max-request: 1
     vendor: vmware
@@ -22,6 +20,7 @@ info:
       - http.html:"Airwatch"
       - http.html:"airwatch"
     fofa-query: body="airwatch"
+    runzero-match: service["http.body"] matches "(?i)airwatch"
   tags: panel,workspaceone,vmware
 
 http:
@@ -37,4 +36,3 @@ http:
           - 'content="AirWatch'
           - "/AirWatch/Images"
         condition: or
-

@@ -12,15 +12,14 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)kavita"})
     verified: true
     max-request: 1
-    shodan-query: http.title:"kavita"
-    product: kavita
     vendor: kavitareader
+    product: kavita
+    shodan-query: http.title:"kavita"
     fofa-query: title="kavita"
     google-query: intitle:"kavita"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kavita"})
   tags: panel,kavita
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

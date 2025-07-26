@@ -10,9 +10,8 @@ info:
   classification:
     cwe-id: CWE-798
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Login :: Damn Vulnerable Web Application"})
     max-request: 2
+    runzero-match: 'any(each(service["html.titles"]), {# matches "Login :: Damn Vulnerable Web Application"})'
   tags: dvwa,default-login
 
 http:
@@ -58,4 +57,3 @@ http:
       - type: word
         words:
           - "You have logged in as 'admin'"
-

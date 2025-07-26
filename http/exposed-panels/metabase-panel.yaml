@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:metabase:metabase:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)metabase"})
     max-request: 1
     vendor: metabase
     product: metabase
@@ -22,6 +20,7 @@ info:
       - title="metabase"
       - app="metabase"
     google-query: intitle:"metabase"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)metabase"})
   tags: panel,metabase,login
 
 http:
@@ -49,4 +48,3 @@ http:
         group: 1
         regex:
           - '"(v\d+.\d+.\d+.?\d?)"'
-

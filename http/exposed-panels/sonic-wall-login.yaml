@@ -8,8 +8,6 @@ info:
   classification:
     cpe: cpe:2.3:h:sonicwall:tz_350:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)sonicwall network security login"})
     verified: true
     max-request: 2
     vendor: sonicwall
@@ -19,6 +17,7 @@ info:
       - http.title:"sonicwall network security login"
     fofa-query: title="sonicwall network security login"
     google-query: intitle:"sonicwall network security login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sonicwall network security login"})
   tags: panel,sonicwall,login
 
 http:
@@ -40,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

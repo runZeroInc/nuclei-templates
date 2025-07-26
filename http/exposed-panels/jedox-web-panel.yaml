@@ -11,8 +11,6 @@ info:
   classification:
     cpe: cpe:2.3:a:jedox:jedox:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)jedox web - login"}) || any(each(service["html.titles"]), {# matches "(?i)jedox web login"})
     verified: true
     max-request: 2
     vendor: jedox
@@ -21,13 +19,14 @@ info:
       - title:"Jedox Web - Login"
       - http.title:"jedox web - login"
       - http.title:"jedox web login"
+    fofa-query:
+      - title="jedox web login"
+      - title="jedox web - login"
     google-query:
       - intitle:"Jedox Web Login"
       - intitle:"jedox web login"
       - intitle:"jedox web - login"
-    fofa-query:
-      - title="jedox web login"
-      - title="jedox web - login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jedox web - login"}) || any(each(service["html.titles"]), {# matches "(?i)jedox web login"})
   tags: panel,jedox,detect
 
 http:
@@ -52,4 +51,3 @@ http:
       - type: status
         status:
           - 200
-

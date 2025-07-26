@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:rancher:rancher:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1324930554" || service["favicon.ico.image.mmh3"] == "464587962"
     verified: "true"
     max-request: 2
     vendor: rancher
@@ -22,6 +20,7 @@ info:
       - http.favicon.hash:-1324930554
       - http.favicon.hash:464587962
     fofa-query: icon_hash=464587962
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1324930554" || service["favicon.ico.image.mmh3"] == "464587962"
   tags: panel,rancher,dashboard,login
 
 http:
@@ -47,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

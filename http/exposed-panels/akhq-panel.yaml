@@ -7,12 +7,11 @@ info:
   description: |
     AKHQ Panel was discovered.
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "855432563"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:855432563
     fofa-query: body="AKHQ_PREFIX_UI"
+    runzero-match: service["favicon.ico.image.mmh3"] == "855432563"
   tags: akhq,panel,login,detect
 
 http:
@@ -32,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -14,6 +14,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"stackposts"
+    runzero-match: service["http.body"] matches "(?i)stackposts"
   tags: time-based-sqli,sqli,unauth,stackposts
 
 http:
@@ -34,4 +35,3 @@ http:
           - 'contains(body, "account you entered")'
           - 'status_code == 200'
         condition: and
-

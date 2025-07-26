@@ -7,11 +7,10 @@ info:
   description: |
     HAL Management Console login panel was discovered.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)HAL Management Console"
     verified: true
     max-request: 1
     shodan-query: html:"HAL Management Console"
+    runzero-match: service["http.body"] matches "(?i)HAL Management Console"
   tags: panel,login,hal
 
 http:
@@ -29,4 +28,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,11 +9,10 @@ info:
   reference:
     - https://docs.github.com/en/enterprise-server@3.10/admin/managing-iam/using-saml-for-enterprise-iam/enabling-encrypted-assertions
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)GitHub Enterprise"})
     verified: true
     max-request: 1
     shodan-query: title:"GitHub Enterprise"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)GitHub Enterprise"})
   tags: github,ghe,saml
 
 http:
@@ -23,7 +22,6 @@ http:
 
     redirects: true
     max-redirects: 2
-
     matchers:
       - type: word
         part: body
@@ -32,4 +30,3 @@ http:
           - KeyDescriptor
           - use="encryption"
         condition: and
-

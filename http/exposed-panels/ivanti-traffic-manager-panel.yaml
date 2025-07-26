@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.ivanti.com/resources/v/doc/ivi/2528/2ef03e8ed03d
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "(?i)Login \\(Virtual Traffic Manager"
     verified: true
     max-request: 1
     shodan-query: http.html:"Login (Virtual Traffic Manager"
+    runzero-match: service["http.body"] matches "(?i)Login \\(Virtual Traffic Manager"
   tags: detect,traffic-manager,panel,login
 
 http:
@@ -31,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

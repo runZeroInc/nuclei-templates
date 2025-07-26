@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:a:pyload:pyload:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "(?i)pyload"
     verified: true
     max-request: 1
     vendor: pyload
     product: pyload
     shodan-query: html:"pyload"
+    runzero-match: service["http.body"] matches "(?i)pyload"
   tags: default-login,pyload
 
 http:
@@ -48,4 +47,3 @@ http:
       - type: status
         status:
           - 302
-

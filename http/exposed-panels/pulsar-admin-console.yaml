@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:pulsar:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)pulsar admin console"}) || any(each(service["html.titles"]), {# matches "(?i)pulsar admin ui"})
     verified: true
     max-request: 1
     vendor: apache
@@ -26,6 +24,7 @@ info:
     google-query:
       - intitle:"pulsar admin ui"
       - intitle:"pulsar admin console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pulsar admin console"}) || any(each(service["html.titles"]), {# matches "(?i)pulsar admin ui"})
   tags: panel,pulsar,console,admin,apache
 
 http:
@@ -43,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

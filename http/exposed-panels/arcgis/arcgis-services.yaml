@@ -10,8 +10,6 @@ info:
   classification:
     cpe: cpe:2.3:a:esri:arcgis_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)arcgis"})
     verified: true
     max-request: 1
     vendor: esri
@@ -21,6 +19,7 @@ info:
       - http.title:"arcgis"
     fofa-query: title="arcgis"
     google-query: intitle:"arcgis"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)arcgis"})
   tags: panel,arcgis,rest,api,detect,esri
 
 http:
@@ -46,4 +45,3 @@ http:
         group: 1
         regex:
           - 'Current Version:\s*<\/b>\s*([0-9.]+)'
-

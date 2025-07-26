@@ -9,11 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Cisco vManage"})
     verified: true
     max-request: 1
     shodan-query: title:"Cisco vManage"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco vManage"})
   tags: panel,cisco
 
 http:
@@ -31,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

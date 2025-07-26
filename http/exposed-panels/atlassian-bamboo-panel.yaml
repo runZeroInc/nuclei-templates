@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:a:atlassian:bamboo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Bamboo"})
     verified: true
     max-request: 1
     vendor: atlassian
     product: bamboo
     shodan-query: http.title:"Bamboo"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Bamboo"})
   tags: panel,bamboo,login,detect
 
 http:
@@ -47,4 +46,3 @@ http:
         regex:
           - 'version\s+([0-9A-Za-z\s\.]+)\s+-'
           - 'pvpVersion = "([a-z0-9.]+)";'
-

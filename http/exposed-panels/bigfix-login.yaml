@@ -12,13 +12,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hcltech:bigfix_mobile:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)BigFix"})
     max-request: 1
+    vendor: hcltech
+    product: bigfix_mobile
     shodan-query: http.title:"BigFix"
     google-query: intitle:"BigFix"
-    product: bigfix_mobile
-    vendor: hcltech
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)BigFix"})
   tags: panel,bigfix
 
 http:
@@ -38,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

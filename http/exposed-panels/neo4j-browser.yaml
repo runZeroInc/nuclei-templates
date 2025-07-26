@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:neo4j:neo4j:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)neo4j browser"})
     max-request: 1
     vendor: neo4j
     product: neo4j
@@ -20,6 +18,7 @@ info:
       - http.title:"neo4j browser"
     fofa-query: title="neo4j browser"
     google-query: intitle:"neo4j browser"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)neo4j browser"})
   tags: neo4j,exposure,unauth,panel
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -8,13 +8,12 @@ info:
   classification:
     cpe: cpe:2.3:a:analogic:poste.io:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Administration login"})
     verified: true
     max-request: 1
     vendor: analogic
     product: poste.io
     shodan-query: title:"Administration login" html:"poste<span"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Administration login"})
   tags: panel,poste,login,detect
 
 http:
@@ -34,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

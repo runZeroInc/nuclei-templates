@@ -12,12 +12,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zuul-ci:zuul:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1127895693"
     max-request: 2
-    shodan-query: http.favicon.hash:-1127895693
-    product: zuul
     vendor: zuul-ci
+    product: zuul
+    shodan-query: http.favicon.hash:-1127895693
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1127895693"
   tags: panel,zuul,cicd,oss
 
 http:
@@ -43,4 +42,3 @@ http:
       - type: word
         words:
           - 'zuul_version'
-

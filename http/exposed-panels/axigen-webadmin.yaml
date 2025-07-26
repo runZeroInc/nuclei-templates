@@ -11,12 +11,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:axigen:axigen_mail_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Axigen\u00a0WebAdmin"})
     max-request: 1
-    shodan-query: http.title:"Axigen WebAdmin"
-    product: axigen_mail_server
     vendor: axigen
+    product: axigen_mail_server
+    shodan-query: http.title:"Axigen WebAdmin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Axigen\u00a0WebAdmin"})
   tags: axigen,panel
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

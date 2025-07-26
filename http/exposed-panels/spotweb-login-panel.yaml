@@ -7,8 +7,6 @@ info:
   classification:
     cpe: cpe:2.3:a:spotweb_project:spotweb:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)spotweb - overview"})
     verified: true
     max-request: 1
     vendor: spotweb_project
@@ -18,6 +16,7 @@ info:
       - http.title:"spotweb - overview"
     fofa-query: title="spotweb - overview"
     google-query: intitle:"spotweb - overview"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)spotweb - overview"})
   tags: panel,spotweb,detect,spotweb_project
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

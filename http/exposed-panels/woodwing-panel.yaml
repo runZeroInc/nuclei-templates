@@ -7,12 +7,11 @@ info:
   reference:
     - https://twitter.com/ynsmroztas/status/1680961398011047936
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)WoodWing Studio Server"})
     verified: true
     max-request: 2
     shodan-query: http.title:"WoodWing Studio Server"
     fofa-query: title=="WoodWing Studio Server"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WoodWing Studio Server"})
   tags: woodwing,panel
 
 http:
@@ -35,4 +34,3 @@ http:
         group: 1
         regex:
           - '<!---->v([0-9.]+\s+Build\s+[0-9]+)'
-

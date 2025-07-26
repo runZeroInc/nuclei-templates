@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oaooa:pichome:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "933976300"
     verified: true
     max-request: 2
-    shodan-query: http.favicon.hash:933976300
-    product: pichome
     vendor: oaooa
+    product: pichome
+    shodan-query: http.favicon.hash:933976300
+    runzero-match: service["favicon.ico.image.mmh3"] == "933976300"
   tags: pichome,panel
 
 http:
@@ -41,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:exagrid:backup_appliance:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)exagrid manager"})
     verified: true
     max-request: 1
     vendor: exagrid
@@ -21,6 +19,7 @@ info:
       - http.title:"exagrid manager"
     fofa-query: title="exagrid manager"
     google-query: intitle:"exagrid manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)exagrid manager"})
   tags: exagrid,manager,login,panel
 
 http:
@@ -46,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

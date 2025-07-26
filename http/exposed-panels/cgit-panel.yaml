@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cgit_project:cgit:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)git repository browser"})
     verified: true
     max-request: 1
     vendor: cgit_project
@@ -23,6 +21,7 @@ info:
       - http.title:"git repository browser"
     fofa-query: title="git repository browser"
     google-query: intitle:"git repository browser"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)git repository browser"})
   tags: panel,git,cgit_project
 
 http:
@@ -43,4 +42,3 @@ http:
         group: 1
         regex:
           - '(?i)<meta\s+name=.?generator.?\s+content=.?([a-z0-9\s.]+).?'
-

@@ -2,15 +2,13 @@ id: pterodactyl-panel
 
 info:
   name: Pterodactyl game server - Panel
-  severity: info
   author: darses
+  severity: info
   description: |
     Detects Pterodactyl game server management panel.
   reference:
     - https://github.com/pterodactyl/panel
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Pterodactyl"}) || service["favicon.ico.image.mmh3"] == "-456405319" || service["favicon.ico.image.mmh3"] == "846001371"
     verified: true
     max-request: 1
     vendor: pterodactyl
@@ -25,6 +23,7 @@ info:
       - icon_hash="-456405319"
       - icon_hash="846001371"
       - "Set-Cookie: pterodactyl_session="
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pterodactyl"}) || service["favicon.ico.image.mmh3"] == "-456405319" || service["favicon.ico.image.mmh3"] == "846001371"
   tags: detect,pterodactyl,panel,oos
 
 http:
@@ -47,4 +46,3 @@ http:
         part: body
         words:
           - "window.SiteConfiguration"
-

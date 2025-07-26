@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:symantec:data_loss_prevention:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)symantec data loss prevention"})
     max-request: 1
     vendor: symantec
     product: data_loss_prevention
@@ -20,6 +18,7 @@ info:
       - http.title:"symantec data loss prevention"
     fofa-query: title="symantec data loss prevention"
     google-query: intitle:"symantec data loss prevention"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)symantec data loss prevention"})
   tags: symantec,panel,login
 
 http:
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

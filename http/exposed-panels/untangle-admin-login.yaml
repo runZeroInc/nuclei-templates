@@ -13,8 +13,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:untangle:ng_firewall:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)untangle administrator login"})
     verified: true
     max-request: 2
     vendor: untangle
@@ -24,6 +22,7 @@ info:
       - http.title:"untangle administrator login"
     fofa-query: title="untangle administrator login"
     google-query: intitle:"untangle administrator login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)untangle administrator login"})
   tags: panel,untangle,admin,login
 
 http:
@@ -46,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

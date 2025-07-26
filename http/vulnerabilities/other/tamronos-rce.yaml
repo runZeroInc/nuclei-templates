@@ -16,10 +16,11 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: tamronos
+    product: tamronos
     shodan-query: title:"TamronOS IPTV系统"
     fofa-query: title="TamronOS IPTV系统"
-    product: tamronos
-    vendor: tamronos
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TamronOS IPTV系统"})
   tags: tamronos,rce
 
 http:
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

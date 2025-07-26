@@ -9,13 +9,11 @@ info:
   reference:
     - https://voyager-docs.devdojo.com/getting-started/installation
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Voyager"})
     verified: true
     max-request: 5
     shodan-query: title:"Voyager"
+    runzero-match: any(each(service["html.titles"]), {# matches "Voyager"})
   tags: default-login,voyager,devdojo
-
 variables:
   username: "admin@admin.com"
   password: "password"
@@ -49,4 +47,3 @@ http:
           - "contains(body,'/admin</title>')"
           - "status_code == 302"
         condition: and
-

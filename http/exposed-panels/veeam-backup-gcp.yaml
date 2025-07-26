@@ -10,13 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:veeam:veeam_backup_for_google_cloud:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Veeam Backup for GCP"})
     verified: true
     max-request: 1
-    shodan-query: title:"Veeam Backup for GCP"
-    product: veeam_backup_for_google_cloud
     vendor: veeam
+    product: veeam_backup_for_google_cloud
+    shodan-query: title:"Veeam Backup for GCP"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Veeam Backup for GCP"})
   tags: panel,google,cloud
 
 http:
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

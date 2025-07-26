@@ -5,11 +5,10 @@ info:
   author: princechaddha
   severity: info
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)VSG1432-B101"
     verified: true
     max-request: 1
     shodan-query: http.html:"VSG1432-B101"
+    runzero-match: service["http.body"] matches "(?i)VSG1432-B101"
   tags: tech,zyxel,modem,router,panel
 
 http:
@@ -27,4 +26,3 @@ http:
       - type: status
         status:
           - 200
-

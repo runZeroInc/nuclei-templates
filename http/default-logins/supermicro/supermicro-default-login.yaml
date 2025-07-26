@@ -9,8 +9,7 @@ info:
     - https://www.gearprimer.com/wiki/supermicro-ipmi-default-username-pasword/
   metadata:
     max-request: 2
-    runzero-match: |-
-      any(each(service["html.bodies"]), {# matches "/cgi/login.cgi"})
+    runzero-match: any(each(service["html.bodies"]), {# matches "/cgi/login.cgi"})
   tags: supermicro,default-login
 
 http:
@@ -45,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

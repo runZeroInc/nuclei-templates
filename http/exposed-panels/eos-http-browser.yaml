@@ -7,11 +7,10 @@ info:
   reference:
     - https://www.facebook.com/photo/?fbid=634930085344181&set=pcb.634929508677572
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)EOS HTTP Browser"})
     verified: true
     max-request: 2
     shodan-query: title:"EOS HTTP Browser"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)EOS HTTP Browser"})
   tags: exposure,eos,httpbrowser,panel
 
 http:
@@ -30,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

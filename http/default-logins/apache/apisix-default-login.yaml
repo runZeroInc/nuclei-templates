@@ -4,8 +4,7 @@ info:
   name: Apache Apisix Admin Default Credentials
   author: pdteam
   severity: high
-  description: Apache Apisix Admin default login credentials were
-    discovered.
+  description: Apache Apisix Admin default login credentials were discovered.
   reference:
     - https://apisix.apache.org/
   classification:
@@ -13,12 +12,11 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Apache APISIX Dashboard"})
     max-request: 1
     product: https://apisix.apache.org
     shodan-query: title:"Apache APISIX Dashboard"
     fofa-query: title="Apache APISIX Dashboard"
+    runzero-match: any(each(service["html.titles"]), {# matches "Apache APISIX Dashboard"})
   tags: apisix,apache,default-login
 
 http:
@@ -57,4 +55,3 @@ http:
       - type: status
         status:
           - 200
-
