@@ -14,8 +14,14 @@ info:
     max-request: 1
     vendor: ui
     product: aircube
-    shodan-query: http.title:"AirCube Dashboard"
+    shodan-query:
+      - http.title:"aircube dashboard"
+      - http.favicon.hash:"1249285083"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)AirCube Dashboard"})
+    fofa-query:
+      - icon_hash=1249285083
+      - title="aircube dashboard"
+    google-query: intitle:"aircube dashboard"
   tags: panel,aircube
 
 http:

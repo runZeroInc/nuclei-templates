@@ -14,9 +14,7 @@ info:
     max-request: 1
     vendor: sap
     product: hybris
-    shodan-query:
-      - title:"Hybris"
-      - http.title:"hybris"
+    shodan-query: http.title:"hybris"
     fofa-query: title="hybris"
     google-query: intitle:"hybris"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)hybris"})

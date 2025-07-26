@@ -13,8 +13,9 @@ info:
     max-request: 2
     vendor: dell
     product: openmanage
-    shodan-query: html:"Dell OpenManage Switch Administrator"
+    shodan-query: http.html:"dell openmanage switch administrator"
     runzero-match: service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
+    fofa-query: body="dell openmanage switch administrator"
   tags: panel,dell
 
 http:

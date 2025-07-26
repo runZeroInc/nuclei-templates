@@ -11,11 +11,22 @@ info:
     vendor: beyondtrust
     product: remote_support
     shodan-query:
-      - http.favicon.hash:-694003434
+      - http.favicon.hash:"-694003434"
+      - http.html:"beyondtrust remote support"
+      - http.html:"beyondtrust"
+      - http.html:"beyondtrust" "redistribution prohibited"
+      - http.title:"remote support portal"
     fofa-query:
       - icon_hash="-694003434"
+      - body="beyondtrust remote support"
+      - body="beyondtrust"
+      - body="beyondtrust" "redistribution prohibited"
+      - title="remote support portal"
     runzero-match: service["favicon.ico.image.mmh3"] == "-694003434"
     max-requests: 1
+    google-query:
+      - intext:"beyondtrust" "redistribution prohibited"
+      - intitle:"remote support portal"
   tags: panel,detect,beyondtrust
 
 http:

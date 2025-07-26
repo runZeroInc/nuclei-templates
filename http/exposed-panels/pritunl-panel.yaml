@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: pritunl
     product: pritunl
-    shodan-query: title:"Pritunl"
+    shodan-query: http.title:"pritunl"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
+    fofa-query: title="pritunl"
+    google-query: intitle:"pritunl"
   tags: pritunl,panel,login
 
 http:

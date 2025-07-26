@@ -17,8 +17,10 @@ info:
     max-request: 2
     vendor: sqlbuddy
     product: sql_buddy
-    shodan-query: http.title:"SQL Buddy"
+    shodan-query: http.title:"sql buddy"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
+    fofa-query: title="sql buddy"
+    google-query: intitle:"sql buddy"
   tags: panel,sqlbuddy
 
 http:

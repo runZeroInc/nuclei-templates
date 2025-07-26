@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: faraday_project
     product: faraday
-    shodan-query: html:"faradayApp"
+    shodan-query: http.html:"faradayapp"
     runzero-match: service["http.body"] matches "(?i)faradayApp"
+    fofa-query: body="faradayapp"
   tags: panel,faraday
 
 http:

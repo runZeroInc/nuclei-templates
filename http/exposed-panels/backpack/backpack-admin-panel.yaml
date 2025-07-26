@@ -15,8 +15,10 @@ info:
     max-request: 1
     vendor: backpackforlaravel
     product: backpack\\\\crud
-    shodan-query: title:"Backpack Admin"
+    shodan-query: http.title:"backpack admin"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Backpack Admin"})
+    fofa-query: title="backpack admin"
+    google-query: intitle:"backpack admin"
   tags: panel,backpack,admin
 
 http:

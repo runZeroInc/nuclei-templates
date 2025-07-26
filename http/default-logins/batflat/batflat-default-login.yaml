@@ -15,8 +15,10 @@ info:
     max-request: 1
     vendor: batflat
     product: batflat
-    google-query: intext:"Powered by Batflat."
+    google-query: intext:"powered by batflat."
     runzero-match: service["http.body"] contains "Powered by Batflat"
+    shodan-query: http.html:"powered by batflat."
+    fofa-query: body="powered by batflat."
   tags: default-login,batflat
 
 http:

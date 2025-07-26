@@ -13,13 +13,13 @@ info:
     max-request: 1
     vendor: greenbone
     product: greenbone_security_assistant
-    shodan-query:
-      - http.title:"Greenbone Security Assistant"
-      - http.title:"greenbone security assistant"
+    shodan-query: http.title:"greenbone security assistant"
     fofa-query: title="greenbone security assistant"
     google-query: intitle:"greenbone security assistant"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)greenbone security assistant"})
-    zoomeye-query: title="Greenbone Security Assistant"
+    zoomeye-query:
+      - title="greenbone security assistant"
+      - title:"greenbone security assistant"
   tags: panel,greenbone,login
 
 http:

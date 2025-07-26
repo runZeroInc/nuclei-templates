@@ -13,8 +13,16 @@ info:
     max-request: 9
     vendor: splunk
     product: splunk
-    shodan-query: http.title:"Splunk"
+    shodan-query:
+      - http.title:"splunk"
+      - http.title:"login - splunk"
     runzero-match: any(each(service["html.titles"]), {# matches "Splunk"})
+    fofa-query:
+      - title="login - splunk"
+      - title="splunk"
+    google-query:
+      - intitle:"login - splunk"
+      - intitle:"splunk"
   tags: default-login,splunk
 
 http:

@@ -17,8 +17,9 @@ info:
     max-request: 1
     vendor: zte
     product: nr8120a
-    shodan-query: http.html:"ZTE Corporation"
+    shodan-query: http.html:"zte corporation"
     runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
+    fofa-query: body="zte corporation"
   tags: panel,zte
 
 http:

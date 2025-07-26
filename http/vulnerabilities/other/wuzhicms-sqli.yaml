@@ -19,8 +19,10 @@ info:
     max-request: 1
     vendor: wuzhicms
     product: wuzhicms
-    shodan-query: http.html:"Wuzhicms"
-    fofa-query: title="Wuzhicms"
+    shodan-query: http.html:"wuzhicms"
+    fofa-query:
+      - title="wuzhicms"
+      - body="wuzhicms"
     runzero-match: service["http.body"] matches "(?i)Wuzhicms"
   tags: wuzhicms,sqli
 variables:

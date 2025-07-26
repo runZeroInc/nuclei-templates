@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: getgophish
     product: gophish
-    shodan-query: http.title:"Gophish - Login"
+    shodan-query: http.title:"gophish - login"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gophish - Login"})
+    fofa-query: title="gophish - login"
+    google-query: intitle:"gophish - login"
   tags: panel,gophish
 
 http:

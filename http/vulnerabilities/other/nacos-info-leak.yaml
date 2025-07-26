@@ -13,8 +13,13 @@ info:
     max-request: 1
     vendor: alibaba
     product: nacos
-    shodan-query: title:"Nacos"
+    shodan-query: http.title:"nacos"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nacos"})
+    fofa-query:
+      - app="nacos"
+      - title="nacos"
+      - title=="nacos"
+    google-query: intitle:"nacos"
   tags: nacos,tech,config,exposure
 
 http:

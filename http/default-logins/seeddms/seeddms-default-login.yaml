@@ -17,8 +17,10 @@ info:
     max-request: 1
     vendor: seeddms
     product: seeddms
-    shodan-query: http.title:"SeedDMS"
+    shodan-query: http.title:"seeddms"
     runzero-match: any(each(service["html.titles"]), {# matches "SeedDMS"})
+    fofa-query: title="seeddms"
+    google-query: intitle:"seeddms"
   tags: default-login,seeddms
 
 http:

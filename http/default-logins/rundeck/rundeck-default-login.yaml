@@ -16,9 +16,14 @@ info:
     max-request: 2
     vendor: pagerduty
     product: rundeck
-    shodan-query: http.html:"Rundeck - Login"
-    fofa-query: app="Rundeck-Login"
+    shodan-query:
+      - http.html:"rundeck - login"
+      - http.title:"rundeck"
+    fofa-query:
+      - app="rundeck-login"
+      - title="rundeck"
     runzero-match: any(each(service["html.titles"]), {# matches "Rundeck - Login"})
+    google-query: intitle:"rundeck"
   tags: default-login,rundeck
 variables:
   username: admin

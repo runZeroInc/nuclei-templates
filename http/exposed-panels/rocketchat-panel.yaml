@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: rocket.chat
     product: rocket.chat
-    shodan-query: http.title:"Rocket.Chat"
+    shodan-query: http.title:"rocket.chat"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rocket\\.Chat"})
+    fofa-query: title="rocket.chat"
+    google-query: intitle:"rocket.chat"
   tags: panel,rocketchat,login,detect
 
 http:

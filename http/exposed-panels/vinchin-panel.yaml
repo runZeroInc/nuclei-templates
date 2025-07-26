@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: vinchin
     product: vinchin_backup_and_recovery
-    shodan-query: html:"VinChin"
+    shodan-query: http.html:"vinchin"
     runzero-match: service["http.body"] matches "(?i)VinChin"
+    fofa-query: body="vinchin"
   tags: panel,vinchin,login
 
 http:

@@ -11,8 +11,18 @@ info:
     max-request: 2
     vendor: apache
     product: activemq
-    shodan-query: title:"ActiveMQ Artemis Console"
+    shodan-query:
+      - http.title:"activemq artemis console"
+      - cpe:"cpe:2.3:a:apache:activemq"
+      - http.title:"apache activemq"
+      - product:"activemq openwire transport"
     runzero-match: any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
+    fofa-query:
+      - title="activemq artemis console"
+      - title="apache activemq"
+    google-query:
+      - intitle:"activemq artemis console"
+      - intitle:"apache activemq"
   tags: apache,activemq,default-login
 
 http:

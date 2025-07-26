@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: webdesi9
     product: file_manager
-    shodan-query: title:"Web File Manager"
+    shodan-query: http.title:"web file manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web File Manager"})
+    fofa-query: title="web file manager"
+    google-query: intitle:"web file manager"
   tags: panel,filemanager
 
 http:

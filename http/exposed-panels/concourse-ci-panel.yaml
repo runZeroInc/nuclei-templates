@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: pivotal_software
     product: concourse
-    shodan-query: title:"Concourse"
+    shodan-query: http.title:"concourse"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
+    fofa-query: title="concourse"
+    google-query: intitle:"concourse"
   tags: panel,concourse,oss
 
 http:

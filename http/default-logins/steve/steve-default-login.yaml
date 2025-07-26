@@ -19,9 +19,10 @@ info:
     max-request: 2
     vendor: steve-community
     product: steve
-    shodan-query: http.title:"SteVe - Steckdosenverwaltung"
-    google-query: intitle:"SteVe - Steckdosenverwaltung"
+    shodan-query: http.title:"steve - steckdosenverwaltung"
+    google-query: intitle:"steve - steckdosenverwaltung"
     runzero-match: any(each(service["html.titles"]), {# matches "SteVe - Steckdosenverwaltung"})
+    fofa-query: title="steve - steckdosenverwaltung"
   tags: panel,default-login,steve
 
 http:

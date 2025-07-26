@@ -14,8 +14,12 @@ info:
     max-request: 1
     vendor: home-assistant
     product: home-assistant
-    shodan-query: http.title:"Home Assistant"
+    shodan-query:
+      - http.title:"home assistant"
+      - cpe:"cpe:2.3:a:home-assistant:home-assistant"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
+    fofa-query: title="home assistant"
+    google-query: intitle:"home assistant"
   tags: panel,iot,homeassistant
 
 http:

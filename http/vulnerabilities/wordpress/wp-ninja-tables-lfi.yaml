@@ -20,6 +20,7 @@ info:
     product: ninja-tables
     fofa-query: body="/wp-content/plugins/ninja-tables/"
     runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/ninja-tables/"
+    shodan-query: http.html:"/wp-content/plugins/ninja-tables/"
   tags: ninja-tables,file-download,wordpress,unauth,lfi,wp-plugin
 flow: http(1) && http(2)
 

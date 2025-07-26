@@ -18,8 +18,10 @@ info:
     max-request: 1
     vendor: openmediavault
     product: openmediavault
-    shodan-query: title:"OpenMediaVault"
+    shodan-query: http.title:"openmediavault"
     runzero-match: any(each(service["html.titles"]), {# matches "OpenMediaVault"})
+    fofa-query: title="openmediavault"
+    google-query: intitle:"openmediavault"
   tags: default-login,openmediavault
 
 http:

@@ -13,8 +13,14 @@ info:
     max-request: 1
     vendor: zblogcn
     product: zblogphp
-    shodan-query: http.html:"Z-BlogPHP"
+    shodan-query:
+      - http.html:"z-blogphp"
+      - http.title:"zblog"
     runzero-match: service["http.body"] matches "(?i)Z-BlogPHP"
+    fofa-query:
+      - body="z-blogphp"
+      - title=zblog
+    google-query: intitle:zblog
   tags: panel,zblogphp
 
 http:

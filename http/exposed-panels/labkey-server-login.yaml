@@ -15,11 +15,15 @@ info:
     vendor: labkey
     product: labkey_server
     shodan-query:
-      - 'title:"Sign In: /home"'
       - 'http.title:"sign in: /home"'
-      - "server: labkey"
-    fofa-query: 'title="sign in: /home"'
-    google-query: 'intitle:"sign in: /home"'
+      - server:"labkey"
+      - http.title:"labkey"
+    fofa-query:
+      - 'title="sign in: /home"'
+      - title="labkey"
+    google-query:
+      - 'intitle:"sign in: /home"'
+      - intitle:"labkey"
     runzero-match: 'any(each(service["html.titles"]), {# matches "(?i)sign in: /home"})'
   tags: panel,labkey
 

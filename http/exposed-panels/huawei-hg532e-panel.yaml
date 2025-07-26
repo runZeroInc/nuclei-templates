@@ -16,8 +16,9 @@ info:
     max-request: 1
     vendor: huawei
     product: hg532e
-    shodan-query: http.html:"HG532e"
+    shodan-query: http.html:"hg532e"
     runzero-match: service["http.body"] matches "(?i)HG532e"
+    fofa-query: body="hg532e"
   tags: huawei,panel
 
 http:

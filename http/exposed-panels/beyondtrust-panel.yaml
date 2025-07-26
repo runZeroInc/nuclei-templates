@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: beyondtrust
     product: beyondinsight
-    shodan-query: http.html:"BeyondInsight"
+    shodan-query: http.html:"beyondinsight"
     runzero-match: service["http.body"] matches "(?i)BeyondInsight"
+    fofa-query: body="beyondinsight"
   tags: beyondtrust,pam,panel
 
 http:

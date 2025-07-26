@@ -16,9 +16,10 @@ info:
     max-request: 12
     vendor: oracle
     product: peoplesoft_enterprise_peopletools
-    shodan-query: "http.title:\"Oracle PeopleSoft Sign-in\""
-    fofa-query: "title=\"Oracle PeopleSoft Sign-in\""
+    shodan-query: http.title:"oracle peoplesoft sign-in"
+    fofa-query: title="oracle peoplesoft sign-in"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle PeopleSoft Sign-in"})
+    google-query: intitle:"oracle peoplesoft sign-in"
   tags: oracle,peoplesoft,panel,login,detect
 
 http:

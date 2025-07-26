@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: intelliantech
     product: aptus
-    shodan-query: http.title:"Aptus Login"
+    shodan-query: http.title:"aptus login"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aptus Login"})
+    fofa-query: title="aptus login"
+    google-query: intitle:"aptus login"
   tags: panel,aptus
 
 http:

@@ -13,8 +13,9 @@ info:
     max-request: 3
     vendor: bmc
     product: remedy_action_request_system
-    shodan-query: http.html:"BMC Remedy"
+    shodan-query: http.html:"bmc remedy"
     runzero-match: service["http.body"] matches "(?i)BMC Remedy"
+    fofa-query: body="bmc remedy"
   tags: panel,remedy,bmc
 
 http:

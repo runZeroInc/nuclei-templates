@@ -15,7 +15,7 @@ info:
     vendor: github
     product: enterprise_server
     shodan-query:
-      - title:"Setup GitHub Enterprise"
+      - http.title:"setup github enterprise"
       - micro focus dsd
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Setup GitHub Enterprise"})
   tags: panel,github

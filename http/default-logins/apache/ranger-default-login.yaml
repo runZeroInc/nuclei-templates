@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: apache
     product: ranger
-    shodan-query: http.title:"Ranger - Sign In"
+    shodan-query: http.title:"ranger - sign in"
     runzero-match: any(each(service["html.titles"]), {# matches "Ranger - Sign In"})
+    fofa-query: title="ranger - sign in"
+    google-query: intitle:"ranger - sign in"
   tags: apache,ranger,default-login
 
 http:

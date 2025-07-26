@@ -14,8 +14,9 @@ info:
     max-request: 1
     vendor: audiocodes
     product: 420hd_ip_phone_firmware
-    shodan-query: http.html:"Audiocodes"
+    shodan-query: http.html:"audiocodes"
     runzero-match: service["http.body"] matches "(?i)Audiocodes"
+    fofa-query: body="audiocodes"
   tags: panel,audiocodes
 
 http:

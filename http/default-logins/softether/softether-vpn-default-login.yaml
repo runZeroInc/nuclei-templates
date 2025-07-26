@@ -15,8 +15,10 @@ info:
     max-request: 1
     vendor: softether
     product: vpn
-    shodan-query: title:"SoftEther VPN Server"
+    shodan-query: http.title:"softether vpn server"
     runzero-match: any(each(service["html.titles"]), {# matches "SoftEther VPN Server"})
+    fofa-query: title="softether vpn server"
+    google-query: intitle:"softether vpn server"
   tags: misconfig,vpn,softether,default-login
 
 http:

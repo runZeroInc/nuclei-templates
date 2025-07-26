@@ -11,8 +11,10 @@ info:
     max-request: 1
     vendor: apache
     product: activemq_apollo
-    shodan-query: title:"Apache Apollo"
+    shodan-query: http.title:"apache apollo"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache Apollo"})
+    fofa-query: title="apache apollo"
+    google-query: intitle:"apache apollo"
   tags: panel,apache,apollo,login,detect
 
 http:

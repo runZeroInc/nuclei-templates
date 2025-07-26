@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: osnexus
     product: quantastor
-    shodan-query: http.title:"OSNEXUS QuantaStor Manager"
+    shodan-query: http.title:"osnexus quantastor manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)OSNEXUS QuantaStor Manager"})
+    fofa-query: title="osnexus quantastor manager"
+    google-query: intitle:"osnexus quantastor manager"
   tags: panel,osnexus,login
 
 http:

@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: leostream
     product: connection_broker
-    shodan-query: http.title:"Leostream"
+    shodan-query: http.title:"leostream"
     runzero-match: any(each(service["html.titles"]), {# matches "Leostream"})
+    fofa-query: title="leostream"
+    google-query: intitle:"leostream"
   tags: leostream,default-login
 
 http:

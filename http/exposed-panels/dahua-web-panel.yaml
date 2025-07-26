@@ -16,8 +16,9 @@ info:
     max-request: 1
     vendor: dahuasecurity
     product: sd22204db-gny-w
-    shodan-query: http.favicon.hash:1653394551
+    shodan-query: http.favicon.hash:"1653394551"
     runzero-match: service["favicon.ico.image.mmh3"] == "1653394551"
+    fofa-query: icon_hash=1653394551
   tags: edb,panel,dahua,detect
 
 http:

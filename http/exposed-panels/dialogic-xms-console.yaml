@@ -11,8 +11,10 @@ info:
     max-request: 1
     vendor: dialogic
     product: powermedia_xms
-    shodan-query: title:"Dialogic XMS Admin Console"
+    shodan-query: http.title:"dialogic xms admin console"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dialogic XMS Admin Console"})
+    fofa-query: title="dialogic xms admin console"
+    google-query: intitle:"dialogic xms admin console"
   tags: panel,dialogic,admin,login,detect
 
 http:

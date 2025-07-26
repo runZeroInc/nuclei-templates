@@ -12,8 +12,12 @@ info:
     max-request: 1
     vendor: apache
     product: cloudstack
-    shodan-query: http.title:"Apache CloudStack"
+    shodan-query: http.title:"apache cloudstack"
     runzero-match: any(each(service["html.titles"]), {# matches "Apache CloudStack"})
+    fofa-query:
+      - app="apache-cloudstack"
+      - title="apache cloudstack"
+    google-query: intitle:"apache cloudstack"
   tags: default-login,apache,cloudstack
 
 http:

@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: raspberrymatic
     product: raspberrymatic
-    shodan-query: http.favicon.hash:-578216669
+    shodan-query: http.favicon.hash:"-578216669"
     runzero-match: service["favicon.ico.image.mmh3"] == "-578216669"
+    fofa-query: icon_hash=-578216669
   tags: panel,raspberrymatic,iot
 
 http:

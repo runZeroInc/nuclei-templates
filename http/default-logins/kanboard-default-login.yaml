@@ -19,8 +19,11 @@ info:
     max-request: 2
     vendor: kanboard
     product: kanboard
-    fofa-query: app="Kanboard"
+    fofa-query:
+      - app="kanboard"
+      - icon_hash=2056442365
     runzero-match: service["http.body.mmh3"] == "1605834045"
+    shodan-query: http.favicon.hash:"2056442365"
   tags: default-login,kanboard
 
 http:

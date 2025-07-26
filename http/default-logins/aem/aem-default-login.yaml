@@ -16,8 +16,13 @@ info:
     max-request: 8
     vendor: adobe
     product: experience_manager
-    shodan-query: http.component:"Adobe Experience Manager"
+    shodan-query:
+      - http.component:"adobe experience manager"
+      - cpe:"cpe:2.3:a:adobe:experience_manager"
+      - http.title:"aem sign in"
     runzero-match: service["http.body"] contains `href="/etc.clientlibs/`
+    fofa-query: title="aem sign in"
+    google-query: intitle:"aem sign in"
   tags: aem,default-login,adobe
 
 http:

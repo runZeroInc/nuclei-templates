@@ -18,13 +18,11 @@ info:
     vendor: qnap
     product: qts
     shodan-query:
-      - product:"QNAP"
       - product:"qnap"
       - http.title:"qnap turbo nas" inurl:/cgi-bin
+      - ssl.cert.issuer.cn:"qnap nas",title:"qnap turbo nas"
     fofa-query: title="qnap turbo nas" inurl:/cgi-bin
-    google-query:
-      - intitle:"QNAP Turbo NAS" inurl:/cgi-bin
-      - intitle:"qnap turbo nas" inurl:/cgi-bin
+    google-query: intitle:"qnap turbo nas" inurl:/cgi-bin
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)qnap turbo nas"})
   tags: panel,qnap,qts
 

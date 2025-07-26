@@ -9,8 +9,14 @@ info:
   metadata:
     vendor: tuzitio
     product: camaleon_cms
-    shodan-query: html:"camaleon_cms"
+    shodan-query:
+      - http.html:"camaleon_cms"
+      - http.title:"camaleon cms"
     runzero-match: service["http.body"] matches "(?i)camaleon_cms"
+    fofa-query:
+      - body="camaleon_cms"
+      - title="camaleon cms"
+    google-query: intitle:"camaleon cms"
   tags: camaleon,panel,login
 
 http:

@@ -19,8 +19,12 @@ info:
       - http.favicon.hash:"81586312"
       - product:"jenkins"
       - x-jenkins
-      - title:"Jenkins"
+      - http.title:"jenkins"
     runzero-match: any(each(service["html.titles"]), {# matches "Jenkins"})
+    fofa-query:
+      - icon_hash="81586312"
+      - title="jenkins"
+    google-query: intitle:"jenkins"
   tags: jenkins,default-login
 
 http:

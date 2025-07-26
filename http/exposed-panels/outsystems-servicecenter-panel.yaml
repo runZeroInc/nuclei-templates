@@ -17,6 +17,7 @@ info:
     product: platform_server
     shodan-query: "http.html:\"outsystems\""
     runzero-match: service["http.body"] matches "(?i)outsystems"
+    fofa-query: body="outsystems"
   tags: panel,outsystems,login,detect
 
 http:

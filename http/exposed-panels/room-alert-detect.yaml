@@ -16,8 +16,10 @@ info:
     max-request: 2
     vendor: avtech
     product: room_alert_3e
-    shodan-query: title:"Room Alert"
+    shodan-query: http.title:"room alert"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Room Alert"})
+    fofa-query: title="room alert"
+    google-query: intitle:"room alert"
   tags: panel,room-alert,avtech
 
 http:

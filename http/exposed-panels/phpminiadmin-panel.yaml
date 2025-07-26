@@ -17,8 +17,9 @@ info:
     max-request: 1
     vendor: phpminiadmin_project
     product: phpminiadmin
-    shodan-query: http.html:"phpMiniAdmin"
+    shodan-query: http.html:"phpminiadmin"
     runzero-match: service["http.body"] matches "(?i)phpMiniAdmin"
+    fofa-query: body="phpminiadmin"
   tags: panel,phpminiadmin
 
 http:

@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: speed_test_project
     product: speed_test
-    shodan-query: title:"Speedtest Tracker"
+    shodan-query: http.title:"speedtest tracker"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Speedtest Tracker"})
+    fofa-query: title="speedtest tracker"
+    google-query: intitle:"speedtest tracker"
   tags: speedtest,tracker,panel,login
 
 http:

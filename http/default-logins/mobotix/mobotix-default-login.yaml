@@ -15,8 +15,10 @@ info:
     max-request: 2
     vendor: mobotix
     product: s14
-    shodan-query: title:"Mobotix"
+    shodan-query: http.title:"mobotix"
     runzero-match: any(each(service["html.titles"]), {# matches "Mobotix"})
+    fofa-query: title="mobotix"
+    google-query: intitle:"mobotix"
   tags: mobotix,default-login,webcam,iot
 
 http:

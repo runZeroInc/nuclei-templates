@@ -14,8 +14,16 @@ info:
     max-request: 1
     vendor: wampserver
     product: wampserver
-    shodan-query: title:"WAMPSERVER Homepage"
+    shodan-query:
+      - http.title:"wampserver homepage"
+      - http.title:"accueil wampserver"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)WAMPSERVER Homepage"})
+    fofa-query:
+      - title="accueil wampserver"
+      - title="wampserver homepage"
+    google-query:
+      - intitle:"accueil wampserver"
+      - intitle:"wampserver homepage"
   tags: panel,wampserver
 
 http:

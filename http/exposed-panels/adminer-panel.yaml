@@ -16,9 +16,8 @@ info:
     vendor: adminer
     product: adminer
     shodan-query:
-      - title:"Login - Adminer"
-      - cpe:"cpe:2.3:a:adminer:adminer"
       - http.title:"login - adminer"
+      - cpe:"cpe:2.3:a:adminer:adminer"
     fofa-query:
       - title="login - adminer"
       - app="adminer" && body="4.7.8"

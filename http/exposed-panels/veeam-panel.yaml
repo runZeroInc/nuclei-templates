@@ -14,8 +14,9 @@ info:
     max-request: 1
     vendor: veeam
     product: one_reporter
-    shodan-query: http.favicon.hash:-633512412
+    shodan-query: http.favicon.hash:"-633512412"
     runzero-match: service["favicon.ico.image.mmh3"] == "-633512412"
+    fofa-query: icon_hash=-633512412
   tags: panel,veeam
 
 http:

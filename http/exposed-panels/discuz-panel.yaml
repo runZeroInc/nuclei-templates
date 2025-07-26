@@ -11,9 +11,10 @@ info:
     max-request: 1
     vendor: comsenz
     product: discuz\\!
-    shodan-query: title:"Discuz!"
-    fofa-query: title="Discuz!"
+    shodan-query: http.title:"discuz!"
+    fofa-query: title="discuz!"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Discuz!"})
+    google-query: intitle:"discuz!"
   tags: panel,discuz,detect,login
 
 http:

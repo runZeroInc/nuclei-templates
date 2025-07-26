@@ -13,10 +13,13 @@ info:
     max-request: 3
     vendor: dzzoffice
     product: dzzoffice
-    shodan-query: http.favicon.hash:-1961736892
+    shodan-query:
+      - http.favicon.hash:"-1961736892"
+      - http.html:"dzzoffice"
     fofa-query:
       - title="dzzoffice"
       - icon_hash=-1961736892
+      - body="dzzoffice"
     runzero-match: service["favicon.ico.image.mmh3"] == "-1961736892"
   tags: dzzoffice,panel
 

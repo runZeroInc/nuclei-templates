@@ -17,8 +17,9 @@ info:
     max-request: 2
     vendor: mylittletools
     product: mylittleadmin
-    shodan-query: http.html:"myLittleAdmin"
+    shodan-query: http.html:"mylittleadmin"
     runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
+    fofa-query: body="mylittleadmin"
   tags: panel,mylittleadmin,login
 
 http:

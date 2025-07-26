@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: cisco
     product: ace_4710_application_control_engine
-    shodan-query: html:"ACE 4710 Device Manager"
+    shodan-query: http.html:"ace 4710 device manager"
     runzero-match: service["http.body"] matches "(?i)ACE 4710 Device Manager"
+    fofa-query: body="ace 4710 device manager"
   tags: panel,cisco
 
 http:

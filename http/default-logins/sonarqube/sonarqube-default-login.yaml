@@ -18,8 +18,12 @@ info:
     max-request: 4
     vendor: sonarsource
     product: sonarqube
-    shodan-query: title:"Sonarqube"
+    shodan-query: http.title:"sonarqube"
     runzero-match: any(each(service["html.titles"]), {# matches "SonarQube"})
+    fofa-query:
+      - app="sonarqube-代码管理"
+      - title="sonarqube"
+    google-query: intitle:"sonarqube"
   tags: default-login,sonarqube
 
 http:

@@ -15,8 +15,10 @@ info:
     max-request: 1
     vendor: ibm
     product: security_access_manager
-    shodan-query: http.title:"IBM Security Access Manager"
+    shodan-query: http.title:"ibm security access manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)IBM Security Access Manager"})
+    fofa-query: title="ibm security access manager"
+    google-query: intitle:"ibm security access manager"
   tags: panel,ibm,login,detect
 
 http:

@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: payroll_management_system_project
     product: payroll_management_system
-    shodan-query: http.title:"Admin | Employee's Payroll Management System"
+    shodan-query: http.title:"admin | employee's payroll management system"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Admin \\| Employee's Payroll Management System"})
+    fofa-query: title="admin | employee's payroll management system"
+    google-query: intitle:"admin | employee's payroll management system"
   tags: panel,payroll
 
 http:

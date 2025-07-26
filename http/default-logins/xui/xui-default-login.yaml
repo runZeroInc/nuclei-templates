@@ -17,9 +17,10 @@ info:
     max-request: 2
     vendor: vaxilu
     product: x-ui
-    shodan-query: title:"X-UI Login"
-    fofa-query: title="X-UI Login"
+    shodan-query: http.title:"x-ui login"
+    fofa-query: title="x-ui login"
     runzero-match: any(each(service["html.titles"]), {# matches "X-UI Login"})
+    google-query: intitle:"x-ui login"
   tags: x-ui,default-login
 
 http:

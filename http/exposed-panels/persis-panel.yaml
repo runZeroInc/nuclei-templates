@@ -16,8 +16,10 @@ info:
     max-request: 2
     vendor: persis
     product: human_resource_management_portal
-    shodan-query: title:"Persis"
+    shodan-query: http.title:"persis"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Persis"})
+    fofa-query: title="persis"
+    google-query: intitle:"persis"
   tags: panel,persis
 
 http:

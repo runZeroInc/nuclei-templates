@@ -18,7 +18,7 @@ info:
     max-request: 2
     vendor: netentsec
     product: application_security_gateway
-    fofa-query: "NS-ICG"
+    fofa-query: ns-icg
     runzero-match: service["http.head.server"] matches "(?i)netentsec"
   tags: nsicg,default-login
 

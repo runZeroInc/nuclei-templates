@@ -15,8 +15,12 @@ info:
     max-request: 1
     vendor: graylog
     product: graylog
-    shodan-query: http.title:"Graylog Web Interface"
+    shodan-query:
+      - http.title:"graylog web interface"
+      - graylog
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graylog Web Interface"})
+    fofa-query: title="graylog web interface"
+    google-query: intitle:"graylog web interface"
   tags: panel,graylog,login,detect
 
 http:

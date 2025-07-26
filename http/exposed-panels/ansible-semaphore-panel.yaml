@@ -15,8 +15,9 @@ info:
     max-request: 1
     vendor: ansible-semaphore
     product: ansible_semaphore
-    shodan-query: http.html:"Semaphore</title>"
+    shodan-query: http.html:"semaphore</title>"
     runzero-match: service["http.body"] matches "(?i)Semaphore</title>"
+    fofa-query: body="semaphore</title>"
   tags: panel,ansible,semaphore,cicd,oss
 
 http:

@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: moxa
     product: nport_6450-t_firmware
-    shodan-query: title:"NPort Web Console"
+    shodan-query: http.title:"nport web console"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)NPort Web Console"})
+    fofa-query: title="nport web console"
+    google-query: intitle:"nport web console"
   tags: panel,nport
 
 http:

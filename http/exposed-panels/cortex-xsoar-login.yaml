@@ -13,7 +13,7 @@ info:
     max-request: 1
     vendor: paloaltonetworks
     product: cortex_xsoar
-    shodan-query: http.title:"Cortex XSOAR"
+    shodan-query: http.title:"cortex xsoar"
     fofa-query: title="cortex xsoar"
     google-query: intitle:"cortex xsoar"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)cortex xsoar"})

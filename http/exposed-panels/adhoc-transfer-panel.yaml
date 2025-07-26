@@ -11,9 +11,8 @@ info:
     vendor: progress
     product: ws_ftp
     shodan-query:
-      - http.title:"Ad Hoc Transfer"
-      - ws_ftp port:22
       - http.title:"ad hoc transfer"
+      - ws_ftp port:"22"
       - http.title:"ws_ftp server web transfer"
     fofa-query:
       - title="ws_ftp server web transfer"

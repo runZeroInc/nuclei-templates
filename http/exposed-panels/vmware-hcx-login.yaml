@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: vmware
     product: vmware_hcx
-    shodan-query: title:"VMware HCX"
+    shodan-query: http.title:"vmware hcx"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware HCX"})
+    fofa-query: title="vmware hcx"
+    google-query: intitle:"vmware hcx"
   tags: panel,vmware
 
 http:

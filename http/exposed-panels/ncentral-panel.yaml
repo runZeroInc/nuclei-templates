@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: n-able
     product: n-central
-    shodan-query: http.title:"N-central Login"
+    shodan-query: http.title:"n-central login"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
+    fofa-query: title="n-central login"
+    google-query: intitle:"n-central login"
   tags: panel,n-central
 
 http:

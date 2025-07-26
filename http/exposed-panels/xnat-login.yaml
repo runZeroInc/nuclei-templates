@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: xnat
     product: xnat
-    shodan-query: title:"xnat"
+    shodan-query: http.title:"xnat"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)xnat"})
+    fofa-query: title="xnat"
+    google-query: intitle:"xnat"
   tags: xnat,panel
 
 http:

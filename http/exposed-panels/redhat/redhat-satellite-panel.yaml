@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: redhat
     product: satellite
-    shodan-query: http.html:"redhat" "Satellite"
+    shodan-query: http.html:"redhat" "satellite"
     runzero-match: service["http.body"] matches "(?i)redhat"
+    fofa-query: body="redhat" "satellite"
   tags: panel,redhat,satellite
 
 http:

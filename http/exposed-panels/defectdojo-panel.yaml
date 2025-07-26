@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: owasp
     product: defectdojo
-    shodan-query: html:"DefectDojo Logo"
+    shodan-query: http.html:"defectdojo logo"
     runzero-match: service["http.body"] matches "(?i)DefectDojo Logo"
+    fofa-query: body="defectdojo logo"
   tags: panel,defectdojo
 
 http:

@@ -15,8 +15,10 @@ info:
     max-request: 1
     vendor: kiwitcms
     product: kiwi_tcms
-    shodan-query: title:"Kiwi TCMS - Login" http.favicon.hash:-1909533337
+    shodan-query: http.title:"kiwi tcms - login" http.favicon.hash:-1909533337
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kiwi TCMS - Login"})
+    fofa-query: title="kiwi tcms - login" http.favicon.hash:-1909533337
+    google-query: intitle:"kiwi tcms - login" http.favicon.hash:-1909533337
   tags: kiwitcms,exposure,misconfig,hackerone
 
 http:

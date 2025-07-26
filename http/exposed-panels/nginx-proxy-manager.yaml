@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: nginxproxymanager
     product: nginx_proxy_manager
-    shodan-query: http.title:"Nginx Proxy Manager"
+    shodan-query: http.title:"nginx proxy manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nginx Proxy Manager"})
+    fofa-query: title="nginx proxy manager"
+    google-query: intitle:"nginx proxy manager"
   tags: panel,nginx,proxy
 
 http:

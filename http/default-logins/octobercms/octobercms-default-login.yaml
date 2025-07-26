@@ -19,7 +19,7 @@ info:
     max-request: 4
     vendor: octobercms
     product: october
-    shodan-query: http.component:"October CMS"
+    shodan-query: http.component:"october cms"
     runzero-match: service["favicon.ico.image.mmh3"] == "3823102"
   tags: octobercms,default-login,oss
 

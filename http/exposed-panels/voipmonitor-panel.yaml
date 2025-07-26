@@ -13,9 +13,7 @@ info:
     max-request: 1
     vendor: voipmonitor
     product: voipmonitor
-    shodan-query:
-      - http.title:"VoIPmonitor"
-      - http.title:"voipmonitor"
+    shodan-query: http.title:"voipmonitor"
     fofa-query: title="voipmonitor"
     google-query: intitle:"voipmonitor"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)voipmonitor"})

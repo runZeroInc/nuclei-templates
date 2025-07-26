@@ -15,8 +15,10 @@ info:
     max-request: 3
     vendor: sap
     product: hybris
-    shodan-query: title:"Hybris"
+    shodan-query: http.title:"hybris"
     runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
+    fofa-query: title="hybris"
+    google-query: intitle:"hybris"
   tags: default-login,hybris
 
 http:

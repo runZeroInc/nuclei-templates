@@ -20,9 +20,7 @@ info:
     fofa-query:
       - body='content="papercut'
       - body="content=\"papercut\""
-    google-query:
-      - html:'content="PaperCut'
-      - html:'content="papercut'
+    google-query: html:'content="papercut'
     runzero-match: service["http.body"] matches "(?i)'content=\"papercut'" || service["http.body"] matches "(?i)content=\\\\"
   tags: panel,papercut,detect
 

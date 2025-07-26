@@ -15,8 +15,10 @@ info:
     max-request: 1
     vendor: ssh
     product: privx
-    shodan-query: title:"PrivX"
+    shodan-query: http.title:"privx"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)PrivX"})
+    fofa-query: title="privx"
+    google-query: intitle:"privx"
   tags: panel,privx
 
 http:

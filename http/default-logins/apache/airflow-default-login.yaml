@@ -15,8 +15,26 @@ info:
     max-request: 2
     vendor: apache
     product: airflow
-    shodan-query: title:"Sign In - Airflow"
+    shodan-query:
+      - http.title:"sign in - airflow"
+      - http.html:"apache airflow"
+      - http.title:"airflow - dags"
+      - http.title:"airflow - dags" || http.html:"apache airflow"
+      - http.title:"airflow"
+      - product:"redis"
     runzero-match: any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
+    fofa-query:
+      - apache airflow
+      - body="apache airflow"
+      - title="airflow - dags"
+      - title="airflow - dags" || http.html:"apache airflow"
+      - title="airflow"
+      - title="sign in - airflow"
+    google-query:
+      - intitle:"airflow - dags"
+      - intitle:"airflow - dags" || http.html:"apache airflow"
+      - intitle:"airflow"
+      - intitle:"sign in - airflow"
   tags: airflow,default-login,apache
 
 http:

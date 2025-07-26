@@ -16,11 +16,12 @@ info:
     vendor: mitel
     product: micollab
     shodan-query:
-      - http.html:"MiCollab End User Portal"
-      - http.favicon.hash:-1922044295
+      - http.html:"micollab end user portal"
+      - http.favicon.hash:"-1922044295"
     fofa-query:
-      - '"MiCollab End User Portal" && title=="Redirecting..."'
+      - '"micollab end user portal" && title=="redirecting..."'
       - icon_hash="-1922044295"
+      - body="micollab end user portal"
     runzero-match: service["http.body"] matches "(?i)MiCollab End User Portal" || service["favicon.ico.image.mmh3"] == "-1922044295"
   tags: panel,mitel,login,detect
 

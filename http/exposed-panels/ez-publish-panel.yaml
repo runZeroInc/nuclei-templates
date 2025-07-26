@@ -14,8 +14,11 @@ info:
     max-request: 1
     vendor: ez
     product: ez_publish
-    shodan-query: http.html:"eZ Publish"
+    shodan-query:
+      - http.html:"ez publish"
+      - cpe:"cpe:2.3:a:ez:ez_publish"
     runzero-match: service["http.body"] matches "(?i)eZ Publish"
+    fofa-query: body="ez publish"
   tags: panel,ez
 
 http:

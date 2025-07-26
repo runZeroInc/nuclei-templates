@@ -14,9 +14,7 @@ info:
     max-request: 1
     vendor: nzbget
     product: nzbget
-    shodan-query:
-      - html:"NZBGet"
-      - http.html:"nzbget"
+    shodan-query: http.html:"nzbget"
     fofa-query: body="nzbget"
     runzero-match: service["http.body"] matches "(?i)nzbget"
   tags: panel,nzbget

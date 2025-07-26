@@ -14,9 +14,7 @@ info:
     max-request: 1
     vendor: icewarp
     product: icewarp_server
-    shodan-query:
-      - title:"icewarp"
-      - http.title:"icewarp"
+    shodan-query: http.title:"icewarp"
     fofa-query: title="icewarp"
     google-query: intitle:"icewarp"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)icewarp"})

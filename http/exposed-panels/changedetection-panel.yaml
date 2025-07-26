@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: changedetection
     product: changedetection
-    shodan-query: title:"Change Detection"
+    shodan-query: http.title:"change detection"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Change Detection"})
+    fofa-query: title="change detection"
+    google-query: intitle:"change detection"
   tags: panel,changedetection,detect
 
 http:

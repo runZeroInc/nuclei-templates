@@ -17,7 +17,6 @@ info:
     product: thruk
     shodan-query: http.html:"thruk" || http.title:"thruk monitoring webinterface"
     fofa-query:
-      - title=="Thruk Monitoring Webinterface"
       - title=="thruk monitoring webinterface"
       - body="thruk"
     runzero-match: service["http.body"] matches "(?i)thruk"

@@ -14,8 +14,10 @@ info:
     max-request: 2
     vendor: novnc
     product: novnc
-    shodan-query: http.title:"noVNC"
+    shodan-query: http.title:"novnc"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)noVNC"})
+    fofa-query: title="novnc"
+    google-query: intitle:"novnc"
   tags: panel,novnc
 
 http:

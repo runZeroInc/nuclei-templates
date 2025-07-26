@@ -13,8 +13,12 @@ info:
     max-request: 1
     vendor: control-webpanel
     product: webpanel
-    fofa-query: title=="CWP |用户" || title=="Login | CentOS WebPanel" || body="CentOS WebPanel"
+    fofa-query:
+      - title=="cwp |用户" || title=="login | centos webpanel" || body="centos webpanel"
+      - title="login | control webpanel"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)CWP \\|用户"})
+    shodan-query: http.title:"login | control webpanel"
+    google-query: intitle:"login | control webpanel"
   tags: panel,centos
 
 http:

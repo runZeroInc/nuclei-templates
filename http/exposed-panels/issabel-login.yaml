@@ -13,7 +13,7 @@ info:
     max-request: 1
     vendor: issabel
     product: pbx
-    fofa-query: title="Issabel"
+    fofa-query: title="issabel"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Issabel"})
   tags: issabel,panel
 

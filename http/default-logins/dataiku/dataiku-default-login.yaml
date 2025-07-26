@@ -17,8 +17,10 @@ info:
     max-request: 1
     vendor: dataiku
     product: data_science_studio
-    shodan-query: title:"dataiku"
+    shodan-query: http.title:"dataiku"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
+    fofa-query: title="dataiku"
+    google-query: intitle:"dataiku"
   tags: default-login,dataiku
 
 http:

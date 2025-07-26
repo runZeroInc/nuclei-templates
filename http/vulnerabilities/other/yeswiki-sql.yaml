@@ -20,6 +20,7 @@ info:
     product: cercopitheque
     shodan-query: http.html:"yeswiki"
     runzero-match: service["http.body"] matches "(?i)yeswiki"
+    fofa-query: body="yeswiki"
   tags: yeswiki,sqli,huntr
 variables:
   num: "999999999"

@@ -15,8 +15,14 @@ info:
     max-request: 1
     vendor: icewarp
     product: icewarp
-    shodan-query: title:"icewarp"
+    shodan-query:
+      - http.title:"icewarp"
+      - http.favicon.hash:"2144485375"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)icewarp"})
+    fofa-query:
+      - icon_hash=2144485375
+      - title="icewarp"
+    google-query: intitle:"icewarp"
   tags: icewarp,rce
 
 http:

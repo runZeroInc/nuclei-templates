@@ -15,9 +15,8 @@ info:
     product: kubernetes
     shodan-query: http.title:"kubernetes web view"
     fofa-query:
-      - app="Kubernetes-Enterprise-Manager"
-      - title="kubernetes web view"
       - app="kubernetes-enterprise-manager"
+      - title="kubernetes web view"
     google-query: intitle:"kubernetes web view"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kubernetes web view"})
   tags: tech,kubernetes,panel

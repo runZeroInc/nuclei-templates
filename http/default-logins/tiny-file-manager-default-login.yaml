@@ -18,8 +18,9 @@ info:
     max-request: 3
     vendor: tinyfilemanager_project
     product: tinyfilemanager
-    shodan-query: html:"Tiny File Manager"
+    shodan-query: http.html:"tiny file manager"
     runzero-match: service["http.body"] matches "Tiny File Manager"
+    fofa-query: body="tiny file manager"
   tags: default-login,tiny,filemanager
 
 http:

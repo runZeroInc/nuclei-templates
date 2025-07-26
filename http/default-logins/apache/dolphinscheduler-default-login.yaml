@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: apache
     product: dolphinscheduler
-    shodan-query: http.title:"DolphinScheduler"
+    shodan-query: http.title:"dolphinscheduler"
     runzero-match: any(each(service["html.titles"]), {# matches "DolphinScheduler"})
+    fofa-query: title="dolphinscheduler"
+    google-query: intitle:"dolphinscheduler"
   tags: apache,dolphinscheduler,default-login,oss
 
 http:

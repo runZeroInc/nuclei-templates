@@ -18,8 +18,10 @@ info:
     max-request: 1
     vendor: idemia
     product: sigma_wide
-    shodan-query: title:"IDEMIA"
+    shodan-query: http.title:"idemia"
     runzero-match: any(each(service["html.titles"]), {# matches "IDEMIA"})
+    fofa-query: title="idemia"
+    google-query: intitle:"idemia"
   tags: idemia,biometrics,default-login
 
 http:

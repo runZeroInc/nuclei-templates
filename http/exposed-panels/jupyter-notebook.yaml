@@ -16,8 +16,21 @@ info:
     max-request: 4
     vendor: jupyter
     product: notebook
-    shodan-query: http.html:"JupyterHub"
+    shodan-query:
+      - http.html:"jupyterhub"
+      - http.title:"home page - select or create a notebook"
+      - http.title:"jupyter notebook"
     runzero-match: service["http.body"] matches "(?i)JupyterHub"
+    fofa-query:
+      - body="jupyterhub"
+      - title="home page - select or create a notebook"
+      - title="jupyter notebook"
+    google-query:
+      - intitle:"home page - select or create a notebook"
+      - intitle:"jupyter notebook"
+    zoomeye-query:
+      - app="jupyter notebook"
+      - title:"jupyter notebook"
   tags: edb,panel,jupyter,notebook,exposure
 
 http:

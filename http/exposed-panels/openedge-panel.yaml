@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: progress
     product: openedge
-    shodan-query: html:"Welcome to Progress Application Server for OpenEdge"
+    shodan-query: http.html:"welcome to progress application server for openedge"
     runzero-match: service["http.body"] matches "(?i)Welcome to Progress Application Server for OpenEdge"
+    fofa-query: body="welcome to progress application server for openedge"
   tags: panel,openedge,login,detect
 
 http:

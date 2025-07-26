@@ -13,7 +13,7 @@ info:
     max-request: 1
     vendor: zoneland
     product: o2oa
-    shodan-query: title=="O2OA"
+    shodan-query: http.title=="o2oa"
     runzero-match: any(each(service["html.titles"]), {# matches "O2OA"})
   tags: o2oa,default-login
 

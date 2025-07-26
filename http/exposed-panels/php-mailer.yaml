@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: phpmailer_project
     product: phpmailer
-    shodan-query: http.title:"PHP Mailer"
+    shodan-query: http.title:"php mailer"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)PHP Mailer"})
+    fofa-query: title="php mailer"
+    google-query: intitle:"php mailer"
   tags: panel,php,mailer
 
 http:

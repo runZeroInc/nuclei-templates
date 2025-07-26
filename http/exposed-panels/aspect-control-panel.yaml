@@ -15,8 +15,9 @@ info:
     max-request: 1
     vendor: abb
     product: aspect-ent-256
-    shodan-query: http.favicon.hash:1011076161
+    shodan-query: http.favicon.hash:"1011076161"
     runzero-match: service["favicon.ico.image.mmh3"] == "1011076161"
+    fofa-query: icon_hash=1011076161
   tags: panel,aspect,login
 
 http:

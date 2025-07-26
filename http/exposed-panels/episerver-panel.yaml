@@ -16,8 +16,11 @@ info:
     max-request: 1
     vendor: episerver
     product: episerver
-    shodan-query: html:"epihash"
+    shodan-query:
+      - http.html:"epihash"
+      - cpe:"cpe:2.3:a:episerver:episerver"
     runzero-match: service["http.body"] matches "(?i)epihash"
+    fofa-query: body="epihash"
   tags: panel,optimizely,episerver
 
 http:

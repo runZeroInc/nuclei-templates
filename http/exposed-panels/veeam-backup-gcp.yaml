@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: veeam
     product: veeam_backup_for_google_cloud
-    shodan-query: title:"Veeam Backup for GCP"
+    shodan-query: http.title:"veeam backup for gcp"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Veeam Backup for GCP"})
+    fofa-query: title="veeam backup for gcp"
+    google-query: intitle:"veeam backup for gcp"
   tags: panel,google,cloud
 
 http:

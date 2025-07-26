@@ -15,8 +15,10 @@ info:
     max-request: 2
     vendor: rconfig
     product: rconfig
-    shodan-query: http.title:"rConfig"
+    shodan-query: http.title:"rconfig"
     runzero-match: any(each(service["html.titles"]), {# matches "rConfig"})
+    fofa-query: title="rconfig"
+    google-query: intitle:"rconfig"
   tags: rconfig,default-login
 
 http:

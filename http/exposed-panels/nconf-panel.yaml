@@ -16,6 +16,8 @@ info:
     product: nconf
     shodan-query: http.title:"nconf"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)nconf"})
+    fofa-query: title="nconf"
+    google-query: intitle:"nconf"
   tags: panel,nconf
 
 http:

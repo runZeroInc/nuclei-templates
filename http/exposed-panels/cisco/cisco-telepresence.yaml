@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: cisco
     product: telepresence_tc
-    shodan-query: http.title:"Cisco Telepresence"
+    shodan-query: http.title:"cisco telepresence"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco Telepresence"})
+    fofa-query: title="cisco telepresence"
+    google-query: intitle:"cisco telepresence"
   tags: panel,cisco
 
 http:

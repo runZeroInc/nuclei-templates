@@ -13,9 +13,7 @@ info:
     vendor: apache
     product: apisix
     shodan-query: http.title:"apache apisix dashboard"
-    fofa-query:
-      - title="Apache APISIX Dashboard"
-      - title="apache apisix dashboard"
+    fofa-query: title="apache apisix dashboard"
     google-query: intitle:"apache apisix dashboard"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache apisix dashboard"})
   tags: apache,apisix,panel,login,detect

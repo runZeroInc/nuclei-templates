@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: ui
     product: unifi_network_application
-    shodan-query: http.title:"UniFi Network"
+    shodan-query: http.title:"unifi network"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)UniFi Network"})
+    fofa-query: title="unifi network"
+    google-query: intitle:"unifi network"
   tags: unifi,ubnt,panel
 
 http:

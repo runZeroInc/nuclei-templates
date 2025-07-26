@@ -17,8 +17,10 @@ info:
     max-request: 1
     vendor: datahub_project
     product: datahub
-    shodan-query: http.title:"DataHub"
+    shodan-query: http.title:"datahub"
     runzero-match: any(each(service["html.titles"]), {# matches "DataHub"})
+    fofa-query: title="datahub"
+    google-query: intitle:"datahub"
   tags: datahub,default-login
 
 http:

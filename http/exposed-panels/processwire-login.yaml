@@ -15,9 +15,14 @@ info:
     max-request: 1
     vendor: processwire
     product: processwire
-    shodan-query: http.html:"processwire"
-    fofa-query: body="processwire"
+    shodan-query:
+      - http.html:"processwire"
+      - http.title:"processwire 3.x installer"
+    fofa-query:
+      - body="processwire"
+      - title="processwire 3.x installer"
     runzero-match: service["http.body"] matches "(?i)processwire"
+    google-query: intitle:"processwire 3.x installer"
   tags: panel,processwire
 
 http:

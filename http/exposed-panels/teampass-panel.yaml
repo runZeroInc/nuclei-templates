@@ -15,7 +15,9 @@ info:
     vendor: teampass
     product: teampass
     shodan-query: http.html:"teampass"
-    fofa-query: body="teampass"
+    fofa-query:
+      - body="teampass"
+      - app="teampass"
     runzero-match: service["http.body"] matches "(?i)teampass"
   tags: panel,teampass
 

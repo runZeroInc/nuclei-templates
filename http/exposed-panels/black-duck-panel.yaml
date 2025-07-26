@@ -18,8 +18,10 @@ info:
     max-request: 1
     vendor: synopsys
     product: black_duck_hub
-    shodan-query: http.title:"Black Duck"
+    shodan-query: http.title:"black duck"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Black Duck"})
+    fofa-query: title="black duck"
+    google-query: intitle:"black duck"
   tags: panel,blackduck,synopsys
 
 http:

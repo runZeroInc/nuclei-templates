@@ -10,6 +10,10 @@ info:
     max-request: 1
     shodan-query: http.title:"datagerry"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)datagerry"})
+    product: datagerry
+    vendor: becon
+    fofa-query: title="datagerry"
+    google-query: intitle:"datagerry"
   tags: datagerry,default-login
 variables:
   username: admin

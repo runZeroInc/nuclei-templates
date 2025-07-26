@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: nascent
     product: remkon_device_manager
-    shodan-query: http.title:"Remkon Device Manager"
+    shodan-query: http.title:"remkon device manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Remkon Device Manager"})
+    fofa-query: title="remkon device manager"
+    google-query: intitle:"remkon device manager"
   tags: panel,remkon,login
 
 http:

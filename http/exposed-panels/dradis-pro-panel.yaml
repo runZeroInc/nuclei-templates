@@ -16,8 +16,10 @@ info:
     max-request: 1
     vendor: dradisframework
     product: dradis
-    shodan-query: title:"Dradis Professional Edition"
+    shodan-query: http.title:"dradis professional edition"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dradis Professional Edition"})
+    fofa-query: title="dradis professional edition"
+    google-query: intitle:"dradis professional edition"
   tags: panel,dradis
 
 http:

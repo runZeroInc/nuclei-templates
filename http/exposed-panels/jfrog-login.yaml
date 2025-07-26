@@ -17,8 +17,12 @@ info:
     max-request: 2
     vendor: jfrog
     product: artifactory
-    shodan-query: "http.title:\"JFrog\""
+    shodan-query:
+      - http.title:"jfrog"
+      - cpe:"cpe:2.3:a:jfrog:artifactory"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)JFrog"})
+    fofa-query: title="jfrog"
+    google-query: intitle:"jfrog"
   tags: panel,jfrog,edb,detect,login
 
 http:

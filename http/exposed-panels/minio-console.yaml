@@ -13,9 +13,12 @@ info:
     max-request: 1
     vendor: minio
     product: console
-    shodan-query: title:"MinIO Console"
-    fofa-query: app="MinIO-Console"
+    shodan-query: http.title:"minio console"
+    fofa-query:
+      - app="minio-console"
+      - title="minio console"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)MinIO Console"})
+    google-query: intitle:"minio console"
   tags: panel,minio
 
 http:

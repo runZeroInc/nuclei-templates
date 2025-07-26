@@ -14,8 +14,13 @@ info:
     max-request: 2
     vendor: jorani
     product: jorani
-    shodan-query: html:"Login - Jorani"
+    shodan-query:
+      - http.html:"login - jorani"
+      - http.favicon.hash:"-2032163853"
     runzero-match: service["http.body"] matches "(?i)Login - Jorani"
+    fofa-query:
+      - body="login - jorani"
+      - icon_hash=-2032163853
   tags: panel,jorani,login
 
 http:

@@ -18,9 +18,13 @@ info:
     max-request: 2
     vendor: fit2cloud
     product: jumpserver
-    shodan-query: http.title:'JumpServer'
+    shodan-query: http.title:'jumpserver'
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)'JumpServer'"})
-    zoomeye-query: app="JumpServer Bastion Host"
+    zoomeye-query:
+      - app="jumpserver bastion host"
+      - title:'jumpserver'
+    fofa-query: title="jumpserver"
+    google-query: intitle:'jumpserver'
   tags: panel,jumpserver,login
 
 http:

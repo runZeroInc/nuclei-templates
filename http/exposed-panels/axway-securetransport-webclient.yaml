@@ -23,7 +23,6 @@ info:
       - title="securetransport" || http.favicon.hash:1330269434
       - title="st web client"
     google-query:
-      - intitle:"ST Web Client"
       - intitle:"st web client"
       - intitle:"securetransport" || http.favicon.hash:1330269434
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)st web client"}) || any(each(service["html.titles"]), {# matches "(?i)securetransport"})

@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: extremenetworks
     product: aerohive_netconfig
-    shodan-query: http.title:"Aerohive NetConfig UI"
+    shodan-query: http.title:"aerohive netconfig ui"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aerohive NetConfig UI"})
+    fofa-query: title="aerohive netconfig ui"
+    google-query: intitle:"aerohive netconfig ui"
   tags: panel,tech,hiveos,aerohive
 
 http:

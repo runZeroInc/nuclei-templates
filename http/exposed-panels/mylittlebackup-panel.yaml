@@ -17,8 +17,9 @@ info:
     max-request: 3
     vendor: mylittletools
     product: mylittlebackup
-    shodan-query: http.html:"myLittleBackup"
+    shodan-query: http.html:"mylittlebackup"
     runzero-match: service["http.body"] matches "(?i)myLittleBackup"
+    fofa-query: body="mylittlebackup"
   tags: panel,mylittlebackup
 
 http:

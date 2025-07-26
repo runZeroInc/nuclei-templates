@@ -16,9 +16,7 @@ info:
     product: roxy_fileman
     shodan-query: http.title:"roxy file manager"
     fofa-query: title="roxy file manager"
-    google-query:
-      - intitle:"Roxy file manager"
-      - intitle:"roxy file manager"
+    google-query: intitle:"roxy file manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)roxy file manager"})
   tags: tech,roxy,fileman,panel,roxyfileman
 

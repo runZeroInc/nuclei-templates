@@ -15,8 +15,10 @@ info:
     max-request: 1
     vendor: saltstack
     product: saltstack
-    shodan-query: title:"SaltStack Config"
+    shodan-query: http.title:"saltstack config"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)SaltStack Config"})
+    fofa-query: title="saltstack config"
+    google-query: intitle:"saltstack config"
   tags: panel,vmware,login,saltstack
 
 http:

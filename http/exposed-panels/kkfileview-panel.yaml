@@ -14,8 +14,15 @@ info:
     max-request: 1
     vendor: keking
     product: kkfileview
-    shodan-query: http.title:"kkFileView"
+    shodan-query:
+      - http.title:"kkfileview"
+      - http.html:"kkfileview"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kkFileView"})
+    fofa-query:
+      - app="kkfileview"
+      - body="kkfileview"
+      - title="kkfileview"
+    google-query: intitle:"kkfileview"
   tags: panel,kkfileview
 
 http:

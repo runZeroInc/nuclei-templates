@@ -14,7 +14,7 @@ info:
     max-request: 1
     vendor: docebo
     product: docebo
-    fofa-query: title="Docebo E-learning"
+    fofa-query: title="docebo e-learning"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Docebo E-learning"})
   tags: panel,docebo
 

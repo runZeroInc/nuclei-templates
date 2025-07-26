@@ -14,9 +14,10 @@ info:
     max-request: 2
     vendor: factorfx
     product: ocs_inventory
-    shodan-query: title:"OCS Inventory"
-    fofa-query: title="OCS Inventory"
+    shodan-query: http.title:"ocs inventory"
+    fofa-query: title="ocs inventory"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)OCS Inventory"})
+    google-query: intitle:"ocs inventory"
   tags: ocs-inventory,panel
 
 http:

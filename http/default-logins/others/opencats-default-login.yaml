@@ -16,8 +16,10 @@ info:
     max-request: 4
     vendor: opencats
     product: opencats
-    shodan-query: title:"opencats"
+    shodan-query: http.title:"opencats"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)opencats"})
+    fofa-query: title="opencats"
+    google-query: intitle:"opencats"
   tags: default-login,opencats
 
 http:

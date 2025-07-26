@@ -14,8 +14,16 @@ info:
     max-request: 1
     vendor: jamf
     product: jamf
-    shodan-query: http.html:"Jamf Pro Setup"
+    shodan-query:
+      - http.html:"jamf pro setup"
+      - http.favicon.hash:"1262005940"
+      - http.title:"jamf pro"
     runzero-match: service["http.body"] matches "(?i)Jamf Pro Setup"
+    fofa-query:
+      - body="jamf pro setup"
+      - icon_hash=1262005940
+      - title="jamf pro"
+    google-query: intitle:"jamf pro"
   tags: jamf,setup,panel
 
 http:

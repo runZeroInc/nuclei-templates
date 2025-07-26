@@ -14,8 +14,10 @@ info:
     max-request: 1
     vendor: webroot
     product: secureanywhere
-    shodan-query: title:"Webroot - Login"
+    shodan-query: http.title:"webroot - login"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Webroot - Login"})
+    fofa-query: title="webroot - login"
+    google-query: intitle:"webroot - login"
   tags: panel,webroot
 
 http:

@@ -18,6 +18,7 @@ info:
     product: elasticsearch
     shodan-query: http.title:"Elastic" || http.favicon.hash:1328449667
     runzero-match: any(each(service["html.titles"]), {# matches "Elastic"})
+    fofa-query: index_not_found_exception
   tags: default-login,elasticsearch
 
 http:

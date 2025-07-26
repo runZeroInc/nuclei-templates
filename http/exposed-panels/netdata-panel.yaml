@@ -19,10 +19,14 @@ info:
     product: netdata
     shodan-query:
       - http.title:"netdata dashboard"
-      - http.title:"Netdata Console"
-      - "server: netdata embedded http server"
-    fofa-query: title="netdata dashboard"
-    google-query: intitle:"netdata dashboard"
+      - http.title:"netdata console"
+      - server:"netdata embedded http server"
+    fofa-query:
+      - title="netdata dashboard"
+      - title="netdata console"
+    google-query:
+      - intitle:"netdata dashboard"
+      - intitle:"netdata console"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)netdata dashboard"}) || any(each(service["html.titles"]), {# matches "(?i)Netdata Console"})
   tags: panel,netdata
 

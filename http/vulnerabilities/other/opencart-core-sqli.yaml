@@ -15,9 +15,17 @@ info:
     max-request: 2
     vendor: opencart
     product: opencart
-    shodan-query: title:"OpenCart"
-    fofa-query: icon_hash="-1443008128"
+    shodan-query:
+      - http.title:"opencart"
+      - cpe:"cpe:2.3:a:opencart:opencart"
+      - http.favicon.hash:"-1443008128"
+      - http.html:"opencart"
+    fofa-query:
+      - icon_hash="-1443008128"
+      - body="opencart"
+      - title="opencart"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenCart"})
+    google-query: intitle:"opencart"
   tags: time-based-sqli,opencart,sqli
 flow: http(1) && http(2)
 

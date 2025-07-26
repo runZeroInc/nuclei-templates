@@ -14,8 +14,9 @@ info:
     max-request: 1
     vendor: telosalliance
     product: omnia_mpx_node
-    shodan-query: http.html:"Omnia MPX"
+    shodan-query: http.html:"omnia mpx"
     runzero-match: service["http.body"] matches "(?i)Omnia MPX"
+    fofa-query: body="omnia mpx"
   tags: panel,omnia,omniampx
 
 http:

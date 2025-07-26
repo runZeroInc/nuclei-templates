@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: oracle
     product: integrated_lights_out_manager_firmware
-    shodan-query: http.title:"Oracle(R) Integrated Lights Out Manager"
+    shodan-query: http.title:"oracle(r) integrated lights out manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle\\(R\\) Integrated Lights Out Manager"})
+    fofa-query: title="oracle(r) integrated lights out manager"
+    google-query: intitle:"oracle(r) integrated lights out manager"
   tags: oracle,login,panel
 
 http:

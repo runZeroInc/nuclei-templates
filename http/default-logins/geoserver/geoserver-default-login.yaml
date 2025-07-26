@@ -17,8 +17,14 @@ info:
     max-request: 2
     vendor: geoserver
     product: geoserver
-    fofa-query: app="GeoServer"
+    fofa-query:
+      - app="geoserver"
+      - title="geoserver"
     runzero-match: 'any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})'
+    shodan-query:
+      - http.title:"geoserver"
+      - server:"geohttpserver"
+    google-query: intitle:"geoserver"
   tags: geoserver,default-login
 
 http:

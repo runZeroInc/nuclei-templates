@@ -13,8 +13,9 @@ info:
     max-request: 1
     vendor: joget
     product: joget_dx
-    shodan-query: http.favicon.hash:-1343712810
+    shodan-query: http.favicon.hash:"-1343712810"
     runzero-match: service["favicon.ico.image.mmh3"] == "-1343712810"
+    fofa-query: icon_hash=-1343712810
   tags: panel,joget
 
 http:

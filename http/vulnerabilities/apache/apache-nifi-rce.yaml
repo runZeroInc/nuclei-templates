@@ -17,8 +17,12 @@ info:
     max-request: 1
     vendor: apache
     product: nifi
-    shodan-query: "title:\"NiFi\""
+    shodan-query: http.title:"nifi"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)NiFi"})
+    fofa-query:
+      - title="nifi"
+      - title="nifi" && body="did you mean"
+    google-query: intitle:"nifi"
   tags: packetstorm,apache,nifi,rce
 
 http:

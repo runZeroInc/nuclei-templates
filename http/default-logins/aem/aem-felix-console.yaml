@@ -18,9 +18,11 @@ info:
     vendor: adobe
     product: experience_manager_cloud_service
     shodan-query:
-      - http.title:"AEM Sign In"
-      - http.component:"Adobe Experience Manager"
+      - http.title:"aem sign in"
+      - http.component:"adobe experience manager"
     runzero-match: any(each(service["html.titles"]), {# matches "AEM Sign In"})
+    fofa-query: title="aem sign in"
+    google-query: intitle:"aem sign in"
   tags: default-login,misconfig,aem,adobe
 
 http:

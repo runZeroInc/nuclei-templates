@@ -15,9 +15,16 @@ info:
     max-request: 1
     vendor: intelbras
     product: iwr_3000n
-    shodan-query: http.title:"Intelbras"
-    google-query: intitle:"Intelbras" "All Rights Reserved" -.com
+    shodan-query:
+      - http.title:"intelbras"
+      - http.title:"intelbras" "all rights reserved" -.com
+    google-query:
+      - intitle:"intelbras" "all rights reserved" -.com
+      - intitle:"intelbras"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Intelbras"})
+    fofa-query:
+      - title="intelbras"
+      - title="intelbras" "all rights reserved" -.com
   tags: panel,edb
 
 http:

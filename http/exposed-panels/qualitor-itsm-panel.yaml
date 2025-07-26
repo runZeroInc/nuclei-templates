@@ -14,6 +14,11 @@ info:
     max-request: 1
     shodan-query: http.favicon.hash:"-1217039701"
     runzero-match: service["favicon.ico.image.mmh3"] == "-1217039701"
+    product: qualitor
+    vendor: qualitor
+    fofa-query:
+      - icon_hash="-1217039701"
+      - qualitor
   tags: panel,qualitor
 
 http:

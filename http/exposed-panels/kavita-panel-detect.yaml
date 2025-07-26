@@ -16,8 +16,12 @@ info:
     max-request: 1
     vendor: kavitareader
     product: kavita
-    shodan-query: http.title:"kavita"
-    fofa-query: title="kavita"
+    shodan-query:
+      - http.title:"kavita"
+      - http.html:"kavita"
+    fofa-query:
+      - title="kavita"
+      - body="kavita"
     google-query: intitle:"kavita"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kavita"})
   tags: panel,kavita

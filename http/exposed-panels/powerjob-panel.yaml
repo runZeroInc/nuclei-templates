@@ -14,8 +14,15 @@ info:
     max-request: 1
     vendor: powerjob
     product: powerjob
-    fofa-query: title="PowerJob"
+    fofa-query:
+      - title="powerjob"
+      - app="powerjob"
+      - body="powerjob"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)PowerJob"})
+    shodan-query:
+      - http.html:"powerjob"
+      - http.title:"powerjob"
+    google-query: intitle:"powerjob"
   tags: panel,powerjob
 
 http:

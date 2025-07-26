@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: gfi
     product: kerio_connect
-    shodan-query: http.title:"Kerio Connect Client"
+    shodan-query: http.title:"kerio connect client"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kerio Connect Client"})
+    fofa-query: title="kerio connect client"
+    google-query: intitle:"kerio connect client"
   tags: panel,kerio
 
 http:

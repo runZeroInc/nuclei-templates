@@ -13,8 +13,10 @@ info:
     max-request: 1
     vendor: selenium
     product: selenium_grid
-    shodan-query: http.title:"Selenium Grid"
+    shodan-query: http.title:"selenium grid"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Selenium Grid"})
+    fofa-query: title="selenium grid"
+    google-query: intitle:"selenium grid"
   tags: panel,unauth,selenium
 
 http:
