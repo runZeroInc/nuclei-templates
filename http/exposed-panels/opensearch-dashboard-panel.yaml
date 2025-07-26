@@ -28,3 +28,4 @@ http:
           - "OpenSearch Dashboard"
           - "login"
         condition: and
+

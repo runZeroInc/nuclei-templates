@@ -41,3 +41,4 @@ http:
           - "status_code == 303"
           - "contains(header, 'Location: /hmc/connect;jsessionid=')"
         condition: and
+

@@ -38,3 +38,4 @@ http:
         group: 1
         regex:
           - "lookerVersion: '([0-9.]+)',"
+

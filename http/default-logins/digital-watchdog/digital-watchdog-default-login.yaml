@@ -42,3 +42,4 @@ http:
           - 'contains(body, "token\":")'
           - 'status_code == 200'
         condition: and
+

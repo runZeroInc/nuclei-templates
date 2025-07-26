@@ -38,3 +38,4 @@ http:
           - "ofbiz-pagination-template"
           - "<span>Powered by OFBiz</span>"
         condition: and
+

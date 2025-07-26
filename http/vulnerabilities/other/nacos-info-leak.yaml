@@ -35,3 +35,4 @@ http:
           - 'regex("attachment;filename=(.*).zip", content_disposition)'
           - 'status_code == 200'
         condition: and
+

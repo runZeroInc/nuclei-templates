@@ -47,3 +47,4 @@ http:
       - type: dsl
         dsl:
           - "contains(tolower(header), 'ms_session_id')"
+

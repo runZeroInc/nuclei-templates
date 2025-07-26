@@ -34,3 +34,4 @@ http:
           - 'contains(body_2,"var IsHeadMin ")'
           - 'contains(header_1,"redirect.php") && !contains(tolower(header_1), "error=1")'
         condition: and
+

@@ -43,3 +43,4 @@ http:
         group: 1
         regex:
           - '<p align="center">([0-9.]+)<\/p>'
+

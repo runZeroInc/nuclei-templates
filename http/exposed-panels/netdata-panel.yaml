@@ -65,3 +65,4 @@ http:
         group: 1
         regex:
           - '(?i)nodeEnv:\s+"([a-z0-9]+)"'
+

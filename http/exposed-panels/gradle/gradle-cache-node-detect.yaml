@@ -36,3 +36,4 @@ http:
         regex:
           - '(?i)"applicationVersion":"([0-9.]+)"'
           - '(?i)Gradle\s+Enterprise\s+Build\s+Cache\s+Node\s+([0-9.]+)'
+

@@ -67,3 +67,4 @@ http:
           - '"token_type":'
           - '"refresh_token":'
         condition: and
+

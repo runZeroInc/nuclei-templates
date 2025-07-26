@@ -32,3 +32,4 @@ http:
         regex:
           - 'RT(?:\sVersion)?\s+(\d+\.\d+\.\d+)'
         group: 1
+

@@ -25,3 +25,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>Haivision Gateway", "content=\"Haivision Gateway")'
         condition: and
+

@@ -30,3 +30,4 @@ http:
           - "Loading DbGate App"
           - "DbGate - web based opensource database administration tool for MS SQL, MySQL, Postgre SQL"
         condition: or
+

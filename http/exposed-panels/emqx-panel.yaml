@@ -39,3 +39,4 @@ http:
         group: 1
         regex:
           - 'but\s+(emqx\-dashboard[0-9a-z\-]+)'
+

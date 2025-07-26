@@ -60,3 +60,4 @@ http:
         part: header
         regex:
           - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
+

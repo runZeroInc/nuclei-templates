@@ -41,3 +41,4 @@ http:
         name: authresult
         regex:
           - '"authResult"\s*:\s*0'
+

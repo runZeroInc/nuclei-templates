@@ -41,3 +41,4 @@ http:
           - "status_code==200"
           - 'contains(body, "SEAFILE_GLOBAL") && contains(body, "seafile-ui.css")'
         condition: and
+

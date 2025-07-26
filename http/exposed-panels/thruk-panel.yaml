@@ -48,3 +48,4 @@ http:
         group: 1
         regex:
           - '(?i)version_info\s*=\s*.?([a-z0-9./\s.-]+).?'
+
