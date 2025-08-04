@@ -34,3 +34,4 @@ http:
           - '<link href="/css/archiver.css'
           - '<div id="barracuda_info" style="float:right">'
         condition: and
+
