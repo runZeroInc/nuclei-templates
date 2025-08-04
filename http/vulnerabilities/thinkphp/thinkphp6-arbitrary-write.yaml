@@ -20,7 +20,6 @@ info:
     shodan-query:
       - http.title:"thinkphp"
       - cpe:"cpe:2.3:a:thinkphp:thinkphp"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ThinkPHP"})
     zoomeye-query: app="thinkphp"
     fofa-query:
       - app="thinkphp"

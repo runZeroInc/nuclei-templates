@@ -23,7 +23,6 @@ info:
       - http.favicon.hash:"116323821"
       - cpe:"cpe:2.3:a:h2database:h2"
       - http.title:"h2 console"
-    runzero-match: service["favicon.ico.image.mmh3"] == "116323821"
     fofa-query:
       - icon_hash=116323821
       - title="h2 console"
