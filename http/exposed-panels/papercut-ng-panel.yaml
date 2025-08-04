@@ -1,12 +1,14 @@
-id: papercut-login-panel
+id: papercut-ng-panel
 
 info:
-  name: PaperCut Panel - Detect
+  name: PaperCut NG Panel - Detect
   author: ritikchaddha
   severity: info
   description: |
     PaperCut is a print management system. Log in to manage your print quotas, see your print history and configure your system.
   classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
     cpe: cpe:2.3:a:papercut:papercut_ng:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: |-
@@ -19,13 +21,19 @@ info:
       - html:'content="PaperCut'
       - html:'content="papercut'
     shodan-query:
+      - product:"PaperCut MF"
+      - title:"PaperCut Login"
+      - http.favicon.hash:-1142586156
       - http.html:'content="papercut'
       - cpe:"cpe:2.3:a:papercut:papercut_ng"
       - http.html:"content=\"papercut\""
     fofa-query:
+      - icon_hash="-1142586156"
+      - title="PaperCut Login"
       - body='content="papercut'
       - body="content=\"papercut\""
-  tags: panel,papercut,detect
+    zoomeye-query: app:"PaperCut"
+  tags: panel,papercut,detect,papercut-ng
 
 http:
   - method: GET
@@ -41,10 +49,17 @@ http:
         part: body
         words:
           - 'content="PaperCut'
-          - '<title>PaperCut Login'
+          - "<title>PaperCut Login"
         condition: or
 
       - type: status
         status:
           - 200
 
+
+    extractors:
+      - type: regex
+        name: build
+        group: 1
+        regex:
+          - "\\/css\\/style\\.css\\?(\\d+)papercut-mf"
