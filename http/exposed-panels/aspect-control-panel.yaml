@@ -1,8 +1,8 @@
 id: aspect-control-panel
 
 info:
-  name: ASPECT Control Panel Login - Detect
-  author: JustaAcat
+  name: ASPECT Control Panel - Detect
+  author: JustaAcat,darses
   severity: info
   description: |
     ASPECT Control Panel login was detected.
@@ -15,10 +15,15 @@ info:
         service["favicon.ico.image.mmh3"] == "1011076161"
     verified: true
     max-request: 1
-    shodan-query: http.favicon.hash:1011076161
+    shodan-query:
+      - title:"ASPECT Control Panel"
+      - http.favicon.hash:1011076161
+      - http.favicon.hash:-1849398868
+      - ssl.cert.subject.cn:"aspect.local"
+      - http.html:'src="libjs/pngfix.js"'
     product: aspect-ent-256
     vendor: abb
-  tags: panel,aspect,login
+  tags: detect,panel,aspect,login,abb,ics
 
 http:
   - method: GET
@@ -29,7 +34,9 @@ http:
     matchers:
       - type: word
         words:
-          - <title>ASPECT Control Panel</title>
+          - "<title>ASPECT Control Panel"
+          - 'src="libjs/pngfix.js"'
+        condition: or
 
       - type: status
         status:

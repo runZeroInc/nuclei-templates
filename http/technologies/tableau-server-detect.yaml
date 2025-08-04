@@ -1,13 +1,26 @@
 id: tableau-server-detect
 
 info:
-  name: Detect Tableau Server
+  name: Salesforce Tableau Server - Detect
   author: TechbrunchFR,aringo
   severity: info
-  description: Detects Tableau Server and extracts the buildid
+  description: |
+    Detects Salesforce Tableau Server and extracts the buildid.
   metadata:
     max-request: 1
-  tags: tech,tableau
+    vendor: salesforce
+    product: tableau_server
+    shodan-query:
+      - product:"Tableau Server"
+      - "X-Tableau: Tableau Server"
+      - "Server: Tableau"
+      - http.favicon.hash:-1441956789
+    fofa-query:
+      - "X-Tableau: Tableau Server"
+      - server=="Tableau"
+      - icon_hash="-1441956789"
+    zoomeye-query: app:"Tableau Server"
+  tags: tech,detect,tableau,salesforce
 
 http:
   - method: GET
