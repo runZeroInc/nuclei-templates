@@ -15,9 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: apache
-    product: druid
-    shodan-query: title:"Apache Druid"
-  tags: cve,cve2021,rce,jndi,log4j,apache,druid,oast
+  tags: cve,cve2021,rce,jndi,log4j,apache,druid,oast,kev
 
 http:
   - method: DELETE

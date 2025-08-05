@@ -2,7 +2,7 @@ id: opennebula-panel
 
 info:
   name: OpenNebula Login Panel - Detect
-  author: kh4sh3i
+  author: kh4sh3i,darses
   severity: info
   description: |
     OpenNebula login panel was detected.
@@ -15,9 +15,16 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.html:"opennebula"
-    runzero-match: service["http.body"] matches "(?i)opennebula"
-  tags: panel,opennebula,cloud
+    shodan-query:
+      - http.html:"opennebula"
+      - title:"OpenNebula Sunstone Login"
+      - http.favicon.hash:-1616420987
+      - http.favicon.hash:656672194
+    fofa-query:
+      - title="OpenNebula Sunstone Login"
+      - icon_hash="-119786698"
+      - icon_hash="656672194"
+  tags: panel,opennebula
 
 http:
   - method: GET
@@ -29,9 +36,17 @@ http:
       - type: word
         part: body
         words:
-          - 'OpenNebula'
-        case-insensitive: true
+          - "<title>OpenNebula"
+          - "OpenNebula Systems"
+          - 'target="_blank">OpenNebula'
+        condition: or
 
       - type: status
         status:
           - 200
+
+    extractors:
+      - type: regex
+        group: 1
+        regex:
+          - "href=\"css/app\\.min\\.css\\?v=([\\d\\.]+)\""

@@ -31,6 +31,11 @@ http:
 
     matchers-condition: and
     matchers:
+      - type: regex
+        name: authresult
+        regex:
+          - '"authResult"\s*:\s*0'
+
       - type: status
         status:
           - 201
@@ -41,3 +46,4 @@ http:
         name: authresult
         regex:
           - '"authResult"\s*:\s*0'
+
