@@ -26,7 +26,6 @@ info:
       - body="__gradio_mode__"
       - title="gradio"
     google-query: intitle:"gradio"
-    runzero-match: service["http.body"] matches "(?i)__gradio_mode__"
   tags: cve,cve2024,unauth,gradio,ssrf
 flow: http(1) && http(2)
 
