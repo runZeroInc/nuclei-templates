@@ -34,3 +34,4 @@ http:
           - "contains(body, 'Symfony') || contains(body, '403 Forbidden')"
           - "(\"8b2f83102bc96e5068d36df80301a64d\" == md5(body)) || (\"4df206fbc337c398c3b669172934c8cb\" == md5(body))"
         condition: and
+

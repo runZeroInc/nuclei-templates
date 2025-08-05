@@ -31,3 +31,4 @@ http:
         group: 1
         regex:
           - 'GlassFish\s+Server\s+([A-Za-z0-9\s.]+)(\n|\r)'
+

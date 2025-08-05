@@ -27,3 +27,4 @@ http:
       - type: word
         words:
           - "<title>Choose language | Drupal</title>"
+

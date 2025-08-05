@@ -35,3 +35,4 @@ http:
           - 'contains(body, "<svg/onload=alert(document.domain)>")'
           - 'contains(body, "PhotoBlocks")'
         condition: and
+

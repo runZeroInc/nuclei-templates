@@ -39,3 +39,4 @@ http:
           - "status_code_1 == 200 && contains(body_1,'create user ok!')"
           - "status_code_3 == 200 && contains(body_3,'delete user ok!')"
         condition: and
+

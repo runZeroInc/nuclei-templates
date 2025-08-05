@@ -23,3 +23,4 @@ http:
         part: body
         regex:
           - '(?i)codeclima.{0,50}\b([a-f0-9]{64})\b'
+

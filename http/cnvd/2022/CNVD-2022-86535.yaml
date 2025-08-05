@@ -41,3 +41,4 @@ http:
           - "CONFIGURATION"
           - "Successfully created"
         condition: and
+

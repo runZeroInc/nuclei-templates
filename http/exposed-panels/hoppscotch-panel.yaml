@@ -27,3 +27,4 @@ http:
           - 'contains(body, "<title>Hoppscotch")'
           - 'status_code == 200'
         condition: and
+

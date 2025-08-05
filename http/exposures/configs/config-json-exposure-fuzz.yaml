@@ -171,3 +171,4 @@ http:
         name: sensitive_endpoints
         regex:
           - 'https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/(?:login|api|admin|dashboard|auth)'
+

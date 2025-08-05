@@ -39,3 +39,4 @@ http:
         group: 1
         regex:
           - '(?m)<meta name=generator content="Hugo ([0-9.]+)">'
+

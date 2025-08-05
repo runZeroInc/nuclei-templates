@@ -41,3 +41,4 @@ http:
         regex:
           - '\* Version (.+) \('
           - "elFinder.prototype.version = '([0-9.]+)';"
+

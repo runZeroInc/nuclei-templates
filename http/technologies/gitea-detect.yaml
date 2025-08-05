@@ -41,3 +41,4 @@ http:
           - "Gitea Version: ([0-9a-z+-.~]+)"
           - 'theme-gitea-auto.css\?v=([0-9a-z+-.~]+)'
           - 'encodeURIComponent.{2}([0-9a-z+-.~]+).{2}'
+

@@ -30,3 +30,4 @@ http:
           - 'contains(content_type_2, "text/html")'
           - 'contains(body_2, "You have an error in your SQL syntax") && contains(body_1, "Phuket Solution")'
         condition: and
+

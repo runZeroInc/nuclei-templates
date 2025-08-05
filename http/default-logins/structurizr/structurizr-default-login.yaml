@@ -62,3 +62,4 @@ http:
         regex:
           - 'name="_csrf" value="([0-9a-z-]+)"'
         internal: true
+

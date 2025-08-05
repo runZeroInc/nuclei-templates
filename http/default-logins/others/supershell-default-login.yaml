@@ -38,3 +38,4 @@ http:
           - 'status_code_1 == 200 && !contains(body_1,"result\":\"failed")'
           - 'contains(header_1,"token=ey") && contains(body_1,"{\"result\":\"success")'
         condition: and
+

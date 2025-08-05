@@ -27,3 +27,4 @@ http:
           - "contains(body_1, 'tplus”应用程序中的服务器错误')"
           - "!contains(body_2, '>请重新登录')"
         condition: and
+

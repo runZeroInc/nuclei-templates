@@ -31,3 +31,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "you have successfully installed simplesamlphp", "simplesamlphp installation page", "/module.php/core/login-admin.php")'
         condition: and
+

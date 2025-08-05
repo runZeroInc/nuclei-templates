@@ -25,3 +25,4 @@ http:
           - contains(body, "CertEnroll") || contains(body, "certenroll")
           - status_code == 200
         condition: and
+

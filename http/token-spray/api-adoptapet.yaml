@@ -26,3 +26,4 @@ http:
           - 'returned_pets":'
           - 'total_pets":'
         condition: and
+

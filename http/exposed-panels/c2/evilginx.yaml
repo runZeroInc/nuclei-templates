@@ -26,3 +26,4 @@ http:
           - "status_code == 200 && contains(body, 'Evilginx')"
           - "(\"b18d778b4e4b6bf1fd5b2d790c941270145a6a6d\" == sha1(body))"
         condition: and
+

@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - '(?i)"gitVersion":\s*"([a-z0-9.]+)"'
+

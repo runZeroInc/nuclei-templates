@@ -24,3 +24,4 @@ http:
           - '[defaults]'
           - '[inventory]'
         condition: and
+

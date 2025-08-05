@@ -46,3 +46,4 @@ http:
         name: extracted_date
         dsl:
           - "date_time('%Y-%M-%D', extracted_unix_timestamp)"
+

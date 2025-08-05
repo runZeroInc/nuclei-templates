@@ -24,7 +24,7 @@ http:
         GET /index.do HTTP/1.1
         Host: {{Hostname}}
 
-  - 
+  -
     raw:
       - |
         POST /j_security_check HTTP/1.1
@@ -35,7 +35,7 @@ http:
 
         clienttype=html&webstart=&j_username=admin&ScreenWidth=1280&ScreenHeight=709&username={{username}}&j_password={{password}}
 
-  - 
+  -
     raw:
       - |
         GET /showresource.do?group=All&method=showResourceTypes&monitor_viewtype=categoryview HTTP/1.1
@@ -50,3 +50,4 @@ http:
           - "Super Administrator"
           - "Add Application"
         condition: and
+

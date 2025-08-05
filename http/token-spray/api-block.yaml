@@ -27,3 +27,4 @@ http:
           - '"available_balance"'
           - '"pending_received_balance"'
         condition: and
+

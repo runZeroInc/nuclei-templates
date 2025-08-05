@@ -57,3 +57,4 @@ http:
         regex:
           - 'name="csrf_test_jorani" value="([0-9a-z]+)"'
         internal: true
+

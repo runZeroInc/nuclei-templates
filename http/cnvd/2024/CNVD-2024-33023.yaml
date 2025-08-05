@@ -30,3 +30,4 @@ http:
           - 'contains(body,"iUFO")'
           - 'contains(content_type,"text/html")'
         condition: and
+

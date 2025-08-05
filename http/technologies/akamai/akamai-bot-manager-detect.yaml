@@ -28,3 +28,4 @@ http:
           - 'Set-Cookie:\s*bm_sz='
           - 'Set-Cookie:\s*bm_mi='
         condition: or
+

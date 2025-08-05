@@ -46,3 +46,4 @@ http:
           - 'duration>=7'
           - 'status_code == 500'
         condition: and
+

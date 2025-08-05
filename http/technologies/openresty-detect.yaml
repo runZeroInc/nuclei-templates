@@ -26,3 +26,4 @@ http:
         part: header
         regex:
           - 'openresty/[0-9.]+'
+

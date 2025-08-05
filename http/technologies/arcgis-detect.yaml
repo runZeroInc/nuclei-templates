@@ -38,3 +38,4 @@ http:
         regex:
           - '(?i)&copy;\s+([0-9]+)\s+Esri\.'
           - '<b>Current\s+Version:\s+<\/b>([0-9.]+)'
+

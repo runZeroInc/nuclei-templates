@@ -34,3 +34,4 @@ http:
         group: 1
         regex:
           - '"versionNumber":\s*"([0-9.]+)"'
+

@@ -43,3 +43,4 @@ http:
         regex:
           - '(?i)meta.name=.generator.*content=.vbulletin.([\d.|\d]+)'
           - '(?i)\*.vBulletin.([\d.|\d]+).CSS'
+

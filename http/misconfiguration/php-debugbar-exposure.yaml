@@ -30,3 +30,4 @@ http:
           - 'contains(header, "phpdebugbar-id")'
           - 'contains_all(body, "\"utime\"","\"datetime\"","{\"id") && contains(content_type, "application/json")'
         condition: or
+

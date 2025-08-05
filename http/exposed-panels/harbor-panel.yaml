@@ -43,3 +43,4 @@ http:
         group: 1
         regex:
           - '(?i)"harbor_version":\s*"([a-z0-9.\-]+)"'
+

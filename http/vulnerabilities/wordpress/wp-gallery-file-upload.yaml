@@ -48,3 +48,4 @@ http:
           - 'contains(content_type_1, "text/html") && contains(content_type_2, "image/png")'
           - 'contains(body_1, "success:true") && contains(body_2, "{{randstr}}")'
         condition: and
+

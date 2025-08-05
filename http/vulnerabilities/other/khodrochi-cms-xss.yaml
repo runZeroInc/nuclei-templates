@@ -26,3 +26,4 @@ http:
           - 'contains(header, "text/html")'
           - 'contains(body, "class=\"cons_form") && contains(body, "><img src=x onerror=prompt(document.domain)>")'
         condition: and
+

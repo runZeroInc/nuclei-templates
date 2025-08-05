@@ -39,3 +39,4 @@ http:
         name: available-endpoints
         json:
           - .[] | to_entries | .[].key
+

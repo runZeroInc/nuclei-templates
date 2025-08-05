@@ -48,3 +48,4 @@ http:
           - '"serial-number"'
           - '"zone-id":"'
         condition: and
+

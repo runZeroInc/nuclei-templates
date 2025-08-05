@@ -56,3 +56,4 @@ http:
         group: 1
         regex:
           - 'class="site-version">([0-9.x-]+)'
+

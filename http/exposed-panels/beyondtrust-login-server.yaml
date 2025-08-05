@@ -37,3 +37,4 @@ http:
         json:
           - ".domains[] | .DomainName"
           - ".domains[] | .ldapservers"
+

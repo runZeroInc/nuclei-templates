@@ -40,3 +40,4 @@ http:
       - type: json
         json:
           - .applinks.details[].appID
+

@@ -31,3 +31,4 @@ http:
           - 'contains(body, "<title>Dify")'
           - "status_code == 200"
         condition: and
+

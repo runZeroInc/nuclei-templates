@@ -27,3 +27,4 @@ http:
           - 'contains(body, "<title>NeoDash - Neo4j Dashboard Builder")'
           - 'status_code == 200'
         condition: and
+

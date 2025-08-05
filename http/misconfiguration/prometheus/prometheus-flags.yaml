@@ -38,3 +38,4 @@ http:
         name: web_admin_enabled
         regex:
           - '\"web\.enable\-admin\-api\"\: \"true\"'
+

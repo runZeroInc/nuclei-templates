@@ -40,3 +40,4 @@ http:
         name: version
         regex:
           - 'CUPS v([0-9.]+)>'
+

@@ -27,3 +27,4 @@ http:
           - '"terms"'
           - '"privacy"'
         condition: and
+

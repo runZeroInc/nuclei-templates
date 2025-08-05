@@ -25,3 +25,4 @@ http:
           - "__CSRF_TOKEN_PLACEHOLDER__"
         condition: and
         part: body
+

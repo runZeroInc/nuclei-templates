@@ -44,3 +44,4 @@ http:
         group: 1
         regex:
           - login.bundle.js\?v=([\d\.]+)
+

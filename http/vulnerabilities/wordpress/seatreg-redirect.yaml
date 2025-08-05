@@ -46,3 +46,4 @@ http:
         regex:
           - '"seatreg\-admin\-nonce" value="([0-9a-z]+)"'
         internal: true
+

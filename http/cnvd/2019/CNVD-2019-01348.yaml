@@ -36,3 +36,4 @@ http:
           - "/view/js/xiuno.js"
           - "Choose Language (选择语言)"
         condition: and
+

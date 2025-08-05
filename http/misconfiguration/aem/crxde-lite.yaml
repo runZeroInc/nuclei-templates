@@ -25,3 +25,4 @@ http:
       - type: word
         words:
           - "<title>CRXDE Lite</title>"
+

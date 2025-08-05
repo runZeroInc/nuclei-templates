@@ -43,3 +43,4 @@ http:
         group: 1
         regex:
           - '<script src="\/js\/pfSense\.js\?(.+)"><\/script>'
+

@@ -45,3 +45,4 @@ http:
           - '[0] => Array'
           - 'MySQL server error report:Array'
         condition: and
+

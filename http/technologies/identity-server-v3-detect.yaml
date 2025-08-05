@@ -38,3 +38,4 @@ http:
         group: 1
         regex:
           - '(?i)build\s+([a-z0-9.-]+)'
+

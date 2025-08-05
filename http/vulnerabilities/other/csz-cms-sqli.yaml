@@ -27,3 +27,4 @@ http:
           - 'status_code == 200'
           - 'contains(body, "CSZ CMS")'
         condition: and
+

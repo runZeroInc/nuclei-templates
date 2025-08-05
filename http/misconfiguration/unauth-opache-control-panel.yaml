@@ -24,3 +24,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Opcache Control Panel", "Reset", "Files")'
         condition: and
+

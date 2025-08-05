@@ -50,3 +50,4 @@ http:
           - 'xmlrpc'
           - 'isAdmin'
         condition: and
+

@@ -20,3 +20,4 @@ http:
           - "<debug>"
           - "<struts.actionMapping>"
         condition: and
+

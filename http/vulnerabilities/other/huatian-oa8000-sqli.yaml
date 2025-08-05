@@ -32,3 +32,4 @@ http:
           - 'contains(content_type, "text/xml")'
           - 'contains_all(body,"<buffalo-reply>" ,"<string>user()")'
         condition: and
+

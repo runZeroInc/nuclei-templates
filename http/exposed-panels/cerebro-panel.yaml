@@ -31,3 +31,4 @@ http:
         group: 1
         regex:
           - "<small>([a-z0-9.]+)</small>"
+

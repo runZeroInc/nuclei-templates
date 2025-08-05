@@ -41,3 +41,4 @@ http:
         name: fw_version
         json:
           - ".aimGetProp.fwVersionFull"
+

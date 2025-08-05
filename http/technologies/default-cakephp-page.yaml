@@ -38,3 +38,4 @@ http:
         group: 1
         regex:
           - "Welcome to CakePHP ([0-9.]+)"
+

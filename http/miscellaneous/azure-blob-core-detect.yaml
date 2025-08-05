@@ -22,3 +22,4 @@ http:
         part: response
         words:
           - "blob.core.windows.net"
+

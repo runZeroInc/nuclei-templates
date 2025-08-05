@@ -37,3 +37,4 @@ http:
       - type: status
         status:
           - 404
+

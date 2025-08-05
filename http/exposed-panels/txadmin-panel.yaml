@@ -24,3 +24,4 @@ http:
           - 'contains_any(body, "<title>txAdmin Login</title>", "txAdmin Logo")'
           - 'status_code == 200'
         condition: and
+

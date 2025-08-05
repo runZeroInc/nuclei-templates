@@ -37,3 +37,4 @@ http:
         part: body
         regex:
           - '[^\s]+'
+

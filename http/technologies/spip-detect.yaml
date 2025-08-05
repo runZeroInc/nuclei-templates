@@ -40,3 +40,4 @@ http:
         part: header
         regex:
           - 'Composed-By: SPIP ([0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2}) @ www.spip.net'
+

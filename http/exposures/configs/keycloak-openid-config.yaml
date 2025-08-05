@@ -35,3 +35,4 @@ http:
           - 'userinfo_endpoint'
           - 'jwks_uri'
         condition: and
+

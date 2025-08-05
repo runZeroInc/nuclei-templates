@@ -39,3 +39,4 @@ http:
           - 'contains(header,"text/xml")'
           - "status_code == 500"
         condition: and
+

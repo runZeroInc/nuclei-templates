@@ -19,3 +19,4 @@ http:
         words:
           - "<title>Welcome to nginx!</title>"
         part: body
+

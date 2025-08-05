@@ -42,3 +42,4 @@ http:
         group: 1
         regex:
           - '(?i).*<meta.name="generator".content="Open.Journal.Systems.([\d.|\d]+)'
+

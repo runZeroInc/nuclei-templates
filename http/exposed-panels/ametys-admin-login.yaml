@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - '&nbsp;([0-9.]+)</span>'
+

@@ -39,3 +39,4 @@ http:
           - 'contains(to_lower(header), "accept-ranges: bytes")'
           - 'contains(to_lower(header), "octet-stream")'
         condition: or
+

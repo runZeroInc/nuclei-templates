@@ -30,3 +30,4 @@ http:
           - contains(tolower(body), 'php version')
           - status_code == 200
         condition: and
+

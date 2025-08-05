@@ -26,3 +26,4 @@ http:
           - '"login":'
           - '"avatar_url":'
         condition: and
+

@@ -28,3 +28,4 @@ http:
           - <!-- /Block [a-z ]+ module (?:HEADER|TOP)?\s?-->
           - <!-- /Module Block [a-z ]+ -->
         condition: or
+

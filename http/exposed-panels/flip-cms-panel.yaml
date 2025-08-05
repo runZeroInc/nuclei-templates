@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - '<span class="copy">Copyright © 2022 • v\.(.+) • <a href="https:\/\/www.fliplab.it" target="_blank">'
+

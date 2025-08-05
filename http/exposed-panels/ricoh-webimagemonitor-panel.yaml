@@ -33,3 +33,4 @@ http:
         group: 1
         regex:
           - '(?i)<h2 id="modelName" style="z-index:1;">([A-Z0-9\s]+)</h2>'
+

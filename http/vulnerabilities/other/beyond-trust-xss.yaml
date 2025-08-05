@@ -31,3 +31,4 @@ http:
           - 'contains(content_type, "text/html")'
           - 'contains(body, "<svg/onload=alert(document.domain)>") && contains(body, "beyondtrust")'
         condition: and
+

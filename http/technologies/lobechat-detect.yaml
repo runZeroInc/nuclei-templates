@@ -26,3 +26,4 @@ http:
           - 'contains(body, "Welcome to LobeChat")'
           - 'status_code == 200'
         condition: and
+

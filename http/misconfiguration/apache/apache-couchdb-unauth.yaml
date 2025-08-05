@@ -27,3 +27,4 @@ http:
           - 'status_code == 200'
           - 'contains(body,"httpd_design_handlers") && contains(body,"external_manager")'
         condition: and
+

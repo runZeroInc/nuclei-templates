@@ -34,3 +34,4 @@ http:
       - type: binary
         binary:
           - "504B0304" # zip
+

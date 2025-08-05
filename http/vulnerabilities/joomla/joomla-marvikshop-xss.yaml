@@ -27,3 +27,4 @@ http:
           - 'contains(body, "<img src=a onerror=alert(document.domain)>") && contains(body, "TEP STOP")'
           - 'contains(content_type, "text/html")'
         condition: and
+

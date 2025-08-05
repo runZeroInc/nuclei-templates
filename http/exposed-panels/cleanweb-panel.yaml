@@ -35,3 +35,4 @@ http:
         group: 1
         regex:
           - 'title="version\s+([0-9A-Za-z\s\.\-]+)"'
+

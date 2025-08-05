@@ -57,3 +57,4 @@ http:
         group: 1
         regex:
           - 'currentAuth=([0-9a-zA-Z]+)'
+

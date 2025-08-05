@@ -35,3 +35,4 @@ http:
         regex:
           - '>PHP Version <\/td><td class="v">([0-9.]+)'
         part: body
+

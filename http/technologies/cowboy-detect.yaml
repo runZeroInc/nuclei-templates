@@ -24,3 +24,4 @@ http:
         words:
           - "Server: Cowboy"
         case-insensitive: true
+

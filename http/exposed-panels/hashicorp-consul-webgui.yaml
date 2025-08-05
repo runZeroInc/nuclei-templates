@@ -48,3 +48,4 @@ http:
         group: 1
         regex:
           - "CONSUL_VERSION:.*([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})"
+

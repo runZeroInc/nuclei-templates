@@ -46,3 +46,4 @@ http:
           - '!contains(body_3, "<HostId>")'
           - '!contains(header_3, "X-Interactsh-Version")'
         condition: and
+

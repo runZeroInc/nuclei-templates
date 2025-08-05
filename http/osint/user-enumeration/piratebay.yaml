@@ -27,3 +27,4 @@ headless:
           - "!contains(data, 'No results returned')"
           - "contains(data, 'User: {{user}}</label>')"
         condition: and
+

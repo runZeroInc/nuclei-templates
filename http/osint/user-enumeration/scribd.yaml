@@ -14,12 +14,11 @@ info:
     verified: true
   tags: osint,osint-social,scribd
 
-self-contained: true
-redirects: true
-max-redirects: 1
-
 http:
   - method: GET
+    self-contained: true
+    redirects: true
+    max-redirects: 1
     path:
       - "https://www.scribd.com/{{user}}"
 

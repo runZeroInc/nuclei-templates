@@ -28,3 +28,4 @@ http:
           - '"application.servers":'
           - '"application.application_hosts":'
         condition: and
+

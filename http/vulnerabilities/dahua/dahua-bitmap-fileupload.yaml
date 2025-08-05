@@ -50,3 +50,4 @@ http:
       - type: word
         words:
           - '{{base64_decode(cmd)}}'
+

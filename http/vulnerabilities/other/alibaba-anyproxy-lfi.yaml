@@ -26,3 +26,4 @@ http:
           - contains(body, '\"id\":')
           - status_code == 200
         condition: and
+

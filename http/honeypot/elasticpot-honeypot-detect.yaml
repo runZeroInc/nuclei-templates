@@ -24,3 +24,4 @@ http:
         part: body
         words:
           - 'index_not_found_exception'
+

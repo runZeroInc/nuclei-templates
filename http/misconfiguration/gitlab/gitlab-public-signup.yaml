@@ -40,3 +40,4 @@ http:
         negative: true
         words:
           - '<meta content="GitLab.com" property="og:description">'
+

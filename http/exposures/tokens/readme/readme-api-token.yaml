@@ -22,3 +22,4 @@ http:
         part: body
         regex:
           - (?i)\b(rdme_[a-z0-9]{70})(?:['|\"|\n|\r|\s|\x60|;]|$)
+

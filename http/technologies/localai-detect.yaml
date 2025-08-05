@@ -30,3 +30,4 @@ http:
           - 'contains_all(body, "alt=\"LocalAI Logo\"", "<title>LocalAI")'
           - 'status_code == 200'
         condition: and
+

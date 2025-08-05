@@ -51,3 +51,4 @@ http:
           - 'signup.validation.errors'
           - 'signup-username-error'
         condition: or
+

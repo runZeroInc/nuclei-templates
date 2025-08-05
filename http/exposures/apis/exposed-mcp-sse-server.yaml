@@ -40,3 +40,4 @@ http:
         name: message_endpoint
         regex:
           - 'data: ([/?_=a-zA-Z0-9-]+)'
+

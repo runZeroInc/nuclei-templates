@@ -26,3 +26,4 @@ http:
           - 'contains_any(body, "text\":\"HEC is healthy\",\"code")'
           - 'contains(header, "application/json")'
         condition: and
+

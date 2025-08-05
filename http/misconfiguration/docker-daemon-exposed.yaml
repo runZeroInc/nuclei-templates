@@ -37,3 +37,4 @@ http:
         regex:
           - '"ApiVersion":"(.*?)"'
         internal: true
+

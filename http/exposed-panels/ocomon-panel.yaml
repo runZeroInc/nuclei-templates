@@ -46,3 +46,4 @@ http:
         regex:
           - 'Versão: ([0-9.]+)'
           - 'Versão:&nbsp;([0-9.]+)'
+

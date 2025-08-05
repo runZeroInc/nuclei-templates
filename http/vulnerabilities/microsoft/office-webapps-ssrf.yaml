@@ -34,3 +34,4 @@ http:
           - contains(body,'<h1> Interactsh Server </h1>')
           - status_code == 200
         condition: and
+

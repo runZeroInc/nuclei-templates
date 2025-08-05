@@ -27,3 +27,4 @@ http:
           - '"formats":'
           - '"default_format":'
         condition: and
+

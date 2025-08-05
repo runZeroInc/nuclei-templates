@@ -25,3 +25,4 @@ http:
           - 'contains(body, "<title>Advanced Setup - Security - Admin User Name &amp; Password</title>")'
           - 'status_code == 200'
         condition: and
+

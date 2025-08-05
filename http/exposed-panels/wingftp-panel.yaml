@@ -42,3 +42,4 @@ http:
         group: 1
         regex:
           - 'Wing FTP Server\s+v?([0-9]+\.[0-9]+\.[0-9]+)'
+

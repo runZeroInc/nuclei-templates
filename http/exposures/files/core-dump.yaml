@@ -21,3 +21,4 @@ http:
       - type: regex
         regex:
           - '^\x7fELF'
+

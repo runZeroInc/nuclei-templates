@@ -57,3 +57,4 @@ http:
       - type: word
         words:
           - "You have logged in as 'admin'"
+

@@ -67,3 +67,4 @@ http:
           - 'contains(body, "id=\\\"input_username\\\"")'
         condition: and
         negative: true
+

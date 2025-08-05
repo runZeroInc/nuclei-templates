@@ -38,3 +38,4 @@ http:
           - 'contains(body_1,"CustomInfo") && contains(header_1,"PHPSESSID")'
           - 'contains(body_2,"src=\"custom/")'
         condition: and
+

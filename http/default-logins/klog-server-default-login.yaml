@@ -41,3 +41,4 @@ http:
           - 'contains_all(body, "<title>KLog Server", "ADMIN", "Dashboard")'
           - 'status_code == 200'
         condition: and
+

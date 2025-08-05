@@ -32,3 +32,4 @@ http:
         words:
           - "'@skip' can't be applied to queries (allowed: fields, fragment spreads, inline fragments)"
         part: body
+

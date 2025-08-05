@@ -74,3 +74,4 @@ http:
           - 'contains(body, "{{string}}")'
           - 'status_code == 200'
         condition: and
+

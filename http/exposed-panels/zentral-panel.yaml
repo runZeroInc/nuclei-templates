@@ -26,3 +26,4 @@ http:
           - '<title>Zentral</title>'
           - '<div class="panel-footer btn-group btn-group-justified"'
         condition: and
+

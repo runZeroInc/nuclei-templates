@@ -36,3 +36,4 @@ http:
         regex:
           - 'value="Version:&nbsp;([\d.]+)'
         part: body
+

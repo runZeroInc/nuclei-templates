@@ -58,3 +58,4 @@ http:
         group: 1
         regex:
           - "\\/css\\/style\\.css\\?(\\d+)papercut-mf"
+

@@ -27,3 +27,4 @@ http:
           - 'contains(body, "<ScRipT>alert(document.domain);</ScRipT>")'
           - 'contains(body, "Search result in")'
         condition: and
+

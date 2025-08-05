@@ -26,3 +26,4 @@ http:
           - 'contains(body, "<title>eKare inSight")'
           - 'status_code == 200'
         condition: and
+

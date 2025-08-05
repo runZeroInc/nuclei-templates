@@ -40,3 +40,4 @@ http:
           - 'status_code == 200'
           - 'contains(body, "content=\"Redmine")'
         condition: and
+

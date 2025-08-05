@@ -29,3 +29,4 @@ http:
           - '"symbol"'
           - '"cmc_rank"'
         condition: and
+

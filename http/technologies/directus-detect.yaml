@@ -29,3 +29,4 @@ http:
         words:
           - "X-Powered-By: Directus"
         case-insensitive: true
+

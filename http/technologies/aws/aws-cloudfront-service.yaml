@@ -22,3 +22,4 @@ http:
           - "contains(tolower(header), 'x-cache: refreshhit from cloudfront')"
           - "contains(tolower(header), 'x-cache: miss from cloudfront')"
           - "contains(tolower(header), 'x-cache: error from cloudfront')"
+

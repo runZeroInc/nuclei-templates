@@ -48,3 +48,4 @@ http:
         name: ext_js_version
         regex:
           - 'uniVars._extVer="(\d+\.\d+\.\d+)"'
+

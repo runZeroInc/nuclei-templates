@@ -59,3 +59,4 @@ http:
           - "contains(tolower(header), 'access-control-allow-origin: {{cors_origin}}')"
           - "contains(tolower(header), 'access-control-allow-credentials: true')"
         condition: and
+

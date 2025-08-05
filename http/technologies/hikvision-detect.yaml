@@ -38,3 +38,4 @@ http:
         name: favicon
         dsl:
           - "'999357577' == mmh3(base64_py(body))"
+

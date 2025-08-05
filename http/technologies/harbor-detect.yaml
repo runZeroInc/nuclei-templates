@@ -39,3 +39,4 @@ http:
         group: 1
         regex:
           - '(?m)"harbor_version":"([0-9.]+)",'
+

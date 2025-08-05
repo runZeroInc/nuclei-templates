@@ -40,3 +40,4 @@ http:
         group: 1
         regex:
           - 'Webalizer Version ([0-9.-]+)'
+

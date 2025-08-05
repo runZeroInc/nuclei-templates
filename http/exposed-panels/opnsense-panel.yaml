@@ -25,3 +25,4 @@ http:
           - 'contains(body, "| OPNsense</title>")'
           - 'status_code == 200'
         condition: and
+

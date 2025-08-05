@@ -62,3 +62,4 @@ http:
           - "contains(body, 'PHP License')"
           - "contains(body, 'symfony')"
         condition: and
+

@@ -25,3 +25,4 @@ http:
           - 'contains(body, "<title>Actifio Resource Center")'
           - 'status_code == 200'
         condition: and
+

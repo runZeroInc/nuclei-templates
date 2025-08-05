@@ -49,3 +49,4 @@ http:
         group: 1
         regex:
           - "version: '([0-9.]+)',"
+

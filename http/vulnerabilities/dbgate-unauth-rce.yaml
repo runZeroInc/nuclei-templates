@@ -33,3 +33,4 @@ http:
           - contains(body, '\"runid\"')
           - contains(interactsh_protocol, "dns")
         condition: and
+

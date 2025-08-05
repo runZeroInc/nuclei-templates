@@ -45,3 +45,4 @@ http:
           - "status_code_2 == 200 && contains(content_type_2, 'text/x-component') && !contains(cache_control_2, 'no-cache') && !contains(pragma_2, 'no-cache')"
           - "status_code_3 == 200 && contains(content_type_3, 'text/x-component') && !contains(cache_control_3, 'no-cache') && !contains(pragma_3, 'no-cache')"
         condition: and
+

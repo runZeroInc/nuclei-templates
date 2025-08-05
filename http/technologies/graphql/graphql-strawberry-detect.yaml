@@ -32,3 +32,4 @@ http:
         words:
           - "Directive '@deprecated' may not be used on query."
         part: body
+

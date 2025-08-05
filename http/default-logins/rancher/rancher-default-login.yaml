@@ -60,3 +60,4 @@ http:
         part: header
         regex:
           - 'Set-Cookie: CSRF=([a-z0-9]+)'
+

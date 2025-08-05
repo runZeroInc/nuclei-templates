@@ -25,3 +25,4 @@ http:
         negative: true
         words:
           - 'invalid key'
+

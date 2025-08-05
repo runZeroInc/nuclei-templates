@@ -34,3 +34,4 @@ http:
         group: 1
         regex:
           - '<h1>RouterOS v(.+)<\/h1>'
+

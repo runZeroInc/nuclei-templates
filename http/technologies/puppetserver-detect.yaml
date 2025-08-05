@@ -36,3 +36,4 @@ http:
       - type: kval
         kval:
           - x_puppet_version
+

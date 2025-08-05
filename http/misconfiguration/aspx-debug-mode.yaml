@@ -26,3 +26,4 @@ http:
           - 'regex("^OK$", body)'
           - 'status_code == 200'
         condition: and
+

@@ -38,3 +38,4 @@ http:
           - "ASPNETCORE_ENVIRONMENT"
           - "<environment include=\"Development\">"
         condition: and
+

@@ -51,3 +51,4 @@ http:
           - "contains(to_lower(body), 'identity.postman.co/continue')"
           - "status_code==200"
         condition: and
+

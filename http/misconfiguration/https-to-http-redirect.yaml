@@ -31,3 +31,4 @@ http:
           - 'status_code == 200'
           - 'contains(tolower(body), "<meta http-equiv=\"refresh\" content=\"0; url=http://")'
         condition: and
+

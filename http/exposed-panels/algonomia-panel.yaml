@@ -26,3 +26,4 @@ http:
           - 'contains_any(to_lower(body), "leafplatform", "leaf platform")'
           - 'contains(header, "application/json")'
         condition: and
+

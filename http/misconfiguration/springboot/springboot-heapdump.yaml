@@ -47,3 +47,4 @@ http:
           - "contains(hex_encode(body_2), '4a4156412050524f46494c45') || contains(hex_encode(body_2), '4850524f46')"
           - "contains(hex_encode(body_3), '4a4156412050524f46494c45') || contains(hex_encode(body_3), '4850524f46')"
         condition: or
+

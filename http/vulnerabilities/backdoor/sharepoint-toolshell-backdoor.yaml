@@ -36,3 +36,4 @@ http:
         name: machinekey
         regex:
           - '^[A-Z0-9]{64}\|HMACSHA256\|[A-Z0-9]{64}\|Auto\|Framework20SP1$'
+

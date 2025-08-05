@@ -32,3 +32,4 @@ http:
           - 'contains(body, "specs")'
           - 'status_code == 200'
         condition: and
+

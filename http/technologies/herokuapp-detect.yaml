@@ -20,3 +20,4 @@ http:
         regex:
           - "[a-z0-9.-]+\\.herokuapp\\.com"
           - "[a-z0-9.-]+\\.herokucdn\\.com"
+

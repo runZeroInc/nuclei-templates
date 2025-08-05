@@ -32,3 +32,4 @@ http:
         part: body
         words:
           - "schema.org/Person"
+

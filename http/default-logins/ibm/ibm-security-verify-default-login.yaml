@@ -41,3 +41,4 @@ http:
           - "status_code == 302"
           - "contains(set_cookie, 'LtpaToken2')"
         condition: and
+

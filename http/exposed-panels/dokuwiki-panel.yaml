@@ -37,3 +37,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "dokuwiki__header", "content=\"DokuWiki", "/dokuwiki/")'
         condition: and
+

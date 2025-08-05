@@ -43,3 +43,4 @@ http:
           - 'debug mode</a> is enabled.'
           - 'id="sfWebDebugSymfony"'
         condition: or
+

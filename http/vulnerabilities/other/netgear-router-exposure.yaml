@@ -46,3 +46,4 @@ http:
         group: 1
         regex:
           - "<serialNumber>([A-Z0-9]+)<\\/serialNumber>"
+

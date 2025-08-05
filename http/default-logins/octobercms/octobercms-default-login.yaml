@@ -66,3 +66,4 @@ http:
         group: 1
         regex:
           - 'meta name="csrf\-token" content="([A-Za-z0-9]+)">'
+

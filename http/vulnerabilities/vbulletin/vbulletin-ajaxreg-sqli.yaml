@@ -40,3 +40,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(header, "bb_lastvisit", "bb_sessionhash")'
         condition: and
+

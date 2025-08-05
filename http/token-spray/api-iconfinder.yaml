@@ -30,3 +30,4 @@ http:
           - '"is_icon_glyph":'
           - '"download_url":'
         condition: and
+

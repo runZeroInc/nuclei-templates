@@ -25,3 +25,4 @@ http:
           - 'contains_any(body, "<title>dizqueTV</title>", "dizquetv-logo")'
           - 'status_code == 200'
         condition: and
+

@@ -32,3 +32,4 @@ http:
         part: body
         words:
           - Welcome to Zenphoto! This page will set up Zenphoto
+

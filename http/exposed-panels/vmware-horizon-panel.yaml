@@ -33,3 +33,4 @@ http:
           - '(?m)^Missing route token in request$'
           - 'VMware Horizon'
         condition: or
+

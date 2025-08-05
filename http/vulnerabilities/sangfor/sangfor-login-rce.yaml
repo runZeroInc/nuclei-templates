@@ -30,3 +30,4 @@ http:
           - regex("uid=([0-9(a-z)]+) gid=([0-9(a-z)]+) groups=([0-9(a-z)]+)", body)
           - contains(body, "cluster_mode_others")
         condition: and
+

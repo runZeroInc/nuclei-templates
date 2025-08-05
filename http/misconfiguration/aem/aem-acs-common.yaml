@@ -36,3 +36,4 @@ http:
           - '<title>JCR Compare | ACS AEM Commons</title>'
           - '<title>Workflow Remover | ACS AEM Commons</title>'
         condition: or
+

@@ -25,3 +25,4 @@ http:
           - 'contains_any(body, "<title>Quivr - Get a Second Brain", "data-sentry-component=\"QuivrLogo\"")'
           - 'status_code == 200'
         condition: and
+

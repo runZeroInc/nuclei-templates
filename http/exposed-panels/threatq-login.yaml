@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - '<script src="/assets/js/threatq.min.js\?(.*)'
+

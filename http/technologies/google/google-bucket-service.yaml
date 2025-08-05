@@ -24,3 +24,4 @@ http:
           - contains(tolower(header), 'x-goog-stored-content-length')
           - contains(tolower(header), 'x-guploader-uploadid')
         condition: or
+

@@ -28,3 +28,4 @@ http:
         group: 1
         regex:
           - 'var\s+userNameValue\s*=\s*''([^\\]*)\\'
+

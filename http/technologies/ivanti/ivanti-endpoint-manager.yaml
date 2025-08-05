@@ -57,3 +57,4 @@ http:
           - '(?i)landdesk.*management'
           - '(?i)ivanti.*endpoint\s*manager'
         condition: or
+

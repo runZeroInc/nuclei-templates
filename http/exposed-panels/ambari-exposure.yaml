@@ -26,3 +26,4 @@ http:
           - '<title>Ambari</title>'
           - 'href="http://www.apache.org/licenses/LICENSE-2.0"'
         condition: and
+

@@ -34,3 +34,4 @@ http:
         group: 1
         regex:
           - 'ng-version="([0-9.]+)"'
+

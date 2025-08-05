@@ -50,3 +50,4 @@ http:
           - 'contains(content_type_2, "text/plain")'
           - "contains(body_2, '{{string}}')"
         condition: and
+

@@ -41,3 +41,4 @@ http:
           - '(?i)x-drupal'
           - "(?i)x-generator: drupal"
         condition: or
+

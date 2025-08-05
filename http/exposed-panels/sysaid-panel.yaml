@@ -44,3 +44,4 @@ http:
         group: 2
         regex:
           - "(ajaxTools\\.js|master\\.css)\\?v([\\d\\.\\w]+)\""
+

@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - '"application_title":"(([a-zA-Z]+\s)*[a-zA-Z]+)"'
+

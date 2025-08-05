@@ -32,3 +32,4 @@ http:
         words:
           - "Validation error of type InvalidSyntax: Invalid query syntax."
         part: body
+

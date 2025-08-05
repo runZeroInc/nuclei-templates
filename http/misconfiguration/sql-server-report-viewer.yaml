@@ -32,3 +32,4 @@ http:
           - "status_code_1 == 200 && status_code_2 != 401"
           - "contains(body, 'Data Source') && contains(body, 'SQL Server Reporting Services')"
         condition: and
+

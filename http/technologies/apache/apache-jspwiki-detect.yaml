@@ -34,3 +34,4 @@ http:
         part: body
         regex:
           - "JSPWiki v[0-9]+\\.[0-9]+\\.[0-9]+"
+

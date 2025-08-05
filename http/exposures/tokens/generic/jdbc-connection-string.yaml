@@ -18,3 +18,4 @@ http:
         part: body
         regex:
           - 'jdbc:[a-z:]+://[A-Za-z0-9\.\-_:;=/@?,&]+'
+

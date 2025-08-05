@@ -91,3 +91,4 @@ http:
           - '!contains(body, "<html")'
           - '!contains(body, "<HTML")'
         condition: and
+

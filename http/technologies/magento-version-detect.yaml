@@ -83,3 +83,4 @@ http:
         name: version
         regex:
           - 'Magento\/([0-9.]+) '
+

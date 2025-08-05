@@ -33,3 +33,4 @@ http:
         group: 1
         regex:
           - '(?i)Version\s+Adfinity([0-9.]+)'
+

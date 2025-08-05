@@ -33,3 +33,4 @@ http:
         part: header
         regex:
           - 'X\-Cocoon\-Version:([ 0-9.]+)'
+

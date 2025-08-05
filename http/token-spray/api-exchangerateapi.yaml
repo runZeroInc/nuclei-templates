@@ -27,3 +27,4 @@ http:
           - '"base_code"'
           - '"conversion_rates"'
         condition: and
+

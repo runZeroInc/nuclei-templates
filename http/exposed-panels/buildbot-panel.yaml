@@ -48,3 +48,4 @@ http:
         part: body
         regex:
           - '\[\"Buildbot\", \"([0-9.]+)\"\]'
+

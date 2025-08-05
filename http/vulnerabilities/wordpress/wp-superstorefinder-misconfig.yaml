@@ -33,3 +33,4 @@ http:
           - 'contains(body, "Name") && contains(body, "CategoriesTags") && contains(body, "email")'
           - 'contains(content_type, "text/html")'
         condition: and
+

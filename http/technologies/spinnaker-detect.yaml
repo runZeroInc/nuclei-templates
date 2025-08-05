@@ -24,3 +24,4 @@ http:
       - type: dsl
         dsl:
           - "contains(tolower(header), 'x-spinnaker-priority')"
+

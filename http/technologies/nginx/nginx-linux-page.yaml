@@ -19,3 +19,4 @@ http:
         words:
           - '<title>Test Page for the Nginx HTTP Server on Amazon Linux</title>'
         condition: and
+

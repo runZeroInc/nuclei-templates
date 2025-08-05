@@ -27,3 +27,4 @@ http:
           - 'contains(content_type, "text/html")'
           - 'contains_all(body, "onfocus=alert(document.domain) autofocus=", "catalog-results", "joomla")'
         condition: and
+

@@ -33,3 +33,4 @@ http:
         group: 1
         regex:
           - '"srcUrl":"\/([a-z/0-9_.]+)"'
+

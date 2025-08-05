@@ -34,3 +34,4 @@ http:
           - 'contains_all(body,"user_id","id")'
           - 'contains(content_type,"application/json")'
         condition: and
+

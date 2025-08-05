@@ -24,3 +24,4 @@ http:
           - contains_all(body, 'fastcgi_param','fastcgi_script')
           - contains(content_type, 'application/octet-stream')
         condition: and
+

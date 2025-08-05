@@ -44,3 +44,4 @@ http:
         name: version
         json:
           - .version
+

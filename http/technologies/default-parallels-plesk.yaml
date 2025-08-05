@@ -25,3 +25,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>default parallels plesk panel page</title>", "welcome to parallels")'
         condition: and
+

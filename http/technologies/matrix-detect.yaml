@@ -41,3 +41,4 @@ http:
           - '."m.server" | select( . != null )'
           - '."m.homeserver" | .base_url | select( . != null )'
           - '."m.identity_server" | .base_url | select( . != null )'
+

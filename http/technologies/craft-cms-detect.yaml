@@ -33,3 +33,4 @@ http:
         part: body
         regex:
           - '(?i)CRAFT_CSRF_TOKEN'
+

@@ -38,3 +38,4 @@ http:
           - 'contains(body_1, "{\"_result\":")'
           - 'contains(body_2, "{{data}}")'
         condition: and
+

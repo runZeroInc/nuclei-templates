@@ -30,3 +30,4 @@ http:
           - '"name":'
           - '"logoUrl":'
         condition: and
+

@@ -36,3 +36,4 @@ http:
         part: body
         regex:
           - "-----BEGIN PGP MESSAGE-----[\\s\\S]+?-----END PGP MESSAGE-----"
+

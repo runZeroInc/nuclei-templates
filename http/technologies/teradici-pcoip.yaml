@@ -28,3 +28,4 @@ http:
         group: 1
         regex:
           - 'PCoIP Connection Manager\/([0-9.]+)\.'
+

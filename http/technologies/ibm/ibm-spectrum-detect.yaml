@@ -36,3 +36,4 @@ http:
         regex:
           - '(?i)"guiVersion"\s*:\s*"([0-9.\-]+)"'
           - '(?i)name="?version"?\s+value="?([0-9.\-]+)"?'
+

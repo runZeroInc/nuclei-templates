@@ -36,3 +36,4 @@ http:
           - 'contains_any(header, "text/html", "application/json")'
           - 'status_code == 200 || status_code == 503'
         condition: and
+

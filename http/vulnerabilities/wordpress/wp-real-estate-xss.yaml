@@ -36,3 +36,4 @@ http:
           - 'contains(body, "<img src=x onerror=prompt(document.domain)>")'
           - 'contains(body, "/wp-content/themes/realestate-7/")'
         condition: and
+

@@ -42,3 +42,4 @@ http:
           - "^remote\\s*=\\s*"
           - '^\[(.*?)\]$'
         condition: and
+

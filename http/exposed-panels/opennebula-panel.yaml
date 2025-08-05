@@ -50,3 +50,4 @@ http:
         group: 1
         regex:
           - "href=\"css/app\\.min\\.css\\?v=([\\d\\.]+)\""
+

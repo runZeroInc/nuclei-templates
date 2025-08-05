@@ -28,3 +28,4 @@ http:
           - 'contains_any(body, "<title>StirlingPDF - Sign in", "content=\"StirlingPDF", "window.stirlingPDF")'
           - 'status_code == 200'
         condition: and
+

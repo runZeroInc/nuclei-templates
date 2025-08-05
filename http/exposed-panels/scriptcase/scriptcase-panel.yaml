@@ -48,3 +48,4 @@ http:
         group: 2
         regex:
           - '(Vers&atilde;o|Version|Versão)\b.*\s(\d.*\d)'
+

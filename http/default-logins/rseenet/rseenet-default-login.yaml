@@ -42,3 +42,4 @@ http:
         part: body
         words:
           - "User is succesfully logged."
+

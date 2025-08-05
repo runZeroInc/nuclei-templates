@@ -32,3 +32,4 @@ http:
           - 'contains(body_2, "{{randstr}}")'
           - 'status_code_2==400'
         condition: and
+

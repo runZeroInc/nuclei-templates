@@ -34,3 +34,4 @@ http:
           - "Www-Authenticate: NTLM"
           - "Www-Authenticate: Negotiate"
         condition: or
+

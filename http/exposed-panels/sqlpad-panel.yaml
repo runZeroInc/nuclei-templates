@@ -25,3 +25,4 @@ http:
           - 'contains_any(body, "<title>SQLPad</title>", "webpackJsonpsqlpad")'
           - 'status_code == 200'
         condition: and
+

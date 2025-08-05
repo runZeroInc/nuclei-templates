@@ -28,3 +28,4 @@ http:
           - 'status_code == 500'
           - 'contains(tolower(body), "yonyou")'
         condition: and
+

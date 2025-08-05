@@ -26,3 +26,4 @@ http:
           - 'contains(body, "><script>alert(document.domain)</script>") && contains(body, "New Topic")'
           - 'contains(content_type, "text/html")'
         condition: and
+

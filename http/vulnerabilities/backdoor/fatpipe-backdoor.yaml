@@ -37,3 +37,4 @@ http:
           - '"loginRes":"success"'
           - '"activeUserName":"cmuser"'
         condition: and
+

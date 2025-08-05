@@ -28,3 +28,4 @@ http:
           - 'contains(body, "<title>Aethra Telecommunications Operating System")'
           - 'status_code == 200'
         condition: and
+

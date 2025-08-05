@@ -46,3 +46,4 @@ http:
         name: version
         regex:
           - '"version":"([^"]+)"'
+

@@ -32,3 +32,4 @@ http:
           - 'contains(header, "text/xml")'
           - 'status_code == 200'
         condition: and
+

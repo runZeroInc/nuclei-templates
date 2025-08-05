@@ -26,3 +26,4 @@ http:
           - "<title>FastAPI - ReDoc</title>"
           - '{"title":"FastAPI"'
         condition: or
+

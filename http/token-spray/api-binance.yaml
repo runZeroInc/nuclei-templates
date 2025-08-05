@@ -29,3 +29,4 @@ http:
           - '"price":'
           - '"quoteQty":'
         condition: and
+

@@ -35,3 +35,4 @@ http:
           - 'content="TIBCO Spotfire'
           - '/spotfire/ui/'
         condition: or
+

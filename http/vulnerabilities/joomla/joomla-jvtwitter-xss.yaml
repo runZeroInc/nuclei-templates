@@ -30,3 +30,4 @@ http:
           - 'contains(body_1, "><img src=x onerror=prompt(document.domain)")'
           - 'contains(body_2,"{\"rs\":\"0")'
         condition: and
+

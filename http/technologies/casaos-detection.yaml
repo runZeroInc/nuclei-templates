@@ -31,3 +31,4 @@ http:
         group: 1
         regex:
           - CasaOS Version:\s*([0-9.]+)
+

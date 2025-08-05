@@ -27,3 +27,4 @@ http:
           - 'contains(body, "rentequip") && contains(body, "1026553;alert(document.domain)//772")'
           - 'contains(content_type, "text/html")'
         condition: and
+

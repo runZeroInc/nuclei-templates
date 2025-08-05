@@ -40,3 +40,4 @@ http:
           - '"consumer-key":'
           - '"consumer-secret":'
         condition: and
+

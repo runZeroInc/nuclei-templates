@@ -28,3 +28,4 @@ http:
         group: 1
         regex:
           - '(?i)onion-location:\s*(https?://[a-z0-9]+\.onion)'
+

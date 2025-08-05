@@ -50,3 +50,4 @@ http:
         group: 1
         regex:
           - '(?i)Login\s+-\s+Oracle\s+Access\s+Management\s+([a-z0-9]+)</title>'
+

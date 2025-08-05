@@ -46,3 +46,4 @@ http:
         regex:
           - '<span>([\d\.]+)</span>\n<span>licensed for</span>'
         group: 1
+

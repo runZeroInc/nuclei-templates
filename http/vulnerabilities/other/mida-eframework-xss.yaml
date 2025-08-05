@@ -34,3 +34,4 @@ http:
       - type: word
         words:
           - '"><script>javascript:alert(document.cookie)</script>'
+

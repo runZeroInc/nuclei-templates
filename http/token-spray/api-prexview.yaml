@@ -28,3 +28,4 @@ http:
           - '"output is a required argument"'
           - '"status":400'
         condition: and
+

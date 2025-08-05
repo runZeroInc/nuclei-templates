@@ -30,3 +30,4 @@ http:
         part: header
         regex:
           - 'X-Powered-By:(.*)Statamic'
+

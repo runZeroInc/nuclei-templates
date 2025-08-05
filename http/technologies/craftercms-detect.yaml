@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - 'Copyright\s+\(C\)\s+([0-9-]+)\s+Crafter'
+

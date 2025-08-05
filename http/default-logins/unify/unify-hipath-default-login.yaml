@@ -59,3 +59,4 @@ http:
           - "{\"success\":true"
           - "There is another user logged in"
         condition: or
+

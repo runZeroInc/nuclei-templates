@@ -39,3 +39,4 @@ http:
           - 'contains(body_1, "<?php")'
           - '!contains(body_2, "<?php")'
         condition: and
+

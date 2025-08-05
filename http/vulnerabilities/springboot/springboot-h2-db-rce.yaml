@@ -51,3 +51,4 @@ http:
         part: body
         words:
           - '"spring.datasource.hikari.connection-test-query":"CREATE ALIAS EXEC AS CONCAT'
+

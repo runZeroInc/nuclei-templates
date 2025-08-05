@@ -19,3 +19,4 @@ http:
         name: favicon
         dsl:
           - "status_code==200 && ('-670975485' == mmh3(base64_py(body)))"
+

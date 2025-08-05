@@ -27,3 +27,4 @@ http:
           - '"is_vat_valid":'
           - '"company_name":'
         condition: and
+

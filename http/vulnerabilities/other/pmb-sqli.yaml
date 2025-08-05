@@ -30,3 +30,4 @@ http:
           - 'duration>=7'
           - 'status_code == 200'
         condition: and
+

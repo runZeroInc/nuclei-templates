@@ -29,3 +29,4 @@ http:
       - type: word
         words:
           - "<a href=\"https://code42.com\">Code42 homepage</a>"
+

@@ -26,3 +26,4 @@ http:
           - '/++plone++static/plone-compiled.css'
           - '/++plone++static/tinymce-styles.css'
           - '>Powered by Plone &amp; Python</a>'
+

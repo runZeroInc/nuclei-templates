@@ -30,3 +30,4 @@ http:
           - "contains_any(body, 'Power Off', 'Nextcloud configuration')"
           - "status_code==200"
         condition: and
+

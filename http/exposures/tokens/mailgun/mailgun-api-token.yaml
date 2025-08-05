@@ -22,3 +22,4 @@ http:
         part: body
         regex:
           - '(?i)(?:mailgun|mg).{0,20}key-([a-z0-9]{32})\b'
+

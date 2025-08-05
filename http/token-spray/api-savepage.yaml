@@ -24,3 +24,4 @@ http:
         part: body
         words:
           - 'getaddrinfo ENOTFOUND selfcontained.test'
+

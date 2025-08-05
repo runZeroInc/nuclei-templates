@@ -20,3 +20,4 @@ http:
           - "<title>Kafdrop: Broker List</title>"
           - "Kafka Cluster Overview"
         condition: and
+

@@ -40,3 +40,4 @@ http:
         words:
           - "In order to use our services, you must agree to Citrix's Terms of Service."
         negative: true
+

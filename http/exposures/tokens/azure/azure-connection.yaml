@@ -23,3 +23,4 @@ http:
         part: body
         regex:
           - (?i)(?:AccountName|SharedAccessKeyName|SharedSecretIssuer)\s*=\s*([^;]{1,80})\s*;\s*.{0,10}\s*(?:AccountKey|SharedAccessKey|SharedSecretValue)\s*=\s*([^;]{1,100})(?:;|$)
+

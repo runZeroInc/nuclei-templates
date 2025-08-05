@@ -31,3 +31,4 @@ http:
           - 'contains(body, "Server Version")'
           - 'status_code == 200'
         condition: and
+

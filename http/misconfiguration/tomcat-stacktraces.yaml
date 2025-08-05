@@ -28,3 +28,4 @@ http:
           - 'contains(body, "org.apache")'
           - status_code == 400
         condition: and
+

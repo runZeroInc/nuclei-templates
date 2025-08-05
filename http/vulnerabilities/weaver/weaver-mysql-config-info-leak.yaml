@@ -30,3 +30,4 @@ http:
           - 'contains(header,"text/plain")'
           - 'contains_all(body,"datapassword", "datauser")'
         condition: and
+

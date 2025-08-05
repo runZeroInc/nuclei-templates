@@ -56,3 +56,4 @@ http:
       - type: dsl
         dsl:
           - 'status_code == 200 && !contains(body,"<title>用户未登录</title>")  && contains(body,"loginUser")'
+
