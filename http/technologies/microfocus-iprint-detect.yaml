@@ -32,4 +32,3 @@ http:
         group: 1
         regex:
           - '(?i)/welcome/css/core([0-9]+).css'
-

@@ -12,9 +12,9 @@ info:
   metadata:
     verified: true
     max-request: 6
-    fofa-query: title="dompdf - The PHP 5 HTML to PDF Converter"
-    product: dompdf
     vendor: dompdf_project
+    product: dompdf
+    fofa-query: title="dompdf - The PHP 5 HTML to PDF Converter"
   tags: config,exposure,dompdf
 
 http:
@@ -28,6 +28,7 @@ http:
       - "{{BaseURL}}/vendor/dompdf/dompdf/www/setup.php"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -40,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

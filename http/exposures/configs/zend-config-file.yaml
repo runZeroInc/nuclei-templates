@@ -13,6 +13,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/application/configs/application.ini"
@@ -28,7 +29,6 @@ http:
         - "/shop/application/configs/application.ini"
         - "/site_cg/application/configs/application.ini"
         - "/slr/application/configs/application.ini"
-
     stop-at-first-match: true
 
     matchers-condition: and
@@ -47,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

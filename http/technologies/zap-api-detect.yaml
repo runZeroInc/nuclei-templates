@@ -23,4 +23,3 @@ http:
           - 'Welcome to the OWASP Zed Attack Proxy (ZAP)'
           - 'Access-Control-Allow-Headers: ZAP-Header'
         condition: or
-

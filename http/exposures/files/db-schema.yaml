@@ -34,4 +34,3 @@ http:
         part: body
         regex:
           - 'eRecord::Schema\.define\(version: ([0-9_]+)\) do'
-

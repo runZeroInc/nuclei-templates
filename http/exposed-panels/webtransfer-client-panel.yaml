@@ -18,11 +18,11 @@ info:
       - http.title:"web transfer client"
       - http.favicon.hash:"989289239"
       - http.html:"human.aspx"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web Transfer Client"})
     fofa-query:
       - icon_hash=989289239
       - title="web transfer client"
     google-query: intitle:"web transfer client"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web Transfer Client"})
   tags: panel,webtransferclient,login,detect
 
 http:
@@ -36,4 +36,3 @@ http:
           - 'status_code == 200'
           - 'contains(body, "<title>Web Transfer Client")'
         condition: and
-

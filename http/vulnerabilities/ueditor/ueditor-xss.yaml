@@ -69,4 +69,3 @@ http:
         group: 1
         regex:
           - 'url":"(.*)","title'
-

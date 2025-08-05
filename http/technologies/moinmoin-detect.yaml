@@ -35,4 +35,3 @@ http:
         group: 1
         regex:
           - '\/moin_static(\w+)\/'
-

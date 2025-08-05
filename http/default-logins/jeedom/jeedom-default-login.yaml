@@ -14,9 +14,9 @@ info:
     vendor: jeedom
     product: jeedom
     shodan-query: http.title:"jeedom"
-    runzero-match: any(each(service["html.titles"]), {# matches "Jeedom"})
     fofa-query: title="jeedom"
     google-query: intitle:"jeedom"
+    runzero-match: any(each(service["html.titles"]), {# matches "Jeedom"})
   tags: jeedom,default-login,misconfig
 variables:
   username: admin
@@ -49,4 +49,3 @@ http:
           - "logout=1"
           - "Plugins</span>"
         condition: and
-

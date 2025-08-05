@@ -17,9 +17,9 @@ info:
     vendor: infoblox
     product: nios
     shodan-query: http.title:"infoblox"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Infoblox"})
     fofa-query: title="infoblox"
     google-query: intitle:"infoblox"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Infoblox"})
   tags: panel,infoblox,nios,login,detect
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

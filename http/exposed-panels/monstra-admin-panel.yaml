@@ -22,8 +22,8 @@ info:
     fofa-query:
       - icon_hash=419828698
       - 'title="monstra :: install"'
-    runzero-match: service["favicon.ico.image.mmh3"] == "419828698"
     google-query: 'intitle:"monstra :: install"'
+    runzero-match: service["favicon.ico.image.mmh3"] == "419828698"
   tags: panel,monstra
 
 http:
@@ -48,4 +48,3 @@ http:
         group: 1
         regex:
           - 'Version ([0-9.]+)'
-

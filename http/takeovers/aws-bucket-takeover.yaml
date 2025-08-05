@@ -71,7 +71,6 @@ http:
           - "oss-me-east-1.aliyuncs.com"
         negative: true
 
-
     extractors:
       - type: regex
         part: body
@@ -79,4 +78,3 @@ http:
         regex:
           - '<li>BucketName: (.*?)</li>'
           - '<BucketName>(.*?)</BucketName>'
-

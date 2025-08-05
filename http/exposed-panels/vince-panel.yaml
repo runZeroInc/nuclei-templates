@@ -10,8 +10,8 @@ info:
     - https://github.com/vinceanalytics/vince
     - https://www.vinceanalytics.com/
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
   tags: panel,vince,login
 
 http:
@@ -25,4 +25,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "vince - high performance", "vince · open source web", "Welcome to Vince")'
         condition: and
-

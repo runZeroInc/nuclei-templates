@@ -21,4 +21,3 @@ http:
         negative: true
         words:
           - 'error_message'
-

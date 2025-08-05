@@ -16,9 +16,9 @@ info:
     vendor: ssh
     product: privx
     shodan-query: http.title:"privx"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PrivX"})
     fofa-query: title="privx"
     google-query: intitle:"privx"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PrivX"})
   tags: panel,privx
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

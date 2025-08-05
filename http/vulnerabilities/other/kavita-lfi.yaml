@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.html:"kavita"
-    product: kavita
     vendor: kavitareader
+    product: kavita
+    shodan-query: http.html:"kavita"
   tags: kavita,lfi,huntr
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

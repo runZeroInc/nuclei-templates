@@ -15,9 +15,9 @@ info:
     vendor: cisco
     product: telepresence_tc
     shodan-query: http.title:"cisco telepresence"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco Telepresence"})
     fofa-query: title="cisco telepresence"
     google-query: intitle:"cisco telepresence"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco Telepresence"})
   tags: panel,cisco
 
 http:
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

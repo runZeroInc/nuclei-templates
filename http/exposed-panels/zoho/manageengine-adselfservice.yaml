@@ -51,4 +51,3 @@ http:
         group: 1
         regex:
           - '"BUILD_NUMBER":"([0-9]+)"'
-

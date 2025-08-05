@@ -22,11 +22,11 @@ info:
     shodan-query:
       - http.html:"__gradio_mode__"
       - http.title:"gradio"
-    runzero-match: service["http.body"] matches "(?i)__gradio_mode__"
     fofa-query:
       - body="__gradio_mode__"
       - title="gradio"
     google-query: intitle:"gradio"
+    runzero-match: service["http.body"] matches "(?i)__gradio_mode__"
   tags: cve,cve2024,unauth,gradio,ssrf
 flow: http(1) && http(2)
 
@@ -80,4 +80,3 @@ http:
       - type: status
         status:
           - 200
-

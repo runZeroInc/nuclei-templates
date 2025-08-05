@@ -14,12 +14,12 @@ info:
     vendor: alibaba
     product: nacos
     shodan-query: http.title:"nacos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nacos"})
     fofa-query:
       - app="nacos"
       - title="nacos"
       - title=="nacos"
     google-query: intitle:"nacos"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nacos"})
   tags: nacos,tech,config,exposure
 
 http:
@@ -35,4 +35,3 @@ http:
           - 'regex("attachment;filename=(.*).zip", content_disposition)'
           - 'status_code == 200'
         condition: and
-

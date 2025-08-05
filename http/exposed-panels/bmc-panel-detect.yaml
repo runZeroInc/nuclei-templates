@@ -22,4 +22,3 @@ http:
         part: body
         words:
           - "<title>BMC Discovery Outpost: Login</title>"
-

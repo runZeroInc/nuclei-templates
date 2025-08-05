@@ -16,9 +16,9 @@ info:
     vendor: rconfig
     product: rconfig
     shodan-query: http.title:"rconfig"
-    runzero-match: any(each(service["html.titles"]), {# matches "rConfig"})
     fofa-query: title="rconfig"
     google-query: intitle:"rconfig"
+    runzero-match: any(each(service["html.titles"]), {# matches "rConfig"})
   tags: rconfig,default-login
 
 http:
@@ -60,4 +60,3 @@ http:
         part: header_2
         status:
           - 200
-

@@ -52,7 +52,6 @@ http:
         - 'adminxx'
         - 'admin'
         - 'ps-admin'
-
     host-redirects: true
     max-redirects: 3
 
@@ -71,4 +70,3 @@ http:
           - 'themes/default/css/admin-theme.css' # For modified admin panels
           - 'class="show-forgot-password'
         condition: and
-

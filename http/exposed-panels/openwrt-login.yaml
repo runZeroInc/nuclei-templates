@@ -42,4 +42,3 @@ http:
         group: 1
         regex:
           - '(?i)OpenWrt  ([A-Z0-9.]+)'
-

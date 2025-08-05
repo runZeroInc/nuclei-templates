@@ -25,8 +25,8 @@ info:
       - icon_hash=662709064
       - body="administration - installation - mantisbt"
       - title="mantisbt"
-    runzero-match: service["favicon.ico.image.mmh3"] == "662709064"
     google-query: intitle:"mantisbt"
+    runzero-match: service["favicon.ico.image.mmh3"] == "662709064"
   tags: panel,mantisbt
 
 http:
@@ -46,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

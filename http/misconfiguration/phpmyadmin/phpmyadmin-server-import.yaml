@@ -17,6 +17,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/pma/server_import.php"
@@ -28,8 +29,8 @@ http:
         - "/admin/pma/server_import.php"
         - "/phpMyAdmin/server_import.php"
         - "/admin/phpMyAdmin/server_import.php"
-
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -47,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

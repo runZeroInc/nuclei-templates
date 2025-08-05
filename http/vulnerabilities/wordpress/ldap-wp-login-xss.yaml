@@ -33,4 +33,3 @@ http:
           - 'contains(header_2, "text/html")'
           - 'contains_all(body_2, "<script>alert(document_domain)</script>", "LDAP-authentication-intergrating-with-AD")'
         condition: and
-

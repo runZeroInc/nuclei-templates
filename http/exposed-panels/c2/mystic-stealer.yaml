@@ -24,4 +24,3 @@ http:
         dsl:
           - "status_code == 200 && contains(body, 'Mystic Stealer')"
         condition: and
-

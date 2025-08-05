@@ -40,4 +40,3 @@ http:
         group: 1
         regex:
           - 'Tapestry Application Framework, version ([0-9.-A-Z]+)T" \/>'
-

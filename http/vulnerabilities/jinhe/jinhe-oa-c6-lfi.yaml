@@ -24,4 +24,3 @@ http:
           - 'contains(body,"<configuration>") && contains(body,"password=")'
           - 'contains(header,"filename=") && contains(header,"application/octet-stream")'
         condition: and
-

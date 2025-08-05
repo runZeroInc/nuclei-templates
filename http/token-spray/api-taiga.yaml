@@ -26,4 +26,3 @@ http:
           - '"auth_code":'
           - '"state":'
         condition: and
-

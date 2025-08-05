@@ -11,7 +11,6 @@ info:
     max-request: 3
     shodan-query: html:"Casdoor"
   tags: casdoor,unauth,intrusive,misconfig
-
 variables:
   username: "{{randstr}}"
   password: "{{randstr_1}}"
@@ -67,4 +66,3 @@ http:
         dsl:
           - '"Username: " + username'
           - '"Password: " + password'
-

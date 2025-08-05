@@ -39,4 +39,3 @@ http:
         group: 1
         regex:
           - '<p class="heading1">([A-Za-z0-9\s_\-\.]+)<\/p>'
-

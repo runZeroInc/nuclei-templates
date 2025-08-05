@@ -31,4 +31,3 @@ http:
           - "status_code_1 == 200"
           - "contains(body,'clistbox') && contains(body,'UserID,GroupID,LoginName,Password')"
         condition: and
-

@@ -37,4 +37,3 @@ http:
           - contains(interactsh_protocol,'dns')
           - contains(content_type, "text/plain")
         condition: and
-

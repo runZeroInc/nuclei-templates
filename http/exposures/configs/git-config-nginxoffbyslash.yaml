@@ -21,6 +21,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - '/static../.git/config'
@@ -33,10 +34,8 @@ http:
         - '/events../.git/config'
         - '/media../.git/config'
         - '/lib../.git/config'
-
     stop-at-first-match: true
     matchers:
       - type: word
         words:
           - '[core]'
-

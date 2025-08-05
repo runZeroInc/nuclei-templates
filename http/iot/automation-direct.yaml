@@ -14,10 +14,10 @@ info:
     cpe: cpe:2.3:h:automationdirect:ea9-t6cl:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    vendor: automationdirect
+    product: ea9-t6cl
     shodan-query: http.title:"C-more -- the best HMI presented by AutomationDirect"
     google-query: intitle:"C-more -- the best HMI presented by AutomationDirect"
-    product: ea9-t6cl
-    vendor: automationdirect
   tags: panel,iot,edb
 
 http:
@@ -41,4 +41,3 @@ http:
         group: 1
         regex:
           - '<P align="right">([A-Za-z. 0-9]+)<\/P>'
-

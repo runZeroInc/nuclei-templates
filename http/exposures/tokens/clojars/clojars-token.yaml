@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - (?i)(CLOJARS_)[a-z0-9]{60}
-

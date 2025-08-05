@@ -15,9 +15,9 @@ info:
     vendor: rocket.chat
     product: rocket.chat
     shodan-query: http.title:"rocket.chat"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rocket\\.Chat"})
     fofa-query: title="rocket.chat"
     google-query: intitle:"rocket.chat"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rocket\\.Chat"})
   tags: panel,rocketchat,login,detect
 
 http:
@@ -33,4 +33,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>Rocket.Chat", "content=\"Rocket.Chat")'
         condition: and
-

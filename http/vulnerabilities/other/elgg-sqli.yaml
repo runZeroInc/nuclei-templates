@@ -16,7 +16,6 @@ info:
     product: elgg
     fofa-query: icon_hash="413602919"
   tags: elgg,sqli
-
 flow: http(1) && http(2)
 
 http:
@@ -46,4 +45,3 @@ http:
           - 'contains(body,"All members")'
           - 'status_code == 200'
         condition: and
-

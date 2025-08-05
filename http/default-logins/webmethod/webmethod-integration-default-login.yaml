@@ -15,8 +15,8 @@ info:
     vendor: softwareag
     product: webmethods
     shodan-query: http.favicon.hash:"-234335289"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-234335289"
     fofa-query: icon_hash=-234335289
+    runzero-match: service["favicon.ico.image.mmh3"] == "-234335289"
   tags: default-login,webmethod
 flow: http(1) && http(2)
 
@@ -70,4 +70,3 @@ http:
           - Invalid credentials
         negative: true
         condition: and
-

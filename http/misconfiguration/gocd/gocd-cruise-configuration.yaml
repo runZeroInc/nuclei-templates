@@ -35,4 +35,3 @@ http:
           - "webhookSecret"
           - "tokenGenerationKey"
         condition: and
-

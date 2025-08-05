@@ -21,6 +21,7 @@ http:
       - "{{BaseURL}}/__ENV.js"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: status
@@ -55,4 +56,3 @@ http:
           - "is_ad_blocked"
         condition: or
         negative: true
-

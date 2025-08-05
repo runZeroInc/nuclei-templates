@@ -29,4 +29,3 @@ http:
           - 'contains(body, "configSection") && contains(body, "iOfficeUpload")'
           - 'contains(header, "application/octet-stream")'
         condition: and
-

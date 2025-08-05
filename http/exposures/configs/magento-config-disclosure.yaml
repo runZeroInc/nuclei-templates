@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 3
-    shodan-query: http.component:"Magento"
-    product: magento
     vendor: magento
+    product: magento
+    shodan-query: http.component:"Magento"
   tags: magento,exposure,credential,config
 
 http:
@@ -56,4 +56,3 @@ http:
           - "/config/global/resources/default_setup/connection/username"
           - "/config/global/resources/default_setup/connection/password"
           - "/config/global/resources/default_setup/connection/dbname"
-

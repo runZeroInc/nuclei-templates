@@ -25,4 +25,3 @@ http:
         words:
           - 'Basic realm="SWAT"'
         part: header
-

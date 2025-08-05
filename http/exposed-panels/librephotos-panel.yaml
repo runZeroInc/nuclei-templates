@@ -14,9 +14,9 @@ info:
     vendor: librephotos_project
     product: librephotos
     shodan-query: http.title:"librephotos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LibrePhotos"})
     fofa-query: title="librephotos"
     google-query: intitle:"librephotos"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LibrePhotos"})
   tags: panel,librephotos,detect,login
 
 http:
@@ -35,4 +35,3 @@ http:
         status:
           - 200
           - 404
-

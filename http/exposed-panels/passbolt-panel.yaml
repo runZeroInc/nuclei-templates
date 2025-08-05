@@ -16,9 +16,9 @@ info:
     vendor: passbolt
     product: passbolt_api
     shodan-query: http.title:"passbolt | open source password manager for teams"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Passbolt \\| Open source password manager for teams"})
     fofa-query: title="passbolt | open source password manager for teams"
     google-query: intitle:"passbolt | open source password manager for teams"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Passbolt \\| Open source password manager for teams"})
   tags: panel,passbolt,login
 
 http:
@@ -39,4 +39,3 @@ http:
         group: 1
         regex:
           - '(?i)v=([0-9a-z.-]+)'
-

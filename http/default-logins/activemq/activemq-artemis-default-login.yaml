@@ -16,13 +16,13 @@ info:
       - cpe:"cpe:2.3:a:apache:activemq"
       - http.title:"apache activemq"
       - product:"activemq openwire transport"
-    runzero-match: any(each(service["html.titles"]), {# contains "ActiveMQ Artemis Console"})
     fofa-query:
       - title="activemq artemis console"
       - title="apache activemq"
     google-query:
       - intitle:"activemq artemis console"
       - intitle:"apache activemq"
+    runzero-match: any(each(service["html.titles"]), {# contains "ActiveMQ Artemis Console"})
   tags: apache,activemq,artemis,default-login
 
 http:
@@ -53,4 +53,3 @@ http:
         group: 0
         regex:
           - '{"credentials":.*}'
-

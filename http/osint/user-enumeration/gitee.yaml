@@ -30,4 +30,3 @@ http:
         part: body
         words:
           - "Commits, issues, and pull requests will appear"
-

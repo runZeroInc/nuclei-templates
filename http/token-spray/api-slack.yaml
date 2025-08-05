@@ -27,4 +27,3 @@ http:
           - '"team_id":'
           - '"user_id":'
         condition: and
-

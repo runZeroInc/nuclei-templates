@@ -11,9 +11,9 @@ info:
     cpe: cpe:2.3:a:gespage:gespage:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: Path=/gespage
-    product: gespage
     vendor: gespage
+    product: gespage
+    shodan-query: Path=/gespage
   tags: panel,gespage
 
 http:
@@ -40,4 +40,3 @@ http:
         group: 1
         regex:
           - '\(Ver: ([0-9._A-Z]+)\)'
-

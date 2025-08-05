@@ -32,4 +32,3 @@ http:
           - 'contains(header," attachment; filename=")'
           - 'status_code == 200'
         condition: and
-

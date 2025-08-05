@@ -10,10 +10,10 @@ info:
     - https://exploit.linuxsec.org/prestashop-module-blocktestimonial-file-upload-auto-exploit
   metadata:
     max-request: 2
+    vendor: apollotheme
+    product: ap_pagebuilder
     framework: prestashop
     shodan-query: "http.component:\"prestashop\""
-    product: ap_pagebuilder
-    vendor: apollotheme
   tags: intrusive,file-upload,blocktestimonial,prestashop
 variables:
   filename: '{{rand_base(7, "abc")}}'
@@ -53,13 +53,13 @@ http:
 
         Submit Testimonial
         ------WebKitFormBoundaryLSo7Btb6nGcpR9Cl--
-
       - |
         GET /upload/{{filename}}.html HTTP/1.1
         Host: {{Hostname}}
 
     host-redirects: true
     max-redirects: 3
+
     matchers-condition: and
     matchers:
       - type: word
@@ -71,4 +71,3 @@ http:
         part: body_2
         words:
           - "{{data}}"
-

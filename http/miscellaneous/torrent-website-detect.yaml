@@ -37,4 +37,3 @@ http:
         part: body
         regex:
           - "magnet:\\?xt=urn:btih:[a-zA-Z0-9]*[^\"'\\s<]*"
-

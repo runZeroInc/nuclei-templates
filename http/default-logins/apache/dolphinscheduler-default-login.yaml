@@ -17,9 +17,9 @@ info:
     vendor: apache
     product: dolphinscheduler
     shodan-query: http.title:"dolphinscheduler"
-    runzero-match: any(each(service["html.titles"]), {# matches "DolphinScheduler"})
     fofa-query: title="dolphinscheduler"
     google-query: intitle:"dolphinscheduler"
+    runzero-match: any(each(service["html.titles"]), {# matches "DolphinScheduler"})
   tags: apache,dolphinscheduler,default-login,oss
 
 http:
@@ -50,4 +50,3 @@ http:
       - type: status
         status:
           - 200
-

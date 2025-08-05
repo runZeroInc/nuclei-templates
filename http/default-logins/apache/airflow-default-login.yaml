@@ -22,7 +22,6 @@ info:
       - http.title:"airflow - dags" || http.html:"apache airflow"
       - http.title:"airflow"
       - product:"redis"
-    runzero-match: any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
     fofa-query:
       - apache airflow
       - body="apache airflow"
@@ -35,6 +34,7 @@ info:
       - intitle:"airflow - dags" || http.html:"apache airflow"
       - intitle:"airflow"
       - intitle:"sign in - airflow"
+    runzero-match: any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
   tags: airflow,default-login,apache
 
 http:
@@ -79,4 +79,3 @@ http:
       - type: word
         words:
           - 'You should be redirected automatically to target URL: <a href="/">'
-

@@ -27,4 +27,3 @@ http:
           - "contains(body,'ccerp.password')"
           - "contains(header,'application/x-msdownload')"
         condition: and
-

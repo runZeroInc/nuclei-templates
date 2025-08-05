@@ -49,4 +49,3 @@ http:
         group: 1
         regex:
           - 'Server:\s+4D(?:_V[0-9]+)?/([0-9.]+)'
-

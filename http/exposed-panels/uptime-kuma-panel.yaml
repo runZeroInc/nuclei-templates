@@ -17,9 +17,9 @@ info:
     vendor: uptime.kuma
     product: uptime_kuma
     shodan-query: http.title:"uptime kuma"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Uptime Kuma"})
     fofa-query: title="uptime kuma"
     google-query: intitle:"uptime kuma"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Uptime Kuma"})
   tags: uptime,kuma,panel,login,detect
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -23,4 +23,3 @@ http:
         words:
           - "<title>The install worked successfully! Congratulations!</title>"
         part: body
-

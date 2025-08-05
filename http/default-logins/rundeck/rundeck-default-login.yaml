@@ -22,8 +22,8 @@ info:
     fofa-query:
       - app="rundeck-login"
       - title="rundeck"
-    runzero-match: any(each(service["html.titles"]), {# matches "Rundeck - Login"})
     google-query: intitle:"rundeck"
+    runzero-match: any(each(service["html.titles"]), {# matches "Rundeck - Login"})
   tags: default-login,rundeck
 variables:
   username: admin
@@ -53,4 +53,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -22,4 +22,3 @@ http:
           - "contains_all(body, 'configuration','user','access_log=')"
           - "status_code == 200"
         condition: and
-

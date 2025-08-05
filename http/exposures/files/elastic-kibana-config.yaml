@@ -26,4 +26,3 @@ http:
           - 'contains(content_type, "application/octet-stream")'
           - 'contains_all(body, "elasticsearch.username:","elasticsearch.password:")'
         condition: and
-

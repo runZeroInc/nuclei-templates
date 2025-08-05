@@ -20,4 +20,3 @@ http:
         regex:
           - "[a-z0-9.-]+\\.firebaseio\\.com"
           - "[a-z0-9.-]+\\.firebaseapp\\.com"
-

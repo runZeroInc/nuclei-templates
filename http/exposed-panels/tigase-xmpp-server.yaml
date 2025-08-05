@@ -14,9 +14,9 @@ info:
     vendor: tigase
     product: tigase
     shodan-query: http.title:"tigase xmpp server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tigase XMPP Server"})
     fofa-query: title="tigase xmpp server"
     google-query: intitle:"tigase xmpp server"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tigase XMPP Server"})
   tags: tigase,xmpp,server,panel,exposure
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

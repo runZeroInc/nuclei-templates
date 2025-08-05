@@ -56,4 +56,3 @@ http:
         group: 1
         regex:
           - "version (.*) - Free software"
-

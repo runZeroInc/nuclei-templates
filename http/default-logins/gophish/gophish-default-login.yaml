@@ -50,4 +50,3 @@ http:
           - "contains(tolower(header), 'gophish')"
           - "status_code==302"
         condition: and
-

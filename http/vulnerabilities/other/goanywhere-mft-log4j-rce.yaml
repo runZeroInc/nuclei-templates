@@ -73,4 +73,3 @@ http:
           - 'javax\.faces\.ViewState:1" value="(.*)" autocomplete'
         internal: true
         part: body
-

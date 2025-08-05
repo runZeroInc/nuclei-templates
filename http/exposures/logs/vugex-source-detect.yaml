@@ -24,4 +24,3 @@ http:
           - "@framework\\s+Vugex Framework"
           - "require_once\\s+'?/var/www/scripts/help.php'?"
         condition: and
-

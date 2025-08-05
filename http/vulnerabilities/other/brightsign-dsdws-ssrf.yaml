@@ -29,4 +29,3 @@ http:
       - type: dsl
         dsl:
           - 'contains(body_1, "Downloaded")'
-

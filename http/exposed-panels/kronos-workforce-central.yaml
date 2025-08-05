@@ -19,11 +19,9 @@ http:
       - '{{BaseURL}}/wfc/logon'
 
     stop-at-first-match: true
-
     matchers:
       - type: regex
         regex:
           - 'Kronos'
           - 'Workforce Central(R)'
         condition: or
-

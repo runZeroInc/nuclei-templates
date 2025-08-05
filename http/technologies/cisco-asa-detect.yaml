@@ -34,4 +34,3 @@ http:
         group: 1
         regex:
           - "<version who=\"sg\">(.*?)</version>"
-

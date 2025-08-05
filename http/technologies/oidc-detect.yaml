@@ -25,4 +25,3 @@ http:
           - issuer
           - authorization_endpoint
         condition: and
-

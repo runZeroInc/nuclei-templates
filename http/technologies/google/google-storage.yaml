@@ -20,4 +20,3 @@ http:
           - "x-goog-metageneration"
           - "x-goog-generation"
         case-insensitive: true
-

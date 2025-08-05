@@ -17,8 +17,8 @@ info:
     vendor: huawei
     product: hg532e
     shodan-query: http.html:"hg532e"
-    runzero-match: service["http.body"] matches "(?i)HG532e"
     fofa-query: body="hg532e"
+    runzero-match: service["http.body"] matches "(?i)HG532e"
   tags: huawei,panel
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

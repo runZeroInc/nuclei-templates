@@ -24,4 +24,3 @@ http:
         part: body
         regex:
           - '\b(ghr_[a-zA-Z0-9]{76})\b'
-

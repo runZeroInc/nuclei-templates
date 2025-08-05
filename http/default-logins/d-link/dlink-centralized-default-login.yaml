@@ -47,4 +47,3 @@ http:
         words:
           - window.open
         condition: and
-

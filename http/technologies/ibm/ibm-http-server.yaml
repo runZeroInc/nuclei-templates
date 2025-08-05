@@ -33,4 +33,3 @@ http:
         part: body
         regex:
           - "IBM HTTP Server ([0-9.]+)"
-

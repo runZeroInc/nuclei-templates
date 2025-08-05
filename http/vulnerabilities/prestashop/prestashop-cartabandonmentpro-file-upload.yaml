@@ -10,14 +10,12 @@ info:
   metadata:
     verified: true
     max-request: 2
+    vendor: apollotheme
+    product: ap_pagebuilder
     framework: prestashop
     shodan-query: "http.component:\"prestashop\""
-    product: ap_pagebuilder
-    vendor: apollotheme
   tags: intrusive,file-upload,cartabandonmentpro,prestashop
-
 flow: http(1) && http(2)
-
 variables:
   filename: '{{rand_base(7, "abc")}}'
   string: '{{rand_base(7, "abc")}}'
@@ -46,9 +44,7 @@ http:
         - 'cartabandonmentpro_Old'
         - 'cartabandonmentpro2'
         - 'pscartabandonmentpro'
-
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:
@@ -78,4 +74,3 @@ http:
           - 'contains(body, "{{string}}")'
           - 'status_code == 200'
         condition: and
-

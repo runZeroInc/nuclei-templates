@@ -25,4 +25,3 @@ http:
           - 'contains(body, "<title>KLog Server")'
           - 'status_code == 200'
         condition: and
-

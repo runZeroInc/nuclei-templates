@@ -27,4 +27,3 @@ http:
           - 'contains(body, "43f845fa0c8aef9104f8e1b07625ecf8")'
           - 'contains(header, "text/html")'
         condition: and
-

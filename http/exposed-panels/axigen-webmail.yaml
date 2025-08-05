@@ -17,13 +17,13 @@ info:
     shodan-query:
       - http.title:"axigen webmail"
       - http.title:"axigen webadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Axigen WebMail"})
     fofa-query:
       - title="axigen webmail"
       - title="axigen webadmin"
     google-query:
       - intitle:"axigen webmail"
       - intitle:"axigen webadmin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Axigen WebMail"})
   tags: axigen,panel
 
 http:
@@ -49,4 +49,3 @@ http:
         part: body
         regex:
           - '<script type="text\/javascript" src="js\/lib_login\.js\?v=(.+)"><\/script>'
-

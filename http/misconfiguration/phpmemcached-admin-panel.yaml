@@ -32,4 +32,3 @@ http:
         group: 1
         regex:
           - "MemcachedAdmin ([0-9.]+)"
-

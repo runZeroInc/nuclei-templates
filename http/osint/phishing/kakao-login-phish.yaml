@@ -12,6 +12,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,kakao,osint
+
 http:
   - method: GET
     path:
@@ -36,4 +37,3 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"accounts.kakao.com")'
-

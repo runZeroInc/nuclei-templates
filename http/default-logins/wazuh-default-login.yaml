@@ -18,11 +18,11 @@ info:
     vendor: wazuh
     product: wazuh
     shodan-query: http.title:"wazuh"
-    runzero-match: any(each(service["html.titles"]), {# matches "Wazuh"})
     fofa-query:
       - app="wazuh"
       - title="wazuh"
     google-query: intitle:"wazuh"
+    runzero-match: any(each(service["html.titles"]), {# matches "Wazuh"})
   tags: wazuh,default-login
 
 http:
@@ -78,4 +78,3 @@ http:
       - type: status
         status:
           - 200
-

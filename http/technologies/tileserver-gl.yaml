@@ -14,10 +14,10 @@ info:
     cpe: cpe:2.3:a:tileserver:tileservergl:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    vendor: tileserver
+    product: tileservergl
     shodan-query: http.title:"TileServer GL - Server for vector and raster maps with GL styles"
     google-query: intitle:"TileServer GL - Server for vector and raster maps with GL styles"
-    product: tileservergl
-    vendor: tileserver
   tags: tech,tileserver,edb
 
 http:
@@ -41,4 +41,3 @@ http:
         group: 1
         regex:
           - 'Powered by TileServer GL \(([a-z- 0-9.]+)\)'
-

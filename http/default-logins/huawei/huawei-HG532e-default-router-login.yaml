@@ -15,8 +15,8 @@ info:
     vendor: huawei
     product: hg532e
     shodan-query: http.html:"hg532e"
-    runzero-match: service["http.body"] matches "HG532e"
     fofa-query: body="hg532e"
+    runzero-match: service["http.body"] matches "HG532e"
   tags: default-login,huawei
 
 http:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

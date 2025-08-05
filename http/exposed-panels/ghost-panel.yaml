@@ -32,4 +32,3 @@ http:
           - 'content="Ghost"'
         condition: or
         case-insensitive: true
-

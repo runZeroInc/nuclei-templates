@@ -15,9 +15,9 @@ info:
     vendor: zkteco
     product: biotime
     shodan-query: http.title:"biotime"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)BioTime"})
     fofa-query: title="biotime"
     google-query: intitle:"biotime"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)BioTime"})
   tags: panel,biotime
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

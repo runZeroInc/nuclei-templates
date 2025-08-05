@@ -14,9 +14,9 @@ info:
     vendor: getgophish
     product: gophish
     shodan-query: http.title:"gophish - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gophish - Login"})
     fofa-query: title="gophish - login"
     google-query: intitle:"gophish - login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gophish - Login"})
   tags: panel,gophish
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

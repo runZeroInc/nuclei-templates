@@ -61,4 +61,3 @@ http:
           - '.[] | .slug'
           - '.[].name'
         part: body
-

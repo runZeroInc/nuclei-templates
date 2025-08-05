@@ -27,4 +27,3 @@ http:
           - '"longitude":'
           - '"latitude":'
         condition: and
-

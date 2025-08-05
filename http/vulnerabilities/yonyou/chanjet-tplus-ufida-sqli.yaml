@@ -32,4 +32,3 @@ http:
           - "Message\":\"245"
           - "DatabaseException"
         condition: and
-

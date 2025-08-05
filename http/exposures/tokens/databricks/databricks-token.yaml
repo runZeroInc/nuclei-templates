@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - (?i)\b(dapi[a-h0-9]{32})(?:['|\"|\n|\r|\s|\x60|;]|$)
-

@@ -36,4 +36,3 @@ http:
         group: 1
         regex:
           - '"strapiVersion":"([0-9.]+)"'
-

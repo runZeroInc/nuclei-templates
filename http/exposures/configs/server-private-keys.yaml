@@ -17,6 +17,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/localhost.key"
@@ -66,7 +67,6 @@ http:
         - "/certs/{{Host}}.pem"
         - "/private/{{Host}}.key"
         - "/keys/{{Host}}.pem"
-
     stop-at-first-match: true
 
     matchers-condition: and
@@ -91,4 +91,3 @@ http:
           - '!contains(body, "<html")'
           - '!contains(body, "<HTML")'
         condition: and
-

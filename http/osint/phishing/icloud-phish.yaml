@@ -11,6 +11,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,icloud,osint
+
 http:
   - method: GET
     path:
@@ -34,4 +35,3 @@ http:
           - '!contains(host,"icloud.com")'
           - '!contains(host,"apple.com")'
         condition: and
-

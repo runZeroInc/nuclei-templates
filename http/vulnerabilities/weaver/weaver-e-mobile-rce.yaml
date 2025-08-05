@@ -51,4 +51,3 @@ http:
           - "text/html"
         negative: true
         condition: and
-

@@ -24,4 +24,3 @@ http:
       - type: word
         words:
           - "Kubernetes Dashboard</title>"
-

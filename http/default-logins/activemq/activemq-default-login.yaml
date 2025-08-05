@@ -16,13 +16,13 @@ info:
       - cpe:"cpe:2.3:a:apache:activemq"
       - http.title:"apache activemq"
       - product:"activemq openwire transport"
-    runzero-match: any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
     fofa-query:
       - title="activemq artemis console"
       - title="apache activemq"
     google-query:
       - intitle:"activemq artemis console"
       - intitle:"apache activemq"
+    runzero-match: any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
   tags: apache,activemq,default-login
 
 http:
@@ -46,4 +46,3 @@ http:
           - 'Welcome to the Apache ActiveMQ Console of <b>'
           - '<h2>Broker</h2>'
         condition: and
-

@@ -17,11 +17,11 @@ info:
     shodan-query:
       - http.favicon.hash:"1249285083"
       - http.title:"aircube dashboard"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1249285083"
     fofa-query:
       - icon_hash=1249285083
       - title="aircube dashboard"
     google-query: intitle:"aircube dashboard"
+    runzero-match: service["favicon.ico.image.mmh3"] == "1249285083"
   tags: panel,aircube,ubiquiti
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

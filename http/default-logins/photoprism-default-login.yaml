@@ -14,7 +14,6 @@ info:
     shodan-query: title:"PhotoPrism"
     fofa-query: title="PhotoPrism"
   tags: photoprism,default-login,misconfig
-
 variables:
   username: admin
   password: admin321
@@ -35,4 +34,3 @@ http:
           - 'contains_all(body, "access_token\":", "config\":{")'
           - 'contains(content_type, "application/json")'
         condition: and
-

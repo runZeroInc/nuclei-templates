@@ -14,8 +14,8 @@ info:
     vendor: dell
     product: openmanage
     shodan-query: http.html:"dell openmanage switch administrator"
-    runzero-match: service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
     fofa-query: body="dell openmanage switch administrator"
+    runzero-match: service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
   tags: panel,dell
 
 http:
@@ -35,4 +35,3 @@ http:
           - '<TITLE>Log In</TITLE>'
           - 'device/logOff_up_menu1.htm'
         condition: and
-

@@ -19,7 +19,6 @@ info:
       - http.html:"pyload"
       - http.title:"login - pyload"
       - http.title:"pyload"
-    runzero-match: service["http.body"] matches "(?i)pyload"
     fofa-query:
       - body="pyload"
       - title="login - pyload"
@@ -27,6 +26,7 @@ info:
     google-query:
       - intitle:"login - pyload"
       - intitle:"pyload"
+    runzero-match: service["http.body"] matches "(?i)pyload"
     zoomeye-query:
       - app:"pyload"
       - app="pyload"
@@ -60,4 +60,3 @@ http:
       - type: status
         status:
           - 302
-

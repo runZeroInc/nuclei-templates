@@ -18,11 +18,11 @@ info:
     shodan-query:
       - http.html:"oracle uix"
       - http.title:"login" "x-oracle-dms-ecid" 200
-    runzero-match: service["http.body"] matches "(?i)Oracle UIX"
     fofa-query:
       - body="oracle uix"
       - title="login" "x-oracle-dms-ecid" 200
     google-query: intitle:"login" "x-oracle-dms-ecid" 200
+    runzero-match: service["http.body"] matches "(?i)Oracle UIX"
   tags: panel,oracle,login,detect
 
 http:
@@ -45,4 +45,3 @@ http:
         group: 1
         regex:
           - '(?i)/OA_HTML/cabo/oajsLibs/oafcore([A-Z0-9]+).js'
-

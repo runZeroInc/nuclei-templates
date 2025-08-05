@@ -25,4 +25,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "falcosidekick ui", "falcosidekick-ui")'
         condition: and
-

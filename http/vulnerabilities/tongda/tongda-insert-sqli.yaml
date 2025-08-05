@@ -47,4 +47,3 @@ http:
         words:
           - "register_for/?rid="
         negative: true
-

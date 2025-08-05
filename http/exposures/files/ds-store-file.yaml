@@ -27,8 +27,8 @@ http:
       - type: dsl
         negative: true
         dsl:
-          - "contains(to_lower(body), '\0<\0h\0t\0m\0l')"
-          - "contains(to_lower(body), '\0<\0b\0o\0d\0y')"
+          - "contains(to_lower(body), '\u0000<\u0000h\u0000t\u0000m\u0000l')"
+          - "contains(to_lower(body), '\u0000<\u0000b\u0000o\u0000d\u0000y')"
 
       - type: dsl
         dsl:
@@ -39,4 +39,3 @@ http:
           - 'contains(to_lower(header), "accept-ranges: bytes")'
           - 'contains(to_lower(header), "octet-stream")'
         condition: or
-

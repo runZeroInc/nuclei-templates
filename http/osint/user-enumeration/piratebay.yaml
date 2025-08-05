@@ -14,7 +14,6 @@ info:
   tags: osint,osint-p2p,piratebay,headless
 
 self-contained: true
-
 headless:
   - steps:
       - args:
@@ -22,11 +21,9 @@ headless:
         action: navigate
 
       - action: waitload
-
     matchers:
       - type: dsl
         dsl:
           - "!contains(data, 'No results returned')"
           - "contains(data, 'User: {{user}}</label>')"
         condition: and
-

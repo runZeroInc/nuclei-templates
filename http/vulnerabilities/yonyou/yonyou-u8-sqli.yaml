@@ -14,9 +14,7 @@ info:
     max-request: 2
     fofa-query: icon_hash="-299520369"
   tags: time-based-sqli,yonyou,grp,sqli
-
 flow: http(1) && http(2)
-
 
 http:
   - raw:
@@ -45,4 +43,3 @@ http:
           - 'duration_2>=6'
           - 'contains(content_type, "text/html")'
         condition: and
-

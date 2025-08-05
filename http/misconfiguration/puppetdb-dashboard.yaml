@@ -13,9 +13,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: 'title:"PuppetDB: Dashboard"'
-    product: puppetdb
     vendor: puppet
+    product: puppetdb
+    shodan-query: 'title:"PuppetDB: Dashboard"'
   tags: misconfig,exposure,puppetdb
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

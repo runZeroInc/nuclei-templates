@@ -23,4 +23,3 @@ http:
         words:
           - "<TITLE>Test Page for the SSL/TLS-aware Apache Installation on Web Site</TITLE>"
         part: body
-

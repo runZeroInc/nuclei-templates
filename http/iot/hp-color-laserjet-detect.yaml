@@ -49,4 +49,3 @@ http:
         group: 1
         regex:
           - '<td class="mastheadTitle"><h1>HP Color LaserJet (.+)<\/h1><\/td>'
-

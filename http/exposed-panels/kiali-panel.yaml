@@ -16,9 +16,9 @@ info:
     vendor: kiali
     product: kiali
     shodan-query: http.title:"kiali"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kiali"})
     fofa-query: title="kiali"
     google-query: intitle:"kiali"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kiali"})
   tags: panel,kiali,detect,login
 
 http:
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - '(?i)"Kiali version":\s*"([a-z0-9.]+)"'
-

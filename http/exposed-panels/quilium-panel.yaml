@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - 'CMS Quilium ([a-f0-9.]+)'
-

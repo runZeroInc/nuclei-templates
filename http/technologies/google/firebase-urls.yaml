@@ -23,4 +23,3 @@ http:
         regex:
           - ".*?(f|F)(i|I)(r|R)(e|E)(b|B)(a|A)(s|S)(e|E)(i|I)(o|O)[.](c|C)(o|O)(m|M).*?"
         part: body
-

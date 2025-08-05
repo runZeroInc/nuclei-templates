@@ -25,4 +25,3 @@ http:
           - "contains_all(body, 'Anteon','Monitoring Solution')"
           - "status_code == 200"
         condition: and
-

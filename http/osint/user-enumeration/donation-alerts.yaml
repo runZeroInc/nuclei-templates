@@ -30,4 +30,3 @@ http:
         part: body
         words:
           - "background_image_url"
-

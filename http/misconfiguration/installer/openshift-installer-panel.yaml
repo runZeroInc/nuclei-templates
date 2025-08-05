@@ -13,9 +13,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"OpenShift Assisted Installer"
-    product: openshift_assisted_installer
     vendor: redhat
+    product: openshift_assisted_installer
+    shodan-query: title:"OpenShift Assisted Installer"
   tags: panel,openshift,cluster,misconfig
 
 http:
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -17,13 +17,13 @@ info:
     shodan-query:
       - http.title:"tooljet - dashboard"
       - http.title:"tooljet"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ToolJet - Dashboard"})
     fofa-query:
       - title="tooljet - dashboard"
       - title="tooljet"
     google-query:
       - intitle:"tooljet - dashboard"
       - intitle:"tooljet"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ToolJet - Dashboard"})
   tags: panel,tooljet
 
 http:
@@ -45,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

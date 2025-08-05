@@ -14,9 +14,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:"welcome to ntop"
-    product: ntopng
     vendor: ntop
+    product: ntopng
+    shodan-query: http.title:"welcome to ntop"
   tags: tech,ntop,panel
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

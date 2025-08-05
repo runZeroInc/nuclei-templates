@@ -27,4 +27,3 @@ http:
           - '"created_at":'
           - '"git_url":'
         condition: and
-

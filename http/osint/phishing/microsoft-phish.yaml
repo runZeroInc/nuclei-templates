@@ -12,6 +12,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,microsoft,osint
+
 http:
   - method: GET
     path:
@@ -34,4 +35,3 @@ http:
         dsl:
           - '!contains(host,"office.com")'
           - '!contains(host,"microsoft.com")'
-

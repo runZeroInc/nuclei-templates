@@ -11,10 +11,9 @@ info:
     - https://blog.securelayer7.net/sql-injection-vulnerability-in-xhibiter-nft-marketplace/
     - https://x.com/ExploitDB/status/1807782485549560196
   metadata:
-    publicwww-query: "/wp-content/themes/xhibiter/"
     max-request: 2
+    publicwww-query: "/wp-content/themes/xhibiter/"
   tags: xhibiter,sqli,time-based-sqli,wordpress,wp-theme,xhibiter,nft
-
 flow: http(1) && http(2)
 
 http:
@@ -42,4 +41,3 @@ http:
           - 'status_code == 200'
           - 'duration>=7'
         condition: and
-

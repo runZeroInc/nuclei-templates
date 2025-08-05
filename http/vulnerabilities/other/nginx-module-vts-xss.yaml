@@ -37,4 +37,3 @@ http:
         dsl:
           - "!contains(tolower(body_1), '<script>alert(1337)</script>')"
         condition: and
-

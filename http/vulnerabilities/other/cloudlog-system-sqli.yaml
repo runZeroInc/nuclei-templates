@@ -13,7 +13,6 @@ info:
     max-request: 1
     fofa-query: "Login - Cloudlog"
   tags: cloudlog,sqli
-
 variables:
   num: "999999999"
 
@@ -33,4 +32,3 @@ http:
           - 'contains(content_type, "text/html")'
           - 'status_code == 500'
         condition: and
-

@@ -16,8 +16,8 @@ info:
     vendor: cisco
     product: expressway_software
     shodan-query: http.html:"cisco expressway"
-    runzero-match: service["http.body"] matches "(?i)Cisco Expressway"
     fofa-query: body="cisco expressway"
+    runzero-match: service["http.body"] matches "(?i)Cisco Expressway"
   tags: panel,cisco,login,detect
 
 http:
@@ -38,4 +38,3 @@ http:
         group: 1
         regex:
           - 'Cisco\s+(?:Expressway|Expway)\s+([A-Za-z\s]+)<\/legend>'
-

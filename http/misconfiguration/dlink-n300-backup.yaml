@@ -30,4 +30,3 @@ http:
           - 'contains(body, "WLAN_WPA_PSK", "Config")'
           - 'contains(content_type, "application/octet-stream")'
         condition: and
-

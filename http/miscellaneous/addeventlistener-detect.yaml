@@ -25,4 +25,3 @@ http:
         part: body
         regex:
           - (([\w\_]+)\.)?add[Ee]vent[Ll]istener\(["']?[\w\_]+["']? # Test cases: https://www.regextester.com/?fam=121118
-

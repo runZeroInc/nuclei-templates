@@ -34,4 +34,3 @@ http:
         regex:
           - "Model=([^\\s]+)"
           - "Firmware=([^\\s]+)"
-

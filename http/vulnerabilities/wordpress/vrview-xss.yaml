@@ -12,7 +12,6 @@ info:
     max-request: 2
     fofa-query: body="/wp-content/plugins/vrview/"
   tags: wp,wp-plugin,wordpress,vrview,xss
-
 flow: http(1) && http(2)
 
 http:
@@ -47,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

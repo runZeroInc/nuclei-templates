@@ -27,4 +27,3 @@ http:
           - '"autocorrect":'
           - '"is_valid_format":'
         condition: and
-

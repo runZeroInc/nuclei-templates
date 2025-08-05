@@ -15,6 +15,7 @@ http:
       - '{{BaseURL}}/actuator/jolokia/version'
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -32,4 +33,3 @@ http:
       - type: json
         json:
           - '.value.agent'
-

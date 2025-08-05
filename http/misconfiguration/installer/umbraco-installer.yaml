@@ -21,8 +21,8 @@ http:
       - '{{BaseURL}}/install'
       - "{{BaseURL}}/umbraco/management/api/v1/server/status"
 
-
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: dsl
@@ -36,4 +36,3 @@ http:
           - 'contains_any(header, "text/html", "application/json")'
           - 'status_code == 200 || status_code == 503'
         condition: and
-

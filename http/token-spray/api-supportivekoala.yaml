@@ -30,4 +30,3 @@ http:
           - '"template"'
           - '"imageUrl"'
         condition: and
-

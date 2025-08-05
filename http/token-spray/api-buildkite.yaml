@@ -27,4 +27,3 @@ http:
           - '"graphql_id":'
           - '"email":'
         condition: and
-

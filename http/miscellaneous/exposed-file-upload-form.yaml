@@ -33,4 +33,3 @@ http:
           - "type=[\"'](file)[\"']"
           - 'id="file"'
         condition: or
-

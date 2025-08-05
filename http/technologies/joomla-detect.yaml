@@ -59,4 +59,3 @@ http:
           - '<version>(.*?)</version>'
           - '(?i)Joomla_([\d.|\d]+)_version_history'
         part: body
-

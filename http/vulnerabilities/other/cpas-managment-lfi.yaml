@@ -26,4 +26,3 @@ http:
           - "regex('root:.*:0:0:', body)"
           - "status_code == 200"
         condition: and
-

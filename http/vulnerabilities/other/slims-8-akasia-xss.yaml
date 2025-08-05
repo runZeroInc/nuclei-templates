@@ -30,6 +30,7 @@ http:
       - "{{BaseURL}}/library/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -46,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,8 +12,8 @@ info:
     vendor: fortinet
     product: forticlient_endpoint_management_server
     shodan-query: http.favicon.hash:"-800551065"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-800551065"
     fofa-query: icon_hash=-800551065
+    runzero-match: service["favicon.ico.image.mmh3"] == "-800551065"
   tags: panel,fortinet,forticlient,ems,login,detect
 
 http:
@@ -39,4 +39,3 @@ http:
         group: 1
         regex:
           - 'VERSION_FULL\\u0022: \\u0022(.*?)\\u0022'
-

@@ -12,16 +12,16 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: 'server: "ecstatic"'
-    product: ecstatic
     vendor: ecstatic_project
+    product: ecstatic
+    shodan-query: 'server: "ecstatic"'
   tags: node,js,listing,ecstatic
-
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}/img/"
+
     headers:
       Range: 10000
 
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -32,4 +32,3 @@ http:
       - type: json
         json:
           - ".gitVersion"
-

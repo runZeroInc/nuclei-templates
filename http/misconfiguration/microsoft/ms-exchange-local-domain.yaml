@@ -19,9 +19,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:outlook exchange
-    product: exchange_server
     vendor: microsoft
+    product: exchange_server
+    shodan-query: http.title:outlook exchange
   tags: misconfig,microsoft,ms-exchange,ad,dc
 
 http:
@@ -45,4 +45,3 @@ http:
       - type: kval
         kval:
           - x_calculatedbetarget
-

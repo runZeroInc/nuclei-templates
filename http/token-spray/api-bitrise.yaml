@@ -29,4 +29,3 @@ http:
           - '"slug":'
           - '"email":'
         condition: and
-

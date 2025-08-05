@@ -34,4 +34,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>vertigis", "welcome to vertigis", "vertigis fm - login", "<title>weboffice landing page" , "vertigis studio app designer", "vertigis studio web designer", "vertigis studio access control")'
         condition: and
-

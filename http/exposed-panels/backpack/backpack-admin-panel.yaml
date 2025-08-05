@@ -16,9 +16,9 @@ info:
     vendor: backpackforlaravel
     product: backpack\\\\crud
     shodan-query: http.title:"backpack admin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Backpack Admin"})
     fofa-query: title="backpack admin"
     google-query: intitle:"backpack admin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Backpack Admin"})
   tags: panel,backpack,admin
 
 http:
@@ -33,4 +33,3 @@ http:
           - 'Backpack Admin'
           - 'backpack_alerts'
         condition: or
-

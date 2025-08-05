@@ -18,11 +18,11 @@ info:
     shodan-query:
       - http.title:"craftercms"
       - http.html:"craftercms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)craftercms"})
     fofa-query:
       - body="craftercms"
       - title="craftercms"
     google-query: intitle:"craftercms"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)craftercms"})
   tags: panel,craftercms,login,detect
 
 http:
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - 'Copyright\s+\(C\)\s+([0-9-]+)\s+Crafter'
-

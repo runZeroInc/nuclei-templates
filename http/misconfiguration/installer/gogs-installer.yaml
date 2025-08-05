@@ -13,9 +13,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:"Installation - Gogs"
-    product: gogs
     vendor: gogs
+    product: gogs
+    shodan-query: http.title:"Installation - Gogs"
   tags: misconfig,exposure,gogs,install
 
 http:
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

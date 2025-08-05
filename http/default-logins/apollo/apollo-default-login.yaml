@@ -19,10 +19,10 @@ info:
     shodan-query:
       - http.favicon.hash:"11794165"
       - http.html:"apollo-adminservice"
-    runzero-match: service["favicon.ico.image.mmh3"] == "11794165"
     fofa-query:
       - body="apollo-adminservice"
       - icon_hash=11794165
+    runzero-match: service["favicon.ico.image.mmh3"] == "11794165"
   tags: apollo,default-login
 
 http:
@@ -60,4 +60,3 @@ http:
           - status_code_1 == 302 && status_code_2 == 200
           - contains(tolower(header_2), 'application/json')
         condition: and
-

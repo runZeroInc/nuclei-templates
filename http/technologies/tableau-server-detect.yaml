@@ -36,4 +36,3 @@ http:
         group: 1
         regex:
           - 'data-build[iI]d="([0-9a-z_]*)'
-

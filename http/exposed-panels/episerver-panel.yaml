@@ -19,8 +19,8 @@ info:
     shodan-query:
       - http.html:"epihash"
       - cpe:"cpe:2.3:a:episerver:episerver"
-    runzero-match: service["http.body"] matches "(?i)epihash"
     fofa-query: body="epihash"
+    runzero-match: service["http.body"] matches "(?i)epihash"
   tags: panel,optimizely,episerver
 
 http:
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 302
-

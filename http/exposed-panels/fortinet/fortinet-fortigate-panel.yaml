@@ -35,4 +35,3 @@ http:
       - type: dsl
         dsl:
           - '"Release date: " + date_time("Jan 2, 2006", hex_to_dec(etag))'
-

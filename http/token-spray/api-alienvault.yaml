@@ -28,4 +28,3 @@ http:
           - '"$schema":'
           - '"properties":'
         condition: and
-

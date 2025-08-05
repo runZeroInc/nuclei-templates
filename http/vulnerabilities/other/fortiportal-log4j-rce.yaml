@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:fortinet:fortiportal:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: html:"FortiPortal"
-    product: fortiportal
     vendor: fortinet
+    product: fortiportal
+    shodan-query: html:"FortiPortal"
   tags: cve,cve2021,rce,jndi,log4j,fortiportal,oast,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -65,4 +65,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

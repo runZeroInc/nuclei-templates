@@ -45,4 +45,3 @@ http:
         group: 1
         regex:
           - 'content=".*CVSweb\s*([0-9.]+)"'
-

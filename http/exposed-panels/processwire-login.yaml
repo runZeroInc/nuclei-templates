@@ -21,8 +21,8 @@ info:
     fofa-query:
       - body="processwire"
       - title="processwire 3.x installer"
-    runzero-match: service["http.body"] matches "(?i)processwire"
     google-query: intitle:"processwire 3.x installer"
+    runzero-match: service["http.body"] matches "(?i)processwire"
   tags: panel,processwire
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

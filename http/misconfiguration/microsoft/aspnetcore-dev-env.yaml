@@ -13,11 +13,11 @@ info:
   reference:
     - https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments
   metadata:
+    verified: true
     max-request: 1
     vendor: microsoft
     product: asp.net-core
     shodan-query: html:"ASPNETCORE_ENVIRONMENT"
-    verified: true
   tags: misconfig,aspnetcore,exposure
 
 http:
@@ -38,4 +38,3 @@ http:
           - "ASPNETCORE_ENVIRONMENT"
           - "<environment include=\"Development\">"
         condition: and
-

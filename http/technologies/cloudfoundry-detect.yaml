@@ -25,4 +25,3 @@ http:
       - type: dsl
         dsl:
           - 'contains(header, "X-Vcap-Request-Id:") || contains(header, "X-Cf-Routererror:")'
-

@@ -13,8 +13,8 @@ info:
     vendor: fortinet
     product: fortisiem
     shodan-query: http.favicon.hash:"-1341442175"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1341442175"
     fofa-query: icon_hash=-1341442175
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1341442175"
   tags: panel,fortisiem
 flow: http(1) && http(2)
 
@@ -39,4 +39,3 @@ http:
       - type: word
         words:
           - "fortiSIEM_current_login_salt"
-

@@ -25,4 +25,3 @@ http:
           - 'sekolahku.web.id'
           - 'CMS Sekolahku'
         condition: or
-

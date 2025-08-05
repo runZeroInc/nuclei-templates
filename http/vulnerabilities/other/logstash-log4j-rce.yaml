@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:elastic:logstash:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: html:"logstash"
-    product: logstash
     vendor: elastic
+    product: logstash
+    shodan-query: html:"logstash"
   tags: cve,cve2021,rce,jndi,log4j,logstash,oast,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -61,4 +61,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

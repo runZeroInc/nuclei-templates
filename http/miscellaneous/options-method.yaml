@@ -19,4 +19,3 @@ http:
         group: 1
         regex:
           - "Allow: ([A-Z, ]+)"
-

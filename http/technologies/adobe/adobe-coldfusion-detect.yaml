@@ -68,4 +68,3 @@ http:
         name: "coldfusion-mx-7"
         dsl:
           - "status_code==200 && (\"cb594e69af5ba15bca453f76aca53615\" == md5(body))"
-

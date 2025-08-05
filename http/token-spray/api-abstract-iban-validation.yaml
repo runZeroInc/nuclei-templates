@@ -26,4 +26,3 @@ http:
           - '"iban":'
           - '"is_valid":'
         condition: and
-

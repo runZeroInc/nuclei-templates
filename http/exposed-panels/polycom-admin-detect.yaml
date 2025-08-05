@@ -35,4 +35,3 @@ http:
         words:
           - "Server: lighttpd"
         part: header
-

@@ -21,6 +21,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/.env"
@@ -58,4 +59,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -24,6 +24,7 @@ http:
     stop-at-first-match: true
     redirects: true
     max-redirects: 2
+
     matchers-condition: and
     matchers:
       - type: word
@@ -45,4 +46,3 @@ http:
         group: 1
         regex:
           - '(?mi)Contact:(.*)'
-

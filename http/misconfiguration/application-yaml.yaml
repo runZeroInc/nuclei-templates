@@ -44,4 +44,3 @@ http:
           - "!contains(tolower(body), '</h3>')"
           - "!contains(tolower(body), '<?xml')"
         condition: and
-

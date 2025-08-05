@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:splunk:splunk:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.title:"Login - Splunk"
-    product: splunk
     vendor: splunk
+    product: splunk
+    shodan-query: http.title:"Login - Splunk"
   tags: cve,cve2021,rce,jndi,log4j,splunk,oast,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -66,4 +66,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

@@ -13,7 +13,6 @@ info:
     verified: true
     max-request: 1
   tags: github,token,exposure
-
 flow: http(1) && http(2)
 
 http:
@@ -49,4 +48,3 @@ http:
       - type: dsl
         dsl:
           - token
-

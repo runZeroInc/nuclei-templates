@@ -21,4 +21,3 @@ http:
       - type: word
         words:
           - '<title>Prometheus Pushgateway</title>'
-

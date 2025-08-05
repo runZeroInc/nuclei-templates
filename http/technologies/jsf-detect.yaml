@@ -37,4 +37,3 @@ http:
           - "contains(body, 'richfaces')"
           - "contains(body, 'javax.faces.resource') || contains(body, 'javax.faces.ViewState')"
         condition: and
-

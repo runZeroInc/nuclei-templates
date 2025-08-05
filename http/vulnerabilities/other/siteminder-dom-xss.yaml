@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    google-query: inurl:"smpwservices.fcc"
-    product: siteminder
     vendor: broadcom
+    product: siteminder
+    google-query: inurl:"smpwservices.fcc"
   tags: dom,xss,siteminder
 
 http:
@@ -47,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

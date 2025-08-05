@@ -24,8 +24,8 @@ info:
       - body="crushftp"
       - icon_hash="-1022206565"
       - title="crushftp webinterface"
-    runzero-match: service["http.body"] matches "(?i)crushftp"
     google-query: intitle:"crushftp webinterface"
+    runzero-match: service["http.body"] matches "(?i)crushftp"
   tags: panel,edb,crushftp,detect
 
 http:
@@ -47,4 +47,3 @@ http:
         part: header
         words:
           - 'Server: CrushFTP HTTP Server'
-

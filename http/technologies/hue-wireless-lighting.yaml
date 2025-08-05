@@ -23,4 +23,3 @@ http:
           - "hue personal wireless lighting"
           - "Welcome to hue"
         condition: or
-

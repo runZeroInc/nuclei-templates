@@ -37,4 +37,3 @@ http:
         part: body
         regex:
           - sarg-[0-99].[0-99].[0-99]
-

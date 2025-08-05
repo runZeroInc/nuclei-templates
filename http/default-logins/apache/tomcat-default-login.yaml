@@ -21,7 +21,6 @@ info:
       - http.html:"apache tomcat"
       - http.html:"jk status manager"
       - product:"tomcat"
-    runzero-match: any(each(service["html.titles"]), {# matches "Apache Tomcat"})
     fofa-query:
       - body="apache tomcat"
       - body="jk status manager"
@@ -30,6 +29,7 @@ info:
     google-query:
       - intitle:"apache tomcat"
       - site:*/examples/jsp/snp/snoop.jsp
+    runzero-match: any(each(service["html.titles"]), {# matches "Apache Tomcat"})
   tags: tomcat,apache,default-login
 flow: http(1) && http(2)
 
@@ -126,4 +126,3 @@ http:
       - type: status
         status:
           - 200
-

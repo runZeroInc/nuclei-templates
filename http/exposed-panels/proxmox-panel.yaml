@@ -46,4 +46,3 @@ http:
         group: 1
         regex:
           - "(?:pvemanagerlib.js[?](ver=[0-9]{1}[.][0-9]{1,}[-][0-9]))"
-

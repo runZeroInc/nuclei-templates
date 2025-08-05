@@ -27,4 +27,3 @@ http:
           - 'contains(body, "LoLLMS WebUI - Welcome")'
           - 'status_code == 200'
         condition: and
-

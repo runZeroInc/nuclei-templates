@@ -28,10 +28,10 @@ http:
         - "ocsp/"
         - "CertEnroll/"
         - "CertSrv/"
-
     stop-at-first-match: true
     host-redirects: true
     max-redirects: 2
+
     matchers-condition: or
     matchers:
       - type: dsl
@@ -55,7 +55,6 @@ http:
       - type: regex
         name: certificate_details
         regex:
-          - "CN=[A-Za-z0-9-]+-CA"
+          - 'CN=[A-Za-z0-9-]+-CA'
           - "O=[A-Za-z0-9 ]+"
           - "OU=[A-Za-z0-9 ]+"
-

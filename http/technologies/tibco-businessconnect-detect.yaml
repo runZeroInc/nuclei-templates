@@ -29,4 +29,3 @@ http:
           - 'status_code == 200'
           - 'contains(header, "TIBCO BusinessConnect")'
         condition: and
-

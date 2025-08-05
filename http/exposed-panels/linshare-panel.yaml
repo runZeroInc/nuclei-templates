@@ -31,4 +31,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>LinShare", "x-ng-app=\"linshareAdminApp")'
         condition: and
-

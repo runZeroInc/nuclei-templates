@@ -52670,4 +52670,3 @@ http:
           - 'regex("/themes/halloween/", body)'
           - 'status_code == 200'
         condition: and
-

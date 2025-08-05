@@ -30,4 +30,3 @@ http:
         part: body
         regex:
           - '<h1>Welcome to (.+)<\/h1>'
-

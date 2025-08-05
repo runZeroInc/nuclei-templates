@@ -17,9 +17,9 @@ info:
     vendor: apache
     product: ranger
     shodan-query: http.title:"ranger - sign in"
-    runzero-match: any(each(service["html.titles"]), {# matches "Ranger - Sign In"})
     fofa-query: title="ranger - sign in"
     google-query: intitle:"ranger - sign in"
+    runzero-match: any(each(service["html.titles"]), {# matches "Ranger - Sign In"})
   tags: apache,ranger,default-login
 
 http:
@@ -50,4 +50,3 @@ http:
       - type: status
         status:
           - 200
-

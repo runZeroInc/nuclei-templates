@@ -27,4 +27,3 @@ http:
           - '"createdByUser":'
           - '"id":'
         condition: and
-

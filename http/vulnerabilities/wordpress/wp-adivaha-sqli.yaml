@@ -28,4 +28,3 @@ http:
           - status_code == 200
           - contains(body, "adivaha")
         condition: and
-

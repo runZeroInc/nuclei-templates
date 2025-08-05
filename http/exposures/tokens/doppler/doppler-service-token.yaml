@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - \b(dp\.st\.(?:[a-z0-9\-_]{2,35}\.)?[a-zA-Z0-9]{40,44})\b
-

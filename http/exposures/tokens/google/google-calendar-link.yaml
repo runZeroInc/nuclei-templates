@@ -18,4 +18,3 @@ http:
         part: body
         regex:
           - 'https://www\.google\.com/calendar/embed\?src=[A-Za-z0-9%@&;=\-_\./]+'
-

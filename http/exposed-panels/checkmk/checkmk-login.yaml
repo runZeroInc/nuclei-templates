@@ -17,9 +17,9 @@ info:
     vendor: checkmk
     product: checkmk
     shodan-query: http.title:"check_mk"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Check_MK"})
     fofa-query: title="check_mk"
     google-query: intitle:"check_mk"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Check_MK"})
   tags: panel,checkmk,detect,login
 
 http:
@@ -44,4 +44,3 @@ http:
         regex:
           - '<div id="version">([0-9.a-z]+)<\/div>'
           - '<div id="foot">Version: ([0-9.a-z]+)'
-

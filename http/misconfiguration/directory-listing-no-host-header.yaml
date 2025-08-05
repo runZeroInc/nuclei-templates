@@ -10,7 +10,6 @@ info:
     verified: true
     max-request: 1
   tags: misconfig,listing
-
 flow: http(1) && http(2)
 
 http:
@@ -31,14 +30,11 @@ http:
         GET / HTTP/1.0
 
     unsafe: true
-
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:
           - 'contains_any(body,"<title>Index of","<title>Directory listing of")'
           - 'status_code == 200'
         condition: and
-

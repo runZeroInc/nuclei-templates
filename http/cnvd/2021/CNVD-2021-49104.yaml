@@ -16,7 +16,6 @@ info:
   metadata:
     max-request: 2
   tags: cnvd2021,cnvd,pan,micro,fileupload,intrusive
-
 variables:
   string: "{{randstr}}"
 
@@ -44,6 +43,7 @@ http:
         part: body
         words:
           - '{{md5(string)}}'
+
       - type: word
         part: body
         words:
@@ -52,4 +52,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -11,11 +11,11 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.favicon.hash:"1099097618"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1099097618"
-    product: squidex
     vendor: squidex.io
+    product: squidex
+    shodan-query: http.favicon.hash:"1099097618"
     fofa-query: icon_hash=1099097618
+    runzero-match: service["favicon.ico.image.mmh3"] == "1099097618"
   tags: panel,squidex,login
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && (\"1099097618\" == mmh3(base64_py(body)))"
-

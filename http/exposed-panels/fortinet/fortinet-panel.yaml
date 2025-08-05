@@ -17,11 +17,11 @@ info:
     shodan-query:
       - http.title:"fortinet login"
       - http.html:"fortiportal"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FORTINET LOGIN"})
     fofa-query:
       - body="fortiportal"
       - title="fortinet login"
     google-query: intitle:"fortinet login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FORTINET LOGIN"})
   tags: panel,fortinet,login,detect
 
 http:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

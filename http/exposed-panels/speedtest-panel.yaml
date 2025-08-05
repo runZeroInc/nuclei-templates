@@ -17,9 +17,9 @@ info:
     vendor: speed_test_project
     product: speed_test
     shodan-query: http.title:"speedtest tracker"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Speedtest Tracker"})
     fofa-query: title="speedtest tracker"
     google-query: intitle:"speedtest tracker"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Speedtest Tracker"})
   tags: speedtest,tracker,panel,login
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

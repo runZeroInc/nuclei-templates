@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"redis.conf"
-    product: redis
     vendor: redis
+    product: redis
+    shodan-query: html:"redis.conf"
   tags: redis,exposure,config
 
 http:
@@ -43,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

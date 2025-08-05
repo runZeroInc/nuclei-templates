@@ -18,9 +18,9 @@ info:
     vendor: webmin
     product: webmin
     shodan-query: http.title:"webmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "Webmin"})
     fofa-query: title="webmin"
     google-query: intitle:"webmin"
+    runzero-match: any(each(service["html.titles"]), {# matches "Webmin"})
   tags: webmin,default-login
 
 http:
@@ -63,4 +63,3 @@ http:
       - type: status
         status:
           - 200
-

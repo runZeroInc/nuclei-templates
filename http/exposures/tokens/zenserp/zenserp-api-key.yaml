@@ -9,7 +9,6 @@ info:
   metadata:
     max-request: 2
   tags: exposure,token,zenserp,apikey
-
 flow: http(1) && http(2)
 
 http:
@@ -45,4 +44,3 @@ http:
       - type: dsl
         dsl:
           - token
-

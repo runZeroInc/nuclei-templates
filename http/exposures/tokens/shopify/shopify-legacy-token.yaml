@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - '\b(shppa_[a-fA-F0-9]{32})\b'
-

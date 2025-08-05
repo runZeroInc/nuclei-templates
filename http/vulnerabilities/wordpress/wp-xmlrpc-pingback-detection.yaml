@@ -11,7 +11,6 @@ info:
   metadata:
     max-request: 2
   tags: wordpress,ssrf,oast,xmlrpc
-
 flow: http(1) && http(2)
 
 http:
@@ -55,4 +54,3 @@ http:
           - "http"
           - "dns"
         condition: or
-

@@ -25,7 +25,7 @@ http:
 
     attack: clusterbomb
     payloads:
-
+      
       headers: helpers/wordlists/headers.txt
     stop-at-first-match: true
     matchers:
@@ -34,4 +34,3 @@ http:
           - 'contains(body_1, "{{randstr}}")'
           - 'contains(body_2, "{{randstr}}")'
         condition: and
-

@@ -17,9 +17,9 @@ info:
     vendor: eclipse
     product: business_intelligence_and_reporting_tools
     shodan-query: http.title:"eclipse birt home"
+    fofa-query: title="eclipse birt home"
     google-query: intitle:"eclipse birt home"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Eclipse BIRT Home"})
-    fofa-query: title="eclipse birt home"
   tags: panel,eclipsebirt,detect
 
 http:
@@ -51,4 +51,3 @@ http:
         group: 1
         regex:
           - 'Viewer Version : ([0-9.-]+)'
-

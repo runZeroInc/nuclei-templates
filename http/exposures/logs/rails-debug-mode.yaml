@@ -21,4 +21,3 @@ http:
           - "Rails.root:"
           - "Action Controller: Exception caught"
         condition: and
-

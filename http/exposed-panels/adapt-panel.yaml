@@ -28,4 +28,3 @@ http:
           - 'contains(body, "<title>Adapt authoring tool</title>")'
           - 'status_code == 200'
         condition: and
-

@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - (?i)(?s)(?:okta|ssws).{0,40}\b(00[a-z0-9_-]{39}[a-z0-9_])\b
-

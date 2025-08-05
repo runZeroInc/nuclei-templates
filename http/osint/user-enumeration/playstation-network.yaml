@@ -30,4 +30,3 @@ http:
         part: body
         words:
           - "<div class=\"progress-bar small level\">"
-

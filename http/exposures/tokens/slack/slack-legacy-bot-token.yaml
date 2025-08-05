@@ -21,4 +21,3 @@ http:
         part: body
         regex:
           - (xoxb-[0-9]{8,14}\-[a-zA-Z0-9]{18,26})
-

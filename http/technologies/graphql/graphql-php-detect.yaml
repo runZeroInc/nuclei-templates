@@ -1,4 +1,5 @@
 id: graphql-php-detect
+
 info:
   name: Graphql PHP Detect
   author: princechaddha
@@ -13,7 +14,9 @@ http:
       - "{{BaseURL}}/api/graphql"
       - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
+
     body: '{"query":"query ! {__typename}"}'
+
     headers:
       Content-Type: application/json
     redirects: true
@@ -29,4 +32,3 @@ http:
         words:
           - 'Syntax Error: Cannot parse the unexpected character "!".'
         part: body
-

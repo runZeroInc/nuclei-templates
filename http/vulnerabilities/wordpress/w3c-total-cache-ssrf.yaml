@@ -23,4 +23,3 @@ http:
         part: body
         words:
           - "NessusFileIncludeTest"
-

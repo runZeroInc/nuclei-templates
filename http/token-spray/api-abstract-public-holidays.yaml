@@ -27,4 +27,3 @@ http:
           - '"location":'
           - '"date_year":'
         condition: and
-

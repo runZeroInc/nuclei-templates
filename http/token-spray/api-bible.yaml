@@ -29,4 +29,3 @@ http:
           - "bookId"
           - "bibleId"
         condition: and
-

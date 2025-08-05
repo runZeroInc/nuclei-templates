@@ -16,11 +16,11 @@ info:
     vendor: nextcloud
     product: nextcloud_server
     shodan-query: http.title:"nextcloud"
+    fofa-query: title="nextcloud"
+    google-query: intitle:"nextcloud"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nextcloud"})
     runzero-vendor: Nextcloud
     runzero-product: Nextcloud Server
-    fofa-query: title="nextcloud"
-    google-query: intitle:"nextcloud"
   tags: tech,nextcloud,storage
 
 http:
@@ -54,4 +54,3 @@ http:
         group: 1
         regex:
           - '(?m)"version":"([0-9.]+)",'
-

@@ -27,4 +27,3 @@ http:
           - '"id":'
           - '"result":'
         condition: and
-

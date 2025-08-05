@@ -20,4 +20,3 @@ http:
         part: body
         regex:
           - '(?i)NRI(?:I|Q)-[A-Za-z0-9\-_]{32}'
-

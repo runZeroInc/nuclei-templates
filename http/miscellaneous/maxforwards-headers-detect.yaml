@@ -31,4 +31,3 @@ http:
         part: header
         regex:
           - '(?i)max-forwards:\s+([0-9]+)'
-

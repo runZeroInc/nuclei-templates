@@ -41,4 +41,3 @@ http:
           - "application/octet-stream"
           - "text/plain"
         condition: or
-

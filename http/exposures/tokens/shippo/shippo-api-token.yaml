@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - (?i)\b(shippo_(live|test)_[a-f0-9]{40})(?:['|\"|\n|\r|\s|\x60|;]|$)
-

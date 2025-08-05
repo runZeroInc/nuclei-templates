@@ -18,9 +18,9 @@ info:
     vendor: xnat
     product: xnat
     shodan-query: http.title:"xnat"
-    runzero-match: any(each(service["html.titles"]), {# matches "XNAT"})
     fofa-query: title="xnat"
     google-query: intitle:"xnat"
+    runzero-match: any(each(service["html.titles"]), {# matches "XNAT"})
   tags: default-login,xnat
 
 http:
@@ -51,4 +51,3 @@ http:
       - type: status
         status:
           - 302
-

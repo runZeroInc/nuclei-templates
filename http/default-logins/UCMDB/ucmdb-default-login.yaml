@@ -38,4 +38,3 @@ http:
         part: header
         words:
           - "LWSSO_COOKIE_KEY"
-

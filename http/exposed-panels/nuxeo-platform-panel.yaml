@@ -15,9 +15,9 @@ info:
     vendor: nuxeo
     product: nuxeo
     shodan-query: http.title:"nuxeo platform"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nuxeo Platform"})
     fofa-query: title="nuxeo platform"
     google-query: intitle:"nuxeo platform"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nuxeo Platform"})
   tags: panel,nuxeo
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

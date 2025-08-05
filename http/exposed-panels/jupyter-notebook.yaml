@@ -20,7 +20,6 @@ info:
       - http.html:"jupyterhub"
       - http.title:"home page - select or create a notebook"
       - http.title:"jupyter notebook"
-    runzero-match: service["http.body"] matches "(?i)JupyterHub"
     fofa-query:
       - body="jupyterhub"
       - title="home page - select or create a notebook"
@@ -28,6 +27,7 @@ info:
     google-query:
       - intitle:"home page - select or create a notebook"
       - intitle:"jupyter notebook"
+    runzero-match: service["http.body"] matches "(?i)JupyterHub"
     zoomeye-query:
       - app="jupyter notebook"
       - title:"jupyter notebook"
@@ -59,4 +59,3 @@ http:
       - type: status
         status:
           - 200
-

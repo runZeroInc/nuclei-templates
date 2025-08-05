@@ -18,11 +18,11 @@ info:
     shodan-query:
       - http.title:"gitblit"
       - http.html:"gitblit"
-    runzero-match: any(each(service["html.titles"]), {# matches "Gitblit"})
     fofa-query:
       - body="gitblit"
       - title="gitblit"
     google-query: intitle:"gitblit"
+    runzero-match: any(each(service["html.titles"]), {# matches "Gitblit"})
   tags: gitblit,default-login
 
 http:
@@ -57,4 +57,3 @@ http:
       - type: dsl
         dsl:
           - "len(body) == 0"
-

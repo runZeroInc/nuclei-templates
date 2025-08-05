@@ -31,4 +31,3 @@ http:
           - '"cancels_on":'
           - '"company_details":'
         condition: and
-

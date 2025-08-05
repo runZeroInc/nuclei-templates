@@ -26,4 +26,3 @@ http:
           - '"username":'
           - '"id":'
         condition: and
-

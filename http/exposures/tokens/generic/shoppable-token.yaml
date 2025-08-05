@@ -20,4 +20,3 @@ http:
         part: body
         words:
           - data-shoppable-auth-token
-

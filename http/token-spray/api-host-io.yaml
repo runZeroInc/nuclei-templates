@@ -27,4 +27,3 @@ http:
           - '"rank"'
           - '"url"'
         condition: and
-

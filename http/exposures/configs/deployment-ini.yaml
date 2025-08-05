@@ -20,6 +20,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/deployment.ini"
@@ -34,13 +35,10 @@ http:
         - "/ftp.ini"
         - "/ftps.ini"
         - "/sftp.ini"
-
     stop-at-first-match: true
-
     matchers:
       - type: regex
         regex:
           - "^remote\\s*=\\s*"
           - '^\[(.*?)\]$'
         condition: and
-

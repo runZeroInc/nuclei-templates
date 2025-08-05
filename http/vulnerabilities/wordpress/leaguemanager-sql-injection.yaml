@@ -29,4 +29,3 @@ http:
           - 'contains(content_type, "text/html")'
           - 'contains(body, "LeagueManagerAjaxL10n")'
         condition: and
-

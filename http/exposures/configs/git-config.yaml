@@ -45,4 +45,3 @@ http:
           - "url ?= ?https?://(.*:.*)@"
           - "AUTHORIZATION: basic (.*)"
           - "pass = (.*)"
-

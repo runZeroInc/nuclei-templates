@@ -37,4 +37,3 @@ http:
           - 'jcr:path'
           - 'success'
         condition: and
-

@@ -32,4 +32,3 @@ http:
           - "contains_all(header, 'application/json','ecology_')"
           - contains(body, 'error\":\"system error') && !contains(body, 'securityIntercept')
         condition: and
-

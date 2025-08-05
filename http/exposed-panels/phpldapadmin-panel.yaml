@@ -14,11 +14,11 @@ info:
     shodan-query:
       - http.title:"phpldapadmin"
       - http.html:"phpldapadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpLDAPadmin"})
     fofa-query:
       - body="phpldapadmin"
       - title="phpldapadmin"
     google-query: intitle:"phpldapadmin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpLDAPadmin"})
   tags: php,phpldapadmin,panel,detect
 
 http:
@@ -48,4 +48,3 @@ http:
         group: 1
         regex:
           - '<div id="ajFOOT">([0-9.]+)<\/div>'
-

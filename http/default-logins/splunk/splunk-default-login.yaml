@@ -16,13 +16,13 @@ info:
     shodan-query:
       - http.title:"splunk"
       - http.title:"login - splunk"
-    runzero-match: any(each(service["html.titles"]), {# matches "Splunk"})
     fofa-query:
       - title="login - splunk"
       - title="splunk"
     google-query:
       - intitle:"login - splunk"
       - intitle:"splunk"
+    runzero-match: any(each(service["html.titles"]), {# matches "Splunk"})
   tags: default-login,splunk
 
 http:
@@ -79,4 +79,3 @@ http:
         part: header
         regex:
           - 'cval=([0-9]+)'
-

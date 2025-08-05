@@ -15,8 +15,8 @@ info:
     vendor: dataease_project
     product: dataease
     shodan-query: http.html:"dataease"
-    runzero-match: service["http.body"] matches "Dataease"
     fofa-query: body="dataease"
+    runzero-match: service["http.body"] matches "Dataease"
   tags: default-login,dataease
 
 http:
@@ -46,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

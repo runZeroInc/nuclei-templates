@@ -48,7 +48,6 @@ info:
 http:
   - method: GET
     path:
-
       - "{{BaseURL}}/{{path}}"
 
     payloads:
@@ -152,4 +151,3 @@ http:
           - '!contains(body, "<html")'
           - 'status_code == 200'
         condition: and
-

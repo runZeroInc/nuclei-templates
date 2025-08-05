@@ -30,4 +30,3 @@ http:
         part: body
         words:
           - "START of Content area"
-

@@ -41,4 +41,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && ('1052926265' == mmh3(base64_py(body)))"
-

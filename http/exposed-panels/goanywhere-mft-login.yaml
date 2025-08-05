@@ -18,12 +18,12 @@ info:
       - http.html:"goanywhere managed file transfer"
       - http.favicon.hash:"1484947000"
       - http.favicon.hash:"1484947000,1828756398,1170495932"
-    runzero-match: service["http.body"] matches "(?i)GoAnywhere Managed File Transfer"
     fofa-query:
       - app="goanywhere-mft"
       - body="goanywhere managed file transfer"
       - icon_hash=1484947000
       - icon_hash=1484947000,1828756398,1170495932
+    runzero-match: service["http.body"] matches "(?i)GoAnywhere Managed File Transfer"
     zoomeye-query:
       - app:"fortra goanywhere-mft"
       - app="fortra goanywhere-mft"
@@ -49,4 +49,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -18,11 +18,11 @@ info:
     shodan-query:
       - http.title:"whatsup gold" http.favicon.hash:-2107233094
       - http.html:"whatsup gold"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WhatsUp Gold"})
     fofa-query:
       - body="whatsup gold"
       - title="whatsup gold" http.favicon.hash:-2107233094
     google-query: intitle:"whatsup gold" http.favicon.hash:-2107233094
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WhatsUp Gold"})
   tags: panel,whatsup-gold,detect
 
 http:
@@ -45,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

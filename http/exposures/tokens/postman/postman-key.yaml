@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - '\b(PMAK-[a-zA-Z0-9]{24}-[a-zA-Z0-9]{34})\b'
-

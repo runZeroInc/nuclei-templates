@@ -32,4 +32,3 @@ http:
           - "status_code==500"
           - 'contains_all(body, "id", "name", "save_lists.php")'
         condition: and
-

@@ -25,4 +25,3 @@ http:
           - The source URL is not valid
         condition: and
         part: body
-

@@ -46,4 +46,3 @@ http:
       - type: dsl
         dsl:
           - body_2 == str2
-

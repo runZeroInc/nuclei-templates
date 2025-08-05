@@ -29,4 +29,3 @@ http:
           - 'contains_any(body, "<title>YunoHost Admin", "href=\"/yunohost/admin/favicon")'
           - 'status_code == 200'
         condition: and
-

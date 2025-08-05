@@ -15,9 +15,9 @@ info:
     vendor: webdesi9
     product: file_manager
     shodan-query: http.title:"web file manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web File Manager"})
     fofa-query: title="web file manager"
     google-query: intitle:"web file manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web File Manager"})
   tags: panel,filemanager
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

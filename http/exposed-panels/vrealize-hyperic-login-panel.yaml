@@ -16,9 +16,9 @@ info:
     vendor: vmware
     product: hyperic_hq
     shodan-query: http.title:"sign in - hyperic"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sign In - Hyperic"})
     fofa-query: title="sign in - hyperic"
     google-query: intitle:"sign in - hyperic"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sign In - Hyperic"})
   tags: login,panel,vrealize,hyperic,detect
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

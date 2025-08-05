@@ -23,8 +23,8 @@ info:
       - icon_hash=81586312
       - icon_hash="81586312"
       - title="jenkins"
-    runzero-match: service["favicon.ico.image.mmh3"] == "81586312"
     google-query: intitle:"jenkins"
+    runzero-match: service["favicon.ico.image.mmh3"] == "81586312"
   tags: panel,api,jenkins
 
 http:
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

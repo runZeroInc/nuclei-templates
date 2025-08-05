@@ -19,8 +19,8 @@ info:
     shodan-query:
       - http.favicon.hash:"206985584"
       - http.favicon.hash:"-2017596142"
-    runzero-match: service["favicon.ico.image.mmh3"] == "206985584"
     fofa-query: icon_hash=-2017596142
+    runzero-match: service["favicon.ico.image.mmh3"] == "206985584"
   tags: panel,nocodb,login,detect
 
 http:
@@ -42,4 +42,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && (\"206985584\" == mmh3(base64_py(body)))"
-

@@ -17,9 +17,9 @@ info:
     vendor: leostream
     product: connection_broker
     shodan-query: http.title:"leostream"
-    runzero-match: any(each(service["html.titles"]), {# matches "Leostream"})
     fofa-query: title="leostream"
     google-query: intitle:"leostream"
+    runzero-match: any(each(service["html.titles"]), {# matches "Leostream"})
   tags: leostream,default-login
 
 http:
@@ -55,4 +55,3 @@ http:
       - type: status
         status:
           - 302
-

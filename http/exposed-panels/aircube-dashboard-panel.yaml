@@ -17,11 +17,11 @@ info:
     shodan-query:
       - http.title:"aircube dashboard"
       - http.favicon.hash:"1249285083"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AirCube Dashboard"})
     fofa-query:
       - icon_hash=1249285083
       - title="aircube dashboard"
     google-query: intitle:"aircube dashboard"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AirCube Dashboard"})
   tags: panel,aircube
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

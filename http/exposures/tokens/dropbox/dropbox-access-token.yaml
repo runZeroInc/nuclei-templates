@@ -24,4 +24,3 @@ http:
         part: body
         regex:
           - \b(sl\.[a-zA-Z0-9_-]{130,152})(?:$|[^a-zA-Z0-9_-])
-

@@ -18,9 +18,9 @@ info:
     vendor: ldap-account-manager
     product: ldap_account_manager
     shodan-query: http.title:"ldap account manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LDAP Account Manager"})
     fofa-query: title="ldap account manager"
     google-query: intitle:"ldap account manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LDAP Account Manager"})
   tags: panel,ldap
 
 http:
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

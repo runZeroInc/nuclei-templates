@@ -20,4 +20,3 @@ http:
         part: header
         words:
           - "Google Frontend"
-

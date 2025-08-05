@@ -35,4 +35,3 @@ http:
         words:
           - "<title>Login – Vercel</title>"
         negative: true
-

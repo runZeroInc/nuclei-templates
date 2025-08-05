@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.html:"OpenCTI"
-    product: opencti
     vendor: citeum
+    product: opencti
+    shodan-query: http.html:"OpenCTI"
   tags: opencti,lfi,oss
 
 http:
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

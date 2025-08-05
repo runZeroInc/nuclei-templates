@@ -33,4 +33,3 @@ http:
           - 'contains(content_type, "text/html")'
           - 'contains(body, "abc-result-header")'
         condition: and
-

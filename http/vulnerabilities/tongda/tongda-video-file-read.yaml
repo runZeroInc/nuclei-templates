@@ -13,9 +13,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    fofa-query: icon_hash="1967132225"
-    product: office_anywhere_2017
     vendor: tongda2000
+    product: office_anywhere_2017
+    fofa-query: icon_hash="1967132225"
   tags: tongda,lfi
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

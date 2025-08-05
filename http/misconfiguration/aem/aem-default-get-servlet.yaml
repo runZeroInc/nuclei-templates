@@ -100,4 +100,3 @@ http:
         words:
           - 'jcr:createdBy'
         condition: and
-

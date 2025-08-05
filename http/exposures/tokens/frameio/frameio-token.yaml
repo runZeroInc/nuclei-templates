@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - fio-u-(?i)[a-z0-9\-_=]{64}
-

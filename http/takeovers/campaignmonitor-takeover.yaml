@@ -15,6 +15,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}"
+
     redirects: true
     max-redirects: 1
     matchers:
@@ -23,4 +24,3 @@ http:
           - 'Email Newsletter Software'
           - 'css.createsend1.com'
         condition: and
-

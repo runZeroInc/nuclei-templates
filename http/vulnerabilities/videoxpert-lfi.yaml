@@ -15,9 +15,9 @@ info:
     cpe: cpe:2.3:a:schneider-electric:pelco_videoxpert:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: title:"VideoXpert"
-    product: pelco_videoxpert
     vendor: schneider-electric
+    product: pelco_videoxpert
+    shodan-query: title:"VideoXpert"
   tags: schneider,pelco,packetstorm,lfi,videoxpert
 
 http:
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

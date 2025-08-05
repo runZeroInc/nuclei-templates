@@ -37,4 +37,3 @@ http:
         part: body
         words:
           - '<?xml version="1.0" encoding="ascii"?>'
-

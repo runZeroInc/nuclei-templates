@@ -17,14 +17,14 @@ info:
     max-request: 2
     vendor: geoserver
     product: geoserver
-    fofa-query:
-      - app="geoserver"
-      - title="geoserver"
-    runzero-match: 'any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})'
     shodan-query:
       - http.title:"geoserver"
       - server:"geohttpserver"
+    fofa-query:
+      - app="geoserver"
+      - title="geoserver"
     google-query: intitle:"geoserver"
+    runzero-match: 'any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})'
   tags: geoserver,default-login
 
 http:
@@ -54,4 +54,3 @@ http:
           - "!contains(tolower(location_1), 'error=true')"
           - 'status_code_1 == 302'
         condition: and
-

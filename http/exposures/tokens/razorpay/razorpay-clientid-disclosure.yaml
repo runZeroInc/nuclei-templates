@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - "rzp_(live|test)_.{14}"
-

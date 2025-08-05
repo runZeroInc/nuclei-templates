@@ -24,4 +24,3 @@ http:
         part: header
         words:
           - "WMSServer/"
-

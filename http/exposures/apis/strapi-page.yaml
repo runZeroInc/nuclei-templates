@@ -13,9 +13,9 @@ info:
     cpe: cpe:2.3:a:strapi:strapi:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.title:"Welcome to your Strapi app"
-    product: strapi
     vendor: strapi
+    product: strapi
+    shodan-query: http.title:"Welcome to your Strapi app"
   tags: api,strapi,exposure
 
 http:
@@ -28,4 +28,3 @@ http:
         words:
           - '<title>Welcome to your Strapi app</title>'
         condition: and
-

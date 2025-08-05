@@ -12,6 +12,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,naver,osint
+
 http:
   - method: GET
     path:
@@ -34,4 +35,3 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"nid.naver.com")'
-

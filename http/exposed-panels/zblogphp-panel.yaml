@@ -16,11 +16,11 @@ info:
     shodan-query:
       - http.html:"z-blogphp"
       - http.title:"zblog"
-    runzero-match: service["http.body"] matches "(?i)Z-BlogPHP"
     fofa-query:
       - body="z-blogphp"
       - title=zblog
     google-query: intitle:zblog
+    runzero-match: service["http.body"] matches "(?i)Z-BlogPHP"
   tags: panel,zblogphp
 
 http:
@@ -45,4 +45,3 @@ http:
         group: 1
         regex:
           - '<meta name="generator" content="([:A-Z-a-z 0-9.]+)"'
-

@@ -29,4 +29,3 @@ http:
           - '"coinrankingUrl"'
           - '"uuid"'
         condition: and
-

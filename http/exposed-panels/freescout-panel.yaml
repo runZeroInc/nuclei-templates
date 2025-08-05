@@ -25,4 +25,3 @@ http:
           - 'contains(body, "<title>FreeScout</title>")'
           - 'status_code == 200'
         condition: and
-

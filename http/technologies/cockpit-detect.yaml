@@ -17,4 +17,3 @@ http:
       - type: word
         words:
           - "<title>Authenticate Please!</title>"
-

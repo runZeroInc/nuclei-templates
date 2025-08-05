@@ -13,9 +13,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: html:"karma.conf.js"
-    product: karma
     vendor: karma_project
+    product: karma
+    shodan-query: html:"karma.conf.js"
   tags: config,exposure,devops
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

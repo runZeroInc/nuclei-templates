@@ -48,4 +48,3 @@ http:
         part: body
         regex:
           - '(?i)<title[^>]*>([^<]+)</title>'
-

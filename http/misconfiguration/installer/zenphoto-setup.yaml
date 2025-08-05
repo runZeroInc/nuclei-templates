@@ -13,9 +13,9 @@ info:
   metadata:
     verified: true
     max-request: 4
-    shodan-query: title:"Zenphoto install"
-    product: zenphoto
     vendor: zenphoto
+    product: zenphoto
+    shodan-query: title:"Zenphoto install"
   tags: misconfig,panel,zenphoto,setup,installer
 
 http:
@@ -32,4 +32,3 @@ http:
         part: body
         words:
           - Welcome to Zenphoto! This page will set up Zenphoto
-

@@ -17,9 +17,9 @@ info:
     vendor: authelia
     product: authelia
     shodan-query: http.title:"login - authelia"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Login - Authelia"})
     fofa-query: title="login - authelia"
     google-query: intitle:"login - authelia"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Login - Authelia"})
   tags: login,panel,authelia
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

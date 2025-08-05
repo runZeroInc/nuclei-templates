@@ -30,4 +30,3 @@ http:
           - '"name"'
           - '"apps"'
         condition: and
-

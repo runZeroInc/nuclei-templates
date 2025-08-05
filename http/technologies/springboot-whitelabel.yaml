@@ -33,4 +33,3 @@ http:
         part: header
         words:
           - "text/html"
-

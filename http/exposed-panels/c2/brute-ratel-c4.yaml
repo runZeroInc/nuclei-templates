@@ -26,4 +26,3 @@ http:
           - "contains(body, '404 file not found')"
           - "(\"1a279f5df4103743b823ec2a6a08436fdf63fe30\" == sha1(body))"
         condition: and
-

@@ -26,4 +26,3 @@ http:
           - '"error" : 0'
           - '"error_message" : "-"'
         condition: and
-

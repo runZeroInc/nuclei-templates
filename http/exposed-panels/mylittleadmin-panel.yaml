@@ -18,8 +18,8 @@ info:
     vendor: mylittletools
     product: mylittleadmin
     shodan-query: http.html:"mylittleadmin"
-    runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
     fofa-query: body="mylittleadmin"
+    runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
   tags: panel,mylittleadmin,login
 
 http:
@@ -37,4 +37,3 @@ http:
           - "status_code == 200"
           - "contains(body, '<title>myLittleAdmin for SQL Server')"
         condition: and
-

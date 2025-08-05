@@ -18,9 +18,9 @@ info:
     vendor: datahub_project
     product: datahub
     shodan-query: http.title:"datahub"
-    runzero-match: any(each(service["html.titles"]), {# matches "DataHub"})
     fofa-query: title="datahub"
     google-query: intitle:"datahub"
+    runzero-match: any(each(service["html.titles"]), {# matches "DataHub"})
   tags: datahub,default-login
 
 http:
@@ -49,4 +49,3 @@ http:
       - type: status
         status:
           - 200
-

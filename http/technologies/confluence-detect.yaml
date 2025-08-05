@@ -50,4 +50,3 @@ http:
           - '<meta id="confluence-base-url" name="confluence-base-url" content="https://(.*)">'
           - '<meta name="ajs-base-url" content="https://(.*)">'
           - '<meta name="ajs-server-name" content="(.*)">'
-

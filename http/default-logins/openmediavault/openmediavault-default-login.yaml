@@ -19,9 +19,9 @@ info:
     vendor: openmediavault
     product: openmediavault
     shodan-query: http.title:"openmediavault"
-    runzero-match: any(each(service["html.titles"]), {# matches "OpenMediaVault"})
     fofa-query: title="openmediavault"
     google-query: intitle:"openmediavault"
+    runzero-match: any(each(service["html.titles"]), {# matches "OpenMediaVault"})
   tags: default-login,openmediavault
 
 http:
@@ -57,4 +57,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -104,4 +104,3 @@ http:
           - "!regex('(?i)charset', header)"
           - "status_code != 301 && status_code != 302"
         condition: and
-

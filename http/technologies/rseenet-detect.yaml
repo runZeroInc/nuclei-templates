@@ -10,9 +10,9 @@ info:
     cpe: cpe:2.3:a:advantech:r-seenet:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.title:"R-SeeNet"
-    product: r-seenet
     vendor: advantech
+    product: r-seenet
+    shodan-query: http.title:"R-SeeNet"
   tags: tech,rseenet
 
 http:
@@ -31,4 +31,3 @@ http:
         group: 1
         regex:
           - '<title>R-SeeNet (.*)</title>'
-

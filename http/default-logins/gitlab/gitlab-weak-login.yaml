@@ -20,12 +20,12 @@ info:
       - cpe:"cpe:2.3:a:gitlab:gitlab"
       - http.html:"gitlab enterprise edition"
       - http.html:"gitlab-ci.yml"
-    runzero-match: any(each(service["html.titles"]), {# matches "GitLab"})
     fofa-query:
       - body="gitlab enterprise edition"
       - body="gitlab-ci.yml"
       - title="gitlab"
     google-query: intitle:"gitlab"
+    runzero-match: any(each(service["html.titles"]), {# matches "GitLab"})
   tags: gitlab,default-login
 
 http:
@@ -67,4 +67,3 @@ http:
           - '"token_type":'
           - '"refresh_token":'
         condition: and
-

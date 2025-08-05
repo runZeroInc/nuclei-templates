@@ -31,4 +31,3 @@ http:
           - "status_code == 200"
           - "contains_any(body, '<title>Home Page - Select or create a notebook</title>', '<div> There are no notebooks running. </div>', '/lab/api/settings')"
         condition: and
-

@@ -45,4 +45,3 @@ http:
         group: 1
         regex:
           - "SVR_VER=([\\d.\\-]+)"
-

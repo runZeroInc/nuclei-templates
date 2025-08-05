@@ -16,10 +16,10 @@ info:
       - if you find a bug in this lighttpd package, or in lighttpd itself
       - cpe:"cpe:2.3:a:lighttpd:lighttpd"
       - http.title:"powered by lighttpd"
-    runzero-vendor: Lighttpd
-    runzero-product: Lighttpd
     fofa-query: title="powered by lighttpd"
     google-query: intitle:"powered by lighttpd"
+    runzero-vendor: Lighttpd
+    runzero-product: Lighttpd
   tags: tech,lighttpd
 
 http:
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

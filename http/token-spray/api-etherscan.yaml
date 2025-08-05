@@ -33,4 +33,3 @@ http:
           - '"status":'
           - '"message":"OK"'
         condition: and
-

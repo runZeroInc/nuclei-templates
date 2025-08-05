@@ -28,4 +28,3 @@ http:
           - 'total_count":'
           - 'limit":'
         condition: and
-

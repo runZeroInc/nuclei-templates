@@ -29,4 +29,3 @@ http:
           - '"unlocked"'
           - '"scan_credits"'
         condition: and
-

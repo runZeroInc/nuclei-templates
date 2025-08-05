@@ -21,6 +21,7 @@ http:
       - '{{BaseURL}}'
 
     host-redirects: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

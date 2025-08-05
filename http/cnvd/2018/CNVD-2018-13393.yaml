@@ -31,4 +31,3 @@ http:
           - "<?php"
           - "login_met_cookie($metinfo_admin_name);"
         condition: and
-

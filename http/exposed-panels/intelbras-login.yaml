@@ -18,13 +18,13 @@ info:
     shodan-query:
       - http.title:"intelbras"
       - http.title:"intelbras" "all rights reserved" -.com
+    fofa-query:
+      - title="intelbras"
+      - title="intelbras" "all rights reserved" -.com
     google-query:
       - intitle:"intelbras" "all rights reserved" -.com
       - intitle:"intelbras"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Intelbras"})
-    fofa-query:
-      - title="intelbras"
-      - title="intelbras" "all rights reserved" -.com
   tags: panel,edb
 
 http:
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

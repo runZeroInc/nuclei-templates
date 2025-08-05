@@ -8,8 +8,8 @@ info:
     - https://once.com/writebook
     - https://books.37signals.com/2/the-writebook-manual
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: html:"Writebook"
   tags: writebook,tech
 
@@ -20,6 +20,7 @@ http:
       - "{{BaseURL}}/session/new"
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: word
@@ -33,4 +34,3 @@ http:
           - "Made with Writebook"
           - "Writebook</h1>"
         condition: or
-

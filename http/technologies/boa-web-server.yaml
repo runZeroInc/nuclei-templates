@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: "Server: Boa/"
-    product: boa
     vendor: boa
+    product: boa
+    shodan-query: "Server: Boa/"
   tags: boa,tech
 
 http:
@@ -38,4 +38,3 @@ http:
         part: header
         kval:
           - Server
-

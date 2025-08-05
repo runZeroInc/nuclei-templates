@@ -23,7 +23,6 @@ info:
       - cpe:"cpe:2.3:a:minio:minio"
       - http.title:"minio browser"
       - http.title:"minio console"
-    runzero-match: service["http.body"] matches "symfony Profiler"
     fofa-query:
       - app="minio"
       - body="symfony profiler"
@@ -32,6 +31,7 @@ info:
     google-query:
       - intitle:"minio browser"
       - intitle:"minio console"
+    runzero-match: service["http.body"] matches "symfony Profiler"
   tags: default-login,minio
 
 http:
@@ -73,4 +73,3 @@ http:
       - type: status
         status:
           - 200
-

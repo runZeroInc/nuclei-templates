@@ -20,9 +20,9 @@ info:
     cpe: cpe:2.3:a:apache:ofbiz:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.html:"Apache OFBiz"
-    product: ofbiz
     vendor: apache
+    product: ofbiz
+    shodan-query: http.html:"Apache OFBiz"
   tags: cve,cve2021,ofbiz,oast,log4j,rce,apache,jndi,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -63,4 +63,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

@@ -42,4 +42,3 @@ http:
         group: 1
         regex:
           - 'Server: (.{4,20})'
-

@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    shodan-query: http.component:"Adobe Experience Manager"
-    product: experience_manager
     vendor: adobe
+    product: experience_manager
+    shodan-query: http.component:"Adobe Experience Manager"
   tags: aem,xss,misconfig
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 400
-

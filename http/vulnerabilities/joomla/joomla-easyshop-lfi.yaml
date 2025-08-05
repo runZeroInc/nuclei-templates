@@ -26,4 +26,3 @@ http:
           - 'contains_any(body, "$user", "$password", "$dbtype")'
           - 'status_code == 200'
         condition: and
-

@@ -113,7 +113,6 @@ http:
         - 'login?to=http://oast.me'
         - '1/_https@oast.me'
         - 'redirect?targeturl=https://oast.me'
-
     stop-at-first-match: true
 
     matchers-condition: and
@@ -130,4 +129,3 @@ http:
           - 307
           - 308
         condition: or
-

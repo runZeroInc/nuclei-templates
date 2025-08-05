@@ -27,4 +27,3 @@ http:
           - '"last_updated":'
           - '"exchange_rate":'
         condition: and
-

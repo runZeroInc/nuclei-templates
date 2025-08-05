@@ -26,4 +26,3 @@ http:
           - "Please provide a valid username/password to access this server."
         part: body
         negative: true
-

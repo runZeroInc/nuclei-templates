@@ -30,4 +30,3 @@ http:
           - contains(header, "text/html")
           - contains(body, 'value=\"deneme')
         condition: and
-

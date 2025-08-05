@@ -35,4 +35,3 @@ http:
           - contains(body_2, cache_header)
           - contains(body_2, xss_payload)
         condition: and
-

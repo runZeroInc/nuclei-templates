@@ -40,4 +40,3 @@ http:
         part: body
         regex:
           - 'href="\/static\/assets\/favicon\.ico\?v=(.+)" \/>'
-

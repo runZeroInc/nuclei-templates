@@ -35,4 +35,3 @@ http:
           - 'contains(body_2, "<script>alert(document.domain)</script>")'
           - 'contains(body_2, "3dprint-lite_page_p3dlite_materials")'
         condition: and
-

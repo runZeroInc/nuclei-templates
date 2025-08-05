@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:pega:platform:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    shodan-query: title:"Pega"
-    product: platform
     vendor: pega
+    product: platform
+    shodan-query: title:"Pega"
   tags: cve,cve2021,rce,jndi,log4j,pega,oast,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -75,4 +75,3 @@ http:
         kval:
           - location
         internal: true
-

@@ -16,9 +16,9 @@ info:
     vendor: gchq
     product: cyberchef
     shodan-query: http.title:"cyberchef"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CyberChef"})
     fofa-query: title="cyberchef"
     google-query: intitle:"cyberchef"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CyberChef"})
   tags: panel,cyberchef,login,detect
 
 http:
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

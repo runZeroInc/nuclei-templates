@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"Slurm HPC Dashboard"
-    product: slurm
     vendor: schedmd
+    product: slurm
+    shodan-query: title:"Slurm HPC Dashboard"
   tags: misconfig,slurm,dashboard
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -28,4 +28,3 @@ http:
           - '"data":'
           - '"id":'
         condition: and
-

@@ -29,4 +29,3 @@ http:
           - '"paging":'
           - '"next":'
         condition: and
-

@@ -19,8 +19,8 @@ info:
     fofa-query:
       - title="nextcloudpi"
       - title="nextcloudpi panel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NextcloudPi"})
     google-query: intitle:"nextcloudpi panel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NextcloudPi"})
   tags: nextcloud,nextcloudpi,login,panel
 
 http:
@@ -34,4 +34,3 @@ http:
           - "contains_any(body, 'NextcloudPi', 'https://nextcloudpi.com')"
           - "status_code==200"
         condition: and
-

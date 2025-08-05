@@ -17,12 +17,12 @@ info:
     shodan-query:
       - http.title:"kkfileview"
       - http.html:"kkfileview"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kkFileView"})
     fofa-query:
       - app="kkfileview"
       - body="kkfileview"
       - title="kkfileview"
     google-query: intitle:"kkfileview"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kkFileView"})
   tags: panel,kkfileview
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

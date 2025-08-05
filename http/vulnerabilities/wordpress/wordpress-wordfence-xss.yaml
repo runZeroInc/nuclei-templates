@@ -12,7 +12,6 @@ info:
   metadata:
     max-request: 2
   tags: wordpress,wp-plugin,xss,wordfence
-
 flow: http(1) && http(2)
 
 http:
@@ -46,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

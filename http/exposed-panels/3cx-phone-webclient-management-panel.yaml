@@ -42,4 +42,3 @@ http:
           - " <title>3CX Webclient</title>"
           - '<meta name="description" content="3CX">'
         condition: or
-

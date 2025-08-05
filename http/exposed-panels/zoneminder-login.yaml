@@ -21,8 +21,8 @@ info:
       - body="zm - login"
       - icon_hash="-1218152116"
       - title="zoneminder"
-    runzero-match: service["http.body"] matches "(?i)zm - login"
     google-query: intitle:"zoneminder"
+    runzero-match: service["http.body"] matches "(?i)zm - login"
   tags: panel,zoneminder
 
 http:
@@ -43,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

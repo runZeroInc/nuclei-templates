@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_desktop_central:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: title:"ManageEngine Desktop Central"
-    product: manageengine_desktop_central
     vendor: zohocorp
+    product: manageengine_desktop_central
+    shodan-query: title:"ManageEngine Desktop Central"
   tags: cve,cve2021,rce,jndi,log4j,manage,engine,oast,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -64,4 +64,3 @@ http:
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print extracted ${:-{{rand1}}}${:-{{rand2}}}.${hostName} in output
         part: interactsh_request
-

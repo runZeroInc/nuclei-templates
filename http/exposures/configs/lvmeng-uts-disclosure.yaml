@@ -36,4 +36,3 @@ http:
           - "MANAGER_IP"
         condition: and
         part: body
-

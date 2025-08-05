@@ -12,13 +12,13 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-    shodan-query: http.favicon.hash:"-1217039701"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1217039701"
-    product: qualitor
     vendor: qualitor
+    product: qualitor
+    shodan-query: http.favicon.hash:"-1217039701"
     fofa-query:
       - icon_hash="-1217039701"
       - qualitor
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1217039701"
   tags: panel,qualitor
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

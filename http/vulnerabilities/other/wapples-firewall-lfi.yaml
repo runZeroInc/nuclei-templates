@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: http.title:"Intelligent WAPPLES"
-    product: wapples
     vendor: pentasecurity
+    product: wapples
+    shodan-query: http.title:"Intelligent WAPPLES"
   tags: wapples,firewall,lfi,authenticated
 
 http:
@@ -43,4 +43,3 @@ http:
       - type: regex
         regex:
           - "root:[x*]:0:0"
-

@@ -14,9 +14,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    google-query: intext:"configuration of the svnserve daemon"
-    product: subversion
     vendor: apache
+    product: subversion
+    google-query: intext:"configuration of the svnserve daemon"
   tags: config,exposure,svnserve
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

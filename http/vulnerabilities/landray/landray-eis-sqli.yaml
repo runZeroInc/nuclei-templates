@@ -29,4 +29,3 @@ http:
           - "Microsoft SQL Server"
           - "SqlException"
         condition: and
-

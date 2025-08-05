@@ -38,4 +38,3 @@ http:
         group: 1
         regex:
           - 'title="(.*)正式发布">'
-

@@ -18,9 +18,9 @@ info:
     vendor: versa-networks
     product: versa_operating_system
     shodan-query: http.title:"flex vnf web-ui"
-    runzero-match: any(each(service["html.titles"]), {# matches "Flex VNF Web-UI"})
     fofa-query: title="flex vnf web-ui"
     google-query: intitle:"flex vnf web-ui"
+    runzero-match: any(each(service["html.titles"]), {# matches "Flex VNF Web-UI"})
   tags: default-login,versa,flexvnf
 
 http:
@@ -65,4 +65,3 @@ http:
         part: header
         regex:
           - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
-

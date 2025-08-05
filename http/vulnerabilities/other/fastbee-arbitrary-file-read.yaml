@@ -15,7 +15,6 @@ info:
     product: fastbee
     fofa-query: "fastbee"
   tags: fastbee,iot,lfi
-
 flow: http(1) && http(2)
 
 http:
@@ -51,4 +50,3 @@ http:
       - type: status
         status:
           - 200
-

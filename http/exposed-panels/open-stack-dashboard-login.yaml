@@ -23,6 +23,7 @@ http:
       - '{{BaseURL}}/dashboard/auth/login/'
       - '{{BaseURL}}/horizon/auth/login/?next=/horizon/'
       - '{{BaseURL}}/auth/login/?next=/'
+
     host-redirects: true
 
     matchers-condition: and
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

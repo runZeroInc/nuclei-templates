@@ -27,4 +27,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>kube metrics server</title>", "kube_configmap_", "kube_pod_", "kube_secret_", "kube_deployment_", "kube_namespace_", "kube_service_")'
         condition: and
-

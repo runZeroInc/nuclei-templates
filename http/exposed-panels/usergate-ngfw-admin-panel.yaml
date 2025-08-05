@@ -25,4 +25,3 @@ http:
           - status_code == 200
           - contains(body, "Entensys.console")
         condition: and
-

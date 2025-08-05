@@ -17,13 +17,13 @@ info:
     shodan-query:
       - http.title:"vmware cloud director availability"
       - http.title:"welcome to vmware cloud director"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware Cloud Director Availability"})
     fofa-query:
       - title="vmware cloud director availability"
       - title="welcome to vmware cloud director"
     google-query:
       - intitle:"vmware cloud director availability"
       - intitle:"welcome to vmware cloud director"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware Cloud Director Availability"})
   tags: panel,vmware
 
 http:
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -44,4 +44,3 @@ http:
         part: body
         json:
           - '.server | select((.name != null) and (.version != null)) | .name, .version'
-

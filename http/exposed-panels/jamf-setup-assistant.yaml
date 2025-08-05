@@ -18,12 +18,12 @@ info:
       - http.html:"jamf pro setup"
       - http.favicon.hash:"1262005940"
       - http.title:"jamf pro"
-    runzero-match: service["http.body"] matches "(?i)Jamf Pro Setup"
     fofa-query:
       - body="jamf pro setup"
       - icon_hash=1262005940
       - title="jamf pro"
     google-query: intitle:"jamf pro"
+    runzero-match: service["http.body"] matches "(?i)Jamf Pro Setup"
   tags: jamf,setup,panel
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

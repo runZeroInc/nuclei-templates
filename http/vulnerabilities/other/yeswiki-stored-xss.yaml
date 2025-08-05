@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: http.html:"yeswiki"
-    product: cercopitheque
     vendor: yeswiki
+    product: cercopitheque
+    shodan-query: http.html:"yeswiki"
   tags: yeswiki,xss,stored-xss,huntr,intrusive
 
 http:
@@ -69,4 +69,3 @@ http:
           - "status_code_2 == 200"
           - contains(body_2, '><img src=x onerror=console.log(123);>')
         condition: and
-

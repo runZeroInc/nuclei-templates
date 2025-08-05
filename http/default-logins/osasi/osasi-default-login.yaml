@@ -30,4 +30,3 @@ http:
           - "contains(location, '/genbas/')"
           - "contains(set_cookie, 'CAKEPHP=')"
         condition: and
-

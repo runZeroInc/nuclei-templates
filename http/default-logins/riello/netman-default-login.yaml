@@ -19,15 +19,15 @@ info:
       - http.title:"netman"
       - http.html:"ups network management card 4"
       - http.title:"netman 204"
-    censys-query: services.http.response.body:"netman204"
-    runzero-match: any(each(service["html.titles"]), {# matches "Netman"})
     fofa-query:
       - body="ups network management card 4"
       - title="netman 204"
       - title="netman"
+    censys-query: services.http.response.body:"netman204"
     google-query:
       - intitle:"netman 204"
       - intitle:"netman"
+    runzero-match: any(each(service["html.titles"]), {# matches "Netman"})
   tags: default-login,netman
 
 http:
@@ -55,4 +55,3 @@ http:
       - type: status
         status:
           - 200
-

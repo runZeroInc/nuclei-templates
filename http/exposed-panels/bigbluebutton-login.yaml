@@ -35,4 +35,3 @@ http:
         group: 1
         regex:
           - 'Greenlight<\/a>\. (.*)'
-

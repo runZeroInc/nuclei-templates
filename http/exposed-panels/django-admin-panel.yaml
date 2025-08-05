@@ -36,4 +36,3 @@ http:
         group: 1
         regex:
           - '(?i)django-admin-interface\s+([0-9.]+)'
-

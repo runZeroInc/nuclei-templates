@@ -14,9 +14,9 @@ info:
     vendor: shoutcast
     product: dnas
     shodan-query: http.title:"shoutcast server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SHOUTcast Server"})
     fofa-query: title="shoutcast server"
     google-query: intitle:"shoutcast server"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SHOUTcast Server"})
   tags: panel
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

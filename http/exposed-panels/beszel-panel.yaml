@@ -27,4 +27,3 @@ http:
           - 'status_code == 200'
           - 'contains(to_lower(body), "<title>beszel</title>")'
         condition: and
-

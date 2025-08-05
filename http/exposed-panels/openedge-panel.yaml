@@ -14,8 +14,8 @@ info:
     vendor: progress
     product: openedge
     shodan-query: http.html:"welcome to progress application server for openedge"
-    runzero-match: service["http.body"] matches "(?i)Welcome to Progress Application Server for OpenEdge"
     fofa-query: body="welcome to progress application server for openedge"
+    runzero-match: service["http.body"] matches "(?i)Welcome to Progress Application Server for OpenEdge"
   tags: panel,openedge,login,detect
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

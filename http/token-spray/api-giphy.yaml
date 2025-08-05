@@ -24,4 +24,3 @@ http:
           - '"data":'
           - '"type":"gif"'
         condition: and
-

@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.component:"Magento"
-    product: magento
     vendor: magento
+    product: magento
+    shodan-query: http.component:"Magento"
   tags: magento,tech,cms
 
 http:
@@ -42,4 +42,3 @@ http:
         part: body
         regex:
           - 'Magento\/([0-9.]+) '
-

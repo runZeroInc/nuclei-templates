@@ -50,4 +50,3 @@ http:
           - 500
           - 404
         condition: or
-

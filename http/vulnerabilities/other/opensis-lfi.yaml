@@ -14,9 +14,9 @@ info:
     cpe: cpe:2.3:a:os4ed:opensis:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    shodan-query: http.title:"openSIS"
-    product: opensis
     vendor: os4ed
+    product: opensis
+    shodan-query: http.title:"openSIS"
   tags: opensis,lfi,edb
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

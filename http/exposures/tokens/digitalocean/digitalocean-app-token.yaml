@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - (?i)\b(doo_v1_[a-f0-9]{64})\b
-

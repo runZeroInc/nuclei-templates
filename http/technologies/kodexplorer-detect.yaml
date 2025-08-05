@@ -32,4 +32,3 @@ http:
         group: 1
         regex:
           - 'Powered by KodExplorer ([a-z0-9.]+) \|'
-

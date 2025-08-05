@@ -30,4 +30,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && (\"-144483185\" == mmh3(base64_py(body)))"
-

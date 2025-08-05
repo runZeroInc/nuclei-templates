@@ -14,8 +14,8 @@ info:
     vendor: beyondtrust
     product: beyondinsight
     shodan-query: http.html:"beyondinsight"
-    runzero-match: service["http.body"] matches "(?i)BeyondInsight"
     fofa-query: body="beyondinsight"
+    runzero-match: service["http.body"] matches "(?i)BeyondInsight"
   tags: beyondtrust,pam,panel
 
 http:
@@ -28,4 +28,3 @@ http:
         part: body
         words:
           - "<title>BeyondInsight</title>"
-

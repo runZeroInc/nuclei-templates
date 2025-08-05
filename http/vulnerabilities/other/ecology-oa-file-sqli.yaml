@@ -43,4 +43,3 @@ http:
           - 'duration_2>=15 && status_code_2 == 200'
           - 'contains(header_2, "ecology_JSessionid=")'
         condition: and
-

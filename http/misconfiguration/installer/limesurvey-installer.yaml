@@ -10,10 +10,11 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"Limesurvey Installer"
-    product: limesurvey
     vendor: limesurvey
+    product: limesurvey
+    shodan-query: html:"Limesurvey Installer"
   tags: misconfig,limesurvey,install
+
 http:
   - method: GET
     path:
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

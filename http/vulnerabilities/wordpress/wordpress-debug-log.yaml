@@ -20,11 +20,11 @@ http:
         - 'wordpress'
         - 'wp'
         - 'blog'
-
     stop-at-first-match: true
     host-redirects: true
     max-redirects: 3
     max-size: 5000
+
     matchers-condition: and
     matchers:
       - type: dsl
@@ -38,4 +38,3 @@ http:
       - type: dsl
         dsl:
           - to_string(content_length)+ " bytes"
-

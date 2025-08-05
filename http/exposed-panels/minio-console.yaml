@@ -17,8 +17,8 @@ info:
     fofa-query:
       - app="minio-console"
       - title="minio console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MinIO Console"})
     google-query: intitle:"minio console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MinIO Console"})
   tags: panel,minio
 
 http:
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

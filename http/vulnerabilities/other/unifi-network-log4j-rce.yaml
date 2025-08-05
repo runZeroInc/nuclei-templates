@@ -20,9 +20,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:"UniFi Network"
-    product: unifi_network_application
     vendor: ui
+    product: unifi_network_application
+    shodan-query: http.title:"UniFi Network"
   tags: cve,cve2021,rce,log4j,ubnt,unifi,oast,jndi,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -67,4 +67,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

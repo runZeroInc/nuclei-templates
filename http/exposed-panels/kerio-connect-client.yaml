@@ -14,9 +14,9 @@ info:
     vendor: gfi
     product: kerio_connect
     shodan-query: http.title:"kerio connect client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kerio Connect Client"})
     fofa-query: title="kerio connect client"
     google-query: intitle:"kerio connect client"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kerio Connect Client"})
   tags: panel,kerio
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

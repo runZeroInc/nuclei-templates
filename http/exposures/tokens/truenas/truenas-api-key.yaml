@@ -27,4 +27,3 @@ http:
         part: body
         regex:
           - '"params"\s*:\s*\[\s*"(\d+-[a-zA-Z0-9]{64})"\s*\]'
-

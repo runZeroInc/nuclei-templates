@@ -20,4 +20,3 @@ http:
         part: body
         regex:
           - 'https://outlook\.office\.com/webhook/[A-Za-z0-9\-@]+/IncomingWebhook/[A-Za-z0-9\-]+/[A-Za-z0-9\-]+'
-

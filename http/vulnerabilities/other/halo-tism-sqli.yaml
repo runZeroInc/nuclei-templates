@@ -42,4 +42,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains(body, "ok")'
         condition: and
-

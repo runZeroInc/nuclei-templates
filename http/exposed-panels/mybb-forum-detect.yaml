@@ -36,4 +36,3 @@ http:
           - 'MyBB Forum'
           - '<title>MyBB'
         condition: or
-

@@ -32,7 +32,6 @@ http:
       password:
         - '0000'
         - user
-
     host-redirects: true
 
     matchers-condition: and
@@ -52,4 +51,3 @@ http:
       - type: status
         status:
           - 200
-

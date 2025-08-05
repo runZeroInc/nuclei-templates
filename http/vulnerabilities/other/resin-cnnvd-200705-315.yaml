@@ -28,4 +28,3 @@ http:
           - "Directory of /"
         condition: and
         part: body
-

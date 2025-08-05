@@ -25,4 +25,3 @@ http:
           - '"seconds":'
           - '"is_up_to_date":'
         condition: and
-

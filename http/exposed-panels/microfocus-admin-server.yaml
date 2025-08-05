@@ -28,10 +28,8 @@ http:
       - "{{BaseURL}}/_LOGIN_SERVER_"
 
     stop-at-first-match: true
-
     redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:
@@ -46,4 +44,3 @@ http:
         regex:
           - '(?i)Micro\s+Focus\s+Open\s+Enterprise\s+Server\s+([A-Z0-9\s]+)'
           - '(?i)Copyright\s+([0-9]+)\s+Micro\s+Focus'
-

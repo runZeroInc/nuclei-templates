@@ -43,4 +43,3 @@ http:
         part: body
         regex:
           - "(?i)<string>([^<]+)</string>"
-

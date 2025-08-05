@@ -14,11 +14,11 @@ info:
     vendor: freshrss
     product: freshrss
     shodan-query: http.title:"freshrss"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Freshrss"})
     fofa-query:
       - title="freshrss"
       - title="installation · freshrss"
     google-query: intitle:"freshrss"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Freshrss"})
   tags: freshrss,panel,detect
 
 http:
@@ -43,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

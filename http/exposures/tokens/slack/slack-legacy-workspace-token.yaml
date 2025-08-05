@@ -21,4 +21,3 @@ http:
         part: body
         regex:
           - (xox[ar]-(?:\d-)?[0-9a-zA-Z]{8,48})
-

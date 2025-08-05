@@ -38,4 +38,3 @@ http:
         group: 1
         regex:
           - '<b>M<\/b>altrail \(v<b>([0-9.]+)<\/b>'
-

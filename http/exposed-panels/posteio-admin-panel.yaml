@@ -15,11 +15,11 @@ info:
     shodan-query:
       - http.title:"administration login" html:"poste<span"
       - http.html:"initial server configuration"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Administration login"})
     fofa-query:
       - body="initial server configuration"
       - title="administration login" html:"poste<span"
     google-query: intitle:"administration login" html:"poste<span"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Administration login"})
   tags: panel,poste,login,detect
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

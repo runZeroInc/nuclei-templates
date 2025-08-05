@@ -29,4 +29,3 @@ http:
           - '"results":'
           - '"suggestions":'
         condition: and
-

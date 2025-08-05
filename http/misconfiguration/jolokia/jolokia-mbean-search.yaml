@@ -32,4 +32,3 @@ http:
           - '"type":"search"'
           - '"value":'
         condition: and
-

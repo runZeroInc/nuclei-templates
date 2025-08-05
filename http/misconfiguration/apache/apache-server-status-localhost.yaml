@@ -9,7 +9,6 @@ info:
   metadata:
     max-request: 2
   tags: apache,debug,misconfig
-
 flow: http(1) && http(2)
 
 http:
@@ -42,11 +41,9 @@ http:
       X-Remote-Addr: 127.0.0.1
       X-Remote-IP: 127.0.0.1
       X-True-IP: 127.0.0.1
-
     matchers:
       - type: word
         words:
           - "Apache Server Status"
           - "Server Version"
         condition: and
-

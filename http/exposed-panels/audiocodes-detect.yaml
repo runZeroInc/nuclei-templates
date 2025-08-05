@@ -15,8 +15,8 @@ info:
     vendor: audiocodes
     product: 420hd_ip_phone_firmware
     shodan-query: http.html:"audiocodes"
-    runzero-match: service["http.body"] matches "(?i)Audiocodes"
     fofa-query: body="audiocodes"
+    runzero-match: service["http.body"] matches "(?i)Audiocodes"
   tags: panel,audiocodes
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 203
-

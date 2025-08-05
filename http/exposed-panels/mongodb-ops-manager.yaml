@@ -14,9 +14,9 @@ info:
     vendor: mongodb
     product: ops_manager_server
     shodan-query: http.title:"mongodb ops manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MongoDB Ops Manager"})
     fofa-query: title="mongodb ops manager"
     google-query: intitle:"mongodb ops manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MongoDB Ops Manager"})
   tags: panel,mongodb
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -14,8 +14,8 @@ info:
     vendor: zohocorp
     product: manageengine_netflow_analyzer
     shodan-query: http.html:"login - netflow analyzer"
-    runzero-match: service["http.body"] matches "Login - Netflow Analyzer"
     fofa-query: body="login - netflow analyzer"
+    runzero-match: service["http.body"] matches "Login - Netflow Analyzer"
   tags: default-login,netflow,misconfig
 
 http:
@@ -47,4 +47,3 @@ http:
         part: location
         words:
           - "/netflow;jsessionid"
-

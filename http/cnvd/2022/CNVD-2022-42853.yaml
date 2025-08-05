@@ -17,10 +17,10 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: easycorp
+    product: zentao
     shodan-query: http.title:"zentao"
     fofa-query: "Zentao"
-    product: zentao
-    vendor: easycorp
   tags: cnvd,cnvd2022,zentao,sqli
 variables:
   num: "999999999"
@@ -40,4 +40,3 @@ http:
         part: body
         words:
           - 'c8c605999f3d8352d7bb792cf3fdb25'
-

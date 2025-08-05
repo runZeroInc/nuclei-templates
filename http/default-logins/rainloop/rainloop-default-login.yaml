@@ -15,11 +15,11 @@ info:
     max-request: 2
     vendor: rainloop
     product: webmail
-    fofa-query: app="RAINLOOP-WebMail"
-    runzero-match: any(each(service["html.bodies"]), {# matches "rainloop/"})
     shodan-query:
       - cpe:"cpe:2.3:a:roundcube:webmail"
       - http.component:"roundcube"
+    fofa-query: app="RAINLOOP-WebMail"
+    runzero-match: any(each(service["html.bodies"]), {# matches "rainloop/"})
   tags: default-login,rainloop,webmail,foss
 
 http:
@@ -60,4 +60,3 @@ http:
       - type: status
         status:
           - 200
-

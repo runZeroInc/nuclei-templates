@@ -29,4 +29,3 @@ http:
           - 'contains(body, "applezeed")'
           - 'status_code == 200'
         condition: and
-

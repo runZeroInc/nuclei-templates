@@ -12,10 +12,10 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: zzzcms
+    product: zzzcms
     shodan-query: html:"ZzzCMS"
     fofa-query: title="ZzzCMS"
-    product: zzzcms
-    vendor: zzzcms
   tags: zzzcms,xss
 
 http:
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

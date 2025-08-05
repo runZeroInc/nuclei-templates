@@ -13,10 +13,10 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: wwbn
+    product: avideo
     shodan-query: http.title:"AVideo"
     fofa-query: "AVideo"
-    product: avideo
-    vendor: wwbn
   tags: panel,install,avideo,misconfig
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -29,4 +29,3 @@ http:
           - "color"
           - "name"
         condition: and
-

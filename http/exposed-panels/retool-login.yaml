@@ -15,9 +15,9 @@ info:
     vendor: retool
     product: retool
     shodan-query: http.title:"retool"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Retool"})
     fofa-query: title="retool"
     google-query: intitle:"retool"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Retool"})
   tags: login,panel,retool
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

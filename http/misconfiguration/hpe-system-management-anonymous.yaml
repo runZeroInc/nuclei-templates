@@ -22,4 +22,3 @@ http:
           - "username = \"hpsmh_anonymous\";"
           - "var host_addr = '"
           - "var ip_addr   = '"
-

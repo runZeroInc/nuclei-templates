@@ -33,4 +33,3 @@ http:
           - </DataSourceClassName>
         part: body
         condition: and
-

@@ -20,11 +20,9 @@ http:
 
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:
           - 'contains(body, "<title>eKare inSight")'
           - 'status_code == 200'
         condition: and
-

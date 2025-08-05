@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - (?i)\b(nrak-[a-z0-9]{27})\b
-

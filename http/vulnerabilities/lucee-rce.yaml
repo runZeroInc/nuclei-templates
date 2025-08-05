@@ -27,4 +27,3 @@ http:
           - contains(header, "cfid")
           - contains(header, "cftoken")
         condition: and
-

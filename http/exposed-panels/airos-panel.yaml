@@ -14,8 +14,8 @@ info:
     vendor: ui
     product: airos
     shodan-query: http.favicon.hash:"-697231354"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-697231354"
     fofa-query: icon_hash=-697231354
+    runzero-match: service["favicon.ico.image.mmh3"] == "-697231354"
   tags: airos,panel
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

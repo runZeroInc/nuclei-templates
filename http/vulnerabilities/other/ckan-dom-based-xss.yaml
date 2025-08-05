@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"ckan 2.8.2" || html:"ckan 2.3"
-    product: ckan
     vendor: okfn
+    product: ckan
+    shodan-query: html:"ckan 2.8.2" || html:"ckan 2.3"
   tags: dom,xss
 
 http:
@@ -48,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

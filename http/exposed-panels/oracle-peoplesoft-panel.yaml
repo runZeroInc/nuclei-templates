@@ -18,8 +18,8 @@ info:
     product: peoplesoft_enterprise_peopletools
     shodan-query: http.title:"oracle peoplesoft sign-in"
     fofa-query: title="oracle peoplesoft sign-in"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle PeopleSoft Sign-in"})
     google-query: intitle:"oracle peoplesoft sign-in"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle PeopleSoft Sign-in"})
   tags: oracle,peoplesoft,panel,login,detect
 
 http:
@@ -53,4 +53,3 @@ http:
         group: 1
         regex:
           - '(?i)\*\s+Copyright\s+\(c\)\s+([0-9,\s]+)\s+Oracle\s+and\/or\s+its\s+affiliates.'
-

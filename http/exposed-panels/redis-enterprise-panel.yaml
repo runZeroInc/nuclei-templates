@@ -12,9 +12,9 @@ info:
     vendor: redis
     product: redis_enterprise
     shodan-query: http.title:"enterprise-class redis for developers"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Enterprise-Class Redis for Developers"})
     fofa-query: title="enterprise-class redis for developers"
     google-query: intitle:"enterprise-class redis for developers"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Enterprise-Class Redis for Developers"})
   tags: panel,redis,enterprise
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

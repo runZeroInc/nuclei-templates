@@ -28,4 +28,3 @@ http:
           - 'contains_any(body,"Elgg Install : Welcome", "Installing Elgg", "Welcome to Elgg")'
           - 'status_code == 200'
         condition: and
-

@@ -17,9 +17,9 @@ info:
     vendor: opencats
     product: opencats
     shodan-query: http.title:"opencats"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)opencats"})
     fofa-query: title="opencats"
     google-query: intitle:"opencats"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)opencats"})
   tags: default-login,opencats
 
 http:
@@ -58,4 +58,3 @@ http:
       - type: status
         status:
           - 200
-

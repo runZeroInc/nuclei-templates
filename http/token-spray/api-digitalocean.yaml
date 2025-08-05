@@ -26,4 +26,3 @@ http:
           - '"droplets":'
           - '"meta":'
         condition: and
-

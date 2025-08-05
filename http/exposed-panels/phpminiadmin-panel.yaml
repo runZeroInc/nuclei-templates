@@ -18,8 +18,8 @@ info:
     vendor: phpminiadmin_project
     product: phpminiadmin
     shodan-query: http.html:"phpminiadmin"
-    runzero-match: service["http.body"] matches "(?i)phpMiniAdmin"
     fofa-query: body="phpminiadmin"
+    runzero-match: service["http.body"] matches "(?i)phpMiniAdmin"
   tags: panel,phpminiadmin
 
 http:
@@ -40,4 +40,3 @@ http:
         group: 1
         regex:
           - 'phpMiniAdmin ([0-9._]+)'
-

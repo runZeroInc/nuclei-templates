@@ -33,4 +33,3 @@ http:
         group: 1
         regex:
           - 'id="appVersion"\s+value="([0-9\.]+)"'
-

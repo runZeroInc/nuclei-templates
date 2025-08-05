@@ -14,8 +14,8 @@ info:
     vendor: bmc
     product: remedy_action_request_system
     shodan-query: http.html:"bmc remedy"
-    runzero-match: service["http.body"] matches "(?i)BMC Remedy"
     fofa-query: body="bmc remedy"
+    runzero-match: service["http.body"] matches "(?i)BMC Remedy"
   tags: panel,remedy,bmc
 
 http:
@@ -37,4 +37,3 @@ http:
           - "BMC Remedy"
           - "BMC Smart Reporting"
         condition: or
-

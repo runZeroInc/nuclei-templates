@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - \b(dp\.audit\.[a-zA-Z0-9]{40,44})\b
-

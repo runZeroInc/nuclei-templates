@@ -11,11 +11,11 @@ info:
     shodan-query:
       - http.html:"camaleon_cms"
       - http.title:"camaleon cms"
-    runzero-match: service["http.body"] matches "(?i)camaleon_cms"
     fofa-query:
       - body="camaleon_cms"
       - title="camaleon cms"
     google-query: intitle:"camaleon cms"
+    runzero-match: service["http.body"] matches "(?i)camaleon_cms"
   tags: camaleon,default-login
 variables:
   username: admin
@@ -50,4 +50,3 @@ http:
       - type: dsl
         dsl:
           - 'contains(location,"/admin/dashboard")'
-

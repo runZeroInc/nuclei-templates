@@ -28,4 +28,3 @@ http:
         dsl:
           - 'status_code_1 == 200 && contains_all(body_1,"java.io","EOFExceptionYI")'
         condition: and
-

@@ -14,9 +14,9 @@ info:
     cpe: cpe:2.3:h:ruijie:rg-uac:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    fofa-query: title="RG-UAC登录页面"
-    product: rg-uac
     vendor: ruijie
+    product: rg-uac
+    fofa-query: title="RG-UAC登录页面"
   tags: cnvd2021,cnvd,ruijie,disclosure
 
 http:
@@ -45,4 +45,3 @@ http:
         group: 1
         regex:
           - '"role":"super_admin",(["a-z:,0-9]+),"lastpwdtime":'
-

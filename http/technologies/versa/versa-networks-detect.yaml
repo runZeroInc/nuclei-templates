@@ -43,4 +43,3 @@ http:
         name: versa-concerto
         dsl:
           - "status_code==200 && (\"-534530225\" == mmh3(base64_py(body)))"
-

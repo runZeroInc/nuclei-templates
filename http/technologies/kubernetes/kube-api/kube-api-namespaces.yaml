@@ -26,4 +26,3 @@ http:
           - '"NamespaceList":'
           - '"items":'
         condition: and
-

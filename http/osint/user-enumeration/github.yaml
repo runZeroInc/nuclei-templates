@@ -30,4 +30,3 @@ http:
         part: body
         words:
           - "p-nickname vcard-username d-block"
-

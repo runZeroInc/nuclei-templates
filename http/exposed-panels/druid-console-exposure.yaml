@@ -26,4 +26,3 @@ http:
           - 'src="/druid.js"'
           - 'href="/druid.css"'
         condition: and
-

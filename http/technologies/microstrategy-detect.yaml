@@ -54,4 +54,3 @@ http:
         group: 1
         regex:
           - 'WELCOME. MicroStrategy ([0-9]+)'
-

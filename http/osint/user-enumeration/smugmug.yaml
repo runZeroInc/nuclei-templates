@@ -14,7 +14,6 @@ info:
   tags: osint,osint-images,smugmug
 
 self-contained: true
-
 variables:
   valid_username: "{{replace(user, '.', '')}}"
 
@@ -33,4 +32,3 @@ http:
         part: body
         words:
           - "schema.org/Person"
-

@@ -18,10 +18,10 @@ info:
       - app="acti-视频监控"
       - title="web configurator"
       - title="web configurator" html:"acti"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web Configurator"})
     google-query:
       - intitle:"web configurator"
       - intitle:"web configurator" html:"acti"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web Configurator"})
   tags: acti,panel,login,detect
 
 http:
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -16,7 +16,6 @@ info:
   metadata:
     max-request: 2
   tags: wp-plugin,wp,edb,wpscan,wordpress,xss
-
 flow: http(1) && http(2)
 
 http:
@@ -49,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

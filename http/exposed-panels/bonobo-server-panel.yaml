@@ -14,8 +14,8 @@ info:
     vendor: bonobogitserver
     product: bonobo_git_server
     shodan-query: http.favicon.hash:"-219625874"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-219625874"
     fofa-query: icon_hash=-219625874
+    runzero-match: service["favicon.ico.image.mmh3"] == "-219625874"
   tags: panel,bonobo,git,login,detect
 
 http:
@@ -44,4 +44,3 @@ http:
         group: 1
         regex:
           - '(?i)bonobo git server \((.*)\)'
-

@@ -13,8 +13,8 @@ info:
     vendor: indionetworks
     product: unibox
     shodan-query: http.favicon.hash:"176427349"
-    runzero-match: service["favicon.ico.image.mmh3"] == "176427349"
     fofa-query: icon_hash=176427349
+    runzero-match: service["favicon.ico.image.mmh3"] == "176427349"
   tags: panel,unibox,login
 
 http:
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

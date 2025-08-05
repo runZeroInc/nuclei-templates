@@ -14,9 +14,9 @@ info:
     vendor: cososys
     product: endpoint_protector
     shodan-query: http.title:"endpoint protector"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Endpoint Protector"})
     fofa-query: title="endpoint protector"
     google-query: intitle:"endpoint protector"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Endpoint Protector"})
   tags: panel,endpoint,login,detect,endpoint-protector
 
 http:
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

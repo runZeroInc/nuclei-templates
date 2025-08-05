@@ -17,7 +17,6 @@ http:
 
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: word
         part: response
@@ -25,4 +24,3 @@ http:
           - 'userRpm'
           - 'R470T'
         condition: and
-

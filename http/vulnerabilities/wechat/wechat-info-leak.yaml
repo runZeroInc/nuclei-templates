@@ -15,9 +15,9 @@ info:
     max-request: 1
     vendor: tencent
     product: wechat
+    shodan-query: http.html:"wework_admin.normal_layout"
     fofa-query: body="wework_admin.normal_layout"
     runzero-match: service["http.body"] matches "(?i)wework_admin\\.normal_layout"
-    shodan-query: http.html:"wework_admin.normal_layout"
   tags: wechat,exposure,tencent
 
 http:
@@ -33,4 +33,3 @@ http:
           - status_code_1 == 200 && contains(body_1,"errcode") && contains(body_1,"strcorpid")
           - contains(body_1,"corpid")
         condition: and
-

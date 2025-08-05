@@ -56,4 +56,3 @@ http:
         internal: true
         regex:
           - 'admin ([a-zA-Z0-9#@]+)",'
-

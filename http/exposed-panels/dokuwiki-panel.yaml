@@ -19,11 +19,11 @@ info:
       - http.html:"/dokuwiki/"
       - cpe:"cpe:2.3:a:dokuwiki:dokuwiki"
       - http.title:"dokuwiki"
-    runzero-match: service["http.body"] matches "(?i)/dokuwiki/"
     fofa-query:
       - body="/dokuwiki/"
       - title="dokuwiki"
     google-query: intitle:"dokuwiki"
+    runzero-match: service["http.body"] matches "(?i)/dokuwiki/"
   tags: panel,dokuwiki,login
 
 http:
@@ -37,4 +37,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "dokuwiki__header", "content=\"DokuWiki", "/dokuwiki/")'
         condition: and
-

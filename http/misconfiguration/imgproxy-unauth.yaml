@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"imgproxy"
-    product: imgproxy
     vendor: evilmartians
+    product: imgproxy
+    shodan-query: html:"imgproxy"
   tags: imgproxy,unauth,misconfig
 variables:
   img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/375px-Google_2015_logo.svg.png'
@@ -35,4 +35,3 @@ http:
           - 'contains(content_type, "image/png")'
           - '("386116288" == mmh3(base64_py(body)))'
         condition: and
-

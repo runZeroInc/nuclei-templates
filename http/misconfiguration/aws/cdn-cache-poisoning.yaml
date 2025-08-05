@@ -22,7 +22,6 @@ http:
         GET /?{{string}} HTTP/1.1
         Host: {{Hostname}}
         X-Amz-Server-Side-Encryption: {{randstr}}
-
       - |
         GET /?{{string}} HTTP/1.1
         Host: {{Hostname}}
@@ -33,4 +32,3 @@ http:
           - 'contains(body_2, "{{randstr}}")'
           - 'status_code_2==400'
         condition: and
-

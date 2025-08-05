@@ -57,4 +57,3 @@ http:
       - type: dsl
         dsl:
           - '"JWT Secret 👉 " + cookie_name + "=" + default_jwt_secret'
-

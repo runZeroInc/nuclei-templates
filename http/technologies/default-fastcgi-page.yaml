@@ -23,4 +23,3 @@ http:
         words:
           - "<title>TurnKey NGINX PHP FastCGI Server</title>"
         part: body
-

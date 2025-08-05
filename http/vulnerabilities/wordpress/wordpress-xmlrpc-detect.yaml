@@ -17,4 +17,3 @@ http:
       - type: word
         words:
           - 'XML-RPC server accepts POST requests only.'
-

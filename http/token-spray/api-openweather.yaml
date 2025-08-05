@@ -25,4 +25,3 @@ http:
           - '"weather":'
           - '"base":'
         condition: and
-

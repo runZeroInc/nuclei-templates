@@ -17,6 +17,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/1.sql"
@@ -57,4 +58,3 @@ http:
           - 200
           - 206
         condition: or
-

@@ -15,9 +15,9 @@ info:
     vendor: extremenetworks
     product: aerohive_netconfig
     shodan-query: http.title:"aerohive netconfig ui"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aerohive NetConfig UI"})
     fofa-query: title="aerohive netconfig ui"
     google-query: intitle:"aerohive netconfig ui"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aerohive NetConfig UI"})
   tags: panel,tech,hiveos,aerohive
 
 http:
@@ -42,4 +42,3 @@ http:
         group: 1
         regex:
           - 'version" align="right" valign="bottom">([0-9.a-z]+)<\/td>'
-

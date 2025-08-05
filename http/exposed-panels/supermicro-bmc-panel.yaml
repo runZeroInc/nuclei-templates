@@ -18,9 +18,9 @@ info:
     vendor: supermicro
     product: x11ssv-m4f
     shodan-query: http.title:"supermicro bmc login"
+    fofa-query: title="supermicro bmc login"
     google-query: intitle:"supermicro bmc login"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Supermicro BMC Login"})
-    fofa-query: title="supermicro bmc login"
   tags: panel,supermicro,bmc
 
 http:
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

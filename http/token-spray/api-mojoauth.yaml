@@ -29,4 +29,3 @@ http:
           - '"kty"'
           - '"kid"'
         condition: and
-

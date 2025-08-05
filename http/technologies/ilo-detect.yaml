@@ -37,4 +37,3 @@ http:
         group: 1
         regex:
           - "<FWRI>([0-9.]+)</FWRI>"
-

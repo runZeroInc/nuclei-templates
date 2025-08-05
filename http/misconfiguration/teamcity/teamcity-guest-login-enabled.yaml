@@ -17,9 +17,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.component:"TeamCity"
-    product: teamcity
     vendor: jetbrains
+    product: teamcity
+    shodan-query: http.component:"TeamCity"
   tags: misconfig,teamcity,jetbrains
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 302
-

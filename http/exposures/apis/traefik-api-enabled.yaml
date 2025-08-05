@@ -37,4 +37,3 @@ http:
           - contains(content_type_2, 'application/json')
           - contains_all(body_2, '\"entryPoints\":', '\"service\":')
         condition: and
-

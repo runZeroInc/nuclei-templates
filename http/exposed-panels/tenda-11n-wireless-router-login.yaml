@@ -17,9 +17,9 @@ info:
     vendor: tenda
     product: 11n
     shodan-query: http.title:"tenda 11n wireless router login screen"
+    fofa-query: title="tenda 11n wireless router login screen"
     google-query: intitle:"tenda 11n wireless router login screen"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tenda 11N Wireless Router Login Screen"})
-    fofa-query: title="tenda 11n wireless router login screen"
   tags: panel,tenda
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

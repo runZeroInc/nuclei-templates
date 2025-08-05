@@ -29,4 +29,3 @@ http:
       - type: dsl
         dsl:
           - '!contains(tolower(body), "<html")'
-

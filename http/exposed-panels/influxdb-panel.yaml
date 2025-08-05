@@ -45,4 +45,3 @@ http:
         group: 1
         regex:
           - '<b>InfluxDB<\/b> v([\d.]+)<\/p>'
-

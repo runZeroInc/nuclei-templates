@@ -20,11 +20,11 @@ info:
       - product:"jenkins"
       - x-jenkins
       - http.title:"jenkins"
-    runzero-match: any(each(service["html.titles"]), {# matches "Jenkins"})
     fofa-query:
       - icon_hash="81586312"
       - title="jenkins"
     google-query: intitle:"jenkins"
+    runzero-match: any(each(service["html.titles"]), {# matches "Jenkins"})
   tags: jenkins,default-login
 
 http:
@@ -48,4 +48,3 @@ http:
           - 'contains(body_3, "/logout")'
           - 'contains(body_3, "<title>Dashboard -") || contains(body_3, "Dashboard [Jenkins]")'
         condition: and
-

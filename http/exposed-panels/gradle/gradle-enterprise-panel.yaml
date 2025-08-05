@@ -29,4 +29,3 @@ http:
         part: body
         words:
           - "<title>Gradle Enterprise</title>"
-

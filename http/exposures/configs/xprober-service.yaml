@@ -27,4 +27,3 @@ http:
           - '"appName":"X Prober"'
           - '<title>X Prober'
         condition: and
-

@@ -19,8 +19,8 @@ info:
     vendor: tinyfilemanager_project
     product: tinyfilemanager
     shodan-query: http.html:"tiny file manager"
-    runzero-match: service["http.body"] matches "Tiny File Manager"
     fofa-query: body="tiny file manager"
+    runzero-match: service["http.body"] matches "Tiny File Manager"
   tags: default-login,tiny,filemanager
 
 http:
@@ -68,4 +68,3 @@ http:
         regex:
           - '([a-f0-9]{64})'
         internal: true
-

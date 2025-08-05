@@ -102,4 +102,3 @@ http:
         name: secureDNS
         json:
           - '.secureDNS.delegationSigned // false'
-

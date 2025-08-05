@@ -18,9 +18,9 @@ info:
     shodan-query:
       - http.title:"graylog web interface"
       - graylog
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graylog Web Interface"})
     fofa-query: title="graylog web interface"
     google-query: intitle:"graylog web interface"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graylog Web Interface"})
   tags: panel,graylog,login,detect
 
 http:
@@ -34,4 +34,3 @@ http:
           - 'status_code == 200'
           - 'contains(body, "<title>Graylog Web Interface")'
         condition: and
-

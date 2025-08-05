@@ -18,11 +18,11 @@ info:
     shodan-query:
       - http.favicon.hash:"-418614327"
       - http.title:"tiny tiny rss - installer"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-418614327"
     fofa-query:
       - icon_hash=-418614327
       - title="tiny tiny rss - installer"
     google-query: intitle:"tiny tiny rss - installer"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-418614327"
   tags: panel,tiny-rss,login,detect
 
 http:
@@ -36,4 +36,3 @@ http:
           - 'status_code==200'
           - 'contains_any(body, "Tiny Tiny RSS", "ttrss_login", "ttrss_utility")'
         condition: and
-

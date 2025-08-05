@@ -20,4 +20,3 @@ http:
         words:
           - "Could not parse auth token"
         part: body
-

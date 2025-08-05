@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - (?i)(?:User|User\sId|UserId|Uid)\s*=\s*([^\s;]{3,100})\s*;[\ \t]*.{0,10}[\ \t]*(?:Password|Pwd)\s*=\s*([^\t\ ;]{3,100})\s*(?:[;]|$)
-

@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - \b(00[a-zA-Z0-9]{13}![a-zA-Z0-9._]{96})(?:\b|$|[^a-zA-Z0-9._])
-

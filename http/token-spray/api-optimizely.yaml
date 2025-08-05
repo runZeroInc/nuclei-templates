@@ -32,4 +32,3 @@ http:
           - '"account_id":'
           - '"confidence_threshold":'
         condition: and
-

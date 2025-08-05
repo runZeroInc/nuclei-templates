@@ -15,9 +15,9 @@ info:
     vendor: xnat
     product: xnat
     shodan-query: http.title:"xnat"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)xnat"})
     fofa-query: title="xnat"
     google-query: intitle:"xnat"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)xnat"})
   tags: xnat,panel
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

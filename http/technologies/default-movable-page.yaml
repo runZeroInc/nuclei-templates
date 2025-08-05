@@ -8,9 +8,9 @@ info:
     cpe: cpe:2.3:a:sixapart:movable_type:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: title:"Welcome to Movable Type"
-    product: movable_type
     vendor: sixapart
+    product: movable_type
+    shodan-query: title:"Welcome to Movable Type"
   tags: tech,movable
 
 http:
@@ -23,4 +23,3 @@ http:
         words:
           - "<title>Welcome to Movable Type</title>"
         part: body
-

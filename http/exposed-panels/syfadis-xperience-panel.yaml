@@ -33,4 +33,3 @@ http:
         group: 1
         regex:
           - 'ajaxz/([0-9.]+)/Common'
-

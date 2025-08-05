@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - (?i)\b([a-z0-9]{6}[a-f0-9]{30}nral)\b
-

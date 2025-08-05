@@ -31,4 +31,3 @@ http:
           - '"baseAssetId":'
           - '"quoteAssetId":'
         condition: and
-

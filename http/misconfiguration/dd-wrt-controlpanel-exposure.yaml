@@ -26,4 +26,3 @@ http:
           - "contains_all(body, 'DD-WRT Control Panel','WAN IPv6')"
           - "status_code == 200"
         condition: and
-

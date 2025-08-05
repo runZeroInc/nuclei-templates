@@ -19,8 +19,8 @@ info:
     product: x-ui
     shodan-query: http.title:"x-ui login"
     fofa-query: title="x-ui login"
-    runzero-match: any(each(service["html.titles"]), {# matches "X-UI Login"})
     google-query: intitle:"x-ui login"
+    runzero-match: any(each(service["html.titles"]), {# matches "X-UI Login"})
   tags: x-ui,default-login
 
 http:
@@ -53,4 +53,3 @@ http:
           - "contains(http_2_header, 'application/json')"
           - "http_2_status_code == 200"
         condition: and
-

@@ -14,8 +14,8 @@ info:
     vendor: vinchin
     product: vinchin_backup_and_recovery
     shodan-query: http.html:"vinchin"
-    runzero-match: service["http.body"] matches "(?i)VinChin"
     fofa-query: body="vinchin"
+    runzero-match: service["http.body"] matches "(?i)VinChin"
   tags: panel,vinchin,login
 
 http:
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -28,4 +28,3 @@ http:
           - "logo_url"
           - "name"
         condition: and
-

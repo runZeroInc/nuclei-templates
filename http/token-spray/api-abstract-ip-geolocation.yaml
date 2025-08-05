@@ -27,4 +27,3 @@ http:
           - '"city":'
           - '"city_geoname_id":'
         condition: and
-

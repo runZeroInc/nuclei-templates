@@ -26,4 +26,3 @@ http:
           - "contains(body, '<title>Pritunl Database Setup</title>')"
           - "status_code == 200"
         condition: and
-

@@ -29,4 +29,3 @@ http:
           - 'GetSimple CMS is a flatfile CMS'
         part: body
         condition: or
-

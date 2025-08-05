@@ -11,6 +11,7 @@ info:
   metadata:
     max-request: 1
   tags: tpot,honeypot
+
 http:
   - method: GET
     path:
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

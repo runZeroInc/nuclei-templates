@@ -24,4 +24,3 @@ http:
           - 'contains(body, "<title>Amazon ECS Sample App")'
           - 'status_code == 200'
         condition: and
-

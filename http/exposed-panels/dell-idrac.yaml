@@ -15,8 +15,8 @@ info:
     vendor: dell
     product: emc_idrac_service_module
     shodan-query: http.html:"thisidractext"
-    runzero-match: service["http.body"] matches "(?i)thisIDRACText"
     fofa-query: body="thisidractext"
+    runzero-match: service["http.body"] matches "(?i)thisIDRACText"
   tags: panel,idrac,dell,detect
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

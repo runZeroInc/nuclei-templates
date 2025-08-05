@@ -14,8 +14,8 @@ info:
     vendor: cisco
     product: unity_connection
     shodan-query: http.html:"cisco unity connection"
-    runzero-match: service["http.body"] matches "(?i)Cisco Unity Connection"
     fofa-query: body="cisco unity connection"
+    runzero-match: service["http.body"] matches "(?i)Cisco Unity Connection"
   tags: panel,cisco,unity,login,detect
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

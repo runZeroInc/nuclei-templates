@@ -18,9 +18,9 @@ info:
     vendor: sqlbuddy
     product: sql_buddy
     shodan-query: http.title:"sql buddy"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
     fofa-query: title="sql buddy"
     google-query: intitle:"sql buddy"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
   tags: panel,sqlbuddy
 
 http:
@@ -38,4 +38,3 @@ http:
           - "status_code == 200"
           - "contains(body, '<title>SQL Buddy')"
         condition: and
-

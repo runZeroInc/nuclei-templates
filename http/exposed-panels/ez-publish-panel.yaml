@@ -17,8 +17,8 @@ info:
     shodan-query:
       - http.html:"ez publish"
       - cpe:"cpe:2.3:a:ez:ez_publish"
-    runzero-match: service["http.body"] matches "(?i)eZ Publish"
     fofa-query: body="ez publish"
+    runzero-match: service["http.body"] matches "(?i)eZ Publish"
   tags: panel,ez
 
 http:
@@ -41,4 +41,3 @@ http:
         part: header
         words:
           - 'eZ Publish'
-

@@ -24,4 +24,3 @@ http:
         part: body
         regex:
           - thingsboard\.cloud/api/v1/([a-z0-9]{20})
-

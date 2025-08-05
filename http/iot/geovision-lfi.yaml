@@ -28,4 +28,3 @@ http:
           - 'contains(body, "root:$")'
           - 'contains(content_type, "application/octet-stream")'
         condition: and
-

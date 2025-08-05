@@ -27,4 +27,3 @@ http:
         negative: true
         status:
           - 404
-

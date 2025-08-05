@@ -1,4 +1,5 @@
 id: graphql-ruby-detect
+
 info:
   name: Graphql Ruby Detect
   author: princechaddha
@@ -13,7 +14,9 @@ http:
       - "{{BaseURL}}/api/graphql"
       - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
+
     body: '{"query":"query @skip {__typename}"}'
+
     headers:
       Content-Type: application/json
     redirects: true
@@ -29,4 +32,3 @@ http:
         words:
           - "'@skip' can't be applied to queries (allowed: fields, fragment spreads, inline fragments)"
         part: body
-

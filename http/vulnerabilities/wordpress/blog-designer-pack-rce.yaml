@@ -47,4 +47,3 @@ http:
           - 'contains_all(body_3, "{{randomstr}}", "success\":1")'
           - 'contains(header_3, "application/json")'
         condition: and
-

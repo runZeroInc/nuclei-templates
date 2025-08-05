@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - EZTK(?i)[a-z0-9]{54}
-

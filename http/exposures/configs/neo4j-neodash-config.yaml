@@ -9,8 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:neo4j:*:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
     vendor: neo4j
     product: neodash
     shodan-query: title:"NeoDash"
@@ -46,4 +46,3 @@ http:
         part: body
         json:
           - '.standaloneDatabase,.standaloneUsername,.standalonePassword'
-

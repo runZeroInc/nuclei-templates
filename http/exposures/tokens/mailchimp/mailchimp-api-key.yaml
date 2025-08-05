@@ -20,4 +20,3 @@ http:
         part: body
         regex:
           - "[0-9a-f]{32}-us[0-9]{1,2}"
-

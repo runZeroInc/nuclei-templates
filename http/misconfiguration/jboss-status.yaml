@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    google-query: inurl:/web-console/ServerInfo.jsp | inurl:/status?full=true
-    product: jboss_enterprise_application_platform
     vendor: redhat
+    product: jboss_enterprise_application_platform
+    google-query: inurl:/web-console/ServerInfo.jsp | inurl:/status?full=true
   tags: jboss,unauth,edb,misconfig
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

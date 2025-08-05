@@ -35,4 +35,3 @@ http:
         regex:
           - '<b>(.*)<\/b> server'
           - 'from <b>(.*)<\/b>'
-

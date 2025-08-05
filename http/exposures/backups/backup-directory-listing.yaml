@@ -21,6 +21,7 @@ http:
       - "{{BaseURL}}/php/backup/"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: regex
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -30,4 +30,3 @@ http:
         part: body
         words:
           - "s setlist.fm | setlist.fm</title>"
-

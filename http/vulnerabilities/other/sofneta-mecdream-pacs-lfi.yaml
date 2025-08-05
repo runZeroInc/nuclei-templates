@@ -15,9 +15,9 @@ info:
     cpe: cpe:2.3:a:softneta:meddream_pacs:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    google-query: inurl:pacs/login.php, inurl:pacsone/login.php, inurl:pacsone filetype:php home, inurl:pacsone filetype:php login
-    product: meddream_pacs
     vendor: softneta
+    product: meddream_pacs
+    google-query: inurl:pacs/login.php, inurl:pacsone/login.php, inurl:pacsone filetype:php home, inurl:pacsone filetype:php login
   tags: sofneta,lfi,edb
 
 http:
@@ -33,4 +33,3 @@ http:
           - "fonts"
           - "extensions"
         condition: and
-

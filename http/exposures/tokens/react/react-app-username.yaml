@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - \bREACT_APP(?:_[A-Z0-9]+)*_USER(?:\s+NAME)?\s*=\s*['"]?([^\s'"$]{3,})(?:[\s'"$]|$)
-

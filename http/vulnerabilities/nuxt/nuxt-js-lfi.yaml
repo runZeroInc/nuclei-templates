@@ -30,4 +30,3 @@ http:
           - "root:.*:0:0:"
           - "\\[(font|extension|file)s\\]"
         condition: or
-

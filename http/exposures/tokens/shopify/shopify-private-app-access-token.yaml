@@ -24,4 +24,3 @@ http:
         part: body
         regex:
           - shppa_[a-fA-F0-9]{32}
-

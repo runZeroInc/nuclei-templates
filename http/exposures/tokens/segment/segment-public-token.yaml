@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - '(sgp_[a-zA-Z0-9]{64})'
-

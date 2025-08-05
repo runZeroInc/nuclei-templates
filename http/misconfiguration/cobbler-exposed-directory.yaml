@@ -27,4 +27,3 @@ http:
           - "Index of /cobbler"
           - "Index of /cblr"
         condition: or
-

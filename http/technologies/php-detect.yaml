@@ -36,4 +36,3 @@ http:
         group: 1
         regex:
           - "X-Powered-By: PHP/([0-9.]+)"
-

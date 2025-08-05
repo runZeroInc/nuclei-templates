@@ -27,4 +27,3 @@ http:
           - '"domain":'
           - '"year_founded":'
         condition: and
-

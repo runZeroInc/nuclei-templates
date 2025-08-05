@@ -26,8 +26,8 @@ info:
       - body="opencart"
       - icon_hash="-1443008128"
       - title="opencart"
-    runzero-match: service["http.body"] matches "(?i)opencart"
     google-query: intitle:"opencart"
+    runzero-match: service["http.body"] matches "(?i)opencart"
   tags: panel,opencart
 
 http:
@@ -45,4 +45,3 @@ http:
           - '(?i)footer\s.*OpenCart.*All.Rights.Reserved|img\s.*logo.*\salt=.*OpenCart'
           - "(?i)Powered.By.*http.*OpenCart"
         condition: or
-

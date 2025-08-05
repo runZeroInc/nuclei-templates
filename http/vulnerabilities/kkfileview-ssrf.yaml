@@ -41,4 +41,3 @@ http:
       - type: dsl
         dsl:
           - contains(base64_decode(data), "Disallow")
-

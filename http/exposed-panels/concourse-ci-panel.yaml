@@ -17,9 +17,9 @@ info:
     vendor: pivotal_software
     product: concourse
     shodan-query: http.title:"concourse"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
     fofa-query: title="concourse"
     google-query: intitle:"concourse"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
   tags: panel,concourse,oss
 
 http:
@@ -33,4 +33,3 @@ http:
           - '<title>Concourse</title>'
           - 'login to Concourse'
         condition: or
-

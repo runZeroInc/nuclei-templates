@@ -19,9 +19,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    fofa-query: app="致远互联-OA"
-    product: log4j
     vendor: apache
+    product: log4j
+    fofa-query: app="致远互联-OA"
   tags: cve,cve2021,rce,jndi,log4j,seeyon-oa,kev,oast
 
 http:
@@ -41,4 +41,3 @@ http:
           - 'contains(interactsh_protocol, "dns")'
           - "contains(tolower(header), '/seeyon/main.do')"
         condition: and
-

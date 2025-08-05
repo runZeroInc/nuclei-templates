@@ -21,4 +21,3 @@ http:
         part: body
         regex:
           - (xox[os]-\d+-\d+-\d+-[a-fA-F\d]+)
-

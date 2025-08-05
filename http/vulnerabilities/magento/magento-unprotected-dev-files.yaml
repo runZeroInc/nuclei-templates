@@ -42,4 +42,3 @@ http:
           - 'contains(tolower(header), "application/xml") || contains(tolower(header), "application/octet-stream")'
           - 'status_code == 200'
         condition: and
-

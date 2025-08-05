@@ -25,7 +25,6 @@ http:
 
     redirects: true
     max-redirects: 1
-
     stop-at-first-match: true
 
     matchers-condition: and
@@ -325,7 +324,6 @@ http:
           - '.{0,5}(?i)\bOpGOP\b.{0,5}'
           - '.{0,5}(?i)\bOpStonewall\b.{0,5}'
           - '.{0,5}(?i)\bTangoDown\b.{0,5}'
-
     payloads:
       path:
         - /
@@ -413,4 +411,3 @@ http:
         - /frost.txt
         - /-.txt
         - /!.txt
-

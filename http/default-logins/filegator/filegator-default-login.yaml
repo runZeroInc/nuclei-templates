@@ -58,4 +58,3 @@ http:
         kval:
           - 'x_csrf_token'
         internal: true
-

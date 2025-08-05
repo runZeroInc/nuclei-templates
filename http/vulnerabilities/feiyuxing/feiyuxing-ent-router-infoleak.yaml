@@ -29,4 +29,3 @@ http:
           - 'contains_all(body, "$", ":")'
           - 'contains(server, "Router Web")'
         condition: and
-

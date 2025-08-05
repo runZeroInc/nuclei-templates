@@ -33,4 +33,3 @@ http:
         group: 1
         regex:
           - '(?i)__dufs_v([0-9.]+)_'
-

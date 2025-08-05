@@ -48,4 +48,3 @@ http:
           - 'contains(tolower(header), "application/json")'
           - 'status_code == 200'
         condition: and
-

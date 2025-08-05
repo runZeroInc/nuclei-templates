@@ -28,4 +28,3 @@ http:
           - 'contains_any(body, "<title>I, Librarian", "I, Librarian Free")'
           - 'status_code == 200'
         condition: and
-

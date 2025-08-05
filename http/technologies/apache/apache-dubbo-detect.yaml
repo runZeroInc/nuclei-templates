@@ -23,4 +23,3 @@ http:
         part: header
         words:
           - "Basic realm=\"dubbo\""
-

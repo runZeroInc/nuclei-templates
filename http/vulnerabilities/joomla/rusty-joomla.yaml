@@ -47,4 +47,3 @@ http:
           - "http://rusty.jooml/;pkwxhxqxmdkkmscotwvh"
           - "Failed to decode session object"
         condition: and
-

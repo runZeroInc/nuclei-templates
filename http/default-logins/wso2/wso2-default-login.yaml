@@ -41,4 +41,3 @@ http:
           - "JSESSIONID"
         part: header
         condition: and
-

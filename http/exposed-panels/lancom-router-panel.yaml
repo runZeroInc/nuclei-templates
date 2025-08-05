@@ -15,8 +15,8 @@ info:
     vendor: lancom-systems
     product: wlc-4006
     shodan-query: http.html:"lancom systems gmbh"
-    runzero-match: service["http.body"] matches "(?i)LANCOM Systems GmbH"
     fofa-query: body="lancom systems gmbh"
+    runzero-match: service["http.body"] matches "(?i)LANCOM Systems GmbH"
   tags: panel,lancom,router
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

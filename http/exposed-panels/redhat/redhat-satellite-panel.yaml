@@ -14,8 +14,8 @@ info:
     vendor: redhat
     product: satellite
     shodan-query: http.html:"redhat" "satellite"
-    runzero-match: service["http.body"] matches "(?i)redhat"
     fofa-query: body="redhat" "satellite"
+    runzero-match: service["http.body"] matches "(?i)redhat"
   tags: panel,redhat,satellite
 
 http:
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - '&quot;version&quot;:&quot;([0-9.]+)&quot;,'
-

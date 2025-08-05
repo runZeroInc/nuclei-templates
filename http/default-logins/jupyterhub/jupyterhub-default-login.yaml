@@ -17,9 +17,9 @@ info:
     vendor: jupyter
     product: jupyterhub
     shodan-query: http.title:"jupyterhub"
-    runzero-match: any(each(service["html.titles"]), {# matches "JupyterHub"})
     fofa-query: title="jupyterhub"
     google-query: intitle:"jupyterhub"
+    runzero-match: any(each(service["html.titles"]), {# matches "JupyterHub"})
   tags: jupyterhub,default-login
 
 http:
@@ -51,4 +51,3 @@ http:
       - type: status
         status:
           - 302
-

@@ -33,4 +33,3 @@ http:
           - "status_code==200"
           - "contains(tolower(body), 'bomgar')"
         condition: and
-

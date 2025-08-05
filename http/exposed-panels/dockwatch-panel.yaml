@@ -23,4 +23,3 @@ http:
           - 'contains_any(body, "dockwatch-maintenance", "Restart Dockwatch")'
           - 'status_code == 200'
         condition: and
-

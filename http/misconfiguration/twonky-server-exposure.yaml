@@ -26,4 +26,3 @@ http:
           - "contains_all(body, '<title>TwonkyMedia</title>','Settings')"
           - "status_code == 200"
         condition: and
-

@@ -11,6 +11,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,deliveroo,osint
+
 http:
   - method: GET
     path:
@@ -33,4 +34,3 @@ http:
         dsl:
           - '!contains(host,"deliveroo.com")'
           - '!contains(host,"deliveroo.co.uk")'
-

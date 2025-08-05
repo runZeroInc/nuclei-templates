@@ -24,4 +24,3 @@ http:
         part: body
         words:
           - '<title>Example Domain</title>'
-

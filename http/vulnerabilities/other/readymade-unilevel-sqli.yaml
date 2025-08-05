@@ -28,4 +28,3 @@ http:
           - 'contains(content_type,"text/html")'
           - 'contains_all(body, "user_login_id", "Products</a>")'
         condition: and
-

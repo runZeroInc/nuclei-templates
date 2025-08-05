@@ -37,4 +37,3 @@ http:
           - 'data":'
           - 'ipAddress":'
         condition: and
-

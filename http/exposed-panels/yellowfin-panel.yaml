@@ -12,9 +12,9 @@ info:
     vendor: yellowfinbi
     product: yellowfin
     shodan-query: http.title:"yellowfin information collaboration"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Yellowfin Information Collaboration"})
     fofa-query: title="yellowfin information collaboration"
     google-query: intitle:"yellowfin information collaboration"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Yellowfin Information Collaboration"})
   tags: yellowfin,panel,login
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -27,4 +27,3 @@ http:
         part: body
         words:
           - '<title>Prometheus Time Series Collection and Processing Server</title>'
-

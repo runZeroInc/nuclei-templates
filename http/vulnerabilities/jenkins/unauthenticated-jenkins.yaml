@@ -16,6 +16,7 @@ http:
       - "{{BaseURL}}/jenkins/"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -25,4 +26,3 @@ http:
       - type: status
         status:
           - 200
-

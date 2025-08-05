@@ -32,4 +32,3 @@ http:
           - "<title>Log in to SCS RMC®</title>"
           - "SCS RMC®</div>"
         condition: and
-

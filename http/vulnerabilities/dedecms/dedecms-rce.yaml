@@ -14,9 +14,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    fofa-query: app="DedeCMS"
-    product: dedecms
     vendor: dedecms
+    product: dedecms
+    fofa-query: app="DedeCMS"
   tags: dedecms,cms,rce
 
 http:
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

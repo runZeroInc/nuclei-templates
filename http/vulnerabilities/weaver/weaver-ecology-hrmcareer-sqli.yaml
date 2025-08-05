@@ -13,12 +13,11 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: weaver
+    product: e-cology
     shodan-query: ecology_JSessionid
     fofa-query: app="泛微-协同办公OA"
-    product: e-cology
-    vendor: weaver
   tags: ecology,weaver,oa,sqli
-
 variables:
   num: "999999999"
 
@@ -37,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

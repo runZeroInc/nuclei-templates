@@ -16,9 +16,9 @@ info:
     vendor: sap
     product: hybris
     shodan-query: http.title:"hybris"
-    runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
     fofa-query: title="hybris"
     google-query: intitle:"hybris"
+    runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
   tags: default-login,hybris
 
 http:
@@ -74,4 +74,3 @@ http:
         group: 1
         regex:
           - '<meta name="_csrf" content="([a-z0-9-]+)" \/>'
-

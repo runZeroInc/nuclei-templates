@@ -23,4 +23,3 @@ http:
         words:
           - "<title>Welcome to OpenResty!</title>"
         part: body
-

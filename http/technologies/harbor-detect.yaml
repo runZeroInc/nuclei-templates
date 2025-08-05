@@ -10,9 +10,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.favicon.hash:657337228
-    product: harbor
     vendor: linuxfoundation
+    product: harbor
+    shodan-query: http.favicon.hash:657337228
     fofa-query: icon_hash=657337228
   tags: tech,harbor
 
@@ -39,4 +39,3 @@ http:
         group: 1
         regex:
           - '(?m)"harbor_version":"([0-9.]+)",'
-

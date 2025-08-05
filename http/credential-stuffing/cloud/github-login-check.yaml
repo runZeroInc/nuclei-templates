@@ -72,4 +72,3 @@ http:
           - "contains(to_lower(header), 'set-cookie: user_session=')"
           - "status_code==302"
         condition: and
-

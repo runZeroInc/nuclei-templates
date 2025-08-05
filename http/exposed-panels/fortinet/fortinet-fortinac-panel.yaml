@@ -43,4 +43,3 @@ http:
         part: body
         regex:
           - '"version":"([0-9.]+)"'
-

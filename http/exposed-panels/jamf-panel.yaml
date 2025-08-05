@@ -17,12 +17,12 @@ info:
       - http.favicon.hash:"1262005940"
       - http.html:"jamf pro setup"
       - http.title:"jamf pro"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1262005940"
     fofa-query:
       - body="jamf pro setup"
       - icon_hash=1262005940
       - title="jamf pro"
     google-query: intitle:"jamf pro"
+    runzero-match: service["favicon.ico.image.mmh3"] == "1262005940"
   tags: jamf,panel,mdm
 
 http:
@@ -48,4 +48,3 @@ http:
         group: 1
         regex:
           - '<meta name=\"version\" content=\"(.*)\">'
-

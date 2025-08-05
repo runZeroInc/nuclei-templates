@@ -53,4 +53,3 @@ http:
         group: 1
         regex:
           - 'AjxPackage\.setQueryString\("v=(.+)"\);'
-

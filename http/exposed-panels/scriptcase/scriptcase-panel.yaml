@@ -15,9 +15,9 @@ info:
     vendor: scriptcase
     product: scriptcase
     shodan-query: http.title:"scriptcase"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ScriptCase"})
     fofa-query: title="scriptcase"
     google-query: intitle:"scriptcase"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ScriptCase"})
   tags: panel,scriptcase
 
 http:
@@ -48,4 +48,3 @@ http:
         group: 2
         regex:
           - '(Vers&atilde;o|Version|Versão)\b.*\s(\d.*\d)'
-

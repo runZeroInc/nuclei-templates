@@ -30,4 +30,3 @@ http:
           - KeyDescriptor
           - use="encryption"
         condition: and
-

@@ -17,6 +17,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/php.php"
@@ -46,7 +47,6 @@ http:
         - "/_profiler/phpinfo"
         - "/?phpinfo=1"
         - "/l.php?act=phpinfo"
-
     stop-at-first-match: true
 
     matchers-condition: and
@@ -68,4 +68,3 @@ http:
         group: 1
         regex:
           - '>PHP Version <\/td><td class="v">([0-9.]+)'
-

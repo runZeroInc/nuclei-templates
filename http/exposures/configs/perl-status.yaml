@@ -25,4 +25,3 @@ http:
           - "<title>Apache2::Status"
           - "Perl version"
         condition: and
-

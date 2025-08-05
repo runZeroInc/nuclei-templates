@@ -11,9 +11,9 @@ info:
     cpe: cpe:2.3:o:emerson:dixell_xweb-500_firmware:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    google-query: inurl:"xweb500.cgi"
-    product: dixell_xweb-500_firmware
     vendor: emerson
+    product: dixell_xweb-500_firmware
+    google-query: inurl:"xweb500.cgi"
   tags: panel,xweb500
 
 http:
@@ -31,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

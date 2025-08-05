@@ -29,4 +29,3 @@ http:
           - '"success":true'
           - 'jcr:uuid'
         condition: and
-

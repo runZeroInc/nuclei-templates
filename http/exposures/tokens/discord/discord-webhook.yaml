@@ -19,4 +19,3 @@ http:
         regex:
           - 'https://discordapp\.com/api/webhooks/[0-9]+/[A-Za-z0-9\-]+'
           - 'https://discord\.com/api/webhooks/[0-9]+/[A-Za-z0-9\-]+'
-

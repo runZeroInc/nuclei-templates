@@ -66,4 +66,3 @@ http:
           - 'path'
           - 'hits'
         condition: and
-

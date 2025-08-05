@@ -18,8 +18,8 @@ info:
     vendor: mylittletools
     product: mylittlebackup
     shodan-query: http.html:"mylittlebackup"
-    runzero-match: service["http.body"] matches "(?i)myLittleBackup"
     fofa-query: body="mylittlebackup"
+    runzero-match: service["http.body"] matches "(?i)myLittleBackup"
   tags: panel,mylittlebackup
 
 http:
@@ -45,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

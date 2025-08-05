@@ -26,4 +26,3 @@ http:
           - "title"
           - "baseurl"
         condition: and
-

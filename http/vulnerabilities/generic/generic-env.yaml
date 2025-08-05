@@ -18,6 +18,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/.env"
@@ -55,4 +56,3 @@ http:
         negative: true
         words:
           - "<html"
-

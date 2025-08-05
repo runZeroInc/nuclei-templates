@@ -15,8 +15,8 @@ info:
     vendor: zyxel
     product: zywall_vpn50_firmware
     shodan-query: http.favicon.hash:"-440644339"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-440644339"
     fofa-query: icon_hash=-440644339
+    runzero-match: service["favicon.ico.image.mmh3"] == "-440644339"
   tags: panel,xyxel,firewall
 
 http:
@@ -45,4 +45,3 @@ http:
         group: 1
         regex:
           - "<title>(.*)</title>"
-

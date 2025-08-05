@@ -36,4 +36,3 @@ http:
         part: body
         words:
           - "Bad status line 'Expected dot'"
-

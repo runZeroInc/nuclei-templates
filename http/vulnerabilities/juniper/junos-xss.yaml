@@ -51,4 +51,3 @@ http:
           - "<script>alert('document.domain');</script>"
           - "wrapper for"
         condition: and
-

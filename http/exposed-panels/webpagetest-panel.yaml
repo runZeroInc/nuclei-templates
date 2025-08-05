@@ -14,9 +14,9 @@ info:
     vendor: webpagetest
     product: webpagetest
     shodan-query: http.title:"webpagetest"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebPageTest"})
     fofa-query: title="webpagetest"
     google-query: intitle:"webpagetest"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebPageTest"})
   tags: panel,webpagetest
 
 http:
@@ -28,4 +28,3 @@ http:
       - type: word
         words:
           - 'WebPageTest - Website Performance and Optimization Test'
-

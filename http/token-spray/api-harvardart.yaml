@@ -27,4 +27,3 @@ http:
           - '"name"'
           - '"hex"'
         condition: and
-

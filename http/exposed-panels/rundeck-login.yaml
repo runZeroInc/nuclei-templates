@@ -15,11 +15,11 @@ info:
     vendor: pagerduty
     product: rundeck
     shodan-query: http.title:"rundeck"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rundeck"})
     fofa-query:
       - app="rundeck-login"
       - title="rundeck"
     google-query: intitle:"rundeck"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rundeck"})
   tags: panel,rundeck
 
 http:
@@ -51,4 +51,3 @@ http:
           - 'utm_medium=([0-9.]+)-'
           - 'data-version-string=\"([0-9.-]+)\"' ## Detection version on old rundeck
           - '<span class="version">([0-9.-]+)<\/span>' ## Detection on very old rudneck
-

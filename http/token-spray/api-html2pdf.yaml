@@ -24,4 +24,3 @@ http:
         part: body
         words:
           - '"Provided url is not accessible"'
-

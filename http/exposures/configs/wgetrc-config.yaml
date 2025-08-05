@@ -14,9 +14,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: html:".wgetrc"
-    product: wget
     vendor: gnu
+    product: wget
+    shodan-query: html:".wgetrc"
   tags: devops,exposure
 
 http:
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

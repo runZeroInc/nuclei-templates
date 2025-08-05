@@ -29,4 +29,3 @@ http:
           - '"containerRuntimeVersion"'
           - '"kubeletVersion": "v'
         condition: and
-

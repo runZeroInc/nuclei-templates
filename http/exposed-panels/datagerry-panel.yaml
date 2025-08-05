@@ -34,4 +34,3 @@ http:
           - 'contains_any(tolower(body), "<title>datagerry", "content=\"datagerry")'
           - 'status_code == 200'
         condition: and
-

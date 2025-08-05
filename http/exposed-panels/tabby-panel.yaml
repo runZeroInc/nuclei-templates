@@ -28,4 +28,3 @@ http:
           - 'contains(body, "<title>Tabby - Sign In")'
           - 'status_code == 200'
         condition: and
-

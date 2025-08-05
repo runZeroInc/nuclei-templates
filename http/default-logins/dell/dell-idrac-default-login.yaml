@@ -43,4 +43,3 @@ http:
       - type: word
         words:
           - '<authResult>0</authResult>'
-

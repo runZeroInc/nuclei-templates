@@ -16,9 +16,9 @@ info:
     vendor: mobotix
     product: s14
     shodan-query: http.title:"mobotix"
-    runzero-match: any(each(service["html.titles"]), {# matches "Mobotix"})
     fofa-query: title="mobotix"
     google-query: intitle:"mobotix"
+    runzero-match: any(each(service["html.titles"]), {# matches "Mobotix"})
   tags: mobotix,default-login,webcam,iot
 
 http:
@@ -47,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

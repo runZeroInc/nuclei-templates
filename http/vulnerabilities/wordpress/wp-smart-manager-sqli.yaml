@@ -38,4 +38,3 @@ http:
           - 'contains(body_1, "Smart Manager for e-Commerce")'
           - 'contains(body_2, "rel=\"preconnect") || contains(body, "Error</title>")'
         condition: and
-

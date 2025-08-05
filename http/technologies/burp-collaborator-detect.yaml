@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: "Server: Burp Collaborator"
-    product: burp_suite
     vendor: portswigger
+    product: burp_suite
+    shodan-query: "Server: Burp Collaborator"
   tags: burp,tech,detect
 
 http:
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - "(?:X-(Collaborator-Version: [0-9]))"
-

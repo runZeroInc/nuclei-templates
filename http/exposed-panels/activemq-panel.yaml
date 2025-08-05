@@ -20,13 +20,13 @@ info:
       - product:"activemq openwire transport"
       - http.title:"apache activemq"
       - http.title:"activemq artemis console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache ActiveMQ"})
     fofa-query:
       - title="activemq artemis console"
       - title="apache activemq"
     google-query:
       - intitle:"activemq artemis console"
       - intitle:"apache activemq"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache ActiveMQ"})
   tags: panel,activemq,apache,login
 
 http:
@@ -51,4 +51,3 @@ http:
         regex:
           - '(?i)Copyright\s+([0-9\-]+)'
           - '(?i)<td>Version<\/td>[\r\n\s]*<td>[\r\n\s]*<b>([0-9.]+)<\/b>'
-

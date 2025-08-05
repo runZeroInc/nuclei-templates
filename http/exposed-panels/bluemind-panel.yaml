@@ -39,4 +39,3 @@ http:
         part: body
         regex:
           - 'window\.applicationVersion = "([0-9.]+)";'
-

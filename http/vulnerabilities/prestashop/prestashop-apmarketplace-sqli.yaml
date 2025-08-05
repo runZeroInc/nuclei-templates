@@ -33,4 +33,3 @@ http:
           - 'duration>=6'
           - 'contains(body, "module-apmarketplace-passwordrecovery")'
         condition: and
-

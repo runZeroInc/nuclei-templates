@@ -13,7 +13,6 @@ info:
     shodan-query: html:"OA_HTML"
     fofa-query: body="OA_HTML"
   tags: oracle,xss,ebs
-
 flow: http(1) && http(2)
 
 http:
@@ -50,4 +49,3 @@ http:
         part: header
         words:
           - "text/html"
-

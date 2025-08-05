@@ -14,8 +14,8 @@ info:
     vendor: faraday_project
     product: faraday
     shodan-query: http.html:"faradayapp"
-    runzero-match: service["http.body"] matches "(?i)faradayApp"
     fofa-query: body="faradayapp"
+    runzero-match: service["http.body"] matches "(?i)faradayApp"
   tags: panel,faraday
 
 http:
@@ -32,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

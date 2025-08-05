@@ -19,4 +19,3 @@ http:
         part: body
         words:
           - 'HashiCorp Boundary'
-

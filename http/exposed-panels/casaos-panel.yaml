@@ -17,10 +17,10 @@ info:
     shodan-query:
       - http.html:"casaos"
       - http.html:"/casaos-ui/public/index.html"
-    runzero-match: service["http.body"] matches "(?i)CasaOS"
     fofa-query:
       - body="/casaos-ui/public/index.html"
       - body="casaos"
+    runzero-match: service["http.body"] matches "(?i)CasaOS"
   tags: panel,casaos,login,detect
 
 http:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

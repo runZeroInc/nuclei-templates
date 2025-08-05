@@ -16,13 +16,13 @@ info:
     shodan-query:
       - http.title:"welcome to sitecore"
       - http.title:"sitecore"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Welcome to Sitecore"})
     fofa-query:
       - title="sitecore"
       - title="welcome to sitecore"
     google-query:
       - intitle:"sitecore"
       - intitle:"welcome to sitecore"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Welcome to Sitecore"})
   tags: panel,sitecore
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

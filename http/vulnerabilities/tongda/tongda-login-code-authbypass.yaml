@@ -52,4 +52,3 @@ http:
           - 'status_code_2 == 200 && contains(header_2,"Set-Cookie")'
           - 'status_code_3 == 200 && !contains(body_3,"<title>用户未登录</title>")  && contains(body_3,"loginUser")'
         condition: and
-

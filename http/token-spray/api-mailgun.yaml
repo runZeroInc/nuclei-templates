@@ -29,4 +29,3 @@ http:
           - '"items":'
           - '"created_at":'
         condition: and
-

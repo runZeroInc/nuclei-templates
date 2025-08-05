@@ -17,9 +17,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"Liferay"
-    product: liferay_portal
     vendor: liferay
+    product: liferay_portal
+    shodan-query: title:"Liferay"
   tags: liferay,lfi,j2ee
 
 http:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

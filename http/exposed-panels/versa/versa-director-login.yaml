@@ -26,10 +26,10 @@ info:
       - "set-cookie: vd-csrf-token"
       - body="versa networks"
       - title="versa director login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Versa Director"})
     google-query:
       - intitle:"versa director login"
       - intitle:"versa director"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Versa Director"})
   tags: panel,versa,director
 
 http:
@@ -48,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

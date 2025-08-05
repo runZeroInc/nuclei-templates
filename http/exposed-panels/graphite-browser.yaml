@@ -16,9 +16,9 @@ info:
     vendor: graphite_project
     product: graphite
     shodan-query: http.title:"graphite browser"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graphite Browser"})
     fofa-query: title="graphite browser"
     google-query: intitle:"graphite browser"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graphite Browser"})
   tags: graphite,panel
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

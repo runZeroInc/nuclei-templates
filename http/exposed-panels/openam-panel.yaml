@@ -72,4 +72,3 @@ http:
         group: 1
         regex:
           - 'urlArgs: "v=([0-9.abcd]+)'
-

@@ -33,4 +33,3 @@ http:
         group: 1
         regex:
           - '<title>Kubernetes Operational View (.+)<\/title>'
-

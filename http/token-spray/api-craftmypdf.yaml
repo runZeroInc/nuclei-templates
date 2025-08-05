@@ -29,4 +29,3 @@ http:
           - '"template_id":'
           - '"name":'
         condition: and
-

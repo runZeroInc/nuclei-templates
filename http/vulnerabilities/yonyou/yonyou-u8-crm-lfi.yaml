@@ -27,4 +27,3 @@ http:
           - 'status_code_1 == 200'
           - 'contains(body_1,"bit app support") && contains(body_1,"extensions") && contains(body_1,"fonts")'
         condition: and
-

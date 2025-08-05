@@ -27,4 +27,3 @@ http:
           - '"companyName"'
           - '"companyAddress"'
         condition: and
-

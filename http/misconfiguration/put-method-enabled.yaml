@@ -28,4 +28,3 @@ http:
       - type: dsl
         dsl:
           - 'contains(body_2, "{{randstr}}")'
-

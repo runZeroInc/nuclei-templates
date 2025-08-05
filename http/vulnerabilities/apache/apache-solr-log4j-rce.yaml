@@ -22,9 +22,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: http.html:"Apache Solr"
-    product: solr
     vendor: apache
+    product: solr
+    shodan-query: http.html:"Apache Solr"
   tags: vulhub,cve,solr,oast,log4j,cve2021,rce,apache,jndi,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'
@@ -76,4 +76,3 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

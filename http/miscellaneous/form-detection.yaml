@@ -19,7 +19,6 @@ http:
 
     redirects: true
     max-redirects: 2
-
     matchers:
       - type: word
         part: body
@@ -28,4 +27,3 @@ http:
           - "</form>"
           - "<button"
         condition: and
-

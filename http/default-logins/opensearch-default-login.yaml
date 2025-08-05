@@ -15,7 +15,6 @@ info:
     shodan-query: title:"OpenSearch"
     fofa-query: title="OpenSearch"
   tags: opensearch,default-login,misconfig
-
 variables:
   username: admin
   password: admin
@@ -37,4 +36,3 @@ http:
           - 'contains_all(body, "username\":", "roles\":")'
           - 'contains(content_type, "application/json")'
         condition: and
-

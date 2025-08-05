@@ -20,4 +20,3 @@ http:
         part: body
         regex:
           - '(?:\s|=|:|"|^)AKC[a-zA-Z0-9]{10,}'
-

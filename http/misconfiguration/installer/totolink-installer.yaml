@@ -27,4 +27,3 @@ http:
           - 'contains(tolower(body), "totolink")'
           - 'contains_any(body, "SRC=\"easy_setup.htm", "value=\"Advanced Setup", "show_wapi_settings")'
         condition: and
-

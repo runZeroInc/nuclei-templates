@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - FLWSECK_TEST-(?i)[a-h0-9]{12}
-

@@ -40,4 +40,3 @@ http:
         group: 1
         regex:
           - '<span class="platform">(.*?)</span>'
-

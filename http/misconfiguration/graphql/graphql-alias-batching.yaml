@@ -18,10 +18,9 @@ info:
     cpe: cpe:2.3:a:graphql:playground:*:*:*:*:node.js:*:*:*
   metadata:
     max-request: 2
-    product: playground
     vendor: graphql
+    product: playground
   tags: graphql,misconfig
-
 variables:
   str: "{{to_lower(rand_text_alpha(5))}}"
 
@@ -56,4 +55,3 @@ http:
         part: header
         words:
           - "application/json"
-

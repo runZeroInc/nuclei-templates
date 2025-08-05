@@ -39,4 +39,3 @@ http:
         group: 1
         regex:
           - 'X-Version-Id: (\d+\.\d+\.\d+)'
-

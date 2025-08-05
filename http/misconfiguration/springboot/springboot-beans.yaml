@@ -39,4 +39,3 @@ http:
           - "application/vnd.spring-boot.actuator.v1+json"
         condition: or
         part: header
-

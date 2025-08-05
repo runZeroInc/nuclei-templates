@@ -42,4 +42,3 @@ http:
           - contains(body, 'bloofoxCMS Admincenter')
           - status_code == 200
         condition: and
-

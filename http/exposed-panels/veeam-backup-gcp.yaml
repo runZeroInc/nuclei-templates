@@ -15,9 +15,9 @@ info:
     vendor: veeam
     product: veeam_backup_for_google_cloud
     shodan-query: http.title:"veeam backup for gcp"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Veeam Backup for GCP"})
     fofa-query: title="veeam backup for gcp"
     google-query: intitle:"veeam backup for gcp"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Veeam Backup for GCP"})
   tags: panel,google,cloud
 
 http:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

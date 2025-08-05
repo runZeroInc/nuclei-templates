@@ -16,8 +16,8 @@ info:
     vendor: n8n
     product: n8n
     shodan-query: http.favicon.hash:"-831756631"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-831756631"
     fofa-query: icon_hash=-831756631
+    runzero-match: service["favicon.ico.image.mmh3"] == "-831756631"
   tags: panel,n8n,login,detect
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

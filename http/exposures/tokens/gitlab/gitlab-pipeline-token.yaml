@@ -24,4 +24,3 @@ http:
         part: body
         regex:
           - '\b(glptt-[0-9a-f]{40})\b'
-

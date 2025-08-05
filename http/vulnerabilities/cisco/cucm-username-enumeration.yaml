@@ -35,4 +35,3 @@ http:
           - contains(tolower(content_type), 'application/xml')
           - contains(tolower(content_type), 'text/xml')
         condition: or
-

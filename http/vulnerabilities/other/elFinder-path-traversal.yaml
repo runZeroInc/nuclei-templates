@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"elfinder"
-    product: elfinder
     vendor: std42
+    product: elfinder
+    shodan-query: title:"elfinder"
   tags: lfi,elfinder
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,12 +9,12 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: sap
+    product: content_server
     shodan-query: http.favicon.hash:-266008933
     fofa-query:
       - "sap-server:"
       - icon_hash=-266008933
-    product: content_server
-    vendor: sap
   tags: sap,webserver,tech,detect
 
 http:
@@ -24,6 +24,7 @@ http:
 
     redirects: true
     max-redirects: 2
+
     matchers-condition: or
     matchers:
       - type: word
@@ -47,4 +48,3 @@ http:
         part: header
         kval:
           - "server"
-

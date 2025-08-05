@@ -30,4 +30,3 @@ http:
         part: body
         words:
           - "window.ERROR_VIEW = null"
-

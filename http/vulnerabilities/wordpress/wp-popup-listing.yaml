@@ -25,4 +25,3 @@ http:
           - "Index of"
           - "/wp-content/plugins/wordpress-popup/views/admin"
         condition: and
-

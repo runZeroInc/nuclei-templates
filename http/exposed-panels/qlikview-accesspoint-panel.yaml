@@ -16,9 +16,9 @@ info:
     vendor: qlik
     product: qlikview
     shodan-query: http.title:"qlikview - accesspoint"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)QlikView - AccessPoint"})
     fofa-query: title="qlikview - accesspoint"
     google-query: intitle:"qlikview - accesspoint"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)QlikView - AccessPoint"})
   tags: panel,qlikview,login,detect
 
 http:
@@ -34,4 +34,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>qlikview - accesspoint", "alt=\"qlikview")'
         condition: and
-

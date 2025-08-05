@@ -16,9 +16,9 @@ info:
     vendor: wallix
     product: bastion_access_manager
     shodan-query: http.title:"wallix access manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Wallix Access Manager"})
     fofa-query: title="wallix access manager"
     google-query: intitle:"wallix access manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Wallix Access Manager"})
   tags: panel,wallix
 
 http:
@@ -44,4 +44,3 @@ http:
           - "status_code==200"
           - "('1745235488' == mmh3(base64_py(body)))"
         condition: and
-

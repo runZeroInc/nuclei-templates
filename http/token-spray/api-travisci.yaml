@@ -11,17 +11,17 @@ info:
   tags: token-spray,travis
 
 self-contained: true
+
 http:
   - method: GET
     path:
       - "https://api.travis-ci.com/user"
+
     headers:
       Travis-API-Version: 3
       Authorization: token {{token}}
-
     matchers:
       - type: status
         status:
           - 403
         negative: true
-

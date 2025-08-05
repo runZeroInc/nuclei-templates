@@ -27,6 +27,7 @@ http:
       - "{{BaseURL}}/user/login"
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: word
@@ -55,4 +56,3 @@ http:
         group: 1
         regex:
           - 'class="site-version">([0-9.x-]+)'
-

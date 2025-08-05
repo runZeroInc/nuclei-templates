@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - (?i)(xoxe-\d-[A-Z0-9]{146})
-

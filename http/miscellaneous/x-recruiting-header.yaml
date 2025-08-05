@@ -30,4 +30,3 @@ http:
       - type: dsl
         dsl:
           - 'x_recruiting'
-

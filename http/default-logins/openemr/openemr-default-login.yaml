@@ -28,10 +28,10 @@ info:
       - icon_hash=1971268439
       - title="openemr setup tool"
       - title="openemr"
-    runzero-match: service["http.body"] matches "OpenEMR"
     google-query:
       - intitle:"openemr setup tool"
       - intitle:"openemr"
+    runzero-match: service["http.body"] matches "OpenEMR"
   tags: openemr,default-login
 
 http:
@@ -62,4 +62,3 @@ http:
       - type: status
         status:
           - 302
-

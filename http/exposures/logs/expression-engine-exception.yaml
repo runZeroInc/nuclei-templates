@@ -16,7 +16,6 @@ http:
 
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: word
         part: body
@@ -24,4 +23,3 @@ http:
           - 'Exception - ExpressionEngine'
           - 'Exception Caught'
         condition: and
-

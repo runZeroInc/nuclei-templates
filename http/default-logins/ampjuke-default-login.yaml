@@ -57,4 +57,3 @@ http:
         regex:
           - name="uuid" value="([./a-z0-9-]+)">
         internal: true
-

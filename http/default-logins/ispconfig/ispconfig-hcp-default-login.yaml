@@ -14,9 +14,9 @@ info:
     vendor: ispconfig
     product: ispconfig
     shodan-query: http.title:"ispconfig" http.favicon.hash:483383992
-    runzero-match: any(each(service["html.titles"]), {# matches "ISPConfig"})
     fofa-query: title="ispconfig" http.favicon.hash:483383992
     google-query: intitle:"ispconfig" http.favicon.hash:483383992
+    runzero-match: any(each(service["html.titles"]), {# matches "ISPConfig"})
   tags: ispconfig,hsp,default-login
 
 http:
@@ -50,4 +50,3 @@ http:
       - type: status
         status:
           - 200
-

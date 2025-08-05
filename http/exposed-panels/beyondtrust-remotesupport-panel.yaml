@@ -22,11 +22,11 @@ info:
       - body="beyondtrust"
       - body="beyondtrust" "redistribution prohibited"
       - title="remote support portal"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-694003434"
-    max-requests: 1
     google-query:
       - intext:"beyondtrust" "redistribution prohibited"
       - intitle:"remote support portal"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-694003434"
+    max-requests: 1
   tags: panel,detect,beyondtrust
 
 http:
@@ -46,4 +46,3 @@ http:
           - "BeyondTrust Remote Support"
           - "powered_by_text"
         condition: and
-

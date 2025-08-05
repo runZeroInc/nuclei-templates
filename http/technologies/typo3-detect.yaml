@@ -33,4 +33,3 @@ http:
         part: body
         words:
           - '<meta name="generator" content="TYPO3'
-

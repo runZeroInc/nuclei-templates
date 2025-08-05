@@ -25,4 +25,3 @@ http:
         part: body
         words:
           - 'This API Token is valid and active'
-

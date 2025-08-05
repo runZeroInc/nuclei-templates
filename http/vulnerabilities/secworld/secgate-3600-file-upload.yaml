@@ -58,4 +58,3 @@ http:
         part: body
         words:
           - '{{md5(string)}}'
-

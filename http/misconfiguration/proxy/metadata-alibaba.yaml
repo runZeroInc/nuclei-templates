@@ -38,8 +38,8 @@ http:
       path:
         - latest/dynamic/instance-identity/document
         - 2016-01-01/dynamic/instance-identity/document
-    attack: clusterbomb
 
+    attack: clusterbomb
     unsafe: true
     matchers:
       - type: word
@@ -48,4 +48,3 @@ http:
           - '"serial-number"'
           - '"zone-id":"'
         condition: and
-

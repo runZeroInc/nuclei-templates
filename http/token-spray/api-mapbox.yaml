@@ -25,4 +25,3 @@ http:
           - 'query'
           - 'features'
         condition: and
-

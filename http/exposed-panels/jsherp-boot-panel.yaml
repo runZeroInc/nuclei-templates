@@ -12,10 +12,10 @@ info:
     vendor: jishenghua
     product: jsherp
     shodan-query: http.favicon.hash:"-1298131932"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1298131932"
     fofa-query:
       - icon_hash=-1298131932
       - jsherp-boot
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1298131932"
   tags: panel,jsherp,login,detect
 
 http:
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

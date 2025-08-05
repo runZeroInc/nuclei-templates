@@ -30,6 +30,7 @@ http:
       - "{{BaseURL}}/library/index.php/%22--%3E<script>alert(document.domain)</script>/index.php"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -47,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

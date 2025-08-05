@@ -25,4 +25,3 @@ http:
           - '"access_token":'
           - '"name":'
         condition: and
-

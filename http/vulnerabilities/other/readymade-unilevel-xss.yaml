@@ -12,7 +12,6 @@ info:
     vendor: i-netsolution
     product: readymade-unilevel-ecommerce
   tags: ecommerce,readymade,xss
-
 variables:
   num1: "{{rand_int(1000, 9999)}}"
 
@@ -29,4 +28,3 @@ http:
           - 'contains(content_type, "text/html")'
           - "status_code == 200"
         condition: and
-

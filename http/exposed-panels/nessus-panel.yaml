@@ -39,4 +39,3 @@ http:
           - "<title>Nessus</title>"
           - "window.location = '/unsupported6.html';"
         condition: and
-

@@ -14,9 +14,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"Apache Druid"
-    product: druid
     vendor: apache
+    product: druid
+    shodan-query: title:"Apache Druid"
   tags: cve,cve2021,rce,jndi,log4j,apache,druid,oast
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 404
-

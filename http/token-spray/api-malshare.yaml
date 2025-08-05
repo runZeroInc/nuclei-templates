@@ -26,4 +26,3 @@ http:
           - '"md5":'
           - '"sha1":'
         condition: and
-

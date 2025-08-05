@@ -10,9 +10,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:"mlflow"
-    product: mlflow
     vendor: lfprojects
+    product: mlflow
+    shodan-query: http.title:"mlflow"
     fofa-query:
       - app="mlflow"
       - title="mlflow"
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

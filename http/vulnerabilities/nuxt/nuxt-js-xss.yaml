@@ -16,7 +16,6 @@ info:
     shodan-query: html:"buildAssetsDir" "nuxt"
     fofa-query: body="buildAssetsDir" && body="__nuxt"
   tags: huntr,xss,nuxtjs
-
 variables:
   payload: "<script>alert(document.domain)</script>"
 
@@ -38,4 +37,3 @@ http:
         part: header
         words:
           - "text/html"
-

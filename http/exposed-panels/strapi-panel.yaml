@@ -21,7 +21,6 @@ info:
       - http.title:"strapi"
       - http.html:"welcome to your strapi app"
       - http.title:"welcome to your strapi app"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)strapi"})
     fofa-query:
       - app="strapi-headless-cms"
       - body="welcome to your strapi app"
@@ -30,6 +29,7 @@ info:
     google-query:
       - intitle:"strapi"
       - intitle:"welcome to your strapi app"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)strapi"})
   tags: panel,strapi,login
 
 http:
@@ -45,4 +45,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>strapi admin</title>", "<title>welcome to your strapi app</title>")'
         condition: and
-

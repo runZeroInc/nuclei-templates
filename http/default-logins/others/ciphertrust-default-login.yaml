@@ -37,4 +37,3 @@ http:
           - 'status_code_1 == 401'
           - 'contains(body_1,"code") && contains(body_1,"message\":\"Password change required")'
         condition: and
-

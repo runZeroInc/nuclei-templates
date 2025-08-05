@@ -19,9 +19,9 @@ info:
     vendor: idemia
     product: sigma_wide
     shodan-query: http.title:"idemia"
-    runzero-match: any(each(service["html.titles"]), {# matches "IDEMIA"})
     fofa-query: title="idemia"
     google-query: intitle:"idemia"
+    runzero-match: any(each(service["html.titles"]), {# matches "IDEMIA"})
   tags: idemia,biometrics,default-login
 
 http:
@@ -54,4 +54,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -27,4 +27,3 @@ http:
           - '"updated_at":'
           - '"next_update_at":'
         condition: and
-

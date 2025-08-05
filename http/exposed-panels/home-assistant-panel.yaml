@@ -17,9 +17,9 @@ info:
     shodan-query:
       - http.title:"home assistant"
       - cpe:"cpe:2.3:a:home-assistant:home-assistant"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
     fofa-query: title="home assistant"
     google-query: intitle:"home assistant"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
   tags: panel,iot,homeassistant
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

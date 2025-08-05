@@ -15,8 +15,8 @@ info:
     vendor: aerohive
     product: hivemanager_classic
     shodan-query: http.favicon.hash:"1604363273"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1604363273"
     fofa-query: icon_hash=1604363273
+    runzero-match: service["favicon.ico.image.mmh3"] == "1604363273"
   tags: panel,hivemanager,aerohive
 
 http:
@@ -37,4 +37,3 @@ http:
           - "HiveManager"
           - 'alt="Aerohive'
         condition: and
-

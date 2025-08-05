@@ -36,4 +36,3 @@ http:
         part: body
         words:
           - '<title>Chamilo has not been installed</title>'
-

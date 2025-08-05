@@ -18,8 +18,8 @@ info:
     vendor: zte
     product: nr8120a
     shodan-query: http.html:"zte corporation"
-    runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
     fofa-query: body="zte corporation"
+    runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
   tags: panel,zte
 
 http:
@@ -46,4 +46,3 @@ http:
         group: 1
         regex:
           - '<div class="type"><font id="">(.+)<\/font><\/div>'
-

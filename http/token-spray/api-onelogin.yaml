@@ -29,4 +29,3 @@ http:
           - '"connector_id":'
           - '"auth_method":'
         condition: and
-

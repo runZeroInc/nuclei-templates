@@ -24,4 +24,3 @@ http:
         part: body
         words:
           - 'File not found: {{randstr}}.txt.'
-

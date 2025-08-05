@@ -12,9 +12,9 @@ info:
     vendor: supremainc
     product: biostar_2
     shodan-query: http.title:"biostar"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Biostar"})
     fofa-query: title="biostar"
     google-query: intitle:"biostar"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Biostar"})
   tags: panel,login,biostar,detect
 
 http:
@@ -32,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

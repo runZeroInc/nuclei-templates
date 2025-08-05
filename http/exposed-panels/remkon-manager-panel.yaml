@@ -14,9 +14,9 @@ info:
     vendor: nascent
     product: remkon_device_manager
     shodan-query: http.title:"remkon device manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Remkon Device Manager"})
     fofa-query: title="remkon device manager"
     google-query: intitle:"remkon device manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Remkon Device Manager"})
   tags: panel,remkon,login
 
 http:
@@ -34,4 +34,3 @@ http:
         part: body
         words:
           - "<title>Remkon Device Manager</title>"
-

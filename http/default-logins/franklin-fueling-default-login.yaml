@@ -43,4 +43,3 @@ http:
           - 'contains(body, "</TSA_RESPONSE_LIST>")'
           - 'contains(body, "roleAdmin") || contains(body, "roleUser") || contains(body, "roleGuest")'
         condition: and
-

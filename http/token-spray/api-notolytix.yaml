@@ -28,4 +28,3 @@ http:
           - 'deviceId":'
           - 'personaId":'
         condition: and
-

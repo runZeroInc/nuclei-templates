@@ -45,4 +45,3 @@ http:
           - 'status_code_1 == 200 && contains(header_1,"X-T0ken") && contains(header_1,"MTc5Njc2NTUwNg==")'
           - 'status_code_2 == 200 && contains(header_2,"X-T0ken") && contains(header_2,"MTc5Njc2NTUwNQ==")'
         condition: or
-

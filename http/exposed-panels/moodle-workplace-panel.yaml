@@ -20,7 +20,6 @@ info:
       - cpe:"cpe:2.3:a:moodle:moodle"
       - http.title:"installation moodle"
       - http.title:"moodle"
-    runzero-match: service["http.body"] matches "(?i)moodle"
     fofa-query:
       - body="moodle"
       - title="installation moodle"
@@ -28,6 +27,7 @@ info:
     google-query:
       - intitle:"installation moodle"
       - intitle:"moodle"
+    runzero-match: service["http.body"] matches "(?i)moodle"
   tags: panel,moodle,login,detect
 
 http:
@@ -41,4 +41,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "content=\"moodle", "\"name\":\"moodle\"") && contains(body, "workplace")'
         condition: and
-

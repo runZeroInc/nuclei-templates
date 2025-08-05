@@ -41,4 +41,3 @@ http:
         group: 2
         regex:
           - '<version>(<!\[CDATA\[)?([0-9.]+)'
-

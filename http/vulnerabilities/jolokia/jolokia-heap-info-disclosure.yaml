@@ -31,4 +31,3 @@ http:
         part: body
         words:
           - 'stacktrace":"java.io.IOException: No such file or directory'
-

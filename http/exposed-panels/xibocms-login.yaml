@@ -15,8 +15,8 @@ info:
     vendor: springsignage
     product: xibo
     shodan-query: http.html:"/xibosignage/xibo-cms"
-    runzero-match: service["http.body"] matches "(?i)/xibosignage/xibo-cms"
     fofa-query: body="/xibosignage/xibo-cms"
+    runzero-match: service["http.body"] matches "(?i)/xibosignage/xibo-cms"
   tags: panel,xibocms
 
 http:
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - '([0-9.]+)            | <a id="source-link"'
-

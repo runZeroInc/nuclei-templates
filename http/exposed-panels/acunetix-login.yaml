@@ -15,9 +15,9 @@ info:
     vendor: acunetix
     product: web_vulnerability_scanner
     shodan-query: http.title:"acunetix"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Acunetix"})
     fofa-query: title="acunetix"
     google-query: intitle:"acunetix"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Acunetix"})
   tags: panel,acunetix
 
 http:
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

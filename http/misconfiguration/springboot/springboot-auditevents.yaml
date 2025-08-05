@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: title:"Eureka"
-    product: spring_boot
     vendor: vmware
+    product: spring_boot
+    shodan-query: title:"Eureka"
   tags: misconfig,springboot,exposure
 
 http:
@@ -46,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

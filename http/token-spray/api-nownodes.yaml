@@ -30,4 +30,3 @@ http:
           - '"host":'
           - '"version":'
         condition: and
-

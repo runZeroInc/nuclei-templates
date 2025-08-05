@@ -33,4 +33,3 @@ http:
           - 'contains(content_type, "text/html")'
           - 'contains_all(body, "reality", "estate", "><img src=x onerror=(alert)(document.domain)")'
         condition: and
-

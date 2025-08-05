@@ -44,4 +44,3 @@ http:
         regex:
           - '<meta name="generator" content="GitBook ([0-9.]+)">'
           - '(?m)<meta name=generator content="GitBook ([0-9.]+)">'
-

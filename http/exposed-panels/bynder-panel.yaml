@@ -33,4 +33,3 @@ http:
         group: 1
         regex:
           - 'http-equiv="version"\s+content="([0-9\.]+)"'
-

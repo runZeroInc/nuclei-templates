@@ -17,9 +17,9 @@ info:
     vendor: dockge.kuma
     product: dockge
     shodan-query: http.title:"dockge"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dockge"})
     fofa-query: title="dockge"
     google-query: intitle:"dockge"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dockge"})
   tags: panel,dockge,login
 
 http:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

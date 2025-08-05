@@ -17,6 +17,7 @@ http:
   - method: POST
     path:
       - "https://api.openai.com/v1/chat/completions"
+
     body: |
       {
         "model": "gpt-3.5-turbo",
@@ -36,6 +37,7 @@ http:
         part: body
         words:
           - 'Los Angeles Dodgers'
+
       - type: word
         part: body
         words:
@@ -44,4 +46,3 @@ http:
           - 'invalid_api_key'
         condition: or
         negative: true
-

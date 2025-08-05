@@ -17,9 +17,9 @@ info:
     vendor: dradisframework
     product: dradis
     shodan-query: http.title:"dradis professional edition"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dradis Professional Edition"})
     fofa-query: title="dradis professional edition"
     google-query: intitle:"dradis professional edition"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dradis Professional Edition"})
   tags: panel,dradis
 
 http:
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

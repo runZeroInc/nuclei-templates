@@ -31,4 +31,3 @@ http:
         part: content_type
         words:
           - 'application/javascript'
-

@@ -26,4 +26,3 @@ http:
         group: 1
         regex:
           - "Lucee ([0-9.\\-A-Z]+) on your system"
-

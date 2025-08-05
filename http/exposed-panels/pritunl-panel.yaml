@@ -17,9 +17,9 @@ info:
     vendor: pritunl
     product: pritunl
     shodan-query: http.title:"pritunl"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
     fofa-query: title="pritunl"
     google-query: intitle:"pritunl"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
   tags: pritunl,panel,login
 
 http:
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

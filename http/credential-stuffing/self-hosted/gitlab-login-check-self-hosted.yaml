@@ -54,4 +54,3 @@ http:
           - status_code_2 == 302
           - '!contains(to_lower(body_2), "invalid login")'
         condition: and
-

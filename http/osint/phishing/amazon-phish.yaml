@@ -11,6 +11,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,amazon,osint
+
 http:
   - method: GET
     path:
@@ -51,4 +52,3 @@ http:
           - '!contains(host,"amazon.ae")'
           - '!contains(host,"amazon.com.tr")'
         condition: and
-

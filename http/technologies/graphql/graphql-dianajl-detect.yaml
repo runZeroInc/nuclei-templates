@@ -1,4 +1,5 @@
 id: graphql-dianajl-detect
+
 info:
   name: Graphql Dianajl Detect
   author: princechaddha
@@ -13,7 +14,9 @@ http:
       - "{{BaseURL}}/api/graphql"
       - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
+
     body: '{"query":"queryy { __typename }"}'
+
     headers:
       Content-Type: application/json
     redirects: true
@@ -29,4 +32,3 @@ http:
         words:
           - 'Syntax Error GraphQL request (1:1) Unexpected Name "queryy"'
         part: body
-

@@ -35,4 +35,3 @@ http:
       - type: word
         words:
           - 'CREDENTIAL_CHALLENGE'
-

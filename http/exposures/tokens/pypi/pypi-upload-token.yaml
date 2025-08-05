@@ -23,4 +23,3 @@ http:
         part: body
         regex:
           - "(pypi-AgEIcHlwaS5vcmc[a-zA-Z0-9_-]{50,})"
-

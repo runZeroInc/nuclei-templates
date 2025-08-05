@@ -31,4 +31,3 @@ http:
           - 'contains(body, "OneinStack")'
           - 'contains_any(body, "Control center", "控制中心" , "id=\"backup_link")'
         condition: and
-

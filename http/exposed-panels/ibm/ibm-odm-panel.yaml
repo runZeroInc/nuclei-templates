@@ -25,8 +25,8 @@ info:
       - body="ibm odm"
       - icon_hash="707491698"
       - title="ibm odm"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Decision Center \\| Business Console"})
     google-query: intitle:"decision center | business console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Decision Center \\| Business Console"})
   tags: panel,ibm,login,detect,decision-center
 
 http:
@@ -54,4 +54,3 @@ http:
         group: 1
         regex:
           - '(?i)"js/dist/([0-9.]+)/decisioncenter"'
-

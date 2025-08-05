@@ -43,4 +43,3 @@ http:
         part: header
         words:
           - 'text/json'
-

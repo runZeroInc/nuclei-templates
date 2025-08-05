@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"voyager-assets"
-    product: voyager
     vendor: voyager_project
+    product: voyager
+    shodan-query: html:"voyager-assets"
   tags: voyager,lfi
 
 http:
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

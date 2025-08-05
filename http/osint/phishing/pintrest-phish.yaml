@@ -11,6 +11,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,pinterest,osint
+
 http:
   - method: GET
     path:
@@ -36,4 +37,3 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"pinterest.com")'
-

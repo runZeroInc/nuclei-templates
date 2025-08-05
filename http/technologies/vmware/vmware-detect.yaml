@@ -59,4 +59,3 @@ http:
           - "<osType>(.*?)</osType>"
           - "<productLineId>(.*?)</productLineId>"
           - "<apiType>(.*?)</apiType>"
-

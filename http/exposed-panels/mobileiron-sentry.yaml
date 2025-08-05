@@ -17,9 +17,9 @@ info:
     shodan-query:
       - http.favicon.hash:"967636089"
       - http.title:"login | sentry"
-    runzero-match: service["favicon.ico.image.mmh3"] == "967636089"
     fofa-query: title="login | sentry"
     google-query: intitle:"login | sentry"
+    runzero-match: service["favicon.ico.image.mmh3"] == "967636089"
   tags: panel,mobileiron
 
 http:
@@ -37,4 +37,3 @@ http:
         group: 1
         regex:
           - \?([\d.]+)"
-

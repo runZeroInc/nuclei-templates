@@ -32,4 +32,3 @@ http:
           - '"original_height":'
           - '"original_width":'
         condition: and
-

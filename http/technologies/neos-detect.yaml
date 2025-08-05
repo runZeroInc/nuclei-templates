@@ -29,4 +29,3 @@ http:
       - type: kval
         kval:
           - 'x_flow_powered'
-

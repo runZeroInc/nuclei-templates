@@ -22,4 +22,3 @@ http:
         part: body
         regex:
           - (?i)\b((LTAI)(?i)[a-z0-9]{20})(?:['|\"|\n|\r|\s|\x60|;]|$)
-

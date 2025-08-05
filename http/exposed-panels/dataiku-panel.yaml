@@ -15,9 +15,9 @@ info:
     vendor: dataiku
     product: data_science_studio
     shodan-query: http.title:"dataiku"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
     fofa-query: title="dataiku"
     google-query: intitle:"dataiku"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
   tags: panel,dataiku
 
 http:
@@ -35,4 +35,3 @@ http:
         part: header
         words:
           - "text/html"
-

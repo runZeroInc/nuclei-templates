@@ -28,4 +28,3 @@ http:
           - '"hits":'
           - '"remain":'
         condition: and
-
