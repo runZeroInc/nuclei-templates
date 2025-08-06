@@ -37,4 +37,3 @@ http:
           - 'contains_all(body, "Router Information", "Show Statistics", "Internet Port")'
           - 'status_code == 200'
         condition: and
-

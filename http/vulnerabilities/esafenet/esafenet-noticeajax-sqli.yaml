@@ -36,4 +36,3 @@ http:
           - 'contains(body,"OK")'
           - 'status_code == 200'
         condition: and
-

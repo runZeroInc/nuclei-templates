@@ -55,4 +55,3 @@ http:
           - 'contains(body, "Nabb</title>")'
           - "status_code == 200"
         condition: and
-
