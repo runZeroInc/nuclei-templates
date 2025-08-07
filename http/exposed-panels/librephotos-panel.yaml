@@ -9,13 +9,14 @@ info:
   classification:
     cpe: cpe:2.3:a:librephotos_project:librephotos:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)LibrePhotos"})
     verified: true
     max-request: 1
     vendor: librephotos_project
     product: librephotos
-    shodan-query: title:"LibrePhotos"
+    shodan-query: http.title:"librephotos"
+    fofa-query: title="librephotos"
+    google-query: intitle:"librephotos"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LibrePhotos"})
   tags: panel,librephotos,detect,login
 
 http:

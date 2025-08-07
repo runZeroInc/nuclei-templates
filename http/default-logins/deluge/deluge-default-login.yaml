@@ -9,11 +9,10 @@ info:
   reference:
     - https://docs.linuxserver.io/images/docker-deluge/#:~:text=The%20admin%20interface%20is%20available,%2D%3EInterface%2D%3EPassword.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Deluge"})
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: title:"Deluge"
+    runzero-match: any(each(service["html.titles"]), {# matches "Deluge"})
   tags: deluge,default-login
 
 http:

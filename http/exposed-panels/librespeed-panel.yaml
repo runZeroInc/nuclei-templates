@@ -9,11 +9,10 @@ info:
   reference:
     - https://github.com/librespeed/speedtest
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)LibreSpeed"})
     verified: true
     max-request: 1
     shodan-query: title:"LibreSpeed"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LibreSpeed"})
   tags: panel,librespeed,detect
 
 http:

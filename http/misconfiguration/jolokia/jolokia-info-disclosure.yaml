@@ -22,7 +22,6 @@ http:
       jolokia_paths:
         - "/jolokia"
         - "/actuator/jolokia"
-
       mbean_paths:
         - "/read/JMImplementation:type=MBeanServerDelegate/ImplementationName"
         - "/read/JMImplementation:type=MBeanServerDelegate/ImplementationVendor"

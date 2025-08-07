@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"- setup" html:"Modem setup"
-    product: circarlife
     vendor: circontrol
+    product: circarlife
+    shodan-query: title:"- setup" html:"Modem setup"
   tags: scada,circontrol,circarlife,setup,exposure,panel,installer,misconfig
 
 http:

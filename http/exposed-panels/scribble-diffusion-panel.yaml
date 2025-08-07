@@ -10,11 +10,10 @@ info:
     - https://scribblediffusion.com/
     - https://github.com/replicate/scribble-diffusion
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Scribble Diffusion"})
     verified: true
     max-request: 1
     shodan-query: title:"Scribble Diffusion"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Scribble Diffusion"})
   tags: panel,scribble,detect
 
 http:

@@ -13,13 +13,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sqlbuddy:sql_buddy:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
     verified: true
     max-request: 2
-    shodan-query: http.title:"SQL Buddy"
-    product: sql_buddy
     vendor: sqlbuddy
+    product: sql_buddy
+    shodan-query: http.title:"sql buddy"
+    fofa-query: title="sql buddy"
+    google-query: intitle:"sql buddy"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
   tags: panel,sqlbuddy
 
 http:

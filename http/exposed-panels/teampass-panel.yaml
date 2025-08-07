@@ -10,14 +10,15 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:teampass:teampass:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)teampass"
     verified: true
     max-request: 2
     vendor: teampass
     product: teampass
     shodan-query: http.html:"teampass"
-    fofa-query: body="teampass"
+    fofa-query:
+      - body="teampass"
+      - app="teampass"
+    runzero-match: service["http.body"] matches "(?i)teampass"
   tags: panel,teampass
 
 http:

@@ -10,16 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oracle:peoplesoft_enterprise:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)oracle peoplesoft enterprise"})
     max-request: 1
     vendor: oracle
     product: peoplesoft_enterprise
-    shodan-query:
-      - http.title:"Oracle Peoplesoft Enterprise"
-      - http.title:"oracle peoplesoft enterprise"
+    shodan-query: http.title:"oracle peoplesoft enterprise"
     fofa-query: title="oracle peoplesoft enterprise"
     google-query: intitle:"oracle peoplesoft enterprise"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)oracle peoplesoft enterprise"})
   tags: oracle,login,panel
 
 http:

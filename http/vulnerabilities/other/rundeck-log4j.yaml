@@ -18,9 +18,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"Rundeck"
-    product: rundeck
     vendor: pagerduty
+    product: rundeck
+    shodan-query: title:"Rundeck"
   tags: cve,cve2021,rce,jndi,log4j,rundeck,kev,oast
 variables:
   rand1: '{{rand_int(111, 999)}}'

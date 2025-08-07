@@ -12,15 +12,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:activemq:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Apache ActiveMQ"})
     max-request: 1
     vendor: apache
     product: activemq
     shodan-query:
       - cpe:"cpe:2.3:a:apache:activemq"
       - product:"activemq openwire transport"
-      - http.title:"Apache ActiveMQ"
+      - http.title:"apache activemq"
+      - http.title:"activemq artemis console"
+    fofa-query:
+      - title="activemq artemis console"
+      - title="apache activemq"
+    google-query:
+      - intitle:"activemq artemis console"
+      - intitle:"apache activemq"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache ActiveMQ"})
   tags: panel,activemq,apache,login
 
 http:

@@ -8,7 +8,7 @@ info:
     Detects exposed JSON configuration files containing sensitive information including API keys, access tokens, AWS credentials, database configurations, base URLs, file paths, and application settings. These files often contain production configurations and credentials that should not be publicly accessible.
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-    cvss-score: 10.0
+    cvss-score: 10
     cwe-id: CWE-200
   metadata:
     max-request: 50
@@ -128,26 +128,22 @@ http:
           - '\"(api_key|apikey|token|secret|auth)\":\s*\"([^\"]{8,})\"'
           - '\"access_token\":\s*\"([^\"]{8,})\"'
           - '\"authorization\":\s*\"([^\"]{8,})\"'
-
       - type: regex
         name: aws_credentials
         regex:
           - '\"aws_access_key_id\":\s*\"([^\"]{20,})\"'
           - '\"aws_secret_access_key\":\s*\"([^\"]{20,})\"'
           - '\"aws_session_token\":\s*\"([^\"]{20,})\"'
-
       - type: regex
         name: database_credentials
         regex:
           - '\"(db_password|database_password|mysql_password|postgresql_password|mongo_password)\":\s*\"([^\"]{8,})\"'
           - '\"(connection_string|connection_url|database_url)\":\s*\"([^\"]+)\"'
-
       - type: regex
         name: endpoints
         regex:
           - '\"(url|endpoint|uri|host|server)\":\s*\"(https?://[^\"]+)\"'
           - '\"(webhook|callback)\":\s*\"(https?://[^\"]+)\"'
-
       # New specific extractors
       - type: regex
         name: base_urls
@@ -157,24 +153,20 @@ http:
           - '"fileUrl":\s*"(https?://[^"]+)"'
           - '"loginAppUrl":\s*"(https?://[^"]+)"'
           - '"aimBaseUrl":\s*"(https?://[^"]+)"'
-
       - type: regex
         name: access_codes
         regex:
           - '"accessCode":\s*"([A-Za-z0-9+/=]{40,})"'
           - '"recaptchaSiteKey":\s*"([A-Za-z0-9_-]{40,})"'
-
       - type: regex
         name: token_config
         regex:
           - '"tokenExpire":\s*(\d+)'
           - '"refreshTokenExpire":\s*(\d+)'
-
       - type: regex
         name: environment
         regex:
           - '"production":\s*(true|false)'
-
       - type: regex
         name: sensitive_endpoints
         regex:

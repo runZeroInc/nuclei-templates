@@ -17,10 +17,13 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.html:"Wuzhicms"
-    fofa-query: title="Wuzhicms"
-    product: wuzhicms
     vendor: wuzhicms
+    product: wuzhicms
+    shodan-query: http.html:"wuzhicms"
+    fofa-query:
+      - title="wuzhicms"
+      - body="wuzhicms"
+    runzero-match: service["http.body"] matches "(?i)Wuzhicms"
   tags: wuzhicms,sqli
 variables:
   num: "999999999"
@@ -40,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

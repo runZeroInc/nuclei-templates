@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"PgHero"
-    product: pghero
     vendor: pghero_project
+    product: pghero
+    shodan-query: title:"PgHero"
   tags: exposure,panel,pghero,misconfig
 
 http:

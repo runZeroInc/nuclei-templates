@@ -10,16 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:centreon:centreon_web:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)centreon"})
     max-request: 1
     vendor: centreon
     product: centreon_web
-    shodan-query:
-      - http.title:"Centreon"
-      - http.title:"centreon"
+    shodan-query: http.title:"centreon"
     fofa-query: title="centreon"
     google-query: intitle:"centreon"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)centreon"})
   tags: panel,centreon,login
 
 http:

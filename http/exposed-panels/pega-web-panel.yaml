@@ -13,20 +13,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pega:platform:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)pega platform"})
     verified: true
     max-request: 2
     vendor: pega
     product: platform
     shodan-query:
-      - title:"Pega Platform"
       - http.title:"pega platform"
+      - http.title:"pega"
+    fofa-query:
+      - title="pega platform"
+      - title="pega"
     google-query:
-      - inurl:"/prweb/PRAuth/app/default"
-      - intitle:"pega platform"
       - inurl:"/prweb/prauth/app/default"
-    fofa-query: title="pega platform"
+      - intitle:"pega platform"
+      - intitle:"pega"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pega platform"})
   tags: panel,pega
 
 http:

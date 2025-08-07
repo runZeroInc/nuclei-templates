@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sangoma:freepbx:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)freepbx administration"})
     verified: true
     max-request: 1
     vendor: sangoma
     product: freepbx
-    shodan-query:
-      - http.title:"FreePBX Administration"
-      - http.title:"freepbx administration"
+    shodan-query: http.title:"freepbx administration"
     fofa-query: title="freepbx administration"
     google-query: intitle:"freepbx administration"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)freepbx administration"})
   tags: freepbx,panel,sangoma
 
 http:

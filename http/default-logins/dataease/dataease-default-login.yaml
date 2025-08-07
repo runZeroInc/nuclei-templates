@@ -4,20 +4,19 @@ info:
   name: Dataease Default Credentials
   author: DhiyaneshDK
   severity: high
-  description: |-
-    Dataease default login credentials were discovered.
+  description: Dataease default login credentials were discovered.
   reference:
     - https://github.com/dataease/dataease/issues/5995
   classification:
     cpe: cpe:2.3:a:dataease_project:dataease:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "Dataease"
     verified: true
     max-request: 1
     vendor: dataease_project
     product: dataease
-    shodan-query: html:"Dataease"
+    shodan-query: http.html:"dataease"
+    fofa-query: body="dataease"
+    runzero-match: service["http.body"] matches "Dataease"
   tags: default-login,dataease
 
 http:

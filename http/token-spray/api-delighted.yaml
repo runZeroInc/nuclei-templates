@@ -12,6 +12,7 @@ info:
   tags: token-spray,delighted
 
 self-contained: true
+
 http:
   - method: GET
     path:

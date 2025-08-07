@@ -10,13 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bmc:footprints_service_core:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)FootPrints Service Core Login"})
     verified: true
     max-request: 2
-    shodan-query: title:"FootPrints Service Core Login"
-    product: footprints_service_core
     vendor: bmc
+    product: footprints_service_core
+    shodan-query: http.title:"footprints service core login"
+    fofa-query: title="footprints service core login"
+    google-query: intitle:"footprints service core login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FootPrints Service Core Login"})
   tags: tech,panel,footprints
 
 http:

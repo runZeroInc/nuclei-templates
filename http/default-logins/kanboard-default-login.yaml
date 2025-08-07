@@ -15,13 +15,15 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:kanboard:kanboard:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["http.body.mmh3"] == "1605834045"
     verified: true
     max-request: 2
-    fofa-query: app="Kanboard"
-    product: kanboard
     vendor: kanboard
+    product: kanboard
+    shodan-query: http.favicon.hash:"2056442365"
+    fofa-query:
+      - app="kanboard"
+      - icon_hash=2056442365
+    runzero-match: service["http.body.mmh3"] == "1605834045"
   tags: default-login,kanboard
 
 http:

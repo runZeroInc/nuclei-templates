@@ -73,7 +73,6 @@ http:
         - /config
         - /const.DB.php.bak
         - /const.DB.php
-
       bakext:
         - ".~"
         - ".bk"

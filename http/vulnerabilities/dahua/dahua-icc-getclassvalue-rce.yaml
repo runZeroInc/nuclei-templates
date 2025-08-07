@@ -9,8 +9,8 @@ info:
   reference:
     - https://github.com/zan8in/afrog/blob/main/pocs/afrog-pocs/vulnerability/dahua-icc-getclassvalue-rce.yaml
   metadata:
-    fofa-query: app="dahua-智能物联综合管理平台"
     max-request: 1
+    fofa-query: app="dahua-智能物联综合管理平台"
   tags: rce,java,dahua,iot,unauth
 
 http:

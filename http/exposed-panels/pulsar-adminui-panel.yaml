@@ -10,14 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:pulsar:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)pulsar admin ui"}) || any(each(service["html.titles"]), {# matches "(?i)pulsar admin console"})
     verified: true
     max-request: 1
     vendor: apache
     product: pulsar
     shodan-query:
-      - title:"Pulsar Admin UI"
       - http.title:"pulsar admin ui"
       - http.title:"pulsar admin console"
     fofa-query:
@@ -26,6 +23,7 @@ info:
     google-query:
       - intitle:"pulsar admin ui"
       - intitle:"pulsar admin console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pulsar admin ui"}) || any(each(service["html.titles"]), {# matches "(?i)pulsar admin console"})
   tags: panel,pulsar,pulsarui,admin,apache
 
 http:

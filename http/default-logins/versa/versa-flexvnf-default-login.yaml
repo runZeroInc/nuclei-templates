@@ -13,13 +13,14 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:o:versa-networks:versa_operating_system:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Flex VNF Web-UI"})
     verified: true
     max-request: 4
-    shodan-query: title:"Flex VNF Web-UI"
-    product: versa_operating_system
     vendor: versa-networks
+    product: versa_operating_system
+    shodan-query: http.title:"flex vnf web-ui"
+    fofa-query: title="flex vnf web-ui"
+    google-query: intitle:"flex vnf web-ui"
+    runzero-match: any(each(service["html.titles"]), {# matches "Flex VNF Web-UI"})
   tags: default-login,versa,flexvnf
 
 http:

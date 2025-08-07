@@ -10,19 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:livehelperchat:live_helper_chat:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)live helper chat"})
     verified: true
     max-request: 1
     vendor: livehelperchat
     product: live_helper_chat
-    shodan-query:
-      - title:"Live Helper Chat"
-      - http.title:"live helper chat"
-    fofa-query:
-      - title="Live Helper Chat"
-      - title="live helper chat"
+    shodan-query: http.title:"live helper chat"
+    fofa-query: title="live helper chat"
     google-query: intitle:"live helper chat"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)live helper chat"})
   tags: livehelperchat,panel
 
 http:

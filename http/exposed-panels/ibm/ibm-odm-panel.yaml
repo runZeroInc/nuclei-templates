@@ -12,14 +12,21 @@ info:
   classification:
     cpe: cpe:2.3:a:ibm:operational_decision_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Decision Center \\| Business Console"})
     verified: true
     max-request: 1
     vendor: ibm
     product: operational_decision_manager
-    shodan-query: http.title:"Decision Center | Business Console"
-    fofa-query: title="Decision Center | Business Console"
+    shodan-query:
+      - http.title:"decision center | business console"
+      - http.favicon.hash:"707491698"
+      - http.html:"ibm odm"
+    fofa-query:
+      - title="decision center | business console"
+      - body="ibm odm"
+      - icon_hash="707491698"
+      - title="ibm odm"
+    google-query: intitle:"decision center | business console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Decision Center \\| Business Console"})
   tags: panel,ibm,login,detect,decision-center
 
 http:

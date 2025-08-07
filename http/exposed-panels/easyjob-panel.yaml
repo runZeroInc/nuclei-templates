@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.en.because-software.com/software/easyjob/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Log in - easyJOB"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Log in - easyJOB"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Log in - easyJOB"})
   tags: panel,easyjob,login
 
 http:

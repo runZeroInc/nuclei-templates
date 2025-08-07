@@ -11,17 +11,20 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:jenkins:jenkins:*:*:*:*:*:*:*:*
   metadata:
-    product: jenkins
+    max-request: 3
     vendor: jenkins
+    product: jenkins
     shodan-query:
       - cpe:"cpe:2.3:a:jenkins:jenkins"
       - http.favicon.hash:"81586312"
       - product:"jenkins"
       - x-jenkins
-      - title:"Jenkins"
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Jenkins"})
-    max-request: 3
+      - http.title:"jenkins"
+    fofa-query:
+      - icon_hash="81586312"
+      - title="jenkins"
+    google-query: intitle:"jenkins"
+    runzero-match: any(each(service["html.titles"]), {# matches "Jenkins"})
   tags: jenkins,default-login
 
 http:

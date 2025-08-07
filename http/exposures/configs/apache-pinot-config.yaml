@@ -9,8 +9,8 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:pinot:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
     vendor: apache
     product: pinot
     shodan-query: title:"Apache Pinot"

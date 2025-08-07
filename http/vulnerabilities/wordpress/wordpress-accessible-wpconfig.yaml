@@ -17,6 +17,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/wp-config.php"
@@ -51,7 +52,6 @@ http:
         - "/wp-config.php.bk"
         - "/home/{{DN}}WORDPRESS.txt"
         - "/home/{{DN}}-WORDPRESS.txt"
-
     stop-at-first-match: true
 
     matchers-condition: or

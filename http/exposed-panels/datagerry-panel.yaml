@@ -9,8 +9,6 @@ info:
   reference:
     - https://datagerry.com/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)datagerry"})
     verified: true
     max-request: 1
     vendor: becon
@@ -18,6 +16,7 @@ info:
     shodan-query: http.title:"datagerry"
     fofa-query: title="datagerry"
     google-query: intitle:"datagerry"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)datagerry"})
   tags: panel,login,datagerry,detect
 
 http:

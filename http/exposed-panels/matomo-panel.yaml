@@ -14,16 +14,19 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:matomo:matomo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-2023266783"
     verified: true
     max-request: 3
     vendor: matomo
     product: matomo
     shodan-query:
-      - "http.favicon.hash:-2023266783"
+      - http.favicon.hash:"-2023266783"
       - cpe:"cpe:2.3:a:matomo:matomo"
-    fofa-query: icon_hash=-2023266783
+      - http.title:"matomo"
+    fofa-query:
+      - icon_hash=-2023266783
+      - title="matomo"
+    google-query: intitle:"matomo"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-2023266783"
   tags: panel,matomo,login,detect
 
 http:
@@ -34,6 +37,7 @@ http:
       - "{{BaseURL}}/plugins/CoreHome/images/favicon.png"
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: word

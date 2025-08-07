@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ilch:cms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ilch"})
     verified: true
     max-request: 1
     vendor: ilch
     product: cms
-    shodan-query:
-      - http.title:"Ilch"
-      - http.title:"ilch"
+    shodan-query: http.title:"ilch"
     fofa-query: title="ilch"
     google-query: intitle:"ilch"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ilch"})
   tags: panel,ilch,cms
 
 http:

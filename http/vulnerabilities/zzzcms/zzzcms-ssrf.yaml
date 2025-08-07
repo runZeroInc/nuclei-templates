@@ -12,12 +12,11 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: zzzcms
+    product: zzzcms
     shodan-query: html:"ZzzCMS"
     fofa-query: title="ZzzCMS"
-    product: zzzcms
-    vendor: zzzcms
   tags: zzzcms,ssrf,oast
-
 variables:
   filename: "{{to_lower(rand_text_alpha(4))}}"
 

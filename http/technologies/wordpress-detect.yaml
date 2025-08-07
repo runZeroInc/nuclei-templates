@@ -38,8 +38,7 @@ http:
           - 'wp-login.php'
           - 'name="generator" content="wordpress'
           - '<link[^>]+s\d+\.wp\.com'
-          - '<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin
-            v([\d.]+) -'
+          - '<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\d.]+) -'
           - '<!--[^>]+WP-Super-Cache'
           - '/wp-content/uploads/(.*)'
         condition: or

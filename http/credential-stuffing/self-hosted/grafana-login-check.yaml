@@ -11,10 +11,10 @@ info:
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    vendor: grafana
+    product: grafana
     shodan-query: title:"Grafana"
     fofa-query: title="Grafana"
-    product: grafana
-    vendor: grafana
   tags: self-hosted,creds-stuffing,login-check,grafana
 variables:
   username: "{{username}}"

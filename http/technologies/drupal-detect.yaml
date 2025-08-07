@@ -27,6 +27,7 @@ http:
       - "{{BaseURL}}/user/login"
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: word

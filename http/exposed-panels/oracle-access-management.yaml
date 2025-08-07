@@ -10,21 +10,18 @@ info:
   classification:
     cpe: cpe:2.3:a:oracle:access_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)/oam/pages/css/login_page\\.css" || any(each(service["html.titles"]), {# matches "(?i)oracle access management"})
     verified: true
     max-request: 2
     vendor: oracle
     product: access_manager
     shodan-query:
-      - 'http.title:"Oracle Access Management"'
       - http.title:"oracle access management"
       - http.html:"/oam/pages/css/login_page.css"
     fofa-query:
-      - 'title="Oracle Access Management"'
       - title="oracle access management"
       - body="/oam/pages/css/login_page.css"
     google-query: intitle:"oracle access management"
+    runzero-match: service["http.body"] matches "(?i)/oam/pages/css/login_page\\.css" || any(each(service["html.titles"]), {# matches "(?i)oracle access management"})
   tags: panel,oracle,login,detect
 
 http:

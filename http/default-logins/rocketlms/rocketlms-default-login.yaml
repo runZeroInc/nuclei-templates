@@ -25,7 +25,6 @@ http:
         Host: {{Hostname}}
         Origin: {{RootURL}}
         Referer: {{RootURL}}/login
-
       - |
         POST /login HTTP/1.1
         Host: {{Hostname}}
@@ -45,7 +44,6 @@ http:
         - admin
         - student
         - instructor
-
     max-redirects: 2
     stop-at-first-match: true
 

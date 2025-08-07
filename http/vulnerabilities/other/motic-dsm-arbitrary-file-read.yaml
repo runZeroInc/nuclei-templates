@@ -16,7 +16,6 @@ info:
     product: moticdsm
     fofa-query: icon_hash="617142232"
   tags: moticdsm,lfi,file-read
-
 flow: http(1) && http(2)
 
 http:

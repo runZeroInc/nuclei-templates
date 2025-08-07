@@ -11,13 +11,18 @@ info:
   classification:
     cpe: cpe:2.3:a:craftercms:craftercms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)craftercms"})
     verified: true
     max-request: 1
     vendor: craftercms
     product: craftercms
-    shodan-query: http.title:"craftercms"
+    shodan-query:
+      - http.title:"craftercms"
+      - http.html:"craftercms"
+    fofa-query:
+      - body="craftercms"
+      - title="craftercms"
+    google-query: intitle:"craftercms"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)craftercms"})
   tags: panel,craftercms,login,detect
 
 http:

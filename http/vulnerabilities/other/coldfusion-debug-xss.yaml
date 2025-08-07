@@ -14,9 +14,9 @@ info:
     cpe: cpe:2.3:a:adobe:coldfusion:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    shodan-query: http.component:"Adobe ColdFusion"
-    product: coldfusion
     vendor: adobe
+    product: coldfusion
+    shodan-query: http.component:"Adobe ColdFusion"
   tags: adobe,coldfusion,xss
 
 http:

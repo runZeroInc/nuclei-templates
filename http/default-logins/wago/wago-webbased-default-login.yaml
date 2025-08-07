@@ -7,11 +7,10 @@ info:
   description: |
     WAGO Web-based Management default login credentials were discovered.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)WAGO Ethernet Web-based Management"
-    shodan-query: html:"WAGO Ethernet Web-based Management"
     verified: true
     max-request: 1
+    shodan-query: html:"WAGO Ethernet Web-based Management"
+    runzero-match: service["http.body"] matches "(?i)WAGO Ethernet Web-based Management"
   tags: wago,default-login
 
 http:

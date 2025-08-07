@@ -10,16 +10,15 @@ info:
   classification:
     cpe: cpe:2.3:a:wazuh:wazuh:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)wazuh"})
     max-request: 1
     vendor: wazuh
     product: wazuh
-    shodan-query:
-      - http.title:"Wazuh"
-      - http.title:"wazuh"
-    fofa-query: title="wazuh"
+    shodan-query: http.title:"wazuh"
+    fofa-query:
+      - title="wazuh"
+      - app="wazuh"
     google-query: intitle:"wazuh"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)wazuh"})
   tags: panel,wazuh,login
 
 http:

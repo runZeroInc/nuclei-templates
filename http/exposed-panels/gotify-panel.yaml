@@ -10,17 +10,14 @@ info:
   classification:
     cpe: cpe:2.3:a:gotify:server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)gotify"})
     verified: true
     max-request: 1
     vendor: gotify
     product: server
-    shodan-query:
-      - http.title:"Gotify"
-      - http.title:"gotify"
+    shodan-query: http.title:"gotify"
     fofa-query: title="gotify"
     google-query: intitle:"gotify"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)gotify"})
   tags: panel,gotify,login,detect
 
 http:

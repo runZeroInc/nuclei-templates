@@ -20,6 +20,7 @@ http:
       - "{{BaseURL}}/app/webroot/files/kcfinder/files/home/000~ROOT~000/etc/passwd"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: regex

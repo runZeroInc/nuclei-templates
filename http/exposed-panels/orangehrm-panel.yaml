@@ -22,6 +22,7 @@ http:
       - "{{BaseURL}}/web/index.php/auth/login"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word

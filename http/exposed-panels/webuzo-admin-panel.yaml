@@ -10,17 +10,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:softaculous:webuzo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)webuzo - admin panel"})
     verified: true
     max-request: 1
     vendor: softaculous
     product: webuzo
     shodan-query:
-      - http.title:"Webuzo - Admin Panel"
       - http.title:"webuzo - admin panel"
-    fofa-query: title="webuzo - admin panel"
-    google-query: intitle:"webuzo - admin panel"
+      - http.title:"webuzo installer"
+    fofa-query:
+      - title="webuzo - admin panel"
+      - title="webuzo installer"
+    google-query:
+      - intitle:"webuzo - admin panel"
+      - intitle:"webuzo installer"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)webuzo - admin panel"})
   tags: panel,webuzo,admin,softaculous
 
 http:

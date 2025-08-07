@@ -11,16 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:h:ixsystems:truenas:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)truenas"
     verified: true
     max-request: 1
     vendor: ixsystems
     product: truenas
-    shodan-query:
-      - html:"TrueNAS"
-      - http.html:"truenas"
+    shodan-query: http.html:"truenas"
     fofa-query: body="truenas"
+    runzero-match: service["http.body"] matches "(?i)truenas"
   tags: login,panel,truenas,ixsystems
 
 http:

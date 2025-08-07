@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Coverity"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Coverity"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Coverity"})
   tags: panel,coverity,synopsys
 
 http:

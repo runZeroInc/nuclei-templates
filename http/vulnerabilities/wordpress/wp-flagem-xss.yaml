@@ -15,7 +15,6 @@ info:
   metadata:
     max-request: 2
   tags: wordpress,xss,wp-plugin,edb
-
 flow: http(1) && http(2)
 
 http:

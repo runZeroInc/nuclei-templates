@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:sonicwall:sma1000_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)appliance management console login"})
     verified: true
     max-request: 1
     vendor: sonicwall
     product: sma1000_firmware
-    shodan-query:
-      - title:"Appliance Management Console Login"
-      - http.title:"appliance management console login"
+    shodan-query: http.title:"appliance management console login"
     fofa-query: title="appliance management console login"
     google-query: intitle:"appliance management console login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)appliance management console login"})
   tags: panel,sonicwall,login
 
 http:

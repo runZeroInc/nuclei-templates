@@ -9,17 +9,15 @@ info:
   classification:
     cpe: cpe:2.3:a:titanhq:webtitan:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "1090061843"
     verified: true
     max-request: 1
     vendor: titanhq
     product: webtitan
-    shodan-query: http.favicon.hash:1090061843
+    shodan-query: http.favicon.hash:"1090061843"
     fofa-query:
-      - title="WebTitan"
       - title="webtitan"
       - icon_hash=1090061843
+    runzero-match: service["favicon.ico.image.mmh3"] == "1090061843"
   tags: panel,webtitan,cloud,detect,titanhq
 
 http:

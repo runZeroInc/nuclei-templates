@@ -11,9 +11,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:"OVPN Config Download"
-    product: connect
     vendor: openvpn
+    product: connect
+    shodan-query: http.title:"OVPN Config Download"
   tags: config,ovpn,exposure
 
 http:

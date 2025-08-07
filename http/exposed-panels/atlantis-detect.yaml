@@ -12,14 +12,15 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:runatlantis:atlantis:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1706783005"
     verified: true
     max-request: 1
     vendor: runatlantis
     product: atlantis
-    shodan-query: http.favicon.hash:-1706783005
-    fofa-query: icon_hash=-1706783005
+    shodan-query: http.favicon.hash:"-1706783005"
+    fofa-query:
+      - icon_hash=-1706783005
+      - icon_hash="-1706783005"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1706783005"
   tags: panel,atlantis,runatlantis
 
 http:

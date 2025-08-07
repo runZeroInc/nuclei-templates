@@ -8,11 +8,10 @@ info:
   reference:
     - https://www.asus.com/in/content/aicloud/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)AiCloud"})
     verified: "true"
     max-request: 1
     shodan-query: title:"AiCloud"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AiCloud"})
   tags: panel,asus,aicloud,detect
 
 http:

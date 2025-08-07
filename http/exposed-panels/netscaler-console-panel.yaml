@@ -9,11 +9,10 @@ info:
   reference:
     - https://docs.netscaler.com/en-us/netscaler-console-service/overview.html
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)NetScaler Console"})
     verified: true
     max-request: 1
     shodan-query: title:"NetScaler Console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NetScaler Console"})
   tags: netscaler,console,panel,login
 
 http:

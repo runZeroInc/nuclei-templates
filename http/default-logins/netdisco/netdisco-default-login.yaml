@@ -11,14 +11,12 @@ info:
   remediation: |
     Update the application to remove hard-coded credentials and implement secure credential management practices.
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Netdisco"})
     verified: true
     max-request: 1
     shodan-query: title:"Netdisco"
     fofa-query: title="Netdisco"
+    runzero-match: any(each(service["html.titles"]), {# matches "Netdisco"})
   tags: netdisco,default-login
-
 variables:
   username: "netdisco"
   password: "netdisco"

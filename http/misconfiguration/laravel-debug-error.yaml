@@ -17,6 +17,7 @@ http:
       - "{{BaseURL}}/%00"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word

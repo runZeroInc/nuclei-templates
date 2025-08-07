@@ -10,19 +10,19 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nagios:nagios_xi:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)nagios xi"})
     verified: true
     max-request: 2
     vendor: nagios
     product: nagios_xi
     shodan-query:
-      - http.title:"Nagios XI"
       - http.title:"nagios xi"
+      - http.favicon.hash:"1460499495"
     fofa-query:
       - title="nagios xi"
       - app="nagios-xi"
+      - icon_hash="1460499495"
     google-query: intitle:"nagios xi"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nagios xi"})
   tags: panel,nagios,nagios-xi
 
 http:

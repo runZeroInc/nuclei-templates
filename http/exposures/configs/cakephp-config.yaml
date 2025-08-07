@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: html:"phinx.yml"
-    product: cakephp
     vendor: cakephp
+    product: cakephp
+    shodan-query: html:"phinx.yml"
   tags: files,exposure,config
 
 http:

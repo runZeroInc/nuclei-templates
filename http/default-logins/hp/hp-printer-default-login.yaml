@@ -10,8 +10,8 @@ info:
     - https://h30434.www3.hp.com/t5/Printing-Errors-or-Lights-Stuck-Print-Jobs/What-is-the-user-name-and-password-in-Embedded-Web-Server/td-p/6165417
   metadata:
     verified: true
-    shodan-query: html:"hp/device/SignIn/Index"
     max-request: 2
+    shodan-query: html:"hp/device/SignIn/Index"
   tags: hp,printer,default-login
 
 http:

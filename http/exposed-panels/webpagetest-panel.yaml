@@ -10,12 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:webpagetest:webpagetest:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)WebPageTest"})
     max-request: 1
-    shodan-query: title:"WebPageTest"
-    product: webpagetest
     vendor: webpagetest
+    product: webpagetest
+    shodan-query: http.title:"webpagetest"
+    fofa-query: title="webpagetest"
+    google-query: intitle:"webpagetest"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebPageTest"})
   tags: panel,webpagetest
 
 http:

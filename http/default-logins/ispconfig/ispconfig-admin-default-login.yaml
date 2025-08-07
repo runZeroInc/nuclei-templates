@@ -7,11 +7,10 @@ info:
   description: |
     ISPConfig Admin Panel default login credentials were discovered.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ispconfig"})
     verified: true
     max-request: 9
     shodan-query: "http.title:\"ispconfig\""
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ispconfig"})
   tags: default-login,ispconfig
 
 http:
@@ -19,7 +18,6 @@ http:
       - |
         GET /login HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /login/index.php HTTP/1.1
         Host: {{Hostname}}
@@ -29,7 +27,6 @@ http:
         Referer: {{RootURL}}/login/
 
         username={{username}}&password={{password}}&s_mod=login&s_pg=index
-
       - |
         GET /sites/web_vhost_domain_list.php HTTP/1.1
         Host: {{Hostname}}
@@ -46,7 +43,6 @@ http:
         - 'admin'
         - 'password'
         - 'toor'
-
     stop-at-first-match: true
     host-redirects: true
 

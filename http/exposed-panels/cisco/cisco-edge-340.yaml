@@ -10,16 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:cisco:edge_340_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)cisco edge 340"})
     max-request: 1
     vendor: cisco
     product: edge_340_firmware
-    shodan-query:
-      - http.title:"Cisco Edge 340"
-      - http.title:"cisco edge 340"
+    shodan-query: http.title:"cisco edge 340"
     fofa-query: title="cisco edge 340"
     google-query: intitle:"cisco edge 340"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cisco edge 340"})
   tags: panel,cisco
 
 http:

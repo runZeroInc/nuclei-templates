@@ -9,17 +9,14 @@ info:
   classification:
     cpe: cpe:2.3:a:qbittorrent:qbittorrent:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)qbittorrent"})
     verified: true
     max-request: 1
     vendor: qbittorrent
     product: qbittorrent
-    shodan-query:
-      - title:"qbittorrent"
-      - http.title:"qbittorrent"
+    shodan-query: http.title:"qbittorrent"
     fofa-query: title="qbittorrent"
     google-query: intitle:"qbittorrent"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qbittorrent"})
   tags: panel,qbittorrent,detect
 
 http:

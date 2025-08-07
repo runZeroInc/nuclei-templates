@@ -10,13 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:novnc:novnc:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)noVNC"})
     verified: true
     max-request: 2
-    shodan-query: http.title:"noVNC"
-    product: novnc
     vendor: novnc
+    product: novnc
+    shodan-query: http.title:"novnc"
+    fofa-query: title="novnc"
+    google-query: intitle:"novnc"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)noVNC"})
   tags: panel,novnc
 
 http:

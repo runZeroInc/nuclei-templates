@@ -4,14 +4,12 @@ info:
   name: CAIMORE Gateway Default Credentials
   author: pussycat0x
   severity: high
-  description: |-
-    CAIMORE Gateway default login credentials were discovered.
+  description: CAIMORE Gateway default login credentials were discovered.
   metadata:
     verified: true
     max-request: 1
     fofa-query: app="CAIMORE-Gateway"
-    runzero-match: |-
-      any(each(service["http.head.wwwAuthentications"]), {# matches '(?i)realm="CaiMore Gateway'})
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# matches '(?i)realm="CaiMore Gateway'})
   tags: ciamore-gateway,default-login
 
 http:

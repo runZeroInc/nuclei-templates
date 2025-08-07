@@ -7,11 +7,10 @@ info:
   reference:
     - http://autoset.net/xe/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)AutoSet"})
     verified: true
     max-request: 1
     shodan-query: title:"AutoSet"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AutoSet"})
   tags: tech,php,autoset,apache,panel
 
 http:

@@ -12,17 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortiadc:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)fortiadc"})
     verified: true
     max-request: 1
     vendor: fortinet
     product: fortiadc
-    shodan-query:
-      - title:"FortiADC"
-      - http.title:"fortiadc"
+    shodan-query: http.title:"fortiadc"
     fofa-query: title="fortiadc"
     google-query: intitle:"fortiadc"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiadc"})
   tags: panel,fortinet
 
 http:

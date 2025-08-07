@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:mikrotik:routeros:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)mikrotik routeros > administration"})
     verified: true
     max-request: 1
     vendor: mikrotik
     product: routeros
-    shodan-query:
-      - title:"mikrotik routeros > administration"
-      - http.title:"mikrotik routeros > administration"
+    shodan-query: http.title:"mikrotik routeros > administration"
     fofa-query: title="mikrotik routeros > administration"
     google-query: intitle:"mikrotik routeros > administration"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)mikrotik routeros > administration"})
   tags: panel,login,mikrotik
 
 http:

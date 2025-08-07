@@ -12,17 +12,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:umbraco:umbraco_cms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)umbraco"})
     verified: true
     max-request: 1
     vendor: umbraco
     product: umbraco_cms
     shodan-query:
-      - http.title:"Umbraco"
       - http.title:"umbraco"
-    fofa-query: title="umbraco"
-    google-query: intitle:"umbraco"
+      - http.title:"install umbraco"
+    fofa-query:
+      - title="umbraco"
+      - title="install umbraco"
+    google-query:
+      - intitle:"umbraco"
+      - intitle:"install umbraco"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)umbraco"})
   tags: panel,umbraco,detect
 
 http:

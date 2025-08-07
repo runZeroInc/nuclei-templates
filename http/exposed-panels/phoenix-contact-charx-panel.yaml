@@ -9,12 +9,11 @@ info:
   reference:
     - https://www.phoenixcontact.com/en-us/products/ac-charging-controllers
   metadata:
+    max-request: 1
     vendor: Phoenix Contact
     product: CHARX SEC-3000
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Phoenix Contact - CHARX"})
-    max-request: 1
     shodan-query: title:"Phoenix Contact - CHARX"
+    runzero-match: any(each(service["html.titles"]), {# matches "Phoenix Contact - CHARX"})
   tags: phoenix-contact,phoenix-contact-charx,ics,panel,tech
 
 http:

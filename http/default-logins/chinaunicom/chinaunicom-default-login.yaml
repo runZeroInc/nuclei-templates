@@ -4,8 +4,7 @@ info:
   name: China Unicom Modem Default Credentials
   author: princechaddha
   severity: high
-  description: China Unicom Modem default login credentials were
-    discovered.
+  description: China Unicom Modem default login credentials were discovered.
   classification:
     cwe-id: CWE-798
   metadata:

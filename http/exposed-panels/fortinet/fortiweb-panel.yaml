@@ -10,16 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortiweb:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)fortiweb - "})
     max-request: 1
     vendor: fortinet
     product: fortiweb
-    shodan-query:
-      - http.title:"FortiWeb - "
-      - http.title:"fortiweb - "
+    shodan-query: http.title:"fortiweb - "
     fofa-query: title="fortiweb - "
     google-query: intitle:"fortiweb - "
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiweb - "})
   tags: panel,fortinet,fortiweb,login
 
 http:

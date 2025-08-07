@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:traefik:traefik:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)traefik"})
     verified: true
     max-request: 1
     vendor: traefik
@@ -19,6 +17,7 @@ info:
     shodan-query: http.title:"traefik"
     fofa-query: title="traefik"
     google-query: intitle:"traefik"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)traefik"})
   tags: panel,traefik
 
 http:

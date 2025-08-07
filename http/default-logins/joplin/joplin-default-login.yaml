@@ -8,10 +8,9 @@ info:
     Joplin Server installations are vulnerable to default administrative credentials. The system ships with a default admin account using the credentials admin@localhost:admin. Attackers can leverage these default credentials to gain administrative access to the Joplin Server instance, potentially compromising sensitive user data and system functionality.
   metadata:
     verified: true
-    shodan-query: 'title:"Joplin Server"'
     max-request: 1
+    shodan-query: 'title:"Joplin Server"'
   tags: joplin,oss,default-login
-
 variables:
   username: admin@localhost
   password: admin

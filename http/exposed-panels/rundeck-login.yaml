@@ -10,13 +10,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pagerduty:rundeck:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Rundeck"})
     verified: true
     max-request: 1
-    shodan-query: title:"Rundeck"
-    product: rundeck
     vendor: pagerduty
+    product: rundeck
+    shodan-query: http.title:"rundeck"
+    fofa-query:
+      - app="rundeck-login"
+      - title="rundeck"
+    google-query: intitle:"rundeck"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rundeck"})
   tags: panel,rundeck
 
 http:

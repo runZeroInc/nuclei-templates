@@ -15,13 +15,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:octobercms:october:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "3823102"
     verified: true
     max-request: 4
-    shodan-query: http.component:"October CMS"
-    product: october
     vendor: octobercms
+    product: october
+    shodan-query: http.component:"october cms"
+    runzero-match: service["favicon.ico.image.mmh3"] == "3823102"
   tags: octobercms,default-login,oss
 
 http:

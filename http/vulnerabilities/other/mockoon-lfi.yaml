@@ -9,7 +9,6 @@ info:
   reference:
     - https://github.com/advisories/GHSA-w7f9-wqc4-3wxr
   tags: mockoon,lfi,oos
-
 variables:
   static_dir: "static"
 

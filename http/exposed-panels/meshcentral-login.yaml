@@ -10,16 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:meshcentral:meshcentral:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)meshcentral - login"})
     max-request: 1
     vendor: meshcentral
     product: meshcentral
-    shodan-query:
-      - http.title:"MeshCentral - Login"
-      - http.title:"meshcentral - login"
+    shodan-query: http.title:"meshcentral - login"
     fofa-query: title="meshcentral - login"
     google-query: intitle:"meshcentral - login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)meshcentral - login"})
   tags: panel,meshcentral
 
 http:

@@ -9,11 +9,10 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Adapt authoring tool"})
+    verified: true
     max-request: 1
     shodan-query: http.title:"Adapt authoring tool"
-    verified: true
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Adapt authoring tool"})
   tags: panel,adapt,login,detect
 
 http:
@@ -23,7 +22,6 @@ http:
 
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:

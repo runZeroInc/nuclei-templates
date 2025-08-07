@@ -12,17 +12,14 @@ info:
   classification:
     cpe: cpe:2.3:a:reportico:reportico:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)reportico administration page"})
     verified: true
     max-request: 2
     vendor: reportico
     product: reportico
-    shodan-query:
-      - title:"Reportico Administration Page"
-      - http.title:"reportico administration page"
+    shodan-query: http.title:"reportico administration page"
     fofa-query: title="reportico administration page"
     google-query: intitle:"reportico administration page"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)reportico administration page"})
   tags: panel,reportico,login,detect
 
 http:
@@ -32,6 +29,7 @@ http:
       - "{{BaseURL}}/reportico/run.php?project=admin&execute_mode=ADMIN&clear_session=1"
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word

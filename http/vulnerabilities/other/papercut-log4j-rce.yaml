@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:papercut:papercut_mf:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: title:"Papercut"
-    product: papercut_mf
     vendor: papercut
+    product: papercut_mf
+    shodan-query: title:"Papercut"
   tags: cve,cve2021,rce,jndi,log4j,papercut,oast,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'

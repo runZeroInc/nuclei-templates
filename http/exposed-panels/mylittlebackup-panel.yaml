@@ -13,13 +13,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mylittletools:mylittlebackup:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)myLittleBackup"
     verified: true
     max-request: 3
-    shodan-query: http.html:"myLittleBackup"
-    product: mylittlebackup
     vendor: mylittletools
+    product: mylittlebackup
+    shodan-query: http.html:"mylittlebackup"
+    fofa-query: body="mylittlebackup"
+    runzero-match: service["http.body"] matches "(?i)myLittleBackup"
   tags: panel,mylittlebackup
 
 http:

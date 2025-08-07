@@ -12,8 +12,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:appsmith:appsmith:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)appsmith"})
     verified: true
     max-request: 1
     vendor: appsmith
@@ -21,6 +19,7 @@ info:
     shodan-query: http.title:"appsmith"
     fofa-query: title="appsmith"
     google-query: intitle:"appsmith"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)appsmith"})
   tags: panel,appsmith
 
 http:

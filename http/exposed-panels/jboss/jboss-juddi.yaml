@@ -14,16 +14,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:jboss_enterprise_web_platform:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)jboss ws"
     verified: true
     max-request: 2
     vendor: redhat
     product: jboss_enterprise_web_platform
-    shodan-query:
-      - html:"JBoss WS"
-      - http.html:"jboss ws"
+    shodan-query: http.html:"jboss ws"
     fofa-query: body="jboss ws"
+    runzero-match: service["http.body"] matches "(?i)jboss ws"
   tags: panel,jboss,juddi,redhat
 
 http:

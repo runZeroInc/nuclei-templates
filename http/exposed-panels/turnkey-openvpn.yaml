@@ -9,11 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)TurnKey OpenVPN"})
     verified: true
     max-request: 1
     shodan-query: http.title:"TurnKey OpenVPN"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TurnKey OpenVPN"})
   tags: panel,openvpn,turnkey,webshell,vpn
 
 http:

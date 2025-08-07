@@ -11,15 +11,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:papercut:papercut_ng:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)'content=\"papercut'" || service["http.body"] matches "(?i)content=\\\\"
     verified: true
     max-request: 1
     vendor: papercut
     product: papercut_ng
-    google-query:
-      - html:'content="PaperCut'
-      - html:'content="papercut'
     shodan-query:
       - product:"PaperCut MF"
       - title:"PaperCut Login"
@@ -63,3 +58,4 @@ http:
         group: 1
         regex:
           - "\\/css\\/style\\.css\\?(\\d+)papercut-mf"
+

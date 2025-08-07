@@ -12,20 +12,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:spark:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)/apps/imt/html/" || any(each(service["html.titles"]), {# matches "(?i)spark master at"})
     verified: true
     max-request: 1
     vendor: apache
     product: spark
     shodan-query:
-      - html:"/apps/IMT/Html/"
       - http.html:"/apps/imt/html/"
       - http.title:"spark master at"
     fofa-query:
       - title="spark master at"
       - body="/apps/imt/html/"
     google-query: intitle:"spark master at"
+    runzero-match: service["http.body"] matches "(?i)/apps/imt/html/" || any(each(service["html.titles"]), {# matches "(?i)spark master at"})
   tags: panel,spark,apache
 
 http:

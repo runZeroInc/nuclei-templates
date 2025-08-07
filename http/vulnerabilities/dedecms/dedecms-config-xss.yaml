@@ -18,9 +18,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.html:"DedeCms"
-    product: dedecms
     vendor: dedecms
+    product: dedecms
+    shodan-query: http.html:"DedeCms"
   tags: dedecms,xss
 
 http:

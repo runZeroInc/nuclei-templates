@@ -14,7 +14,6 @@ info:
   metadata:
     max-request: 2
   tags: thinkcmf,rce,intrusive
-
 variables:
   string: "thinkcmf-rce"
 

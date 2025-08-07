@@ -4,22 +4,33 @@ info:
   name: Apache Tomcat Manager Default Credentials
   author: pdteam,sinKettu,nybble04
   severity: high
-  description: Apache Tomcat Manager default login credentials
-    were discovered.
+  description: Apache Tomcat Manager default login credentials were discovered.
   reference:
     - https://www.rapid7.com/db/vulnerabilities/apache-tomcat-default-ovwebusr-password/
     - https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Apache Tomcat"})
     max-request: 406
     vendor: apache
     product: tomcat
-    shodan-query: title:"Apache Tomcat"
+    shodan-query:
+      - http.title:"apache tomcat"
+      - cpe:"cpe:2.3:a:apache:tomcat"
+      - http.component:"apache tomcat"
+      - http.html:"apache tomcat"
+      - http.html:"jk status manager"
+      - product:"tomcat"
+    fofa-query:
+      - body="apache tomcat"
+      - body="jk status manager"
+      - server=="apache tomcat"
+      - title="apache tomcat"
+    google-query:
+      - intitle:"apache tomcat"
+      - site:*/examples/jsp/snp/snoop.jsp
+    runzero-match: any(each(service["html.titles"]), {# matches "Apache Tomcat"})
   tags: tomcat,apache,default-login
-
 flow: http(1) && http(2)
 
 http:
@@ -95,7 +106,7 @@ http:
       - type: word
         part: body
         words:
-          - Apache Tomcat
+          - "Apache Tomcat"
           - Server Information
         condition: and
 

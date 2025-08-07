@@ -12,17 +12,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:diagrams:drawio:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)flowchart maker"})
     verified: true
     max-request: 1
     vendor: diagrams
     product: drawio
     shodan-query:
-      - http.title:"Flowchart Maker"
       - http.title:"flowchart maker"
-    fofa-query: title="flowchart maker"
+      - http.html:"draw.io"
+    fofa-query:
+      - title="flowchart maker"
+      - body="draw.io"
     google-query: intitle:"flowchart maker"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)flowchart maker"})
   tags: panel,drawio,oss,diagrams
 
 http:

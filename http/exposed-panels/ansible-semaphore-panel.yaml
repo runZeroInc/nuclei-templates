@@ -12,12 +12,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ansible-semaphore:ansible_semaphore:*:*:*:*:ansible:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Semaphore</title>"
     max-request: 1
-    shodan-query: http.html:"Semaphore</title>"
-    product: ansible_semaphore
     vendor: ansible-semaphore
+    product: ansible_semaphore
+    shodan-query: http.html:"semaphore</title>"
+    fofa-query: body="semaphore</title>"
+    runzero-match: service["http.body"] matches "(?i)Semaphore</title>"
   tags: panel,ansible,semaphore,cicd,oss
 
 http:

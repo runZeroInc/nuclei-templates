@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:avigilon:avigilon_control_center:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)login - avigilon control center"})
     verified: true
     max-request: 1
     vendor: avigilon
     product: avigilon_control_center
-    shodan-query:
-      - http.title:"Login - Avigilon Control Center"
-      - http.title:"login - avigilon control center"
+    shodan-query: http.title:"login - avigilon control center"
     fofa-query: title="login - avigilon control center"
     google-query: intitle:"login - avigilon control center"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - avigilon control center"})
   tags: panel,avigilon
 
 http:

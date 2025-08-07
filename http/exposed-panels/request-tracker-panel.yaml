@@ -7,11 +7,10 @@ info:
   description: |
     Request Tracker panel was discovered.
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "203612613"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:203612613
+    runzero-match: service["favicon.ico.image.mmh3"] == "203612613"
   tags: panel,login,request,tracker
 
 http:

@@ -1,4 +1,5 @@
 id: graphql-flutter-detect
+
 info:
   name: Graphql Flutter Detect
   author: princechaddha
@@ -13,7 +14,9 @@ http:
       - "{{BaseURL}}/api/graphql"
       - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
+
     body: '{"query":"query { __typename @deprecated }"}'
+
     headers:
       Content-Type: application/json
     redirects: true

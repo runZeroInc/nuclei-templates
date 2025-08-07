@@ -10,13 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:webdesi9:file_manager:*:*:*:*:wordpress:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Web File Manager"})
     verified: true
     max-request: 1
-    shodan-query: title:"Web File Manager"
-    product: file_manager
     vendor: webdesi9
+    product: file_manager
+    shodan-query: http.title:"web file manager"
+    fofa-query: title="web file manager"
+    google-query: intitle:"web file manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web File Manager"})
   tags: panel,filemanager
 
 http:

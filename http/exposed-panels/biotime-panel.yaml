@@ -10,13 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zkteco:biotime:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)BioTime"})
     verified: true
     max-request: 2
-    shodan-query: http.title:"BioTime"
-    product: biotime
     vendor: zkteco
+    product: biotime
+    shodan-query: http.title:"biotime"
+    fofa-query: title="biotime"
+    google-query: intitle:"biotime"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)BioTime"})
   tags: panel,biotime
 
 http:

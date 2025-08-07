@@ -7,12 +7,11 @@ info:
   description: |
     Reolink panel was discovered.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Reolink"})
     verified: true
     max-request: 1
-    fofa-query: "Reolink"
     shodan-query: title:"Reolink"
+    fofa-query: "Reolink"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Reolink"})
   tags: panel,login,reolink,detect
 
 http:
@@ -22,7 +21,6 @@ http:
 
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:

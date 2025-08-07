@@ -19,6 +19,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/miscadmin"
@@ -30,7 +31,6 @@ http:
         - "/miscadmin#/etc/importers"
         - "/miscadmin#/etc/reports"
         - "/miscadmin#/etc/msm/rolloutconfigs"
-
     stop-at-first-match: true
 
     matchers-condition: and

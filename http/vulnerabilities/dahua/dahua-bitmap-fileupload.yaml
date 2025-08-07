@@ -14,7 +14,6 @@ info:
 variables:
   rand_str: "{{randstr}}"
   cmd: "{{base64(to_lower(rand_text_alpha(6)))}}"
-
 flow: http(1) && http(2)
 
 http:

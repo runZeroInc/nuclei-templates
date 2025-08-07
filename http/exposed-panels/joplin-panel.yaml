@@ -7,11 +7,10 @@ info:
   description: |
     Joplin Server login panel detected.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Joplin Server"})
     verified: true
-    shodan-query: 'title:"Joplin Server"'
     max-request: 1
+    shodan-query: 'title:"Joplin Server"'
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Joplin Server"})
   tags: panel,joplin,login
 
 http:

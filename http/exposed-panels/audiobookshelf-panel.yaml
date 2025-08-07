@@ -9,13 +9,14 @@ info:
   classification:
     cpe: cpe:2.3:a:audiobookshelf:audiobookshelf:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Audiobookshelf"})
     verified: true
     max-request: 2
-    shodan-query: title:"Audiobookshelf"
-    product: audiobookshelf
     vendor: audiobookshelf
+    product: audiobookshelf
+    shodan-query: http.title:"audiobookshelf"
+    fofa-query: title="audiobookshelf"
+    google-query: intitle:"audiobookshelf"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Audiobookshelf"})
   tags: panel,audiobookshelf,detect
 
 http:

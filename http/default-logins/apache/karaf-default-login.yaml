@@ -13,13 +13,12 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:apache:karaf:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="karaf'})
     verified: true
     max-request: 1
-    shodan-query: realm="karaf"
-    product: karaf
     vendor: apache
+    product: karaf
+    shodan-query: realm="karaf"
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="karaf'})
   tags: default-login,apache,karaf
 
 http:

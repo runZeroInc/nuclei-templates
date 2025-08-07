@@ -15,7 +15,6 @@ info:
     shodan-query: title:"OpenSearch"
     fofa-query: title="OpenSearch"
   tags: opensearch,default-login,misconfig
-
 variables:
   username: admin
   password: admin

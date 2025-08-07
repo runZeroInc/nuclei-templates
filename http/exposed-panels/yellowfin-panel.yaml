@@ -7,13 +7,14 @@ info:
   classification:
     cpe: cpe:2.3:a:yellowfinbi:yellowfin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Yellowfin Information Collaboration"})
     verified: true
     max-request: 1
     vendor: yellowfinbi
     product: yellowfin
-    shodan-query: title:"Yellowfin Information Collaboration"
+    shodan-query: http.title:"yellowfin information collaboration"
+    fofa-query: title="yellowfin information collaboration"
+    google-query: intitle:"yellowfin information collaboration"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Yellowfin Information Collaboration"})
   tags: yellowfin,panel,login
 
 http:

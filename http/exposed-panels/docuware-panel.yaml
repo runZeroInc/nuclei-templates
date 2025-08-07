@@ -9,11 +9,10 @@ info:
   reference:
     - https://start.docuware.com/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Docuware"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Docuware"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Docuware"})
   tags: panel,docuware,detect,login
 
 http:

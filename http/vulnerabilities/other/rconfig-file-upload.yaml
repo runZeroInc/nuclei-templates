@@ -17,9 +17,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"rConfig"
-    product: rconfig
     vendor: rconfig
+    product: rconfig
+    shodan-query: title:"rConfig"
   tags: rconfig,rce,edb,file-upload,instrusive,intrusive
 
 http:

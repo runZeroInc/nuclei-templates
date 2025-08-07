@@ -18,6 +18,7 @@ http:
       - "{{BaseURL}}"
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: regex

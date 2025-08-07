@@ -13,9 +13,14 @@ info:
     max-request: 1
     vendor: owncloud
     product: owncloud
-    shodan-query: http.html:"owncloud"
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "ownCloud"})
+    shodan-query:
+      - http.html:"owncloud"
+      - http.title:"owncloud"
+    fofa-query:
+      - body="owncloud"
+      - title="owncloud"
+    google-query: intitle:"owncloud"
+    runzero-match: service["http.body"] matches "(?i)owncloud"
     runzero-vendor: ownCloud
     runzero-product: ownCloud Server
   tags: tech,owncloud,status

@@ -10,16 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:yzmcms:yzmcms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)yzmcms"})
     max-request: 1
     vendor: yzmcms
     product: yzmcms
-    shodan-query:
-      - http.title:"YzmCMS"
-      - http.title:"yzmcms"
+    shodan-query: http.title:"yzmcms"
     fofa-query: title="yzmcms"
     google-query: intitle:"yzmcms"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)yzmcms"})
   tags: panel,yzmcms,login
 
 http:

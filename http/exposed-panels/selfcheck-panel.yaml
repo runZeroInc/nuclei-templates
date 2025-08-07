@@ -7,11 +7,10 @@ info:
   reference:
     - https://www.facebook.com/photo/?fbid=607747024729154&set=a.467014098802448
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)SelfCheck System Manager"})
     verified: true
     max-request: 1
     shodan-query: title:"SelfCheck System Manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SelfCheck System Manager"})
   tags: panel,login,selfcheck,systemmanager
 
 http:

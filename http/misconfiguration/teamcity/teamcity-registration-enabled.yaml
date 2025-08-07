@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.component:"TeamCity"
-    product: teamcity
     vendor: jetbrains
+    product: teamcity
+    shodan-query: http.component:"TeamCity"
   tags: misconfig,auth-bypass,teamcity,jetbrains,intrusive
 
 http:

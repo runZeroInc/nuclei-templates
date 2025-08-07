@@ -12,12 +12,11 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Aqua Enterprise"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Aqua Enterprise" || http.title:"Aqua Cloud Native Security Platform"
     google-query: intitle:"Aqua Cloud Native Security Platform"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aqua Enterprise"})
   tags: panel,aqua,aquasec
 
 http:

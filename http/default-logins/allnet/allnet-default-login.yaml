@@ -4,14 +4,12 @@ info:
   name: Allnet Default Credentials
   author: ritikchaddha
   severity: high
-  description: |-
-    Allnet default login credentials were discovered.
+  description: Allnet default login credentials were discovered.
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "-121681558"
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:-121681558
+    runzero-match: service["favicon.ico.image.mmh3"] == "-121681558"
   tags: default-login,allnet
 
 http:
@@ -22,7 +20,6 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         username={{username}}&password={{password}}&login=1
-
       - |
         POST /cgi-bin/dispatcher.cgi?cmd=3 HTTP/1.1
         Host: {{Hostname}}

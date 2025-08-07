@@ -7,17 +7,20 @@ info:
   classification:
     cpe: cpe:2.3:a:fusionauth:fusionauth:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)fusionauth"})
     verified: true
     max-request: 2
     vendor: fusionauth
     product: fusionauth
     shodan-query:
-      - title:"FusionAuth"
       - http.title:"fusionauth"
-    fofa-query: title="fusionauth"
-    google-query: intitle:"fusionauth"
+      - http.title:"fusionauth setup wizard"
+    fofa-query:
+      - title="fusionauth"
+      - title="fusionauth setup wizard"
+    google-query:
+      - intitle:"fusionauth"
+      - intitle:"fusionauth setup wizard"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fusionauth"})
   tags: panel,fusionauth,detect,login
 
 http:

@@ -10,20 +10,24 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sugarcrm:sugarcrm:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)sugarcrm"}) || service["http.body"] matches "(?i)sugarcrm inc\\. all rights reserved"
     max-request: 2
     vendor: sugarcrm
     product: sugarcrm
     shodan-query:
-      - http.title:sugarcrm
+      - http.title:"sugarcrm"
       - http.html:"sugarcrm inc. all rights reserved"
-    google-query:
-      - intitle:sugarcrm
-      - intext:"sugarcrm inc. all rights reserved"
+      - http.title:"sugar setup wizard"
     fofa-query:
       - title=sugarcrm
       - body="sugarcrm inc. all rights reserved"
+      - title="sugar setup wizard"
+      - title="sugarcrm"
+    google-query:
+      - intitle:sugarcrm
+      - intext:"sugarcrm inc. all rights reserved"
+      - intitle:"sugar setup wizard"
+      - intitle:"sugarcrm"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sugarcrm"}) || service["http.body"] matches "(?i)sugarcrm inc\\. all rights reserved"
   tags: sugarcrm,panel
 
 http:

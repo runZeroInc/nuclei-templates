@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:parseplatform:parse-server:*:*:*:*:node.js:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)parse dashboard"})
     verified: true
     max-request: 1
     vendor: parseplatform
     product: parse-server
-    shodan-query:
-      - title:"Parse Dashboard"
-      - http.title:"parse dashboard"
+    shodan-query: http.title:"parse dashboard"
     fofa-query: title="parse dashboard"
     google-query: intitle:"parse dashboard"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)parse dashboard"})
   tags: panel,parse,exposure,parseplatform
 
 http:

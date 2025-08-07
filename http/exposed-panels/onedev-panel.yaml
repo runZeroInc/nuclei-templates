@@ -9,11 +9,10 @@ info:
   reference:
     - https://github.com/theonedev/onedev
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)OneDev"})
     verified: true
     max-request: 1
     shodan-query: title:"OneDev"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OneDev"})
   tags: tech,detect,onedev
 
 http:

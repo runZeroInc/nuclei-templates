@@ -12,16 +12,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cisco:unified_computing_system:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)cisco ucs kvm direct"})
     max-request: 1
     vendor: cisco
     product: unified_computing_system
-    shodan-query:
-      - http.title:"Cisco UCS KVM Direct"
-      - http.title:"cisco ucs kvm direct"
+    shodan-query: http.title:"cisco ucs kvm direct"
     fofa-query: title="cisco ucs kvm direct"
     google-query: intitle:"cisco ucs kvm direct"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cisco ucs kvm direct"})
   tags: panel,cisco,ucs,kvm
 
 http:

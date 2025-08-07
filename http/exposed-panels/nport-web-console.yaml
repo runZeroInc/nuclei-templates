@@ -12,13 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:moxa:nport_6450-t_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)NPort Web Console"})
     verified: true
     max-request: 1
-    shodan-query: title:"NPort Web Console"
-    product: nport_6450-t_firmware
     vendor: moxa
+    product: nport_6450-t_firmware
+    shodan-query: http.title:"nport web console"
+    fofa-query: title="nport web console"
+    google-query: intitle:"nport web console"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NPort Web Console"})
   tags: panel,nport
 
 http:

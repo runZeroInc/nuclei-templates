@@ -10,12 +10,10 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-670975485"
     max-request: 1
     shodan-query: http.favicon.hash:"-670975485"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-670975485"
   tags: emqx,default-login
-
 variables:
   username: "admin"
   password: "public"

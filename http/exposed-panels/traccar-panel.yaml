@@ -7,12 +7,11 @@ info:
   description: |
     Traccar panel was discovered.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Traccar"
     verified: true
     max-request: 1
-    fofa-query: app="Traccar"
     shodan-query: html:"Traccar"
+    fofa-query: app="Traccar"
+    runzero-match: service["http.body"] matches "(?i)Traccar"
   tags: panel,login,traccar,detect
 
 http:

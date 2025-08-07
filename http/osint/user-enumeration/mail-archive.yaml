@@ -13,6 +13,7 @@ info:
   tags: osint,osint-coding,maillist
 
 self-contained: true
+
 http:
   - method: GET
     path:

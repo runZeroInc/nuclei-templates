@@ -7,13 +7,13 @@ info:
   classification:
     cpe: cpe:2.3:a:urbackup:urbackup:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)UrBackup - Keeps your data safe"
     verified: true
     max-request: 1
     vendor: urbackup
     product: urbackup
-    shodan-query: html:"UrBackup - Keeps your data safe"
+    shodan-query: http.html:"urbackup - keeps your data safe"
+    fofa-query: body="urbackup - keeps your data safe"
+    runzero-match: service["http.body"] matches "(?i)UrBackup - Keeps your data safe"
   tags: urbackup,panel,login,detect
 
 http:

@@ -10,11 +10,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)CentreStack"})
     verified: true
     max-request: 1
     shodan-query: title:"CentreStack"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CentreStack"})
   tags: panel,centrestack,login,gladinet
 
 http:

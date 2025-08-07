@@ -9,11 +9,10 @@ info:
   reference:
     - https://chemotargets.com/clarityvista/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ClarityVista"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ClarityVista"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ClarityVista"})
   tags: panel,chemotargets,login,detect
 
 http:

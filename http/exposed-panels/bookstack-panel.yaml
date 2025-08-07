@@ -12,16 +12,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bookstackapp:bookstack:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)bookstack"})
     max-request: 1
     vendor: bookstackapp
     product: bookstack
-    shodan-query:
-      - http.title:"BookStack"
-      - http.title:"bookstack"
+    shodan-query: http.title:"bookstack"
     fofa-query: title="bookstack"
     google-query: intitle:"bookstack"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bookstack"})
   tags: panel,bookstack,bookstackapp
 
 http:

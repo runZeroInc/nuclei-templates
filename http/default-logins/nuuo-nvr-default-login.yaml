@@ -14,7 +14,6 @@ info:
     shodan-query: title:"NUUO"
     fofa-query: title="NUUO"
   tags: nuuo,nvr,default-login,misconfig
-
 variables:
   username: admin
   password: admin
@@ -24,14 +23,12 @@ http:
       - |
         GET /login.php HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /login.php HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         language=en&user={{username}}&pass={{password}}&submit=Login
-
       - |
         GET /setting.php HTTP/1.1
         Host: {{Hostname}}

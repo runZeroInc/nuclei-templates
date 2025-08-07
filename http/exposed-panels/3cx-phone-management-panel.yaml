@@ -14,24 +14,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:3cx:3cx:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)3cx webclient"}) || any(each(service["html.titles"]), {# matches "(?i)3cx phone system management console"}) || service["favicon.ico.image.mmh3"] == "970132176"
     max-request: 1
     vendor: 3cx
     product: 3cx
     shodan-query:
-      - http.title:"3CX Phone System Management Console"
-      - http.favicon.hash:970132176
-      - http.title:"3cx webclient"
       - http.title:"3cx phone system management console"
-    google-query:
-      - intitle:"3CX Phone System Management Console"
-      - intitle:"3cx phone system management console"
-      - intitle:"3cx webclient"
+      - http.favicon.hash:"970132176"
+      - http.title:"3cx webclient"
     fofa-query:
       - icon_hash=970132176
       - title="3cx phone system management console"
       - title="3cx webclient"
+    google-query:
+      - intitle:"3cx phone system management console"
+      - intitle:"3cx webclient"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)3cx webclient"}) || any(each(service["html.titles"]), {# matches "(?i)3cx phone system management console"}) || service["favicon.ico.image.mmh3"] == "970132176"
   tags: panel,3cx
 
 http:

@@ -12,13 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:machform:machform:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)MachForm Admin Panel"})
     verified: true
     max-request: 1
-    shodan-query: title:"MachForm Admin Panel"
-    product: machform
     vendor: machform
+    product: machform
+    shodan-query: http.title:"machform admin panel"
+    fofa-query: title="machform admin panel"
+    google-query: intitle:"machform admin panel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MachForm Admin Panel"})
   tags: panel,machform,admin
 
 http:

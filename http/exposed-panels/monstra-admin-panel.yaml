@@ -12,14 +12,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:monstra:monstra_cms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "419828698"
     verified: true
     max-request: 1
     vendor: monstra
     product: monstra_cms
-    shodan-query: http.favicon.hash:419828698
-    fofa-query: icon_hash=419828698
+    shodan-query:
+      - http.favicon.hash:"419828698"
+      - 'http.title:"monstra :: install"'
+    fofa-query:
+      - icon_hash=419828698
+      - 'title="monstra :: install"'
+    google-query: 'intitle:"monstra :: install"'
+    runzero-match: service["favicon.ico.image.mmh3"] == "419828698"
   tags: panel,monstra
 
 http:

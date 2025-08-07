@@ -69,7 +69,6 @@ http:
         dsl:
           - "status_code==200 && (\"116323821\" == mmh3(base64_py(body)))"
 
-
       - type: dsl
         name: "cnservers-llc"
         dsl:
@@ -2570,7 +2569,6 @@ http:
         dsl:
           - "status_code==200 && (\"-1650202746\" == mmh3(base64_py(body)))"
 
-
       - type: dsl
         name: "cisco-ucs"
         dsl:
@@ -2701,7 +2699,6 @@ http:
         dsl:
           - "status_code==200 && (\"-1261322577\" == mmh3(base64_py(body)))"
 
-
       - type: dsl
         name: "Bamboo"
         dsl:
@@ -2747,7 +2744,6 @@ http:
         dsl:
           - "status_code==200 && (\"407286339\" == mmh3(base64_py(body)))"
 
-
       - type: dsl
         name: "WebMethod Integration Server"
         dsl:
@@ -2762,7 +2758,6 @@ http:
         name: "EmqDefault"
         dsl:
           - "status_code==200 && (\"-670975485\" == mmh3(base64_py(body)))"
-
 
       - type: dsl
         name: "Node-Red"
@@ -2899,7 +2894,6 @@ http:
         dsl:
           - "status_code==200 && (\"-50306417\" == mmh3(base64_py(body)))"
 
-
       - type: dsl
         name: "AceNet AceReporter Report"
         dsl:
@@ -2919,7 +2913,6 @@ http:
         name: "iSAMS"
         dsl:
           - "status_code==200 && (\"-81573405\" == mmh3(base64_py(body)))"
-
 
       - type: dsl
         name: "Sensu by Sumo Logic"
@@ -2975,7 +2968,6 @@ http:
         name: "JshERP Boot"
         dsl:
           - "status_code==200 && (\"-1298131932\" == mmh3(base64_py(body)))"
-
 
       - type: dsl
         name: "Jamf MDM"
@@ -3047,7 +3039,6 @@ http:
         dsl:
           - "status_code==200 && (\"957255151\" == mmh3(base64_py(body)))"
 
-
       - type: dsl
         name: "Structurizr"
         dsl:
@@ -3102,7 +3093,6 @@ http:
         name: "Strider CD"
         dsl:
           - "status_code==200 && (\"115295460\" == mmh3(base64_py(body)))"
-
 
       - type: dsl
         name: "CloudPanel"
@@ -3524,7 +3514,6 @@ http:
         dsl:
           - "status_code==200 && (\"440258421\" == mmh3(base64_py(body)))"
 
-
       - type: dsl
         name: "Microweber"
         dsl:
@@ -3634,7 +3623,6 @@ http:
         name: "TimeKeeper by FSMLabs"
         dsl:
           - "status_code==200 && (\"2134367771\" == mmh3(base64_py(body)))"
-
 
       - type: dsl
         name: "IceWarp Webmail Server"

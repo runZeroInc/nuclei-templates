@@ -12,16 +12,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:m-files:m-files:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)m-files web"
     verified: true
     max-request: 2
     vendor: m-files
     product: m-files
-    shodan-query:
-      - http.html:"M-Files Web"
-      - http.html:"m-files web"
+    shodan-query: http.html:"m-files web"
     fofa-query: body="m-files web"
+    runzero-match: service["http.body"] matches "(?i)m-files web"
   tags: panel,m-files
 
 http:

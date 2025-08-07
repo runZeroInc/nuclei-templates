@@ -13,13 +13,18 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:geoserver:geoserver:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})
     verified: true
     max-request: 2
-    fofa-query: app="GeoServer"
-    product: geoserver
     vendor: geoserver
+    product: geoserver
+    shodan-query:
+      - http.title:"geoserver"
+      - server:"geohttpserver"
+    fofa-query:
+      - app="geoserver"
+      - title="geoserver"
+    google-query: intitle:"geoserver"
+    runzero-match: 'any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})'
   tags: geoserver,default-login
 
 http:

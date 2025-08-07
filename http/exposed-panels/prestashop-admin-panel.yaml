@@ -52,7 +52,6 @@ http:
         - 'adminxx'
         - 'admin'
         - 'ps-admin'
-
     host-redirects: true
     max-redirects: 3
 

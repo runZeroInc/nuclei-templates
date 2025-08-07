@@ -4,14 +4,12 @@ info:
   name: ASUS WL-500G Default Credentials
   author: ritikchaddha
   severity: high
-  description: |-
-    ASUS WL-500G default login credentials were discovered.
+  description: ASUS WL-500G default login credentials were discovered.
   metadata:
     verified: true
     max-request: 1
     shodan-query: WL-500G
-    runzero-match: |-
-      any(each(service["http.head.wwwAuthentications"]), {# matches '(?i)realm="WL-500G'})
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# matches '(?i)realm="WL-500G'})
   tags: default-login,asus,wl-500
 
 http:

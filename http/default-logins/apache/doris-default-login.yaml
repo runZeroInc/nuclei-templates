@@ -4,17 +4,17 @@ info:
   name: Apache Doris Default Credentials
   author: icarot
   severity: high
-  description: |-
-    Apache Doris default login credentials were discovered.
+  description: Apache Doris default login credentials were discovered.
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "24048806"
     verified: true
     max-request: 2
     vendor: apache
     product: doris
     shodan-query: http.favicon.hash:"24048806"
-    fofa-query: icon_hash=24048806
+    fofa-query:
+      - icon_hash=24048806
+      - icon_hash="24048806"
+    runzero-match: service["favicon.ico.image.mmh3"] == "24048806"
   tags: apache,default-login,doris
 
 http:
@@ -29,8 +29,8 @@ http:
       basicAuth:
         - YWRtaW46
         - cm9vdDo=
-
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word

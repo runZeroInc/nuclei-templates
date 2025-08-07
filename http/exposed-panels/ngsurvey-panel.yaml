@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.ngsurvey.com/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ngSurvey enterprise survey software"})
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: http.title:"ngSurvey enterprise survey software"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ngSurvey enterprise survey software"})
   tags: panel,ngsurvey,login,detect
 
 http:

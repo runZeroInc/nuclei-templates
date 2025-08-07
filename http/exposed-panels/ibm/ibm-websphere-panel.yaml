@@ -10,16 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ibm:websphere_portal:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)ibm websphere portal"
     max-request: 1
     vendor: ibm
     product: websphere_portal
     shodan-query:
-      - http.html:"IBM WebSphere Portal"
       - http.html:"ibm websphere portal"
       - cpe:"cpe:2.3:a:ibm:websphere_portal"
     fofa-query: body="ibm websphere portal"
+    runzero-match: service["http.body"] matches "(?i)ibm websphere portal"
   tags: ibm,websphere,panel
 
 http:

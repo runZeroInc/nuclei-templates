@@ -7,14 +7,15 @@ info:
   classification:
     cpe: cpe:2.3:a:zenml:zenml:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-2028554187"
     verified: true
     max-request: 1
     vendor: zenml
     product: zenml
-    shodan-query: http.favicon.hash:-2028554187
-    fofa-query: body="ZenML"
+    shodan-query: http.favicon.hash:"-2028554187"
+    fofa-query:
+      - body="zenml"
+      - icon_hash=-2028554187
+    runzero-match: service["favicon.ico.image.mmh3"] == "-2028554187"
   tags: zenml,panel,login
 
 http:

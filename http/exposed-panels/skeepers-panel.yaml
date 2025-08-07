@@ -9,11 +9,10 @@ info:
   reference:
     - https://skeepers.io
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Skeepers"})
     verified: true
     max-request: 2
     shodan-query: http.title:"Skeepers"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Skeepers"})
   tags: panel,skeepers,login,detect
 
 http:
@@ -23,7 +22,6 @@ http:
       - "{{BaseURL}}"
 
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:

@@ -12,16 +12,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bedita:bedita:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)bedita"})
     max-request: 1
     vendor: bedita
     product: bedita
-    shodan-query:
-      - http.title:"BEdita"
-      - http.title:"bedita"
+    shodan-query: http.title:"bedita"
     fofa-query: title="bedita"
     google-query: intitle:"bedita"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bedita"})
   tags: panel,bedita
 
 http:

@@ -9,11 +9,10 @@ info:
   reference:
     - https://icehrm.com
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Ice Hrm Login"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Ice Hrm Login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Ice Hrm Login"})
   tags: icehrm,login,hrm,panel,web,detect
 
 http:

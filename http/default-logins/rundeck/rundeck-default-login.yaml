@@ -12,14 +12,18 @@ info:
   classification:
     cpe: cpe:2.3:a:pagerduty:rundeck:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Rundeck - Login"})
     verified: true
     max-request: 2
     vendor: pagerduty
     product: rundeck
-    fofa-query: app="Rundeck-Login"
-    shodan-query: http.html:"Rundeck - Login"
+    shodan-query:
+      - http.html:"rundeck - login"
+      - http.title:"rundeck"
+    fofa-query:
+      - app="rundeck-login"
+      - title="rundeck"
+    google-query: intitle:"rundeck"
+    runzero-match: any(each(service["html.titles"]), {# matches "Rundeck - Login"})
   tags: default-login,rundeck
 variables:
   username: admin

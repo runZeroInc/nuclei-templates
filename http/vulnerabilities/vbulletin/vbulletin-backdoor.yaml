@@ -10,9 +10,7 @@ info:
   metadata:
     max-request: 21
   tags: backdoor,php,vbulletin,rce
-
 flow: http(1) && http(2)
-
 variables:
   num: "999999999"
 
@@ -46,7 +44,6 @@ http:
         - 'forum'
         - 'forums'
         - 'vb'
-
     stop-at-first-match: true
     host-redirects: true
     max-redirects: 3

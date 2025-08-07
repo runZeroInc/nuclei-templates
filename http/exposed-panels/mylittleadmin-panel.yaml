@@ -13,13 +13,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mylittletools:mylittleadmin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)myLittleAdmin"
     verified: true
     max-request: 2
-    shodan-query: http.html:"myLittleAdmin"
-    product: mylittleadmin
     vendor: mylittletools
+    product: mylittleadmin
+    shodan-query: http.html:"mylittleadmin"
+    fofa-query: body="mylittleadmin"
+    runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
   tags: panel,mylittleadmin,login
 
 http:

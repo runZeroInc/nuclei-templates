@@ -4,15 +4,13 @@ info:
   name: 3ware Controller 3DM2 Default Credentials
   author: ritikchaddha
   severity: high
-  description: |-
-    3ware Controller 3DM2 default login credentials were discovered.
+  description: 3ware Controller 3DM2 default login credentials were discovered.
   reference:
     - https://www.thomas-krenn.com/en/wiki/3ware_Controller_3DM2_Password
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)3ware"})
     max-request: 1
     shodan-query: title:"3ware"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)3ware"})
   tags: default-login,3ware,3dm2
 
 http:

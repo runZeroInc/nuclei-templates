@@ -10,9 +10,9 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-    shodan-query: pentaho
-    product: vantara_pentaho
     vendor: hitachi
+    product: vantara_pentaho
+    shodan-query: pentaho
   tags: panel,pentaho
 
 http:

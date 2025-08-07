@@ -10,20 +10,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)grafana"})
     max-request: 2
     vendor: grafana
     product: grafana
     shodan-query:
-      - title:"Grafana"
-      - cpe:"cpe:2.3:a:grafana:grafana"
       - http.title:"grafana"
-    category: devops
+      - cpe:"cpe:2.3:a:grafana:grafana"
     fofa-query:
       - title="grafana"
       - app="grafana"
     google-query: intitle:"grafana"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)grafana"})
+    category: devops
   tags: panel,grafana,detect
 
 http:

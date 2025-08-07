@@ -9,11 +9,10 @@ info:
   reference:
     - https://frappeframework.com/
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Login to Frappe"
     verified: true
     max-request: 1
     shodan-query: html:"Login to Frappe"
+    runzero-match: service["http.body"] matches "(?i)Login to Frappe"
   tags: frappe,login,web,erp,detect
 
 http:

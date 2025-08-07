@@ -9,9 +9,7 @@ info:
   reference:
     - https://github.com/advisories/GHSA-c39w-3pjx-qc7m
   tags: leantime,xss,stored,authenticated
-
 flow: http(1) && http(2) && http(3)
-
 variables:
   username: "{{username}}"
   password: "{{password}}"

@@ -7,13 +7,12 @@ info:
   description: |
     Mattermost Login Panel was discovered.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)'content=\"Mattermost\"'"
     verified: true
-    max-requests: 1
+    vendor: mattermost
     shodan-query: html:'content="Mattermost"'
     fofa-query: 'content="Mattermost"'
-    vendor: mattermost
+    runzero-match: service["http.body"] matches "(?i)'content=\"Mattermost\"'"
+    max-requests: 1
   tags: login,mattermost,panel
 
 http:

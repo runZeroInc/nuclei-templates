@@ -11,13 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:nodered:node-red:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "321591353"
     verified: true
     max-request: 1
     vendor: nodered
     product: node-red
-    shodan-query: http.favicon.hash:321591353
+    shodan-query: http.favicon.hash:"321591353"
+    fofa-query: icon_hash=321591353
+    runzero-match: service["favicon.ico.image.mmh3"] == "321591353"
   tags: default-login,node-red,dashboard
 
 http:

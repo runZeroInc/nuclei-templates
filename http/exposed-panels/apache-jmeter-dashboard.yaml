@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:jmeter:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)apache jmeter dashboard"})
     verified: true
     max-request: 1
     vendor: apache
     product: jmeter
-    shodan-query:
-      - title:"Apache JMeter Dashboard"
-      - http.title:"apache jmeter dashboard"
+    shodan-query: http.title:"apache jmeter dashboard"
     fofa-query: title="apache jmeter dashboard"
     google-query: intitle:"apache jmeter dashboard"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache jmeter dashboard"})
   tags: apache,jmeter,panel
 
 http:

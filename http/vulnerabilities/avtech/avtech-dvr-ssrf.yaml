@@ -11,6 +11,7 @@ info:
     max-request: 1
     shodan-query: title:"login" product:"Avtech"
     fofa-query: app="AVTECH-视频监控"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login\" product:\"Avtech"})
   tags: ssrf,avtech,unauth,iot
 
 http:
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

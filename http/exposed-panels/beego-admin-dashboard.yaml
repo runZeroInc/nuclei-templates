@@ -14,16 +14,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:beego:beego:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)beego admin dashboard"
     verified: true
     max-request: 1
     vendor: beego
     product: beego
-    shodan-query:
-      - html:"Beego Admin Dashboard"
-      - http.html:"beego admin dashboard"
+    shodan-query: http.html:"beego admin dashboard"
     fofa-query: body="beego admin dashboard"
+    runzero-match: service["http.body"] matches "(?i)beego admin dashboard"
   tags: panel,beego,unauth
 
 http:

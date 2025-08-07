@@ -4,10 +4,10 @@ info:
   name: Cisco Unified CM Console - Panel
   author: rxerium
   severity: info
-  reference:
-    - https://www.cisco.com/c/en_uk/products/unified-communications/unified-communications-manager-callmanager/index.html
   description: |
     Cisco Unified CM Console panel was discovered.
+  reference:
+    - https://www.cisco.com/c/en_uk/products/unified-communications/unified-communications-manager-callmanager/index.html
   metadata:
     max-request: 1
     shodan-query: html:"/ccmadmin/"

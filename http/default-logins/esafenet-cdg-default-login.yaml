@@ -15,7 +15,6 @@ info:
     product: cdg
     fofa-query: esafenet
   tags: esafenet,cdg,default-login
-
 flow: http(1) && http(2)
 
 http:
@@ -32,6 +31,7 @@ http:
         internal: true
 
   - method: POST
+
   - method: POST
     path:
       - "{{BaseURL}}/CDGServer3/SystemConfig"

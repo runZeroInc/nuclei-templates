@@ -7,9 +7,9 @@ info:
   description: peplink login panel was detected.
   metadata:
     verified: true
-    shodan-query: html:"PEPLINK"
     vendor: peplink
     product: balance_two_firmware
+    shodan-query: html:"PEPLINK"
   tags: panel,peplink,router,login
 
 http:

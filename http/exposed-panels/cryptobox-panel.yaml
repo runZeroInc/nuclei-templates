@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.ercom.com/solutions/cryptobox-presentation
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Cryptobox"})
     verified: true
     max-request: 1
     shodan-query: title:"Cryptobox"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cryptobox"})
   tags: panel,cryptobox,login,detect
 
 http:

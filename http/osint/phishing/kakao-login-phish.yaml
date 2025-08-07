@@ -12,6 +12,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,kakao,osint
+
 http:
   - method: GET
     path:

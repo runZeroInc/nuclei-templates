@@ -10,14 +10,17 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bitrix:bitrix24:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)/bitrix/"
-    max-request: 1
     verified: true
+    max-request: 1
     vendor: bitrix
     product: bitrix24
-    shodan-query: http.html:"/bitrix/"
-    fofa-query: body="/bitrix/"
+    shodan-query:
+      - http.html:"/bitrix/"
+      - http.favicon.hash:"-2115208104"
+    fofa-query:
+      - body="/bitrix/"
+      - icon_hash=-2115208104
+    runzero-match: service["http.body"] matches "(?i)/bitrix/"
   tags: panel,bitrix,login
 
 http:

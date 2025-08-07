@@ -12,17 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:samsung:syncthru_web_service:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)syncthru web service"})
     verified: true
     max-request: 1
     vendor: samsung
     product: syncthru_web_service
-    shodan-query:
-      - title:"SyncThru Web Service"
-      - http.title:"syncthru web service"
+    shodan-query: http.title:"syncthru web service"
     fofa-query: title="syncthru web service"
     google-query: intitle:"syncthru web service"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)syncthru web service"})
   tags: edb,panel,syncthru,printer,samsung
 
 http:

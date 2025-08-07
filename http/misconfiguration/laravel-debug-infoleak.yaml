@@ -16,10 +16,10 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: laravel
+    product: framework
     shodan-query: Laravel-Framework
     fofa-query: app="Laravel-Framework"
-    product: framework
-    vendor: laravel
   tags: misconfig,laravel,debug,infoleak
 
 http:

@@ -15,7 +15,6 @@ info:
     max-request: 1
     fofa-query: icon_hash="1474455751" || icon_hash="702238928"
   tags: infinitt,file-upload,intrusive,rce
-
 variables:
   filename: "{{to_lower(rand_text_alpha(5))}}"
 

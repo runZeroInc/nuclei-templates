@@ -12,6 +12,7 @@ info:
     verified: true
     max-request: 2
     fofa-query: "title=\"EasyCVR\""
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)EasyCVR"})
   tags: unauth,easycvr,misconfig
 flow: http(1) && http(2)
 
@@ -44,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

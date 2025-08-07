@@ -10,16 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sage:x3:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)sage x3"})
     max-request: 1
     vendor: sage
     product: x3
-    shodan-query:
-      - http.title:"Sage X3"
-      - http.title:"sage x3"
+    shodan-query: http.title:"sage x3"
     fofa-query: title="sage x3"
     google-query: intitle:"sage x3"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sage x3"})
   tags: panel,sage,login
 
 http:

@@ -7,11 +7,10 @@ info:
   description: |
     Siemens SIMATIC HMI Miniweb default login credentials were discovered.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Miniweb Start Page"})
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: title:"Miniweb Start Page"
+    runzero-match: any(each(service["html.titles"]), {# matches "Miniweb Start Page"})
   tags: ics,siemens,default-login
 
 http:

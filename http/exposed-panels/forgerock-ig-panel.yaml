@@ -9,8 +9,8 @@ info:
   metadata:
     verified: true
     max-request: 1
-    fofa-query: body="ForgeRock Identity Platform"
     shodan-query: html:"ForgeRock Identity Platform"
+    fofa-query: body="ForgeRock Identity Platform"
   tags: forgerock,ig,login,identity-gateway,detect
 
 http:
@@ -19,7 +19,6 @@ http:
       - "{{BaseURL}}"
 
     redirects: true
-
     matchers:
       - type: dsl
         dsl:

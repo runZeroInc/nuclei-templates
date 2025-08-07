@@ -10,11 +10,10 @@ info:
     - https://automatisch.io/
     - https://github.com/automatisch/automatisch
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Automatisch"})
     verified: true
     max-request: 2
     shodan-query: title:"Automatisch"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Automatisch"})
   tags: panel,automatisch,detect
 
 http:

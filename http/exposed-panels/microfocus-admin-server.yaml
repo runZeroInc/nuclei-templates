@@ -28,10 +28,8 @@ http:
       - "{{BaseURL}}/_LOGIN_SERVER_"
 
     stop-at-first-match: true
-
     redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:

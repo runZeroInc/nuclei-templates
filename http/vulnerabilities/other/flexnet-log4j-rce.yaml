@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:flexera:flexnet_publisher:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: title:"Flexnet"
-    product: flexnet_publisher
     vendor: flexera
+    product: flexnet_publisher
+    shodan-query: title:"Flexnet"
   tags: cve,cve2021,rce,jndi,log4j,flexnet,oast,kev
 variables:
   rand1: '{{rand_int(111, 999)}}'

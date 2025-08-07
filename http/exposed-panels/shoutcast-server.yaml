@@ -10,12 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:shoutcast:dnas:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)SHOUTcast Server"})
     max-request: 1
-    shodan-query: http.title:"SHOUTcast Server"
-    product: dnas
     vendor: shoutcast
+    product: dnas
+    shodan-query: http.title:"shoutcast server"
+    fofa-query: title="shoutcast server"
+    google-query: intitle:"shoutcast server"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SHOUTcast Server"})
   tags: panel
 
 http:

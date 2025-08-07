@@ -10,15 +10,13 @@ info:
     - https://github.com/SelfhostedPro/Yacht
     - https://dev.yacht.sh/docs/Installation/Getting_Started
   metadata:
-    runzero-match: |-
-      service["favicon.ico.image.mmh3"] == "-503392394"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-503392394
     fofa-query: app="Yacht"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-503392394"
     zoomeye-query: app="Yacht"
   tags: default-login,yacht,misconfig
-
 variables:
   username: "admin@yacht.local"
   password: "pass"

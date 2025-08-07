@@ -12,18 +12,24 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:versa-networks:versa_director:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Versa Director"})
     verified: true
     max-request: 1
-    shodan-query:
-      - http.title:"Versa Director"
-      - "Set-Cookie: VD-CSRF-TOKEN"
-    fofa-query:
-      - title="Versa Director"
-      - "Set-Cookie: VD-CSRF-TOKEN"
-    product: versa_director
     vendor: versa-networks
+    product: versa_director
+    shodan-query:
+      - http.title:"versa director"
+      - set-cookie:"vd-csrf-token"
+      - http.html:"versa networks"
+      - http.title:"versa director login"
+    fofa-query:
+      - title="versa director"
+      - "set-cookie: vd-csrf-token"
+      - body="versa networks"
+      - title="versa director login"
+    google-query:
+      - intitle:"versa director login"
+      - intitle:"versa director"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Versa Director"})
   tags: panel,versa,director
 
 http:

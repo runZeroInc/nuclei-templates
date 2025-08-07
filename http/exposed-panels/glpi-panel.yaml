@@ -13,20 +13,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)glpi"}) || service["favicon.ico.image.mmh3"] == "-1474875778"
     verified: true
     max-request: 3
     vendor: glpi-project
     product: glpi
     shodan-query:
-      - http.title:"GLPI"
       - http.title:"glpi"
       - http.favicon.hash:"-1474875778"
+      - http.html:"setup glpi"
     fofa-query:
       - title="glpi"
       - icon_hash="-1474875778"
+      - body="setup glpi"
     google-query: intitle:"glpi"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)glpi"}) || service["favicon.ico.image.mmh3"] == "-1474875778"
   tags: glpi,edb,panel,glpi-project
 
 http:

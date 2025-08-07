@@ -10,8 +10,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:weiphp:weiphp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)weiphp" || service["http.body"] matches "(?i)weiphp5\\.0"
     verified: true
     max-request: 1
     vendor: weiphp
@@ -22,6 +20,7 @@ info:
     fofa-query:
       - body="weiphp"
       - body="weiphp5.0"
+    runzero-match: service["http.body"] matches "(?i)weiphp" || service["http.body"] matches "(?i)weiphp5\\.0"
   tags: panel,weiphp
 
 http:

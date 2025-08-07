@@ -7,12 +7,11 @@ info:
   description: |
     This template checks for GitLab instances by verifying if /explore and /api/v4/projects endpoints are accessible with a 200 response.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)GitLab"})
     verified: true
     max-request: 2
     shodan-query: title:"GitLab"
     fofa-query: title="GitLab"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)GitLab"})
   tags: gitlab,explore,panel,detect
 
 http:
@@ -22,7 +21,6 @@ http:
       - "{{BaseURL}}/api/v4/projects"
 
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         name: gitlab-community

@@ -9,13 +9,12 @@ info:
   classification:
     cpe: cpe:2.3:a:zoneland:o2oa:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "O2OA"})
     verified: true
     max-request: 1
     vendor: zoneland
     product: o2oa
-    shodan-query: title=="O2OA"
+    shodan-query: http.title=="o2oa"
+    runzero-match: any(each(service["html.titles"]), {# matches "O2OA"})
   tags: o2oa,default-login
 
 http:

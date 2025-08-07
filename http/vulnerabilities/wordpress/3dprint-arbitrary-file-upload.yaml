@@ -18,7 +18,6 @@ info:
     verified: true
     max-request: 2
   tags: wpscan,edb,wordpress,wp,wp-plugin,fileupload,intrusive,3dprint
-
 variables:
   string: "3dprint-arbitrary-file-upload"
 

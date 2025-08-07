@@ -18,9 +18,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"vRealize Operations Manager"
-    product: vrealize_operations_manager
     vendor: vmware
+    product: vrealize_operations_manager
+    shodan-query: title:"vRealize Operations Manager"
   tags: cve,cve2021,rce,jndi,log4j,vmware,kev,oast
 variables:
   rand1: '{{rand_int(111, 999)}}'

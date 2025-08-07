@@ -9,11 +9,10 @@ info:
   reference:
     - https://easi.net/en/solutions/adfinity
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Adfinity"
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: http.html:"Adfinity"
+    runzero-match: service["http.body"] matches "(?i)Adfinity"
   tags: panel,adfinity,login
 
 http:

@@ -5,7 +5,7 @@ info:
   author: DhiyaneshDk
   severity: high
   description: |
-     Next.js is vulnerable to Cache Poisoning using RSC.
+    Next.js is vulnerable to Cache Poisoning using RSC.
   reference:
     - https://zhero-web-sec.github.io/research-and-things/nextjs-and-cache-poisoning-a-quest-for-the-black-hole
   metadata:
@@ -18,7 +18,6 @@ info:
       - cpe:"cpe:2.3:a:zeit:next.js"
     fofa-query: body="/_next/static"
   tags: nextjs,cache
-
 variables:
   rand: "{{rand_text_numeric(5)}}"
 
@@ -29,14 +28,12 @@ http:
         Host: {{Hostname}}
         Priority: u=1
         Rsc: 1
-
       - |
         @timeout: 10s
         GET /?cb={{rand}} HTTP/1.1
         Host: {{Hostname}}
         Priority: u=1
         Rsc: 1
-
       - |
         @timeout: 10s
         GET /?cb={{rand}} HTTP/1.1

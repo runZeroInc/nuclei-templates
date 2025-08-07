@@ -15,7 +15,6 @@ info:
     max-request: 2
     fofa-query: icon_hash="458134656"
   tags: easycvr,unauth,lfi
-
 flow: http(1) && http(2)
 
 http:

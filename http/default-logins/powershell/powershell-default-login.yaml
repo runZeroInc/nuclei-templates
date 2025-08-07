@@ -9,11 +9,10 @@ info:
   reference:
     - https://ironmansoftware.com/powershell-universal
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "PowerShell Universal"
     verified: true
     max-request: 3
     shodan-query: "html:\"PowerShell Universal\""
+    runzero-match: service["http.body"] matches "PowerShell Universal"
   tags: default-login,powershell-universal
 
 http:
@@ -33,9 +32,9 @@ http:
         - admin
         - password
         - powershell
-
     host-redirects: true
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: status

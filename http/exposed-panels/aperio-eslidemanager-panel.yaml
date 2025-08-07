@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.leicabiosystems.com/digital-pathology/eslidemanager/
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)eSlideManager - Login"
     verified: true
     max-request: 1
     shodan-query: html:"eSlideManager - Login"
+    runzero-match: service["http.body"] matches "(?i)eSlideManager - Login"
   tags: aperio,eslidemanager,login,panel
 
 http:

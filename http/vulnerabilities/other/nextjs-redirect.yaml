@@ -16,9 +16,9 @@ info:
     cpe: cpe:2.3:a:zeit:next.js:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: html:"/_next/static"
-    product: next.js
     vendor: zeit
+    product: next.js
+    shodan-query: html:"/_next/static"
   tags: redirect,nextjs,xss
 
 http:

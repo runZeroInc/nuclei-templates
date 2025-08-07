@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:nortekcontrol:linear_emerge_essential_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)emerge"})
     verified: true
     max-request: 1
     vendor: nortekcontrol
     product: linear_emerge_essential_firmware
-    shodan-query:
-      - http.title:"eMerge"
-      - http.title:"emerge"
+    shodan-query: http.title:"emerge"
     fofa-query: title="emerge"
     google-query: intitle:"emerge"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)emerge"})
   tags: panel,emerge,nortek,nortekcontrol
 
 http:

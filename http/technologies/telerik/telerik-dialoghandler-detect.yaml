@@ -16,6 +16,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - '/Telerik.Web.UI.DialogHandler.aspx?dp=1'
@@ -35,7 +36,6 @@ http:
         - '/cms/portlets/Telerik.Web.UI.DialogHandler.aspx?dp=1'
         - '/dashboard/UserControl/CMS/Page/Telerik.Web.UI.DialogHandler.aspx/Desktopmodules/Admin/dnnWerk.Users/DialogHandler.aspx?dp=1'
         - '/Telerik.Web.UI.DialogHandler.axd?dp=1'
-
     stop-at-first-match: true
 
     matchers-condition: and

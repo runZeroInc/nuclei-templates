@@ -15,9 +15,21 @@ info:
     max-request: 1
     vendor: jupyter
     product: notebook
-    shodan-query: title:"jupyter notebook"
-    fofa-query: title="jupyter notebook"
-    zoomeye-query: app="Jupyter Notebook"
+    shodan-query:
+      - http.title:"jupyter notebook"
+      - http.html:"jupyterhub"
+      - http.title:"home page - select or create a notebook"
+    fofa-query:
+      - title="jupyter notebook"
+      - body="jupyterhub"
+      - title="home page - select or create a notebook"
+    google-query:
+      - intitle:"home page - select or create a notebook"
+      - intitle:"jupyter notebook"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jupyter notebook"})
+    zoomeye-query:
+      - app="jupyter notebook"
+      - title:"jupyter notebook"
   tags: jupyter,notebook,rce,bypass
 
 http:
@@ -44,4 +56,3 @@ http:
       - type: status
         status:
           - 200
-

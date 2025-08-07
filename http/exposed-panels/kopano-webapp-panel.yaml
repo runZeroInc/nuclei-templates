@@ -10,13 +10,14 @@ info:
   classification:
     cpe: cpe:2.3:a:kopano:webapp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Kopano WebApp"})
     verified: true
     max-request: 1
     vendor: kopano
     product: webapp
-    shodan-query: http.title:"Kopano WebApp"
+    shodan-query: http.title:"kopano webapp"
+    fofa-query: title="kopano webapp"
+    google-query: intitle:"kopano webapp"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kopano WebApp"})
   tags: panel,kopano,login,detect
 
 http:

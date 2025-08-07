@@ -10,17 +10,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:froxlor:froxlor:*:*:*:*:gentoo:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)froxlor server management panel"})
     verified: true
     max-request: 1
     vendor: froxlor
     product: froxlor
-    shodan-query:
-      - title:"Froxlor Server Management Panel"
-      - http.title:"froxlor server management panel"
-    fofa-query: title="froxlor server management panel"
+    shodan-query: http.title:"froxlor server management panel"
+    fofa-query:
+      - title="froxlor server management panel"
+      - title="froxlor server management panel - installation"
     google-query: intitle:"froxlor server management panel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)froxlor server management panel"})
   tags: panel,froxlor
 
 http:

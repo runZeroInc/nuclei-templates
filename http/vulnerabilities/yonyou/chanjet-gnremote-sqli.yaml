@@ -12,6 +12,7 @@ info:
     verified: true
     max-request: 2
     fofa-query: body="远程通CHANJET_Remote"
+    runzero-match: service["http.body"] matches "(?i)远程通CHANJET_Remote"
   tags: yonyou,chanjet,sqli
 
 http:
@@ -42,4 +43,3 @@ http:
         part: body_2
         words:
           - "{\"RetCode\":2}"
-

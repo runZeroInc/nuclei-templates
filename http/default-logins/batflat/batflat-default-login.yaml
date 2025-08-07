@@ -4,8 +4,7 @@ info:
   name: Batflat CMS Default Credentials
   author: r3Y3r53
   severity: high
-  description: |-
-    Batflat CMS default login credentials were discovered.
+  description: Batflat CMS default login credentials were discovered.
   reference:
     - https://www.exploitalert.com/view-details.html?id=34749
     - https://cxsecurity.com/issue/WLB-2020010100
@@ -16,9 +15,10 @@ info:
     max-request: 1
     vendor: batflat
     product: batflat
-    google-query: intext:"Powered by Batflat."
-    runzero-match: |-
-      service["http.body"] contains "Powered by Batflat"
+    shodan-query: http.html:"powered by batflat."
+    fofa-query: body="powered by batflat."
+    google-query: intext:"powered by batflat."
+    runzero-match: service["http.body"] contains "Powered by Batflat"
   tags: default-login,batflat
 
 http:

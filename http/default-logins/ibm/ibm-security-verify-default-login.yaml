@@ -21,7 +21,6 @@ http:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /core/j_security_check HTTP/1.1
         Host: {{Hostname}}
@@ -35,7 +34,6 @@ http:
         - admin
       password:
         - admin
-
     matchers:
       - type: dsl
         dsl:

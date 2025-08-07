@@ -11,6 +11,7 @@ info:
   metadata:
     max-request: 1
   tags: phishing,visual-studio-code,osint
+
 http:
   - method: GET
     path:

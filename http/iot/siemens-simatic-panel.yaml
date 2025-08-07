@@ -7,8 +7,8 @@ info:
   description: |
     Siemens SIMATIC HMI Miniweb Login Panel was discovered.
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: title:"Miniweb Start Page"
   tags: ics,siemens,login,panel,miniweb
 

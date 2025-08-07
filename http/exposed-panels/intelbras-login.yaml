@@ -12,13 +12,19 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:intelbras:iwr_3000n:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Intelbras"})
     max-request: 1
-    shodan-query: http.title:"Intelbras"
-    google-query: intitle:"Intelbras" "All Rights Reserved" -.com
-    product: iwr_3000n
     vendor: intelbras
+    product: iwr_3000n
+    shodan-query:
+      - http.title:"intelbras"
+      - http.title:"intelbras" "all rights reserved" -.com
+    fofa-query:
+      - title="intelbras"
+      - title="intelbras" "all rights reserved" -.com
+    google-query:
+      - intitle:"intelbras" "all rights reserved" -.com
+      - intitle:"intelbras"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Intelbras"})
   tags: panel,edb
 
 http:

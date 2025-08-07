@@ -9,11 +9,10 @@ info:
   reference:
     - https://docs.dependencytrack.org
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)Dependency-Track"
     verified: true
     max-request: 1
     shodan-query: html:"Dependency-Track"
+    runzero-match: service["http.body"] matches "(?i)Dependency-Track"
   tags: panel,login,dependency,track
 
 http:

@@ -48,7 +48,6 @@ info:
 http:
   - method: GET
     path:
-
       - "{{BaseURL}}/{{path}}"
 
     payloads:

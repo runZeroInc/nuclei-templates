@@ -11,13 +11,12 @@ info:
   classification:
     cpe: cpe:2.3:a:arubanetworks:aruba_instant:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      service["http.body"] matches "(?i)jscripts/third_party/raphael-treemap\\.min\\.js"
     verified: true
     max-request: 1
     vendor: arubanetworks
     product: aruba_instant
     fofa-query: body="jscripts/third_party/raphael-treemap.min.js" || body="jscripts/third_party/highcharts.src.js"
+    runzero-match: service["http.body"] matches "(?i)jscripts/third_party/raphael-treemap\\.min\\.js"
   tags: aruba,default-login
 
 http:

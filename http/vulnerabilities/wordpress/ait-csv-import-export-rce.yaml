@@ -16,7 +16,6 @@ info:
   metadata:
     max-request: 2
   tags: wp-plugin,rce,fileupload,unauth,wpscan,msf,wordpress,ait-csv,wp,intrusive
-
 variables:
   string: "ait-csv-import-export-rce"
 

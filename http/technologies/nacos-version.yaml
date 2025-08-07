@@ -13,9 +13,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: title:"Nacos"
-    product: nacos
     vendor: alibaba
+    product: nacos
+    shodan-query: title:"Nacos"
   tags: tech,detect,nacos
 
 http:
@@ -25,6 +25,7 @@ http:
       - "{{BaseURL}}/nacos/v1/console/server/state?accessToken=&username="
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: regex

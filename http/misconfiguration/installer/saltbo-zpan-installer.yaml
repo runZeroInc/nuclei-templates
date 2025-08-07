@@ -11,8 +11,8 @@ info:
   metadata:
     verified: true
     max-request: 2
-    product: zpan
     vendor: saltbo
+    product: zpan
     fofa-query: body="zpan"
   tags: saltbo,zpan,installer,exposure,misconfig
 

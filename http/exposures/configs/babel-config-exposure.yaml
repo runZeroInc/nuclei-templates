@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"babel.config.js"
-    product: babel
     vendor: pocoo
+    product: babel
+    shodan-query: html:"babel.config.js"
   tags: exposure,config,file
 
 http:

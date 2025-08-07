@@ -14,9 +14,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    fofa-query: app="FLIR-FLIR-AX8"
-    product: flir_ax8_firmware
     vendor: flir
+    product: flir_ax8_firmware
+    fofa-query: app="FLIR-FLIR-AX8"
   tags: flir-ax8,rce,exploitdb,iot,sensor,authenticated
 variables:
   username: admin

@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"nopCommerce Installation"
-    product: nopcommerce
     vendor: nopcommerce
+    product: nopcommerce
+    shodan-query: html:"nopCommerce Installation"
   tags: misconfig,nopcommerce,install
 
 http:

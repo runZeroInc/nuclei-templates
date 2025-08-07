@@ -14,8 +14,6 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:emby:emby:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)emby"})
     verified: true
     max-request: 1
     vendor: emby
@@ -23,6 +21,7 @@ info:
     shodan-query: http.title:"emby"
     fofa-query: title="emby"
     google-query: intitle:"emby"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)emby"})
   tags: panel,emby,oss
 
 http:

@@ -12,13 +12,14 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:opencats:opencats:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)opencats"})
     verified: true
     max-request: 4
-    shodan-query: title:"opencats"
-    product: opencats
     vendor: opencats
+    product: opencats
+    shodan-query: http.title:"opencats"
+    fofa-query: title="opencats"
+    google-query: intitle:"opencats"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)opencats"})
   tags: default-login,opencats
 
 http:

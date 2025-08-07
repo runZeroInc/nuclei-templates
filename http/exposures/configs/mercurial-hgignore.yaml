@@ -15,9 +15,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"hgignore"
-    product: mercurial
     vendor: mercurial
+    product: mercurial
+    shodan-query: html:"hgignore"
   tags: exposure,hgignore,config,mercurial
 
 http:

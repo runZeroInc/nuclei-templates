@@ -12,12 +12,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ibm:security_access_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)IBM Security Access Manager"})
     max-request: 1
     vendor: ibm
-    shodan-query: http.title:"IBM Security Access Manager"
     product: security_access_manager
+    shodan-query: http.title:"ibm security access manager"
+    fofa-query: title="ibm security access manager"
+    google-query: intitle:"ibm security access manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)IBM Security Access Manager"})
   tags: panel,ibm,login,detect
 
 http:

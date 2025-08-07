@@ -10,20 +10,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:plesk:obsidian:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)plesk obsidian" || any(each(service["html.titles"]), {# matches "(?i)plesk obsidian"})
     verified: true
     max-request: 1
     vendor: plesk
     product: obsidian
     shodan-query:
-      - http.html:"Plesk Obsidian"
       - http.html:"plesk obsidian"
       - http.title:"plesk obsidian"
     fofa-query:
       - body="plesk obsidian"
       - title="plesk obsidian"
     google-query: intitle:"plesk obsidian"
+    runzero-match: service["http.body"] matches "(?i)plesk obsidian" || any(each(service["html.titles"]), {# matches "(?i)plesk obsidian"})
   tags: panel,plesk,login,edb
 
 http:

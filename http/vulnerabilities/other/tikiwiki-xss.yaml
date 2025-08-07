@@ -11,9 +11,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: http.html:"tiki wiki"
-    product: tikiwiki_cms\/groupware
     vendor: tiki
+    product: tikiwiki_cms\/groupware
+    shodan-query: http.html:"tiki wiki"
     fofa-query: body="tiki wiki"
   tags: edb,xss,tikiwiki,packetstorm,acketstorm
 

@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:jboss_soa_platform:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)welcome to the jboss soa platform"})
     verified: true
     max-request: 1
     vendor: redhat
     product: jboss_soa_platform
-    shodan-query:
-      - http.title:"Welcome to the JBoss SOA Platform"
-      - http.title:"welcome to the jboss soa platform"
+    shodan-query: http.title:"welcome to the jboss soa platform"
     fofa-query: title="welcome to the jboss soa platform"
     google-query: intitle:"welcome to the jboss soa platform"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)welcome to the jboss soa platform"})
   tags: panel,jboss,soa,redhat,detect
 
 http:

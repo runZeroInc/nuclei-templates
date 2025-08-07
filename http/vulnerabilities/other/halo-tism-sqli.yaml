@@ -13,7 +13,6 @@ info:
     max-request: 1
     shodan-query: http.favicon.hash:489905671
   tags: halo,itsm,sqli,time-based-sqli
-
 variables:
   string: "{{rand_text_numeric(10)}}"
 

@@ -10,22 +10,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ibm:financial_transaction_manager:*:*:*:*:digital_payments:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)ftm manager" || any(each(service["html.titles"]), {# matches "(?i)ftm manager"})
     verified: true
     max-request: 1
     vendor: ibm
     product: financial_transaction_manager
     shodan-query:
-      - http.html:"FTM manager"
       - http.html:"ftm manager"
       - http.title:"ftm manager"
-    google-query:
-      - intitle:"FTM manager"
-      - intitle:"ftm manager"
     fofa-query:
       - title="ftm manager"
       - body="ftm manager"
+    google-query: intitle:"ftm manager"
+    runzero-match: service["http.body"] matches "(?i)ftm manager" || any(each(service["html.titles"]), {# matches "(?i)ftm manager"})
   tags: panel,ftm,ibm
 
 http:

@@ -9,12 +9,11 @@ info:
   reference:
     - https://github.com/zylon-ai/private-gpt
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)private gpt"
     verified: true
     max-request: 1
-    shodan-query: html:"private gpt"
     product: private-gpt
+    shodan-query: html:"private gpt"
+    runzero-match: service["http.body"] matches "(?i)private gpt"
   tags: panel,privategpt,detect
 
 http:

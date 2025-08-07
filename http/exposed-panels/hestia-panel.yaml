@@ -12,20 +12,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hestiacp:control_panel:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)hestia control panel"}) || service["favicon.ico.image.mmh3"] == "-476299640"
     verified: true
     max-request: 1
     vendor: hestiacp
     product: control_panel
     shodan-query:
-      - title:"Hestia Control Panel"
-      - http.favicon.hash:-476299640
       - http.title:"hestia control panel"
+      - http.favicon.hash:"-476299640"
     fofa-query:
       - icon_hash=-476299640
       - title="hestia control panel"
     google-query: intitle:"hestia control panel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hestia control panel"}) || service["favicon.ico.image.mmh3"] == "-476299640"
   tags: panel,hestia,detect,hestiacp
 
 http:

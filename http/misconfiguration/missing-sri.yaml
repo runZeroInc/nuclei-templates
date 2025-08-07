@@ -21,7 +21,6 @@ http:
 
     redirects: true
     max-redirects: 5
-
     matchers:
       - type: xpath
         part: body

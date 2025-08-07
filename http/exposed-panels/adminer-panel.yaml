@@ -11,21 +11,19 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adminer:adminer:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
     verified: true
     max-request: 8
     vendor: adminer
     product: adminer
     shodan-query:
-      - title:"Login - Adminer"
-      - cpe:"cpe:2.3:a:adminer:adminer"
       - http.title:"login - adminer"
+      - cpe:"cpe:2.3:a:adminer:adminer"
     fofa-query:
       - title="login - adminer"
       - app="adminer" && body="4.7.8"
-    hunter-query: app.name="adminer"&&web.body="4.7.8"
     google-query: intitle:"login - adminer"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
+    hunter-query: app.name="adminer"&&web.body="4.7.8"
   tags: panel,adminer
 
 http:

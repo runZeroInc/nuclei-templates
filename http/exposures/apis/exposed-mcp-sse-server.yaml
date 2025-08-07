@@ -10,8 +10,8 @@ info:
     - https://modelcontextprotocol.io/specification/2024-11-05/basic/transports#http-with-sse
   metadata:
     verified: true
-    max-requests: 2
     shodan-query: "text/event-stream"
+    max-requests: 2
   tags: mcp,devtools,exposure,api,ai,llm
 
 http:
@@ -19,9 +19,9 @@ http:
     path:
       - "{{BaseURL}}"
       - "{{BaseURL}}/sse"
+
     max-size: 100
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:

@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.irislink.com/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)irisnext"})
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: http.title:"irisnext"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)irisnext"})
   tags: panel,irisnext,login
 
 http:

@@ -10,8 +10,8 @@ info:
     - https://greatpages.com.br
   metadata:
     verified: true
-    fofa-query: cname="cname.greatpages.com.br"
     max-request: 1
+    fofa-query: cname="cname.greatpages.com.br"
   tags: takeover,greatpages
 
 http:

@@ -21,6 +21,7 @@ http:
 
     host-redirects: true
     max-redirects: 3
+
     matchers-condition: and
     matchers:
       - type: word

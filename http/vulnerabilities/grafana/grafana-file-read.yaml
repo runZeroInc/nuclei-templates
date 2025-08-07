@@ -20,9 +20,9 @@ info:
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
     max-request: 325
-    shodan-query: title:"Grafana"
-    product: grafana
     vendor: grafana
+    product: grafana
+    shodan-query: title:"Grafana"
   tags: grafana,lfi
 
 http:

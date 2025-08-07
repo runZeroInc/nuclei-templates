@@ -18,6 +18,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"VMG1312-B10D"
+    runzero-match: service["http.body"] matches "(?i)VMG1312-B10D"
   tags: misconfig,unauth,zyxel,lfi,msf
 
 http:
@@ -42,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

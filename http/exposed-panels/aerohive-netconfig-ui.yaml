@@ -11,12 +11,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:extremenetworks:aerohive_netconfig:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Aerohive NetConfig UI"})
     max-request: 1
-    shodan-query: http.title:"Aerohive NetConfig UI"
-    product: aerohive_netconfig
     vendor: extremenetworks
+    product: aerohive_netconfig
+    shodan-query: http.title:"aerohive netconfig ui"
+    fofa-query: title="aerohive netconfig ui"
+    google-query: intitle:"aerohive netconfig ui"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aerohive NetConfig UI"})
   tags: panel,tech,hiveos,aerohive
 
 http:

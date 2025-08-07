@@ -9,11 +9,10 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Advanced eMail Solution DEEPMail"})
+    verified: true
     max-request: 1
     shodan-query: http.title:"Advanced eMail Solution DEEPMail"
-    verified: true
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Advanced eMail Solution DEEPMail"})
   tags: panel,deepmail,login,detect
 
 http:

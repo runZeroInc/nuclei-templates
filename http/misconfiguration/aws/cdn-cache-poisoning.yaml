@@ -22,7 +22,6 @@ http:
         GET /?{{string}} HTTP/1.1
         Host: {{Hostname}}
         X-Amz-Server-Side-Encryption: {{randstr}}
-
       - |
         GET /?{{string}} HTTP/1.1
         Host: {{Hostname}}

@@ -9,11 +9,10 @@ info:
   reference:
     - https://tentelemed.com/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)CleanWeb"})
     verified: true
     max-request: 1
     shodan-query: http.title:"CleanWeb"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CleanWeb"})
   tags: panel,cleanweb,login,detect
 
 http:
@@ -23,7 +22,6 @@ http:
 
     redirects: true
     max-redirects: 4
-
     matchers:
       - type: dsl
         dsl:

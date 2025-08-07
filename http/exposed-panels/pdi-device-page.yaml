@@ -7,11 +7,10 @@ info:
   reference:
     - https://www.facebook.com/photo?fbid=629130339257489&set=a.467014098802448
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)PDI Intellifuel"
     verified: true
     max-request: 1
     shodan-query: html:"PDI Intellifuel"
+    runzero-match: service["http.body"] matches "(?i)PDI Intellifuel"
   tags: exposure,pdi,intellifuel,panel
 
 http:

@@ -12,6 +12,7 @@ info:
     max-request: 1
     shodan-query: title="nginxwebui"
     fofa-query: title="nginxwebui"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nginxwebui"})
   tags: nginx,nginxwebui,webui,rce
 
 http:
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

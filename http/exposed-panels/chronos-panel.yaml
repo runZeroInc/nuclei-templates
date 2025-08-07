@@ -9,12 +9,11 @@ info:
   reference:
     - https://www.asys.fr/chronos
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)chronoslogin\\.js"
     verified: true
     max-request: 1
     shodan-query: http.html:"chronoslogin.js"
     fofa-query: body="chronoslogin.js"
+    runzero-match: service["http.body"] matches "(?i)chronoslogin\\.js"
   tags: panel,chronos,login,detect
 
 http:

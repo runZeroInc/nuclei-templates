@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hydra_project:hydra:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)hydra router dashboard"})
     verified: true
     max-request: 1
     vendor: hydra_project
     product: hydra
-    shodan-query:
-      - title:"Hydra Router Dashboard"
-      - http.title:"hydra router dashboard"
+    shodan-query: http.title:"hydra router dashboard"
     fofa-query: title="hydra router dashboard"
     google-query: intitle:"hydra router dashboard"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hydra router dashboard"})
   tags: panel,exposure,hydra,hydra_project
 
 http:

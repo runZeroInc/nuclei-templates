@@ -10,15 +10,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:openvpn:connect:*:*:*:*:macos:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)openvpn connect"})
     verified: true
     max-request: 1
     vendor: openvpn
     product: connect
-    shodan-query: http.title:"openvpn connect"
-    fofa-query: title="openvpn connect"
-    google-query: intitle:"openvpn connect"
+    shodan-query:
+      - http.title:"openvpn connect"
+      - http.title:"ovpn config download"
+    fofa-query:
+      - title="openvpn connect"
+      - title="ovpn config download"
+    google-query:
+      - intitle:"openvpn connect"
+      - intitle:"ovpn config download"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openvpn connect"})
   tags: panel,openvpn,connect,vpn
 
 http:

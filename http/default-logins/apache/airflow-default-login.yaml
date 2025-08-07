@@ -12,12 +12,29 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    product: airflow
-    vendor: apache
     max-request: 2
-    shodan-query: title:"Sign In - Airflow"
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
+    vendor: apache
+    product: airflow
+    shodan-query:
+      - http.title:"sign in - airflow"
+      - http.html:"apache airflow"
+      - http.title:"airflow - dags"
+      - http.title:"airflow - dags" || http.html:"apache airflow"
+      - http.title:"airflow"
+      - product:"redis"
+    fofa-query:
+      - apache airflow
+      - body="apache airflow"
+      - title="airflow - dags"
+      - title="airflow - dags" || http.html:"apache airflow"
+      - title="airflow"
+      - title="sign in - airflow"
+    google-query:
+      - intitle:"airflow - dags"
+      - intitle:"airflow - dags" || http.html:"apache airflow"
+      - intitle:"airflow"
+      - intitle:"sign in - airflow"
+    runzero-match: any(each(service["html.titles"]), {# matches "Sign In - Airflow"})
   tags: airflow,default-login,apache
 
 http:

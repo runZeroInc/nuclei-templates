@@ -7,11 +7,10 @@ info:
   description: |
     OSASI Login panel was discovered.
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)/css/osasiasp\\.css"
-    shodan-query: html:"/css/osasiasp.css"
     verified: true
     max-request: 1
+    shodan-query: html:"/css/osasiasp.css"
+    runzero-match: service["http.body"] matches "(?i)/css/osasiasp\\.css"
   tags: osasi,panel,login,detect
 
 http:

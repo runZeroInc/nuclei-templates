@@ -10,13 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:lancom-systems:wlc-4006:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)LANCOM Systems GmbH"
     verified: true
     max-request: 1
-    shodan-query: html:"LANCOM Systems GmbH"
-    product: wlc-4006
     vendor: lancom-systems
+    product: wlc-4006
+    shodan-query: http.html:"lancom systems gmbh"
+    fofa-query: body="lancom systems gmbh"
+    runzero-match: service["http.body"] matches "(?i)LANCOM Systems GmbH"
   tags: panel,lancom,router
 
 http:

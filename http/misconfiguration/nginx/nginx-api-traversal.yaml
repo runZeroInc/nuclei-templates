@@ -85,7 +85,6 @@ http:
         - "/..;/api/3/nginx"
         - "/..;/api/5/nginx"
         - "/..;/api/9/nginx"
-
     stop-at-first-match: true
 
     matchers-condition: and

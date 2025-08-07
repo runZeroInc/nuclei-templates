@@ -56,7 +56,6 @@ http:
         - SELECT * FROM information_schema.tables
         - SELECT user FROM information_schema.tables AND user = \'test user\';
         - UNION SELECT * FROM users WHERE user = \'admin\';
-
     stop-at-first-match: true
     matchers:
       - type: regex

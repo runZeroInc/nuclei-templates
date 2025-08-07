@@ -13,15 +13,16 @@ info:
   metadata:
     verified: true
     max-request: 16
-    shodan-query: http.html:"phpMyAdmin"
-    product: phpmyadmin
     vendor: phpmyadmin
+    product: phpmyadmin
+    shodan-query: http.html:"phpMyAdmin"
   tags: phpmyadmin,misconfig
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/phpmyadmin/scripts/setup.php"
@@ -40,7 +41,6 @@ http:
         - "/setup/index.php"
         - "/admin/"
         - "/phpMyAdminOLD/setup/index.php"
-
     stop-at-first-match: true
 
     matchers-condition: and

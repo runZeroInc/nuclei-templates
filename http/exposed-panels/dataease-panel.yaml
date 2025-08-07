@@ -11,16 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:dataease:dataease:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)dataease"
     verified: true
     max-request: 1
     vendor: dataease
     product: dataease
-    shodan-query:
-      - html:"Dataease"
-      - http.html:"dataease"
+    shodan-query: http.html:"dataease"
     fofa-query: body="dataease"
+    runzero-match: service["http.body"] matches "(?i)dataease"
   tags: login,panel,dataease
 
 http:

@@ -14,9 +14,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"H2O Flow"
-    product: h2o
     vendor: h2o
+    product: h2o
+    shodan-query: title:"H2O Flow"
   tags: h2o-3,h2o,info-leak,lfi,misconfig
 
 http:

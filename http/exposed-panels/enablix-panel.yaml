@@ -7,10 +7,9 @@ info:
   description: |
     Enablix panel was detected.
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Enablix"})
     max-request: 1
     shodan-query: title:"Enablix"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Enablix"})
   tags: enablix,login,panel
 
 http:

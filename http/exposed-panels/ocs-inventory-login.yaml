@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:factorfx:ocs_inventory:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)OCS Inventory"})
     verified: true
     max-request: 2
-    shodan-query: title:"OCS Inventory"
-    fofa-query: title="OCS Inventory"
-    product: ocs_inventory
     vendor: factorfx
+    product: ocs_inventory
+    shodan-query: http.title:"ocs inventory"
+    fofa-query: title="ocs inventory"
+    google-query: intitle:"ocs inventory"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OCS Inventory"})
   tags: ocs-inventory,panel
 
 http:

@@ -17,9 +17,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.html:"Thruk"
-    product: thruk
     vendor: thruk
+    product: thruk
+    shodan-query: http.html:"Thruk"
   tags: thruk,xss
 
 http:

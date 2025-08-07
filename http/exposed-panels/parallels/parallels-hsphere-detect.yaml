@@ -10,22 +10,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:parallels:h-sphere:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)parallels h-sphere"}) || any(each(service["html.titles"]), {# matches "(?i)h-sphere"})
     verified: true
     max-request: 1
     vendor: parallels
     product: h-sphere
     shodan-query:
-      - title:"Parallels H-Sphere"
-      - http.title:"h-sphere"
       - http.title:"parallels h-sphere"
+      - http.title:"h-sphere"
     fofa-query:
       - title="h-sphere"
       - title="parallels h-sphere"
     google-query:
       - intitle:"h-sphere"
       - intitle:"parallels h-sphere"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)parallels h-sphere"}) || any(each(service["html.titles"]), {# matches "(?i)h-sphere"})
   tags: panel,parallels,hsphere
 
 http:

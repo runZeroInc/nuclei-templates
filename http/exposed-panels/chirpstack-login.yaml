@@ -9,12 +9,11 @@ info:
   reference:
     - https://www.chirpstack.io/docs/chirpstack/use/login.html
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ChirpStack LoRaWAN"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ChirpStack LoRaWAN"
     fofa-query: title="ChirpStack LoRaWAN"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ChirpStack LoRaWAN"})
   tags: panel,chirpstack
 
 http:

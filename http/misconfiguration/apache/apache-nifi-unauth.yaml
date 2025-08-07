@@ -16,10 +16,10 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: apache
+    product: nifi
     shodan-query: title:"NiFi"
     fofa-query: title="nifi" && body="Did you mean"
-    product: nifi
-    vendor: apache
   tags: misconfig,apache,nifi,unauth
 
 http:

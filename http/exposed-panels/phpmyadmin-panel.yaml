@@ -10,20 +10,22 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phpmyadmin:phpmyadmin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)phpmyadmin"})
     max-request: 14
     vendor: phpmyadmin
     product: phpmyadmin
     shodan-query:
-      - "http.title:phpMyAdmin"
       - http.title:"phpmyadmin"
       - http.component:"phpmyadmin"
       - cpe:"cpe:2.3:a:phpmyadmin:phpmyadmin"
+      - http.html:"phpmyadmin"
+      - http.html:"server_databases.php"
     fofa-query:
       - body="pma_servername" && body="4.8.4"
       - title="phpmyadmin"
+      - body="phpmyadmin"
+      - body="server_databases.php"
     google-query: intitle:"phpmyadmin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpmyadmin"})
     hunter-query: app.name="phpmyadmin"&&web.body="pma_servername"&&web.body="4.8.4"
   tags: panel,phpmyadmin,detect
 
@@ -31,6 +33,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - ""
@@ -48,7 +51,6 @@ http:
         - "/phpMyAdmin/"
         - "/phpma/"
         - "/phpMyAdmin/index.php"
-
     stop-at-first-match: true
     matchers:
       - type: word

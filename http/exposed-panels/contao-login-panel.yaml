@@ -10,21 +10,19 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:contao:contao:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)contao open source cms" || any(each(service["html.titles"]), {# matches "(?i)contao"})
     verified: true
     max-request: 1
     vendor: contao
     product: contao
     shodan-query:
-      - http.html:"Contao Open Source CMS"
-      - http.title:"contao"
       - http.html:"contao open source cms"
+      - http.title:"contao"
       - cpe:"cpe:2.3:a:contao:contao"
     fofa-query:
       - title="contao"
       - body="contao open source cms"
     google-query: intitle:"contao"
+    runzero-match: service["http.body"] matches "(?i)contao open source cms" || any(each(service["html.titles"]), {# matches "(?i)contao"})
   tags: panel,contao
 
 http:

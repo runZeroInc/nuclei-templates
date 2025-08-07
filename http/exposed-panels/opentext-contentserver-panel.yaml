@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.opentext.com/products/document-management
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Content Server"})
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: http.title:"Content Server"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Content Server"})
   tags: panel,opentext,login
 
 http:

@@ -7,13 +7,18 @@ info:
   classification:
     cpe: cpe:2.3:a:phpldapadmin_project:phpldapadmin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)phpLDAPadmin"})
     verified: true
     max-request: 3
     vendor: phpldapadmin_project
     product: phpldapadmin
-    shodan-query: title:"phpLDAPadmin"
+    shodan-query:
+      - http.title:"phpldapadmin"
+      - http.html:"phpldapadmin"
+    fofa-query:
+      - body="phpldapadmin"
+      - title="phpldapadmin"
+    google-query: intitle:"phpldapadmin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpLDAPadmin"})
   tags: php,phpldapadmin,panel,detect
 
 http:

@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hangfire:hangfire:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)overview – hangfire dashboard"})
     verified: true
     max-request: 2
     vendor: hangfire
     product: hangfire
-    shodan-query:
-      - title:"Overview – Hangfire Dashboard"
-      - http.title:"overview – hangfire dashboard"
+    shodan-query: http.title:"overview – hangfire dashboard"
     fofa-query: title="overview – hangfire dashboard"
     google-query: intitle:"overview – hangfire dashboard"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)overview – hangfire dashboard"})
   tags: panel,hangfire
 
 http:

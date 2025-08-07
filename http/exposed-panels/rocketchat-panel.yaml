@@ -10,13 +10,14 @@ info:
   classification:
     cpe: cpe:2.3:a:rocket.chat:rocket.chat:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Rocket\\.Chat"})
     verified: true
     max-request: 1
     vendor: rocket.chat
     product: rocket.chat
-    shodan-query: http.title:"Rocket.Chat"
+    shodan-query: http.title:"rocket.chat"
+    fofa-query: title="rocket.chat"
+    google-query: intitle:"rocket.chat"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rocket\\.Chat"})
   tags: panel,rocketchat,login,detect
 
 http:

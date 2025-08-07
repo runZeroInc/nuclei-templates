@@ -12,9 +12,9 @@ info:
     cpe: cpe:2.3:a:snipeitapp:snipe-it:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.favicon.hash:431627549
-    product: snipe-it
     vendor: snipeitapp
+    product: snipe-it
+    shodan-query: http.favicon.hash:431627549
   tags: panel,snipeit,tech
 
 http:

@@ -16,10 +16,10 @@ info:
   metadata:
     verified: true
     max-request: 2
+    vendor: steve-community
+    product: steve
     shodan-query: http.title:"SteVe - Steckdosenverwaltung"
     google-query: intitle:"SteVe - Steckdosenverwaltung"
-    product: steve
-    vendor: steve-community
   tags: steve,xss,oss
 
 http:

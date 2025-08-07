@@ -10,12 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:beyondtrust:beyondinsight:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "(?i)BeyondInsight"
     max-request: 1
-    shodan-query: http.html:"BeyondInsight"
-    product: beyondinsight
     vendor: beyondtrust
+    product: beyondinsight
+    shodan-query: http.html:"beyondinsight"
+    fofa-query: body="beyondinsight"
+    runzero-match: service["http.body"] matches "(?i)BeyondInsight"
   tags: beyondtrust,pam,panel
 
 http:

@@ -10,20 +10,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:intelbras:cip_92200_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)intelbras"})
     verified: true
     max-request: 1
     vendor: intelbras
     product: cip_92200_firmware
-    shodan-query:
-      - http.title:"Intelbras"
-      - http.title:"intelbras"
+    shodan-query: http.title:"intelbras"
     fofa-query:
-      - app="Intelbras"
-      - title="intelbras"
       - app="intelbras"
+      - title="intelbras"
     google-query: intitle:"intelbras"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)intelbras"})
   tags: panel,intelbras
 
 http:

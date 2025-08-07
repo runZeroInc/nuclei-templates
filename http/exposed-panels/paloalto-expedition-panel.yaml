@@ -7,13 +7,13 @@ info:
   description: |
     Palo Alto Expedition Project login panel was detected.
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "1499876150"
     verified: true
     max-request: 1
     vendor: paloaltonetworks
     product: expedition
-    shodan-query: http.favicon.hash:1499876150
+    shodan-query: http.favicon.hash:"1499876150"
+    fofa-query: icon_hash=1499876150
+    runzero-match: service["favicon.ico.image.mmh3"] == "1499876150"
   tags: panel,expedition,palo-alto,login,detect
 
 http:

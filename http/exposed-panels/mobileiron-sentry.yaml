@@ -10,13 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:mobileiron:sentry:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "967636089"
     verified: true
     max-request: 1
     vendor: mobileiron
     product: sentry
-    shodan-query: http.favicon.hash:967636089
+    shodan-query:
+      - http.favicon.hash:"967636089"
+      - http.title:"login | sentry"
+    fofa-query: title="login | sentry"
+    google-query: intitle:"login | sentry"
+    runzero-match: service["favicon.ico.image.mmh3"] == "967636089"
   tags: panel,mobileiron
 
 http:

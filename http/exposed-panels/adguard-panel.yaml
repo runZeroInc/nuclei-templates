@@ -9,13 +9,14 @@ info:
   classification:
     cpe: cpe:2.3:a:adguard:adguard:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)AdGuard Home"})
     verified: true
     max-request: 1
     vendor: adguard
     product: adguard
-    fofa-query: title="AdGuard Home"
+    fofa-query:
+      - title="adguard home"
+      - title="setup adguard home"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AdGuard Home"})
   tags: adguard,panel,login,detect
 
 http:

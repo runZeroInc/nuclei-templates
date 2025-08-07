@@ -9,8 +9,9 @@ info:
   reference:
     - https://www.wftpserver.com/
   metadata:
-    product: wingftp
+    verified: true
     vendor: wingftp
+    product: wingftp
     shodan-query:
       - http.html_hash:2121146066
       - http.favicon.hash:963565804
@@ -22,7 +23,6 @@ info:
       - "Server: Wing FTP Server"
     zoomeye-query:
       - app="Wing FTP Server"
-    verified: true
   tags: panel,login,wingftp
 
 http:

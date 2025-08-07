@@ -15,9 +15,9 @@ info:
     cpe: cpe:2.3:a:landray:landray_office_automation:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    fofa-query: app="Landray OA system"
-    product: landray_office_automation
     vendor: landray
+    product: landray_office_automation
+    fofa-query: app="Landray OA system"
   tags: cnvd,cnvd2021,landray,lfi
 
 http:

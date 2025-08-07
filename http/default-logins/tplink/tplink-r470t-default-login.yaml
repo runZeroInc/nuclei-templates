@@ -13,7 +13,6 @@ info:
     max-request: 1
     shodan-query: "r470t"
   tags: tp-link,r470t,default-login,misconfig
-
 variables:
   username: "admin"
   password: "admin"
@@ -28,6 +27,7 @@ http:
 
     host-redirects: true
     max-redirects: 2
+
     matchers-condition: and
     matchers:
       - type: word

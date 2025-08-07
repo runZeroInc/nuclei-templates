@@ -12,15 +12,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zblogcn:zblogphp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)zblog"})
     verified: true
     max-request: 1
     vendor: zblogcn
     product: zblogphp
-    shodan-query: http.title:zblog
-    fofa-query: title=zblog
+    shodan-query:
+      - http.title:"zblog"
+      - http.html:"z-blogphp"
+    fofa-query:
+      - title=zblog
+      - body="z-blogphp"
     google-query: intitle:zblog
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)zblog"})
   tags: zblog,panel,zblogcn
 
 http:

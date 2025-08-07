@@ -14,6 +14,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: title="DT-100G-N" || title="DT-300N" || title="DT-100G" || title="AMR-3204G" || title="WMR-200N"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)DT-100G-N"})
   tags: cerio,rce
 
 http:
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

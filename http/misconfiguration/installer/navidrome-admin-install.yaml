@@ -7,9 +7,8 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"content="Navidrome""
+    shodan-query: html:"content=\"Navidrome\""
   tags: navidrome,installer,misconfig,intrusive
-
 variables:
   username: "admin"
   password: "{{to_lower(rand_text_alpha(8))}}"

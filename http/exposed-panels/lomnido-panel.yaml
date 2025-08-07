@@ -9,11 +9,10 @@ info:
   reference:
     - https://lomnido.com/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Lomnido Login"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Lomnido Login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Lomnido Login"})
   tags: lomnido,panel,login,detect
 
 http:

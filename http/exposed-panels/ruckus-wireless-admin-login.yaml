@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:ruckuswireless:e510:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ruckus"})
     verified: true
     max-request: 1
     vendor: ruckuswireless
     product: e510
-    shodan-query:
-      - title:"ruckus"
-      - http.title:"ruckus"
+    shodan-query: http.title:"ruckus"
     fofa-query: title="ruckus"
     google-query: intitle:"ruckus"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ruckus"})
   tags: panel,exposed,ruckus,ruckuswireless
 
 http:

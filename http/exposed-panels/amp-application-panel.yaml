@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cubecoders:amp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)amp - application management panel"})
     verified: true
     max-request: 1
     vendor: cubecoders
     product: amp
-    shodan-query:
-      - title:"AMP - Application Management Panel"
-      - http.title:"amp - application management panel"
+    shodan-query: http.title:"amp - application management panel"
     fofa-query: title="amp - application management panel"
     google-query: intitle:"amp - application management panel"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)amp - application management panel"})
   tags: panel,amp,cubecoders
 
 http:

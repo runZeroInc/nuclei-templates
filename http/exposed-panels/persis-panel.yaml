@@ -12,13 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:persis:human_resource_management_portal:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Persis"})
     verified: true
     max-request: 2
-    shodan-query: title:"Persis"
-    product: human_resource_management_portal
     vendor: persis
+    product: human_resource_management_portal
+    shodan-query: http.title:"persis"
+    fofa-query: title="persis"
+    google-query: intitle:"persis"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Persis"})
   tags: panel,persis
 
 http:

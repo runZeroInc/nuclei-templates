@@ -12,8 +12,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"authorization token is empty"
-  tags: sqli,prest,auth-bypass,sqli
-
+    runzero-match: service["http.body"] matches "(?i)authorization token is empty"
+  tags: sqli,prest,auth-bypass
 variables:
   database: "{{database}}"
 
@@ -34,4 +34,3 @@ http:
         part: content_type
         words:
           - 'application/json'
-

@@ -14,8 +14,6 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"Apache Druid"
-    product: druid
     vendor: apache
   tags: cve,cve2021,rce,jndi,log4j,apache,druid,oast,kev
 

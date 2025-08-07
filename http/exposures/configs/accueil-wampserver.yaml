@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.title:"Accueil WAMPSERVER"
-    product: wampserver
     vendor: wampserver
+    product: wampserver
+    shodan-query: http.title:"Accueil WAMPSERVER"
   tags: exposure,accueil,wampserver,config
 
 http:

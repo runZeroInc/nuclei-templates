@@ -9,11 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)MailWatch Login Page"})
     verified: true
     max-request: 1
     shodan-query: http.title:"MailWatch Login Page"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MailWatch Login Page"})
   tags: panel,mailwatch
 
 http:

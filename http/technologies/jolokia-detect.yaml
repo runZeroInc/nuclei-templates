@@ -15,6 +15,7 @@ http:
       - '{{BaseURL}}/actuator/jolokia/version'
 
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word

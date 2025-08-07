@@ -7,18 +7,16 @@ info:
   classification:
     cpe: cpe:2.3:a:odoo:odoo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)odoo"})
     verified: true
     max-request: 2
     vendor: odoo
     product: odoo
     shodan-query:
-      - title:"Odoo"
       - http.title:"odoo"
       - cpe:"cpe:2.3:a:odoo:odoo"
     fofa-query: title="odoo"
     google-query: intitle:"odoo"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)odoo"})
   tags: login,panel,odoo
 
 http:

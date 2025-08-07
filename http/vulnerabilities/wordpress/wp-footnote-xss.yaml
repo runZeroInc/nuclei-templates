@@ -30,11 +30,9 @@ http:
         Cookie: wordpress_test_cookie=WP%20Cookie%20check
 
         log={{username}}&pwd={{password}}&wp-submit=Log+In&testcookie=1
-
       - |
         GET /wp-admin/post-new.php HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /?rest_route=/wp/v2/posts/{{postid}} HTTP/1.1
         Host: {{Hostname}}
@@ -51,14 +49,12 @@ http:
           },
           "status": "pending"
         }
-
       - |
         GET /?p={{postid}} HTTP/1.1
         Host: {{Hostname}}
 
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:

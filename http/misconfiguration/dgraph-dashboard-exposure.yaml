@@ -12,9 +12,9 @@ info:
     cpe: cpe:2.3:a:dgraph:dgraph:*:*:*:*:go:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.title:"Dgraph Ratel Dashboard"
-    product: dgraph
     vendor: dgraph
+    product: dgraph
+    shodan-query: http.title:"Dgraph Ratel Dashboard"
   tags: exposure,unauth,panel,misconfig
 
 http:

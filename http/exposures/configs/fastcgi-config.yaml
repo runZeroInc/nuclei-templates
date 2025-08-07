@@ -18,7 +18,6 @@ http:
       - "{{BaseURL}}/config/fastcgi.conf"
 
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:

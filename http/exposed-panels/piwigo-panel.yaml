@@ -10,19 +10,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:piwigo:piwigo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "540706145"
     verified: true
     max-request: 2
     vendor: piwigo
     product: piwigo
-    shodan-query: http.favicon.hash:540706145
+    shodan-query:
+      - http.favicon.hash:"540706145"
+      - http.html:"- installation"
+      - http.html:"piwigo" html:"- installation"
     fofa-query:
       - title="piwigo"
       - icon_hash=540706145
-    google-query:
-      - Powered by Piwigo
-      - powered by piwigo
+      - body="- installation"
+      - body="piwigo" html:"- installation"
+    google-query: powered by piwigo
+    runzero-match: service["favicon.ico.image.mmh3"] == "540706145"
   tags: panel,piwigo,detect
 
 http:

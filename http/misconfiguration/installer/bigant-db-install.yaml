@@ -8,8 +8,8 @@ info:
     Bigant DataBase Installation page exposure due to misconfiguration.
   metadata:
     verified: true
-    fofa-query: body="BigAntSetup"
     max-request: 1
+    fofa-query: body="BigAntSetup"
   tags: misconfig,install,bigant,database
 
 http:

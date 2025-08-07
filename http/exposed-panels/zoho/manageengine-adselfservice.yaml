@@ -10,14 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zohocorp:manageengine_adselfservice_plus:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)adselfservice plus"}) || any(each(service["html.titles"]), {# matches "(?i)manageengine"})
     verified: true
     max-request: 2
     vendor: zohocorp
     product: manageengine_adselfservice_plus
     shodan-query:
-      - http.title:"ADSelfService Plus"
       - http.title:"adselfservice plus"
       - http.title:"manageengine"
     fofa-query:
@@ -26,6 +23,7 @@ info:
     google-query:
       - intitle:"adselfservice plus"
       - intitle:"manageengine"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adselfservice plus"}) || any(each(service["html.titles"]), {# matches "(?i)manageengine"})
   tags: panel,zoho,manageengine,zohocorp
 
 http:

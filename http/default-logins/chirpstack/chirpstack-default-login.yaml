@@ -4,8 +4,7 @@ info:
   name: ChirpStack Default Credentials
   author: t3l3machus
   severity: high
-  description: |-
-    ChirpStack default login credentials were discovered.
+  description: ChirpStack default login credentials were discovered.
   reference:
     - https://www.chirpstack.io/docs/chirpstack/use/login.html
   classification:
@@ -13,12 +12,11 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-1392
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "ChirpStack LoRaWAN"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ChirpStack LoRaWAN"
     fofa-query: title="ChirpStack LoRaWAN"
+    runzero-match: any(each(service["html.titles"]), {# matches "ChirpStack LoRaWAN"})
   tags: default-login,chirpstack
 
 http:
@@ -31,8 +29,7 @@ http:
 
         AAAAAA4KBWFkbWluEgVhZG1pbg==
 
-          # AAAAAA4KBWFkbWluEgVhZG1pbg== is proto buffer encoded string for admin admin
-
+    # AAAAAA4KBWFkbWluEgVhZG1pbg== is proto buffer encoded string for admin admin
     matchers:
       - type: dsl
         dsl:

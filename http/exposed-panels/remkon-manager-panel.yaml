@@ -10,12 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nascent:remkon_device_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Remkon Device Manager"})
     max-request: 1
-    shodan-query: http.title:"Remkon Device Manager"
-    product: remkon_device_manager
     vendor: nascent
+    product: remkon_device_manager
+    shodan-query: http.title:"remkon device manager"
+    fofa-query: title="remkon device manager"
+    google-query: intitle:"remkon device manager"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Remkon Device Manager"})
   tags: panel,remkon,login
 
 http:

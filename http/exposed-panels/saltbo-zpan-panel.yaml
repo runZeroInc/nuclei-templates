@@ -15,8 +15,8 @@ info:
     max-request: 1
     vendor: saltbo
     product: zpan
-    fofa-query: title="zpan"
     shodan-query: title:"zpan"
+    fofa-query: title="zpan"
   tags: panel,zpan,login,detect
 
 http:

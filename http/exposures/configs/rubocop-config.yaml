@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"rubocop.yml"
-    product: rubocop
     vendor: rubocop_project
+    product: rubocop
+    shodan-query: html:"rubocop.yml"
   tags: exposure,files,config,ruby
 
 http:

@@ -7,14 +7,14 @@ info:
   classification:
     cpe: cpe:2.3:a:comsenz:discuz\\!:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Discuz!"})
     verified: true
     max-request: 1
     vendor: comsenz
     product: discuz\\!
-    shodan-query: title:"Discuz!"
-    fofa-query: title="Discuz!"
+    shodan-query: http.title:"discuz!"
+    fofa-query: title="discuz!"
+    google-query: intitle:"discuz!"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Discuz!"})
   tags: panel,discuz,detect,login
 
 http:

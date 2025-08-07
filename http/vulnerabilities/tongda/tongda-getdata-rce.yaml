@@ -13,11 +13,10 @@ info:
   metadata:
     verified: true
     max-request: 1
-    fofa-query: app="TDXK-通达OA"
-    product: office_anywhere
     vendor: tongda2000
+    product: office_anywhere
+    fofa-query: app="TDXK-通达OA"
   tags: tongda,rce
-
 variables:
   num: '999999999'
   payload: "echo md5({{num}});"

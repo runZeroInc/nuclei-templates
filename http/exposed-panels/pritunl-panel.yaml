@@ -12,13 +12,14 @@ info:
   classification:
     cpe: cpe:2.3:a:pritunl:pritunl:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
-    max-request: 1
-    product: pritunl
-    shodan-query: title:"Pritunl"
-    vendor: pritunl
     verified: true
+    max-request: 1
+    vendor: pritunl
+    product: pritunl
+    shodan-query: http.title:"pritunl"
+    fofa-query: title="pritunl"
+    google-query: intitle:"pritunl"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
   tags: pritunl,panel,login
 
 http:

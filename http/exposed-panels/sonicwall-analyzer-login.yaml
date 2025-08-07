@@ -10,17 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sonicwall:analyzer:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)sonicwall analyzer login"})
     verified: true
     max-request: 1
     vendor: sonicwall
     product: analyzer
-    shodan-query:
-      - title:"SonicWall Analyzer Login"
-      - http.title:"sonicwall analyzer login"
+    shodan-query: http.title:"sonicwall analyzer login"
     fofa-query: title="sonicwall analyzer login"
     google-query: intitle:"sonicwall analyzer login"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sonicwall analyzer login"})
   tags: panel,sonicwall
 
 http:

@@ -13,6 +13,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/php_errors.log"
@@ -44,7 +45,6 @@ http:
         - "/routes/error_log"
         - "/{{Hostname}}/error.log"
         - "/{{Hostname}}/errors.log"
-
     stop-at-first-match: true
 
     matchers-condition: and

@@ -12,6 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: body="全程云办公" && body="/OA/WebResource.axd"
+    runzero-match: service["http.body"] matches "(?i)全程云办公"
   tags: cloud,cloudoa,sqli
 variables:
   num: "999999999"
@@ -49,4 +50,3 @@ http:
       - type: status
         status:
           - 500
-

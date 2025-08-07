@@ -7,10 +7,9 @@ info:
   reference:
     - https://api.slack.com/authentication/token-types
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
   tags: exposure,token,slack
-
 flow: http(1) && http(2)
 
 http:
@@ -44,7 +43,6 @@ http:
 
         {{token}}
         ------WebKitFormBoundaryDL3VHEC7cFaxeAhK--
-
 
     disable-path-automerge: true
     matchers:

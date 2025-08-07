@@ -11,7 +11,6 @@ info:
     max-request: 1
     shodan-query: ssl:"ingress-nginx" port:8443
   tags: tech,kubernetes,ingress,nginx,k8s
-
 variables:
   string: "{{to_lower(rand_base(5))}}"
 

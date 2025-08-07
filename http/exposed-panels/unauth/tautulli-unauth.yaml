@@ -7,22 +7,23 @@ info:
   classification:
     cpe: cpe:2.3:a:tautulli:tautulli:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)tautulli - home"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli"})
     verified: true
     max-request: 1
     vendor: tautulli
     product: tautulli
     shodan-query:
-      - title:"Tautulli - Home"
-      - http.title:"tautulli"
       - http.title:"tautulli - home"
+      - http.title:"tautulli"
+      - http.title:"tautulli - welcome"
     fofa-query:
       - title="tautulli - home"
       - title="tautulli"
+      - title="tautulli - welcome"
     google-query:
       - intitle:"tautulli"
       - intitle:"tautulli - home"
+      - intitle:"tautulli - welcome"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tautulli - home"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli"})
   tags: panel,misconfig,tautulli,unauth,exposure
 
 http:

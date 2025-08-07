@@ -9,13 +9,11 @@ info:
   reference:
     - https://business.toshiba.com/downloads/KB/f1Ulds/11646/KH-1020_TAG_EN_0002.pdf
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)topaccess"})
     verified: true
     max-request: 2
     shodan-query: title:"topaccess"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)topaccess"})
   tags: topaccess,default-login,misconfig
-
 variables:
   username: "admin"
   password: "123456"
@@ -25,7 +23,6 @@ http:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /contentwebserver HTTP/1.1
         Host: {{Hostname}}
@@ -36,6 +33,7 @@ http:
 
     host-redirects: true
     max-redirects: 2
+
     matchers-condition: and
     matchers:
       - type: word

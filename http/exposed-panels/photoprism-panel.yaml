@@ -9,12 +9,11 @@ info:
   reference:
     - https://docs.photoprism.app/getting-started/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)PhotoPrism"})
     verified: true
     max-request: 1
     shodan-query: title:"PhotoPrism"
     fofa-query: title="PhotoPrism"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PhotoPrism"})
   tags: photoprism,panel,login,detect
 
 http:
@@ -23,7 +22,6 @@ http:
       - "{{BaseURL}}/library/login"
 
     matchers:
-
       - type: dsl
         dsl:
           - 'status_code == 200'

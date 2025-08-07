@@ -9,13 +9,11 @@ info:
   reference:
     - https://www.manageengine.com/products/applications_manager/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Applications Manager Login Screen"})
-    shodan-query: title:"Applications Manager Login Screen"
     verified: true
     max-request: 1
+    shodan-query: title:"Applications Manager Login Screen"
+    runzero-match: any(each(service["html.titles"]), {# matches "Applications Manager Login Screen"})
   tags: default-login,manageengine,zoho
-
 variables:
   username: "admin"
   password: "admin"
@@ -26,7 +24,8 @@ http:
         GET /index.do HTTP/1.1
         Host: {{Hostname}}
 
-  - raw:
+  -
+    raw:
       - |
         POST /j_security_check HTTP/1.1
         Host: {{Hostname}}
@@ -36,7 +35,8 @@ http:
 
         clienttype=html&webstart=&j_username=admin&ScreenWidth=1280&ScreenHeight=709&username={{username}}&j_password={{password}}
 
-  - raw:
+  -
+    raw:
       - |
         GET /showresource.do?group=All&method=showResourceTypes&monitor_viewtype=categoryview HTTP/1.1
         Host: {{Hostname}}

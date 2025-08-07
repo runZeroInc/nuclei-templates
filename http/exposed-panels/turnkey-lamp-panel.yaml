@@ -9,12 +9,11 @@ info:
   reference:
     - https://www.turnkeylinux.org/lamp
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)TurnKey LAMP"})
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: title:"TurnKey LAMP"
     fofa-query: title="TurnKey LAMP"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TurnKey LAMP"})
   tags: panel,login,turnkey,lamp,detect
 
 http:

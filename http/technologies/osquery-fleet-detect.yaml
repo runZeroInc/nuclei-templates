@@ -14,9 +14,9 @@ info:
     cpe: cpe:2.3:a:kolide:fleet:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    shodan-query: http.favicon.hash:-1529860313
-    product: fleet
     vendor: kolide
+    product: fleet
+    shodan-query: http.favicon.hash:-1529860313
   tags: panel,fleet,osquery,tech
 
 http:

@@ -10,22 +10,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:forgerock:openam:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)openam"})
     max-request: 20
     vendor: forgerock
     product: openam
-    shodan-query:
-      - http.title:"OpenAM"
-      - http.title:"openam"
+    shodan-query: http.title:"openam"
     fofa-query: title="openam"
     google-query: intitle:"openam"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openam"})
   tags: panel,openam,opensso,login,forgerock
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/openam/XUI"
@@ -48,7 +46,6 @@ http:
         - "/am/XUI/Login"
         - "/am/json/serverinfo/*"
         - "/openam/json/serverinfo/*"
-
     host-redirects: true
     stop-at-first-match: true
     max-redirects: 2

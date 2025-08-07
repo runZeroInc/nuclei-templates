@@ -4,16 +4,17 @@ info:
   name: Datagerry Default Credentials
   author: gy741
   severity: high
-  description: |-
-    Datagerry default login credentials were discovered.
+  description: Datagerry default login credentials were discovered.
   metadata:
-    runzero-match: |-
-      any(each(service["html.titles"]), {# matches "(?i)datagerry"})
     verified: true
     max-request: 1
+    vendor: becon
+    product: datagerry
     shodan-query: http.title:"datagerry"
+    fofa-query: title="datagerry"
+    google-query: intitle:"datagerry"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)datagerry"})
   tags: datagerry,default-login
-
 variables:
   username: admin
   password: admin

@@ -12,17 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cacti:cacti:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-1797138069" || any(each(service["html.titles"]), {# matches "(?i)login to cacti"}) || any(each(service["html.titles"]), {# matches "(?i)cacti"})
     verified: true
     max-request: 2
     vendor: cacti
     product: cacti
     shodan-query:
-      - http.favicon.hash:-1797138069
+      - http.favicon.hash:"-1797138069"
       - http.title:"login to cacti"
       - http.title:"cacti"
-      - http.favicon.hash:"-1797138069"
     fofa-query:
       - icon_hash="-1797138069"
       - title="cacti"
@@ -30,6 +27,7 @@ info:
     google-query:
       - intitle:"login to cacti"
       - intitle:"cacti"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1797138069" || any(each(service["html.titles"]), {# matches "(?i)login to cacti"}) || any(each(service["html.titles"]), {# matches "(?i)cacti"})
   tags: cacti,login,panel,detect
 
 http:

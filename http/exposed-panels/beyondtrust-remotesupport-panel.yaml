@@ -7,16 +7,26 @@ info:
   description: |
     Detect BeyondTrust Remote Support Panel.
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "-694003434"
     verified: true
-    max-requests: 1
-    shodan-query:
-      - http.favicon.hash:-694003434
-    fofa-query:
-      - icon_hash="-694003434"
     vendor: beyondtrust
     product: remote_support
+    shodan-query:
+      - http.favicon.hash:"-694003434"
+      - http.html:"beyondtrust remote support"
+      - http.html:"beyondtrust"
+      - http.html:"beyondtrust" "redistribution prohibited"
+      - http.title:"remote support portal"
+    fofa-query:
+      - icon_hash="-694003434"
+      - body="beyondtrust remote support"
+      - body="beyondtrust"
+      - body="beyondtrust" "redistribution prohibited"
+      - title="remote support portal"
+    google-query:
+      - intext:"beyondtrust" "redistribution prohibited"
+      - intitle:"remote support portal"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-694003434"
+    max-requests: 1
   tags: panel,detect,beyondtrust
 
 http:

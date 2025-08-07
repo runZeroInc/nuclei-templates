@@ -14,9 +14,9 @@ info:
     cpe: cpe:2.3:a:3cx:3cx:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    shodan-query: http.title:"3CX Phone System Management Console"
-    product: 3cx
     vendor: 3cx
+    product: 3cx
+    shodan-query: http.title:"3CX Phone System Management Console"
   tags: 3cx,lfi,voip
 
 http:

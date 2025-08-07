@@ -11,13 +11,14 @@ info:
   classification:
     cpe: cpe:2.3:a:uipath:orchestrator:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)UiPath Orchestrator"})
     verified: true
     max-request: 1
     vendor: uipath
     product: orchestrator
-    shodan-query: http.title:"UiPath Orchestrator"
+    shodan-query: http.title:"uipath orchestrator"
+    fofa-query: title="uipath orchestrator"
+    google-query: intitle:"uipath orchestrator"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)UiPath Orchestrator"})
   tags: panel,uipath,login,detect
 
 http:

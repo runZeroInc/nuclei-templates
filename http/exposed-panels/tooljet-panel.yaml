@@ -10,13 +10,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:tooljet:tooljet:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ToolJet - Dashboard"})
     verified: true
     max-request: 2
-    shodan-query: title:"ToolJet - Dashboard"
-    product: tooljet
     vendor: tooljet
+    product: tooljet
+    shodan-query:
+      - http.title:"tooljet - dashboard"
+      - http.title:"tooljet"
+    fofa-query:
+      - title="tooljet - dashboard"
+      - title="tooljet"
+    google-query:
+      - intitle:"tooljet - dashboard"
+      - intitle:"tooljet"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ToolJet - Dashboard"})
   tags: panel,tooljet
 
 http:

@@ -16,9 +16,9 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: http.html:"Flatpress"
-    product: flatpress
     vendor: flatpress
+    product: flatpress
+    shodan-query: http.html:"Flatpress"
   tags: flatpress,xss,authenticated,oss,intrusive
 
 http:

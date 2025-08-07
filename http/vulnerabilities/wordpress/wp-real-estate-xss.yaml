@@ -18,9 +18,9 @@ info:
   metadata:
     verified: true
     max-request: 1
-    publicwww-query: "/wp-content/themes/realestate-7/"
-    product: real_estate_7
     vendor: contempothemes
+    product: real_estate_7
+    publicwww-query: "/wp-content/themes/realestate-7/"
   tags: packetstorm,wordpress,wp-theme,wp,xss,realestate
 
 http:

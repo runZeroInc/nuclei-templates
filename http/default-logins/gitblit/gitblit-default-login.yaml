@@ -11,13 +11,18 @@ info:
   classification:
     cpe: cpe:2.3:a:gitblit:gitblit:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "Gitblit"})
     verified: true
     max-request: 1
     vendor: gitblit
     product: gitblit
-    shodan-query: title:"Gitblit"
+    shodan-query:
+      - http.title:"gitblit"
+      - http.html:"gitblit"
+    fofa-query:
+      - body="gitblit"
+      - title="gitblit"
+    google-query: intitle:"gitblit"
+    runzero-match: any(each(service["html.titles"]), {# matches "Gitblit"})
   tags: gitblit,default-login
 
 http:

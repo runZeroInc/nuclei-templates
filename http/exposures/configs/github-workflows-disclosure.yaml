@@ -15,6 +15,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/.github/workflows/ci.yml"

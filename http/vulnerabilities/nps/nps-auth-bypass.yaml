@@ -12,6 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"window.nps"
+    runzero-match: service["http.body"] matches "(?i)window\\.nps"
   tags: nps,auth-bypass
 
 http:
@@ -41,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

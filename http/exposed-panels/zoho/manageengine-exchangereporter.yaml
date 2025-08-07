@@ -11,18 +11,17 @@ info:
   classification:
     cpe: cpe:2.3:a:zohocorp:manageengine_exchange_reporter_plus:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)ManageEngine - Exchange Reporter Plus"}) || service["favicon.ico.image.mmh3"] == "230963457"
     verified: true
     max-request: 1
     vendor: zohocorp
     product: manageengine_exchange_reporter_plus
     shodan-query:
-      - title:"ManageEngine - Exchange Reporter Plus"
-      - http.favicon.hash:230963457
+      - http.title:"manageengine - exchange reporter plus"
+      - http.favicon.hash:"230963457"
     fofa-query:
-      - title="ManageEngine - Exchange Reporter Plus"
+      - title="manageengine - exchange reporter plus"
       - icon_hash="230963457"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ManageEngine - Exchange Reporter Plus"}) || service["favicon.ico.image.mmh3"] == "230963457"
   tags: panel,zoho,manageengine,zohocorp,login
 
 http:

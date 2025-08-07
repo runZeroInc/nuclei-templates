@@ -9,11 +9,10 @@ info:
   reference:
     - https://www.lockself.com/en/
   metadata:
-    runzero-match: |-
-        any(each(service["html.titles"]), {# matches "(?i)LockSelf"})
     verified: true
     max-request: 1
     shodan-query: http.title:"LockSelf"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LockSelf"})
   tags: panel,lockself,login,detect
 
 http:

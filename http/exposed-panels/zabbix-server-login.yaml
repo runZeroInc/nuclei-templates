@@ -10,20 +10,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zabbix:zabbix:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["favicon.ico.image.mmh3"] == "892542951" || any(each(service["html.titles"]), {# matches "(?i)zabbix-server"})
     max-request: 1
     vendor: zabbix
     product: zabbix
     shodan-query:
       - http.title:"zabbix-server"
       - cpe:"cpe:2.3:a:zabbix:zabbix"
-      - http.favicon.hash:892542951
+      - http.favicon.hash:"892542951"
     fofa-query:
       - icon_hash=892542951
       - app="zabbix-监控系统" && body="saml"
       - title="zabbix-server"
+      - icon_hash="892542951"
     google-query: intitle:"zabbix-server"
+    runzero-match: service["favicon.ico.image.mmh3"] == "892542951" || any(each(service["html.titles"]), {# matches "(?i)zabbix-server"})
   tags: panel,zabbix
 
 http:

