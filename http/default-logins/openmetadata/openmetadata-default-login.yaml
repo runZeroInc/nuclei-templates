@@ -16,6 +16,7 @@ info:
     product: openmetadata
     fofa-query: title="OpenMetadata"
     shodan-query: title:"OpenMetadata"
+    runzero-match: any(each(service["html.titles"]), {# matches "OpenMetadata"})
   tags: openmetadata,default-login,misconfig
 
 variables:
