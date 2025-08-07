@@ -15,6 +15,7 @@ info:
     vendor: apache
     product: inlong
     fofa-query: icon_hash="1155196680"
+    runzero-match: service["favicon.ico.image.mmh3"] == "1155196680"
   tags: apache,inlong,default-login,misconfig
 
 variables:

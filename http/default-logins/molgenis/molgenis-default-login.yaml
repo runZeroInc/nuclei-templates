@@ -13,6 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"MOLGENIS"
+    runzero-match: service["http.body"] contains "MOLGENIS" || service["last.http.body"] contains "MOLGENIS"
   tags: molgenis,default-login,exposure
 variables:
   username: 'admin'
