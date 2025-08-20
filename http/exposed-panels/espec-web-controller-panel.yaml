@@ -2,8 +2,8 @@ id: espec-web-controller-panel
 
 info:
   name: Espec Web Controller - Panel
-  severity: info
   author: darses
+  severity: info
   description: |
     Espec Web Controller panel was discovered.
   reference:
@@ -18,6 +18,7 @@ info:
     fofa-query:
       - title="Espec Web Controller"
       - icon_hash="1190353375"
+    runzero-match: service["favicon.ico.image.mmh3"] == "529766441" || any(each(service["html.titles"]), {# matches "(?i)Espec Web Controller"})
   tags: panel,espec,ics,login
 
 http:
@@ -41,4 +42,3 @@ http:
         group: 1
         regex:
           - "Version: ([\\d\\.]+)"
-
