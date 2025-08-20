@@ -1,7 +1,7 @@
 id: CNVD-2022-43245
 
 info:
-  name: Weaver OA XmlRpcServlet - Arbitary File Read
+  name: Weaver OA XmlRpcServlet - Arbitrary File Read
   author: SleepingBag945
   severity: high
   description: |

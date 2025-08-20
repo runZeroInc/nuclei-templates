@@ -1,7 +1,7 @@
 id: office365-indexs-fileread
 
 info:
-  name: OfficeWeb365 Indexs Interface - Arbitary File Read
+  name: OfficeWeb365 Indexs Interface - Arbitrary File Read
   author: DhiyaneshDK
   severity: high
   description: |

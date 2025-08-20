@@ -1,7 +1,7 @@
 id: eaa-app-lfi
 
 info:
-  name: EAA Application Access System - Arbitary File Read
+  name: EAA Application Access System - Arbitrary File Read
   author: momika233
   severity: high
   description: |
