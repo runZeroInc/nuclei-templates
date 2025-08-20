@@ -36,16 +36,3 @@ http:
           - 'uni-(\d+\.\d+\.\d+\.\d+)/'
           - 'uniVars._extVer="(\d+\.\d+\.\d+)"'
 
-    extractors:
-      - type: regex
-        part: body
-        name: uni_gui_version
-        regex:
-          - 'uni-(\d+\.\d+\.\d+\.\d+)'
-
-      - type: regex
-        part: body
-        name: ext_js_version
-        regex:
-          - 'uniVars._extVer="(\d+\.\d+\.\d+)"'
-

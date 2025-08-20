@@ -51,7 +51,6 @@ http:
         status:
           - 200
 
-
     extractors:
       - type: regex
         name: build

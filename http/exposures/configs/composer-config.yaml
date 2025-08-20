@@ -28,9 +28,10 @@ http:
         dsl:
           - "contains_all(body, 'packages', 'getcomposer.org') && status_code == 200"
           - "contains_any(tolower(header), 'application/octet-stream', 'application/json', 'text/plain')"
+        condition: and
 
       - type: dsl
         name: composer.json
         dsl:
-          - "contains(body, 'require') && contains(tolower(header), 'application/json') && status_code == 200"
+          - "contains_all(body, 'require', 'autoload') && contains(tolower(header), 'application/json') && status_code == 200"
 

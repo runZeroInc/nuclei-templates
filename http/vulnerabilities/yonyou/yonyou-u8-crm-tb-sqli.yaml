@@ -30,3 +30,4 @@ http:
           - 'contains(body, "{\"success\":true}")'
           - 'status_code == 200'
         condition: and
+

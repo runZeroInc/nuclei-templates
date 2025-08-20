@@ -12,10 +12,18 @@ info:
   metadata:
     verified: true
     max-request: 1
+    shodan-query:
+      - http.title:"N-central Login"
+      - http.favicon.hash:1519363246
+      - http.favicon.hash:1937353549
+      - "Set-Cookie: ncentral_version="
+    fofa-query:
+      - title="N-central Login"
+      - icon_hash="1519363246"
+      - icon_hash="1937353549"
+      - "Set-Cookie: ncentral_version="
     vendor: n-able
     product: n-central
-    shodan-query: http.title:"n-central login"
-    fofa-query: title="n-central login"
     google-query: intitle:"n-central login"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
   tags: panel,n-central
@@ -35,4 +43,10 @@ http:
       - type: status
         status:
           - 200
+
+    extractors:
+      - type: regex
+        group: 1
+        regex:
+          - "ncentralVersion:\\s+\"([\\d\\.]+)\","
 

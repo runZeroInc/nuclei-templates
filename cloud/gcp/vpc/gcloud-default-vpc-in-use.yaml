@@ -35,7 +35,7 @@ code:
         name: projectIds
         internal: true
         json:
-          - '.[].projectId'
+          - ".[].projectId"
 
   - engine:
       - sh
@@ -45,8 +45,9 @@ code:
 
     matchers:
       - type: word
+        part: body
         words:
-          - 'default'
+          - '"name": "default"'
 
     extractors:
       - type: dsl

@@ -33,3 +33,4 @@ http:
           - status_code_1 == 200 && contains(body_1,"errcode") && contains(body_1,"strcorpid")
           - contains(body_1,"corpid")
         condition: and
+
