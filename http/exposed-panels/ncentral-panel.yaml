@@ -22,11 +22,8 @@ info:
       - icon_hash="1519363246"
       - icon_hash="1937353549"
       - "Set-Cookie: ncentral_version="
-    product: n-central
     vendor: n-able
     product: n-central
-    shodan-query: http.title:"n-central login"
-    fofa-query: title="n-central login"
     google-query: intitle:"n-central login"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
   tags: panel,n-central
