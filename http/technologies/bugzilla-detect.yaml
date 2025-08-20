@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - "class=\"header_addl_info\">version ([^<]+)</span>"
+

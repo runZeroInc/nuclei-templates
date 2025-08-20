@@ -33,4 +33,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"mozilla.org")'
-# digest: 4a0a00473045022031bba8f21935fb258227c7dbaeca7a5a0cf8238b0592c34f5512ffcbe9c2848f022100dbd8941898e1675c4a22c3562e008d99ead730205221b8eb940dad8fc6e2749d:922c64590222798bb761d5b6d8e72950
+
