@@ -21,7 +21,7 @@ info:
       - icon_hash="-1022206565"
       - title="crushftp webinterface"
     google-query: intitle:"crushftp webinterface"
-    runzero-match: service["http.body"] contains "CrushFTP" || service["http.head.server"] contains "CrushFTP"
+    runzero-match: service["http.body"] contains "CrushFTP" || service["http.head.server"] contains "CrushFTP" || any(each(service["favicon.ico.image.mmh3"]), {# == "-1022206565"})
   tags: default-login,crushftp
 
 http:
