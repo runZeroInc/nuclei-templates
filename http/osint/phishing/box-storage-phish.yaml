@@ -33,4 +33,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"box.com")'
-
+# digest: 4a0a00473045022100b1fb2dab24f4fe780cc4c61c9cbb0fa8ddbff89500e147582f5f209c2245833402203905a9c01062b8d44c7654ceb3fed8b77dbde51fa3980ccd8d52056c9e0351c5:922c64590222798bb761d5b6d8e72950

@@ -26,23 +26,4 @@ http:
         group: 1
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-
-      - type: regex
-        part: body
-        name: detected_version
-        group: 1
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-
-    matchers-condition: or
-    matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
-
-      - type: regex
-        part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-
+# digest: 490a00463044022061bdf200a272b20bbf28e15e65ec07281e20697c0a01026f88cf1cee1c3ef159022044bf51b86cf173cb24cd0a650c7eed784ce635a28e0652b870e4cf901ee2a692:922c64590222798bb761d5b6d8e72950
