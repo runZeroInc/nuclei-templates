@@ -14,6 +14,7 @@ info:
     vendor: diced
     product: zipline
     shodan-query: html:"Zipline"
+    runzero-match: service["http.body"] matches "(?i)Zipline"
   tags: diced,zipline,login,panel,detect
 
 http:
@@ -33,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -16,6 +16,7 @@ info:
     product: zammad
     shodan-query: http.title:"Zammad Helpdesk"
     fofa-query: title="Zammad Helpdesk"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Zammad Helpdesk"})
   tags: panel,zammad,detect,helpdesk,ticketing
 
 http:
@@ -29,4 +30,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>zammad helpdesk</title>", "zammad_form_script")'
         condition: and
-

@@ -2,14 +2,13 @@ id: huawei-holosense-panel
 
 info:
   name: Huawei HoloSens SDC - Panel
-  severity: info
   author: darses
+  severity: info
   description: |
     Huawei HoloSens SDC Panel was discovered.
   reference: |
     - https://www.huawei.com/en/products/intelligent-devices/holosens-sdc
   metadata:
-    max-requests: 1
     vendor: huawei
     product: holosense_sdc
     shodan-query:
@@ -18,8 +17,9 @@ info:
     fofa-query:
       - '"Server: SDC Server" && protocol="https"'
       - '"Server: WebServer/1.0.0" && port="1443"'
+    runzero-match: service["http.head.server"] matches "SDC Server" || service["http.body.mmh3"] == "-968212412"
+    max-requests: 1
   tags: panel,detect,huawei,holosens,iot
-
 flow: http(1) && http(2) && http(3)
 
 http:
@@ -32,7 +32,7 @@ http:
         dsl:
           - contains_any(server, "SDC Server", "WebServer/1.0.0")
           - contains(body, "cmcc-login")
-          - status_code == 200
+          - "status_code == 200"
         condition: and
         internal: true
 
@@ -42,12 +42,11 @@ http:
 
     body: |
       action=LoginState&glToken=null&stChannelId=101&channelId=101&para=
-
     matchers:
       - type: dsl
         dsl:
           - contains(body, "LOGIN_NORMAL")
-          - status_code == 200
+          - "status_code == 200"
         condition: and
         internal: true
 
@@ -76,4 +75,3 @@ http:
         group: 1
         regex:
           - '"version"\s*:\s*"([^"]+)"'
-
