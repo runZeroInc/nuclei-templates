@@ -1,7 +1,7 @@
 id: weaver-uploadoperation-file-upload
 
 info:
-  name: Weaver OA Workrelate - Arbitary File Upload
+  name: Weaver OA Workrelate - Arbitrary File Upload
   author: SleepingBag945
   severity: critical
   description: |

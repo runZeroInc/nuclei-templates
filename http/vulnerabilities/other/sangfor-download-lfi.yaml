@@ -1,7 +1,7 @@
 id: sangfor-download-lfi
 
 info:
-  name: Sangfor Application download.php - Arbitary File Read
+  name: Sangfor Application download.php - Arbitrary File Read
   author: DhiyaneshDk
   severity: high
   description: |

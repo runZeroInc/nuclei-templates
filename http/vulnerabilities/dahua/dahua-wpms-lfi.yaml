@@ -1,7 +1,7 @@
 id: dahua-wpms-lfi
 
 info:
-  name: Dahua Smart Park Management Platform - Arbitary File Read
+  name: Dahua Smart Park Management Platform - Arbitrary File Read
   author: DhiyaneshDk
   severity: high
   description: Dahua Smart Park Management Platform is vulnerable to Local File Inclusion.
