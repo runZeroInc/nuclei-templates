@@ -10,8 +10,7 @@ info:
     # User manual with default credentials
     - https://iportal2.schneider-electric.com/Contents/docs/UPS-PMAR-9LLJMN_R0_EN.PDF
   metadata:
-    runzero-match: |
-      ((asset["hw"] matches "Schneider Electric" || asset["os"] matches "Schneider Electric AOS") && service["protocol"] matches "http") || any(each(service["html.titles"]), {# matches "APC | Log On"})
+    runzero-match: asset["hw"] matches `Schneider\s+Electric` || asset["os"] matches `Schneider\s+Electric\s+AOS` || any(each(service["html.titles"]), {# matches `APC \| Log On`})
   tags: default-login,apc,pdu,runzero
 
 http:
