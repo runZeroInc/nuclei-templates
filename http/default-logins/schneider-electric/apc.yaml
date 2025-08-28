@@ -28,10 +28,8 @@ http:
         - apc
       password:
         - apc
-
     host-redirects: true
     cookie-reuse: true
-
     stop-at-first-match: true
 
     matchers-condition: and
@@ -42,7 +40,6 @@ http:
           - 200
           - 302
           - 303
-
       # Should redirect to /home based on the reference documentation
       - type: regex
         part: header
