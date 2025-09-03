@@ -33,4 +33,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"booking.com")'
-# digest: 4a0a0047304502205f61ef45e397cd53f0616a261824986d0e57773ffc4f432f89b7eb17597fe04d0221009e315d48634eca9dcd59470f9f27defed755796aad3988df140fe21082c27786:922c64590222798bb761d5b6d8e72950
+

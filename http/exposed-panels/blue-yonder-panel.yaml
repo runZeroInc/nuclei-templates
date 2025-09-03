@@ -30,4 +30,4 @@ http:
           - 'status_code == 200'
           - 'contains(to_lower(body), "title=\"blue yonder\"")'
         condition: and
-# digest: 490a0046304402204e43caf185abc45d8f6a8a69eebda2f4089017acbda6abf31510a25a386161ab022054108541beee0d4083189654b06e38fb0ff720474ab7430b53346d382173d289:922c64590222798bb761d5b6d8e72950
+
