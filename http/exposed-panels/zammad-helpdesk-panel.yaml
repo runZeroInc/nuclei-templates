@@ -10,6 +10,7 @@ info:
     - https://github.com/zammad/zammad
     - https://zammad.org/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Zammad Helpdesk"})
     verified: true
     max-request: 1
     vendor: zammad
@@ -29,4 +30,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>zammad helpdesk</title>", "zammad_form_script")'
         condition: and
-
