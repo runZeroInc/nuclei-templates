@@ -39,7 +39,7 @@ code:
         name: projectIds
         internal: true
         json:
-          - '.[].projectId'
+          - ".[].projectId"
 
   - engine:
       - sh
@@ -52,7 +52,7 @@ code:
         name: buckets
         internal: true
         json:
-          - '.[].name'
+          - ".[].name"
 
   - engine:
       - sh
@@ -62,8 +62,10 @@ code:
 
     matchers:
       - type: word
+        negative: true
         words:
-          - 'inherited'
+          - "inherited"
+          - "enforced"
 
     extractors:
       - type: dsl

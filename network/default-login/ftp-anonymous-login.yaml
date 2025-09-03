@@ -30,7 +30,8 @@ tcp:
         words:
           - "Anonymous access allowed,"
           - "Logged in anonymously"
-          - "230 "
+          - "Anonymous user logged"
+          - "Login successful"
         condition: or
 
       - type: word
@@ -40,6 +41,7 @@ tcp:
           - "230."
           - ".230"
           - "User cannot log"
+          - "ESMTP"
         negative: true
         condition: or
 
