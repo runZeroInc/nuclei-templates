@@ -33,4 +33,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"skype.com")'
-
+# digest: 4b0a00483046022100daf76650fed757573ffaccfa7b27b7b96041fd5c192fac7e371f390cfa472a670221008c2a1bfc3591db1b6b30c3907f7f750868c3c0731338f70b65d5d030d8f173b4:922c64590222798bb761d5b6d8e72950

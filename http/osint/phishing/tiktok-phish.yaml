@@ -33,4 +33,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"tiktok.com")'
-
+# digest: 4a0a004730450220118b9f485b22ba7c69673749939c6a4f8bb1e568cfc1f9ac91196ebf25eef6c9022100b012a2fabf85a19f2106fa7ac09fd58e871585375d0da02b2a488f579eba8343:922c64590222798bb761d5b6d8e72950
