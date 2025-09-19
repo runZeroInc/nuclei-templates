@@ -1,0 +1,60 @@
+id: pelco-sarix-default-login
+
+info:
+  name: Pelco Sarix - Default Login
+  author: Gemini
+  severity: high
+  description: |
+    Pelco Sarix camera default login credentials (admin/admin) were discovered.
+  reference:
+    - https://www.pelco.com/
+  classification:
+    cwe-id: CWE-798
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: pelco
+    product: sarix
+    runzero-match: asset["hw"] matches "(i)Pelco Sarix"
+  tags: pelco,sarix,default-login
+
+http:
+  - raw:
+      - |
+        POST /login/login.html HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/x-www-form-urlencoded
+
+        username={{username}}&password={{password}}
+
+    attack: pitchfork
+    payloads:
+      username:
+        - admin
+      password:
+        - admin
+
+    stop-at-first-match: true
+    # Do not follow redirects automatically, as we want to inspect the Location header.
+    host-redirects: false
+
+    matchers-condition: and
+    matchers:
+      # A 302 redirect is the most likely indicator of a successful login submission.
+      - type: status
+        status:
+          - 302
+
+      # The redirect location should be to the post-login page.
+      - type: word
+        part: header
+        words:
+          - "Location: /index_register.html"
+          - "Location: /index.html"
+        condition: or
+
+      # A session cookie is usually set upon successful login.
+      - type: word
+        part: header
+        words:
+          - "Set-Cookie:"
