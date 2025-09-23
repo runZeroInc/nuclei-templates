@@ -8,5 +8,5 @@ info:
 workflows:
   - template: http/exposed-panels/phoenix-contact-charx-panel.yaml
     subtemplates:
-      - tags: phoenix-contact-charx
+      - tags: phoenix-contact
 

@@ -2,7 +2,7 @@ id: springboot-health
 
 info:
   name: Spring Boot Health Actuator Panel - Detect
-  author: pussycat0x
+  author: pussycat0x,TheZakMan
   severity: info
   description: Spring Boot Health Actuator panel was detected.
   classification:
@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 2
+    verified: true
   tags: springboot,exposure,misconfig
 
 http:
@@ -23,15 +24,24 @@ http:
 
     matchers-condition: and
     matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200"
+          - 'contains_all(body, "\"status\"", "\"UP\"")'
+          - "contains_any(tolower(content_type), 'application/json', 'application/vnd.spring-boot')"
+        condition: and
+
       - type: word
         part: body
         words:
-          - '"status"'
+          - '"components"'
           - '"diskSpace"'
+          - '"mongo"'
           - '"jms"'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+          - '"ping"'
+          - '"db"'
+          - '"redis"'
+          - '"livenessState"'
+          - '"readinessState"'
+        condition: or
 
