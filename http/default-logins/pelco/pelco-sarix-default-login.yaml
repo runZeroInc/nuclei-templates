@@ -35,8 +35,7 @@ http:
         - admin
 
     stop-at-first-match: true
-    # Do not follow redirects automatically, as we want to inspect the Location header.
-    host-redirects: false
+    host-redirects: true
 
     matchers-condition: and
     matchers:
