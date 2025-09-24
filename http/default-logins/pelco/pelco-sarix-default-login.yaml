@@ -2,7 +2,7 @@ id: pelco-sarix-default-login
 
 info:
   name: Pelco Sarix - Default Login
-  author: Gemini
+  author: tdiderich
   severity: high
   description: |
     Pelco Sarix camera default login credentials (admin/admin) were discovered.
@@ -44,17 +44,13 @@ http:
       - type: status
         status:
           - 302
+          - 200
+        condition: or
 
       # The redirect location should be to the post-login page.
       - type: word
         part: header
         words:
-          - "Location: /index_register.html"
-          - "Location: /index.html"
+          - "/index_register.html"
+          - "/index.html"
         condition: or
-
-      # A session cookie is usually set upon successful login.
-      - type: word
-        part: header
-        words:
-          - "Set-Cookie:"
