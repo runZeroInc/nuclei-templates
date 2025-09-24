@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.phoenixcontact.com/en-us/products/ac-charging-controllers
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Phoenix Contact - CHARX"})
     verified: true
     max-request: 1
     shodan-query: title:"Phoenix Contact - CHARX"
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

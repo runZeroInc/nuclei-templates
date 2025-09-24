@@ -7,6 +7,7 @@ info:
   description: |
     Multiple vulnerabilities exist in Phoenix Contact CHARX SEC-3XXX AC Controller versions prior to 1.7.3. Successful exploitation may allow attackers to bypass authentication, disclose sensitive information, or execute arbitrary code.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Phoenix Contact - CHARX"})
     verified: true
     max-request: 1
     shodan-query: title:"Phoenix Contact - CHARX"
