@@ -8,6 +8,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"Canon iR-ADV"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Canon iR-ADV"})
   tags: canon,panel,login,detect
 
 http:
