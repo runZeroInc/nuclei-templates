@@ -21,11 +21,9 @@ info:
 http:
   - raw:
       - |
-        POST /login/login.html HTTP/1.1
+        GET /cgi-bin/get? HTTP/1.1
         Host: {{Hostname}}
-        Content-Type: application/x-www-form-urlencoded
-
-        username={{username}}&password={{password}}
+        Authorization: Basic {{base64(username + ":" + password)}}
 
     attack: pitchfork
     payloads:
@@ -39,17 +37,11 @@ http:
 
     matchers-condition: and
     matchers:
-      # A 302 redirect is the most likely indicator of a successful login submission.
       - type: status
         status:
-          - 302
           - 200
-        condition: or
 
-      # The redirect location should be to the post-login page.
       - type: word
-        part: header
+        part: body
         words:
-          - "/index_register.html"
-          - "/index.html"
-        condition: or
+          - "system.access_level"
