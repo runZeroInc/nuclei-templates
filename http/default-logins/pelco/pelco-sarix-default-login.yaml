@@ -21,7 +21,7 @@ info:
 http:
   - raw:
       - |
-        GET /cgi-bin/get? HTTP/1.1
+        GET /cgi-bin/get?system.access_level HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ":" + password)}}
 
