@@ -7,7 +7,7 @@ info:
   description: |
     Pelco Sarix camera default login credentials (admin/admin) were discovered using Digest Authentication.
   reference:
-    - https://www.pelco.com/
+    - hhttps://support.pelco.com/s/article/Default-passwords-and-usernames-for-Digital-Sentry-DX-Endura-Sarix-and-VideoXpert-components-1538586718306?language=en_US
   classification:
     cwe-id: CWE-798
   metadata:
