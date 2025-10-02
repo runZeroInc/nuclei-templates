@@ -2,7 +2,7 @@ id: pelco-sarix-default-login-combined
 
 info:
   name: Pelco Sarix - Default Login (Basic and Digest)
-  author: tdiderich (modified by Gemini)
+  author: tdiderich
   severity: high
   description: |
     Pelco Sarix camera default login credentials (admin/admin) were discovered.
