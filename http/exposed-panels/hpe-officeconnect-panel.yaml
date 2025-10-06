@@ -7,6 +7,7 @@ info:
   description: |
     The HPE OfficeConnect Switch was a network switch series built for small and medium businesses.It provided reliable connectivity, simple management, and PoE options to support growing networks.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)HPE OfficeConnect"
     verified: true
     max-request: 1
     shodan-query: html:"HPE OfficeConnect"
@@ -34,4 +35,3 @@ http:
         part: body
         regex:
           - 'HPE OfficeConnect Switch ([0-9A-Z a-z+()]+)'
-

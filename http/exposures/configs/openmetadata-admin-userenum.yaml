@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/open-metadata/OpenMetadata
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenMetadata"})
     verified: true
     max-request: 1
     fofa-query: title="OpenMetadata"
@@ -48,4 +49,3 @@ http:
           - '"adminUser: " + ( .adminPrincipals[] | tostring )'
           - '"principalDomain: " + .principalDomain'
           - '"allowedDomains: " + ( .allowedEmailRegistrationDomains[] | tostring )'
-

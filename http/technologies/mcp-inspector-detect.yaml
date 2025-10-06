@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/modelcontextprotocol/inspector
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MCP Inspector"})
     verified: true
     fofa-query: title="MCP Inspector"
   tags: tech,mcp,anthropic
@@ -55,4 +56,3 @@ http:
         part: body
         regex:
           - 'const\s+version\s*=\s*"([0-9]+\.[0-9]+\.[0-9]+)'
-

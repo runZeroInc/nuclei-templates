@@ -7,6 +7,7 @@ info:
   description: |
     Scan2Net Login was detected. This software is used to manage ImageAccess devices.Universities and public institutions often use ImageAccess devices.
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1780061475" || any(each(service["html.titles"]), {# matches "(?i)Scan2Net"})
     verified: true
     max-request: 1
     shodan-query:
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

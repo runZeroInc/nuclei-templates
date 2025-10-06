@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:streampark:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache StreamPark"})
     max-request: 1
     vendor: apache
     product: streampark
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

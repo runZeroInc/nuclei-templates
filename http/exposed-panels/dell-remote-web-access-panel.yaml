@@ -7,6 +7,7 @@ info:
   description: |
     Dell Remote Web Access is a secure web portal that enables remote access to files, applications, and desktops hosted on Dell servers.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dell Remote web"})
     verified: true
     max-request: 1
     fofa-query: title="Dell Remote web"
@@ -25,4 +26,3 @@ http:
           - "status_code == 200"
           - "contains(body, 'Dell Remote Web Access - Remote Web Access')"
         condition: and
-
