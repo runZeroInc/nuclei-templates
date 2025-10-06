@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sangoma:freepbx:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1574423538" || any(each(service["html.titles"]), {# matches "(?i)FreePBX"}) || service["favicon.ico.image.mmh3"] == "-1908328911"
     verified: true
     max-request: 1
     vendor: sangoma
@@ -54,4 +55,3 @@ http:
         group: 1
         regex:
           - 'FreePBX\s+([\d\.]+)\s+'
-

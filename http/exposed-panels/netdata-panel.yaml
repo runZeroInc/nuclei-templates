@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:netdata:netdata:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)netdata dashboard"}) || any(each(service["html.titles"]), {# matches "(?i)Netdata Console"}) || service["http.head.server"] matches "netdata embedded http server"
     max-request: 1
     vendor: netdata
     product: netdata
@@ -64,4 +65,3 @@ http:
         part: body
         regex:
           - '(?i)nodeEnv:\s+"([a-z0-9]+)"'
-
