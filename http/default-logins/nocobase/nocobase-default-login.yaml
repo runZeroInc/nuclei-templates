@@ -14,7 +14,7 @@ info:
     verified: true
     max-request: 2
     zoomeye-query: app="NocoBase"
-	runzero-match: any(each(service["http.bodies"]), {# matches "'NOCOBASE_'"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "'NOCOBASE_'"})
   tags: default-login,nocobase
 variables:
   username: "admin@nocobase.com"
