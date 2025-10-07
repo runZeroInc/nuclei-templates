@@ -2,7 +2,7 @@ id: wazuh-panel
 
 info:
   name: Wazuh Login Panel
-  author: cyllective,daffainfo
+  author: cyllective,daffainfo,idealphase
   severity: info
   description: Wazuh - The Open Source Security Platform
   reference:
@@ -46,5 +46,5 @@ http:
         part: body
         group: 1
         regex:
-          - '&quot;version&quot;:&quot;([0-9.]+)&quot;'
+          - '&quot;(?:version|wazuhVersion)&quot;:&quot;([0-9.]+)&quot;'
 

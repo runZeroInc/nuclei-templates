@@ -2,38 +2,43 @@ id: freepbx-administration-panel
 
 info:
   name: FreePBX Admin Panel - Detect
-  author: tess
+  author: tess,darses
   severity: info
-  description: FreePBX admin panel was detected.
+  description: |
+    FreePBX admin panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sangoma:freepbx:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1574423538" || any(each(service["html.titles"]), {# matches "(?i)FreePBX"}) || service["favicon.ico.image.mmh3"] == "-1908328911"
     verified: true
     max-request: 1
     vendor: sangoma
     product: freepbx
-    shodan-query: http.title:"freepbx administration"
-    fofa-query: title="freepbx administration"
-    google-query: intitle:"freepbx administration"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)freepbx administration"})
+    shodan-query:
+      - http.title:"FreePBX"
+      - http.favicon.hash:-1908328911
+      - http.favicon.hash:1574423538
+    fofa-query:
+      - title="FreePBX"
+      - icon_hash="-1908328911"
+      - icon_hash="1574423538"
   tags: freepbx,panel,sangoma
 
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/admin/config.php#'
+      - '{{BaseURL}}/admin/config.php'
 
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
-          - 'FreePBX Administration'
-          - 'Operator Panel'
-          - 'User Control Panel'
-        condition: and
+          - "<title>FreePBX"
+          - "FreePBX</title>"
+        condition: or
 
       - type: word
         part: header
@@ -44,3 +49,9 @@ http:
         status:
           - 200
 
+    extractors:
+      - type: regex
+        part: body
+        group: 1
+        regex:
+          - 'FreePBX\s+([\d\.]+)\s+'
