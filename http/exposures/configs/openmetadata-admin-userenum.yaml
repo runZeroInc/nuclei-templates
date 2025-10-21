@@ -49,3 +49,4 @@ http:
           - '"adminUser: " + ( .adminPrincipals[] | tostring )'
           - '"principalDomain: " + .principalDomain'
           - '"allowedDomains: " + ( .allowedEmailRegistrationDomains[] | tostring )'
+

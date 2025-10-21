@@ -50,4 +50,4 @@ http:
         group: 1
         regex:
           - '(?i)Login\s+-\s+Oracle\s+Access\s+Management\s+([a-z0-9]+)</title>'
-# digest: 490a004630440220436a29aaae3217728aa239a0b43ab9844d16806285ca7a7cbeb5a3fc88f03bbb02201c8f757d477caab2a5794dfe2d7392c609398908693904090bc7a33bc454b6b4:922c64590222798bb761d5b6d8e72950
+

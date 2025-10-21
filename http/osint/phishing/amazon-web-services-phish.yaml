@@ -33,4 +33,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"amazon.com")'
-# digest: 490a00463044022003c2745d86af7066c68b79c0c02576952e41be49f1b4dd8c4e34660bebf433d202205eac17c18625a6e9430237c1d7ddb6781d84d0c4b4a4da60c312b5a2e46db11e:922c64590222798bb761d5b6d8e72950
+

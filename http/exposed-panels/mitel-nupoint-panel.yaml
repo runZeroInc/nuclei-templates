@@ -35,3 +35,4 @@ http:
           - 'contains(body, "<title>NuPoint Unified Messaging - Login</title>")'
           - "status_code == 200"
         condition: and
+

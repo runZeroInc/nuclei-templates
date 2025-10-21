@@ -67,4 +67,4 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-# digest: 4a0a004730450220563452a174f3f9d64ab9004feb8fc0791d51158fcf03d54e57fbe0f7aba7d5cc022100e0d3230a09b374663b851ad25ae11cf3ea5f887941fb3e9e90e8c06a81aaa5bb:922c64590222798bb761d5b6d8e72950
+
