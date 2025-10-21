@@ -33,4 +33,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"microsoft.com")'
-
+# digest: 490a0046304402205273767421624969c5de5550ab4628fb1e473ca529e5020eaeac5204bec8c5bb02200c5a9786fdb073ae7410a693af12d8ee791dc97a1c7340baa3792ec81e37f3bb:922c64590222798bb761d5b6d8e72950

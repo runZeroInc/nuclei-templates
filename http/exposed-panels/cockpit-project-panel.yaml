@@ -48,4 +48,4 @@ http:
       - type: dsl
         dsl:
           - '"OS: " + os + " | Hostname: " + hostname'
-
+# digest: 490a0046304402207530e3a827f28d2c958315a0ad92a3f038f7af110a8a666ec46ed216a42cac2502201c541a8ab7c4208808babb5acfa8a41f0d742982f6aaf6c8d30f2e17a7cd3c14:922c64590222798bb761d5b6d8e72950

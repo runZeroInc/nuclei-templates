@@ -35,4 +35,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"steampowered.com")'
-
+# digest: 4b0a00483046022100b7e1f0f0282ad84cc21183880e5a072b4b8dc2099d8954fd982ce2ffddecdafd022100afe0b6bc0b9483de20531f180fa10d6c21d20449480d6d67aca73e407260d97a:922c64590222798bb761d5b6d8e72950
