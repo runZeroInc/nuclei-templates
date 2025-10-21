@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.ictbroadcast.com/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-60395993"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-60395993
@@ -26,4 +27,3 @@ http:
           - "status_code == 200"
           - "contains(body, '<title>ICT Broadcast')"
         condition: and
-

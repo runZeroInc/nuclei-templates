@@ -10,6 +10,7 @@ info:
     - https://github.com/thingsboard/thingsboard
     - https://thingsboard.io/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ThingsBoard"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ThingsBoard"
@@ -26,4 +27,3 @@ http:
           - 'status_code == 200'
           - 'contains(to_lower(body), "<title>thingsboard</title>")'
         condition: and
-

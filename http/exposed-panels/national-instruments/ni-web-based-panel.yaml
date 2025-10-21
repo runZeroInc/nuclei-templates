@@ -5,6 +5,7 @@ info:
   author: DhiyaneshDK,matejsmycka
   severity: info
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NI Web-based Configuration & Monitoring"}) || service["favicon.ico.image.mmh3"] == "1192389544"
     verified: true
     max-request: 1
     shodan-query:
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,6 +9,7 @@ info:
   reference:
     - http://github.com/Kong/kong-manager
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kong Manager"})
     max-request: 1
     verified: true
     shodan-query: title:"Kong Manager"
@@ -29,4 +30,3 @@ http:
           - 'contains(content_type, "text/html")'
           - 'status_code == 200'
         condition: and
-

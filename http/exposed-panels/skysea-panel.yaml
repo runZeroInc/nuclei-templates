@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.skyseaclientview.net/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "385597939"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:385597939
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

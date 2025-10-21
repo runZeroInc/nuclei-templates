@@ -8,6 +8,7 @@ info:
   reference:
     - https://www.commvault.com/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-542502280"
     verified: true
     shodan-query: http.favicon.hash:-542502280
   tags: panel,commvault,backup,login,detect
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

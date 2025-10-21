@@ -9,6 +9,7 @@ info:
   reference:
     - https://sieportal.siemens.com/en-ca/products-services/10087338?tree=CatalogTree
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Logon - Telecontrol Server Basic"})
     verified: true
     max-request: 1
     vendor: siemens
@@ -33,4 +34,3 @@ http:
           - 'contains_all(body, "Telecontrol Server Basic","login")'
           - "status_code == 200"
         condition: and
-
