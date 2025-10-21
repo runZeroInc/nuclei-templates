@@ -9,6 +9,7 @@ info:
   reference:
     - https://wiki.bicomsystems.com/UADs/Mitel_6930
   metadata:
+    runzero-match: service["http.head.server"] matches "Aragorn Mitel"
     verified: true
     max-request: 1
     shodan-query: "Server: Aragorn Mitel"
@@ -36,4 +37,3 @@ http:
       - type: dsl
         dsl:
           - '"Username: " + username + " Password: " + password'
-

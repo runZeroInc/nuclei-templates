@@ -7,6 +7,7 @@ info:
   description: |
     Crestron AirMedia 2.0 devices contain default credentials (admin:admin) that allow unauthorized administrative access to device configuration and control.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)airmedia"
     verified: true
     max-request: 3
     product: crestron-device
@@ -43,4 +44,3 @@ http:
           - 'contains(body_1, "Device Administration")'
           - 'contains_all(tolower(body_3), "/webview", "crestron")'
         condition: and
-

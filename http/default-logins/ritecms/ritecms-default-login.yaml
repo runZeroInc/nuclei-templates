@@ -9,6 +9,7 @@ info:
   reference:
     - https://ritecms.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ritecms"})
     verified: true
     max-request: 1
     fofa-query: title="ritecms"
@@ -38,4 +39,3 @@ http:
           - "status_code == 302"
           - "contains_all(set_cookie, 'PHPSESSID','admin=true')"
         condition: and
-
