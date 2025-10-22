@@ -11,6 +11,7 @@ info:
   reference:
     - https://bdu.fstec.ru/vul/2024-04635
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Р7-Офис"})
     verified: true
     max-request: 1
     shodan-query: title:"Р7-Офис"
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 500
-
