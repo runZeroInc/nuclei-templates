@@ -2,21 +2,37 @@ id: hashicorp-vault-detect
 
 info:
   name: HashiCorp Vault Detect
-  author: Adam Crosser
+  author: Adam Crosser,Hamza Sahin
   severity: info
   description: Detects HashiCorp Vault
+  reference: https://developer.hashicorp.com/vault
   metadata:
-    max-request: 1
+    max-request: 2
   tags: tech,hashicorp
 
 http:
   - method: GET
     path:
+      - "{{BaseURL}}/v1/sys/seal-status"
       - "{{BaseURL}}/ui/vault/auth"
 
+    stop-at-first-match: true
+    matchers-condition: or
     matchers:
       - type: word
         part: body
         words:
           - '<meta name="vault/config/environment"'
+
+      - type: dsl
+        dsl:
+          - 'status_code == 200'
+          - 'contains(content_type, "application/json")'
+          - 'contains_all(body, "sealed\":", "cluster_id\":", "recovery_seal_type")'
+        condition: and
+
+    extractors:
+      - type: json
+        json:
+          - '"Version: "+ .version , "Cluster Name: "+ .cluster_name'
 

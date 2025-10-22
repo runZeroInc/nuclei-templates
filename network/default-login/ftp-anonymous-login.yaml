@@ -10,6 +10,7 @@ info:
     - https://tools.ietf.org/html/rfc2577
   metadata:
     max-request: 1
+    verified: true
   tags: network,ftp,default-login,tcp
 
 tcp:
@@ -32,6 +33,7 @@ tcp:
           - "Logged in anonymously"
           - "Anonymous user logged"
           - "Login successful"
+          - "Guest login ok"
         condition: or
 
       - type: word

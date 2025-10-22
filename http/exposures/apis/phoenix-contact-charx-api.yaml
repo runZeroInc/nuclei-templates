@@ -43,3 +43,4 @@ http:
           - '"Hardware Name: "+ .system.info._v_.hardware_name'
           - '"Device Type: "+ .charging_controllers | .[].info._v_.device_type'
           - '"Device UID: "+ .charging_controllers | .[].info._v_.device_uid'
+
