@@ -45,4 +45,4 @@ http:
         group: 2
         regex:
           - '(Vers&atilde;o|Version|Versão)\b.*\s(\d.*\d)'
-# digest: 490a0046304402205bef112a642c5544749ab96fb1fdd034a9c6a103c68aab3467202183af9a816e0220737458451907636c523024ec2ed6feae886c06f4cb2c24c3dc929cbb8bcc658a:922c64590222798bb761d5b6d8e72950
+

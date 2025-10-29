@@ -41,4 +41,4 @@ http:
         regex:
           - 'src="\/javax\.faces\.resource\/texteditor\/texteditor\.js\.xhtml\?ln=primefaces&amp;v=(.+)"><\/script>'
           - 'src="\/javax\.faces\.resource\/components\.js\.xhtml\?ln=primefaces&amp;v=(.+)"><\/script>'
-# digest: 4a0a0047304502210088c7dfa29c9533b439b7bdccf78921e9e65baf58255d9713f8e6bf3bf8fbc536022074a49d0e9e98e24f468812ee7383367e9b3c801d7322ff35a4c3fd951ae50dee:922c64590222798bb761d5b6d8e72950
+

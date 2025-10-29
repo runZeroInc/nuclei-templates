@@ -38,4 +38,4 @@ http:
         group: 1
         regex:
           - "nsqadmin/v([0-9.]+)"
-# digest: 490a00463044022010fe0abada44296601eff856073ed634b9eebde08a41deb3b5f54f70eab1aebd02202576e5159f9c6eb5fa513ebff56a5fc475d6e091bc5fb3b6fddcac22839e6ca2:922c64590222798bb761d5b6d8e72950
+

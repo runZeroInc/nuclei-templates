@@ -32,4 +32,4 @@ tcp:
       - type: word
         words:
           - "device::http://ro.product.name =starltexx;ro.product.model=SM-G960F"
-# digest: 4a0a004730450220115ef0c7e3b4f75de5d53ef53358284735c57bd5935caa87deca2f5a334483520221009c1753e249d6e63b4508b201ff2eea40fb9eaff71b0908999e6c2fc262a74d0b:922c64590222798bb761d5b6d8e72950
+

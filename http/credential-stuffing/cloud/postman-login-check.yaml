@@ -51,4 +51,4 @@ http:
           - "contains(to_lower(body), 'identity.postman.co/continue')"
           - "status_code==200"
         condition: and
-# digest: 490a004630440220691ace07791fce89c3448fcd1aba6fe68bbbbfa5611951514e71b8a08f96daa802200b5c9e06cc1a3653d566a8733a167e60e7f134ec44714b08f03c9fa51fc16ac6:922c64590222798bb761d5b6d8e72950
+

@@ -42,4 +42,4 @@ http:
         group: 1
         regex:
           - '(?i).*<meta.name="generator".content="Open.Journal.Systems.([\d.|\d]+)'
-# digest: 490a00463044022070d9dd638d96eb28006d84a502f4a23ea738bd8b6b1ab8d6841fb79520c7506e02206a0c91a3121e412db14b9e864e46960faf7b9f45eb2ab79ac9cf07832e41cf4b:922c64590222798bb761d5b6d8e72950
+

@@ -37,4 +37,4 @@ http:
           - "ofbiz-pagination-template"
           - "<span>Powered by OFBiz</span>"
         condition: and
-# digest: 4a0a004730450221008fba84db769e6c0518f9668f9dca1adf4c6a25d6a8b499c0351c21747221b64102202b5d4d4f85ec14be61e4c0eeb8334e345074c2bd88f1f0711d0e47dee1881217:922c64590222798bb761d5b6d8e72950
+

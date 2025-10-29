@@ -50,4 +50,4 @@ http:
         group: 1
         regex:
           - '"BUILD_NUMBER":"([0-9]+)"'
-# digest: 4a0a00473045022100cc0d1ca010763305c9948dcc2bc73fda4d4ce7c27a3661da6a4ec65c6523f7a60220153796f869dfec5c778428e4d9e3fb41bd6acfa352580da98641092734fe7df8:922c64590222798bb761d5b6d8e72950
+

@@ -51,4 +51,4 @@ http:
         group: 1
         regex:
           - 'favicon\.ico\?_=([0-9.]+)'
-# digest: 4a0a0047304502205dd9acb2c6cb51cb7d7b7ddf19ac947fdbae3ea918c06c41674020372ea75695022100cf8efce80dd2498f321ff4f72e9858c464b362ec311e04b1ea82e40011f7311a:922c64590222798bb761d5b6d8e72950
+

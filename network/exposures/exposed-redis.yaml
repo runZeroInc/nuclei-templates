@@ -34,4 +34,4 @@ tcp:
         negative: true
         words:
           - "redis_mode:sentinel"
-# digest: 490a0046304402205117329cd2548b50010b2f470d99168fc0d5d6cffa361cab1ac56df4e5c864bd02201554237c2521e4ec9209b947f1ccc510af0de65a90f8717ee6c01bc0082caabe:922c64590222798bb761d5b6d8e72950
+

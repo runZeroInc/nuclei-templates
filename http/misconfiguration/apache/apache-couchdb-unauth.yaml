@@ -27,4 +27,4 @@ http:
           - 'status_code == 200'
           - 'contains(body,"httpd_design_handlers") && contains(body,"external_manager")'
         condition: and
-# digest: 4a0a00473045022007e0ef247d8c4b39c436e3f075855dc0a1de479ca0417e97d368bced20dc85b4022100e3355fb5b58c6022695f28a05a8fe6d9c38ec8ac553e16e94908a9308d147c4c:922c64590222798bb761d5b6d8e72950
+

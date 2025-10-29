@@ -40,4 +40,4 @@ http:
         group: 1
         regex:
           - '(?i)"current":\s*"([0-9a-z.-]+)"'
-# digest: 490a0046304402203fb571a1479a7b744991e2916d69483d7d161e4a8417a9c944f33237dc6ebc7c022014e9852cab98cef6c2577bf06e6e9edf9df39ac00454a564e9a45cdd975b1001:922c64590222798bb761d5b6d8e72950
+

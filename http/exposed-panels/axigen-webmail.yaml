@@ -38,4 +38,4 @@ http:
         part: body
         regex:
           - '<script type="text\/javascript" src="js\/lib_login\.js\?v=(.+)"><\/script>'
-# digest: 4b0a00483046022100dde822a6eacad6121ec14b8f960d6e7c9684578f1b18d06a3eefe9ec3af725a3022100e0840a04592dcd23df358a4e4a4a5942fdb9773de320ca4a54fb0437914ff058:922c64590222798bb761d5b6d8e72950
+

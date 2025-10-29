@@ -35,4 +35,4 @@ http:
         part: body
         regex:
           - "(WebSphere Liberty).*?([a-zA-Z0-9.-]+)"
-# digest: 4a0a0047304502204cf7ce6990240be4527745b18b9200c35834c96763fb098ff58661bb16cb34a802210094cc60338911be1406b6a6f124ae421fc8e30e976ad5ce8233b8c2ee7245bd7c:922c64590222798bb761d5b6d8e72950
+

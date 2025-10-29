@@ -32,4 +32,4 @@ http:
         name: "myvuehelp-favicon"
         dsl:
           - "status_code==200 && (\"1c4b2c10acccc48852d12eddadaf7944\" == md5(body))"
-# digest: 4a0a004730450220298cf36861cd11e8d4fb577f9505b6d829abc06f81d720cfbe876db890cd5ad0022100c20fed82064d8a5d11a813899a6bcab87eebdaa3ba252fbdbf5e29ad3a50bb61:922c64590222798bb761d5b6d8e72950
+

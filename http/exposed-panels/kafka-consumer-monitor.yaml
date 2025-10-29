@@ -37,4 +37,4 @@ http:
       - type: word
         words:
           - '<title>Kafka Consumer Offset Monitor</title>'
-# digest: 4a0a00473045022100a8767dc3d51986496894e1e82627ece7edbe124a41b7a65767884797e709766502203ef0d97f10c36fa8c2ff2a13131481cd5e278d5956f7e1198f1b56d9d6d76668:922c64590222798bb761d5b6d8e72950
+

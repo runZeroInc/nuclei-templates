@@ -45,4 +45,4 @@ http:
         group: 1
         regex:
           - 'Version&nbsp;([0-9\.]+)'
-# digest: 4a0a0047304502210093fe9c5b2feba1b58fd973d8de99388e2f8faa136cdaeebcccb7f94b6daa431802207482a33a88bb0359b9a1e47dbb9e7364afa4348d16d90e3db97c62c19e05c45d:922c64590222798bb761d5b6d8e72950
+

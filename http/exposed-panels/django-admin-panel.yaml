@@ -36,4 +36,4 @@ http:
         group: 1
         regex:
           - '(?i)django-admin-interface\s+([0-9.]+)'
-# digest: 4a0a00473045022100cbbf775de6d2f254dd798aa568c5e01657923202fdf8e05f3b1ed9964cf7233b022011be4490a8af21b8a772ea3dcd59bd5a7d769012db6a1b7cca79e8ce85d1a7cc:922c64590222798bb761d5b6d8e72950
+

@@ -36,4 +36,4 @@ http:
         group: 1
         regex:
           - '<span class="tag is-light is-lowercase">(.+)<\/span>'
-# digest: 4a0a00473045022063bd8a39521ccdc4e581c59a5e572b98fc1b7fa0f50d692f35233c63e75ad534022100cfece2baf162a902c8d1907656fe71482d4309e42090462cd8b175fe6bda32f7:922c64590222798bb761d5b6d8e72950
+

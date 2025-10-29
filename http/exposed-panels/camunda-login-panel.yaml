@@ -36,4 +36,4 @@ http:
         group: 1
         regex:
           - '<footer cam-widget-footer version="v([0-9.]+)"'
-# digest: 490a0046304402204b50963c1515455735c9391cacac250fda780cd778020cd3e61d77a7fcb7d7890220222b69d6a497f5417abdedc5ccac4647f2676d6afc8d9a81278199145df2dbd0:922c64590222798bb761d5b6d8e72950
+

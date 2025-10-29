@@ -43,4 +43,4 @@ http:
         group: 1
         regex:
           - '"admin_version":"(.*?)"'
-# digest: 490a0046304402202ff41bf87dfa3e4ec56b99bde513a69eb04a4c8328b820351a804a6416ae9268022044be97f55b42d5bf7f5d4d6db0c5d84d50332d4c9a74cfb6ac86a3791a87f67c:922c64590222798bb761d5b6d8e72950
+

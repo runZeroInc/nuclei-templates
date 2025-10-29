@@ -62,4 +62,4 @@ http:
         regex:
           - '_csrf" value="(.*?)"/>'
         internal: true
-# digest: 490a0046304402203e5e3fcc4f80be05528dcdebe17165eb461234aa4760d9eb7cf2c00a1c8df6fd02204cdfcb7bdcd8479c385101a3e16244b6f14f66e9fb9154fc9cfa7579e482bd8e:922c64590222798bb761d5b6d8e72950
+

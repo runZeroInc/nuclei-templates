@@ -36,4 +36,4 @@ http:
           - 'contains(body,"Netman 204")'
           - 'status_code == 200'
         condition: and
-# digest: 4b0a00483046022100a1cb4d037db533e3c9a117bf5695c616ce0ab5b3c310c8797b9bbecc8eea1f7f022100c1710898887275bfe1ed2eff1f6b1129cc04389b27214470c3e2443340405d2c:922c64590222798bb761d5b6d8e72950
+

@@ -79,4 +79,4 @@ http:
           - "\\b62[0-9]{14,17}\\b" # UnionPay
           - "\\b3(?:0[0-5]|[68][0-9])[0-9]{11}\\b" # Diners Club
           - "\\b(?:2131|1800|35\\d{3})\\d{11}\\b" # JCB
-# digest: 4a0a0047304502207e6b017d9c0407034fd92cc7510b1adda7256554cb2487bc0cb1d305abbf043a022100ec106faf4632bba13fdca55ecbbb1c6e80aba1b329b45384f7a774dc146f7ede:922c64590222798bb761d5b6d8e72950
+

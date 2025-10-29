@@ -24,4 +24,4 @@ http:
         part: body
         regex:
           - thingsboard\.cloud/api/v1/([a-z0-9]{20})
-# digest: 4a0a00473045022100a3292ae36e9647f06dcbf11b918262f5c704a3c9157c1dab6db353a39813962202203f4a1cfe8deea194444ad0176e6043b3b50d251f4eaf7273d4e317a47f79d824:922c64590222798bb761d5b6d8e72950
+

@@ -39,4 +39,4 @@ http:
         group: 1
         regex:
           - '(?i)<meta\s+name=.?generator.?\s+content=.?([a-z0-9\s.]+).?'
-# digest: 4a0a00473045022100f628cfd1117755e21e89f353635ec9e98c0fa2b49963c2d1a6c3315789d7bd9c02203d330ab9b4b180099adc53f754f2893f2d1ca81870c3672efd04bf895e71691d:922c64590222798bb761d5b6d8e72950
+

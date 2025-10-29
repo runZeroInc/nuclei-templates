@@ -38,4 +38,4 @@ http:
           - contains_all(body, "User Management", "/admin/discoverall", "Logged in as")
           - status_code == 200
         condition: and
-# digest: 4b0a00483046022100b64a904afd89d397c2e5097fb5badb8baacf657be43d4af387811067089a207d0221009b58975906d01d2c92e652d3f3cc61d7ade0cbc704c22e0d1f6fc2c0304dfc07:922c64590222798bb761d5b6d8e72950
+

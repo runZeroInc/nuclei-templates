@@ -63,4 +63,4 @@ http:
         group: 1
         regex:
           - 'meta name="csrf\-token" content="([A-Za-z0-9]+)">'
-# digest: 490a004630440220375a14905eae071a9efb6a1807d7ecc01b02edc26d0991e4e1b7b8ede5c2da24022037854dd4dd85077437bd121f87aca2ec8206f1e8effd951fe7d0cdc2928ca716:922c64590222798bb761d5b6d8e72950
+

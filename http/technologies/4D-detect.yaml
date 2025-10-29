@@ -49,4 +49,4 @@ http:
         group: 1
         regex:
           - 'Server:\s+4D(?:_V[0-9]+)?/([0-9.]+)'
-# digest: 4b0a004830460221008face8fc2fda1243a1a124c059fde8411dff2138cb8ed98edad5263e99af132d02210098e8c0210937ea071043bb80642a1c0c97261a5e1243f74f9ddd1250cd8c9a27:922c64590222798bb761d5b6d8e72950
+

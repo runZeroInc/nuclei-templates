@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - '"productVersion":\s*"([0-9.]+)"'
-# digest: 4a0a00473045022100e45cfe0e3dedfa61c7c788e9d2ed67a8fdb4f1003a8d3fd5bb74a48287db66bf02201f2f8cbd29f128c28e17b8db64aba59dcfb4ef784ee6e1beefe76f918702cae0:922c64590222798bb761d5b6d8e72950
+

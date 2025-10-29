@@ -25,4 +25,4 @@ http:
         words:
           - 'Basic realm="SWAT"'
         part: header
-# digest: 4a0a0047304502202396cbbdf09fd59504f5a9554c8677c027a152fcb0c59e9f94c2f3ab43a5a8da0221008c5eb91153244d865b6105bd4f384b5c8f61cc277981cebf9ddb5156a474aaed:922c64590222798bb761d5b6d8e72950
+

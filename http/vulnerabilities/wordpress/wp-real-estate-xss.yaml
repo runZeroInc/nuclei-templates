@@ -34,4 +34,4 @@ http:
           - 'contains(body, "<img src=x onerror=prompt(document.domain)>")'
           - 'contains(body, "/wp-content/themes/realestate-7/")'
         condition: and
-# digest: 490a0046304402200e13832f56a5ad7c5f60bc8b1aa64cb3254ad3fd2b70982fbce6815d4677991102201bd13205f6f5f4f05c9594be9ce8d5dac3d90fc793b85c9608ba0fe4e07d5299:922c64590222798bb761d5b6d8e72950
+

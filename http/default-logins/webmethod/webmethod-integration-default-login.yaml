@@ -66,4 +66,4 @@ http:
           - Invalid credentials
         negative: true
         condition: and
-# digest: 4a0a0047304502203ab41bc9416a03fe26c84c2bb3cd38f42044bc7ee11b86d8d9001fd0cbef4b2b022100d02896dda64601687f8e802a2fda4f74ee4e8993103d7f47bd1c0034e81bf58b:922c64590222798bb761d5b6d8e72950
+

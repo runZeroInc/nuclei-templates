@@ -38,4 +38,4 @@ http:
           - "<title>Nessus</title>"
           - "window.location = '/unsupported6.html';"
         condition: and
-# digest: 490a0046304402201c297c91180189cb5bcc7d5c182eb1dde6d69e4ea3ac9ebbee663a6a088b3cb2022005e6735f508f805e470f8d1666bb3554d0cec253beb43bbb5489f4b386833bf8:922c64590222798bb761d5b6d8e72950
+

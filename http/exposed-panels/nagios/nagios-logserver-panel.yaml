@@ -24,4 +24,4 @@ http:
           - "Nagios Log Server"
           - "/nagioslogserver/"
         condition: or
-# digest: 4b0a00483046022100f57bdd872a3d734b27df9d1f40395b8e7ee8b4183ad83d6ec5d66ac79652fba2022100ac53e655f0264b07ce41caa3b32272f3c0be8cebbbeb32d5968bae66986dfa44:922c64590222798bb761d5b6d8e72950
+

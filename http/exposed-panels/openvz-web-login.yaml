@@ -28,4 +28,4 @@ http:
           - 'status_code == 200'
           - 'contains(body, "Login - OpenVZ Web Panel")'
         condition: and
-# digest: 4b0a00483046022100bd353ddb7abd6f683623b83eb8775cb05357fb8313bd2e5f7cefc02b565975bc02210092afddff311ccb4ee796700a8e03111d8850f5694ce2a9d6348608fac353d217:922c64590222798bb761d5b6d8e72950
+

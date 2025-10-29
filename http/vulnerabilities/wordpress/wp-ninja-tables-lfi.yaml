@@ -58,4 +58,4 @@ http:
           - status_code == 200
           - contains(body, "PRETTY_NAME=")
         condition: and
-# digest: 4a0a00473045022075207e335a87a36192c71c057e0bb2f056b39b92685ca12302abf3ffff51dbbe022100a96f0f3ba0984e9312e90c8cb8bb102024d0d5a1375ffb6c809c6bbc0b171678:922c64590222798bb761d5b6d8e72950
+

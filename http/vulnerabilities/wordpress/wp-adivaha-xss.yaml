@@ -25,4 +25,4 @@ http:
           - 'contains(content_type, "text/html")'
           - 'contains_all(body, "<script>alert(document.domain)</script>", "travelpayout_flight")'
         condition: and
-# digest: 4a0a004730450220112d570e0e198244701649fbb013766195d5e2c483f7ab3071c5271ef8d80003022100c7101feefbea4d8980ab923049be8d781ba873aa7897806bb84a27bab788fb49:922c64590222798bb761d5b6d8e72950
+

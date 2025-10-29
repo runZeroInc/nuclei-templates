@@ -41,4 +41,4 @@ http:
           - contains(body, 'bloofoxCMS Admincenter')
           - status_code == 200
         condition: and
-# digest: 490a0046304402203b4335c4837d3196de2c8b4097e87c046ebe31d4d618b6c160f3ef220025515602203e85f611646bfd728b450a036d0cf4c25e40b363e1db74769e0563a8d6a6e5e6:922c64590222798bb761d5b6d8e72950
+

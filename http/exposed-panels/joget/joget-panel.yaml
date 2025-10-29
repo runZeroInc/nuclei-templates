@@ -35,4 +35,4 @@ http:
         group: 2
         regex:
           - '<li>(Version:[ \n\t]*([^<]+)[ \n\t]*)</li>'
-# digest: 4a0a0047304502203b70c280ff7f6cea13408195459f567f2dc5e7e008cfdd594b992541c3d488a0022100c76e2bd1404ddad998d95495e0369726e02f4578458629eef7bcc1fa14d14565:922c64590222798bb761d5b6d8e72950
+

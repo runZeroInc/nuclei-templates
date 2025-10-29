@@ -120,4 +120,4 @@ http:
         dsl:
           - '"USERNAME: "+ username'
           - '"PASSWORD: "+ password'
-# digest: 4a0a0047304502202a0708b9d61a2e5ddeed824dfd0a1697c2f0109c280a088c4fbaaf8904f73a16022100864455e433b78d545b39c60c3b970be7d9a17710221ca3af1cedcc3bb7462860:922c64590222798bb761d5b6d8e72950
+

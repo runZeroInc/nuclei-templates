@@ -36,4 +36,4 @@ http:
         group: 1
         regex:
           - '\- Admin Interface \- ([0-9. (a-z)]+)<\/title>'
-# digest: 4a0a004730450221008ecf7bc31cd26f740fdef45447b6fc59e994deeb73997ea251a87e2aba4a5163022015c713c8235fca31f7246fa7ec7d8cfcd13f5b7e43a05dc126d37d87640770bc:922c64590222798bb761d5b6d8e72950
+
