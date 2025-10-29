@@ -9,9 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"/css/osasiasp.css"
-    runzero-match: service["http.body"] matches "(?i)/css/osasiasp\\.css"
-  tags: osasi,panel,login,detect
+  tags: osasi,panel,login,detect,discovery
 
 http:
   - method: GET

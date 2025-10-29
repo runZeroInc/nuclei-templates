@@ -12,15 +12,8 @@ info:
     max-request: 1
     vendor: analogic
     product: poste.io
-    shodan-query:
-      - http.title:"administration login" html:"poste<span"
-      - http.html:"initial server configuration"
-    fofa-query:
-      - body="initial server configuration"
-      - title="administration login" html:"poste<span"
-    google-query: intitle:"administration login" html:"poste<span"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Administration login"})
-  tags: panel,poste,login,detect
+    shodan-query: title:"Administration login" html:"poste<span"
+  tags: panel,poste,login,detect,discovery
 
 http:
   - method: GET

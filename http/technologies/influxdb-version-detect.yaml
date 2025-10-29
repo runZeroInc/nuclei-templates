@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: influxdata
-    product: influxdb
-    shodan-query: "X-Influxdb-"
-  tags: tech,influxdb,api
+  tags: tech,influxdb,api,discovery
 
 http:
   - method: GET

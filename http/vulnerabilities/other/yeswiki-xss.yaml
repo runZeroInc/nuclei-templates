@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: yeswiki
-    product: yeswiki
-    shodan-query: http.html:"yeswiki"
-  tags: yeswiki,huntr,xss
+  tags: yeswiki,huntr,xss,vuln
 
 http:
   - method: GET

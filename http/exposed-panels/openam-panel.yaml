@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"openam"
     fofa-query: title="openam"
     google-query: intitle:"openam"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openam"})
-  tags: panel,openam,opensso,login,forgerock
+  tags: panel,openam,opensso,login,forgerock,discovery
 
 http:
   - method: GET

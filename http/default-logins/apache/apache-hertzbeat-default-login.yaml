@@ -12,8 +12,8 @@ info:
     verified: true
     max-request: 4
     shodan-query: title:"HertzBeat"
-    runzero-match: any(each(service["html.titles"]), {# matches "HertzBeat"})
-  tags: apache,hertzbeat,default-login
+  tags: apache,hertzbeat,default-login,vuln
+
 variables:
   password: hertzbeat
 

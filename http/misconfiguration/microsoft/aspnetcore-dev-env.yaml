@@ -18,7 +18,8 @@ info:
     vendor: microsoft
     product: asp.net-core
     shodan-query: html:"ASPNETCORE_ENVIRONMENT"
-  tags: misconfig,aspnetcore,exposure
+    verified: true
+  tags: misconfig,aspnetcore,exposure,vuln
 
 http:
   - method: GET

@@ -16,8 +16,7 @@ info:
     product: vibe
     shodan-query: http.html:"micro focus vibe"
     fofa-query: body="micro focus vibe"
-    runzero-match: service["http.body"] matches "(?i)micro focus vibe"
-  tags: panel,microfocus,vibe
+  tags: panel,microfocus,vibe,discovery
 
 http:
   - method: GET

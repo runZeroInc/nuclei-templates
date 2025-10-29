@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: portswigger
-    product: burp_suite
-    shodan-query: "Server: Burp Collaborator"
-  tags: burp,tech,detect
+  tags: burp,tech,detect,discovery
 
 http:
   - method: GET

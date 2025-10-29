@@ -9,8 +9,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:988422585
-    runzero-match: service["favicon.ico.image.mmh3"] == "988422585"
-  tags: caprover,default-login,misconfig
+  tags: caprover,default-login,misconfig,vuln
+
 variables:
   password: captain42
 

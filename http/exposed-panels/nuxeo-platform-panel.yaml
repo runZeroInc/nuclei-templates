@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: nuxeo
-    product: nuxeo
-    shodan-query: http.title:"nuxeo platform"
-    fofa-query: title="nuxeo platform"
-    google-query: intitle:"nuxeo platform"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nuxeo Platform"})
-  tags: panel,nuxeo
+  tags: panel,nuxeo,discovery
 
 http:
   - method: GET

@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"vmware vcloud director"
     fofa-query: title="vmware vcloud director"
     google-query: intitle:"vmware vcloud director"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vmware vcloud director"})
-  tags: panel,vmware,vcloud
+  tags: panel,vmware,vcloud,discovery
 
 http:
   - method: GET

@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"login - tableau services manager"
     fofa-query: title="login - tableau services manager"
     google-query: intitle:"login - tableau services manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - tableau services manager"})
-  tags: panel,tableau,tableausoftware
+  tags: panel,tableau,tableausoftware,discovery
 
 http:
   - method: GET

@@ -11,8 +11,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Falcosidekick"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Falcosidekick"})
-  tags: panel,falco,detect,login
+  tags: panel,falco,detect,login,discovery
 
 http:
   - method: GET

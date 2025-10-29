@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"cisco edge 340"
     fofa-query: title="cisco edge 340"
     google-query: intitle:"cisco edge 340"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cisco edge 340"})
-  tags: panel,cisco
+  tags: panel,cisco,discovery
 
 http:
   - method: GET

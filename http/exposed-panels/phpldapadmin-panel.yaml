@@ -11,15 +11,8 @@ info:
     max-request: 3
     vendor: phpldapadmin_project
     product: phpldapadmin
-    shodan-query:
-      - http.title:"phpldapadmin"
-      - http.html:"phpldapadmin"
-    fofa-query:
-      - body="phpldapadmin"
-      - title="phpldapadmin"
-    google-query: intitle:"phpldapadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpLDAPadmin"})
-  tags: php,phpldapadmin,panel,detect
+    shodan-query: title:"phpLDAPadmin"
+  tags: php,phpldapadmin,panel,detect,discovery
 
 http:
   - method: GET

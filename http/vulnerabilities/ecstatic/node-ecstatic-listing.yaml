@@ -13,9 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: ecstatic_project
-    product: ecstatic
-    shodan-query: 'server: "ecstatic"'
-  tags: node,js,listing,ecstatic
+  tags: node,js,listing,ecstatic,vuln
 
 http:
   - method: GET

@@ -12,8 +12,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"SAP NetWeaver Application Server Java"
-    runzero-match: service["http.body"] matches "(?i)SAP NetWeaver Application Server Java"
-  tags: sap,netweaver,backdoor
+    verified: true
+  tags: sap,netweaver,backdoor,vuln
 
 http:
   - method: GET

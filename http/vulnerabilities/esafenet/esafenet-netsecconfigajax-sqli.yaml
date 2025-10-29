@@ -13,11 +13,8 @@ info:
     max-request: 1
     vendor: esafenet
     product: cdg
-    fofa-query:
-      - title="电子文档安全管理系统",body="cdgserver3/"
-      - esafenet
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)电子文档安全管理系统"})
-  tags: esafenet,sqli
+    fofa-query: title="电子文档安全管理系统",body="CDGServer3/"
+  tags: esafenet,sqli,vuln
 
 http:
   - raw:

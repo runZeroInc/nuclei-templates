@@ -13,8 +13,7 @@ info:
     max-request: 1
     shodan-query: title:"NetMizer"
     fofa-query: title="NetMizer 日志管理系统"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NetMizer"})
-  tags: netmizer,exposure,listing
+  tags: netmizer,exposure,listing,vuln
 
 http:
   - method: GET

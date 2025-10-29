@@ -16,8 +16,7 @@ info:
     product: dg3450
     shodan-query: http.html:"phy.htm"
     fofa-query: body="phy.htm"
-    runzero-match: service["http.body"] matches "(?i)phy\\.htm"
-  tags: panel,arris,commscope
+  tags: panel,arris,commscope,discovery
 
 http:
   - method: GET

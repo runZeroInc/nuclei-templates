@@ -21,8 +21,7 @@ info:
       - icon_hash="1854879765"
       - icon_hash="-1275955539"
       - "Set-Cookie: __Host-grv_csrf"
-    runzero-match: service["favicon.ico.image.mmh3"] == "544208100" || service["favicon.ico.image.mmh3"] == "1854879765" || service["favicon.ico.image.mmh3"] == "-1275955539"
-  tags: panel,teleport,login,oss
+  tags: panel,teleport,login,oss,discovery
 
 http:
   - method: GET

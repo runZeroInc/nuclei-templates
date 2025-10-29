@@ -10,7 +10,7 @@ info:
     runzero-match: service["http.body"] matches "(?i)www\\.teccom-eu\\.net/wsdl"
     verified: true
     shodan-query: html:"www.teccom-eu.net/wsdl"
-  tags: tech,teccom,tecconnect,eol,wsdl
+  tags: tech,teccom,tecconnect,eol,wsdl,discovery
 
 http:
   - method: GET

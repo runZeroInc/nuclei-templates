@@ -13,18 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: wampserver
-    product: wampserver
-    shodan-query:
-      - http.title:"wampserver homepage"
-      - http.title:"accueil wampserver"
-    fofa-query:
-      - title="accueil wampserver"
-      - title="wampserver homepage"
-    google-query:
-      - intitle:"accueil wampserver"
-      - intitle:"wampserver homepage"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WAMPSERVER Homepage"})
-  tags: panel,wampserver
+  tags: panel,wampserver,discovery
 
 http:
   - method: GET

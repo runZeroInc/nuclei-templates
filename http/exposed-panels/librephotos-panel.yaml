@@ -13,11 +13,8 @@ info:
     max-request: 1
     vendor: librephotos_project
     product: librephotos
-    shodan-query: http.title:"librephotos"
-    fofa-query: title="librephotos"
-    google-query: intitle:"librephotos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LibrePhotos"})
-  tags: panel,librephotos,detect,login
+    shodan-query: title:"LibrePhotos"
+  tags: panel,librephotos,detect,login,discovery
 
 http:
   - method: GET

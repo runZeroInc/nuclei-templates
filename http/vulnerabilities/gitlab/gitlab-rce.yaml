@@ -19,9 +19,7 @@ info:
   metadata:
     max-request: 2
     vendor: gitlab
-    product: gitlab
-    shodan-query: http.title:"GitLab"
-  tags: oast,intrusive,hackerone,cve,cve2021,gitlab,rce,kev
+  tags: oast,intrusive,hackerone,cve,cve2021,gitlab,rce,kev,vuln
 
 http:
   - raw:

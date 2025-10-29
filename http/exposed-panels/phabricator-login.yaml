@@ -15,8 +15,7 @@ info:
     product: phabricator
     shodan-query: http.html:"phabricator-standard-page"
     fofa-query: body="phabricator-standard-page"
-    runzero-match: service["http.body"] matches "(?i)phabricator-standard-page"
-  tags: panel,phabricator,phacility
+  tags: panel,phabricator,phacility,discovery
 
 http:
   - method: GET

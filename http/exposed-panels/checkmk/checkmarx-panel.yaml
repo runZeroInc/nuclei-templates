@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 3
     shodan-query: http.html:"CxSASTManagerUri"
-    runzero-match: service["http.body"] matches "(?i)CxSASTManagerUri"
-  tags: panel,checkmarx,detect,login
+  tags: panel,checkmarx,detect,login,discovery
 
 http:
   - method: GET

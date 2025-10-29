@@ -20,8 +20,7 @@ info:
       - title="create a pipeline - go" html:"gocd version"
       - body="gocd version"
     google-query: intitle:"create a pipeline - go" html:"gocd version"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)create a pipeline - go"}) || service["http.body"] matches "(?i)gocd version"
-  tags: go,panel,gocd,thoughtworks
+  tags: go,panel,gocd,thoughtworks,discovery
 
 http:
   - method: GET

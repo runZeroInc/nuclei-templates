@@ -14,8 +14,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"CCM - Authentication Failure"
-    runzero-match: service["http.body"] matches "(?i)CCM - Authentication Failure"
-  tags: panel,clearcom,ccm
+  tags: panel,clearcom,ccm,discovery
 
 http:
   - method: GET

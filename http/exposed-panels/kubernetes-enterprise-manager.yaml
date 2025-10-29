@@ -18,8 +18,7 @@ info:
       - app="kubernetes-enterprise-manager"
       - title="kubernetes web view"
     google-query: intitle:"kubernetes web view"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kubernetes web view"})
-  tags: tech,kubernetes,panel
+  tags: tech,kubernetes,panel,discovery
 
 http:
   - method: GET

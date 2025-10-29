@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"icewarp"
     fofa-query: title="icewarp"
     google-query: intitle:"icewarp"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)icewarp"})
-  tags: icewarp,panel
+  tags: icewarp,panel,discovery
 
 http:
   - method: GET

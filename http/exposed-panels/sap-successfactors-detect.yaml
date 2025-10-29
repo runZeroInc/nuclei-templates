@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"login - sap successfactors"
     fofa-query: title="login - sap successfactors"
     google-query: intitle:"login - sap successfactors"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - sap successfactors"})
-  tags: panel,sap,detect
+  tags: panel,sap,detect,discovery
 
 http:
   - method: GET

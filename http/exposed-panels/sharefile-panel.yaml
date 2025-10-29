@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"sharefile login"
     fofa-query: title="sharefile login"
     google-query: intitle:"sharefile login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sharefile login"})
-  tags: sharefile,login,panel,detect,citrix
+  tags: sharefile,login,panel,detect,citrix,discovery
 
 http:
   - method: GET

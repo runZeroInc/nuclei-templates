@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"manageengine servicedesk plus"
     fofa-query: title="manageengine servicedesk plus"
     google-query: intitle:"manageengine servicedesk plus"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)manageengine servicedesk plus"})
-  tags: panel,zoho,manageengine,zohocorp
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET

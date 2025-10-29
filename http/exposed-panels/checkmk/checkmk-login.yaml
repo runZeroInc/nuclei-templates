@@ -16,11 +16,9 @@ info:
     max-request: 5
     vendor: checkmk
     product: checkmk
-    shodan-query: http.title:"check_mk"
-    fofa-query: title="check_mk"
-    google-query: intitle:"check_mk"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Check_MK"})
-  tags: panel,checkmk,detect,login
+    verified: true
+    shodan-query: http.title:"Check_MK"
+  tags: panel,checkmk,detect,login,discovery
 
 http:
   - method: GET

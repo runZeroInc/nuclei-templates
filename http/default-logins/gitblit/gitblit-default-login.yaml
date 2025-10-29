@@ -15,15 +15,8 @@ info:
     max-request: 1
     vendor: gitblit
     product: gitblit
-    shodan-query:
-      - http.title:"gitblit"
-      - http.html:"gitblit"
-    fofa-query:
-      - body="gitblit"
-      - title="gitblit"
-    google-query: intitle:"gitblit"
-    runzero-match: any(each(service["html.titles"]), {# matches "Gitblit"})
-  tags: gitblit,default-login
+    shodan-query: title:"Gitblit"
+  tags: gitblit,default-login,vuln
 
 http:
   - raw:

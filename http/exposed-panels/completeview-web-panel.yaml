@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"CompleteView Web Client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CompleteView Web Client"})
-  tags: panel,completeview
+  tags: panel,completeview,discovery
 
 http:
   - method: GET

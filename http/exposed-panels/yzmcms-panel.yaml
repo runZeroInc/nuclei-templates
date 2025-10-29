@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"yzmcms"
     fofa-query: title="yzmcms"
     google-query: intitle:"yzmcms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)yzmcms"})
-  tags: panel,yzmcms,login
+  tags: panel,yzmcms,login,discovery
 
 http:
   - method: GET

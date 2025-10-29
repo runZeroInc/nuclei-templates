@@ -16,9 +16,7 @@ info:
     vendor: outsystems
     product: platform_server
     shodan-query: "http.html:\"outsystems\""
-    fofa-query: body="outsystems"
-    runzero-match: service["http.body"] matches "(?i)outsystems"
-  tags: panel,outsystems,login,detect
+  tags: panel,outsystems,login,detect,discovery
 
 http:
   - method: GET

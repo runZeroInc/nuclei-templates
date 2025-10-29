@@ -11,8 +11,7 @@ info:
     max-request: 1
     shodan-query: http.favicon.hash:855432563
     fofa-query: body="AKHQ_PREFIX_UI"
-    runzero-match: service["favicon.ico.image.mmh3"] == "855432563"
-  tags: akhq,panel,login,detect
+  tags: akhq,panel,login,detect,discovery
 
 http:
   - method: GET

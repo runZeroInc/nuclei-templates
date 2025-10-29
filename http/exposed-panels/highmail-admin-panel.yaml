@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"highmail"
     fofa-query: title="highmail"
     google-query: intitle:"highmail"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)highmail"})
-  tags: highmail,panel,aryanic
+  tags: highmail,panel,aryanic,discovery
 
 http:
   - method: GET

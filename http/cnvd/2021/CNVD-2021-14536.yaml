@@ -15,9 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: ruijie
-    product: rg-uac
-    fofa-query: title="RG-UAC登录页面"
-  tags: cnvd2021,cnvd,ruijie,disclosure
+  tags: cnvd2021,cnvd,ruijie,disclosure,vuln
 
 http:
   - method: GET

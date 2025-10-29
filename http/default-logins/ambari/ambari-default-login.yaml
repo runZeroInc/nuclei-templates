@@ -13,8 +13,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-    runzero-match: service["http.body"] contains `>See third-party tools/resources that Ambari uses and their respective authors<`
-  tags: ambari,default-login,apache
+  tags: ambari,default-login,apache,vuln
 
 http:
   - raw:

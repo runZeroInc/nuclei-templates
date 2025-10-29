@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"login - avigilon control center"
     fofa-query: title="login - avigilon control center"
     google-query: intitle:"login - avigilon control center"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - avigilon control center"})
-  tags: panel,avigilon
+  tags: panel,avigilon,discovery
 
 http:
   - method: GET

@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 2
     vendor: alibaba
-    product: nacos
-    shodan-query: title:"Nacos"
-  tags: tech,detect,nacos
+  tags: tech,detect,nacos,discovery
 
 http:
   - method: GET

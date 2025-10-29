@@ -17,8 +17,7 @@ info:
     fofa-query:
       - title="webtitan"
       - icon_hash=1090061843
-    runzero-match: service["favicon.ico.image.mmh3"] == "1090061843"
-  tags: panel,webtitan,cloud,detect,titanhq
+  tags: panel,webtitan,cloud,detect,titanhq,discovery
 
 http:
   - method: GET

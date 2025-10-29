@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Extreme NetConfig UI"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Extreme NetConfig UI"})
-  tags: panel,tech,hiveos,extreme
+  tags: panel,tech,hiveos,extreme,discovery
 
 http:
   - method: GET

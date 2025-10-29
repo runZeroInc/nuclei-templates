@@ -8,15 +8,9 @@ info:
   metadata:
     vendor: tuzitio
     product: camaleon_cms
-    shodan-query:
-      - http.html:"camaleon_cms"
-      - http.title:"camaleon cms"
-    fofa-query:
-      - body="camaleon_cms"
-      - title="camaleon cms"
-    google-query: intitle:"camaleon cms"
-    runzero-match: service["http.body"] matches "(?i)camaleon_cms"
-  tags: camaleon,default-login
+    shodan-query: html:"camaleon_cms"
+  tags: camaleon,default-login,vuln
+
 variables:
   username: admin
   password: admin123

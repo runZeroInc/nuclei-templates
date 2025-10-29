@@ -23,12 +23,8 @@ info:
       - body="openemr"
       - title="openemr"
       - icon_hash=1971268439
-      - title="openemr setup tool"
-    google-query:
-      - intitle:"openemr"
-      - intitle:"openemr setup tool"
-    runzero-match: service["http.body"] matches "(?i)openemr" || any(each(service["html.titles"]), {# matches "(?i)openemr"}) || service["favicon.ico.image.mmh3"] == "1971268439"
-  tags: panel,openemr,open-emr
+    google-query: intitle:"openemr"
+  tags: panel,openemr,open-emr,discovery
 
 http:
   - method: GET

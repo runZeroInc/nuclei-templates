@@ -11,8 +11,7 @@ info:
     cwe-id: CWE-798
   metadata:
     max-request: 2
-    runzero-match: 'any(each(service["html.titles"]), {# matches "Login :: Damn Vulnerable Web Application"})'
-  tags: dvwa,default-login
+  tags: dvwa,default-login,vuln
 
 http:
   - raw:

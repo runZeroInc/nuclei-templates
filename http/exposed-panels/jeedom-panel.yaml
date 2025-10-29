@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"jeedom"
     fofa-query: title="jeedom"
     google-query: intitle:"jeedom"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jeedom"})
-  tags: panel,jeedom,login
+  tags: panel,jeedom,login,discovery
 
 http:
   - method: GET

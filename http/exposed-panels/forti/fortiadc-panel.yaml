@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"fortiadc"
     fofa-query: title="fortiadc"
     google-query: intitle:"fortiadc"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiadc"})
-  tags: panel,fortinet
+  tags: panel,fortinet,discovery
 
 http:
   - method: GET

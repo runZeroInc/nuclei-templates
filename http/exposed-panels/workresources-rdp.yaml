@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"RD Web Access"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)RD Web Access"})
-  tags: panel,workresources
+  tags: panel,workresources,discovery
 
 http:
   - method: GET

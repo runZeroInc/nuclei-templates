@@ -23,8 +23,7 @@ info:
       - icon_hash=-476299640
       - title="hestia control panel"
     google-query: intitle:"hestia control panel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hestia control panel"}) || service["favicon.ico.image.mmh3"] == "-476299640"
-  tags: panel,hestia,detect,hestiacp
+  tags: panel,hestia,detect,hestiacp,discovery
 
 http:
   - method: GET

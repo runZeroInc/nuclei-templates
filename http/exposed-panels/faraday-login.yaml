@@ -12,11 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: faraday_project
-    product: faraday
-    shodan-query: http.html:"faradayapp"
-    fofa-query: body="faradayapp"
-    runzero-match: service["http.body"] matches "(?i)faradayApp"
-  tags: panel,faraday
+  tags: panel,faraday,discovery
 
 http:
   - method: GET

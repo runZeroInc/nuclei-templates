@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"on-prem license workspace"
     fofa-query: title="on-prem license workspace"
     google-query: intitle:"on-prem license workspace"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)on-prem license workspace"})
-  tags: cisco,manager,login,panel
+  tags: cisco,manager,login,panel,discovery
 
 http:
   - method: GET

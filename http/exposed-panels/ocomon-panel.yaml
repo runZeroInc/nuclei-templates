@@ -18,8 +18,7 @@ info:
     product: ocomon
     shodan-query: http.html:"ocomon"
     fofa-query: body="ocomon"
-    runzero-match: service["http.body"] matches "(?i)ocomon"
-  tags: panel,ocomon,oss,ocomon_project
+  tags: panel,ocomon,oss,ocomon_project,discovery
 
 http:
   - method: GET

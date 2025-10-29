@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"fortiweb - "
     fofa-query: title="fortiweb - "
     google-query: intitle:"fortiweb - "
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiweb - "})
-  tags: panel,fortinet,fortiweb,login
+  tags: panel,fortinet,fortiweb,login,discovery
 
 http:
   - method: GET

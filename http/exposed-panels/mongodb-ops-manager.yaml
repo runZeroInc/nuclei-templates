@@ -12,12 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: mongodb
-    product: ops_manager_server
-    shodan-query: http.title:"mongodb ops manager"
-    fofa-query: title="mongodb ops manager"
-    google-query: intitle:"mongodb ops manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MongoDB Ops Manager"})
-  tags: panel,mongodb
+  tags: panel,mongodb,discovery
 
 http:
   - method: GET

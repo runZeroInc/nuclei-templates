@@ -12,7 +12,8 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: ssrf,wp,wp-plugin,wordpress,unauth,wpscan,packetstorm
+  tags: ssrf,wp,wp-plugin,wordpress,unauth,wpscan,packetstorm,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -29,7 +30,7 @@ http:
 
   - raw:
       - |
-        POST /wp-admin/admin-ajax.php HTTP/2
+        POST /wp-admin/admin-ajax.php HTTP/1.1
         Host: {{Hostname}}
         Origin: {{BaseURL}}
         Content-Type: application/x-www-form-urlencoded

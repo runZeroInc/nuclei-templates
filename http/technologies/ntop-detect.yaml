@@ -15,9 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: ntop
-    product: ntopng
-    shodan-query: http.title:"welcome to ntop"
-  tags: tech,ntop,panel
+  tags: tech,ntop,panel,discovery
 
 http:
   - method: GET

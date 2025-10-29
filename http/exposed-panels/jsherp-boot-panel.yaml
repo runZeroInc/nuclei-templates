@@ -11,12 +11,8 @@ info:
     max-request: 1
     vendor: jishenghua
     product: jsherp
-    shodan-query: http.favicon.hash:"-1298131932"
-    fofa-query:
-      - icon_hash=-1298131932
-      - jsherp-boot
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1298131932"
-  tags: panel,jsherp,login,detect
+    shodan-query: http.favicon.hash:-1298131932
+  tags: panel,jsherp,login,detect,discovery
 
 http:
   - method: GET

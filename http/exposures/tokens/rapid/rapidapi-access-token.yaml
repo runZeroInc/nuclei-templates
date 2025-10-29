@@ -9,8 +9,7 @@ info:
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/rapidapi-access-token.yaml
   metadata:
     verified: true
-    max-request: 1
-  tags: exposure,token,rapidapi
+  tags: exposure,token,rapidapi,vuln
 
 http:
   - method: GET

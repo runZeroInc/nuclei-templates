@@ -16,8 +16,7 @@ info:
     vendor: arubanetworks
     product: aruba_instant
     fofa-query: body="jscripts/third_party/raphael-treemap.min.js" || body="jscripts/third_party/highcharts.src.js"
-    runzero-match: service["http.body"] matches "(?i)jscripts/third_party/raphael-treemap\\.min\\.js"
-  tags: aruba,default-login
+  tags: aruba,default-login,vuln
 
 http:
   - raw:

@@ -13,12 +13,7 @@ info:
   metadata:
     max-request: 1
     vendor: azkaban_project
-    product: azkaban
-    shodan-query: http.title:"azkaban web client"
-    fofa-query: title="azkaban web client"
-    google-query: intitle:"azkaban web client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Azkaban Web Client"})
-  tags: panel,azkaban
+  tags: panel,azkaban,discovery
 
 http:
   - method: GET

@@ -12,8 +12,8 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"topaccess"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)topaccess"})
-  tags: topaccess,default-login,misconfig
+  tags: topaccess,default-login,misconfig,vuln
+
 variables:
   username: "admin"
   password: "123456"

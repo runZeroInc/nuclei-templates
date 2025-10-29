@@ -15,8 +15,7 @@ info:
     product: soplanning
     shodan-query: http.html:"soplanning"
     fofa-query: body="soplanning"
-    runzero-match: service["http.body"] matches "(?i)soplanning"
-  tags: soplanning,default-login
+  tags: soplanning,default-login,vuln
 
 http:
   - raw:

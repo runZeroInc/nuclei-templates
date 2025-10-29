@@ -16,12 +16,7 @@ info:
     verified: true
     max-request: 2
     vendor: ldap-account-manager
-    product: ldap_account_manager
-    shodan-query: http.title:"ldap account manager"
-    fofa-query: title="ldap account manager"
-    google-query: intitle:"ldap account manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LDAP Account Manager"})
-  tags: panel,ldap
+  tags: panel,ldap,discovery
 
 http:
   - method: GET

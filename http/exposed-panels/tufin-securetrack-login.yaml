@@ -17,9 +17,7 @@ info:
     product: securetrack
     shodan-query: http.title:"securetrack - tufin technologies"
     fofa-query: title="securetrack - tufin technologies"
-    google-query: intitle:"securetrack - tufin technologies"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)securetrack - tufin technologies"})
-  tags: panel,tufin
+  tags: panel,tufin,discovery
 
 http:
   - method: GET

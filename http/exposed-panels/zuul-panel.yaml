@@ -14,11 +14,7 @@ info:
   metadata:
     max-request: 2
     vendor: zuul-ci
-    product: zuul
-    shodan-query: http.favicon.hash:"-1127895693"
-    fofa-query: icon_hash=-1127895693
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1127895693"
-  tags: panel,zuul,cicd,oss
+  tags: panel,zuul,cicd,oss,discovery
 
 http:
   - method: GET

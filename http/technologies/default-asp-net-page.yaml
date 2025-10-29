@@ -1,13 +1,15 @@
 id: default-asp-net-page
 
 info:
-  name: ASP.Net Test Page
+  name: ASP.Net Default Page
   author: dhiyaneshDk
   severity: info
+  description: |
+    Detected default ASP.NET application pages including both traditional and modern versions.
   metadata:
     max-request: 1
     shodan-query: http.title:"Home Page - My ASP.NET Application"
-  tags: tech,asp
+  tags: tech,asp,discovery
 
 http:
   - method: GET
@@ -19,4 +21,7 @@ http:
         part: body
         words:
           - "Home Page - My ASP.NET Application"
+          - "ASP.NET is a free web framework for building great Web sites and Web applications"
+          - "My ASP.NET Application"
+        condition: or
 

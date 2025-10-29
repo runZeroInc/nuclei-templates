@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"PGP Global Directory"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PGP Global Directory"})
-  tags: symantec,panel
+  tags: symantec,panel,discovery
 
 http:
   - method: GET

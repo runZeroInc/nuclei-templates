@@ -11,8 +11,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: "html=\"Decision Center Enterprise console\""
-    runzero-match: service["http.body"] matches "Decision Center Enterprise console"
-  tags: ibm,default-login,decision-center
+  tags: ibm,default-login,decision-center,vuln
 
 http:
   - raw:

@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"jaspersoft"
     fofa-query: title="jaspersoft"
     google-query: intitle:"jaspersoft"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jaspersoft"})
-  tags: panel,jaspersoft,tibco
+  tags: panel,jaspersoft,tibco,discovery
 
 http:
   - method: GET

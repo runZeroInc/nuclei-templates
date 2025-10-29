@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"phpcollab"
     fofa-query: title="phpcollab"
     google-query: intitle:"phpcollab"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpcollab"})
-  tags: panel,phpcollab,login
+  tags: panel,phpcollab,login,discovery
 
 http:
   - method: GET

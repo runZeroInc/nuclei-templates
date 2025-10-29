@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"wagtail - sign in"
     fofa-query: title="wagtail - sign in"
     google-query: intitle:"wagtail - sign in"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)wagtail - sign in"})
-  tags: panel,wagtail,torchbox
+  tags: panel,wagtail,torchbox,discovery
 
 http:
   - method: GET

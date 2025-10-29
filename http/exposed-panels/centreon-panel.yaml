@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"centreon"
     fofa-query: title="centreon"
     google-query: intitle:"centreon"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)centreon"})
-  tags: panel,centreon,login
+  tags: panel,centreon,login,discovery
 
 http:
   - method: GET

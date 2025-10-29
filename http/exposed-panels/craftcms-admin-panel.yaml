@@ -14,10 +14,10 @@ info:
     vendor: nystudio107
     product: seomatic
     shodan-query:
-      - x-powered-by:"craft cms"
-      - x-powered-by:"craft cms html"seomatic""
-    runzero-match: service["http.body"] matches "(?i)seomatic"
-  tags: panel,craftcms,nystudio107
+      - 'X-Powered-By: Craft CMS'
+      - "x-powered-by: craft cms"
+      - 'x-powered-by: craft cms html:"seomatic"'
+  tags: panel,craftcms,nystudio107,discovery
 
 http:
   - method: GET

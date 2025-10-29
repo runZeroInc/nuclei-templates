@@ -17,9 +17,7 @@ info:
     product: terraform
     shodan-query: http.title:"terraform enterprise"
     fofa-query: title="terraform enterprise"
-    google-query: intitle:"terraform enterprise"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)terraform enterprise"})
-  tags: panel,terraform,hashicorp
+  tags: panel,terraform,hashicorp,discovery
 
 http:
   - method: GET

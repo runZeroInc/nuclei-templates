@@ -14,9 +14,8 @@ info:
     verified: true
     max-request: 3
     vendor: ruijie
-    product: rg-uac
-    fofa-query: title="RG-UAC登录页面" && body="admin"
-  tags: rg-uac,file-upload,intrusive,ruijie
+  tags: rg-uac,file-upload,intrusive,ruijie,vuln
+
 variables:
   random_str: "{{rand_base(6)}}"
   match_str: "{{md5(random_str)}}"

@@ -14,8 +14,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-    runzero-match: any(each(service["html.titles"]), {# matches "RabbitMQ Management"})
-  tags: rabbitmq,default-login
+  tags: rabbitmq,default-login,vuln
 
 http:
   - raw:

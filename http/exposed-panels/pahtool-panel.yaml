@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"PAHTool"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PAHTool"})
-  tags: panel,pahtool,login,detect
+  tags: panel,pahtool,login,detect,discovery
 
 http:
   - method: GET

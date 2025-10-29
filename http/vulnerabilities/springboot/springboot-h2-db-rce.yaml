@@ -18,16 +18,7 @@ info:
   metadata:
     max-request: 1
     vendor: h2database
-    product: h2
-    shodan-query:
-      - http.favicon.hash:"116323821"
-      - cpe:"cpe:2.3:a:h2database:h2"
-      - http.title:"h2 console"
-    fofa-query:
-      - icon_hash=116323821
-      - title="h2 console"
-    google-query: intitle:"h2 console"
-  tags: springboot,rce,jolokia
+  tags: springboot,rce,jolokia,vuln
 
 http:
   - raw:

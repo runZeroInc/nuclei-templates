@@ -19,8 +19,7 @@ info:
       - title="froxlor server management panel"
       - title="froxlor server management panel - installation"
     google-query: intitle:"froxlor server management panel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)froxlor server management panel"})
-  tags: panel,froxlor
+  tags: panel,froxlor,discovery
 
 http:
   - method: GET

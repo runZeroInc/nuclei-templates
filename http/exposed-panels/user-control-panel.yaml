@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: title:"User Control Panel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)User Control Panel"})
-  tags: panel,ucp
+  tags: panel,ucp,discovery
 
 http:
   - method: GET

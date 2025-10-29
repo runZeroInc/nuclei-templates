@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"flightpath"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)flightpath"})
-  tags: panel,flightpath
+  tags: panel,flightpath,discovery
 
 http:
   - method: GET

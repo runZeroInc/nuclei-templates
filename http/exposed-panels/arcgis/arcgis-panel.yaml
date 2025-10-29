@@ -14,7 +14,7 @@ info:
     max-request: 1
     vendor: esri
     product: arcgis_enterprise
-  tags: docs,arcgis,cms,panel,esri
+  tags: docs,arcgis,cms,panel,esri,discovery
 
 http:
   - method: GET
@@ -44,5 +44,6 @@ http:
         part: body
         group: 2
         regex:
-          - '(Released Version:</strong>[\n\t ]+(([0-9]+(.[0-9]+)?(.[0-9]+)?)([\n\t ]+\([A-Za-z]+[\t ]+20[0-9][0-9]\))?))'
+          - '(Released Version:</strong>[\n\t ]+(([0-9]+(.[0-9]+)?(.[0-9]+)?)([\n\t
+            ]+\([A-Za-z]+[\t ]+20[0-9][0-9]\))?))'
 

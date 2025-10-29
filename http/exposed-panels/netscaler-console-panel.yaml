@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"NetScaler Console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NetScaler Console"})
-  tags: netscaler,console,panel,login
+  tags: netscaler,console,panel,login,discovery
 
 http:
   - method: GET

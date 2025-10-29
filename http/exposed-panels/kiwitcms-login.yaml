@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"kiwi tcms - login" http.favicon.hash:-1909533337
     fofa-query: title="kiwi tcms - login" http.favicon.hash:-1909533337
     google-query: intitle:"kiwi tcms - login" http.favicon.hash:-1909533337
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kiwi tcms - login"})
-  tags: kiwitcms,panel
+  tags: kiwitcms,panel,discovery
 
 http:
   - method: GET

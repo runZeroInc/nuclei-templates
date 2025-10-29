@@ -30,12 +30,7 @@ info:
       - icon_hash="-449283196"
       - icon_hash="917966895"
       - icon_hash="1935513730"
-      - title="installation - gogs"
-    google-query:
-      - intitle:"sign in - gogs"
-      - intitle:"installation - gogs"
-    runzero-match: service["favicon.ico.image.mmh3"] == "917966895" || service["favicon.ico.image.mmh3"] == "1935513730" || any(each(service["html.titles"]), {# matches "(?i)sign in - gogs"}) || service["favicon.ico.image.mmh3"] == "-449283196"
-  tags: panel,gogs
+  tags: panel,gogs,discovery
 
 http:
   - method: GET

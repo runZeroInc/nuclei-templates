@@ -18,8 +18,7 @@ info:
       - app="zoho-流量管理"
       - title="apex it help desk"
     google-query: intitle:"apex it help desk"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)apex it help desk"})
-  tags: panel,zoho,manageengine,zohocorp
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET

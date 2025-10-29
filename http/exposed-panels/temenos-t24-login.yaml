@@ -15,12 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: temenos
-    product: t24
-    shodan-query: http.title:"t24 sign in"
-    fofa-query: title="t24 sign in"
-    google-query: intitle:"t24 sign in"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)t24 sign in"})
-  tags: panel,exposure,temenos
+  tags: panel,exposure,temenos,discovery
 
 http:
   - method: GET

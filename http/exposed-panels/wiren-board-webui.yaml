@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Wiren Board Web UI"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Wiren Board Web UI"})
-  tags: panel,exposure,wiren
+  tags: panel,exposure,wiren,discovery
 
 http:
   - method: GET

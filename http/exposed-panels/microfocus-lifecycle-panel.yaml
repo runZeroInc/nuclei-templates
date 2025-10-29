@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"Micro Focus Application Lifecycle Management"
-    runzero-match: service["http.body"] matches "(?i)Micro\u00a0Focus\u00a0Application\u00a0Lifecycle\u00a0Management"
-  tags: panel,microfocus,login,detect
+  tags: panel,microfocus,login,detect,discovery
 
 http:
   - method: GET

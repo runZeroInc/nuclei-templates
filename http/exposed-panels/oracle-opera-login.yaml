@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"Oracle Opera" && html:"/OperaLogin/Welcome.do"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle Opera"})
-  tags: panel,opera,oracle,detect
+  tags: panel,opera,oracle,detect,discovery
 
 http:
   - method: GET

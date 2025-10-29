@@ -15,9 +15,7 @@ info:
   metadata:
     max-request: 2
     vendor: 3cx
-    product: 3cx
-    shodan-query: http.title:"3CX Phone System Management Console"
-  tags: 3cx,lfi,voip
+  tags: 3cx,lfi,voip,vuln
 
 http:
   - method: GET

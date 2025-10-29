@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"sophos"
     fofa-query: title="sophos"
     google-query: intitle:"sophos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sophos"})
-  tags: panel,sophos
+  tags: panel,sophos,discovery
 
 http:
   - method: GET

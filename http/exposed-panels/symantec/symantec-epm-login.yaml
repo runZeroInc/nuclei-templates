@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"symantec endpoint protection manager"
     fofa-query: title="symantec endpoint protection manager"
     google-query: intitle:"symantec endpoint protection manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)symantec endpoint protection manager"})
-  tags: symantec,panel,login
+  tags: symantec,panel,login,discovery
 
 http:
   - method: GET

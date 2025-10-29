@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: nopcommerce
-    product: nopcommerce
-    shodan-query: html:"nopCommerce Installation"
-  tags: misconfig,nopcommerce,install
+  tags: misconfig,nopcommerce,install,vuln
 
 http:
   - method: GET

@@ -19,8 +19,8 @@ info:
     fofa-query:
       - title=="thruk monitoring webinterface"
       - body="thruk"
-    runzero-match: service["http.body"] matches "(?i)thruk"
-  tags: thruk,panel,login
+    shodan-query: http.html:"thruk" || http.title:"thruk monitoring webinterface"
+  tags: thruk,panel,login,discovery
 
 http:
   - method: GET

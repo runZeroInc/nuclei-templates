@@ -18,9 +18,7 @@ info:
     verified: true
     max-request: 1
     vendor: thruk
-    product: thruk
-    shodan-query: http.html:"Thruk"
-  tags: thruk,xss
+  tags: thruk,xss,vuln
 
 http:
   - raw:

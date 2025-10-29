@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"DuomiCMS"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)DuomiCMS"})
-  tags: duomicms,sqli
+  tags: duomicms,sqli,vuln
 variables:
   num: "999999999"
 

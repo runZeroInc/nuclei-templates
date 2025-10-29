@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"prime infrastructure"
     fofa-query: title="prime infrastructure"
     google-query: intitle:"prime infrastructure"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)prime infrastructure"})
-  tags: panel,cisco
+  tags: panel,cisco,discovery
 
 http:
   - method: GET

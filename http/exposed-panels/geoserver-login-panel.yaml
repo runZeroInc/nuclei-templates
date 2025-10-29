@@ -21,8 +21,7 @@ info:
       - app="geoserver"
       - title="geoserver"
     google-query: intitle:"geoserver"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)geoserver"})
-  tags: panel,geoserver,osgeo
+  tags: panel,geoserver,osgeo,discovery
 
 http:
   - method: GET

@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"phoronix-test-suite"
     fofa-query: title="phoronix-test-suite"
     google-query: intitle:"phoronix-test-suite"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phoronix-test-suite"})
-  tags: panel,phoronix,phoronix-media
+  tags: panel,phoronix,phoronix-media,discovery
 
 http:
   - method: GET

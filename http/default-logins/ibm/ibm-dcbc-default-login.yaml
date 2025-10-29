@@ -11,8 +11,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: "title=\"Decision Center | Business Console\""
-    runzero-match: any(each(service["html.titles"]), {# matches "Decision Center \\| Business Console"})
-  tags: ibm,default-login,decision-center
+  tags: ibm,default-login,decision-center,vuln
 
 http:
   - raw:

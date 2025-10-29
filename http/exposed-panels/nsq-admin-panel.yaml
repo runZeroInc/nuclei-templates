@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"nsqadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nsqadmin"})
-  tags: nsq,admin,panel,exposure
+  tags: nsq,admin,panel,exposure,discovery
 
 http:
   - method: GET

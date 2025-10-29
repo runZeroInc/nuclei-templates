@@ -21,8 +21,7 @@ info:
       - title="oracle access management"
       - body="/oam/pages/css/login_page.css"
     google-query: intitle:"oracle access management"
-    runzero-match: service["http.body"] matches "(?i)/oam/pages/css/login_page\\.css" || any(each(service["html.titles"]), {# matches "(?i)oracle access management"})
-  tags: panel,oracle,login,detect
+  tags: panel,oracle,login,detect,discovery
 
 http:
   - method: GET

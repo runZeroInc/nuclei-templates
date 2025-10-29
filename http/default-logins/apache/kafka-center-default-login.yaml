@@ -14,8 +14,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Kafka Center"
-    runzero-match: any(each(service["html.titles"]), {# matches "Kafka Center"})
-  tags: kafka,default-login
+  tags: kafka,default-login,vuln
 
 http:
   - raw:

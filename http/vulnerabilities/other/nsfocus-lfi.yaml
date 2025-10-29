@@ -12,7 +12,8 @@ info:
     verified: true
     max-request: 2
     fofa-query: body="'/needUsbkey.php?username='"
-  tags: nsfocus,lfi
+  tags: nsfocus,lfi,vuln
+
 flow: http(1) && http(2)
 
 http:

@@ -14,8 +14,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-    runzero-match: any(each(service["html.titles"]), {# matches "^RockMongo"})
-  tags: rockmongo,default-login
+  tags: rockmongo,default-login,vuln
 
 http:
   - raw:

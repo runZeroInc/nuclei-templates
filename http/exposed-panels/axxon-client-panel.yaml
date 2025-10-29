@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"axxon next client"
     fofa-query: title="axxon next client"
     google-query: intitle:"axxon next client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)axxon next client"})
-  tags: panel,axxon,vms,login,detect,axxonsoft
+  tags: panel,axxon,vms,login,detect,axxonsoft,discovery
 
 http:
   - method: GET

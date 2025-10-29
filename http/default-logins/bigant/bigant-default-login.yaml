@@ -14,8 +14,8 @@ info:
     max-request: 2
     shodan-query: title:"BigAnt"
     fofa-query: title="BigAnt"
-    runzero-match: any(each(service["html.titles"]), {# matches "BigAnt"})
-  tags: default-login,bigant
+  tags: default-login,bigant,vuln
+
 variables:
   username: superadmin
   password: '123456'

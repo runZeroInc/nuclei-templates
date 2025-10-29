@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"vue pacs"
     fofa-query: title="vue pacs"
     google-query: intitle:"vue pacs"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vue pacs"})
-  tags: vue,pacs,panel,login,philips
+  tags: vue,pacs,panel,login,philips,discovery
 
 http:
   - method: GET

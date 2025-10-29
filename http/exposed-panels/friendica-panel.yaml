@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"friendica"
     fofa-query: title="friendica"
     google-query: intitle:"friendica"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)friendica"})
-  tags: friendica,panel,login,detect
+  tags: friendica,panel,login,detect,discovery
 
 http:
   - method: GET

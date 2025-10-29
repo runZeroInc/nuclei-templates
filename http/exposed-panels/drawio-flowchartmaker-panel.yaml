@@ -23,8 +23,7 @@ info:
       - title="flowchart maker"
       - body="draw.io"
     google-query: intitle:"flowchart maker"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)flowchart maker"})
-  tags: panel,drawio,oss,diagrams
+  tags: panel,drawio,oss,diagrams,discovery
 
 http:
   - method: GET

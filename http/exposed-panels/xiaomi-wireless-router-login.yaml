@@ -15,15 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: mi
-    product: xiaomi_router_ax3200
-    shodan-query: http.title:"小米路由器"
-    fofa-query: title="小米路由器"
-    google-query: intitle:"小米路由器"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)小米路由器"})
-    zoomeye-query:
-      - app="小米路由器"
-      - title:'小米路由器'
-  tags: panel,xiaomi
+  tags: panel,xiaomi,discovery
 
 http:
   - method: GET

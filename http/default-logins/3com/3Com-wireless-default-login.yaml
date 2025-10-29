@@ -9,9 +9,8 @@ info:
     - https://www.speedguide.net/routers/3com-wl-546-3com-wireless-8760-dual-radio-11abg-1256
   metadata:
     max-request: 2
-    fofa-query: title="3COM"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)3COM"})
-  tags: default-login,3com
+    fofa-query: "title=\"3COM\""
+  tags: default-login,3com,vuln
 
 http:
   - raw:

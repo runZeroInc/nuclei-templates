@@ -16,15 +16,9 @@ info:
     product: webuzo
     shodan-query:
       - http.title:"webuzo - admin panel"
-      - http.title:"webuzo installer"
-    fofa-query:
-      - title="webuzo - admin panel"
-      - title="webuzo installer"
-    google-query:
-      - intitle:"webuzo - admin panel"
-      - intitle:"webuzo installer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)webuzo - admin panel"})
-  tags: panel,webuzo,admin,softaculous
+    fofa-query: title="webuzo - admin panel"
+    google-query: intitle:"webuzo - admin panel"
+  tags: panel,webuzo,admin,softaculous,discovery
 
 http:
   - method: GET

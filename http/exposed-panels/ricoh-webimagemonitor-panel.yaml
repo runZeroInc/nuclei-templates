@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"Web Image Monitor"
-    runzero-match: service["http.body"] matches "(?i)Web Image Monitor"
-  tags: panel,ricoh,detect
+  tags: panel,ricoh,detect,discovery
 
 http:
   - method: GET

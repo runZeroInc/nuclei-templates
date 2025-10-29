@@ -14,8 +14,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-    runzero-match: service["http.head.setCookie"] matches "^OFBiz.Visitor="
-  tags: ofbiz,default-login,apache
+  tags: ofbiz,default-login,apache,vuln
 
 http:
   - raw:

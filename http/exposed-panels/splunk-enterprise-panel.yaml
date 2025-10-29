@@ -17,15 +17,9 @@ info:
     product: splunk
     shodan-query:
       - http.title:"login - splunk"
-      - http.title:"splunk"
-    fofa-query:
-      - title="login - splunk"
-      - title="splunk"
-    google-query:
-      - intitle:"login - splunk"
-      - intitle:"splunk"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - splunk"})
-  tags: panel,splunk
+    fofa-query: title="login - splunk"
+    google-query: intitle:"login - splunk"
+  tags: panel,splunk,discovery
 
 http:
   - method: GET

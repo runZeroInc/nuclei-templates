@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"CentreStack"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CentreStack"})
-  tags: panel,centrestack,login,gladinet
+  tags: panel,centrestack,login,gladinet,discovery
 
 http:
   - method: GET

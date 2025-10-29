@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Juniper Web Device Manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Juniper Web Device Manager"})
-  tags: panel,juniper,vpn,login
+  tags: panel,juniper,vpn,login,discovery
 
 http:
   - method: GET

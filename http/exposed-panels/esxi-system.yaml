@@ -17,8 +17,7 @@ info:
       - http.html:"esxuiapp"
       - cpe:"cpe:2.3:o:vmware:esxi"
     fofa-query: body="esxuiapp"
-    runzero-match: service["http.body"] matches "(?i)esxuiapp"
-  tags: panel,esxi,vmware
+  tags: panel,esxi,vmware,discovery
 
 http:
   - method: GET

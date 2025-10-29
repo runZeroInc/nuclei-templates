@@ -20,13 +20,8 @@ info:
     fofa-query:
       - title="manageengine desktop central 10"
       - app="zoho-manageengine-desktop"
-      - body="manageengine desktop central 10"
-      - title="manageengine desktop central"
-    google-query:
-      - intitle:"manageengine desktop central 10"
-      - intitle:"manageengine desktop central"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)manageengine desktop central 10"})
-  tags: panel,zoho,manageengine,zohocorp
+    google-query: intitle:"manageengine desktop central 10"
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET

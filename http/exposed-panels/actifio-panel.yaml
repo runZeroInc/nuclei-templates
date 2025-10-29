@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Actifio Resource Center"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Actifio Resource Center"})
-  tags: panel,actifio,login,detect
+  tags: panel,actifio,login,detect,discovery
 
 http:
   - method: GET

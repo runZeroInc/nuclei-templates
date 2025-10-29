@@ -18,8 +18,7 @@ info:
       - icon_hash="151132309"
       - title="cloudpanel"
     google-query: intitle:"cloudpanel"
-    runzero-match: service["favicon.ico.image.mmh3"] == "151132309" || any(each(service["html.titles"]), {# matches "(?i)cloudpanel"})
-  tags: panel,login,cloudpanel,detect,mgt-commerce
+  tags: panel,login,cloudpanel,detect,mgt-commerce,discovery
 
 http:
   - method: GET

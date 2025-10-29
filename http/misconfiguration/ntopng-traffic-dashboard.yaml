@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 1
     vendor: ntop
-    product: ntopng
-    shodan-query: http.title:"ntopng - Traffic Dashboard"
-  tags: misconfig,ntopng,dashboard
+  tags: misconfig,ntopng,dashboard,discovery
 
 http:
   - method: GET

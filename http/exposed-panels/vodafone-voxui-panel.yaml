@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Vodafone Vox UI"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Vodafone Vox UI"})
-  tags: panel,vodafone
+  tags: panel,vodafone,discovery
 
 http:
   - method: GET

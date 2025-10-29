@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: schedmd
-    product: slurm
-    shodan-query: title:"Slurm HPC Dashboard"
-  tags: misconfig,slurm,dashboard
+  tags: misconfig,slurm,dashboard,discovery
 
 http:
   - method: GET

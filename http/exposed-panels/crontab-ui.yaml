@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"Crontab UI"
-    runzero-match: service["http.body"] matches "(?i)Crontab UI"
-  tags: exposure,crontab,ui,panel
+  tags: exposure,crontab,ui,panel,discovery
 
 http:
   - method: GET

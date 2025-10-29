@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 1
     vendor: puppet
-    product: puppetdb
-    shodan-query: 'title:"PuppetDB: Dashboard"'
-  tags: misconfig,exposure,puppetdb
+  tags: misconfig,exposure,puppetdb,discovery
 
 http:
   - method: GET

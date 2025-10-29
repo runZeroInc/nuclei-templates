@@ -13,7 +13,7 @@ info:
     runzero-match: service["favicon.ico.image.mmh3"] == "1907840597"
     verified: true
     fofa-query: icon_hash="1907840597"
-  tags: pensando,default-login
+  tags: pensando,default-login,vuln
 
 variables:
   username: 'admin'

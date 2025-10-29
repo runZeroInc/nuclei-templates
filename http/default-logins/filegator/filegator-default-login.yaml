@@ -11,8 +11,8 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"FileGator"
-    runzero-match: any(each(service["html.titles"]), {# matches "FileGator"})
-  tags: filegator,default-login,misconfig
+  tags: filegator,default-login,misconfig,vuln
+
 variables:
   username: "admin"
   password: "admin123"

@@ -15,15 +15,8 @@ info:
     max-request: 1
     vendor: craftercms
     product: craftercms
-    shodan-query:
-      - http.title:"craftercms"
-      - http.html:"craftercms"
-    fofa-query:
-      - body="craftercms"
-      - title="craftercms"
-    google-query: intitle:"craftercms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)craftercms"})
-  tags: panel,craftercms,login,detect
+    shodan-query: http.title:"craftercms"
+  tags: panel,craftercms,login,detect,discovery
 
 http:
   - method: GET

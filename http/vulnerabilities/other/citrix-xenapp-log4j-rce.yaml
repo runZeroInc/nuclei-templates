@@ -17,9 +17,7 @@ info:
   metadata:
     max-request: 1
     vendor: citrix
-    product: xenapp
-    shodan-query: html:"/citrix/xenapp"
-  tags: cve,cve2021,rce,jndi,log4j,citrix,oast,kev
+  tags: cve,cve2021,rce,jndi,log4j,citrix,oast,kev,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

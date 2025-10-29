@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"DQS Superadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)DQS Superadmin"})
-  tags: panel,dqs,superadmin
+  tags: panel,dqs,superadmin,discovery
 
 http:
   - method: GET

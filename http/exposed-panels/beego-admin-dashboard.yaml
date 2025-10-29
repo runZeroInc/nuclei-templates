@@ -20,8 +20,7 @@ info:
     product: beego
     shodan-query: http.html:"beego admin dashboard"
     fofa-query: body="beego admin dashboard"
-    runzero-match: service["http.body"] matches "(?i)beego admin dashboard"
-  tags: panel,beego,unauth
+  tags: panel,beego,unauth,discovery
 
 http:
   - method: GET

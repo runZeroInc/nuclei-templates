@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"WebcomCo"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebcomCo"})
-  tags: panel,webcomco,login
+  tags: panel,webcomco,login,discovery
 
 http:
   - method: GET

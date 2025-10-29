@@ -16,7 +16,9 @@ info:
     product: zzzcms
     shodan-query: html:"ZzzCMS"
     fofa-query: title="ZzzCMS"
-  tags: zzzcms,xss
+    product: zzzcms
+    vendor: zzzcms
+  tags: zzzcms,xss,vuln
 
 http:
   - raw:

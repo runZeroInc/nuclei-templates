@@ -12,12 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: shoutcast
-    product: dnas
-    shodan-query: http.title:"shoutcast server"
-    fofa-query: title="shoutcast server"
-    google-query: intitle:"shoutcast server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SHOUTcast Server"})
-  tags: panel
+  tags: panel,discovery
 
 http:
   - method: GET

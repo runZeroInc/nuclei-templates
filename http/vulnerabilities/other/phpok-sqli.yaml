@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: phpok
-    product: phpok
-    fofa-query: app="phpok"
-  tags: phpok,sqli
+  tags: phpok,sqli,vuln
 variables:
   num: "999999999"
 

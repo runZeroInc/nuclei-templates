@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: contec
-    product: solarview_compact
-    shodan-query: http.html:"SolarView Compact"
-  tags: xss,solarview,edb
+  tags: xss,solarview,edb,vuln
 
 http:
   - method: GET

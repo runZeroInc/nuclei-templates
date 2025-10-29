@@ -22,8 +22,7 @@ info:
       - body="router management - server openvpn"
       - title="openvpn-admin"
     google-query: intitle:"openvpn-admin"
-    runzero-match: service["http.body"] matches "(?i)router management - server openvpn" || any(each(service["html.titles"]), {# matches "(?i)openvpn-admin"})
-  tags: panel,openvpn,router
+  tags: panel,openvpn,router,discovery
 
 http:
   - method: GET

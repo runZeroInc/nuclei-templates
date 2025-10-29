@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"exagrid manager"
     fofa-query: title="exagrid manager"
     google-query: intitle:"exagrid manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)exagrid manager"})
-  tags: exagrid,manager,login,panel
+  tags: exagrid,manager,login,panel,discovery
 
 http:
   - method: GET

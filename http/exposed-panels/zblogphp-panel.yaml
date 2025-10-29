@@ -12,16 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: zblogcn
-    product: zblogphp
-    shodan-query:
-      - http.html:"z-blogphp"
-      - http.title:"zblog"
-    fofa-query:
-      - body="z-blogphp"
-      - title=zblog
-    google-query: intitle:zblog
-    runzero-match: service["http.body"] matches "(?i)Z-BlogPHP"
-  tags: panel,zblogphp
+  tags: panel,zblogphp,discovery
 
 http:
   - method: GET

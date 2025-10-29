@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"<a href=\"https://github.com/composer/satis\">Satis</a>"
-    runzero-match: service["http.body"] matches "(?i)<a href=\\\\"
-  tags: panel,exposure,composer,satis
+  tags: panel,exposure,composer,satis,discovery
 
 http:
   - method: GET

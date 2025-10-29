@@ -14,12 +14,7 @@ info:
   metadata:
     max-request: 1
     vendor: hcltech
-    product: bigfix_mobile
-    shodan-query: http.title:"bigfix"
-    fofa-query: title="bigfix"
-    google-query: intitle:"bigfix"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)BigFix"})
-  tags: panel,bigfix
+  tags: panel,bigfix,discovery
 
 http:
   - method: GET

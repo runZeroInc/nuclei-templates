@@ -14,8 +14,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"BMC Software"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)BMC Software"})
-  tags: panel,bmc
+  tags: panel,bmc,discovery
 
 http:
   - method: GET

@@ -20,7 +20,9 @@ info:
     product: nifi
     shodan-query: title:"NiFi"
     fofa-query: title="nifi" && body="Did you mean"
-  tags: misconfig,apache,nifi,unauth
+    product: nifi
+    vendor: apache
+  tags: misconfig,apache,nifi,unauth,vuln
 
 http:
   - method: GET

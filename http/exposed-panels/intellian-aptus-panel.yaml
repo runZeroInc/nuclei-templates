@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"intellian aptus web"
     fofa-query: title="intellian aptus web"
     google-query: intitle:"intellian aptus web"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)intellian aptus web"})
-  tags: panel,intellian,aptus,intelliantech
+  tags: panel,intellian,aptus,intelliantech,discovery
 
 http:
   - method: GET

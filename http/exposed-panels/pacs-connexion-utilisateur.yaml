@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"GXD5 Pacs Connexion utilisateur"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)GXD5 Pacs Connexion utilisateur"})
-  tags: panel,login
+  tags: panel,login,discovery
 
 http:
   - method: GET

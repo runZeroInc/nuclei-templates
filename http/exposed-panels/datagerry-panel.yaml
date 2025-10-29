@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"datagerry"
     fofa-query: title="datagerry"
     google-query: intitle:"datagerry"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)datagerry"})
-  tags: panel,login,datagerry,detect
+  tags: panel,login,datagerry,detect,discovery
 
 http:
   - method: GET

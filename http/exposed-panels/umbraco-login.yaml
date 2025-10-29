@@ -18,15 +18,9 @@ info:
     product: umbraco_cms
     shodan-query:
       - http.title:"umbraco"
-      - http.title:"install umbraco"
-    fofa-query:
-      - title="umbraco"
-      - title="install umbraco"
-    google-query:
-      - intitle:"umbraco"
-      - intitle:"install umbraco"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)umbraco"})
-  tags: panel,umbraco,detect
+    fofa-query: title="umbraco"
+    google-query: intitle:"umbraco"
+  tags: panel,umbraco,detect,discovery
 
 http:
   - method: GET

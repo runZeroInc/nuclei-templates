@@ -12,12 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: ui
-    product: unifi_network_application
-    shodan-query: http.title:"unifi network"
-    fofa-query: title="unifi network"
-    google-query: intitle:"unifi network"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)UniFi Network"})
-  tags: unifi,ubnt,panel
+  tags: unifi,ubnt,panel,discovery
 
 http:
   - method: GET

@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"neo4j browser"
     fofa-query: title="neo4j browser"
     google-query: intitle:"neo4j browser"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)neo4j browser"})
-  tags: neo4j,exposure,unauth,panel
+  tags: neo4j,exposure,unauth,panel,discovery
 
 http:
   - method: GET

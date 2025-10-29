@@ -12,8 +12,8 @@ info:
     verified: true
     max-request: 5
     shodan-query: title:"Voyager"
-    runzero-match: any(each(service["html.titles"]), {# matches "Voyager"})
-  tags: default-login,voyager,devdojo
+  tags: default-login,voyager,devdojo,vuln
+
 variables:
   username: "admin@admin.com"
   password: "password"

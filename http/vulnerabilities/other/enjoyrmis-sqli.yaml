@@ -11,9 +11,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    fofa-query: body="CheckSilverlightInstalled"
-    runzero-match: service["http.body"] matches "(?i)CheckSilverlightInstalled"
-  tags: enjoyrmis,sqli
+  tags: enjoyrmis,sqli,vuln
 
 http:
   - raw:

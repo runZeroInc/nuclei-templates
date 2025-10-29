@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"ForgeRock Identity Platform"
-    fofa-query: body="ForgeRock Identity Platform"
-  tags: forgerock,ig,login,identity-gateway,detect
+  tags: forgerock,ig,login,identity-gateway,detect,discovery
 
 http:
   - method: GET

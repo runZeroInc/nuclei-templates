@@ -23,8 +23,7 @@ info:
       - icon_hash=-1274798165
       - title="sophos mobile"
     google-query: intitle:"sophos mobile"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sophos mobile"}) || service["favicon.ico.image.mmh3"] == "-1274798165"
-  tags: panel,sophos
+  tags: panel,sophos,discovery
 
 http:
   - method: GET

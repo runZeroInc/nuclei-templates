@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"xeams admin"
     fofa-query: title="xeams admin"
     google-query: intitle:"xeams admin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)xeams admin"})
-  tags: panel,xeams,admin,console,synametrics
+  tags: panel,xeams,admin,console,synametrics,discovery
 
 http:
   - method: GET

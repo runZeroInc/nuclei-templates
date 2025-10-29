@@ -19,8 +19,7 @@ info:
       - app="apache-mesos"
       - title="mesos"
     google-query: intitle:"mesos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)mesos"})
-  tags: panel,apache,mesos
+  tags: panel,apache,mesos,discovery
 
 http:
   - method: GET

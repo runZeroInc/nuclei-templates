@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Deluge"
-    runzero-match: any(each(service["html.titles"]), {# matches "Deluge"})
-  tags: deluge,default-login
+  tags: deluge,default-login,vuln
 
 http:
   - raw:

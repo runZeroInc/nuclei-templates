@@ -26,8 +26,7 @@ info:
     google-query:
       - intitle:"osticket"
       - intitle:"osticket installer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)osticket installer"}) || any(each(service["html.titles"]), {# matches "(?i)osticket"}) || service["http.body"] matches "(?i)powered by osticket"
-  tags: panel,osticket,install
+  tags: panel,osticket,install,discovery
 
 http:
   - method: GET

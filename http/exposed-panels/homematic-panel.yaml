@@ -15,8 +15,7 @@ info:
     product: homematic_ccu3_firmware
     shodan-query: http.html:"homematic"
     fofa-query: body="homematic"
-    runzero-match: service["http.body"] matches "(?i)homematic"
-  tags: panel,homematic,iot,eq-3
+  tags: panel,homematic,iot,eq-3,discovery
 
 http:
   - method: GET

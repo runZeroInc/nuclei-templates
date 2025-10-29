@@ -12,8 +12,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Adapt authoring tool"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Adapt authoring tool"})
-  tags: panel,adapt,login,detect
+    verified: true
+  tags: panel,adapt,login,detect,discovery
 
 http:
   - method: GET

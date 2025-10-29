@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"VMWARE FTP SERVER"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMWARE FTP SERVER"})
-  tags: panel,vmware,ftp
+  tags: panel,vmware,ftp,discovery
 
 http:
   - method: GET

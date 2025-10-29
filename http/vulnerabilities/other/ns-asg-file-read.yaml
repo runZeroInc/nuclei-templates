@@ -19,7 +19,9 @@ info:
     product: ns-asg
     shodan-query: http.title:“NS-ASG”
     fofa-query: app="网康科技-NS-ASG安全网关"
-  tags: nsasg,lfi
+    product: ns-asg
+    vendor: netentsec
+  tags: nsasg,lfi,vuln
 
 http:
   - method: GET

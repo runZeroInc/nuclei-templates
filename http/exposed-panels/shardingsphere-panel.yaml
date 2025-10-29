@@ -15,8 +15,7 @@ info:
     product: shardingsphere_elasticjob-ui
     shodan-query: http.favicon.hash:"816588900"
     fofa-query: icon_hash=816588900
-    runzero-match: service["favicon.ico.image.mmh3"] == "816588900"
-  tags: panel,shardingsphere,login,apache
+  tags: panel,shardingsphere,login,apache,discovery
 
 http:
   - method: GET

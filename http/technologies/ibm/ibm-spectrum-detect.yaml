@@ -9,10 +9,10 @@ info:
   reference:
     - https://www.ibm.com/docs/en/products?filter=spectrum
   metadata:
-    verified: true
     max-request: 1
+    verified: true
     shodan-query: http.title:"IBM Spectrum"
-  tags: tech,ibm,spectrum
+  tags: tech,ibm,spectrum,discovery
 
 http:
   - method: GET

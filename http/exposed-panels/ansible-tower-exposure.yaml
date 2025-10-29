@@ -18,9 +18,7 @@ info:
     product: ansible_tower
     shodan-query: http.title:"ansible tower"
     fofa-query: title="ansible tower"
-    google-query: intitle:"ansible tower"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ansible tower"})
-  tags: panel,ansible,redhat
+  tags: panel,ansible,redhat,discovery
 
 http:
   - method: GET

@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"repetier-server"
     fofa-query: title="repetier-server"
     google-query: intitle:"repetier-server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)repetier-server"})
-  tags: panel,repetier,detect,repetier-server
+  tags: panel,repetier,detect,repetier-server,discovery
 
 http:
   - method: GET

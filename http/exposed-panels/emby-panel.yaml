@@ -21,8 +21,7 @@ info:
     shodan-query: http.title:"emby"
     fofa-query: title="emby"
     google-query: intitle:"emby"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)emby"})
-  tags: panel,emby,oss
+  tags: panel,emby,oss,discovery
 
 http:
   - method: GET

@@ -17,9 +17,7 @@ info:
   metadata:
     max-request: 1
     vendor: cisco
-    product: webex_meetings_online
-    shodan-query: title:"Cisco WebEx"
-  tags: cve,cve2021,rce,jndi,log4j,cisco,webex,oast,kev
+  tags: cve,cve2021,rce,jndi,log4j,cisco,webex,oast,kev,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

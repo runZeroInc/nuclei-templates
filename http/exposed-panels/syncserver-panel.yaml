@@ -13,8 +13,7 @@ info:
     product: syncserver_s650_firmware
     shodan-query: http.html:"symmetricom syncserver"
     fofa-query: body="symmetricom syncserver"
-    runzero-match: service["http.body"] matches "(?i)symmetricom syncserver"
-  tags: panel,login,syncserver,symmetricom,detect,microchip
+  tags: panel,login,syncserver,symmetricom,detect,microchip,discovery
 
 http:
   - method: GET

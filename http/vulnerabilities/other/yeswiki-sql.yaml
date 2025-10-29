@@ -17,11 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: yeswiki
-    product: cercopitheque
-    shodan-query: http.html:"yeswiki"
-    fofa-query: body="yeswiki"
-    runzero-match: service["http.body"] matches "(?i)yeswiki"
-  tags: yeswiki,sqli,huntr
+  tags: yeswiki,sqli,huntr,vuln
 variables:
   num: "999999999"
 

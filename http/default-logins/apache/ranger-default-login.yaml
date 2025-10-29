@@ -15,12 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: apache
-    product: ranger
-    shodan-query: http.title:"ranger - sign in"
-    fofa-query: title="ranger - sign in"
-    google-query: intitle:"ranger - sign in"
-    runzero-match: any(each(service["html.titles"]), {# matches "Ranger - Sign In"})
-  tags: apache,ranger,default-login
+  tags: apache,ranger,default-login,vuln
 
 http:
   - raw:

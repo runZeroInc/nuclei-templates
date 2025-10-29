@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: pghero_project
-    product: pghero
-    shodan-query: title:"PgHero"
-  tags: exposure,panel,pghero,misconfig
+  tags: exposure,panel,pghero,misconfig,vuln
 
 http:
   - method: GET

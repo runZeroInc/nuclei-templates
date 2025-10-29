@@ -17,8 +17,7 @@ info:
     shodan-query:
       - http.title:"setup github enterprise"
       - micro focus dsd
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Setup GitHub Enterprise"})
-  tags: panel,github
+  tags: panel,github,discovery
 
 http:
   - method: GET

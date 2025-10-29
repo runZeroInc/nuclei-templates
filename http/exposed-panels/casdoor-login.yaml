@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"casdoor"
     fofa-query: title="casdoor"
     google-query: intitle:"casdoor"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)casdoor"})
-  tags: panel,casdoor,casbin
+  tags: panel,casdoor,casbin,discovery
 
 http:
   - method: GET

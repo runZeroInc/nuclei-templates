@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"bedita"
     fofa-query: title="bedita"
     google-query: intitle:"bedita"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bedita"})
-  tags: panel,bedita
+  tags: panel,bedita,discovery
 
 http:
   - method: GET

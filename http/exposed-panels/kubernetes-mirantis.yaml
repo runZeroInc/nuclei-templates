@@ -13,13 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: mirantis
-    product: kubernetes_engine
-    shodan-query: http.html:"mirantis kubernetes engine"
-    fofa-query:
-      - app="mirantis-kubernetes-engine"
-      - body="mirantis kubernetes engine"
-    runzero-match: service["http.body"] matches "(?i)Mirantis Kubernetes Engine"
-  tags: tech,kubernetes,devops,kube,k8s,panel
+  tags: tech,kubernetes,devops,kube,k8s,panel,discovery
 
 http:
   - method: GET

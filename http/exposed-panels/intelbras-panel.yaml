@@ -19,8 +19,7 @@ info:
       - app="intelbras"
       - title="intelbras"
     google-query: intitle:"intelbras"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)intelbras"})
-  tags: panel,intelbras
+  tags: panel,intelbras,discovery
 
 http:
   - method: GET

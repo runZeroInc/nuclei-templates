@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: citeum
-    product: opencti
-    shodan-query: http.html:"OpenCTI"
-  tags: opencti,lfi,oss
+  tags: opencti,lfi,oss,vuln
 
 http:
   - method: GET

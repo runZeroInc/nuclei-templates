@@ -9,9 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: 'title:"Joplin Server"'
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Joplin Server"})
-  tags: panel,joplin,login
+  tags: panel,joplin,login,discovery
 
 http:
   - method: GET

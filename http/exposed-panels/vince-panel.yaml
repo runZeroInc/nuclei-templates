@@ -10,9 +10,9 @@ info:
     - https://github.com/vinceanalytics/vince
     - https://www.vinceanalytics.com/
   metadata:
-    verified: true
     max-request: 1
-  tags: panel,vince,login
+    verified: true
+  tags: panel,vince,login,discovery
 
 http:
   - method: GET

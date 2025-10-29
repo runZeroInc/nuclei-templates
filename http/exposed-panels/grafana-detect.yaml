@@ -20,9 +20,7 @@ info:
       - title="grafana"
       - app="grafana"
     google-query: intitle:"grafana"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)grafana"})
-    category: devops
-  tags: panel,grafana,detect
+  tags: panel,grafana,detect,discovery
 
 http:
   - method: GET

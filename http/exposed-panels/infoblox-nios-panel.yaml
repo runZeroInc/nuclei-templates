@@ -16,11 +16,8 @@ info:
     max-request: 1
     vendor: infoblox
     product: nios
-    shodan-query: http.title:"infoblox"
-    fofa-query: title="infoblox"
-    google-query: intitle:"infoblox"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Infoblox"})
-  tags: panel,infoblox,nios,login,detect
+    shodan-query: http.title:"Infoblox"
+  tags: panel,infoblox,nios,login,detect,discovery
 
 http:
   - method: GET

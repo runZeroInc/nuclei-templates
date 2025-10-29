@@ -15,9 +15,8 @@ info:
     max-request: 1
     vendor: busybox
     product: busybox
-    fofa-query: title="busybox repository browser"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Busybox Repository Browser"})
-  tags: detect,busybox,oss,panel
+    fofa-query: title="Busybox Repository Browser"
+  tags: detect,busybox,oss,panel,discovery
 
 http:
   - method: GET

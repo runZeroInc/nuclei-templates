@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"cisco ucs kvm direct"
     fofa-query: title="cisco ucs kvm direct"
     google-query: intitle:"cisco ucs kvm direct"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cisco ucs kvm direct"})
-  tags: panel,cisco,ucs,kvm
+  tags: panel,cisco,ucs,kvm,discovery
 
 http:
   - method: GET

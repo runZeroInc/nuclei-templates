@@ -13,8 +13,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-    runzero-match: service["http.body"] contains ">AlphaWeb XE<"
-  tags: default-login,AlphaWeb
+  tags: default-login,AlphaWeb,vuln
 
 http:
   - raw:

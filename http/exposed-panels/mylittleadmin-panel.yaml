@@ -16,11 +16,7 @@ info:
     verified: true
     max-request: 2
     vendor: mylittletools
-    product: mylittleadmin
-    shodan-query: http.html:"mylittleadmin"
-    fofa-query: body="mylittleadmin"
-    runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
-  tags: panel,mylittleadmin,login
+  tags: panel,mylittleadmin,login,discovery
 
 http:
   - method: GET

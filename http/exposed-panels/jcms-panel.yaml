@@ -18,8 +18,7 @@ info:
     product: jcms
     shodan-query: http.html:"jalios jcms"
     fofa-query: body="jalios jcms"
-    runzero-match: service["http.body"] matches "(?i)jalios jcms"
-  tags: panel,jalios,jcms
+  tags: panel,jalios,jcms,discovery
 
 http:
   - method: GET

@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"bookstack"
     fofa-query: title="bookstack"
     google-query: intitle:"bookstack"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bookstack"})
-  tags: panel,bookstack,bookstackapp
+  tags: panel,bookstack,bookstackapp,discovery
 
 http:
   - method: GET

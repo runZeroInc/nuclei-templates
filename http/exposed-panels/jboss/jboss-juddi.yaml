@@ -20,8 +20,7 @@ info:
     product: jboss_enterprise_web_platform
     shodan-query: http.html:"jboss ws"
     fofa-query: body="jboss ws"
-    runzero-match: service["http.body"] matches "(?i)jboss ws"
-  tags: panel,jboss,juddi,redhat
+  tags: panel,jboss,juddi,redhat,discovery
 
 http:
   - method: GET

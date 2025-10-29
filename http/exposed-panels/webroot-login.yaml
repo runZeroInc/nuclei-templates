@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: webroot
-    product: secureanywhere
-    shodan-query: http.title:"webroot - login"
-    fofa-query: title="webroot - login"
-    google-query: intitle:"webroot - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Webroot - Login"})
-  tags: panel,webroot
+  tags: panel,webroot,discovery
 
 http:
   - method: GET

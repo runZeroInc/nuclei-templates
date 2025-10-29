@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Sign in to Netsparker Enterprise"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sign in to Netsparker Enterprise"})
-  tags: panel,netsparker
+  tags: panel,netsparker,discovery
 
 http:
   - method: GET

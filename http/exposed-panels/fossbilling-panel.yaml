@@ -13,11 +13,8 @@ info:
     max-request: 1
     vendor: fossbilling
     product: fossbilling
-    shodan-query: http.title:"fossbilling"
-    fofa-query: title="fossbilling"
-    google-query: intitle:"fossbilling"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FOSSBilling"})
-  tags: fossbilling,panel,detect
+    shodan-query: title:"FOSSBilling"
+  tags: fossbilling,panel,detect,discovery
 
 http:
   - method: GET

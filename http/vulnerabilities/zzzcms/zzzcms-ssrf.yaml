@@ -16,7 +16,10 @@ info:
     product: zzzcms
     shodan-query: html:"ZzzCMS"
     fofa-query: title="ZzzCMS"
-  tags: zzzcms,ssrf,oast
+    product: zzzcms
+    vendor: zzzcms
+  tags: zzzcms,ssrf,oast,vuln
+
 variables:
   filename: "{{to_lower(rand_text_alpha(4))}}"
 

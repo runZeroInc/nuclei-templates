@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"vaultwarden"
-    runzero-match: service["http.body"] matches "(?i)vaultwarden"
-  tags: panel,vaultwarden,login
+  tags: panel,vaultwarden,login,discovery
 
 http:
   - method: GET

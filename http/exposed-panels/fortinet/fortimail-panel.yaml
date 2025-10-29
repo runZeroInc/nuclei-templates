@@ -18,8 +18,7 @@ info:
       - fortimail && port=443
       - title="fortimail"
     google-query: intitle:"fortimail"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortimail"})
-  tags: panel,fortinet,fortimail,login
+  tags: panel,fortinet,fortimail,login,discovery
 
 http:
   - method: GET

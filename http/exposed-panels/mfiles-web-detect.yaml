@@ -18,8 +18,7 @@ info:
     product: m-files
     shodan-query: http.html:"m-files web"
     fofa-query: body="m-files web"
-    runzero-match: service["http.body"] matches "(?i)m-files web"
-  tags: panel,m-files
+  tags: panel,m-files,discovery
 
 http:
   - method: GET

@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: title:"Yopass"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Yopass"})
-  tags: panel,yopass
+  tags: panel,yopass,discovery
 
 http:
   - method: GET

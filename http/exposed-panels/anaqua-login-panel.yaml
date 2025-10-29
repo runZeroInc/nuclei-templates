@@ -12,9 +12,8 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"Anaqua User Sign On"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Anaqua User Sign On"})
-  tags: anaqua,login,panel
+    shodan-query: title:"Anaqua User Sign On""
+  tags: anaqua,login,panel,discovery
 
 http:
   - method: GET

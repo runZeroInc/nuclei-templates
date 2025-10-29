@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Maestro - LuCI"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Maestro - LuCI"})
-  tags: panel,maestro,luci
+  tags: panel,maestro,luci,discovery
 
 http:
   - method: GET

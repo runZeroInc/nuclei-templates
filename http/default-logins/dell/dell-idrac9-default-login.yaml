@@ -12,8 +12,7 @@ info:
     cwe-id: cwe-798
   metadata:
     max-request: 1
-    runzero-match: any(each(service["html.titles"]), {# matches "Integrated (?:Dell )?Remote Access Controller"})
-  tags: dell,idrac,default-login
+  tags: dell,idrac,default-login,vuln
 
 http:
   - raw:

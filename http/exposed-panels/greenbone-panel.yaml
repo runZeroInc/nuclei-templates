@@ -16,11 +16,7 @@ info:
     shodan-query: http.title:"greenbone security assistant"
     fofa-query: title="greenbone security assistant"
     google-query: intitle:"greenbone security assistant"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)greenbone security assistant"})
-    zoomeye-query:
-      - title="greenbone security assistant"
-      - title:"greenbone security assistant"
-  tags: panel,greenbone,login
+  tags: panel,greenbone,login,discovery
 
 http:
   - method: GET

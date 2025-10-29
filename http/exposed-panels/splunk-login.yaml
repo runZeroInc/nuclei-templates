@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Splunk SOAR"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Splunk SOAR"})
-  tags: panel,splunk
+  tags: panel,splunk,discovery
 
 http:
   - method: GET

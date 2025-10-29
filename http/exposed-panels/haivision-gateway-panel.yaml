@@ -11,8 +11,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Haivision Gateway"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Haivision Gateway"})
-  tags: panel,haivision,login,detect
+  tags: panel,haivision,login,detect,discovery
 
 http:
   - method: GET

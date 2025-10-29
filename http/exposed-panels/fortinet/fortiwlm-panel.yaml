@@ -23,8 +23,7 @@ info:
       - title="fortiwlm"
       - body="fortiwlm"
     google-query: intitle:"fortiwlm"
-    runzero-match: service["http.body"] matches "(?i)fortiwlm" || any(each(service["html.titles"]), {# matches "(?i)fortiwlm"})
-  tags: panel,fortinet,fortiwlm,login
+  tags: panel,fortinet,fortiwlm,login,discovery
 
 http:
   - method: GET

@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"sonicwall analyzer login"
     fofa-query: title="sonicwall analyzer login"
     google-query: intitle:"sonicwall analyzer login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sonicwall analyzer login"})
-  tags: panel,sonicwall
+  tags: panel,sonicwall,discovery
 
 http:
   - method: GET

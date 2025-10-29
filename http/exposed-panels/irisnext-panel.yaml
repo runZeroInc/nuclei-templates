@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"irisnext"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)irisnext"})
-  tags: panel,irisnext,login
+  tags: panel,irisnext,login,discovery
 
 http:
   - method: GET

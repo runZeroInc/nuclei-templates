@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"daybyday"
     fofa-query: title="daybyday"
     google-query: intitle:"daybyday"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)daybyday"})
-  tags: panel,daybyday,daybydaycrm
+  tags: panel,daybyday,daybydaycrm,discovery
 
 http:
   - method: GET

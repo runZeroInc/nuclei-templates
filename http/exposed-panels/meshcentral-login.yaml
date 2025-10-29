@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"meshcentral - login"
     fofa-query: title="meshcentral - login"
     google-query: intitle:"meshcentral - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)meshcentral - login"})
-  tags: panel,meshcentral
+  tags: panel,meshcentral,discovery
 
 http:
   - method: GET

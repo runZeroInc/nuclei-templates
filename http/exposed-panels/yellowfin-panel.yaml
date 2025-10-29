@@ -11,11 +11,8 @@ info:
     max-request: 1
     vendor: yellowfinbi
     product: yellowfin
-    shodan-query: http.title:"yellowfin information collaboration"
-    fofa-query: title="yellowfin information collaboration"
-    google-query: intitle:"yellowfin information collaboration"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Yellowfin Information Collaboration"})
-  tags: yellowfin,panel,login
+    shodan-query: title:"Yellowfin Information Collaboration"
+  tags: yellowfin,panel,login,discovery
 
 http:
   - method: GET

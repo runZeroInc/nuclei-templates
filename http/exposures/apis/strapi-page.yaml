@@ -14,9 +14,7 @@ info:
   metadata:
     max-request: 1
     vendor: strapi
-    product: strapi
-    shodan-query: http.title:"Welcome to your Strapi app"
-  tags: api,strapi,exposure
+  tags: api,strapi,exposure,discovery
 
 http:
   - method: GET

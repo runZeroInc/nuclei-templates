@@ -7,9 +7,7 @@ info:
   description: Microsoft IIS detected.
   metadata:
     max-request: 1
-    runzero-vendor: Microsoft
-    runzero-product: IIS
-  tags: tech,microsoft,iis
+  tags: tech,microsoft,iis,discovery
 
 http:
   - method: GET

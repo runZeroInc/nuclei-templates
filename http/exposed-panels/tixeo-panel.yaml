@@ -11,10 +11,8 @@ info:
   metadata:
     verified: true
     max-request: 3
-    shodan-query: 'http.title:"tixeo"'
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tixeo"})
-  tags: panel,tixeo,login,detect
-
+    shodan-query: "http.title:\"tixeo\""
+  tags: panel,tixeo,login,detect,discovery
 http:
   - method: GET
     path:
@@ -23,6 +21,7 @@ http:
       - "{{BaseURL}}/meet/"
 
     stop-at-first-match: true
+
     matchers:
       - type: dsl
         dsl:

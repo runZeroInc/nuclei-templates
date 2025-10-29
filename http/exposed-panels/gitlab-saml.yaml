@@ -21,13 +21,12 @@ info:
       - title="gitlab"
       - body="gitlab-ci.yml"
     google-query: intitle:"gitlab"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)gitlab"}) || service["http.body"] matches "(?i)gitlab enterprise edition"
-  tags: panel,saml,gitlab
+  tags: panel,saml,gitlab,discovery
 
 http:
   - raw:
       - |
-        GET /users/auth/saml/metadata HTTP/2
+        GET /users/auth/saml/metadata HTTP/1.1
         Host: {{Hostname}}
 
     matchers-condition: and

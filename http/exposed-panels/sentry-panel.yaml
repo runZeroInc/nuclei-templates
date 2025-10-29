@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"login | sentry"
     fofa-query: title="login | sentry"
     google-query: intitle:"login | sentry"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login \\| sentry"})
-  tags: panel,sentry,login
+  tags: panel,sentry,login,discovery
 
 http:
   - method: GET

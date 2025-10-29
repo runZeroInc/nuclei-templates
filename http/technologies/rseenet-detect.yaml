@@ -11,9 +11,7 @@ info:
   metadata:
     max-request: 1
     vendor: advantech
-    product: r-seenet
-    shodan-query: http.title:"R-SeeNet"
-  tags: tech,rseenet
+  tags: tech,rseenet,discovery
 
 http:
   - method: GET

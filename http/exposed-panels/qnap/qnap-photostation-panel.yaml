@@ -27,8 +27,7 @@ info:
     google-query:
       - intitle:"qnap"
       - intitle:"photo station"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)photo station"}) || any(each(service["html.titles"]), {# matches "(?i)qnap"})
-  tags: panel,photostation,qnap
+  tags: panel,photostation,qnap,discovery
 
 http:
   - method: GET

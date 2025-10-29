@@ -16,9 +16,7 @@ info:
     shodan-query: http.title:'cas - central authentication service'
     fofa-query: title='cas - central authentication service'
     google-query: intitle:'cas - central authentication service'
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)'cas"})
-    github: https://github.com/apereo/cas
-  tags: apereo,cas,panel,login
+  tags: apereo,cas,panel,login,discovery
 
 http:
   - method: GET

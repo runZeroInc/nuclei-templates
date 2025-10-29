@@ -14,12 +14,7 @@ info:
   metadata:
     max-request: 1
     vendor: ssh
-    product: privx
-    shodan-query: http.title:"privx"
-    fofa-query: title="privx"
-    google-query: intitle:"privx"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PrivX"})
-  tags: panel,privx
+  tags: panel,privx,discovery
 
 http:
   - method: GET

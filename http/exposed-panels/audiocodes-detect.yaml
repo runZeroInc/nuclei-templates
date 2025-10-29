@@ -13,11 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: audiocodes
-    product: 420hd_ip_phone_firmware
-    shodan-query: http.html:"audiocodes"
-    fofa-query: body="audiocodes"
-    runzero-match: service["http.body"] matches "(?i)Audiocodes"
-  tags: panel,audiocodes
+  tags: panel,audiocodes,discovery
 
 http:
   - method: GET

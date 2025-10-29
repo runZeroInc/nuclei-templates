@@ -11,12 +11,8 @@ info:
   metadata:
     verified: true
     max-request: 1
-    vendor: squidex.io
-    product: squidex
-    shodan-query: http.favicon.hash:"1099097618"
-    fofa-query: icon_hash=1099097618
-    runzero-match: service["favicon.ico.image.mmh3"] == "1099097618"
-  tags: panel,squidex,login
+    shodan-query: http.favicon.hash:1099097618
+  tags: panel,squidex,login,discovery
 
 http:
   - method: GET

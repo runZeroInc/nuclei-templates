@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"appliance management console login"
     fofa-query: title="appliance management console login"
     google-query: intitle:"appliance management console login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)appliance management console login"})
-  tags: panel,sonicwall,login
+  tags: panel,sonicwall,login,discovery
 
 http:
   - method: GET

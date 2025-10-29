@@ -16,11 +16,8 @@ info:
     max-request: 1
     vendor: koel
     product: koel
-    shodan-query: http.title:"koel"
-    fofa-query: title="koel"
-    google-query: intitle:"koel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Koel"})
-  tags: panel,koel,login
+    shodan-query: title:"Koel"
+  tags: panel,koel,login,discovery
 
 http:
   - method: GET

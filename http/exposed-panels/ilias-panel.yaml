@@ -18,8 +18,7 @@ info:
       - http.html:"ILIAS"
       - http.html:"ilias"
     fofa-query: body="ilias"
-    runzero-match: service["http.body"] matches "(?i)ilias"
-  tags: panel,ilias
+  tags: panel,ilias,discovery
 
 http:
   - method: GET

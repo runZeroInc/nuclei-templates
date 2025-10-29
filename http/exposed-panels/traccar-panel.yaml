@@ -10,9 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"Traccar"
-    fofa-query: app="Traccar"
-    runzero-match: service["http.body"] matches "(?i)Traccar"
-  tags: panel,login,traccar,detect
+  tags: panel,login,traccar,detect,discovery
 
 http:
   - method: GET

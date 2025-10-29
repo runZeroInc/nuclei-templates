@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"LibreSpeed"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LibreSpeed"})
-  tags: panel,librespeed,detect
+  tags: panel,librespeed,detect,discovery
 
 http:
   - method: GET

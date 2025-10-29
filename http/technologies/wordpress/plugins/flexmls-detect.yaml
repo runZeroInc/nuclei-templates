@@ -8,7 +8,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"/wp-content/plugins/flexmls-idx"
-  tags: tech,detect,flexmls,idx
+  tags: tech,detect,flexmls,idx,discovery
 
 http:
   - method: GET
@@ -24,6 +24,25 @@ http:
         internal: true
         name: internal_detected_version
         group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+      - type: regex
+        part: body
+        name: detected_version
+        group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+    matchers-condition: or
+    matchers:
+      - type: dsl
+        name: "outdated_version"
+        dsl:
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
 

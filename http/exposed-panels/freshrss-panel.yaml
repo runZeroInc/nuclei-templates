@@ -13,13 +13,8 @@ info:
     max-request: 1
     vendor: freshrss
     product: freshrss
-    shodan-query: http.title:"freshrss"
-    fofa-query:
-      - title="freshrss"
-      - title="installation · freshrss"
-    google-query: intitle:"freshrss"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Freshrss"})
-  tags: freshrss,panel,detect
+    shodan-query: title:"Freshrss"
+  tags: freshrss,panel,detect,discovery
 
 http:
   - method: GET

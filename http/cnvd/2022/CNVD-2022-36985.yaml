@@ -18,7 +18,7 @@ info:
     verified: true
     max-request: 1
     vendor: wuzhicms
-  tags: cnvd,cnvd2022,wuzhicms,sqli
+  tags: cnvd,cnvd2022,wuzhicms,sqli,vuln
 variables:
   num: "999999999"
 

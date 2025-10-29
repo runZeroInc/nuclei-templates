@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"cortex xsoar"
     fofa-query: title="cortex xsoar"
     google-query: intitle:"cortex xsoar"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cortex xsoar"})
-  tags: panel,soar,login,paloaltonetworks,detect
+  tags: panel,soar,login,paloaltonetworks,detect,discovery
 
 http:
   - method: GET

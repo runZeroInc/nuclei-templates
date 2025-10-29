@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"git repository browser"
     fofa-query: title="git repository browser"
     google-query: intitle:"git repository browser"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)git repository browser"})
-  tags: panel,git,cgit_project
+  tags: panel,git,cgit_project,discovery
 
 http:
   - method: GET

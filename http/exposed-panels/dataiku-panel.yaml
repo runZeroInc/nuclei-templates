@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: dataiku
-    product: data_science_studio
-    shodan-query: http.title:"dataiku"
-    fofa-query: title="dataiku"
-    google-query: intitle:"dataiku"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
-  tags: panel,dataiku
+  tags: panel,dataiku,discovery
 
 http:
   - method: GET

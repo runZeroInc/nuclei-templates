@@ -14,7 +14,7 @@ info:
     vendor: slims
     product: senayan_library_management_system
     shodan-query: html:"SLIMS"
-  tags: senayan,xss,slims
+  tags: senayan,xss,slims,vuln
 
 http:
   - method: GET
@@ -30,7 +30,6 @@ http:
       - "{{BaseURL}}/library/index.php?destination=%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E&p=member"
 
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word

@@ -22,9 +22,7 @@ info:
       - title="login - adminer"
       - app="adminer" && body="4.7.8"
     google-query: intitle:"login - adminer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
-    hunter-query: app.name="adminer"&&web.body="4.7.8"
-  tags: panel,fuzz,adminer,login,sqli
+  tags: panel,fuzz,adminer,login,sqli,discovery
 
 http:
   - raw:

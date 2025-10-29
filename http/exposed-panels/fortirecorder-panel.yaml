@@ -9,12 +9,11 @@ info:
   reference:
     - https://www.fortinet.com/content/dam/fortinet/assets/data-sheets/FortiRecorder.pdf
   metadata:
-    verified: true
     max-request: 1
+    verified: true
     shodan-query: title:FortiRecorder
     fofa-query: title="FortiRecorder"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FortiRecorder"})
-  tags: fortinet,fortirecorder,login,panel
+  tags: fortinet,fortirecorder,login,panel,discovery
 
 http:
   - method: GET

@@ -16,11 +16,7 @@ info:
     verified: true
     max-request: 3
     vendor: mylittletools
-    product: mylittlebackup
-    shodan-query: http.html:"mylittlebackup"
-    fofa-query: body="mylittlebackup"
-    runzero-match: service["http.body"] matches "(?i)myLittleBackup"
-  tags: panel,mylittlebackup
+  tags: panel,mylittlebackup,discovery
 
 http:
   - method: GET

@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 2
     vendor: zkteco
-    product: biotime
-    shodan-query: http.title:"biotime"
-    fofa-query: title="biotime"
-    google-query: intitle:"biotime"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)BioTime"})
-  tags: panel,biotime
+  tags: panel,biotime,discovery
 
 http:
   - method: GET

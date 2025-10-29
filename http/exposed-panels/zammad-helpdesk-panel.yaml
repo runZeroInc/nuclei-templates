@@ -10,14 +10,13 @@ info:
     - https://github.com/zammad/zammad
     - https://zammad.org/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Zammad Helpdesk"})
     verified: true
     max-request: 1
     vendor: zammad
     product: zammad
     shodan-query: http.title:"Zammad Helpdesk"
     fofa-query: title="Zammad Helpdesk"
-  tags: panel,zammad,detect,helpdesk,ticketing
+  tags: panel,zammad,detect,helpdesk,ticketing,discovery
 
 http:
   - method: GET

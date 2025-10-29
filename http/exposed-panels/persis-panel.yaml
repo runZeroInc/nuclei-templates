@@ -15,12 +15,7 @@ info:
     verified: true
     max-request: 2
     vendor: persis
-    product: human_resource_management_portal
-    shodan-query: http.title:"persis"
-    fofa-query: title="persis"
-    google-query: intitle:"persis"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Persis"})
-  tags: panel,persis
+  tags: panel,persis,discovery
 
 http:
   - method: GET

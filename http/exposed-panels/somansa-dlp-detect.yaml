@@ -14,8 +14,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: http.html:"DLP system"
-    runzero-match: service["http.body"] matches "(?i)DLP system"
-  tags: panel,somansa,dlp
+  tags: panel,somansa,dlp,discovery
 
 http:
   - method: GET

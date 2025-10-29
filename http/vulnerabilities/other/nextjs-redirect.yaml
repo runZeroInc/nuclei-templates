@@ -17,9 +17,7 @@ info:
   metadata:
     max-request: 1
     vendor: zeit
-    product: next.js
-    shodan-query: html:"/_next/static"
-  tags: redirect,nextjs,xss
+  tags: redirect,nextjs,xss,vuln
 
 http:
   - method: GET

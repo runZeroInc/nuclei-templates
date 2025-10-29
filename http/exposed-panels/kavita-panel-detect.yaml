@@ -23,8 +23,7 @@ info:
       - title="kavita"
       - body="kavita"
     google-query: intitle:"kavita"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kavita"})
-  tags: panel,kavita
+  tags: panel,kavita,discovery
 
 http:
   - method: GET

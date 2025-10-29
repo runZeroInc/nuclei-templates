@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"arcgis"
     fofa-query: title="arcgis"
     google-query: intitle:"arcgis"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)arcgis"})
-  tags: panel,arcgis,rest,api,detect,esri
+  tags: panel,arcgis,rest,api,detect,esri,discovery
 
 http:
   - method: GET

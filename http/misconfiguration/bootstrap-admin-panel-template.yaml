@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 1
     vendor: teamworktec
-    product: responsive_bootstrap_admin_template
-    shodan-query: title:"Dashboard - Bootstrap Admin Template"
-  tags: bootstrap,panel,misconfig,exposure
+  tags: bootstrap,panel,misconfig,exposure,vuln
 
 http:
   - method: GET

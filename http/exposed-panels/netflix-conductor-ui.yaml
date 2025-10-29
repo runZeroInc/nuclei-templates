@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"conductor ui", http.title:"workflow ui"
     fofa-query: title="conductor ui", http.title:"workflow ui"
     google-query: intitle:"conductor ui", http.title:"workflow ui"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)conductor ui"})
-  tags: webserver,netflix,conductor,panel
+  tags: webserver,netflix,conductor,panel,discovery
 
 http:
   - method: GET

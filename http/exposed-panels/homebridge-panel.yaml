@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Homebridge"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Homebridge"})
-  tags: panel,homebridge,detect
+  tags: panel,homebridge,detect,discovery
 
 http:
   - method: GET

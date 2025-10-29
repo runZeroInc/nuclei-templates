@@ -24,8 +24,7 @@ info:
     google-query:
       - intitle:"concrete5"
       - intitle:"install concrete5"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)install concrete5"}) || any(each(service["html.titles"]), {# matches "(?i)concrete5"})
-  tags: panel,install,concrete,cms,concrete5
+  tags: panel,install,concrete,cms,concrete5,discovery
 
 http:
   - method: GET

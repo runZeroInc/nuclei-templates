@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"HAL Management Console"
-    runzero-match: service["http.body"] matches "(?i)HAL Management Console"
-  tags: panel,login,hal
+  tags: panel,login,hal,discovery
 
 http:
   - method: GET

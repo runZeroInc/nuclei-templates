@@ -25,12 +25,8 @@ info:
     fofa-query:
       - icon_hash=1768726119
       - title="outlook"
-      - title=outlook exchange
-    google-query:
-      - intitle:"outlook"
-      - intitle:outlook exchange
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)outlook"}) || service["favicon.ico.image.mmh3"] == "1768726119"
-  tags: ms,microsoft,exchange,tech,panel
+    google-query: intitle:"outlook"
+  tags: ms,microsoft,exchange,tech,panel,discovery
 
 http:
   - method: GET

@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-902890504
-    runzero-match: service["favicon.ico.image.mmh3"] == "-902890504"
-  tags: xss,universal,media,unauth,packetstorm
+  tags: xss,universal,media,unauth,packetstorm,vuln
 
 http:
   - method: GET

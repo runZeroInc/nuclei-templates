@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 1
     vendor: tongda2000
-    product: office_anywhere_2017
-    fofa-query: icon_hash="1967132225"
-  tags: tongda,lfi
+  tags: tongda,lfi,vuln
 
 http:
   - method: GET

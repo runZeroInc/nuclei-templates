@@ -25,8 +25,7 @@ info:
       - title="big-ip&reg;-+redirect" +"server"
       - body="big-ip apm"
     google-query: intitle:"big-ip&reg;-+redirect" +"server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)big-ip&reg;-\\+redirect"})
-  tags: panel,bigip,f5
+  tags: panel,bigip,f5,discovery
 
 http:
   - method: GET
