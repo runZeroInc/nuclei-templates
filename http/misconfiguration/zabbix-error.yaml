@@ -13,9 +13,7 @@ info:
   metadata:
     max-request: 1
     vendor: zabbix
-    product: zabbix_server
-    shodan-query: http.title:"Warning [refreshed every 30 sec.]"
-  tags: zabbix,misconfig
+  tags: zabbix,misconfig,vuln
 
 http:
   - method: GET
@@ -31,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100a8ab9310cc6c9681e8beffffe726f44361e5b0f2f09a11e48d321df76fa04bc1022049b2cf9b0958a3c7701196cc4d80673123f5996f038bd0a31d7e75fc04969bbd:922c64590222798bb761d5b6d8e72950

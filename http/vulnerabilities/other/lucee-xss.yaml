@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-79
   metadata:
     max-request: 2
-  tags: lucee,xss,unauth,intrusive
+  tags: lucee,xss,unauth,intrusive,vuln
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
           - "lucee-err"
         part: body
         condition: and
-
+# digest: 4a0a004730450221009ed8bc9ae797586ab45ff871c40888ac8142f02b9d678edf88ac3067b76a42f8022042b6adb59227f179204ed6e8820a49657983cd68e1dcea95b4c2f488dbe2f39d:922c64590222798bb761d5b6d8e72950

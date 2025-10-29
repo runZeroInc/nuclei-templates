@@ -9,7 +9,7 @@ info:
   # Manual testing needed for exploitation
   metadata:
     max-request: 1
-  tags: xss,generic
+  tags: xss,generic,vuln
 
 http:
   - method: GET
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022062f3076bedb228eed9471e1d4435dde291a9ec5f4a0d077d492a19984511fd060220747c91fdc1b38cca7233c6efb9284c5cf4ca4204bcda47d64268b81a815a6d5c:922c64590222798bb761d5b6d8e72950

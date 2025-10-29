@@ -13,8 +13,7 @@ info:
   metadata:
     max-request: 4
     shodan-query: http.title:"securenvoy"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)securenvoy"})
-  tags: panel,securenvoy
+  tags: panel,securenvoy,discovery
 
 http:
   - method: GET
@@ -37,4 +36,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100c678e2c168fc731bb538785d4750b87f0d04eb8fe3e672d12e35821da6d2d6fa022100a87652c5cac00c68a8cb72dca3c97315645839be227b34b088694e0695adb5dc:922c64590222798bb761d5b6d8e72950

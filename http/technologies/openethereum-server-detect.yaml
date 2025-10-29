@@ -12,7 +12,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: product:OpenEthereum
-  tags: tech,openethereum,ethereum,web3,blockchain
+  tags: tech,openethereum,ethereum,web3,blockchain,discovery
 
 http:
   - raw:
@@ -38,4 +38,4 @@ http:
         group: 1
         regex:
           - '(v[0-9a-z-_.]+)'
-
+# digest: 4b0a00483046022100dcd61f51f23957efb1508da85cdf10075f236f039c1203a1dfb9c0c5f5fe0664022100e0514dcfd04ceb1b60202bbdaf85c4018348fa3c2f86853aa067d88d47f06af3:922c64590222798bb761d5b6d8e72950

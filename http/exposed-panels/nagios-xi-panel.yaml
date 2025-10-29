@@ -22,8 +22,7 @@ info:
       - app="nagios-xi"
       - icon_hash="1460499495"
     google-query: intitle:"nagios xi"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nagios xi"})
-  tags: panel,nagios,nagios-xi
+  tags: panel,nagios,nagios-xi,discovery
 
 http:
   - method: GET
@@ -47,4 +46,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a004630440220164001e53809596524487f7efa3f3a0574d64d77c83cda01a1419d1d5035f571022043b2c6ecff7af2bea7b3468c41d3786f4b937e603f588cef7d416eb5c43fcdca:922c64590222798bb761d5b6d8e72950

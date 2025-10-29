@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 32
-  tags: linux,lfi,generic
+  tags: linux,lfi,generic,vuln
 
 http:
   - method: GET
@@ -59,4 +59,4 @@ http:
         regex:
           - "root:.*:0:0:"
         part: body
-
+# digest: 4b0a00483046022100a19889fa4e6f0250e61acd757599be7cf5d002dc0ff22aae722f83ab05bff8bc0221008575260d3d057cd3595f206924cbfc1535b007ed6a7125ca353ed841a5c29abe:922c64590222798bb761d5b6d8e72950

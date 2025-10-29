@@ -15,7 +15,7 @@ info:
     cwe-id: CWE-79
   metadata:
     max-request: 1
-  tags: xss,drupal,edb,packetstorm
+  tags: xss,drupal,edb,packetstorm,vuln
 
 http:
   - method: GET
@@ -37,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100a911f0c6ed08f6d8e15b7c251e414ba16f35319e16abc46a80b1114de2e909e0022100f592e019f87d77670e326f64daeb3e679cbe1d5817e077d011058bb27f27a6ee:922c64590222798bb761d5b6d8e72950

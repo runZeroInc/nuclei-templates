@@ -14,12 +14,7 @@ info:
     verified: true
     max-request: 3
     vendor: sap
-    product: hybris
-    shodan-query: http.title:"hybris"
-    fofa-query: title="hybris"
-    google-query: intitle:"hybris"
-    runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
-  tags: default-login,hybris
+  tags: default-login,hybris,vuln
 
 http:
   - raw:
@@ -74,4 +69,4 @@ http:
         group: 1
         regex:
           - '<meta name="_csrf" content="([a-z0-9-]+)" \/>'
-
+# digest: 490a00463044022053026faa0b18d49b126af36b8dcf8229aa4a962338c901e7527fd5b480b99358022063bce2dbbd0505da2041ed0b942d30937b7757777d5211cf2d34f854fa28cf41:922c64590222798bb761d5b6d8e72950

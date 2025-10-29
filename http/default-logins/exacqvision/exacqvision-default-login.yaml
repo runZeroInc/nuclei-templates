@@ -11,7 +11,7 @@ info:
     cwe-id: cwe-798
   metadata:
     max-request: 1
-  tags: exacqvision,default-login
+  tags: exacqvision,default-login,vuln
 
 http:
   - raw:
@@ -47,4 +47,4 @@ http:
         words:
           - '"auth":'
           - '"success": true'
-
+# digest: 4b0a00483046022100cb67fee8b181c34c891ead9adf619f76f219a76c4fc46fa044c380dcd42ef428022100835ade21632696c39f2ccae557559e4bce926c14a6f243bd4db96f1a34b0661c:922c64590222798bb761d5b6d8e72950

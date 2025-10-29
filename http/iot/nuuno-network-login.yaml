@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: iot,panel,nuuo,edb
+  tags: iot,panel,nuuo,edb,discovery
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502206472977481970e7c60cf0c2ca52cd6704cd0776929639436122183ca95801cb7022100a6f10323d4e2f26a828067c392dd628ea81ce71d942ff41e406718c7d53187b5:922c64590222798bb761d5b6d8e72950

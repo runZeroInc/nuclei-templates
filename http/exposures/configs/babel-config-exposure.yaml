@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: pocoo
-    product: babel
-    shodan-query: html:"babel.config.js"
-  tags: exposure,config,file
+  tags: exposure,config,file,vuln
 
 http:
   - method: GET
@@ -37,4 +35,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022009952bcb36ae290932ece85fbbab5b27d1be7bb6932ecf0b8ab1acff9596bec1022011fbdf5ac1c3a1efbfaba7cfa3795cb02bd49b24fc38cfaa8bf55e5298daf49e:922c64590222798bb761d5b6d8e72950

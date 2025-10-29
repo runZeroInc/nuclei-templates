@@ -9,9 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"Nginx Proxy Manager"
-    runzero-match: service["http.body"] matches "Nginx Proxy Manager"
-  tags: nginx,proxy-manager,default-login
+  tags: nginx,proxy-manager,default-login,vuln
 
 http:
   - raw:
@@ -29,4 +27,4 @@ http:
           - contains(content_type, "application/json")
           - status_code == 200
         condition: and
-
+# digest: 490a0046304402205c89edd8fdfdf1f71d3da36ace3a9d279705595fd81768ecfb96a268f9622d7e022022805ab4811a80fe959ce1d1d67525537b4b83135349c06e5024125d47746fab:922c64590222798bb761d5b6d8e72950

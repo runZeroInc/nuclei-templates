@@ -10,9 +10,9 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 1
-  tags: osint,osint-social,sessionize
+    verified: true
+  tags: osint,osint-social,sessionize,discovery
 
 self-contained: true
 
@@ -34,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022029cf75d6d143ac3837ef24441149134cc655076496905ae4d17e2fda2e0a903a0220026e9d64f85046015c509a52c5e04a3b5500d2d8270be4d14d123fc295febbe7:922c64590222798bb761d5b6d8e72950

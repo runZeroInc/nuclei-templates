@@ -14,21 +14,9 @@ info:
     max-request: 6
     vendor: phpmyadmin
     product: phpmyadmin
-    shodan-query:
-      - http.html:"server_databases.php"
-      - cpe:"cpe:2.3:a:phpmyadmin:phpmyadmin"
-      - http.component:"phpmyadmin"
-      - http.html:"phpmyadmin"
-      - http.title:"phpmyadmin"
-    fofa-query:
-      - body="server_databases.php"
-      - body="phpmyadmin"
-      - body="pma_servername" && body="4.8.4"
-      - title="phpmyadmin"
-    google-query: intitle:"phpmyadmin"
-    runzero-match: service["http.body"] matches "(?i)server_databases\\.php"
-    hunter-query: app.name="phpmyadmin"&&web.body="pma_servername"&&web.body="4.8.4"
-  tags: misconfig,phpmyadmin,unauth
+    shodan-query: html:"server_databases.php"
+    fofa-query: body="server_databases.php"
+  tags: misconfig,phpmyadmin,unauth,vuln
 
 http:
   - raw:
@@ -72,4 +60,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502207e9fa10d7b23b476b2d1578163bb90654bf723606fd5bcda5e09b5ddc1e8f75202210090a4cc7315329a8928681152f31a3767139315bdfaf4d7ef8ae4c5f5dbbe0b51:922c64590222798bb761d5b6d8e72950

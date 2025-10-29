@@ -13,10 +13,7 @@ info:
   metadata:
     max-request: 3
     vendor: generex
-    product: cs141
-    shodan-query: http.html:"CS141"
-    runzero-match: service["http.body"] matches "CS141"
-  tags: hiawatha,iot,default-login
+  tags: hiawatha,iot,default-login,vuln
 
 http:
   - raw:
@@ -64,4 +61,4 @@ http:
       - type: kval
         kval:
           - accessToken
-
+# digest: 490a0046304402206d1fa562bca07ebd5f56ce4179d8e2b294f6917e7d1b23da23745a4816f76c3c022032fa4c472fbb6e463b53affd903f195ea21a8ebb4adecd4a9c96fa3d65a44630:922c64590222798bb761d5b6d8e72950

@@ -16,7 +16,7 @@ info:
     shodan-query:
       - http.component:"wordpress"
       - cpe:"cpe:2.3:a:wordpress:wordpress"
-  tags: panel,wordpress
+  tags: panel,wordpress,discovery
 
 http:
   - method: GET
@@ -31,4 +31,4 @@ http:
           - '/wp-login.php?action=lostpassword">Lost your password?</a>'
           - '<form name="loginform" id="loginform" action="{{BaseURL}}/wp-login.php" method="post">'
         condition: or
-
+# digest: 4b0a00483046022100c0881ec0e4789dfdddf19f1dcead00201ed6806b466c00a453d8ef7739008d3a022100bc7a4bc4e5bd65ab4bb9610a99797f41e57013fc72d1eb244624a18841f080d2:922c64590222798bb761d5b6d8e72950

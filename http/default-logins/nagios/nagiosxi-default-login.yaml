@@ -17,17 +17,7 @@ info:
     verified: true
     max-request: 6
     vendor: nagios
-    product: nagios_xi
-    shodan-query:
-      - http.title:"nagios xi"
-      - http.favicon.hash:"1460499495"
-    fofa-query:
-      - app="nagios-xi"
-      - icon_hash="1460499495"
-      - title="nagios xi"
-    google-query: intitle:"nagios xi"
-    runzero-match: any(each(service["html.titles"]), {# matches "Nagios XI"})
-  tags: nagios,nagiosxi,default-login
+  tags: nagios,nagiosxi,default-login,vuln
 
 http:
   - raw:
@@ -77,4 +67,4 @@ http:
         regex:
           - 'name="nsp" value="(.*)">'
         internal: true
-
+# digest: 4b0a00483046022100975389df8cf5633f2530e8a97fd33c3697921ae6b6f13bea3e8e022b9427fcf6022100ca0791e7e73ed421a1b81e5b8d30946a5b919bf852a2e448280a35168bd873ab:922c64590222798bb761d5b6d8e72950

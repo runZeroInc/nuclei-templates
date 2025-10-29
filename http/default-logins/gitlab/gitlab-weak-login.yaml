@@ -14,19 +14,7 @@ info:
   metadata:
     max-request: 6
     vendor: gitlab
-    product: gitlab
-    shodan-query:
-      - http.title:"gitlab"
-      - cpe:"cpe:2.3:a:gitlab:gitlab"
-      - http.html:"gitlab enterprise edition"
-      - http.html:"gitlab-ci.yml"
-    fofa-query:
-      - body="gitlab enterprise edition"
-      - body="gitlab-ci.yml"
-      - title="gitlab"
-    google-query: intitle:"gitlab"
-    runzero-match: any(each(service["html.titles"]), {# matches "GitLab"})
-  tags: gitlab,default-login
+  tags: gitlab,default-login,vuln
 
 http:
   - raw:
@@ -67,4 +55,4 @@ http:
           - '"token_type":'
           - '"refresh_token":'
         condition: and
-
+# digest: 4a0a00473045022100e16e7e9cdb02a8e5f15d3930b637a13ea805ed19a4983ca325a489fd333d58d00220145d063bfa81329d31f535bc32bc4b71631b4812c6cce56907c0b4ae883ea2fd:922c64590222798bb761d5b6d8e72950

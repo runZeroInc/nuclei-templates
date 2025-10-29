@@ -17,14 +17,9 @@ info:
     max-request: 1
     vendor: seafile
     product: seafile
-    shodan-query:
-      - http.favicon.hash:"1552322396"
-      - http.html:"seafile"
-    fofa-query:
-      - icon_hash=1552322396
-      - body="seafile"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1552322396"
-  tags: sefile,panel,login,seafile
+    shodan-query: http.favicon.hash:1552322396
+    fofa-query: icon_hash=1552322396
+  tags: sefile,panel,login,seafile,discovery
 
 http:
   - method: GET
@@ -41,4 +36,4 @@ http:
           - "status_code==200"
           - 'contains(body, "SEAFILE_GLOBAL") && contains(body, "seafile-ui.css")'
         condition: and
-
+# digest: 4a0a00473045022100980f4ff5acb36fd99471083ad9702710fb84698b190c1ee5eaf1071eac42c9eb0220754c56bfd05f616f6af785ef8279f2f95c3de195dc0c7856a823a64b1335ea58:922c64590222798bb761d5b6d8e72950

@@ -13,7 +13,7 @@ info:
     max-request: 2
     vendor: octoprint
     product: octoprint
-  tags: octoprint,panel
+  tags: octoprint,panel,discovery
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a004830460221009145d3c7ff0f63e780eb89e2907d300fa04adab16ae8feb5d1e361694038d396022100ae32e79c7e543c2f8f4e6838a8d018f501149b7552923f959191402a32e89df7:922c64590222798bb761d5b6d8e72950

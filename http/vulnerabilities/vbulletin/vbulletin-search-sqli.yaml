@@ -18,7 +18,7 @@ info:
     vendor: vbulletin
     product: vbulletin
     shodan-query: http.component:"vBulletin"
-  tags: vbulletin,sqli
+  tags: vbulletin,sqli,vuln
 
 http:
   - raw:
@@ -46,4 +46,4 @@ http:
           - 200
           - 503
         condition: or
-
+# digest: 4a0a00473045022074303121ed83ffe45c64bf8087374aa3e11a47f74e6198873ff9af48fc1ba20d0221009c17569f48b8cdef89f9faabf1a9bf56eb990edf3fe779131176e282bccb94fd:922c64590222798bb761d5b6d8e72950

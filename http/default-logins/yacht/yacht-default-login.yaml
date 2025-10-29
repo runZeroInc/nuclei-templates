@@ -16,7 +16,8 @@ info:
     fofa-query: app="Yacht"
     runzero-match: service["favicon.ico.image.mmh3"] == "-503392394"
     zoomeye-query: app="Yacht"
-  tags: default-login,yacht,misconfig
+  tags: default-login,yacht,misconfig,vuln
+
 variables:
   username: "admin@yacht.local"
   password: "pass"
@@ -47,4 +48,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100bda3f83d4dcc87185c5832c619a7f6e6d5e6c7e8e5d4a72f5e3b58f34e2977d20220123e2a0f81f30e19e5588dfbc4ca51d8094eb2fa830fb13b4923bf47ef9cb5ef:922c64590222798bb761d5b6d8e72950

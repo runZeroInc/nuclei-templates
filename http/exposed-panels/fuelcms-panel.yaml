@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"fuel cms"
     fofa-query: title="fuel cms"
     google-query: intitle:"fuel cms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fuel cms"})
-  tags: panel,fuelcms,oss,daylightstudio
+  tags: panel,fuelcms,oss,daylightstudio,discovery
 
 http:
   - method: GET
@@ -34,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502207262bebd76ec3d410918dd56254a7034829ff0a37ef6d2b05fb110a33d40c7b3022100922c78837a09fa6140076a94c50fad40f4ac9e8babd1a2e126f1ad2409d328aa:922c64590222798bb761d5b6d8e72950

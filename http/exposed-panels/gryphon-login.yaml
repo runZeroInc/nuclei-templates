@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Gryphon"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gryphon"})
-  tags: panel,gryphon,router
+  tags: panel,gryphon,router,discovery
 
 http:
   - method: GET
@@ -26,4 +25,4 @@ http:
           - 'Gryphon'
           - 'Welcome to GryphonCare'
         condition: or
-
+# digest: 4b0a00483046022100c5578743bfef381e50f7545891e2c79e8f0331476c4a837d5539208ad14788d4022100fb60997aa916cf605f03d51f7eff62cdc16966be0f1072e80939805b45f50a82:922c64590222798bb761d5b6d8e72950

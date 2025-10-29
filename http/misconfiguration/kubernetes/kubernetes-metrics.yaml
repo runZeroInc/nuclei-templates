@@ -9,7 +9,7 @@ info:
     - https://kubernetes.io/docs/concepts/cluster-administration/system-metrics/#metrics-in-kubernetes
   metadata:
     max-request: 1
-  tags: kubernetes,exposure,devops,misconfig
+  tags: kubernetes,exposure,devops,misconfig,vuln
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022013ddeff06dd80631992e502e6588e4d6115874ee12e2a47b86cac013ea0a79cc022075299ace0d209cd3dd8b870ce5a0ae108c8f948540b2137ef1fe661c1ffed3d1:922c64590222798bb761d5b6d8e72950

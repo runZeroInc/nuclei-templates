@@ -11,8 +11,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"pCOWeb"
-    runzero-match: any(each(service["html.titles"]), {# matches "pCOWeb"})
-  tags: pcoweb,default-login,misconfig
+  tags: pcoweb,default-login,misconfig,vuln
+
 variables:
   username: "admin"
   password: "fadmin"
@@ -40,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450221009a56af843261556106123391af1559166bb76a51baae05635bda89f3631969b302203d1acd035c8b1a31251d2594a810c7b18de187327685c33ea26c621e6f570dbe:922c64590222798bb761d5b6d8e72950

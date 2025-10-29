@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-89
   metadata:
     max-request: 1
-  tags: sqli,xdcms
+  tags: sqli,xdcms,vuln
 variables:
   num: "999999999"
 
@@ -43,4 +43,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100fa69fcdd4a1e3a557640e407cb7218f1e58a4d57db7be0f18931165a7d93623f022100f9b38f67708b1762bd210fb1a5256a9065e7dcb5ed87962812587fb6a12e8703:922c64590222798bb761d5b6d8e72950

@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"reportico administration page"
     fofa-query: title="reportico administration page"
     google-query: intitle:"reportico administration page"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)reportico administration page"})
-  tags: panel,reportico,login,detect
+  tags: panel,reportico,login,detect,discovery
 
 http:
   - method: GET
@@ -41,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100d43d3477b066f8c03062f74853671ea05df92e52bd87ff2b11a6717ff7b957e3022026bf42519ae7c7301f5d4704620337ae01245a7e6d2ae0369191a7634c673ac7:922c64590222798bb761d5b6d8e72950

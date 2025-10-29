@@ -23,8 +23,7 @@ info:
     google-query:
       - intitle:"pulsar admin ui"
       - intitle:"pulsar admin console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pulsar admin console"}) || any(each(service["html.titles"]), {# matches "(?i)pulsar admin ui"})
-  tags: panel,pulsar,console,admin,apache
+  tags: panel,pulsar,console,admin,apache,discovery
 
 http:
   - method: GET
@@ -41,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450221008e0214e26ad3af7f07c3a74b518c32493fc85ee600683d303a44777184b646730220099b10517f7b3aff3feceaf31a421ee73167b12c29142e7f5df556404aa28fb7:922c64590222798bb761d5b6d8e72950

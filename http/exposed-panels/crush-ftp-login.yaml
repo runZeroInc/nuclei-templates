@@ -16,17 +16,9 @@ info:
     max-request: 1
     vendor: crushftp
     product: crushftp
-    shodan-query:
-      - http.html:"crushftp"
-      - http.favicon.hash:"-1022206565"
-      - http.title:"crushftp webinterface"
-    fofa-query:
-      - body="crushftp"
-      - icon_hash="-1022206565"
-      - title="crushftp webinterface"
-    google-query: intitle:"crushftp webinterface"
-    runzero-match: service["http.body"] matches "(?i)crushftp" || any(each(service["favicon.ico.image.mmh3"]), {# == "-1022206565"})
-  tags: panel,edb,crushftp,detect
+    shodan-query: http.html:"crushftp"
+    fofa-query: body="crushftp"
+  tags: panel,edb,crushftp,detect,discovery
 
 http:
   - method: GET
@@ -47,4 +39,4 @@ http:
         part: header
         words:
           - 'Server: CrushFTP HTTP Server'
-
+# digest: 490a0046304402202d49c000d116dc7847ffb4be3be4e6914f915af4e37362f79ce79f6a0bcc369b022033f4f7550909b7f029e1f01ae82ad7fd3650ade6b27655e8aa1e66838b090be5:922c64590222798bb761d5b6d8e72950

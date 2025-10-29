@@ -13,17 +13,8 @@ info:
     max-request: 9
     vendor: splunk
     product: splunk
-    shodan-query:
-      - http.title:"splunk"
-      - http.title:"login - splunk"
-    fofa-query:
-      - title="login - splunk"
-      - title="splunk"
-    google-query:
-      - intitle:"login - splunk"
-      - intitle:"splunk"
-    runzero-match: any(each(service["html.titles"]), {# matches "Splunk"})
-  tags: default-login,splunk
+    shodan-query: http.title:"Splunk"
+  tags: default-login,splunk,vuln
 
 http:
   - raw:
@@ -79,4 +70,4 @@ http:
         part: header
         regex:
           - 'cval=([0-9]+)'
-
+# digest: 4a0a00473045022100ba6be1bcf2a4465b83e15205d96de4d286f4dfafa6b878fb276a06eb16c267f202203f7c6c721e200fe7943a7077106c5f72d7f72496ff4c77e24cafa5fba5831146:922c64590222798bb761d5b6d8e72950

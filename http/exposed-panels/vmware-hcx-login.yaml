@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: vmware
-    product: vmware_hcx
-    shodan-query: http.title:"vmware hcx"
-    fofa-query: title="vmware hcx"
-    google-query: intitle:"vmware hcx"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware HCX"})
-  tags: panel,vmware
+  tags: panel,vmware,discovery
 
 http:
   - method: GET
@@ -35,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022068b12ee3a04bac3ab9a02d800b47bd931720bd5d536c6b051efd51bcd7965d75022100988f3fb2b60bea9901e55fbab6cf3ad9f87fb6b2e0b9c938af4787f168f5e215:922c64590222798bb761d5b6d8e72950

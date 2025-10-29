@@ -16,8 +16,7 @@ info:
     product: cobranca
     shodan-query: http.favicon.hash:"876876147"
     fofa-query: icon_hash=876876147
-    runzero-match: service["favicon.ico.image.mmh3"] == "876876147"
-  tags: panel,virtua,virtuasoftware
+  tags: panel,virtua,virtuasoftware,discovery
 
 http:
   - method: GET
@@ -34,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502207ce724a42a3343e48d245466e8f2707fa1adb33edb4a63cb287286335a9fc8f2022100d37a3fa9934b5550168971228d78de7144ee780a1f8bad1ae91bbaead3115694:922c64590222798bb761d5b6d8e72950

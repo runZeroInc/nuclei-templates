@@ -14,7 +14,8 @@ info:
     cwe-id: CWE-79
   metadata:
     max-request: 2
-  tags: wordpress,xss,wp-plugin
+  tags: wordpress,xss,wp-plugin,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -48,4 +49,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402204531ed91f2dc47830039bd7f3f526e7a51b275fab87b79f760fec4dcc37e5b650220416a1008fe7d305c08afa628af6637a62d64f924318265377772143ce93b8691:922c64590222798bb761d5b6d8e72950

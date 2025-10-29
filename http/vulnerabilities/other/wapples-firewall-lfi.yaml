@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 2
     vendor: pentasecurity
-    product: wapples
-    shodan-query: http.title:"Intelligent WAPPLES"
-  tags: wapples,firewall,lfi,authenticated
+  tags: wapples,firewall,lfi,authenticated,vuln
 
 http:
   - raw:
@@ -43,4 +41,4 @@ http:
       - type: regex
         regex:
           - "root:[x*]:0:0"
-
+# digest: 4b0a00483046022100bc9ec4a95f6e9aefca0d661110380db8937f16767c9484b5913780945d1820020221009a55d64908eb3c95a86fd374969da35dedc92fbeaf2473cb4c8004eb702b52de:922c64590222798bb761d5b6d8e72950

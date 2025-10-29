@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"Web Image Monitor"
-    runzero-match: service["http.body"] matches "(?i)Web Image Monitor"
-  tags: panel,ricoh,detect
+  tags: panel,ricoh,detect,discovery
 
 http:
   - method: GET
@@ -33,4 +32,4 @@ http:
         group: 1
         regex:
           - '(?i)<h2 id="modelName" style="z-index:1;">([A-Z0-9\s]+)</h2>'
-
+# digest: 4a0a0047304502210089708310e2733d0e7ddfc0a6cf83d6f94774efcc41744e29ed6b7a7a4b740d1602203e3a5647ba1545b5785020828f37929253aaba294e12a070b6f3e980ea0e3acb:922c64590222798bb761d5b6d8e72950

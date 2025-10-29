@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:2104916232
-    runzero-match: service["favicon.ico.image.mmh3"] == "2104916232"
-  tags: horde,webmail,panel
+  tags: horde,webmail,panel,discovery
 
 http:
   - method: GET
@@ -32,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502204ecbb9cffdbc753b97be59656d8b5cb68d553e40f076a1247bf776602996d06f022100a60cd065e75ee573d7b8793d0d66d030cbcbb75669e26f15214f3fa001feeeaa:922c64590222798bb761d5b6d8e72950

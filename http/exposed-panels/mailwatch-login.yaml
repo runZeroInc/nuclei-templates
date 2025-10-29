@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"MailWatch Login Page"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MailWatch Login Page"})
-  tags: panel,mailwatch
+  tags: panel,mailwatch,discovery
 
 http:
   - method: GET
@@ -33,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450220178413e2ae267c395887e7e27e450dc525f780dac73d4b372f2f3ee187a95dd7022100ee0a5dc3e357741739cc97aa0fa9c85227dd1d7ff69d95404722a96d8eb0327d:922c64590222798bb761d5b6d8e72950

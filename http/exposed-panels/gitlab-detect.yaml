@@ -23,8 +23,7 @@ info:
       - body="gitlab enterprise edition"
       - body="gitlab-ci.yml"
     google-query: intitle:"gitlab"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)gitlab"})
-  tags: panel,gitlab
+  tags: panel,gitlab,discovery
 
 http:
   - method: GET
@@ -45,4 +44,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100db79bab740dfd87f093955290dd389329451c3a7f7bbcb975ad33de4f8479dfe022021e6eecc83f16d36eb144808a25100471a827e2758fa18d7c7a8d0f17861bbba:922c64590222798bb761d5b6d8e72950

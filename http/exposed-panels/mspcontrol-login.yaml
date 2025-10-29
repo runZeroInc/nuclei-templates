@@ -15,8 +15,7 @@ info:
     max-request: 1
     shodan-query: http.title:"MSPControl - Sign In"
     google-query: intitle:"MSPControl - Sign In"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MSPControl - Sign In"})
-  tags: panel,mspcontrol
+  tags: panel,mspcontrol,discovery
 
 http:
   - method: GET
@@ -38,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402204c3b1bae42f807d3e3024d0d12e622eb9c5b57d0f51e4fd3041263097061d22802206de9c894c6242228ba097ce3fe69796bb89bc2f248569ee57d09df404069967e:922c64590222798bb761d5b6d8e72950

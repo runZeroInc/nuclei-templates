@@ -15,8 +15,7 @@ info:
     product: on-premises_installation
     shodan-query: http.favicon.hash:"1199592666"
     fofa-query: icon_hash=1199592666
-    runzero-match: service["favicon.ico.image.mmh3"] == "1199592666"
-  tags: structurizr,default-login
+  tags: structurizr,default-login,vuln
 
 http:
   - raw:
@@ -62,4 +61,4 @@ http:
         regex:
           - 'name="_csrf" value="([0-9a-z-]+)"'
         internal: true
-
+# digest: 4b0a00483046022100e2b7cc2c2b2ddb1622f0b084cee0551a907cc555520d19c2bae219ae7565a19c022100eb9d7ccb2a0d82328996f59c6237a1625b80c2bc01afa1f93441a1bee5a6170e:922c64590222798bb761d5b6d8e72950

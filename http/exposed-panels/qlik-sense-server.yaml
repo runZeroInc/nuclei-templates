@@ -27,8 +27,7 @@ info:
       - icon_hash=-74348711
       - body="qlik"
     google-query: intitle:"qlik-sense"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qlik-sense"}) || service["favicon.ico.image.mmh3"] == "-74348711" || service["http.body"] matches "(?i)qlik"
-  tags: panel,qlik
+  tags: panel,qlik,discovery
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
         group: 1
         regex:
           - 'qliksenseserver:((\d+\.)?(\d+\.)?(\*|\d+))'
-
+# digest: 4a0a00473045022004ee05c1305c5cffd37f09fe1ba71711d911fd1278f698ee98519269d968541b022100f78b25d6344c222f9b234a1ebcf964d5db38e5ed47b2499e864f4fa762ddb977:922c64590222798bb761d5b6d8e72950

@@ -28,8 +28,7 @@ info:
     google-query:
       - intitle:"zimbra collaboration suite"
       - intitle:"zimbra web client sign in"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)zimbra collaboration suite"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra web client sign in"})
-  tags: panel,zimbra,synacor
+  tags: panel,zimbra,synacor,discovery
 
 http:
   - method: GET
@@ -59,4 +58,4 @@ http:
         group: 1
         regex:
           - 'v=([0-9]+)'
-
+# digest: 4b0a00483046022100958e5b6789c445175034a9fef46b63b7dac2a237df0710d09d0aafc274e8a029022100f61049bc5183f236b64b0a6ac4483122e90263370edf3b9b6807852e4dcf0231:922c64590222798bb761d5b6d8e72950

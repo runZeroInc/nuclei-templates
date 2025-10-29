@@ -26,11 +26,8 @@ info:
     google-query:
       - intitle:"pyload"
       - intitle:"login - pyload"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - pyload"}) || service["http.body"] matches "(?i)pyload" || any(each(service["html.titles"]), {# matches "(?i)pyload"})
-    zoomeye-query:
-      - app="pyload"
-      - app:"pyload"
-  tags: panel,pyload,login
+    zoomeye-query: app="pyLoad"
+  tags: panel,pyload,login,discovery
 
 http:
   - method: GET
@@ -53,4 +50,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100f2d8c74e325aad0f112c3a89bfeba7cdfa28de1832c073a38ff273ee9346ac9f022100ffc2b817890999912d0aff1bc07cc04b0cb611b58b16e3075af2af10a276445c:922c64590222798bb761d5b6d8e72950

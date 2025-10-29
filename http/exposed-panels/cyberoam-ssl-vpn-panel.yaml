@@ -17,9 +17,7 @@ info:
     product: cyberoam
     shodan-query: http.title:"cyberoam ssl vpn portal"
     fofa-query: title="cyberoam ssl vpn portal"
-    google-query: intitle:"cyberoam ssl vpn portal"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cyberoam ssl vpn portal"})
-  tags: panel,cyberoam,vpn,sophos
+  tags: panel,cyberoam,vpn,sophos,discovery
 
 http:
   - method: GET
@@ -41,4 +39,4 @@ http:
         group: 1
         regex:
           - 'src="\/javascript\/validation\/sslvpnlogin\.js\?version=(.+)" ><\/script>'
-
+# digest: 4a0a0047304502205450378c8939ebf7652a6ebff028b08082c332b16e10d17a75cd60af2350dfd00221008ef97ae3c64cd32ec77f9b30c84e793b254dd331f838db729c034982b846ceec:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
     vendor: ibm
     product: websphere_portal
     shodan-query: http.html:"IBM WebSphere Portal"
-  tags: ibm,exposure,websphere,misconfig
+  tags: ibm,exposure,websphere,misconfig,vuln
 
 http:
   - method: GET
@@ -49,4 +49,4 @@ http:
         regex:
           - "Content-Location: .+"
         negative: true
-
+# digest: 4a0a0047304502201606b49b4e6c0361488f87ade6121dd0b9a282c4b1bca2b9c42169c5305d65c2022100f35448ced070896bc191d0e1a01600ecdab66ed96143c0dec77b4b9191731393:922c64590222798bb761d5b6d8e72950

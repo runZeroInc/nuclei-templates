@@ -16,14 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: apache
-    product: nifi
-    shodan-query: http.title:"nifi"
-    fofa-query:
-      - title="nifi"
-      - title="nifi" && body="did you mean"
-    google-query: intitle:"nifi"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NiFi"})
-  tags: packetstorm,apache,nifi,rce
+  tags: packetstorm,apache,nifi,rce,vuln
 
 http:
   - method: GET
@@ -53,4 +46,4 @@ http:
       - type: json
         json:
           - .id
-
+# digest: 490a004630440220734aa7935b1a6eee2d4c560d8b338be37066990393fc920876a008d72806967402207a9408b398d8902af66f51c246da7fff19caa80b522bf46a7d3c6cdc99d14b4d:922c64590222798bb761d5b6d8e72950

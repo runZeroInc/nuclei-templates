@@ -13,8 +13,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:1198579728
-    runzero-match: service["favicon.ico.image.mmh3"] == "1198579728"
-  tags: panel,dbgate,oss
+  tags: panel,dbgate,oss,discovery
 
 http:
   - method: GET
@@ -30,4 +29,4 @@ http:
           - "Loading DbGate App"
           - "DbGate - web based opensource database administration tool for MS SQL, MySQL, Postgre SQL"
         condition: or
-
+# digest: 4a0a0047304502202440bb78aa1d5e6208700c7379296d609d639eeb02cf1c2f238e97216f782fbe02210098d0462b414fb6be01af76561bd678f7cd47b0231b138cf1e55bce0f7b325be7:922c64590222798bb761d5b6d8e72950

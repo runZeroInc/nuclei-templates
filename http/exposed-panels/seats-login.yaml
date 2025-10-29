@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel
+  tags: panel,discovery
 
 http:
   - method: GET
@@ -26,4 +26,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402200874cce3bcea68e476f3c5b4d60ae719a519b2bd4b0182b0a8190b68d2092ed202202e58d9232e001273c0bf04e28bf3eac0462061a07f8872799e17f32bf86b65f8:922c64590222798bb761d5b6d8e72950

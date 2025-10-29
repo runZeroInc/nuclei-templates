@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: phpok
-    product: phpok
-    fofa-query: app="phpok"
-  tags: phpok,sqli
+  tags: phpok,sqli,vuln
 variables:
   num: "999999999"
 
@@ -33,4 +31,4 @@ http:
         part: body
         words:
           - '{{md5({{num}})}}'
-
+# digest: 490a0046304402202fe049e040aca6052a9e86eea0c2bf4502f494eed86b9ad974754c6077bbf6e9022005a1f2a94f23c7314643f0c1a24ad0784ff7dfdce9299f85bf888c0c9d4c8da0:922c64590222798bb761d5b6d8e72950

@@ -13,7 +13,7 @@ info:
     vendor: knowledgetree
     product: knowledgetree
     shodan-query: title:"KnowledgeTree Installer"
-  tags: misconfig,knowledgetree,install,exposure
+  tags: misconfig,knowledgetree,install,exposure,vuln
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100c1198a92eaf68d1b4bb589536d8323ae27e6a902391219ebc4ae09bc530213fe022100827dcc6230ecf51487837f2199cec0dacb6dab7c1ddc351339fae78a0857d803:922c64590222798bb761d5b6d8e72950

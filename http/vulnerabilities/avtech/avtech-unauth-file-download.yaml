@@ -11,8 +11,7 @@ info:
     max-request: 2
     shodan-query: title:"login" product:"Avtech"
     fofa-query: app="AVTECH-视频监控"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login\" product:\"Avtech"})
-  tags: exposure,avtech,unauth,download,iot
+  tags: exposure,avtech,unauth,download,iot,vuln
 
 http:
   - method: GET
@@ -39,4 +38,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450220672d659c96f3134ac75bc53557b95c01faa67cefd84634fb188c354f566778f5022100f9cbd58ce4e9115544423428538a46ee548ad0c60456f25eb301c898ce71cda4:922c64590222798bb761d5b6d8e72950

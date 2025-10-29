@@ -20,9 +20,7 @@ info:
     fofa-query:
       - body="apache superset"
       - icon_hash=1582430156
-      - icon_hash="1582430156"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1582430156" || service["http.body"] matches "(?i)apache superset"
-  tags: panel,superset,apache
+  tags: panel,superset,apache,discovery
 
 http:
   - method: GET
@@ -58,4 +56,4 @@ http:
         group: 1
         regex:
           - '&#34;version_string&#34;:\s+&#34;([0-9a-z\.\-]+)&#34;'
-
+# digest: 4b0a00483046022100dfac4a5c80b38fc9aa2d3b5562c8d5164d4cab693093d0ddb455cb328afe1668022100bf3992d5f361651c329b636af287327a96f189ca4d72ee0a11a73a298dceee21:922c64590222798bb761d5b6d8e72950

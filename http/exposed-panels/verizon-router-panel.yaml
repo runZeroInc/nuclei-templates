@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: verizon
-    product: fios_actiontec_mi424wr-gen31_router_firmware
-    shodan-query: http.title:"verizon router"
-    fofa-query: title="verizon router"
-    google-query: intitle:"verizon router"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Verizon Router"})
-  tags: panel,verizon,router
+  tags: panel,verizon,router,discovery
 
 http:
   - method: GET
@@ -35,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450221009c10e831c0453933adf56f83171c32b47e871a08f11070413f6b9cd0cf9527af022009898b259524dccf8c4ce9f708f0a2fef545e8b5ee13458d472acd789028297c:922c64590222798bb761d5b6d8e72950

@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-79
   metadata:
     max-request: 1
-  tags: ibm,xss
+  tags: ibm,xss,vuln
 
 http:
   - method: GET
@@ -36,4 +36,4 @@ http:
         words:
           - "text/html"
         part: header
-
+# digest: 4a0a004730450221009139a58894075d59dfb7fa7ce72378677ae86cb63639d9dd7e76aff8401082ed022018e0b896f9ac57ab4556b3b1d34ad3990d264a9fdf21f73a918521225e31b576:922c64590222798bb761d5b6d8e72950

@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: aspose,ebook,wpscan,wordpress,wp-plugin,lfi
+  tags: aspose,ebook,wpscan,wordpress,wp-plugin,lfi,vuln
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502207d8cb17e2732e502d921fb444042a8db942deed735c4748af025edc0366d944d0221008a5e964b32a6753305129214e915d31cc0f5e0046faefc605b66db55e5e9cee2:922c64590222798bb761d5b6d8e72950

@@ -9,7 +9,7 @@ info:
     - https://github.com/EdOverflow/can-i-take-over-xyz
   metadata:
     max-request: 1
-  tags: takeover,github
+  tags: takeover,github,vuln
 
 http:
   - method: GET
@@ -41,4 +41,4 @@ http:
       - type: dsl
         dsl:
           - cname
-
+# digest: 490a0046304402205c3279945a443431a576c93c47eb72337fd305d4626108139f47d1b234ba4cc402202cafff4a169252400436017b9dfcf9d1e5e24cbca031ae0cb9e32bf80672b389:922c64590222798bb761d5b6d8e72950

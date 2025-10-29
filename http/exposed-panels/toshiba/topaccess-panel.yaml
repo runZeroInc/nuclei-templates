@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"topaccess"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)topaccess"})
-  tags: topaccess,panel,login,detect
+  tags: topaccess,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -35,4 +34,4 @@ http:
         part: header
         status:
           - 200
-
+# digest: 4b0a00483046022100cda8b1abe5c1fe562f4f779dfeec00dbd148745bfee47b390938b95c27ccecd5022100af3b2b435a104737739aa21f5be9d9eb37dd72c464003ad86ad50fc4d8196d3f:922c64590222798bb761d5b6d8e72950

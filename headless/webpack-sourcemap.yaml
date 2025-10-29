@@ -15,7 +15,7 @@ info:
     - https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Web_Page_Content_for_Information_Leakage
   metadata:
     max-request: 9
-  tags: javascript,webpack,sourcemaps,headless
+  tags: javascript,webpack,sourcemaps,headless,vuln
 headless:
   - steps:
       - args:
@@ -219,4 +219,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022059f0403868fbb8c1f4d6cc1d110868eed994a1c8ab4afd5dc44197827f24a0740221009ce2c955de870dbfed2410ab4840cc2f2466ea28852519ae8bdb8044a76d214a:922c64590222798bb761d5b6d8e72950

@@ -15,7 +15,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: xss,wp,wordpress,authenticated,woocommerce,wpscan,wp-plugin
+  tags: xss,wp,wordpress,authenticated,woocommerce,wpscan,wp-plugin,vuln
 
 http:
   - raw:
@@ -46,4 +46,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100ec8ad1543ddff43a0993123b4e7f497203efbfbe560533c8ddf3cbbaedf93941022100e277e8b5501d14e637bf3e511708fac7e5dc8210bf807b5eedda0e254f63a832:922c64590222798bb761d5b6d8e72950

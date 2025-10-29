@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"arangodb web interface"
     fofa-query: title="arangodb web interface"
     google-query: intitle:"arangodb web interface"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)arangodb web interface"})
-  tags: panel,arangodb,login
+  tags: panel,arangodb,login,discovery
 
 http:
   - method: GET
@@ -35,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502205d353ae76c6594b199dce703e3a2a9085ac515acc95f1c7a99b06095585a7b600221008117e1f441d08f2cad06de26be3e0d07bfddb306cf1cc59016b8347348269d41:922c64590222798bb761d5b6d8e72950

@@ -7,7 +7,7 @@ info:
   description: Detects ADFS with forms-based authentication enabled.
   metadata:
     max-request: 1
-  tags: tech,adfs
+  tags: tech,adfs,discovery
 
 http:
   - method: GET
@@ -28,4 +28,4 @@ http:
         group: 1
         regex:
           - 'var\s+userNameValue\s*=\s*''([^\\]*)\\'
-
+# digest: 490a00463044022029762993a08e5ee33cf75a212e072848839f843670d132ab85e1831f8d8197bf02201637469407acfce351f54066bd76b3a5e922703260a7db1d13728950ea262af0:922c64590222798bb761d5b6d8e72950

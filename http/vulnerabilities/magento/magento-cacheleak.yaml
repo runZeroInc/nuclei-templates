@@ -17,7 +17,7 @@ info:
     vendor: magento
     product: magento
     shodan-query: http.component:"Magento"
-  tags: magento
+  tags: magento,vuln
 
 http:
   - method: GET
@@ -41,4 +41,4 @@ http:
         words:
           - "application/json"
         part: header
-
+# digest: 4b0a00483046022100d78a231d31debe4c9b8d10e72fdbe40897cf5fb284261c0425d1aa207b27db76022100f2524027ab9d6402f68460d2c94990a5dc2555c63c3281cf0ac3913ad4a36089:922c64590222798bb761d5b6d8e72950

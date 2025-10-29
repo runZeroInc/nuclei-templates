@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Portainer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Portainer"})
-  tags: portainer,exposure,docker,devops,disclosure
+  tags: portainer,exposure,docker,devops,disclosure,vuln
 
 http:
   - method: GET
@@ -37,4 +36,4 @@ http:
       - type: status
         status:
           - 404
-
+# digest: 4a0a00473045022100c1861845b620f6b3c90044d678ff140fcb848a20708392c888e479caba7b104a02204d29309f1452f18423b46b3dffb31cd7e94fbb76d1ff34abbdce65e16adbc291:922c64590222798bb761d5b6d8e72950

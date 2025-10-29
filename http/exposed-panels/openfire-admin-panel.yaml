@@ -25,8 +25,7 @@ info:
     google-query:
       - intitle:"openfire admin console"
       - intitle:"openfire"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openfire admin console"}) || any(each(service["html.titles"]), {# matches "(?i)openfire"})
-  tags: panel,openfire,admin,console,igniterealtime
+  tags: panel,openfire,admin,console,igniterealtime,discovery
 
 http:
   - method: GET
@@ -48,4 +47,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100f4cb64ff352ca5a684c11b584b99727c875991222d847048aeab273f77772cf902206f92f8a20b97edad8a4b4fbcd556013dc15af64ccfa1d874dc034332a3145042:922c64590222798bb761d5b6d8e72950

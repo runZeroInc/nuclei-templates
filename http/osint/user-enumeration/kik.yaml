@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: osint,osint-social,kik
+  tags: osint,osint-social,kik,discovery
 
 self-contained: true
 
@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - "firstName"
-
+# digest: 4a0a0047304502200209bfb87a6ed92b007ce2dead17419ef106189dad97ba99cdd87bba87f23244022100933904c43bbc9eec7cac7d50d915caa705cebf747ea70799f8d13bb84f926e20:922c64590222798bb761d5b6d8e72950

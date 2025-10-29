@@ -15,7 +15,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: wp-plugin,xss,wp,wordpress,authenticated,curcy,wpscan
+  tags: wp-plugin,xss,wp,wordpress,authenticated,curcy,wpscan,vuln
 
 http:
   - raw:
@@ -46,4 +46,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100b3f3decee9f2cc12ce236d771e233d49971c344e03cbf07f7e5f1e6965d8db2d02207686cfb5e5f9bbc4f506c65bd72ad71b8bc945fdeeb9f958996483cdb635584b:922c64590222798bb761d5b6d8e72950

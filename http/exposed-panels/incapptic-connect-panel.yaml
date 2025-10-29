@@ -22,8 +22,7 @@ info:
       - icon_hash=-1067582922
       - title="incapptic"
     google-query: intitle:"incapptic"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)incapptic"}) || service["favicon.ico.image.mmh3"] == "-1067582922"
-  tags: panel,ivanti,incapptic-connect
+  tags: panel,ivanti,incapptic-connect,discovery
 
 http:
   - method: GET
@@ -48,4 +47,4 @@ http:
           - "status_code==200"
           - "('-1067582922' == mmh3(base64_py(body)))"
         condition: and
-
+# digest: 4a0a004730450220273882c2543d1943363e567a2263430e33ab7dc155933c1a5bc78c8a2f780884022100eefe4baab3291a9840e2fcee83dcc52dbe0d336a03e0bcc4970e5fbed7ebc2c7:922c64590222798bb761d5b6d8e72950

@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: osint,osint-tech,hugging-face
+  tags: osint,osint-tech,hugging-face,discovery
 
 self-contained: true
 
@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - "thumbnails.huggingface.co/social-thumbnails/"
-
+# digest: 4b0a004830460221008993339e17324db3c033a7c0dba088ce3269b8b40e176d079dc221692696e578022100948edb9da2ef368293e00535ba8692274924cad12080a0b42e64e523467e7a6c:922c64590222798bb761d5b6d8e72950

@@ -9,7 +9,7 @@ info:
     - https://github.com/EdOverflow/can-i-take-over-xyz/issues/36
   metadata:
     max-request: 1
-  tags: takeover,aws,bucket
+  tags: takeover,aws,bucket,vuln
 
 http:
   - method: GET
@@ -78,4 +78,4 @@ http:
         regex:
           - '<li>BucketName: (.*?)</li>'
           - '<BucketName>(.*?)</BucketName>'
-
+# digest: 490a004630440220316ab09e7977d660e576c657d45ec5141ffc7421df5352b23e926340c87f4860022007ac07ec4797b9668d58845b0383448da5031ce561f325a09fd5702097ef487d:922c64590222798bb761d5b6d8e72950

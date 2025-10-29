@@ -18,9 +18,8 @@ info:
     verified: true
     max-request: 2
     vendor: gradio_project
-    product: gradio
-    shodan-query: html:"__gradio_mode__"
-  tags: cve,cve2024,intrusive,unauth,gradio,lfi,lfr
+  tags: cve,cve2024,intrusive,unauth,gradio,lfi,lfr,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -80,4 +79,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502202b7fb91a0bd36dc9b61e73d855922fd74ed5dc1a3fe370e20404b6350b634e69022100fdf769ffeac7463be7c4335dbf02bff7c30dfb32d7a95bd64150ab41cb8c96e2:922c64590222798bb761d5b6d8e72950

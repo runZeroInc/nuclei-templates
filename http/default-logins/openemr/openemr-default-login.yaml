@@ -16,23 +16,7 @@ info:
   metadata:
     max-request: 1
     vendor: open-emr
-    product: openemr
-    shodan-query:
-      - http.html:"openemr"
-      - http.favicon.hash:"1971268439"
-      - http.title:"openemr setup tool"
-      - http.title:"openemr"
-    fofa-query:
-      - app="openemr"
-      - body="openemr"
-      - icon_hash=1971268439
-      - title="openemr setup tool"
-      - title="openemr"
-    google-query:
-      - intitle:"openemr setup tool"
-      - intitle:"openemr"
-    runzero-match: service["http.body"] matches "OpenEMR"
-  tags: openemr,default-login
+  tags: openemr,default-login,vuln
 
 http:
   - raw:
@@ -62,4 +46,4 @@ http:
       - type: status
         status:
           - 302
-
+# digest: 490a00463044022017c24a8f5f79a18eed9c4af68dda830388763419f6abb9e6d136a341ec43e7be02205f52560de896a51371eceefeb75b95be466d5ca529816a679f2ce1916a606d83:922c64590222798bb761d5b6d8e72950

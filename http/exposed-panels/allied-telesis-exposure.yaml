@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"allied telesis device gui"
     fofa-query: title="allied telesis device gui"
     google-query: intitle:"allied telesis device gui"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)allied telesis device gui"})
-  tags: panel,allied,allied_telesis
+  tags: panel,allied,allied_telesis,discovery
 
 http:
   - method: GET
@@ -41,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a004630440220444ac1726a86c521f1c13749b6cc03fa79b9ac5ba75fb0be7e059ba7fb218a10022030eb6c58a40a182552b43a4153817dc69957a31db1a218b02752d59da12b34b0:922c64590222798bb761d5b6d8e72950

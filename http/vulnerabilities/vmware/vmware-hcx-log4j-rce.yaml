@@ -18,7 +18,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"VMware HCX"
-  tags: cve,cve2021,rce,jndi,log4j,vmware,kev,oast
+  tags: cve,cve2021,rce,jndi,log4j,vmware,kev,oast,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'
@@ -67,4 +67,4 @@ http:
         group: 1
         regex:
           - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
+# digest: 490a00463044022064684f51f1ba30537e5f19b1743da6c38e265baa41d11e68cfd27a8f62aadeeb022028d4c115f068cdc70b16236a7efeab95d76efc2b07b8e6c0c71253493182160f:922c64590222798bb761d5b6d8e72950

@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 2
-  tags: ioncube,disclosure,exposure
+  tags: ioncube,disclosure,exposure,vuln
 
 http:
   - method: GET
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450220189e3f582b1ba009f07da7c342c4101262d34a08e06abd79360f3c88c643d2d1022100d49aec845ff991723c71bb0c88f128a79cdabf8eda47ab90b727c44a7884b54e:922c64590222798bb761d5b6d8e72950

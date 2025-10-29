@@ -16,9 +16,7 @@ info:
   metadata:
     max-request: 1
     vendor: softneta
-    product: meddream_pacs
-    google-query: inurl:pacs/login.php, inurl:pacsone/login.php, inurl:pacsone filetype:php home, inurl:pacsone filetype:php login
-  tags: sofneta,lfi,edb
+  tags: sofneta,lfi,edb,vuln
 
 http:
   - method: GET
@@ -33,4 +31,4 @@ http:
           - "fonts"
           - "extensions"
         condition: and
-
+# digest: 490a00463044022062bf9a870e0c23a43e6f9b9f197f696ece3a6bcc3ec67e501ae8f27c250a58cb02203478643a1073903fac1e6c45c0977bbf1da0864911137ecddea1301481cc0c08:922c64590222798bb761d5b6d8e72950

@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: 'body="/cgi-bin/login_mgr.cgi" && body="cmd=cgi_get_ssl_info"'
-    runzero-match: service["http.body"] matches "(?i)/cgi-bin/login_mgr\\.cgi"
-  tags: dlink,nas,rce
+  tags: dlink,nas,rce,vuln
 
 http:
   - raw:
@@ -34,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100e02550ff4143a026d7f244bd9910cd7231bc3f3caeffcc290fc77cbed1b0712a0220590cbcc5ecc6b49af94437d773a38efe02e13978ce90a2cf8343a7bc5f3e541a:922c64590222798bb761d5b6d8e72950

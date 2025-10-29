@@ -13,7 +13,7 @@ info:
     vendor: rubyonrails
     product: rails
     google-query: intitle:"index of" storage.yml
-  tags: exposure,ruby,devops,files
+  tags: exposure,ruby,devops,files,vuln
 
 http:
   - method: GET
@@ -44,4 +44,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402201bda47f4b9206d98a038c0f823a990c8fa935a5bf25e014e145a5ef100e833e902202d8e7da1dcda64849a997ad422f783a1be00e9f24a9efb2f42744d0f48fa2dbb:922c64590222798bb761d5b6d8e72950

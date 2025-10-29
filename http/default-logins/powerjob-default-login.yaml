@@ -15,16 +15,9 @@ info:
     max-request: 1
     vendor: powerjob
     product: powerjob
-    shodan-query:
-      - http.title:"powerjob"
-      - http.html:"powerjob"
-    fofa-query:
-      - title="powerjob"
-      - app="powerjob"
-      - body="powerjob"
-    google-query: intitle:"powerjob"
-    runzero-match: any(each(service["html.titles"]), {# matches "PowerJob"})
-  tags: powerjob,default-login
+    shodan-query: http.title:"PowerJob"
+    fofa-query: title="PowerJob"
+  tags: powerjob,default-login,vuln
 
 http:
   - raw:
@@ -57,4 +50,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450221008d4fd387b1037d3958bdb972eeb05089b682418046bbdc1fe8433a9b7e4bb7ed022032e3e7bb9766c61f404185953661c6c48be368437e11fb7c26623ba62332d3bf:922c64590222798bb761d5b6d8e72950

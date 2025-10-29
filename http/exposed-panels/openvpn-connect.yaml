@@ -14,17 +14,10 @@ info:
     max-request: 1
     vendor: openvpn
     product: connect
-    shodan-query:
-      - http.title:"openvpn connect"
-      - http.title:"ovpn config download"
-    fofa-query:
-      - title="openvpn connect"
-      - title="ovpn config download"
-    google-query:
-      - intitle:"openvpn connect"
-      - intitle:"ovpn config download"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openvpn connect"})
-  tags: panel,openvpn,connect,vpn
+    shodan-query: http.title:"openvpn connect"
+    fofa-query: title="openvpn connect"
+    google-query: intitle:"openvpn connect"
+  tags: panel,openvpn,connect,vpn,discovery
 
 http:
   - method: GET
@@ -40,4 +33,4 @@ http:
           - 'content="OpenVPN Connect'
           - '<title>OpenVPN Connect</title>'
         condition: or
-
+# digest: 4b0a00483046022100e6c1327151cc9a648d9a4855578fc514b9e8174bb6336ddcee29392eac7c546e022100945f4b1b11c6abf208301d9f1d9f104dfd0534cf0453da73bb80c750873363e2:922c64590222798bb761d5b6d8e72950

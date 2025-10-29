@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-80
   metadata:
     max-request: 1
-  tags: xss,wp,wpscan,wordpress,wp-plugin,sassy
+  tags: xss,wp,wpscan,wordpress,wp-plugin,sassy,vuln
 
 http:
   - method: GET
@@ -40,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022073a754a13b27ce1895aac57a10747e69f52efa16007091b92595a9e31c3fecbe02204cf38c01514765d5083a358a421f736111b99ebec9b11b4e74de1bb48bcb5285:922c64590222798bb761d5b6d8e72950

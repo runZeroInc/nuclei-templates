@@ -15,15 +15,8 @@ info:
     max-request: 1
     vendor: tt-rss
     product: tiny_tiny_rss
-    shodan-query:
-      - http.favicon.hash:"-418614327"
-      - http.title:"tiny tiny rss - installer"
-    fofa-query:
-      - icon_hash=-418614327
-      - title="tiny tiny rss - installer"
-    google-query: intitle:"tiny tiny rss - installer"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-418614327"
-  tags: panel,tiny-rss,login,detect
+    shodan-query: http.favicon.hash:-418614327
+  tags: panel,tiny-rss,login,detect,discovery
 
 http:
   - method: GET
@@ -36,4 +29,4 @@ http:
           - 'status_code==200'
           - 'contains_any(body, "Tiny Tiny RSS", "ttrss_login", "ttrss_utility")'
         condition: and
-
+# digest: 490a00463044022044bedbff679c38df33d4591c04e94b9eb5cda5b1bd4afa8ca2610f78987910040220284069af2fa1e5d6b821389de77f21b8a91a6c52250184ed859a0cbd620cb156:922c64590222798bb761d5b6d8e72950

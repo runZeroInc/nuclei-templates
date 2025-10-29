@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"FileGator"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FileGator"})
-  tags: filegator,panel,login,detect
+  tags: filegator,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -31,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450220537fe4c495d91c4d6e6036ed36e95f6cc966ec94791d59495c20080bb960b7c20221009ea3f5ebe1dbf09c1b2c950e1090f9f16d3d14339e8c158363499ed16b5d32c4:922c64590222798bb761d5b6d8e72950

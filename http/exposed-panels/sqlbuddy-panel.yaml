@@ -16,12 +16,7 @@ info:
     verified: true
     max-request: 2
     vendor: sqlbuddy
-    product: sql_buddy
-    shodan-query: http.title:"sql buddy"
-    fofa-query: title="sql buddy"
-    google-query: intitle:"sql buddy"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
-  tags: panel,sqlbuddy
+  tags: panel,sqlbuddy,discovery
 
 http:
   - method: GET
@@ -38,4 +33,4 @@ http:
           - "status_code == 200"
           - "contains(body, '<title>SQL Buddy')"
         condition: and
-
+# digest: 4a0a00473045022100b7ec1220c92562fcfd91a71ee3bd3669227d97fe9dc75928685488898e03b5e50220340635dd6c564ac7e8af9499ee2de75d8968e1ced0888d4948557eb468e13dce:922c64590222798bb761d5b6d8e72950

@@ -17,12 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: idemia
-    product: sigma_wide
-    shodan-query: http.title:"idemia"
-    fofa-query: title="idemia"
-    google-query: intitle:"idemia"
-    runzero-match: any(each(service["html.titles"]), {# matches "IDEMIA"})
-  tags: idemia,biometrics,default-login
+  tags: idemia,biometrics,default-login,vuln
 
 http:
   - raw:
@@ -54,4 +49,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502205c2678d11637a26c1a8004f7e13649194f26a6c4915c731985da87c41c781918022100d9f126f142f2e27a7cf3eac74f54fce3567232fed1b27574690f1df7d44e9215:922c64590222798bb761d5b6d8e72950

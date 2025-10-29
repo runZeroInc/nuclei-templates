@@ -11,7 +11,7 @@ info:
     shodan-query:
       - cpe:"cpe:2.3:o:fortinet:fortios"
       - http.html_hash:-1454941180
-  tags: panel,fortigate,vpn
+  tags: panel,fortigate,vpn,discovery
 
 http:
   - method: GET
@@ -35,4 +35,4 @@ http:
       - type: dsl
         dsl:
           - '"Release date: " + date_time("Jan 2, 2006", hex_to_dec(etag))'
-
+# digest: 4b0a00483046022100e3e16f435bf9f7890a6e77359b6241fe6ba8a66cca1e070ed3e5f3a154c53979022100fe9351b47d6e3a2a4f4b21e1a74521c4b73059412425428fcbd163f46ca93615:922c64590222798bb761d5b6d8e72950

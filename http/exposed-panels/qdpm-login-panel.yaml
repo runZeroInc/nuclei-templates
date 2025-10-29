@@ -13,8 +13,7 @@ info:
     product: qdpm
     shodan-query: http.favicon.hash:"762074255"
     fofa-query: icon_hash=762074255
-    runzero-match: service["favicon.ico.image.mmh3"] == "762074255"
-  tags: panel,qdpm,login
+  tags: panel,qdpm,login,discovery
 
 http:
   - method: GET
@@ -41,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022055b0c4d12ec6010500a1cf8dbf51d4d990fd81a9339d165f191bea0eeb60bab402202752127ec41eb4ec2ac2864eee2718266da8d8d6d14b9750cca8d3cc87d8e659:922c64590222798bb761d5b6d8e72950

@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: dns,service
+  tags: dns,service,discovery
 
 dns:
   - name: "{{FQDN}}"
@@ -20,4 +20,4 @@ dns:
       - type: word
         words:
           - "69.164.223.206"
-
+# digest: 490a00463044022057e5f2c8bd7e204db4d0abfa6580d4726e9a3e7739c838dbfa1c41132639a6ab02201b419da922e367d4b56847f0a69d0e7a626b20bd0ab947905f10f0b38cf08f09:922c64590222798bb761d5b6d8e72950

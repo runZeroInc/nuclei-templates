@@ -12,11 +12,8 @@ info:
     max-request: 1
     vendor: asus
     product: rt-n16
-    shodan-query:
-      - rt-n16
-      - cpe:"cpe:2.3:h:asus:rt-n16"
-    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="RT-N16'})
-  tags: default-login,asus,rt-n16
+    shodan-query: "RT-N16"
+  tags: default-login,asus,rt-n16,vuln
 
 http:
   - raw:
@@ -46,4 +43,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502200ddcc3fa07f3dfd676a0b403a907a000c54df0613db15bb163e98dfd3b8bd8df022100f1d6b686ee653c892130ba3bf59d1b829d9a3239e2568a6023011c2522aa83f3:922c64590222798bb761d5b6d8e72950

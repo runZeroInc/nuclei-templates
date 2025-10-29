@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: asanhamayesh,lfi,traversal
+  tags: asanhamayesh,lfi,traversal,vuln
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100ee187512bce523ed68e7ca78fb5877a8e3be69ec52f3472fff097cfeb8f92f7f022032e3946dbf5ec4a961b8a9119065474dba17dda108e610fd6b5833cae4f2cb02:922c64590222798bb761d5b6d8e72950

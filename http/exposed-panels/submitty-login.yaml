@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,submitty,oss
+  tags: panel,submitty,oss,discovery
 
 http:
   - method: GET
@@ -40,4 +40,4 @@ http:
         group: 1
         regex:
           - '\/Submitty\/Submitty\/releases\/tag\/([a-z0-9.]+)" target="_blank'
-
+# digest: 490a00463044022051bc698610d211e46c6cce34d523f0bca6d2a49ef17facf0a60a0204b038bbc30220192a9c2b3934204e8aa89bfc8ff1a1d1180ee2fa6038f5e7e61a5e30b5053307:922c64590222798bb761d5b6d8e72950

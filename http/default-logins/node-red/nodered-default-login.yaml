@@ -15,10 +15,8 @@ info:
     max-request: 1
     vendor: nodered
     product: node-red
-    shodan-query: http.favicon.hash:"321591353"
-    fofa-query: icon_hash=321591353
-    runzero-match: service["favicon.ico.image.mmh3"] == "321591353"
-  tags: default-login,node-red,dashboard
+    shodan-query: http.favicon.hash:321591353
+  tags: default-login,node-red,dashboard,vuln
 
 http:
   - raw:
@@ -54,4 +52,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402206db19d2d6fff4667787260b4c71eaf7fa2a0d34bb5931dc644750b7f2b8af9000220371554b4ae826c69fe41f47b232d8631910f7c746a66ab6ea7a46e5119c0e4f9:922c64590222798bb761d5b6d8e72950

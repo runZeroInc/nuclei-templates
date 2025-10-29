@@ -19,11 +19,7 @@ info:
     max-request: 200
     shodan-query: title:"Oracle PeopleSoft Sign-in"
     vendor: oracle
-    product: peoplesoft_enterprise_peopletools
-    fofa-query: title="oracle peoplesoft sign-in"
-    google-query: intitle:"oracle peoplesoft sign-in"
-    runzero-match: any(each(service["html.titles"]), {# matches "Oracle PeopleSoft Sign-in"})
-  tags: default-login,peoplesoft,oracle,fuzz
+  tags: default-login,peoplesoft,oracle,fuzz,vuln
 
 http:
   - method: POST
@@ -89,4 +85,4 @@ http:
       - type: status
         status:
           - 302
-
+# digest: 4a0a004730450220546317e66828cfc84d464d8dbb3cc7519005eb01a10e07246e00ab397de259b1022100caf35fcff072066b4b03123a9b423c7efcbd748e3f51454bf93aa039f40be516:922c64590222798bb761d5b6d8e72950

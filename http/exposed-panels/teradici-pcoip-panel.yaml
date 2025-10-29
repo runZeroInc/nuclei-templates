@@ -13,7 +13,7 @@ info:
     max-request: 1
     vendor: teradici
     product: pcoip_client
-  tags: panel,teradici,pcoip
+  tags: panel,teradici,pcoip,discovery
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100c3d2da9078a44ae7383066379de519a4c9e0619bd09c220af0b3c8a23d63720102200cad761d2ce7e249aee24f4fc52e4fd0a85f771e3e5b9a5e368f01bcf661c407:922c64590222798bb761d5b6d8e72950

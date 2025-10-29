@@ -9,7 +9,7 @@ info:
     - https://blog.csdn.net/caiqiiqi/article/details/107907489
   metadata:
     max-request: 1
-  tags: fastjson,tech
+  tags: fastjson,tech,discovery
 
 http:
   - raw:
@@ -31,4 +31,4 @@ http:
         group: 1
         regex:
           - 'fastjson-version.*([0-9]\.[0-9]+\.[0-9]+)'
-
+# digest: 4a0a00473045022077d58b224996e6dad7d0c49f527d2b2eb88617731a7eb01e73cb9bbdc3fa8ef0022100bbfbf335cacd10bf696f7325451307bb3880224e992536c80d04e30a0ec4b936:922c64590222798bb761d5b6d8e72950

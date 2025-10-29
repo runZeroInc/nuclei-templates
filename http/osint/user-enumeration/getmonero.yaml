@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: osint,osint-misc,getmonero
+  tags: osint,osint-misc,getmonero,discovery
 
 self-contained: true
 
@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - "Monero | User"
-
+# digest: 4a0a00473045022100cd91238db022bd5b52771120c1934b8997d718824af24388c918be788a4f80210220658740e771b55814d43a0aab3aab4d6502a13e5c2d820db72452280d3af3d7b8:922c64590222798bb761d5b6d8e72950

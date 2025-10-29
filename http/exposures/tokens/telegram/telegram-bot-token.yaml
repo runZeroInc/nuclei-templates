@@ -11,7 +11,8 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: telegram,token,exposure
+  tags: telegram,token,exposure,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -45,4 +46,4 @@ http:
       - type: dsl
         dsl:
           - token
-
+# digest: 4a0a00473045022076fb4ee56bdc7bfb65914764e614de6eea82003c712612490992f3295e3645ca022100bb7c142d1379445d591ef3682f064399258b374930d4eb965c3f2d81e8e280cd:922c64590222798bb761d5b6d8e72950

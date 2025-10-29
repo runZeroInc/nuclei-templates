@@ -15,7 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: apache
-  tags: cve,cve2021,rce,jndi,log4j,apache,druid,oast,kev
+  tags: cve,cve2021,rce,jndi,log4j,apache,druid,oast,kev,vuln
 
 http:
   - method: DELETE
@@ -37,4 +37,4 @@ http:
       - type: status
         status:
           - 404
-
+# digest: 4a0a00473045022100f513f43c58c2050212ed809a42feb07aa73ce910533eb6040dc3f564184dceb5022024588fbb2177035a8e743b6f62c690c8ca7d612b784952fc15e60c9756fae5fe:922c64590222798bb761d5b6d8e72950

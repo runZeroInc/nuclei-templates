@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 4
-  tags: hongdian,default-login
+  tags: hongdian,default-login,vuln
 
 http:
   - raw:
@@ -54,4 +54,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502207b89c3fed4d369a84ccdea16d59c4a01edbd19403e72b391c3d062a4889c4246022100ad3a23231b495ca61e44d8725a6916a180bf730e5304fd6984be37676043d7f5:922c64590222798bb761d5b6d8e72950

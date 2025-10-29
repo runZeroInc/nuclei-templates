@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: spectracom,default-login
+  tags: spectracom,default-login,vuln
 
 http:
   - raw:
@@ -43,4 +43,4 @@ http:
       - type: status
         status:
           - 302
-
+# digest: 4b0a00483046022100f0360657d52d58d58e07a5317155e802e64b3dc9f22b4a53ca2e24526aa00642022100a02c5370515b1417e911899a602ced7926c843bf012891db2a439920964d5d1b:922c64590222798bb761d5b6d8e72950

@@ -8,8 +8,8 @@ info:
     - https://api.slack.com/authentication/token-types
   metadata:
     verified: true
-    max-request: 1
-  tags: exposure,token,slack
+  tags: exposure,token,slack,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -57,4 +57,4 @@ http:
       - type: dsl
         dsl:
           - token
-
+# digest: 490a0046304402205cdce695aa62aaeccc771756d2b0878d7d359cf2b440277cd0848d547a6eca2302202fe986cf30f15c64b10b6e796b9c2fb371a09c9a2b361198c0d11cd44703c8b2:922c64590222798bb761d5b6d8e72950

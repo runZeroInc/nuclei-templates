@@ -17,17 +17,9 @@ info:
     max-request: 2
     vendor: thinkphp
     product: thinkphp
-    shodan-query:
-      - http.title:"thinkphp"
-      - cpe:"cpe:2.3:a:thinkphp:thinkphp"
-    fofa-query:
-      - app="thinkphp"
-      - app="thinkphp" && title="system error"
-      - header="think_lang"
-      - title="thinkphp"
-    google-query: intitle:"thinkphp"
-    zoomeye-query: app="thinkphp"
-  tags: thinkphp,file-upload,rce
+    shodan-query: title:"ThinkPHP"
+    zoomeye-query: app="ThinkPHP"
+  tags: thinkphp,file-upload,rce,vuln
 variables:
   random_filename: "{{to_lower(rand_base(11))}}"
 
@@ -52,4 +44,4 @@ http:
       - type: dsl
         dsl:
           - "status_2 == 200"
-
+# digest: 4a0a0047304502205dd04607fd7c354a31c3295b77a8938d24c2e457d0e46c9c0de4aca0f1b4bec3022100d8e92d42ade0ed26894ae21d67102a8fc41570a05ce361cdf8b7f8a4bbc8261e:922c64590222798bb761d5b6d8e72950

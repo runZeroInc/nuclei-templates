@@ -8,7 +8,7 @@ info:
   reference: https://github.com/vulhub/vulhub/tree/0a0bc719f9a9ad5b27854e92bc4dfa17deea25b4/thinkphp/5.0.23-rce
   metadata:
     max-request: 1
-  tags: thinkphp,rce
+  tags: thinkphp,rce,vuln
 
 http:
   - method: POST
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a004830460221009eb92d0bfd254c9ad882e5ae0ac25bf7c4a31380198264bbb6ebc8f352e03363022100c3fd19a668ac48859c3e9e29226379dbaa65a1a15e959c8ad590e1a7fbf646da:922c64590222798bb761d5b6d8e72950

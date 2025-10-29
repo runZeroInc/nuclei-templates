@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: osint,osint-social,soloto
+  tags: osint,osint-social,soloto,discovery
 
 self-contained: true
 
@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - "create your own page"
-
+# digest: 4a0a0047304502210091ae321f68090d77103743ca0b6eabc7cc10a904d0167f4fcc23ec62bb98431402201896d7782089287564b7640aadc729bfa19fafa39708ae25a85bf51d2e7a8189:922c64590222798bb761d5b6d8e72950

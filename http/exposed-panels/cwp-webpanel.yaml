@@ -12,14 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: control-webpanel
-    product: webpanel
-    shodan-query: http.title:"login | control webpanel"
-    fofa-query:
-      - title=="cwp |用户" || title=="login | centos webpanel" || body="centos webpanel"
-      - title="login | control webpanel"
-    google-query: intitle:"login | control webpanel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CWP \\|用户"})
-  tags: panel,centos
+  tags: panel,centos,discovery
 
 http:
   - method: GET
@@ -44,4 +37,4 @@ http:
         part: header
         words:
           - "cwpsrv"
-
+# digest: 4a0a00473045022100a4f124e94d42da56562dbf4fd821c81a466f0a47283517c3f9634d3727ef0ad4022043c3094bc6f3c4452cfbbc0658c59d46f09d986e43e38f01f854db47d4fe98e3:922c64590222798bb761d5b6d8e72950

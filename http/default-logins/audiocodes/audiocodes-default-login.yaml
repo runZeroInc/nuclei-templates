@@ -11,8 +11,7 @@ info:
     cwe-id: CWE-798
   metadata:
     max-request: 1
-    runzero-match: service["http.head.server"] contains "AudioCodes Web Server"
-  tags: iot,audiocodes,default-login
+  tags: iot,audiocodes,default-login,vuln
 
 http:
   - raw:
@@ -46,4 +45,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100a268ec475306e9e2fc315d2e4a075fefcd61a89f782d5e761433355647498c2e022006ef816272b75a2033606812b7e0805130493d9e4242f0a4b6f859e90fb66b69:922c64590222798bb761d5b6d8e72950

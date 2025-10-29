@@ -13,11 +13,7 @@ info:
     verified: true
     max-request: 2
     vendor: oaooa
-    product: pichome
-    shodan-query: http.favicon.hash:"933976300"
-    fofa-query: icon_hash=933976300
-    runzero-match: service["favicon.ico.image.mmh3"] == "933976300"
-  tags: pichome,panel
+  tags: pichome,panel,discovery
 
 http:
   - method: GET
@@ -41,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100b4c23ef0e8e858b3ecea672a36272a026b2c815f5e2c15f08c0116fa08dd270002210099c986d6b80d89dd356b71f6dd80e35328195988c2376703fd0e332ba2e44cb9:922c64590222798bb761d5b6d8e72950

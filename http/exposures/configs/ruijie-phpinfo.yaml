@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: phpinfo,rujjie,config,exposure,ruijie
+  tags: phpinfo,rujjie,config,exposure,ruijie,vuln
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100c3dc50026ef9dab79e62b27c1b5f72095cf4a32806f6aa1c39389f51571bd4f9022052e162bebcc276556b2e5f3b863d0b3cec8accff5382b58f5a39c7917531a97f:922c64590222798bb761d5b6d8e72950

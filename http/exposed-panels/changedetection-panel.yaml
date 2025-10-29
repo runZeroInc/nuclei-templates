@@ -16,11 +16,8 @@ info:
     max-request: 1
     vendor: changedetection
     product: changedetection
-    shodan-query: http.title:"change detection"
-    fofa-query: title="change detection"
-    google-query: intitle:"change detection"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Change Detection"})
-  tags: panel,changedetection,detect
+    shodan-query: title:"Change Detection"
+  tags: panel,changedetection,detect,discovery
 
 http:
   - method: GET
@@ -40,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100eca53c10fa41c4ff004fcd3a4ceabd1c210a89148eaab2da100b64ca139784df02201afa7f7786e7e1bd25a96932a45d706da3b2427479b907fd62b841bff221a471:922c64590222798bb761d5b6d8e72950

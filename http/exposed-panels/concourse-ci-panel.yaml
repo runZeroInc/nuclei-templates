@@ -15,12 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: pivotal_software
-    product: concourse
-    shodan-query: http.title:"concourse"
-    fofa-query: title="concourse"
-    google-query: intitle:"concourse"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
-  tags: panel,concourse,oss
+  tags: panel,concourse,oss,discovery
 
 http:
   - method: GET
@@ -33,4 +28,4 @@ http:
           - '<title>Concourse</title>'
           - 'login to Concourse'
         condition: or
-
+# digest: 4a0a0047304502204a9d2aa383738c589699f9318648adedd10bfb9764dfc418ef2ab36dd4cad37e022100e770fb67558e15fd08e5b4d21da360ca0338b858814c7224912baafa7c220d43:922c64590222798bb761d5b6d8e72950
