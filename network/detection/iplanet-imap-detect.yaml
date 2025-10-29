@@ -30,4 +30,4 @@ tcp:
         part: body
         regex:
           - "iPlanet Messaging Server ([0-9.]+)"
-# digest: 4a0a00473045022100cdc26bb78ce3aee9231ac74543388fca4b8e26158321d63268e56677227a5b320220019bce6ad3537308c1ca8bab3998b37b3e8b3c7197d0243cab1902934693b7a0:922c64590222798bb761d5b6d8e72950
+

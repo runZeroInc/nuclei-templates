@@ -29,4 +29,4 @@ http:
           - 'contains(body, "applezeed")'
           - 'status_code == 200'
         condition: and
-# digest: 490a0046304402203ba7b37315b283feab4f0ec7e459bbdbd23bb7216fee89a011fc2f2de7f13f3102207b43091a4113df906200fb4304f03dabcb148c67c1f3ab78508b857a099582a1:922c64590222798bb761d5b6d8e72950
+

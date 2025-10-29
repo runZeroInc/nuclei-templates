@@ -44,4 +44,4 @@ http:
           - '"livenessState"'
           - '"readinessState"'
         condition: or
-# digest: 4b0a00483046022100ee0e3fccedc1a65dc2518adb04925b11bd7ed661ef93bf06a1243bf0a9fc7d85022100f950f95828559346d9d217bc370d88460aa1fb5fb06126bc604a18e81dd6fd04:922c64590222798bb761d5b6d8e72950
+

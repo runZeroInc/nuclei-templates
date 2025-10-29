@@ -40,4 +40,4 @@ http:
           - "<rdp-client-top-view>"
           - "Microsoft Remote Desktop"
         condition: and
-# digest: 4a0a00473045022100a30b64f20b677789296efb4c89a32ac33e94b1f580145249c8736611606d7ec602200c30902ab1a6fc8ccb8d3d196965f97cd9c22679bc2659ede83b1a0f56a53b91:922c64590222798bb761d5b6d8e72950
+

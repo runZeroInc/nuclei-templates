@@ -35,4 +35,4 @@ http:
           - "SerialNumber"
           - "HardwareVersion"
         condition: and
-# digest: 4a0a004730450220608c53c5c239a986be9f5e310baf9b598405b094bd75cac47bd2a38934a268ca022100fb46e253b836c1ba25d0985589b52e046a86c73d2aa93957c39c315137182bdc:922c64590222798bb761d5b6d8e72950
+

@@ -56,4 +56,4 @@ http:
           - '(?i)jquery\.min\.js\?v=([\d.|\d]+)">'
           - '(?i)# GLPI changes\n\n.*\n.*\n.*\n##\s\[(\d+\.\d+|\d+\.\d+\.\d+)\]'
           - '(?i)GLPI.*?([\d.|\d]+).copyright'
-# digest: 4b0a00483046022100f6ce32fbe478cd73f265fc4d5f64d509044f4c1e229ce90a9b7f4de0970454e8022100ab733bd86fe3e8bac51bad4715dc597eba1b56dd3a91fd9b95af88044cdc9119:922c64590222798bb761d5b6d8e72950
+

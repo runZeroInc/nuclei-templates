@@ -30,4 +30,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>LinShare", "x-ng-app=\"linshareAdminApp")'
         condition: and
-# digest: 490a0046304402203df8ab8fa72d26b59cb4386dffa680ef854ac99e5e9d0dfd1bdae95ae5c266fb02203f5d094c74f9775cc33ec31ce3058496655b16f98c098c1a709df40ed412658a:922c64590222798bb761d5b6d8e72950
+

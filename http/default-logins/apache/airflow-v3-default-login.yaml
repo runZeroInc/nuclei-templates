@@ -56,4 +56,4 @@ http:
           - 'contains(header_2, "session=")'
           - '!contains(location_2, "/login")'
         condition: and
-# digest: 4b0a00483046022100ed41fd1b7b8acde3605bc79c67c7ed963d22932ac2ad56d3aa4ffadc90fab964022100e42bf63d5f76a289cb3ca462c5a8fd68f34453619c877bc60da873fdd2bd4756:922c64590222798bb761d5b6d8e72950
+

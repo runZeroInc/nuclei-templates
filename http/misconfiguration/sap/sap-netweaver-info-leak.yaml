@@ -32,4 +32,4 @@ http:
         part: body
         regex:
           - "<RFCDEST>.*</RFCDEST>"
-# digest: 4b0a004830460221008e0346dcec14148be6946008bd46b5501c212cfeebbe6eb3705e8bb428651e84022100dcc70e4039058c7f8f8321b856cef38419bc865c6ddaf5d25d25b7e2b431ed53:922c64590222798bb761d5b6d8e72950
+

@@ -79,4 +79,4 @@ http:
           - status_code_2 == 302
           - contains(header_2, 'index.php?collation_connection=utf8mb4_unicode_ci') || contains(header_2, '/index.php?route=/&route=%2F')
         condition: and
-# digest: 490a004630440220388939553edc8b1f582eb81852647f5779e965113054b3921e891418ff1aa48c02207c128512e716ebc9119c0350fa294b8847933ce628a2a601a66fa965db32369a:922c64590222798bb761d5b6d8e72950
+

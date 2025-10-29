@@ -46,4 +46,4 @@ http:
         name: version
         regex:
           - src="js/div-util.js\?v=(\d+)"
-# digest: 4a0a00473045022100c58d408ef6b6f61a6846d33af5b10c5e3372b3edbfda6b4f13d900768b5b1751022048a929c85066b807940e1fe88ee85e3d2c34fd453d1ad205e83d06dbfa118dc3:922c64590222798bb761d5b6d8e72950
+

@@ -26,4 +26,4 @@ http:
           - '<title>Zentral</title>'
           - '<div class="panel-footer btn-group btn-group-justified"'
         condition: and
-# digest: 490a0046304402202889977dcde0e58084900f254f0850671a3ac2c7fe1a31ac76c4885904fd7598022044f7ead8f0f9b10eb78948e56c0c0ffda517c3b4b393e5431a3bf7e6d9dd68fb:922c64590222798bb761d5b6d8e72950
+

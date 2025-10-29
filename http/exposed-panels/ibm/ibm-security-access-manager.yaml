@@ -42,4 +42,4 @@ http:
           - "/mga/sps/authsvc/policy/forgot_password"
         part: body
         condition: and
-# digest: 490a0046304402206e23bbf391ef78f0dbc0c2ad07003a5c3461e6c0fb2d5fb429381a36a9dbba7a022062f8df8f4191343f04e857a471b31a7df0ea07dc0f4cc82ca91cba79ba5a3596:922c64590222798bb761d5b6d8e72950
+

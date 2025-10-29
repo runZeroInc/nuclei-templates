@@ -50,4 +50,4 @@ http:
           - "contains(tolower(header), 'gophish')"
           - "status_code==302"
         condition: and
-# digest: 4a0a004730450220173291e05d19e15956ea781acbf51650eb431510960fa74acb3c1f396c3e2dc6022100b6bbf1909bdb00440d74c5ffa1c29a6a6aa138f90b0e81d2109d4357150aeed7:922c64590222798bb761d5b6d8e72950
+

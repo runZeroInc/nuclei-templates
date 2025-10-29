@@ -42,4 +42,4 @@ http:
         group: 1
         regex:
           - 'E-Mobile&nbsp;([0-9.]+)'
-# digest: 4a0a00473045022100e2bcf2c13d3c9f85d6478e8fc156afd2dd87f05c489e2f2fdcfa58ef0c7b320902202b3155c637948faba22b7ea5d09a86f72eb26e5a09ad11a850c58f889bcf4c35:922c64590222798bb761d5b6d8e72950
+

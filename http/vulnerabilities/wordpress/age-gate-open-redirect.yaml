@@ -32,4 +32,4 @@ http:
         part: header
         regex:
           - '(?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)(?:[a-zA-Z0-9\-_\.@]*)interact\.sh\/?(\/|[^.].*)?$' # https://regex101.com/r/L403F0/1
-# digest: 4b0a00483046022100e865c1030d16c891a871af48f12fb07bc5d99fe2654388f5b238e049a1990f50022100d5e46448773eff7b1cda78d8a5341c1aa31f6fac3ff138983b4a4674bb8b89ea:922c64590222798bb761d5b6d8e72950
+

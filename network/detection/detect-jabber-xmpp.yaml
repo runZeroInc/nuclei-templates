@@ -28,4 +28,4 @@ tcp:
           - "stream:stream xmlns:stream"
           - "stream:error xmlns:stream"
         condition: or
-# digest: 490a004630440220533872a30494fb55c3138875fc47c32c9b0221ab7cee9d40f397cad338e01322022062166246660eaad0a55f094fd7d3ca269d8a826ff57b72db434b73d5d4c91341:922c64590222798bb761d5b6d8e72950
+

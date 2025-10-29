@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - "property=\"twitter:card\""
-# digest: 4a0a00473045022100e3311fecb6e4b30c9e8a2b3ad4f4dd36d1fd22e1a4a5651c7f0c3949960974d002205c4e01d951450bab096bd91407330f65342580cb706ec3094adb50e54a0e8468:922c64590222798bb761d5b6d8e72950
+

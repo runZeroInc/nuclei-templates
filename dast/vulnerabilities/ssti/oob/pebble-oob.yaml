@@ -38,4 +38,4 @@ http:
           - "contains(interactsh_protocol,'dns')"
           - "contains(interactsh_request,'srv')"
         condition: and
-# digest: 4a0a0047304502202973ce41aba5444756d121a20dabe25b8d0f799b32f9961010f5c1e70a68cd3a022100caee28c8c1510c25bc56b2b29702dfe80b13e4f9507c510616c9a2deed75440c:922c64590222798bb761d5b6d8e72950
+

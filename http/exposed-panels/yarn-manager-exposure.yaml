@@ -25,4 +25,4 @@ http:
           - 'resourcemanager'
           - 'logged in as: dr.who'
         condition: and
-# digest: 4b0a004830460221009a42af875c53fefe27c0b1808f297db55ea9b482c4fd5443a158e507a8796682022100fa13c9528c7256bc0b5d5511c262efd969d50ffc3db0a153a57441c5500d27b4:922c64590222798bb761d5b6d8e72950
+

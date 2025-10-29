@@ -29,4 +29,4 @@ http:
           - 'contains(body, "configSection") && contains(body, "iOfficeUpload")'
           - 'contains(header, "application/octet-stream")'
         condition: and
-# digest: 4a0a00473045022100baabdaaa1392477bb65d72d34717a3920d8d5ff11ff843f36c941a9f9b51c4a902204d95efc2f8eeb307f8b7d7357eda8d40a5b2b970b514a2176895f1d12c564e51:922c64590222798bb761d5b6d8e72950
+

@@ -51,4 +51,4 @@ http:
         group: 1
         regex:
           - '<span class="version">([0-9.]+)'
-# digest: 490a0046304402206dd4fc0206f66a5045afc28d922f887c17597f3a9375e417cd49f35061538517022022cda9cbfb4704b6f11c337c32b19061659bdcab49d85ccb29aa1be0c0dce0b0:922c64590222798bb761d5b6d8e72950
+

@@ -22,4 +22,4 @@ http:
         part: body
         regex:
           - '\b(hf_[a-zA-Z]{34})\b'
-# digest: 490a0046304402201f58d5a7d47d9b12e825bbc05ba30eb581aab6e677381fb67fd4fed8fb3daac1022015119d4a7c367adcf3839634b189fb3f8f4d99b094e8b0650fd7efe75208bf61:922c64590222798bb761d5b6d8e72950
+

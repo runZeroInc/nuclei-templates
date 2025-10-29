@@ -27,4 +27,4 @@ tcp:
       - type: word
         words:
           - "trace [service] [method] [times]"
-# digest: 4b0a0048304602210087921da6797a43a399fd7d330818e9d2c40f6e65ecce90024190ae19593bdc47022100f27d0320e81fec691c2f3bd7501e4e319fce4ba5a9468b51f9c65bab1998823c:922c64590222798bb761d5b6d8e72950
+

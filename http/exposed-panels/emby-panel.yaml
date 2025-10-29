@@ -48,4 +48,4 @@ http:
         group: 1
         regex:
           - '<script src="apploader\.js\?v=(.+)" defer><\/script>'
-# digest: 4a0a00473045022013abed552e24fa89af465ba2243ab715b9e5ccafd5e3e0dcde11f1ccd38ea90d0221008155b7d71e4ea18fbcb46937a64d85417e75ab3f38a0479b9d5ac21b4be2fddb:922c64590222798bb761d5b6d8e72950
+

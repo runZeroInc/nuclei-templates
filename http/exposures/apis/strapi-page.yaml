@@ -26,4 +26,4 @@ http:
         words:
           - '<title>Welcome to your Strapi app</title>'
         condition: and
-# digest: 4a0a00473045022050a2dd388b0b96eee9700f4c3b873054b093931bcc2054083e6068e3ab265a9e022100d654d74ccf10ca118165ea2a3ffc559fe704b699a1bbed4ae211e55d33138a4a:922c64590222798bb761d5b6d8e72950
+

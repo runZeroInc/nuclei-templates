@@ -36,4 +36,4 @@ http:
           - "/view/js/xiuno.js"
           - "Choose Language (选择语言)"
         condition: and
-# digest: 490a00463044022022c8e80fb2b25c167a789ed337cda5c6d032c377a0bdaa8c4888cf80ba9e8ce40220305dd8af0e292cedfaf9b85cd51ecd7a54ad8ea20b488cab6f6e88b4e04a2414:922c64590222798bb761d5b6d8e72950
+

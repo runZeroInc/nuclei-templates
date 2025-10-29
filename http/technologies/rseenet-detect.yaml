@@ -29,4 +29,4 @@ http:
         group: 1
         regex:
           - '<title>R-SeeNet (.*)</title>'
-# digest: 4b0a004830460221009aba5a657a12593c851ad36afb9f82098045a169d469d94b7a4e8a812daa0ac3022100e3d17d49ef03d99fc3cf5b0fc211ef578e755a344471cc89e1ad9ba04a5b3c40:922c64590222798bb761d5b6d8e72950
+

@@ -41,4 +41,4 @@ http:
           - 'Database Error:'
           - 'There seems to be a problem connecting to the database server specified in your configuration file'
         condition: and
-# digest: 490a004630440220261c373ede512cfcc24eb5ff4b39b8bfe533ea82686b9d5c8eb2aa986e811f9b02205e61dbb5a912d0516e4d7001393f593c7b347c84ca11568e66c4f6061d4d13ce:922c64590222798bb761d5b6d8e72950
+

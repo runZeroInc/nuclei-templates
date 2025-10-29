@@ -35,4 +35,4 @@ http:
         regex:
           - '(?i)"applicationVersion":"([0-9.]+)"'
           - '(?i)Gradle\s+Enterprise\s+Build\s+Cache\s+Node\s+([0-9.]+)'
-# digest: 4a0a00473045022067cdd02bb9992c899bc812bbed96fbafe2e265d4a66d295493b6f2874d81d070022100afba1d89f57cacc1773097711120867edfdc495060f39105ed3be79b463ffbc4:922c64590222798bb761d5b6d8e72950
+

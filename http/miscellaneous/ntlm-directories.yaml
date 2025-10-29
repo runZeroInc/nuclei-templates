@@ -84,4 +84,4 @@ http:
       - type: kval
         kval:
           - 'www_authenticate'
-# digest: 4a0a00473045022100c513d53c59188d466ae2264f5cf8ac294ae6aaabc57373e1bbea63ef3001905602203bd6ddb304e3fe993b80d49e5ed2c0df9ee3b875d899fef6079ed615bb3a4f99:922c64590222798bb761d5b6d8e72950
+

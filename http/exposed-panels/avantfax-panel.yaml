@@ -42,4 +42,4 @@ http:
         group: 1
         regex:
           - '<p align="center">([0-9.]+)<\/p>'
-# digest: 4a0a00473045022100897f012ad0dcee9e91b9fad7694d421c52a64a9f816c907f1429c956f3bd90e602205becaf1ba4b416dc3da7994b21dd06686187eff2ef188d432bcf913b6a116341:922c64590222798bb761d5b6d8e72950
+

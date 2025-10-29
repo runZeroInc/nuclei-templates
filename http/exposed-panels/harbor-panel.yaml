@@ -42,4 +42,4 @@ http:
         group: 1
         regex:
           - '(?i)"harbor_version":\s*"([a-z0-9.\-]+)"'
-# digest: 4a0a00473045022051ebf02e5d694b84f43fc9ea8cc6a87e074e9a9d7186ac6f5bf37672edfc565802210097579cf9da3d9fabfb2294e9846ec66f5bcc8469bae269e954276da22baf1d16:922c64590222798bb761d5b6d8e72950
+

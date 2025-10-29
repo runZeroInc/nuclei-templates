@@ -39,4 +39,4 @@ http:
           - contains(body, 'Web Transfer Client')
           - status_code == 200
         condition: and
-# digest: 4a0a00473045022100d21ef485e11a1c888cc20b66c0e091ede5f793b0448de4787f0686ee1a6ed336022023a0c61a7aebdde8fd51b7a802b9348e9e1b50450be4da2fd60cc2b7416a0597:922c64590222798bb761d5b6d8e72950
+

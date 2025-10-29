@@ -38,4 +38,4 @@ http:
         part: body
         regex:
           - 'href="\/static\/assets\/favicon\.ico\?v=(.+)" \/>'
-# digest: 4a0a00473045022052f5c01ec6996978b611cc7d36fdb0620118b824ce3bf2583ee99a8510cb6d96022100bdb3e18260b6650cb50d6e1fdc697add3eb7216daa01c0963e576f47ad03eb8d:922c64590222798bb761d5b6d8e72950
+

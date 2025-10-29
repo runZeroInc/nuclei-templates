@@ -48,4 +48,4 @@ http:
         group: 1
         regex:
           - '(?i)\*\s+Copyright\s+\(c\)\s+([0-9,\s]+)\s+Oracle\s+and\/or\s+its\s+affiliates.'
-# digest: 4b0a00483046022100add435863839906b396b6d1cb29e1443ae5b8f19ce0724114e37476b68ff6f85022100d1570ca4d29820ee169ff3b869ed4a1b81af36be975f40c1a90f4d554ad56645:922c64590222798bb761d5b6d8e72950
+

@@ -37,4 +37,4 @@ http:
         dsl:
           - "!contains(tolower(body_1), '<script>alert(1337)</script>')"
         condition: and
-# digest: 4b0a00483046022100e5ec3865415852e04da295d21de21e01b874542197df647dbdf2cf1de18008ec022100b2eba68836162e15902644e2d82f3c4b8b247e57de3c59969080634796c14ab3:922c64590222798bb761d5b6d8e72950
+
