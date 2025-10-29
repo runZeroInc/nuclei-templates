@@ -34,3 +34,4 @@ http:
           - 'contains_all(body, "Telecontrol Server Basic","login")'
           - "status_code == 200"
         condition: and
+
