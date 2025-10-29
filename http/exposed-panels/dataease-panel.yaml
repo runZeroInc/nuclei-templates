@@ -17,8 +17,7 @@ info:
     product: dataease
     shodan-query: http.html:"dataease"
     fofa-query: body="dataease"
-    runzero-match: service["http.body"] matches "(?i)dataease"
-  tags: login,panel,dataease
+  tags: login,panel,dataease,discovery
 
 http:
   - method: GET
@@ -35,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022057719b13ff931f4622cc68d355fe7bb94df625244724f1a59a73b398579f6bbd022100fb4b234e5fa3d9b8371c885e3915c6992aaf26e5b5b583712210538f11a8c9d3:922c64590222798bb761d5b6d8e72950

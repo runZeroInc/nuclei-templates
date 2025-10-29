@@ -13,10 +13,8 @@ info:
     max-request: 2
     vendor: cisco
     product: unity_connection
-    shodan-query: http.html:"cisco unity connection"
-    fofa-query: body="cisco unity connection"
-    runzero-match: service["http.body"] matches "(?i)Cisco Unity Connection"
-  tags: panel,cisco,unity,login,detect
+    shodan-query: html:"Cisco Unity Connection"
+  tags: panel,cisco,unity,login,detect,discovery
 
 http:
   - method: GET
@@ -40,4 +38,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450221009d54f9b33934e47294824495dce3acbeb4592e561fe6afe5923845f1e89467170220095ebdf721fd97ee48742428be5211d57d02d036947d3af6de15720721938a81:922c64590222798bb761d5b6d8e72950

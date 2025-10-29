@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: wordpress,wp-plugin,lfi,wordfence,edb
+  tags: wordpress,wp-plugin,lfi,wordfence,edb,vuln
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a004830460221008891abdb3fd3329df4d393c725193ce6ee119fb3342d34fa53b565a33c921e53022100cc103088d64dbcf9f8b2228ca79e56c48dea4e62bc3c9bdc3cf80cba943db02b:922c64590222798bb761d5b6d8e72950

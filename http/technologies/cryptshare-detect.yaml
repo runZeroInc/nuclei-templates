@@ -21,7 +21,11 @@ info:
       - icon_hash="-672476364"
       - icon_hash="-1059646869"
       - "Set-Cookie: cs-ui-session="
-  tags: detect,tech,cryptshare
+    vendor: pointsharp
+    product: cryptshare
+  reference:
+    - https://www.pointsharp.com/en/products/cryptshare
+  tags: detect,tech,cryptshare,discovery
 
 http:
   - method: GET
@@ -46,4 +50,4 @@ http:
         regex:
           - '<span>([\d\.]+)</span>\n<span>licensed for</span>'
         group: 1
-
+# digest: 490a00463044022069af7da3be1cdd409c51803e17f37f3aa99ea3fdbd8a1b338a835c9c0f67693702201dcaa72adde6d4d3db42eebfa145aa7b31d76761b40c8f717f6c269207adff77:922c64590222798bb761d5b6d8e72950

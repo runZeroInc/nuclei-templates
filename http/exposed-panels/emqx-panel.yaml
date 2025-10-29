@@ -15,11 +15,8 @@ info:
     max-request: 1
     vendor: emqx
     product: emqx
-    shodan-query: http.title:"emqx dashboard"
-    fofa-query: title="emqx dashboard"
-    google-query: intitle:"emqx dashboard"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)EMQX Dashboard"})
-  tags: panel,emqx,login,detect
+    shodan-query: http.title:"EMQX Dashboard"
+  tags: panel,emqx,login,detect,discovery
 
 http:
   - method: GET
@@ -39,4 +36,4 @@ http:
         group: 1
         regex:
           - 'but\s+(emqx\-dashboard[0-9a-z\-]+)'
-
+# digest: 4b0a00483046022100d9e6598f4b55e14535ab664719f9341dc207198102f60f163efd5269ade2f609022100b200821ca417f6efd9dbeb3dd8706128e0b8f3cfd57f158f2593c3a6ffebbbc0:922c64590222798bb761d5b6d8e72950

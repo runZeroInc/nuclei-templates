@@ -13,9 +13,8 @@ info:
     max-request: 1
     vendor: zoneland
     product: o2oa
-    shodan-query: http.title=="o2oa"
-    runzero-match: any(each(service["html.titles"]), {# matches "O2OA"})
-  tags: o2oa,default-login
+    shodan-query: title=="O2OA"
+  tags: o2oa,default-login,vuln
 
 http:
   - raw:
@@ -53,4 +52,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a004830460221008422f29f468d825d73af24451ab18c125c8d39d0910de31969dbb5360e08c523022100d2542b4d1c03df0a55e3af3d6f7a50583c5c1e139dbc3c7bf8aea5920f4db3ac:922c64590222798bb761d5b6d8e72950

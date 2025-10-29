@@ -13,11 +13,8 @@ info:
     max-request: 1
     vendor: esafenet
     product: cdg
-    fofa-query:
-      - title="电子文档安全管理系统",body="cdgserver3/"
-      - esafenet
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)电子文档安全管理系统"})
-  tags: esafenet,sqli
+    fofa-query: title="电子文档安全管理系统",body="CDGServer3/"
+  tags: esafenet,sqli,vuln
 
 http:
   - raw:
@@ -35,4 +32,4 @@ http:
           - 'contains(body,"操作成功")'
           - 'status_code == 200'
         condition: and
-
+# digest: 490a0046304402206d6f5782a1caaf9eff08c24c49b8a7c498b7e9743c93f13eda7abedd158d50d80220077fefab1e6a941961622bbfec5251c4f8667346fc3f2a2c21125cad6a7c0620:922c64590222798bb761d5b6d8e72950

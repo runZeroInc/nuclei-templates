@@ -27,9 +27,7 @@ info:
     google-query:
       - intitle:"tautulli"
       - intitle:"tautulli - home"
-      - intitle:"tautulli - welcome"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tautulli"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli - home"})
-  tags: panel,tautulli,detect
+  tags: panel,tautulli,detect,discovery
 
 http:
   - method: GET
@@ -54,4 +52,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022073db7fe213eedd9222091249980192a068358323e165ee1abca84241dacb46610221009b9078c2d626ce8a9e53553756ac1f904921880683859719dca0aa2910336022:922c64590222798bb761d5b6d8e72950

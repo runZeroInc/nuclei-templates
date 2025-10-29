@@ -7,7 +7,7 @@ info:
   description: Performs a thread dump
   metadata:
     max-request: 2
-  tags: springboot,exposure,misconfig
+  tags: springboot,exposure,misconfig,vuln
 
 http:
   - method: GET
@@ -33,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100897d2df35130ed4cc6eae48b12e5713c229d82edcc50c708977119ab7d159da502206d40195e6c9f5dbefa61990d0e17fd5a2651f2b2af6a077df26400443e7ddc86:922c64590222798bb761d5b6d8e72950

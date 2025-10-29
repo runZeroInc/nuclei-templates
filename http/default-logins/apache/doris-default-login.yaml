@@ -11,11 +11,8 @@ info:
     vendor: apache
     product: doris
     shodan-query: http.favicon.hash:"24048806"
-    fofa-query:
-      - icon_hash=24048806
-      - icon_hash="24048806"
-    runzero-match: service["favicon.ico.image.mmh3"] == "24048806"
-  tags: apache,default-login,doris
+    fofa-query: icon_hash=24048806
+  tags: apache,default-login,doris,vuln
 
 http:
   - raw:
@@ -46,4 +43,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402206798965e4eb020b40b0391ddf2559221c70c163292a65b57e6c8a2103d42769402200a3f3fcdad3c5cce62ad1fa578d445bf2fc47c67690a1df7aaa2db044e2f5562:922c64590222798bb761d5b6d8e72950

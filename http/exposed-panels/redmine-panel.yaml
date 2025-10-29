@@ -14,20 +14,8 @@ info:
     max-request: 1
     vendor: redmine
     product: redmine
-    shodan-query:
-      - http.html:'content="redmine'
-      - cpe:"cpe:2.3:a:redmine:redmine"
-      - http.title:"index of" "settings.yml"
-      - http.title:"index of" configuration.yml
-    fofa-query:
-      - body='content="redmine'
-      - title="index of" "settings.yml"
-      - title="index of" configuration.yml
-    google-query:
-      - intitle:"index of" "settings.yml"
-      - intitle:"index of" configuration.yml
-    runzero-match: service["http.body"] matches "(?i)'content=\"Redmine'"
-  tags: panel,redmine,login,detect
+    shodan-query: http.html:'content="Redmine'
+  tags: panel,redmine,login,detect,discovery
 
 http:
   - method: GET
@@ -40,4 +28,4 @@ http:
           - 'status_code == 200'
           - 'contains(body, "content=\"Redmine")'
         condition: and
-
+# digest: 490a00463044022008b38c34d9b9174b4a63e4edef160efa6284a507064fbb9f5055362ce1f7ef3602203db8306fa40745b40d07392ecdbdfc1a598621a8df9565a17ecb9817e533a5d1:922c64590222798bb761d5b6d8e72950

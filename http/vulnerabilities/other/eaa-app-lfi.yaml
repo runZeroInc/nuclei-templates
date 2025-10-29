@@ -12,7 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: body="EAA益和应用接入系统"
-  tags: eaa,lfi
+  tags: eaa,lfi,vuln
 
 http:
   - method: GET
@@ -39,4 +39,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022008b933dc5b95a0aabadc63cfb7b66f489d0e60a0ab3694dbcfe41445a4ac770a022002da560ad90ad13ad45a3cfbd9d496cc20f8e1c00ce852f917127c5b56cd7523:922c64590222798bb761d5b6d8e72950

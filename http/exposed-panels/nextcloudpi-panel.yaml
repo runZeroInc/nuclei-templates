@@ -13,15 +13,9 @@ info:
     max-request: 1
     vendor: nextcloud
     product: nextcloudpi
-    shodan-query:
-      - http.title:"nextcloudpi"
-      - http.title:"nextcloudpi panel"
-    fofa-query:
-      - title="nextcloudpi"
-      - title="nextcloudpi panel"
-    google-query: intitle:"nextcloudpi panel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NextcloudPi"})
-  tags: nextcloud,nextcloudpi,login,panel
+    shodan-query: title:"NextcloudPi"
+    fofa-query: title="NextcloudPi"
+  tags: nextcloud,nextcloudpi,login,panel,discovery
 
 http:
   - method: GET
@@ -34,4 +28,4 @@ http:
           - "contains_any(body, 'NextcloudPi', 'https://nextcloudpi.com')"
           - "status_code==200"
         condition: and
-
+# digest: 490a004630440220391bf903fe9773c335a5038ab149d7ec1c9f46fc00cb7b1d51398a88a437080902205c904a5117e0411f28cdea8c3b2c8865fc12fb19352488e48366af794bc6ff62:922c64590222798bb761d5b6d8e72950

@@ -16,16 +16,7 @@ info:
     verified: true
     max-request: 2
     vendor: geoserver
-    product: geoserver
-    shodan-query:
-      - http.title:"geoserver"
-      - server:"geohttpserver"
-    fofa-query:
-      - app="geoserver"
-      - title="geoserver"
-    google-query: intitle:"geoserver"
-    runzero-match: 'any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})'
-  tags: geoserver,default-login
+  tags: geoserver,default-login,vuln
 
 http:
   - raw:
@@ -54,4 +45,4 @@ http:
           - "!contains(tolower(location_1), 'error=true')"
           - 'status_code_1 == 302'
         condition: and
-
+# digest: 4b0a0048304602210097696ea05121d6da25d5352300273d57fb3efaeb60975c3ecbafc96efefbd804022100ec11644d8cbd8fefa22ba1b3a5b7abd09ffb1c156b8869b18ea02e7d522bfb09:922c64590222798bb761d5b6d8e72950

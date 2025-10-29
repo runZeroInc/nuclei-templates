@@ -15,10 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: hitachi
-    product: vantara_pentaho
-    shodan-query: pentaho
-    runzero-match: any(each(service["html.titles"]), {# matches "^Pentaho User Console"})
-  tags: pentaho,default-login
+  tags: pentaho,default-login,vuln
 
 http:
   - raw:
@@ -48,4 +45,4 @@ http:
       - type: status
         status:
           - 302
-
+# digest: 490a0046304402206144b813c00018ee966cb76c87045507479c3c167048e19a931a55cc1ab919aa0220396895f228aa6436832bc129cedf69ff3349104397104d875f8a1fb359894ca8:922c64590222798bb761d5b6d8e72950

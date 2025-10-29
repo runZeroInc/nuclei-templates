@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: ruijie,lfi,edb
+  tags: ruijie,lfi,edb,vuln
 
 http:
   - method: GET
@@ -37,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100826fbaa69e6e51945156571414e36410856348042d42165a750a92796e126f97022100cabb99f90eda95728dc42e7689a5eeea071951b30a07a119dc992c810741b677:922c64590222798bb761d5b6d8e72950

@@ -18,7 +18,7 @@ info:
     verified: true
     max-request: 3
     shodan-query: "Ms-Author-Via: DAV"
-  tags: webdav,misconfig,exposure
+  tags: webdav,misconfig,exposure,vuln
 
 http:
   - raw:
@@ -39,4 +39,4 @@ http:
         part: header
         words:
           - "Ms-Author-Via: DAV"
-
+# digest: 490a00463044022048d122c325d089508432b34eaba8dab8f00e9fc37d69977c884ac067b75c6735022003218858f65afb014692eb326430e996a754b29ef7f4be368aaa006e1c3a05bf:922c64590222798bb761d5b6d8e72950

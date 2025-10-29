@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: showdoc,default-login
+  tags: showdoc,default-login,vuln
 
 http:
   - raw:
@@ -42,4 +42,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100fe18d60b411c1c7b6be72204ac241768d197834d51765f3a4193412e2a140e1b022100cab7b9ab9bf74e5aaed69dd93183d9b879f76e77ec207770e642979088478784:922c64590222798bb761d5b6d8e72950

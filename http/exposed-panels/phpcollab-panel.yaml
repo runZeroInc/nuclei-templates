@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"phpcollab"
     fofa-query: title="phpcollab"
     google-query: intitle:"phpcollab"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpcollab"})
-  tags: panel,phpcollab,login
+  tags: panel,phpcollab,login,discovery
 
 http:
   - method: GET
@@ -41,4 +40,4 @@ http:
         group: 1
         regex:
           - '<p id="footer">(.*)</p>'
-
+# digest: 490a004630440220104dd72756cfa99bf62e47ded3d390c7200ec11dbfeb4a5f053fce022f2cd59702200b48d2f187e03a175a9fe32c4d28d52f523c4ea1ce07ec2d7bc3423aedb9f7fa:922c64590222798bb761d5b6d8e72950

@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-89
   metadata:
     max-request: 1
-  tags: sqli,generic,error
+  tags: sqli,generic,error,vuln
 
 http:
   - method: GET
@@ -480,4 +480,4 @@ http:
           - "SQ200: No table "
           - "Virtuoso S0002 Error"
           - "\\[(Virtuoso Driver|Virtuoso iODBC Driver)\\]\\[Virtuoso Server\\]"
-
+# digest: 490a004630440220397227fab9ee09c0ee724425d95810d9d929f966eb7f26ecfa6ab15c2ce2289c02203a70b5f7781252787f102ec443fe7dfd775687c8c27e88c16f633a9843195363:922c64590222798bb761d5b6d8e72950

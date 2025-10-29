@@ -17,7 +17,7 @@ info:
     vendor: xuxueli
     product: xxl-job
     fofa-query: app="XXL-JOB"
-  tags: xxljob,unauth,misconfig,rce
+  tags: xxljob,unauth,misconfig,rce,vuln
 
 http:
   - raw:
@@ -81,4 +81,4 @@ http:
         part: interactsh_protocol
         words:
           - "dns"
-
+# digest: 4a0a0047304502203309575269cfd4eb4fb8c357f9ec2e8bdc16af08dbae2aa25163258553ce0c85022100a814f3043ba0c2a263a5338059240498f32e737654d0d752b5feb1dc4da88339:922c64590222798bb761d5b6d8e72950

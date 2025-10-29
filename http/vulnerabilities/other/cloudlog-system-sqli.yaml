@@ -12,7 +12,8 @@ info:
     verified: true
     max-request: 1
     fofa-query: "Login - Cloudlog"
-  tags: cloudlog,sqli
+  tags: cloudlog,sqli,vuln
+
 variables:
   num: "999999999"
 
@@ -32,4 +33,4 @@ http:
           - 'contains(content_type, "text/html")'
           - 'status_code == 500'
         condition: and
-
+# digest: 4a0a00473045022100d5ab60a42aeaca35119e00a539fa5841a332a2996ce513c8e03b51e88e8428ed022007dc490e576263d1a3d486b60efdb96dceb4e655779b8736be97f6bcedc42aea:922c64590222798bb761d5b6d8e72950

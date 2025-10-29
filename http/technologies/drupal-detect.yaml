@@ -16,7 +16,7 @@ info:
     shodan-query:
       - http.component:"drupal"
       - cpe:"cpe:2.3:a:drupal:drupal"
-  tags: tech,drupal
+  tags: tech,drupal,discovery
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
         group: 1
         regex:
           - 'class="site-version">([0-9.x-]+)'
-
+# digest: 490a0046304402205927c56cafbb79abdc06a86c50c7c5f1b4b0689092a6246051cd1e4782c71730022022fa1098b91271c0c548ef051b0a69aafdb986ff80563349c41685b462649291:922c64590222798bb761d5b6d8e72950

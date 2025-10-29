@@ -13,7 +13,7 @@ info:
     max-request: 1
     vendor: skycaiji
     product: skycaiji
-  tags: panel,tech,skycaiji
+  tags: panel,tech,skycaiji,discovery
 
 http:
   - method: GET
@@ -39,4 +39,4 @@ http:
         group: 1
         regex:
           - 'com">SkyCaiji<\/a> ([A-Z0-9.]+) 后台管理<\/p>'
-
+# digest: 490a0046304402207ad7ed0a5b30831b4001edf8359386890a42201f3a2cb175c6be872e9024fe20022009a3e9a2115e7449063a6c046af4ed85fa223b5c3d47eec87deb665225bf329f:922c64590222798bb761d5b6d8e72950

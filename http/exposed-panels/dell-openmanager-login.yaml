@@ -12,11 +12,7 @@ info:
   metadata:
     max-request: 2
     vendor: dell
-    product: openmanage
-    shodan-query: http.html:"dell openmanage switch administrator"
-    fofa-query: body="dell openmanage switch administrator"
-    runzero-match: service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
-  tags: panel,dell
+  tags: panel,dell,discovery
 
 http:
   - method: GET
@@ -35,4 +31,4 @@ http:
           - '<TITLE>Log In</TITLE>'
           - 'device/logOff_up_menu1.htm'
         condition: and
-
+# digest: 4a0a00473045022003a20fae4cfd41ba8e2e5087032fc2bf5c09fd67595ae7bbd75ae128a5e9f616022100b1ca864ae93c91f245d9d1a006621b197abff86251df28c84a8efd0756c0f527:922c64590222798bb761d5b6d8e72950

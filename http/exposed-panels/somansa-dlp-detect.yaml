@@ -14,8 +14,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: http.html:"DLP system"
-    runzero-match: service["http.body"] matches "(?i)DLP system"
-  tags: panel,somansa,dlp
+  tags: panel,somansa,dlp,discovery
 
 http:
   - method: GET
@@ -38,4 +37,4 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && (\"-1217239281\" == mmh3(base64_py(body)))"
-
+# digest: 490a004630440220143d4966bc457bf9522e884695a493edef0b90efb911ea3acdbd5213bf7bbf9a022005415b1580d3e3c825a1c03f5d964249adffcfd737e2818c52c007318253c925:922c64590222798bb761d5b6d8e72950

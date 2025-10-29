@@ -16,7 +16,9 @@ info:
     product: ollama
     shodan-query: "Ollama is running"
     zoomeye-query: app="Ollama"
-  tags: panel,ollama,llm,detect
+    product: ollama
+    vendor: ollama
+  tags: panel,ollama,llm,detect,discovery
 
 http:
   - method: GET
@@ -32,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100f33ed7f754e0110f816cad2e662e816fe21eead74efaa19bf158baa15b12356f0220072a54602adf0b406eaecf7f9a97e58c15c820232e3505b0715da630dd82e900:922c64590222798bb761d5b6d8e72950

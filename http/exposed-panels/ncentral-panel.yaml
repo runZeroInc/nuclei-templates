@@ -23,10 +23,7 @@ info:
       - icon_hash="1937353549"
       - "Set-Cookie: ncentral_version="
     vendor: n-able
-    product: n-central
-    google-query: intitle:"n-central login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
-  tags: panel,n-central
+  tags: panel,n-central,discovery
 
 http:
   - method: GET
@@ -49,4 +46,4 @@ http:
         group: 1
         regex:
           - "ncentralVersion:\\s+\"([\\d\\.]+)\","
-
+# digest: 4a0a00473045022100e271ce2bb8d40920a4ee8549348e9159db4d584d75c8ce3672344c36a563ed9c022006f0540097ee802a1fe30a8cfddc85b747a4d4a10d459433e88d6f409e8bcee3:922c64590222798bb761d5b6d8e72950

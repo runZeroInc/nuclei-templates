@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,wago
+  tags: panel,wago,discovery
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
         words:
           - "WAGO_Webs"
         part: header
-
+# digest: 490a00463044022014e27f8e783a27a205a27473cc54697c21fcf1cd462a24a79bd91d4d8f23978602205717648a1588bafe26bd28c99215933ae72b30abe9f3fb5497a24ae8a3beea8c:922c64590222798bb761d5b6d8e72950

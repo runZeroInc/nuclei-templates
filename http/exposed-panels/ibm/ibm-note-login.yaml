@@ -15,11 +15,7 @@ info:
     max-request: 2
     vendor: ibm
     product: inotes
-    shodan-query: http.title:"ibm inotes login"
-    fofa-query: title="ibm inotes login"
-    google-query: intitle:"ibm inotes login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)IBM iNotes Login"})
-  tags: ibm,edb,panel,login,detect
+  tags: ibm,edb,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -41,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100eff63d27a3eebf53255b729e61866bb6c8a0e17715eec547bd49d667bded1ac102205f713f1aa032338b72f4093776bc4c21a066be28425534892e1badd5b8c5c0f4:922c64590222798bb761d5b6d8e72950

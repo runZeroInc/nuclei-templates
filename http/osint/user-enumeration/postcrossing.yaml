@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: osint,osint-social,postcrossing
+  tags: osint,osint-social,postcrossing,discovery
 
 self-contained: true
 
@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - ", from"
-
+# digest: 4a0a00473045022100ea067ea843fa13ea39f9e24ef51a87ea753643e86aba25c5381def6a60e1a9ca02206b9c2476ec1b21044686254f68e454af94150904f3e00ad572a89a80037c32d4:922c64590222798bb761d5b6d8e72950

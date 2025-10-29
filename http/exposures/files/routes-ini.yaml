@@ -9,7 +9,7 @@ info:
     max-request: 15
     google-query: intitle:"index of" "routes.ini"
     github-query: filename:routes.ini
-  tags: routes,config,exposure,files
+  tags: routes,config,exposure,files,vuln
 
 http:
   - method: GET
@@ -50,4 +50,4 @@ http:
           - "[routes]"
           - "GET /"
         condition: and
-
+# digest: 490a004630440220192ac7b4aa697588cb24be61bce6471616d4ef234e314f1b6e400b5b33d8f9b302206a9028fff4d5e8bf5c07f1c21ccca39a41eaea8af0cecb3ef32bad895e99092a:922c64590222798bb761d5b6d8e72950

@@ -13,17 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: keking
-    product: kkfileview
-    shodan-query:
-      - http.title:"kkfileview"
-      - http.html:"kkfileview"
-    fofa-query:
-      - app="kkfileview"
-      - body="kkfileview"
-      - title="kkfileview"
-    google-query: intitle:"kkfileview"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kkFileView"})
-  tags: panel,kkfileview
+  tags: panel,kkfileview,discovery
 
 http:
   - method: GET
@@ -39,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100c459687fe22d02057fc2b70c31384890d5e7d44ecbc65de90fee4b1f7e2a4f4402204d8d7b585fa3a39ad419679009b61ba2ff2218d8c14512a6125b67b67e4fbc1a:922c64590222798bb761d5b6d8e72950

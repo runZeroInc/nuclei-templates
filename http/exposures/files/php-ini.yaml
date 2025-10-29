@@ -14,7 +14,7 @@ info:
     vendor: php
     product: php
     shodan-query: php.ini
-  tags: config,exposure,files
+  tags: config,exposure,files,vuln
 
 http:
   - method: GET
@@ -35,4 +35,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100aa3df719e4c372a7a006892031e5b452eb3e8b64c87f5867f15300539f6a0a8402200413934298f4b94de025c5db385482855a8aa8070c290b494acc4c935380b8d6:922c64590222798bb761d5b6d8e72950

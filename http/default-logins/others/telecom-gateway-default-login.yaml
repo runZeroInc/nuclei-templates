@@ -8,7 +8,7 @@ info:
     Telecom Gateway default admin credentials were discovered.
   metadata:
     max-request: 1
-  tags: default-login,telecom,gateway
+  tags: default-login,telecom,gateway,vuln
 
 http:
   - raw:
@@ -40,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a0048304602210080782655ba38730784d57708d13c57bbf254470dcd2e2704a43d13830a845fea02210096bccdad217b88adfbbe9d97c2d1e0f63bf24db39906a687f5733de57b33c9fc:922c64590222798bb761d5b6d8e72950

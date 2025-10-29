@@ -11,11 +11,8 @@ info:
     max-request: 1
     vendor: redis
     product: redis_enterprise
-    shodan-query: http.title:"enterprise-class redis for developers"
-    fofa-query: title="enterprise-class redis for developers"
-    google-query: intitle:"enterprise-class redis for developers"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Enterprise-Class Redis for Developers"})
-  tags: panel,redis,enterprise
+    shodan-query: title:"Enterprise-Class Redis for Developers"
+  tags: panel,redis,enterprise,discovery
 
 http:
   - method: GET
@@ -34,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a004630440220621e523e3da58806b13cadcaf0d46f253a4a2c538eecf6f72a22a30a537c27cc02203632294a8c0bfffa6f6abae16f2a4a15c9f0617be3f2078881ee76a8dc0584d6:922c64590222798bb761d5b6d8e72950

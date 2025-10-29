@@ -22,8 +22,7 @@ info:
       - title="ivanti connect secure"
       - body="welcome.cgi?p=logo"
     google-query: intitle:"ivanti connect secure"
-    runzero-match: service["http.body"] matches "(?i)welcome\\.cgi\\?p=logo" || any(each(service["html.titles"]), {# matches "(?i)ivanti connect secure"})
-  tags: panel,connectsecure,login,ivanti
+  tags: panel,connectsecure,login,ivanti,discovery
 
 http:
   - method: GET
@@ -44,4 +43,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022040ebd0568164c165c5dddf33b66fadf823b1e52ec796f993424c1fd9d12762f90220490d1c4131d5515bc32ee81b42fbcf5c04620a8fd041bc007660c33c29b52f77:922c64590222798bb761d5b6d8e72950

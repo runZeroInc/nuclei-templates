@@ -9,8 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: title:"WAGO Ethernet Web-based Management"
-  tags: panel,login,wago,iot
+  tags: panel,login,wago,iot,discovery
 
 http:
   - method: GET
@@ -29,4 +28,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022030a4f3301d66f26c61adfe1771dfa87925f1ac2117253a5630064eabc9c8300802210086810cf1537f3e7625d4562db694ddb702b160993c572bb4c8c435be07d99978:922c64590222798bb761d5b6d8e72950

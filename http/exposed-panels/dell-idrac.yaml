@@ -13,11 +13,7 @@ info:
     verified: true
     max-request: 2
     vendor: dell
-    product: emc_idrac_service_module
-    shodan-query: http.html:"thisidractext"
-    fofa-query: body="thisidractext"
-    runzero-match: service["http.body"] matches "(?i)thisIDRACText"
-  tags: panel,idrac,dell,detect
+  tags: panel,idrac,dell,detect,discovery
 
 http:
   - method: GET
@@ -39,4 +35,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100a395cbbad4e1b31cd5bf9a099b324cc0e02149186b873a06c821bf0dd954351c02205be66ae91743f92e3ec57205f8404dcd8ec8d4de766b181a5022389e88b2126e:922c64590222798bb761d5b6d8e72950

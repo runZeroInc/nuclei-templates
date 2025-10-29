@@ -15,20 +15,8 @@ info:
     max-request: 1
     vendor: moodle
     product: moodle
-    shodan-query:
-      - http.html:"moodle"
-      - cpe:"cpe:2.3:a:moodle:moodle"
-      - http.title:"installation moodle"
-      - http.title:"moodle"
-    fofa-query:
-      - body="moodle"
-      - title="installation moodle"
-      - title="moodle"
-    google-query:
-      - intitle:"installation moodle"
-      - intitle:"moodle"
-    runzero-match: service["http.body"] matches "(?i)moodle"
-  tags: panel,moodle,login,detect
+    shodan-query: http.html:"moodle"
+  tags: panel,moodle,login,detect,discovery
 
 http:
   - method: GET
@@ -41,4 +29,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "content=\"moodle", "\"name\":\"moodle\"") && contains(body, "workplace")'
         condition: and
-
+# digest: 4a0a00473045022100883a6a4d54954b9292cd620568047aeaf1b6a922fc232218fbcc76c5e0c609300220089df2cd62d6aa3df365a554f131eb5163ada032b1c3fca1afc2db5762254df2:922c64590222798bb761d5b6d8e72950

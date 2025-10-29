@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 6
-  tags: panel,tomcat,apache,misconfig,intrusive
+  tags: panel,tomcat,apache,misconfig,intrusive,vuln
 
 http:
   - method: GET
@@ -36,4 +36,4 @@ http:
         negative: true
         status:
           - 403
-
+# digest: 4a0a0047304502200d402744c0996b2df372baad425557818b245b56c9b6efc5e38e7ca8cf53b4e2022100ca05c1e8466c9174000b93132a1f8ba99e89e0a675c1e8332e0ff1754ae70904:922c64590222798bb761d5b6d8e72950

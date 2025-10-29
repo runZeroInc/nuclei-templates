@@ -15,7 +15,7 @@ info:
     cwe-id: CWE-79
   metadata:
     max-request: 1
-  tags: hackerone,concrete,xss,cms,unauth,intrusive
+  tags: hackerone,concrete,xss,cms,unauth,intrusive,vuln
 
 http:
   - method: GET
@@ -39,4 +39,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450220715b2cc187b4c5b531a1e6d558d5da347fa25b52afef4dc3f6195436ebee5fbd022100e2899eef18b2fcb378ed6475ddcc8f73128932e1f829726412182866ce9f1521:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-287
   metadata:
     max-request: 2
-  tags: netgear,auth-bypass,router
+  tags: netgear,auth-bypass,router,vuln
 
 http:
   - raw:
@@ -36,4 +36,4 @@ http:
       - type: word
         words:
           - "<title>WAN Setup</title>"
-
+# digest: 4a0a00473045022100cfc373ae5f9ea62d4ded050456957385abe171c95292b3b71cbb154190a3026402202881e1be1949691f22f9e58ebe07cf18da4fdd5b2eaf4c2a50144dc55d124181:922c64590222798bb761d5b6d8e72950

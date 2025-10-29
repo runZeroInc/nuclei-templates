@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"symantec data loss prevention"
     fofa-query: title="symantec data loss prevention"
     google-query: intitle:"symantec data loss prevention"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)symantec data loss prevention"})
-  tags: symantec,panel,login
+  tags: symantec,panel,login,discovery
 
 http:
   - method: GET
@@ -34,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502200c8d843015c1bd62d20e0129c67961e39cf90551c8ce6d964b18898e3b96d4da022100f68b14565483fc84c21967ec39ae040aa7519f7db025ec91edea88d5d03ca9f2:922c64590222798bb761d5b6d8e72950

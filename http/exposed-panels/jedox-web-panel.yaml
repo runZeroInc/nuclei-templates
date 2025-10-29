@@ -21,11 +21,7 @@ info:
     fofa-query:
       - title="jedox web login"
       - title="jedox web - login"
-    google-query:
-      - intitle:"jedox web login"
-      - intitle:"jedox web - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jedox web - login"}) || any(each(service["html.titles"]), {# matches "(?i)jedox web login"})
-  tags: panel,jedox,detect
+  tags: panel,jedox,detect,discovery
 
 http:
   - method: GET
@@ -49,4 +45,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100c582e42f3a7b22a592e5fd6f18d41b49f530ee0d08a623d29475af83144b66680220218b8682220fc6f158208d9e7d79cbbe74633bc101bf559f805ed29f03503ea4:922c64590222798bb761d5b6d8e72950

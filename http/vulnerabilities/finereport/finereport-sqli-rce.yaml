@@ -12,7 +12,8 @@ info:
     verified: true
     max-request: 1
     fofa-query: app="帆软-FineReport"
-  tags: finereport,rce,sqli
+  tags: finereport,rce,sqli,vuln
+
 variables:
   string: '{{rand_base(8, "abc")}}'
 
@@ -34,4 +35,4 @@ http:
         status:
           - 200
           - 302
-
+# digest: 4a0a00473045022013dbf8f79338275175048d93ef7f04ec0241a28db29709b5f1aa241375632fb60221009edd8dd21a336cf7ae3d7a45ca7acbb502f924090cd53c8b28e32c9c105d12e6:922c64590222798bb761d5b6d8e72950

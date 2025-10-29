@@ -11,7 +11,7 @@ info:
     - https://www.acunetix.com/blog/articles/automated-detection-of-host-header-attacks/
   metadata:
     max-request: 1
-  tags: hostheader-injection,generic
+  tags: hostheader-injection,generic,vuln
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100de957c3cdb42d4e46efec1617bb2bfaf5fd8149b18e78f272168aba6428afae002201e5101e2310cef843b6214f412222c40e53ff7de1a1b48c117ce4cb4ce6d0351:922c64590222798bb761d5b6d8e72950

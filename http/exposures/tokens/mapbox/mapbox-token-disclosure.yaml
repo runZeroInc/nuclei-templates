@@ -13,7 +13,8 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: token,exposure,mapbox
+  tags: token,exposure,mapbox,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -47,4 +48,4 @@ http:
       - type: dsl
         dsl:
           - token
-
+# digest: 490a00463044022025230a7aaa2e300b0d78fe708b24246a75a7ca4d70baa4393b8bf7eec667cb2502202ed324e362dae65b8adbb1f0a55b5906c0c021a053d0bf736f21764840b2aaf7:922c64590222798bb761d5b6d8e72950

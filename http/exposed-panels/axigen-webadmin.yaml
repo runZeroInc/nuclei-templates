@@ -13,18 +13,7 @@ info:
   metadata:
     max-request: 1
     vendor: axigen
-    product: axigen_mail_server
-    shodan-query:
-      - http.title:"axigen webadmin"
-      - http.title:"axigen webmail"
-    fofa-query:
-      - title="axigen webmail"
-      - title="axigen webadmin"
-    google-query:
-      - intitle:"axigen webmail"
-      - intitle:"axigen webadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Axigen\u00a0WebAdmin"})
-  tags: axigen,panel
+  tags: axigen,panel,discovery
 
 http:
   - method: GET
@@ -40,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100ee598bd6d380a2d0b47a82af17d43f0c3e76e5eb2c618a908be244507b2b7192022100c8e92d450669ec74fa95eb103499150ffa5323458c2c65174c6972fe864ffae6:922c64590222798bb761d5b6d8e72950

@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: okfn
-    product: ckan
-    shodan-query: html:"ckan 2.8.2" || html:"ckan 2.3"
-  tags: dom,xss
+  tags: dom,xss,vuln
 
 http:
   - method: GET
@@ -48,4 +46,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100f047bfa1cc4638ef5e3e8bb5b2647dedc940cab0a1c9530d953a1ba4d06a127a022100d01a4046fba36c4adf7a684dc52993e917395be4e80905eb9eb4773cb853a3ad:922c64590222798bb761d5b6d8e72950

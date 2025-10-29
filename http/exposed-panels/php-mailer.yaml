@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: phpmailer_project
-    product: phpmailer
-    shodan-query: http.title:"php mailer"
-    fofa-query: title="php mailer"
-    google-query: intitle:"php mailer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PHP Mailer"})
-  tags: panel,php,mailer
+  tags: panel,php,mailer,discovery
 
 http:
   - method: GET
@@ -35,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100bc624984ebc6de48c6a783c75a727654e8b04acb9588da4496ba7ff22bd2aa73022079b06a085450bc77daeaaabc687277638c029b251251df2a667de2f2167d001e:922c64590222798bb761d5b6d8e72950

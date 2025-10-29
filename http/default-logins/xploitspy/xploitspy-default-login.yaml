@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: html:XploitSPY
-    runzero-match: service["http.body"] matches "XploitSPY"
-  tags: xploitspy,default-login
+  tags: xploitspy,default-login,vuln
 
 http:
   - raw:
@@ -47,4 +46,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402204bc6556accb96ce20d491d2dce90b2226146f46487c8b069c41bbf2765cee41b02204bd7d9465f31e731831e81bf1c6ec6d7917df2bb35a8bd3f5c47257eea72ddc4:922c64590222798bb761d5b6d8e72950

@@ -15,15 +15,8 @@ info:
     max-request: 1
     vendor: oracle
     product: e-business_suite
-    shodan-query:
-      - http.html:"oracle uix"
-      - http.title:"login" "x-oracle-dms-ecid" 200
-    fofa-query:
-      - body="oracle uix"
-      - title="login" "x-oracle-dms-ecid" 200
-    google-query: intitle:"login" "x-oracle-dms-ecid" 200
-    runzero-match: service["http.body"] matches "(?i)Oracle UIX"
-  tags: panel,oracle,login,detect
+    shodan-query: http.html:"Oracle UIX"
+  tags: panel,oracle,login,detect,discovery
 
 http:
   - method: GET
@@ -45,4 +38,4 @@ http:
         group: 1
         regex:
           - '(?i)/OA_HTML/cabo/oajsLibs/oafcore([A-Z0-9]+).js'
-
+# digest: 4a0a00473045022100bd1f93845dc9db7067f449a663e8ebfc0728d920866da6bfdb870432adc4edf8022005e80a40dc1ae82868102a53086d50d781e65ee18e840bcddd847ff3f9655450:922c64590222798bb761d5b6d8e72950

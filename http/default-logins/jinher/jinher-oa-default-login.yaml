@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: jinher,default-login
+  tags: jinher,default-login,vuln
 
 http:
   - raw:
@@ -48,4 +48,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100ba4568c1950172507294153c10c74d83a64bc97a870faa778c546d725498398f022100971b93ae92f283978387cf9dfa64dd5fc4f67d97dbd126b9d3c15c502e900725:922c64590222798bb761d5b6d8e72950

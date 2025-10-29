@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: analytify
-    product: analytify_-_google_analytics_dashboard
-    google-query: inurl:/wp-content/plugins/wp-analytify
-  tags: wp,wordpress,analytify,wpscan,wp-plugin,xss
+  tags: wp,wordpress,analytify,wpscan,wp-plugin,xss,vuln
 
 http:
   - method: GET
@@ -43,4 +41,4 @@ http:
       - type: status
         status:
           - 404
-
+# digest: 4a0a00473045022100c24b7cd181bc9d96441b2d60896c8969b56fec2f214336e063e744189fbc2bfe02200b29afe4a7302f57f98bbf7d845ca0ef4bf11420f2a133e1ac065fc1deb69a16:922c64590222798bb761d5b6d8e72950

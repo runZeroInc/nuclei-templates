@@ -12,17 +12,8 @@ info:
     max-request: 2
     vendor: crushftp
     product: crushftp
-    shodan-query:
-      - http.html:"crushftp"
-      - http.favicon.hash:"-1022206565"
-      - http.title:"crushftp webinterface"
-    fofa-query:
-      - body="crushftp"
-      - icon_hash="-1022206565"
-      - title="crushftp webinterface"
-    google-query: intitle:"crushftp webinterface"
-    runzero-match: service["http.body"] contains "CrushFTP" || service["http.head.server"] contains "CrushFTP" || any(each(service["favicon.ico.image.mmh3"]), {# == "-1022206565"})
-  tags: default-login,crushftp
+    shodan-query: html:"CrushFTP"
+  tags: default-login,crushftp,vuln
 
 http:
   - raw:
@@ -65,4 +56,4 @@ http:
         group: 1
         regex:
           - 'currentAuth=([0-9a-zA-Z]+)'
-
+# digest: 4b0a00483046022100b7fc9f1cf93c2450ca47ac0f65da59abcdce642eebc9baf3897938568e20b64b022100ba9cc8ca3850d04a4296d7fef2c37c5d15b8c0534935ae563b214b5952b35ee2:922c64590222798bb761d5b6d8e72950

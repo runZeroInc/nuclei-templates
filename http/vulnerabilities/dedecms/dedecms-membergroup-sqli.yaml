@@ -15,20 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: dedecms
-    product: dedecms
-    shodan-query:
-      - http.html:"dedecms"
-      - cpe:"cpe:2.3:a:dedecms:dedecms"
-      - http.html:"power by dedecms" || title:"dedecms"
-      - http.title:"dedecms" || http.html:"power by dedecms"
-    fofa-query:
-      - app="dedecms"
-      - body="dedecms"
-      - body="power by dedecms" || title:"dedecms"
-      - title="dedecms" || http.html:"power by dedecms"
-    google-query: intitle:"dedecms" || http.html:"power by dedecms"
-    runzero-match: service["http.body"] matches "(?i)DedeCms"
-  tags: sqli,dedecms
+  tags: sqli,dedecms,vuln
 variables:
   num: "999999999"
 
@@ -47,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a004830460221009686c815baab5ed88133a63962255734b06be01c3bf9b3f8debb11020e6647a6022100b1f8d1fa824d43647bbb8bfc138a96859d8469a42b23fc627b1f60e3160554ec:922c64590222798bb761d5b6d8e72950

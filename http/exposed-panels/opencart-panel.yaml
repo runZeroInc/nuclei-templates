@@ -20,15 +20,8 @@ info:
     shodan-query:
       - http.html:"opencart"
       - cpe:"cpe:2.3:a:opencart:opencart"
-      - http.favicon.hash:"-1443008128"
-      - http.title:"opencart"
-    fofa-query:
-      - body="opencart"
-      - icon_hash="-1443008128"
-      - title="opencart"
-    google-query: intitle:"opencart"
-    runzero-match: service["http.body"] matches "(?i)opencart"
-  tags: panel,opencart
+    fofa-query: body="opencart"
+  tags: panel,opencart,discovery
 
 http:
   - method: GET
@@ -45,4 +38,4 @@ http:
           - '(?i)footer\s.*OpenCart.*All.Rights.Reserved|img\s.*logo.*\salt=.*OpenCart'
           - "(?i)Powered.By.*http.*OpenCart"
         condition: or
-
+# digest: 4a0a0047304502206d3b5b82ff7b127498a718a79a563832cabe0d0805268f884d9a0404f0552e4b022100b0b47670818e4b1703c4289d3b1a9e205238e84fa47a42e3eba9f3f118898ff2:922c64590222798bb761d5b6d8e72950

@@ -11,7 +11,7 @@ info:
     vendor: jitsi
     product: meet
     shodan-query: http.title:"Jitsi Meet"
-  tags: tech,jitsi
+  tags: tech,jitsi,discovery
 
 http:
   - method: GET
@@ -28,4 +28,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100b90865ff1087e2ac8717223f350428e0baa4b85e00ed1080b932441423c1e52302210088eaa57012bcaf203534921793e531b6c4c1932cb34930b66bf6311ce64a484d:922c64590222798bb761d5b6d8e72950

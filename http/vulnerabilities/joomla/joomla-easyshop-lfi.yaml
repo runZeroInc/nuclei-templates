@@ -12,7 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.component:"Joomla"
-  tags: cnvd,cnvd2023,file-upload
+  tags: cnvd,cnvd2023,file-upload,vuln
 
 http:
   - method: GET
@@ -26,4 +26,4 @@ http:
           - 'contains_any(body, "$user", "$password", "$dbtype")'
           - 'status_code == 200'
         condition: and
-
+# digest: 4b0a004830460221009eaf2b668b53e2799b94f59a227c43ac166fd6b2404d1ae1b61c5aa03961ea72022100cea771ac7b96e31faab394a049053415bd7d06ccc513f9aaff74630bc6071d67:922c64590222798bb761d5b6d8e72950

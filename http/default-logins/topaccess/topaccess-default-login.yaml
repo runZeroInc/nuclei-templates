@@ -12,8 +12,8 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"topaccess"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)topaccess"})
-  tags: topaccess,default-login,misconfig
+  tags: topaccess,default-login,misconfig,vuln
+
 variables:
   username: "admin"
   password: "123456"
@@ -59,4 +59,4 @@ http:
         kval:
           - 'session'
         internal: true
-
+# digest: 4b0a00483046022100d83bc80b9a8f964409eb138340902a44bd431ad77f9a297b9facc3dca562b0db022100d91082897f05d8e360c1c8c3ec6ded7119befb4f1dc711141da8b5466f145eaf:922c64590222798bb761d5b6d8e72950

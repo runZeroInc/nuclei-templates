@@ -24,7 +24,9 @@ info:
     fofa-query:
       - body="pma_servername" && body="4.8.4"
       - title="phpmyadmin"
-  tags: phpmyadmin,misconfig,edb
+  tags: phpmyadmin,misconfig,edb,vuln
+
+
 flow: http(1) || http(2)
 
 http:
@@ -67,4 +69,4 @@ http:
           - 'contains(body, "id=\\\"input_username\\\"")'
         condition: and
         negative: true
-
+# digest: 4b0a00483046022100f1b53a63b45f6e0473ce88215881b49f1f273298342c6024cc23126a476790020221009cec4671a15d248a4d9ec7028761b38a8c23336b9d7e23a170d27b62fbef56bd:922c64590222798bb761d5b6d8e72950

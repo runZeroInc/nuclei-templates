@@ -12,7 +12,7 @@ info:
     vendor: ampache
     product: ampache
     shodan-query: http.title:"Ampache -- Debug Page"
-  tags: misconfig,ampache,debug
+  tags: misconfig,ampache,debug,vuln
 
 http:
   - method: GET
@@ -34,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402207f2962d40ecd63d99b14da1af8250355be098baeb9313c5ad6c745413a0e10f002202cd1c2361940a1b2e02979c6c32fd808f35407a749f30ef3698da74dded7effd:922c64590222798bb761d5b6d8e72950

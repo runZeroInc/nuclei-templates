@@ -14,7 +14,7 @@ info:
     max-request: 12
     vendor: dg
     product: "ftp-deployment"
-  tags: config,exposure,dg
+  tags: config,exposure,dg,vuln
 
 http:
   - method: GET
@@ -42,4 +42,4 @@ http:
           - "^remote\\s*=\\s*"
           - '^\[(.*?)\]$'
         condition: and
-
+# digest: 4b0a00483046022100f60b578b6f2487bf414be9fa5b6c83d479cb336bc18ba31b26c6ad5f5bbe6c8b022100fe77789c7df63752d947d1c4911faa7e2912e30fcda1053b6ae595171ac42176:922c64590222798bb761d5b6d8e72950

@@ -12,8 +12,7 @@ info:
     max-request: 2
     shodan-query: http.title:"Login - Residential Gateway"
     google-query: intitle:"Login - Residential Gateway"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Login - Residential Gateway"})
-  tags: panel
+  tags: panel,discovery
 
 http:
   - method: GET
@@ -35,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100865cc3ed7d6c6f299c00ed4be6dcedc7130f615055bbd4babcecb237c0706545022100e3861bc12997608f8ee30fd91e4c58e0f57b8269ca0f6313d25dde67ea7c61a4:922c64590222798bb761d5b6d8e72950

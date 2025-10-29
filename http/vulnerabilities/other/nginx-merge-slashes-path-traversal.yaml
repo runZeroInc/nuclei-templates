@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 3
-  tags: exposure,config,lfi,nginx
+  tags: exposure,config,lfi,nginx,vuln
 
 http:
   - method: GET
@@ -37,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100dde369eefb3ff4de26e19d231f0fa65594419b2a1c21cad3ba1589d01db30928022003c2e3f2ba63b68f3731edc12ad190155fc6fd75c91e5097125dc7e8f998c77a:922c64590222798bb761d5b6d8e72950

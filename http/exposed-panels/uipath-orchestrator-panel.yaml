@@ -15,11 +15,8 @@ info:
     max-request: 1
     vendor: uipath
     product: orchestrator
-    shodan-query: http.title:"uipath orchestrator"
-    fofa-query: title="uipath orchestrator"
-    google-query: intitle:"uipath orchestrator"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)UiPath Orchestrator"})
-  tags: panel,uipath,login,detect
+    shodan-query: http.title:"UiPath Orchestrator"
+  tags: panel,uipath,login,detect,discovery
 
 http:
   - method: GET
@@ -39,4 +36,4 @@ http:
         group: 1
         regex:
           - '\?(?:version|v)=([0-9.]+)'
-
+# digest: 4a0a004730450220152780a856acf0c1d0e0b8eb93dcbde366e86b5fb5958aca983f26e682d5e4ae0221009c34f82dc414afc88e3a42d1d1a56597724e639efc449204ecf2d763fa074124:922c64590222798bb761d5b6d8e72950

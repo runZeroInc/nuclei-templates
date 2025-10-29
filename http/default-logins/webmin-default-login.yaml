@@ -16,12 +16,7 @@ info:
     verified: true
     max-request: 2
     vendor: webmin
-    product: webmin
-    shodan-query: http.title:"webmin"
-    fofa-query: title="webmin"
-    google-query: intitle:"webmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "Webmin"})
-  tags: webmin,default-login
+  tags: webmin,default-login,vuln
 
 http:
   - raw:
@@ -63,4 +58,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a004630440220500cd2ea4ee67399fa3cf95867b240f513b80c114279ea87b29c282c88752aa502205238d5ccce16808f52c64b453a7acf6b4f2bb24669829d7820e81f779dc92363:922c64590222798bb761d5b6d8e72950

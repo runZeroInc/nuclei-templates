@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: globaldomains,lfi,traversal
+  tags: globaldomains,lfi,traversal,vuln
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a0048304602210085e161cc5e2a6d0c314aff80e044527079dea3a2a2fd0df5bc2339522777def8022100dada9b87baf8efdc3ae5cb30d2e3efd252891a3c59d79dbc504c2012e8797b44:922c64590222798bb761d5b6d8e72950

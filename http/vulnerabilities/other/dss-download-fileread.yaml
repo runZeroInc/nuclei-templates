@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: lfi,dss,lfr
+  tags: lfi,dss,lfr,vuln
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022076cb7d53a7b7764746937fba00e752e267aafd45d3216507124a4374f587c80a02210093606f4a4a32135329865d6ff484051512a22bdddd0396c2458dc44601603494:922c64590222798bb761d5b6d8e72950

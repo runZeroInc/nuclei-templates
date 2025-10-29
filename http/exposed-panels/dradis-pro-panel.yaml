@@ -15,12 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: dradisframework
-    product: dradis
-    shodan-query: http.title:"dradis professional edition"
-    fofa-query: title="dradis professional edition"
-    google-query: intitle:"dradis professional edition"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dradis Professional Edition"})
-  tags: panel,dradis
+  tags: panel,dradis,discovery
 
 http:
   - method: GET
@@ -37,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100f967b907a9d7e37e1b1a40debe9afa20b504283315de9c3ff456fecccd4a9410022029a8ed0716a8ca0f0e5cacc555672761d0f8442b5c4e0faae92df312a0a27fac:922c64590222798bb761d5b6d8e72950

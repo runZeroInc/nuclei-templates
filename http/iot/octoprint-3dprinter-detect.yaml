@@ -17,7 +17,9 @@ info:
     shodan-query:
       - http.favicon.hash:1307375944
       - http.title:"OctoPrint"
-  tags: iot,octoprint,panel
+    product: octoprint
+    vendor: octoprint
+  tags: iot,octoprint,panel,discovery
 
 http:
   - method: GET
@@ -37,4 +39,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450220060526f08e7650404b8737a7ce1996e092e402ad7fcf9b4cc84a226cf9334d47022100bb692ed4fa7d5056c5e6a1bd895a8e2e0f16f3ad9513788e7dfd5c9b8436e74d:922c64590222798bb761d5b6d8e72950

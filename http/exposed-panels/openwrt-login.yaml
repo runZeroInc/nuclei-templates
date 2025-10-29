@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"openwrt - luci"
     fofa-query: title="openwrt - luci"
     google-query: intitle:"openwrt - luci"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
-  tags: openwrt,router,panel
+  tags: openwrt,router,panel,discovery
 
 http:
   - method: GET
@@ -42,4 +41,4 @@ http:
         group: 1
         regex:
           - '(?i)OpenWrt  ([A-Z0-9.]+)'
-
+# digest: 4b0a00483046022100c272c38f1c051b6d6747124dcb5fb615b9af0c21faeae71365d0c267167eb1ef022100de665f288f266df0be5dee3a19eb36fa6239b3b599d1a383aa89b27446c23bae:922c64590222798bb761d5b6d8e72950

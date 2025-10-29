@@ -16,8 +16,7 @@ info:
     product: fan_power_controller
     shodan-query: http.html:"fan and power controller"
     fofa-query: body="fan and power controller"
-    runzero-match: service["http.body"] matches "(?i)fan and power controller"
-  tags: panel,lenovo
+  tags: panel,lenovo,discovery
 
 http:
   - method: GET
@@ -41,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100c1cb5a9cabcad75bc24b2c30ca3fde04f427aa22fd6f6a9b07af11456a7b8167022100a5e8c1c0c17f4d047a4a3b2d8921e361dca2921e992e27777d464ca80b48ddb8:922c64590222798bb761d5b6d8e72950

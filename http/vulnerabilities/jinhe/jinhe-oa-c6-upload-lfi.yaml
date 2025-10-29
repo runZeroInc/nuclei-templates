@@ -12,7 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: body="JHSoft.Web.AddMenu" || app="金和网络-金和OA"
-  tags: jinhe-oa-c6,misconfig
+  tags: jinhe-oa-c6,misconfig,vuln
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a0048304602210092642ad04f0e108e6fa84f6acbd66ed6a13ce810ce447cb7f6bbfcf0f730e0f1022100cd6cfc5ff7f67b11b850404f0ffb0f8f993f057528eeaf1f6c4eb16fde6d32f5:922c64590222798bb761d5b6d8e72950

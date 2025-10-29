@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: osint,osint-music,soundcloud
+  tags: osint,osint-music,soundcloud,discovery
 
 self-contained: true
 
@@ -30,4 +30,4 @@ http:
         part: body
         words:
           - "SoundCloud</title>"
-
+# digest: 4b0a00483046022100d6b475fec7bfa17c354c2ff58b7ae70d83ce997269f8db7b9e0829f8c1795d58022100ba36fa53e7d888660c0460b423bed7f9a93f1cab4037819be086bbd12803e837:922c64590222798bb761d5b6d8e72950

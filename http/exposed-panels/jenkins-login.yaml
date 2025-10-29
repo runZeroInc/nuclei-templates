@@ -19,15 +19,8 @@ info:
       - cpe:"cpe:2.3:a:jenkins:jenkins"
       - http.favicon.hash:"81586312"
       - product:"jenkins"
-      - http.title:"jenkins"
-      - x-jenkins
-    fofa-query:
-      - icon_hash=81586312
-      - icon_hash="81586312"
-      - title="jenkins"
-    google-query: intitle:"jenkins"
-    runzero-match: service["favicon.ico.image.mmh3"] == "81586312"
-  tags: panel,jenkins
+    fofa-query: icon_hash=81586312
+  tags: panel,jenkins,discovery
 
 http:
   - method: GET
@@ -45,4 +38,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502210084d642c326adc8755ccaa81a23a3b0a3f3243e771949313e406b85d39f5de3ba02207c65d9dadb4c9cc8320e223fe5bc81598f3034e3b1c6aa4cf475b0358be04c8a:922c64590222798bb761d5b6d8e72950

@@ -13,7 +13,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: "Server: EC2ws"
-  tags: aws,ec2,ssrf,amazon
+  tags: aws,ec2,ssrf,amazon,vuln
 
 http:
   - raw:
@@ -41,4 +41,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022031b77ef8cf7efdd4ced08483051c4728e37add6cc361b86477687c5c1ee12a63022100d9036ac6244f750b8651690d8229487c2b853566478ad255049ae2bc2f0d9803:922c64590222798bb761d5b6d8e72950

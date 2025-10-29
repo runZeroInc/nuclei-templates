@@ -10,8 +10,7 @@ info:
     verified: "true"
     max-request: 1
     shodan-query: http.title:"Meduza Stealer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Meduza Stealer"})
-  tags: rat,meduza-stealer,c2,panel
+  tags: rat,meduza-stealer,c2,panel,vuln
 
 http:
   - method: GET
@@ -30,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502210093302d6e053e0abc2b55ddf4ad65d631530f4ecde151cefe5352ae542e52cfe602202ac74199a9a0fc7c98bddcc1976676b898446bbe2ec40b62006c97eb60255e12:922c64590222798bb761d5b6d8e72950

@@ -15,7 +15,7 @@ info:
     max-request: 1
     vendor: dell
     product: wyse_management_suite
-  tags: panel,dell,login
+  tags: panel,dell,login,discovery
 
 http:
   - method: GET
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502207240f42775d93c2acccc8d009485e3e5f0e360b4398df39449ec0470c72159f6022100a1a25af49ed02dc229b5d3229f3e7fec5887b8f4193c4a684defce2e83c30d84:922c64590222798bb761d5b6d8e72950

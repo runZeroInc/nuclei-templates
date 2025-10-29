@@ -18,9 +18,7 @@ info:
     verified: true
     max-request: 1
     vendor: rconfig
-    product: rconfig
-    shodan-query: title:"rConfig"
-  tags: rconfig,rce,edb,file-upload,instrusive,intrusive
+  tags: rconfig,rce,edb,file-upload,instrusive,intrusive,vuln
 
 http:
   - raw:
@@ -71,4 +69,4 @@ http:
       - type: status
         status:
           - 302
-
+# digest: 4b0a00483046022100be21844f3b2ca9e15ad00771d6cb7c399d5792bdbbf5be851b09d212095fcf44022100edb7b8eebded73f8a6696c192152c7bb5ea6be1b15219f7f71fa00745c30676c:922c64590222798bb761d5b6d8e72950

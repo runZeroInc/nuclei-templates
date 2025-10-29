@@ -26,8 +26,7 @@ info:
     google-query:
       - intitle:"minio browser"
       - intitle:"minio console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)minio browser"}) || any(each(service["html.titles"]), {# matches "(?i)minio console"})
-  tags: panel,minio
+  tags: panel,minio,discovery
 
 http:
   - method: GET
@@ -43,4 +42,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502203adae623a6c7bdafcf1261e78c6d52c02ed2b3383c7dd529deb60376815669de022100c9c90c925805d6b05e1d9b487adab1da55d84517b87552b221ddcfcb6394c038:922c64590222798bb761d5b6d8e72950

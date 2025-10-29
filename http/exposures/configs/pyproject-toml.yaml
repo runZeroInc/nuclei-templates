@@ -14,7 +14,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"pyproject.toml"
-  tags: exposure,pyproject,pip,devops,cicd
+  tags: exposure,pyproject,pip,devops,cicd,vuln
 
 http:
   - method: GET
@@ -36,4 +36,4 @@ http:
           - "[tool.poetry]"
           - "name ="
         condition: and
-
+# digest: 4a0a0047304502207f226cadbf0dccd47e788f31c0e44e1ba21e35d1545ab7d4eb73eabd8d3bc067022100fe515f99fe5a30e9700444766086c01078aa5e876be75157cb6db85ae7f9c8e7:922c64590222798bb761d5b6d8e72950

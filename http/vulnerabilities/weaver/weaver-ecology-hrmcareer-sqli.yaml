@@ -17,7 +17,10 @@ info:
     product: e-cology
     shodan-query: ecology_JSessionid
     fofa-query: app="泛微-协同办公OA"
-  tags: ecology,weaver,oa,sqli
+    product: e-cology
+    vendor: weaver
+  tags: ecology,weaver,oa,sqli,vuln
+
 variables:
   num: "999999999"
 
@@ -36,4 +39,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100a6a4eeff2fa89ef8b1b1165fc7c1cdfb5a9bcabfc862b824bebe74f156a2fa8e022024dd4b5d0f9d66c8c723b70cf29fa98a09b01c602289d3ea1c72171b4debb118:922c64590222798bb761d5b6d8e72950

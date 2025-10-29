@@ -23,8 +23,7 @@ info:
       - title="servicenow"
       - icon_hash="1701804003"
     google-query: intitle:"servicenow"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1701804003" || any(each(service["html.titles"]), {# matches "(?i)servicenow"})
-  tags: panel,servicenow,login,detect
+  tags: panel,servicenow,login,detect,discovery
 
 http:
   - method: GET
@@ -52,4 +51,4 @@ http:
         group: 1
         regex:
           - '(?i)g_builddate\s+=\s+"([0-9._-]+)"'
-
+# digest: 4b0a00483046022100a2fb9ff814f3c91054cdbc132272d30e2cd0af76ae4565a2c7a98e00cff4cabe022100c993e07d7c3bee52db5bef13204779a2fc1d2ec18dbf2f6d72b6ac9b78da8f0b:922c64590222798bb761d5b6d8e72950

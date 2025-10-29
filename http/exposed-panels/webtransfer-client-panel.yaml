@@ -14,16 +14,8 @@ info:
     max-request: 1
     vendor: progress
     product: moveit_transfer
-    shodan-query:
-      - http.title:"web transfer client"
-      - http.favicon.hash:"989289239"
-      - http.html:"human.aspx"
-    fofa-query:
-      - icon_hash=989289239
-      - title="web transfer client"
-    google-query: intitle:"web transfer client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web Transfer Client"})
-  tags: panel,webtransferclient,login,detect
+    shodan-query: http.title:"Web Transfer Client"
+  tags: panel,webtransferclient,login,detect,discovery
 
 http:
   - method: GET
@@ -36,4 +28,4 @@ http:
           - 'status_code == 200'
           - 'contains(body, "<title>Web Transfer Client")'
         condition: and
-
+# digest: 4a0a00473045022100e852c4a8a5b3f8542beb8e342f7ec846d84c5e1f562c542bd56394137152e08f0220471eedee3ae2d1cfb2f436f0abc79a54509cc14ba906f62eb9dffee0df6b6d28:922c64590222798bb761d5b6d8e72950

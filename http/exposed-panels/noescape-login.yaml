@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"NoEscape - Login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NoEscape - Login"})
-  tags: panel,noescape
+  tags: panel,noescape,discovery
 
 http:
   - method: GET
@@ -26,4 +25,4 @@ http:
         part: body
         words:
           - 'NoEscape - Login'
-
+# digest: 4a0a00473045022006ae0b04a18f3426e7a79a45990459aa21f7c233562fb7a4bb5c732ef616bd20022100fc341202c0d24b36c9fe5f3cd97f76d83fe0cf01d3534ebe7e55ec80bab43312:922c64590222798bb761d5b6d8e72950

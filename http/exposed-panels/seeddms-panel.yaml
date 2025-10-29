@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"seeddms"
     fofa-query: title="seeddms"
     google-query: intitle:"seeddms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)seeddms"})
-  tags: panel,seeddms,login
+  tags: panel,seeddms,login,discovery
 
 http:
   - method: GET
@@ -41,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022059c8ca28f49308684a2adbe3b85ba14f1cd58ea57fe17775e737cbc385f8f913022100d6667d55abc57647359119ec559b6497b1847f37de1efe93fa1f050a62e2b134:922c64590222798bb761d5b6d8e72950

@@ -19,16 +19,9 @@ info:
     product: workspace_one_uem
     shodan-query:
       - http.favicon.hash:"321909464"
-      - http.html:"self-service portal"
-      - http.html:"airwatch"
-      - http.html:"ssp loginscreen"
-    fofa-query:
-      - body="ssp loginscreen"
-      - body="airwatch"
-      - body="self-service portal"
-      - icon_hash="321909464"
-    runzero-match: service["favicon.ico.image.mmh3"] == "321909464" || service["http.body"] matches "(?i)Self-Service Portal"
-  tags: panel,workspaceone,vmware,airwatch,ssp,login,detect
+      - http.html:"Self-Service Portal"
+    fofa-query: body="ssp loginscreen"
+  tags: panel,workspaceone,vmware,airwatch,ssp,login,detect,discovery
 
 http:
   - method: GET
@@ -43,4 +36,4 @@ http:
           - "AirWatch"
         condition: and
         case-insensitive: true
-
+# digest: 490a0046304402201d63deb5f72baaaa3322e42c7017e5cf8f448f058a902aa51c954c3528b73ccf02207678dfebdb9ef095ffe57de7324d4a304fd1ace61cd67cb7d5c7e5167a0467e0:922c64590222798bb761d5b6d8e72950

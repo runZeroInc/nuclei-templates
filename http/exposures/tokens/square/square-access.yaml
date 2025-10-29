@@ -11,7 +11,8 @@ info:
   metadata:
     verified: true
     max-request: 1
-  tags: square,token,exposure
+  tags: square,token,exposure,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -50,4 +51,4 @@ http:
       - type: dsl
         dsl:
           - token
-
+# digest: 490a0046304402203fafa560b7c94ac5afcccb86f726d7f601b68dc8c4b261307c4715d1a3a0cc2702207630fd70afb3c59ff6414fd1a40911ecf2787a8ecefb0ed838b007c242103f3b:922c64590222798bb761d5b6d8e72950

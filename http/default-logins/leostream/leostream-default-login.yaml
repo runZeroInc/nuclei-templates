@@ -15,12 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: leostream
-    product: connection_broker
-    shodan-query: http.title:"leostream"
-    fofa-query: title="leostream"
-    google-query: intitle:"leostream"
-    runzero-match: any(each(service["html.titles"]), {# matches "Leostream"})
-  tags: leostream,default-login
+  tags: leostream,default-login,vuln
 
 http:
   - raw:
@@ -55,4 +50,4 @@ http:
       - type: status
         status:
           - 302
-
+# digest: 4a0a0047304502210093a2c4fdb4909a73e2f6d7ae39c6e97c250fe5e2104314bcfc37a9ab3bf70989022071804f16a79dacb0e7a1eb8782e75eca558ff83c12c210a0d2f09bbb13bbd118:922c64590222798bb761d5b6d8e72950

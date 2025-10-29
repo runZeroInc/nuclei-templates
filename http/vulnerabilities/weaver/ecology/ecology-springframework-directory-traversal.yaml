@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: ecology,springframework,lfi
+  tags: ecology,springframework,lfi,vuln
 
 http:
   - method: GET
@@ -28,4 +28,4 @@ http:
         words:
           - "<url-pattern>/weaver/"
         part: body
-
+# digest: 490a0046304402207fb4627b2e0875c52fe4bc83c51b1090bdf398658d415308a4c895133f77c40502207ea986f69ca4276798fe926e5712a1c90a19dd740a5cd3fe88d95647ad594e20:922c64590222798bb761d5b6d8e72950

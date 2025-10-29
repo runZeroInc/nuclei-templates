@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 1
     vendor: froxlor
-    product: froxlor
-    shodan-query: title:"Froxlor Server Management Panel"
-  tags: froxlor,backup,exposure,disclosure
+  tags: froxlor,backup,exposure,disclosure,vuln
 
 http:
   - method: GET
@@ -45,4 +43,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502202ee5d76cc50b2f5eb45c2d2097b25f8f28085e36b3941e9c471f2565e6e45bec0221009e1c15667de36bffb3a82bc81681dc40831eed5a6054fa20e650c215fd2e38b3:922c64590222798bb761d5b6d8e72950

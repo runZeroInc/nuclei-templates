@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: blue-ocean,lfi
+  tags: blue-ocean,lfi,vuln
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402201f9969dddec298c82b8ad8906a2bd91b1bc3b551ce679ad76db4dd5ec1f70a9202200361dd126b07981e571b65c32b9977730ee1629715282a9f213b0e9e5ad02176:922c64590222798bb761d5b6d8e72950

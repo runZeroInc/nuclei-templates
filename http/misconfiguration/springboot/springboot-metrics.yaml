@@ -9,7 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: springboot,exposure,misconfig
+  tags: springboot,exposure,misconfig,vuln
 
 http:
   - method: GET
@@ -39,4 +39,4 @@ http:
           - '"jvm.memory'
           - '"process.cpu'
         condition: or
-
+# digest: 4b0a00483046022100acefa4eb0e3499e4349c533ff17d228678a63f70d02c1ede45add55c52dfc68c022100dcdf4f72a00cdeaa8801daf8f9e76e472b832ff3116dcf7283aa10cadf4bfea5:922c64590222798bb761d5b6d8e72950

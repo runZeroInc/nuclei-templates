@@ -9,7 +9,7 @@ info:
     - https://github.com/detectify/ugly-duckling/blob/master/modules/crowdsourced/roundcube-log-disclosure.json
   metadata:
     max-request: 16
-  tags: exposure,logs
+  tags: exposure,logs,vuln
 
 http:
   - method: GET
@@ -57,4 +57,4 @@ http:
       - type: dsl
         dsl:
           - content_length
-
+# digest: 4b0a00483046022100ced7b9c11197766a7a05825bd8b4dc877004f199c3fb8a9f5d83cf6ab2a4a288022100a8d8af7f21a669fb1297ba6edfc286890b84d0c970eda3cc45283dd537b68794:922c64590222798bb761d5b6d8e72950

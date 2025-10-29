@@ -15,13 +15,8 @@ info:
     max-request: 4
     vendor: nextcloud
     product: nextcloud_server
-    shodan-query: http.title:"nextcloud"
-    fofa-query: title="nextcloud"
-    google-query: intitle:"nextcloud"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nextcloud"})
-    runzero-vendor: Nextcloud
-    runzero-product: Nextcloud Server
-  tags: tech,nextcloud,storage
+    shodan-query: http.title:"Nextcloud"
+  tags: tech,nextcloud,storage,discovery
 
 http:
   - method: GET
@@ -54,4 +49,4 @@ http:
         group: 1
         regex:
           - '(?m)"version":"([0-9.]+)",'
-
+# digest: 4b0a00483046022100eb0937a9a3bd9ef0fce04765aede8fb47123a45d538ee584bf9acac75d1ea48b02210084239576c25385ceeb33463210a57ea60b5bb484f8e08e55b95558b49fb2c4c6:922c64590222798bb761d5b6d8e72950

@@ -14,7 +14,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: product:"Erlang Port Mapper Daemon"
-  tags: demon,enum,erlang,epmd,network,misconfig,tcp
+  tags: demon,enum,erlang,epmd,network,misconfig,tcp,discovery
 tcp:
   - inputs:
       - data: "\x00\x01\x6e"
@@ -40,4 +40,4 @@ tcp:
       - type: regex
         regex:
           - 'name (.*?) at port ([0-9]+)'
-
+# digest: 4a0a004730450220652e6da89820c2400f5dd4b3f058f1cb6efff32ddfe094c286141a84dbca9165022100ee106914bd0d6419329454e96b93e2b7405026c4ec523720fda918c8e28e5879:922c64590222798bb761d5b6d8e72950

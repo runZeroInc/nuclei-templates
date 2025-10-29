@@ -13,8 +13,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:739801466
-    runzero-match: service["favicon.ico.image.mmh3"] == "739801466"
-  tags: panel,cofense,vision
+  tags: panel,cofense,vision,discovery
 
 http:
   - method: GET
@@ -32,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100ebcb456f65968963343392968702772ef601c4d545345805256a9577c56ecff30220438457d167302e0c2a0e228bf025ce97c8b808ef3a838f1bc3cc61c0f95cb462:922c64590222798bb761d5b6d8e72950

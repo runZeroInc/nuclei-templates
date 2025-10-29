@@ -19,9 +19,7 @@ info:
     fofa-query:
       - title="dzzoffice"
       - icon_hash=-1961736892
-      - body="dzzoffice"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1961736892"
-  tags: dzzoffice,panel
+  tags: dzzoffice,panel,discovery
 
 http:
   - method: GET
@@ -47,4 +45,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100a071dc2a5857a8cf50837cfdf72bc88787a7d68dfff0b9ed03874f2cb1d71faf022100af5da12954bae92209c4f35a61600afd93350ea65af70bfad6bab5daeb474623:922c64590222798bb761d5b6d8e72950

@@ -9,9 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"WAGO Ethernet Web-based Management"
-    runzero-match: service["http.body"] matches "(?i)WAGO Ethernet Web-based Management"
-  tags: wago,default-login
+  tags: wago,default-login,vuln
 
 http:
   - raw:
@@ -36,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a004730450221008825c486a7206189c3e03062def4591d485c3304a176e76b2007bff8c947474c02206895edc221dafa76c0f4f924bfa1cca93d70149bdcf8147c772b53e61ddef096:922c64590222798bb761d5b6d8e72950

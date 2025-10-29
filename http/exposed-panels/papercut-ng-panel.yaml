@@ -28,7 +28,7 @@ info:
       - body='content="papercut'
       - body="content=\"papercut\""
     zoomeye-query: app:"PaperCut"
-  tags: panel,papercut,detect,papercut-ng
+  tags: panel,papercut,detect,papercut-ng,discovery
 
 http:
   - method: GET
@@ -57,4 +57,4 @@ http:
         group: 1
         regex:
           - "\\/css\\/style\\.css\\?(\\d+)papercut-mf"
-
+# digest: 4a0a0047304502205cd7bc093fa50609d4c00aae089059f71c93ae906728ac2784b102f87725ebe50221009e5b8eac5d04eb3288b1b41fef48012b1581b238907154552c97dea41947879c:922c64590222798bb761d5b6d8e72950

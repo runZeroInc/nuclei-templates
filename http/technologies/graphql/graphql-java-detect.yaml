@@ -5,7 +5,7 @@ info:
   author: princechaddha
   severity: info
   reference: https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
-  tags: tech,graphql,java
+  tags: tech,graphql,java,discovery
 
 http:
   - method: POST
@@ -32,4 +32,4 @@ http:
         words:
           - "Invalid Syntax : offending token 'queryy'"
         part: body
-
+# digest: 4a0a00473045022075b483b1baf0ff3d30da62d0674891e834e123a66415783db8722e63eb433ea90221008c216768b2d26c403596994a1dbe9515df2c1a0563abf3f6c1a745add34b052a:922c64590222798bb761d5b6d8e72950

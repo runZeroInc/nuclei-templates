@@ -9,7 +9,7 @@ info:
     - https://medium.com/@0xAwali/template-engines-injection-101-4f2fe59e5756
   metadata:
     verified: true
-  tags: ssti,dast,oast,oob
+  tags: ssti,dast,oast,oob,vuln
 
 variables:
   oast: "{{interactsh-url}}"
@@ -40,4 +40,4 @@ http:
           - "contains(interactsh_protocol,'dns')"
           - "contains(interactsh_request,'srv')"
         condition: and
-
+# digest: 4b0a00483046022100a92ae4fac72f544f364bda53a299b0c8ec0f100e7214207ec18cdac184fd8883022100c6ee6753b6c703415440b9f56c5b2bba10498fac41d10dfafa28c0dd1757104d:922c64590222798bb761d5b6d8e72950

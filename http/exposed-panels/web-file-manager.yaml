@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: webdesi9
-    product: file_manager
-    shodan-query: http.title:"web file manager"
-    fofa-query: title="web file manager"
-    google-query: intitle:"web file manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web File Manager"})
-  tags: panel,filemanager
+  tags: panel,filemanager,discovery
 
 http:
   - method: GET
@@ -37,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022033ff9ee3535c43cb8b40762b61ef37ee2d8b5eb62302ba32c21b4b1ccc7bb0af02206c7e873f50ba3317df5ed6f9eeb82ec94f9790912716e09dc9a9c7ac8f1ed4be:922c64590222798bb761d5b6d8e72950

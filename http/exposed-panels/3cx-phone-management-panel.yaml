@@ -25,11 +25,7 @@ info:
       - icon_hash=970132176
       - title="3cx phone system management console"
       - title="3cx webclient"
-    google-query:
-      - intitle:"3cx phone system management console"
-      - intitle:"3cx webclient"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)3cx webclient"}) || any(each(service["html.titles"]), {# matches "(?i)3cx phone system management console"}) || service["favicon.ico.image.mmh3"] == "970132176"
-  tags: panel,3cx
+  tags: panel,3cx,discovery
 
 http:
   - method: GET
@@ -42,4 +38,4 @@ http:
           - "3CX Phone System Management Console"
           - "Welcome to the 3CX Management Console"
         condition: or
-
+# digest: 4b0a00483046022100b1ca03b0ba22742211ac27e8736f73235ce18ce2b5180735980b129545fb2fcc022100addbafaeeac87b5a0c367658517c0fa3bc26aa18390c826c5d260307295083bd:922c64590222798bb761d5b6d8e72950

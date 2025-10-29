@@ -16,7 +16,7 @@ info:
     vendor: zend
     product: zend_framework
     google-query: inurl:"/tests/Zend/Http/"
-  tags: zend,zendframework,xss
+  tags: zend,zendframework,xss,vuln
 
 http:
   - method: GET
@@ -44,4 +44,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a004630440220254b43810c5688e423a52e9c2e66b18b5e4a0d2b169fc3113e74fce17f58c732022003e79206f806b60a67f1ff7a08488a02b58f6b3e6baaf3434f194b945540c38a:922c64590222798bb761d5b6d8e72950

@@ -12,12 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: webpagetest
-    product: webpagetest
-    shodan-query: http.title:"webpagetest"
-    fofa-query: title="webpagetest"
-    google-query: intitle:"webpagetest"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebPageTest"})
-  tags: panel,webpagetest
+  tags: panel,webpagetest,discovery
 
 http:
   - method: GET
@@ -28,4 +23,4 @@ http:
       - type: word
         words:
           - 'WebPageTest - Website Performance and Optimization Test'
-
+# digest: 4b0a00483046022100e3b976457638f797aba4c5254837074569b1e7f6f07b3ffe44f556200f78a1cd022100fb41fc4e30323d098a80110e9051ee6a09419d2e7ef778aef57c05a52130d6b2:922c64590222798bb761d5b6d8e72950

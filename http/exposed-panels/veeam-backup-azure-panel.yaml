@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: title:"Veeam Backup for Microsoft Azure"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Veeam Backup for Microsoft Azure"})
-  tags: azure,panel,backup,veeam,microsoft
+  tags: azure,panel,backup,veeam,microsoft,discovery
 
 http:
   - method: GET
@@ -28,4 +27,4 @@ http:
       - type: word
         words:
           - "<title>Veeam Backup for Microsoft Azure</title>"
-
+# digest: 4a0a00473045022033c0e83432463315fab5ee6e274f1961913c7015d19243648b150030cbf2aee2022100ecae496791d40b3fe464e0c9c6938ce92c723db0082ad1f0cec17a8dd62fe8b0:922c64590222798bb761d5b6d8e72950

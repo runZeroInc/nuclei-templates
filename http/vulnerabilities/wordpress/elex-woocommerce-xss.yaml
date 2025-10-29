@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-79
   metadata:
     max-request: 2
-  tags: wp-plugin,xss,authenticated,woocommerce,wpscan,wordpress
+  tags: wp-plugin,xss,authenticated,woocommerce,wpscan,wordpress,vuln
 
 http:
   - raw:
@@ -44,4 +44,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a004830460221009db46e522519c58f1f25bb415c2c208a1ccb4b2a65ab75df4b3c36c031235c96022100818a0e68dd700d92654c0bab2df860043ed082b5e0b0e8b5036e8f6963c4c40d:922c64590222798bb761d5b6d8e72950

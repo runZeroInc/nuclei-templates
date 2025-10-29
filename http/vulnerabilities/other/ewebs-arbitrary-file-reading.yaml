@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: ewebs,lfi
+  tags: ewebs,lfi,vuln
 
 http:
   - method: POST
@@ -37,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502205360d067bd026618934254ddf9db7c5c35246b002ab8f42261570d0742e59145022100d5dcf9b5149eb0d3993fb7c77aa080ed19913633c296c2f1d2098d81bfe3664d:922c64590222798bb761d5b6d8e72950

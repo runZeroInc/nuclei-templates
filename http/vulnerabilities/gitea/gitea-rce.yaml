@@ -16,22 +16,8 @@ info:
     max-request: 3
     vendor: gitea
     product: gitea
-    shodan-query:
-      - 'http.title:"installation -  gitea: git with a cup of tea"'
-      - cpe:"cpe:2.3:a:gitea:gitea"
-      - http.html:"powered by gitea version"
-      - http.html:"powered by gitea"
-      - http.title:"gitea"
-    fofa-query:
-      - body="powered by gitea version"
-      - body="powered by gitea"
-      - title="gitea"
-      - 'title="installation -  gitea: git with a cup of tea"'
-    google-query:
-      - intitle:"gitea"
-      - 'intitle:"installation -  gitea: git with a cup of tea"'
-    runzero-match: 'any(each(service["html.titles"]), {# matches "(?i)Installation -  Gitea: Git with a cup of tea"})'
-  tags: gitea,rce,unauth,edb
+    shodan-query: 'title:"Installation -  Gitea: Git with a cup of tea"'
+  tags: gitea,rce,unauth,edb,vuln
 
 http:
   - raw:
@@ -75,4 +61,4 @@ http:
         regex:
           - '"name":".*","full_name":"(.*)","description"'
         internal: true
-
+# digest: 4a0a00473045022100bee94467a5a775febc1a050794a0dfb10c6a589f5598f007f16d4c41c18832a1022017444f65178f69b85667320026a46973c0053214e51b546c6942fe4beca836bc:922c64590222798bb761d5b6d8e72950

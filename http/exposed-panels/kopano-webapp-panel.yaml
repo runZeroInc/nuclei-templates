@@ -14,11 +14,8 @@ info:
     max-request: 1
     vendor: kopano
     product: webapp
-    shodan-query: http.title:"kopano webapp"
-    fofa-query: title="kopano webapp"
-    google-query: intitle:"kopano webapp"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kopano WebApp"})
-  tags: panel,kopano,login,detect
+    shodan-query: http.title:"Kopano WebApp"
+  tags: panel,kopano,login,detect,discovery
 
 http:
   - method: GET
@@ -40,4 +37,4 @@ http:
         group: 1
         regex:
           - '\?kv([0-9.]+)"'
-
+# digest: 4b0a00483046022100bb806cd7bb69b3f81016726634099c47ad1330af66aeb86342b09b66ae24a94a022100c075b833c8f2187bc76a3382304360094dc4b5c04a3fe4739b4bcf2b80164637:922c64590222798bb761d5b6d8e72950

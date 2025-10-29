@@ -10,7 +10,7 @@ info:
     verified: "true"
     max-request: 1
     censys-query: CN=localhost, C=AU, ST=Some-State, O=Internet Widgits Pty Ltd
-  tags: c2,ssl,tls,ir,osint,malware,bokbot,icedid
+  tags: c2,ssl,tls,ir,osint,malware,bokbot,icedid,discovery
 ssl:
   - address: "{{Host}}:{{Port}}"
     matchers:
@@ -23,4 +23,4 @@ ssl:
       - type: json
         json:
           - ".subject_dn"
-
+# digest: 4a0a00473045022100fe799ea158dcbb9f40e54440608ccd693fa92d555f174244941fb96e5199fa0002200298e7f45f482d5a9c5ee97984b4a3cb7323a53ddac3a406a7e3d58b472d2d40:922c64590222798bb761d5b6d8e72950

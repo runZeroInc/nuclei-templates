@@ -19,8 +19,7 @@ info:
       - http.title:"mybb"
     fofa-query: title="mybb"
     google-query: intitle:"mybb"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)mybb"})
-  tags: panel,mybb,forum
+  tags: panel,mybb,forum,discovery
 
 http:
   - method: GET
@@ -36,4 +35,4 @@ http:
           - 'MyBB Forum'
           - '<title>MyBB'
         condition: or
-
+# digest: 4b0a00483046022100836cf9a2b467893f82ce145d8be6c3df635bc5dd8c8deab8c2b76e5035851184022100b87ed58cc56493d5fc9e5dde9e911ed562335c697e3c30fa2b97667dbc5c7d0a:922c64590222798bb761d5b6d8e72950

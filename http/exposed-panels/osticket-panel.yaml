@@ -25,8 +25,7 @@ info:
     google-query:
       - intitle:"osticket"
       - intitle:"osticket installer"
-    runzero-match: service["http.body"] matches "(?i)powered by osticket" || any(each(service["html.titles"]), {# matches "(?i)osticket"}) || any(each(service["html.titles"]), {# matches "(?i)osticket installer"})
-  tags: panel,osticket
+  tags: panel,osticket,discovery
 
 http:
   - method: GET
@@ -50,4 +49,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100c5d074de267d8806752b88b909f289e72d0351fbf78a504b73dbab9039018dd9022100d2c8738cf45f5e9b8c4a65b2316b26be28dee6f771e811f1da5f170ea476fca4:922c64590222798bb761d5b6d8e72950

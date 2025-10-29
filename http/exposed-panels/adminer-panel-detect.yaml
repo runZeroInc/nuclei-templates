@@ -22,9 +22,7 @@ info:
       - title="login - adminer"
       - app="adminer" && body="4.7.8"
     google-query: intitle:"login - adminer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
-    hunter-query: app.name="adminer"&&web.body="4.7.8"
-  tags: panel,fuzz,adminer,login,sqli
+  tags: panel,fuzz,adminer,login,sqli,discovery
 
 http:
   - raw:
@@ -53,4 +51,4 @@ http:
         group: 1
         regex:
           - '<span class="version">([0-9.]+)'
-
+# digest: 490a0046304402206dd4fc0206f66a5045afc28d922f887c17597f3a9375e417cd49f35061538517022022cda9cbfb4704b6f11c337c32b19061659bdcab49d85ccb29aa1be0c0dce0b0:922c64590222798bb761d5b6d8e72950

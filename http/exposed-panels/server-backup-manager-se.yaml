@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Server Backup Manager SE"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Server Backup Manager SE"})
-  tags: panel,server,backup,manager
+  tags: panel,server,backup,manager,discovery
 
 http:
   - method: GET
@@ -29,4 +28,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502205aca6deda20713160ec531b8e58398134577d8f008defa539be2d04edb4ae177022100b9f210471e92642360bea5dce2e91ba3a0d6bb4ac4e97e24748e12dcfd31ef4a:922c64590222798bb761d5b6d8e72950

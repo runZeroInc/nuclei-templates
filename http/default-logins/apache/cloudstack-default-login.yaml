@@ -12,13 +12,8 @@ info:
     max-request: 1
     vendor: apache
     product: cloudstack
-    shodan-query: http.title:"apache cloudstack"
-    fofa-query:
-      - app="apache-cloudstack"
-      - title="apache cloudstack"
-    google-query: intitle:"apache cloudstack"
-    runzero-match: any(each(service["html.titles"]), {# matches "Apache CloudStack"})
-  tags: default-login,apache,cloudstack
+    shodan-query: http.title:"Apache CloudStack"
+  tags: default-login,apache,cloudstack,vuln
 
 http:
   - raw:
@@ -44,4 +39,4 @@ http:
           - contains(content_type, 'application/json')
           - contains_all(body, 'sessionkey','domainid','userid')
         condition: and
-
+# digest: 4b0a00483046022100e1e0e77fd49f1f503b9afaf70b42fcbb4cb1cd1a8e40e3ded61767d73b5a95fd022100eea6bb0e51ecb8a46a8b250166f1b84676a45b3b420918d4b67d243ccced9bd8:922c64590222798bb761d5b6d8e72950

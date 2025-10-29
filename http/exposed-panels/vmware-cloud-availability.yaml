@@ -13,18 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: vmware
-    product: cloud_director
-    shodan-query:
-      - http.title:"vmware cloud director availability"
-      - http.title:"welcome to vmware cloud director"
-    fofa-query:
-      - title="vmware cloud director availability"
-      - title="welcome to vmware cloud director"
-    google-query:
-      - intitle:"vmware cloud director availability"
-      - intitle:"welcome to vmware cloud director"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware Cloud Director Availability"})
-  tags: panel,vmware
+  tags: panel,vmware,discovery
 
 http:
   - method: GET
@@ -41,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a00473045022100d80f432ebdb1ef80c7147649fb6c9855806724e477e8ad4847181393bcae73fc02204bd9b0a76523e83368f73f942007bbb408b84174333df4f19596db35c30d1c94:922c64590222798bb761d5b6d8e72950

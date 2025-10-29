@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 16
     shodan-query: "port:3306"
-  tags: js,mysql,network,enum
+  tags: js,mysql,network,enum,discovery
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -51,4 +51,4 @@ javascript:
         part: response
         json:
           - .Rows[] | .Database
-
+# digest: 490a0046304402200fe5194427a8c1723c44696c2059ce20b309b969d2cf4bd0931d538244188298022014e36110a0a463055152178845695186774e4c2234b15506693571d299a94621:922c64590222798bb761d5b6d8e72950

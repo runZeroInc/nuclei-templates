@@ -13,7 +13,7 @@ info:
     max-request: 1
     vendor: sonicwall
     product: global_management_system
-  tags: panel,sonicwall
+  tags: panel,sonicwall,discovery
 
 http:
   - method: GET
@@ -25,4 +25,4 @@ http:
         words:
           - "<title>SonicWall - Authentication</title>"
           - "SonicWall Administrator"
-
+# digest: 4b0a0048304602210099938414dcc33500e009fed106c0a5b32fe49835cff26719a966f9d5d4a1bb58022100ff530d6269310b390df6d4b6926c471f9e8d09e40f904ee32bd381e52742db8a:922c64590222798bb761d5b6d8e72950

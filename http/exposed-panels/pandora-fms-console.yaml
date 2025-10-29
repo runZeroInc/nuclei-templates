@@ -22,8 +22,7 @@ info:
       - title="pandora fms"
       - body="pandora fms - installation wizard"
     google-query: intitle:"pandora fms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pandora fms"})
-  tags: panel,edb,pandorafms
+  tags: panel,edb,pandorafms,discovery
 
 http:
   - method: GET
@@ -40,4 +39,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402201107d2edd050cbd4a8288b10cdb4b78af2d4a3c402407edd23ae5718607688d8022015d6bf7f2f5f7f62a551e055d87653fbd2469ec95b8e3ba876b0be38e5be1b08:922c64590222798bb761d5b6d8e72950

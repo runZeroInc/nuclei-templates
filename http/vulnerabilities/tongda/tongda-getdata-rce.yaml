@@ -14,9 +14,8 @@ info:
     verified: true
     max-request: 1
     vendor: tongda2000
-    product: office_anywhere
-    fofa-query: app="TDXK-通达OA"
-  tags: tongda,rce
+  tags: tongda,rce,vuln
+
 variables:
   num: '999999999'
   payload: "echo md5({{num}});"
@@ -37,4 +36,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100faf9c0ad97ff707d8964c7937fa6da29f3eabbd0770f5b7088c6b9ee20c066f8022100ae8a6f108b363b4b5081d226ccb106bd2e32207f92b0a951d42cc3729de17b29:922c64590222798bb761d5b6d8e72950

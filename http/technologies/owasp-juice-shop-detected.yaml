@@ -7,7 +7,7 @@ info:
   metadata:
     max-request: 1
     fofa-query: title="OWASP Juice Shop"
-  tags: tech,owasp
+  tags: tech,owasp,discovery
 
 http:
   - method: GET
@@ -24,4 +24,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502203b273f1bc54a4cd28b8106d65865f144dc6e30fe3b10bfae2a8779c6b5595ceb022100819581a4941de7ee1276ea721cf0c80da0b820aaf919cbc3b9763cdd6faab087:922c64590222798bb761d5b6d8e72950

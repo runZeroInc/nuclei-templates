@@ -15,9 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: apache
-    product: subversion
-    google-query: intext:"configuration of the svnserve daemon"
-  tags: config,exposure,svnserve
+  tags: config,exposure,svnserve,vuln
 
 http:
   - method: GET
@@ -33,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100b00d2106c50a8fc5c4385daf33d4502ef7c2d332dfee366ebe2d82ce50c9e181022100c3a9739f706779692ebd966b145229a2bcc7238196f54c13912f54cdc02c54c4:922c64590222798bb761d5b6d8e72950

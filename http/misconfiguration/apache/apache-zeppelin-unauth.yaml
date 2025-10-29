@@ -20,7 +20,9 @@ info:
     product: zeppelin
     shodan-query: title:"Zeppelin"
     fofa-query: title="Zeppelin"
-  tags: misconfig,apache,zeppelin,unauth
+    product: zeppelin
+    vendor: apache
+  tags: misconfig,apache,zeppelin,unauth,vuln
 
 http:
   - method: GET
@@ -44,4 +46,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4a0a0047304502205de39667b2b5468229633d550cb332047b5e42ad3fb77b7f720106060b6e50e1022100a08b7171bcaf7df799ea41c7e2dc7a1f2d877cfdc949b9a386b32e802079d832:922c64590222798bb761d5b6d8e72950

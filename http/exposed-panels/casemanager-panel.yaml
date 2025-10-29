@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     fofa-query: title="CaseManager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)CaseManager"})
-  tags: casemanager,panel
+  tags: casemanager,panel,discovery
 
 http:
   - method: GET
@@ -28,4 +27,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a0046304402204538998e9c310d5d8bd2d3e953b5cb49ff033edc95f9d5e7bf95f5c38eeb4e78022044a727aa958e600018ea10d4724e74790041fa97767bf915fb66208316287907:922c64590222798bb761d5b6d8e72950

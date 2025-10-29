@@ -15,9 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: stackstorm
-    product: stackstorm
-    fofa-query: app="stackstorm"
-  tags: stackstorm,default-login
+  tags: stackstorm,default-login,vuln
 
 http:
   - raw:
@@ -46,4 +44,4 @@ http:
       - type: status
         status:
           - 201
-
+# digest: 4b0a00483046022100b87f1772811b4808d6bd2e297fa5e64e16fdcd5734a33f84d79325262e22f2b3022100f9318d4a0a0f0ab021149a0751234e08b89bebcb05174fb0d03bbb3c3a82a2fb:922c64590222798bb761d5b6d8e72950

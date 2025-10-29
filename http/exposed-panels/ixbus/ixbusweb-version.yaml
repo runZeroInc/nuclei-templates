@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"iXBus"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)iXBus"})
-  tags: panel,ixbusweb,cms
+  tags: panel,ixbusweb,cms,discovery
 
 http:
   - method: GET
@@ -35,4 +34,4 @@ http:
         group: 2
         regex:
           - '(iXBusWeb[\n\t ]+\((([0-9]+(.[0-9]+)?(.[0-9]+)?(.[0-9]+)?))\))'
-
+# digest: 490a0046304402203202df4df347bef474401e78e85b372bb2b640ac73c2ef13c1ac4da7ee3c3ea60220718b092558e0794293eb912af5ee725690de8fd2197b7b607541c0cd21011e72:922c64590222798bb761d5b6d8e72950

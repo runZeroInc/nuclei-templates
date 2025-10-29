@@ -14,7 +14,10 @@ info:
     product: ap_pagebuilder
     framework: prestashop
     shodan-query: "http.component:\"prestashop\""
-  tags: intrusive,file-upload,cartabandonmentpro,prestashop
+    product: ap_pagebuilder
+    vendor: apollotheme
+  tags: intrusive,file-upload,cartabandonmentpro,prestashop,vuln
+
 flow: http(1) && http(2)
 variables:
   filename: '{{rand_base(7, "abc")}}'
@@ -74,4 +77,4 @@ http:
           - 'contains(body, "{{string}}")'
           - 'status_code == 200'
         condition: and
-
+# digest: 490a004630440220549b45136d6ec41cd6c7bcc90aa595369ede243a6a3b731ea20264b670e370e402206c03ae05aaf7af9aa4cdce78cb06baba8bac8ddfd3d6501dbc02d8460fc05554:922c64590222798bb761d5b6d8e72950

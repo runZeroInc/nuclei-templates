@@ -20,9 +20,7 @@ info:
     fofa-query:
       - body="amcrest" "ldap user"
       - body="amcrest"
-    google-query: intext:"amcrest" "ldap user"
-    runzero-match: service["http.body"] matches "(?i)amcrest"
-  tags: panel,camera,amcrest,edb
+  tags: panel,camera,amcrest,edb,discovery
 
 http:
   - method: GET
@@ -40,4 +38,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100eb98443b320c25e1c6cc50eb2d1d066c3a447182988a1397ece52398fbc573e4022100bc29ee3a36d737929cbff3a2f3e107f6ac24758e468b72ec7a2eb0443d9fabd8:922c64590222798bb761d5b6d8e72950

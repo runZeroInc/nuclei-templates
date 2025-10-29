@@ -16,8 +16,7 @@ info:
     product: nzbget
     shodan-query: http.html:"nzbget"
     fofa-query: body="nzbget"
-    runzero-match: service["http.body"] matches "(?i)nzbget"
-  tags: panel,nzbget
+  tags: panel,nzbget,discovery
 
 http:
   - method: GET
@@ -38,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100e9249396c965e81c8f47cd1ace298e4975dfe59e4cbc715a1136b5dcc00d5601022100f741989c7c4b37501f3f6c2251cb1ee06356e0de996c22d725b01470804c89ff:922c64590222798bb761d5b6d8e72950

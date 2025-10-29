@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"pure storage login"
     fofa-query: title="pure storage login"
     google-query: intitle:"pure storage login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pure storage login"})
-  tags: panel,purestorage
+  tags: panel,purestorage,discovery
 
 http:
   - method: GET
@@ -33,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100b48f5c573fa1e7e644310fe3ae75ff1accce3c97cfaa278d6eb1ebb2f5080b5802210090b6a4ac813ed9ed84f4dc5b745c8169db0ceb40348ca3332a2b75523eaec1a6:922c64590222798bb761d5b6d8e72950

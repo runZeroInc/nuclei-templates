@@ -14,7 +14,8 @@ info:
     verified: true
     max-request: 2
     fofa-query: '"<TITLE>Web user login</TITLE>" && "<META content\==MSHTML 6.00.2900.5583\" name\=GENERATOR></HEAD>"'
-  tags: raisecom,rce,intrusive
+  tags: raisecom,rce,intrusive,vuln
+
 variables:
   string: "{{randstr}}"
   filename: "{{to_lower(rand_text_alpha(5))}}"
@@ -50,4 +51,4 @@ http:
           - 'contains(content_type_2, "text/plain")'
           - "contains(body_2, '{{string}}')"
         condition: and
-
+# digest: 4b0a00483046022100ae7ce53eb008a7352e22a70a3c2f656173357db9d5d2cca142c3f97503b0f397022100a9484f06c2d63054f0432dc3d3a9bb20bae89bc9e315624c9ba12af6f97c1e2e:922c64590222798bb761d5b6d8e72950

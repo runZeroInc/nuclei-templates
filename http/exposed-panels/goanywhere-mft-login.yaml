@@ -13,21 +13,7 @@ info:
     verified: true
     max-request: 2
     vendor: fortra
-    product: goanywhere_managed_file_transfer
-    shodan-query:
-      - http.html:"goanywhere managed file transfer"
-      - http.favicon.hash:"1484947000"
-      - http.favicon.hash:"1484947000,1828756398,1170495932"
-    fofa-query:
-      - app="goanywhere-mft"
-      - body="goanywhere managed file transfer"
-      - icon_hash=1484947000
-      - icon_hash=1484947000,1828756398,1170495932
-    runzero-match: service["http.body"] matches "(?i)GoAnywhere Managed File Transfer"
-    zoomeye-query:
-      - app:"fortra goanywhere-mft"
-      - app="fortra goanywhere-mft"
-  tags: panel,goanywhere,login,filetransfer
+  tags: panel,goanywhere,login,filetransfer,discovery
 
 http:
   - method: GET
@@ -49,4 +35,4 @@ http:
       - type: status
         status:
           - 200
-
+# digest: 490a00463044022006850f9a569962ae6f93134b2f952a584d95f2ed7ca9a3acc419245bfb55de050220196a0bd510e92f98d821e035154c919d098916ab4d98d72aefa912bdf3d05875:922c64590222798bb761d5b6d8e72950
