@@ -17,9 +17,8 @@ info:
     fofa-query:
       - '"Server: SDC Server" && protocol="https"'
       - '"Server: WebServer/1.0.0" && port="1443"'
-    runzero-match: service["http.head.server"] matches "SDC Server" || service["http.body.mmh3"] == "-968212412"
-    max-requests: 1
-  tags: panel,detect,huawei,holosens,iot
+  tags: panel,detect,huawei,holosens,iot,discovery
+
 flow: http(1) && http(2) && http(3)
 
 http:

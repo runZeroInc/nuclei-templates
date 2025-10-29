@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 4
     vendor: zenphoto
-    product: zenphoto
-    shodan-query: title:"Zenphoto install"
-  tags: misconfig,panel,zenphoto,setup,installer
+  tags: misconfig,panel,zenphoto,setup,installer,vuln
 
 http:
   - method: GET

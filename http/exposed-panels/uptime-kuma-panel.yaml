@@ -16,11 +16,8 @@ info:
     max-request: 1
     vendor: uptime.kuma
     product: uptime_kuma
-    shodan-query: http.title:"uptime kuma"
-    fofa-query: title="uptime kuma"
-    google-query: intitle:"uptime kuma"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Uptime Kuma"})
-  tags: uptime,kuma,panel,login,detect
+    shodan-query: title:"Uptime Kuma"
+  tags: uptime,kuma,panel,login,detect,discovery
 
 http:
   - method: GET

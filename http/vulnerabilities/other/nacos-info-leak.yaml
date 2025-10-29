@@ -12,15 +12,7 @@ info:
     verified: true
     max-request: 1
     vendor: alibaba
-    product: nacos
-    shodan-query: http.title:"nacos"
-    fofa-query:
-      - app="nacos"
-      - title="nacos"
-      - title=="nacos"
-    google-query: intitle:"nacos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nacos"})
-  tags: nacos,tech,config,exposure
+  tags: nacos,tech,config,exposure,vuln
 
 http:
   - method: GET

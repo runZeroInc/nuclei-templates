@@ -19,10 +19,7 @@ info:
   metadata:
     max-request: 1
     vendor: inspur
-    product: clusterengine
-    fofa-query: title="tscev4.0"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TSCEV4\\.0"})
-  tags: inspur,clusterengine,rce
+  tags: inspur,clusterengine,rce,vuln
 
 http:
   - raw:

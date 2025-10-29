@@ -20,11 +20,8 @@ info:
       - body="ups network management card 4"
       - title="netman"
     censys-query: services.http.response.body:"netman204"
-    google-query:
-      - intitle:"netman 204"
-      - intitle:"netman"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)netman 204"})
-  tags: netman,panel,detect,login
+    google-query: intitle:"netman 204"
+  tags: netman,panel,detect,login,discovery
 
 http:
   - method: GET

@@ -17,14 +17,7 @@ info:
     verified: true
     max-request: 4
     vendor: sonarsource
-    product: sonarqube
-    shodan-query: http.title:"sonarqube"
-    fofa-query:
-      - app="sonarqube-代码管理"
-      - title="sonarqube"
-    google-query: intitle:"sonarqube"
-    runzero-match: any(each(service["html.titles"]), {# matches "SonarQube"})
-  tags: default-login,sonarqube
+  tags: default-login,sonarqube,vuln
 
 http:
   - raw:

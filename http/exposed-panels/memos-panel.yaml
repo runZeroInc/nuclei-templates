@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"memos"
     fofa-query: title="memos"
     google-query: intitle:"memos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)memos"})
-  tags: panel,memos,detect,usememos
+  tags: panel,memos,detect,usememos,discovery
 
 http:
   - method: GET

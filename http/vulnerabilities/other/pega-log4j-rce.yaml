@@ -17,9 +17,7 @@ info:
   metadata:
     max-request: 2
     vendor: pega
-    product: platform
-    shodan-query: title:"Pega"
-  tags: cve,cve2021,rce,jndi,log4j,pega,oast,kev
+  tags: cve,cve2021,rce,jndi,log4j,pega,oast,kev,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

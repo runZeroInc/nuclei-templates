@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"syncthru web service"
     fofa-query: title="syncthru web service"
     google-query: intitle:"syncthru web service"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)syncthru web service"})
-  tags: edb,panel,syncthru,printer,samsung
+  tags: edb,panel,syncthru,printer,samsung,discovery
 
 http:
   - method: GET

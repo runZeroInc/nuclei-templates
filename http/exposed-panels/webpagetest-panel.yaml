@@ -12,12 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: webpagetest
-    product: webpagetest
-    shodan-query: http.title:"webpagetest"
-    fofa-query: title="webpagetest"
-    google-query: intitle:"webpagetest"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebPageTest"})
-  tags: panel,webpagetest
+  tags: panel,webpagetest,discovery
 
 http:
   - method: GET

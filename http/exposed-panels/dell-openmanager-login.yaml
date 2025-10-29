@@ -12,11 +12,7 @@ info:
   metadata:
     max-request: 2
     vendor: dell
-    product: openmanage
-    shodan-query: http.html:"dell openmanage switch administrator"
-    fofa-query: body="dell openmanage switch administrator"
-    runzero-match: service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
-  tags: panel,dell
+  tags: panel,dell,discovery
 
 http:
   - method: GET

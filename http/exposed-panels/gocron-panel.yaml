@@ -12,9 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: gocron_project
-    product: gocron
-    fofa-query: app="gocron-定时任务系统"
-  tags: gocron,panel
+  tags: gocron,panel,discovery
 
 http:
   - method: GET

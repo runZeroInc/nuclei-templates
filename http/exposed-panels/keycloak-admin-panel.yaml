@@ -24,8 +24,7 @@ info:
       - title="keycloak"
       - icon_hash="-1105083093"
     google-query: intitle:"keycloak"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1105083093" || any(each(service["html.titles"]), {# matches "(?i)keycloak"}) || service["http.body"] matches "(?i)keycloak"
-  tags: panel,keycloak,redhat
+  tags: panel,keycloak,redhat,discovery
 
 http:
   - method: GET

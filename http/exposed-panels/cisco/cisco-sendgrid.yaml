@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Cisco ServiceGrid"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco ServiceGrid"})
-  tags: panel,cisco
+  tags: panel,cisco,discovery
 
 http:
   - method: GET

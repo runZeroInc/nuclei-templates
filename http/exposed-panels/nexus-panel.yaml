@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Sonatype Nexus Repository"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sonatype Nexus Repository"})
-  tags: panel,nexus,login,detect
+  tags: panel,nexus,login,detect,discovery
 
 http:
   - method: GET

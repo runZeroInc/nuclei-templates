@@ -11,8 +11,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    fofa-query: cname="cname.greatpages.com.br"
-  tags: takeover,greatpages
+  tags: takeover,greatpages,vuln
 
 http:
   - method: GET

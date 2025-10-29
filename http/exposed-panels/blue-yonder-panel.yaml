@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: html:"title=\"blue yonder\""
-    runzero-match: service["http.body"] matches "(?i)title=\\\\"
-  tags: panel,login,blue-yonder,detect
+  tags: panel,login,blue-yonder,detect,discovery
 
 http:
   - method: GET

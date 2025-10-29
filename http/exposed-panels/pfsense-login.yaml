@@ -18,9 +18,7 @@ info:
     product: pfsense
     shodan-query: http.title:"pfsense - login"
     fofa-query: title="pfsense - login"
-    google-query: intitle:"pfsense - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pfsense - login"})
-  tags: panel,pfsense
+  tags: panel,pfsense,discovery
 
 http:
   - method: GET

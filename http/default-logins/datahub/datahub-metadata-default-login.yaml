@@ -16,17 +16,12 @@ info:
     verified: true
     max-request: 1
     vendor: datahub_project
-    product: datahub
-    shodan-query: http.title:"datahub"
-    fofa-query: title="datahub"
-    google-query: intitle:"datahub"
-    runzero-match: any(each(service["html.titles"]), {# matches "DataHub"})
-  tags: datahub,default-login
+  tags: datahub,default-login,vuln
 
 http:
   - raw:
       - |
-        POST /logIn HTTP/2
+        POST /logIn HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
 

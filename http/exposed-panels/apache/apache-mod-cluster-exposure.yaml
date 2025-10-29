@@ -11,8 +11,7 @@ info:
   metadata:
     verified: true
     max-request: 3
-    runzero-match: service["http.body"] contains "Mod_cluster Status" || service["http.body"] contains "mod_proxy_cluster"
-  tags: apache,mod_proxy,cluster,exposure
+  tags: apache,mod_proxy,cluster,exposure,discovery
 
 http:
   - method: GET

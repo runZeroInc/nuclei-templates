@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Ice Hrm Login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Ice Hrm Login"})
-  tags: icehrm,login,hrm,panel,web,detect
+  tags: icehrm,login,hrm,panel,web,detect,discovery
 
 http:
   - method: GET

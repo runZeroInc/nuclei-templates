@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"fortiddos"
     fofa-query: title="fortiddos"
     google-query: intitle:"fortiddos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiddos"})
-  tags: panel,fortinet,fortiddos,login
+  tags: panel,fortinet,fortiddos,login,discovery
 
 http:
   - method: GET

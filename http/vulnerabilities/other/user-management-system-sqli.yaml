@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"Registration and Login System"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Registration and Login System"})
-  tags: sqli,auth-bypass,user-management
+  tags: sqli,auth-bypass,user-management,vuln
 
 http:
   - raw:

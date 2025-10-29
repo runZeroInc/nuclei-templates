@@ -11,9 +11,8 @@ info:
     vendor: mattermost
     shodan-query: html:'content="Mattermost"'
     fofa-query: 'content="Mattermost"'
-    runzero-match: service["http.body"] matches "(?i)'content=\"Mattermost\"'"
-    max-requests: 1
-  tags: login,mattermost,panel
+    vendor: mattermost
+  tags: login,mattermost,panel,discovery
 
 http:
   - method: GET

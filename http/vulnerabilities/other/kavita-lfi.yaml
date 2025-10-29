@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: kavitareader
-    product: kavita
-    shodan-query: http.html:"kavita"
-  tags: kavita,lfi,huntr
+  tags: kavita,lfi,huntr,vuln
 
 http:
   - method: GET

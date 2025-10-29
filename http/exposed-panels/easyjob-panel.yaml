@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Log in - easyJOB"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Log in - easyJOB"})
-  tags: panel,easyjob,login
+  tags: panel,easyjob,login,discovery
 
 http:
   - method: GET

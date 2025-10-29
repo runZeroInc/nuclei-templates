@@ -8,8 +8,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"<title>Webinterface</title>"
-    runzero-match: service["http.body"] matches "(?i)<title>Webinterface</title>"
-  tags: panel,login,loxone,detect
+  tags: panel,login,loxone,detect,discovery
 
 http:
   - method: GET

@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"welcome to the jboss soa platform"
     fofa-query: title="welcome to the jboss soa platform"
     google-query: intitle:"welcome to the jboss soa platform"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)welcome to the jboss soa platform"})
-  tags: panel,jboss,soa,redhat,detect
+  tags: panel,jboss,soa,redhat,detect,discovery
 
 http:
   - method: GET

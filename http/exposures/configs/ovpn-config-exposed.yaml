@@ -12,9 +12,7 @@ info:
     verified: true
     max-request: 1
     vendor: openvpn
-    product: connect
-    shodan-query: http.title:"OVPN Config Download"
-  tags: config,ovpn,exposure
+  tags: config,ovpn,exposure,vuln
 
 http:
   - method: GET

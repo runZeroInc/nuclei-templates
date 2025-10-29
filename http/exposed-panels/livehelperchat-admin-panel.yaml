@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"live helper chat"
     fofa-query: title="live helper chat"
     google-query: intitle:"live helper chat"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)live helper chat"})
-  tags: livehelperchat,panel
+  tags: livehelperchat,panel,discovery
 
 http:
   - method: GET

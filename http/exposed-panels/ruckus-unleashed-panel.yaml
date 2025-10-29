@@ -17,9 +17,7 @@ info:
     product: unleashed_firmware
     shodan-query: http.title:"unleashed login"
     fofa-query: title="unleashed login"
-    google-query: intitle:"unleashed login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)unleashed login"})
-  tags: panel,ruckus,ruckuswireless
+  tags: panel,ruckus,ruckuswireless,discovery
 
 http:
   - method: GET

@@ -8,8 +8,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"/vsaas/v2/static/"
-    runzero-match: service["http.body"] matches "(?i)/vsaas/v2/static/"
-  tags: panel,watcher,login
+  tags: panel,watcher,login,discovery
 
 http:
   - method: GET

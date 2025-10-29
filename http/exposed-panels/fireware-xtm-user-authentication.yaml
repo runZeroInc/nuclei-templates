@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"fireware xtm user authentication"
     fofa-query: title="fireware xtm user authentication"
     google-query: intitle:"fireware xtm user authentication"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fireware xtm user authentication"})
-  tags: panel,watchguard
+  tags: panel,watchguard,discovery
 
 http:
   - method: GET

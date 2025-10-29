@@ -20,15 +20,8 @@ info:
     shodan-query:
       - http.favicon.hash:"129457226"
       - cpe:"cpe:2.3:a:liferay:liferay_portal"
-      - http.html:"var liferay"
-      - http.title:"liferay"
-    fofa-query:
-      - icon_hash=129457226
-      - body="var liferay"
-      - title="liferay"
-    google-query: intitle:"liferay"
-    runzero-match: service["favicon.ico.image.mmh3"] == "129457226"
-  tags: panel,liferay,portal
+    fofa-query: icon_hash=129457226
+  tags: panel,liferay,portal,discovery
 
 http:
   - method: GET

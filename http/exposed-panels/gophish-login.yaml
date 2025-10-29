@@ -12,12 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: getgophish
-    product: gophish
-    shodan-query: http.title:"gophish - login"
-    fofa-query: title="gophish - login"
-    google-query: intitle:"gophish - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gophish - Login"})
-  tags: panel,gophish
+  tags: panel,gophish,discovery
 
 http:
   - method: GET

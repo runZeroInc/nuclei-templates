@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 2
     vendor: karma_project
-    product: karma
-    shodan-query: html:"karma.conf.js"
-  tags: config,exposure,devops
+  tags: config,exposure,devops,vuln
 
 http:
   - method: GET

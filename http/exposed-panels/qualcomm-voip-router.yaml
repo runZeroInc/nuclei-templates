@@ -12,9 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: qualcomm
-    product: qca4531_firmware
-    fofa-query: app="Qualcomm-4G-LTE-WiFi-VoIP-Router"
-  tags: panel,qualcomm,iot,router,voip
+  tags: panel,qualcomm,iot,router,voip,discovery
 
 http:
   - method: GET

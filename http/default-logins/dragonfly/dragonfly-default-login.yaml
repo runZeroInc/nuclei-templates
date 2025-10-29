@@ -10,8 +10,8 @@ info:
     verified: true
     max-request: 1
     fofa-query: body="logo-dragonfly.png"
-    runzero-match: service["http.body"] matches "(?i)logo-dragonfly\\.png"
-  tags: dragonfly,default-login
+  tags: dragonfly,default-login,vuln
+
 variables:
   username: "root"
   password: "dragonfly"

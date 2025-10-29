@@ -12,10 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: directum
-    product: directum
-    fofa-query: title="directum"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Directum"})
-  tags: directum,panel
+  tags: directum,panel,discovery
 
 http:
   - method: GET

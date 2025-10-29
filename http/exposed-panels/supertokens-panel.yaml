@@ -14,8 +14,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: html:"<title>SuperTokens "
-    runzero-match: service["http.body"] matches "(?i)<title>SuperTokens "
-  tags: panel,login,supertokens
+  tags: panel,login,supertokens,discovery
 
 http:
   - method: GET

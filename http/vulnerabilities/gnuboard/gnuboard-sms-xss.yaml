@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: gnuboard
-    product: gnuboard5
-    shodan-query: http.html:"Gnuboard"
-  tags: xss,gnuboard
+  tags: xss,gnuboard,vuln
 
 http:
   - method: GET

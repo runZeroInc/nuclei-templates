@@ -9,9 +9,7 @@ info:
     verified: true
     max-request: 1
     vendor: eyoucms
-    product: eyoucms
-    fofa-query: title="eyoucms"
-  tags: misconfig,eyoucms,install
+  tags: misconfig,eyoucms,install,vuln
 
 http:
   - method: GET

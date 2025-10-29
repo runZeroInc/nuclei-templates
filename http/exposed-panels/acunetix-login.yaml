@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: acunetix
-    product: web_vulnerability_scanner
-    shodan-query: http.title:"acunetix"
-    fofa-query: title="acunetix"
-    google-query: intitle:"acunetix"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Acunetix"})
-  tags: panel,acunetix
+  tags: panel,acunetix,discovery
 
 http:
   - method: GET

@@ -13,17 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: powerjob
-    product: powerjob
-    shodan-query:
-      - http.html:"powerjob"
-      - http.title:"powerjob"
-    fofa-query:
-      - title="powerjob"
-      - app="powerjob"
-      - body="powerjob"
-    google-query: intitle:"powerjob"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PowerJob"})
-  tags: panel,powerjob
+  tags: panel,powerjob,discovery
 
 http:
   - method: GET

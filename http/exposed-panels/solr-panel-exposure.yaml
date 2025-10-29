@@ -28,9 +28,7 @@ info:
     google-query:
       - intitle:"apache solr"
       - intitle:"solr admin"
-      - intitle:"solr"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)solr admin"}) || any(each(service["html.titles"]), {# matches "(?i)apache solr"})
-  tags: panel,solr,apache,admin
+  tags: panel,solr,apache,admin,discovery
 
 http:
   - method: GET

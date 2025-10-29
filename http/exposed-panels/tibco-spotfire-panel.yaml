@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 2
     vendor: tibco
-    product: spotfire_server
-    shodan-query: "TIBCO Spotfire Server"
-  tags: panel,tibco,login,detect
+  tags: panel,tibco,login,detect,discovery
 
 http:
   - method: GET

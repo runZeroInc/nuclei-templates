@@ -13,10 +13,8 @@ info:
     max-request: 2
     vendor: bonobogitserver
     product: bonobo_git_server
-    shodan-query: http.favicon.hash:"-219625874"
-    fofa-query: icon_hash=-219625874
-    runzero-match: service["favicon.ico.image.mmh3"] == "-219625874"
-  tags: panel,bonobo,git,login,detect
+    shodan-query: http.favicon.hash:-219625874
+  tags: panel,bonobo,git,login,detect,discovery
 
 http:
   - method: GET

@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"deluge webui"
     fofa-query: title="deluge webui"
     google-query: intitle:"deluge webui"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)deluge webui"})
-  tags: panel,deluge,deluge-torrent
+  tags: panel,deluge,deluge-torrent,discovery
 
 http:
   - method: GET

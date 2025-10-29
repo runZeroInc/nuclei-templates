@@ -12,11 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: beyondtrust
-    product: beyondinsight
-    shodan-query: http.html:"beyondinsight"
-    fofa-query: body="beyondinsight"
-    runzero-match: service["http.body"] matches "(?i)BeyondInsight"
-  tags: beyondtrust,pam,panel
+  tags: beyondtrust,pam,panel,discovery
 
 http:
   - method: GET

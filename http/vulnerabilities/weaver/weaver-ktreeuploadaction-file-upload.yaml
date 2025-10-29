@@ -17,7 +17,10 @@ info:
     product: e-cology
     shodan-query: ecology_JSessionid
     fofa-query: app="泛微-协同办公OA"
-  tags: weaver,ecology,fileupload,intrusive
+    product: e-cology
+    vendor: weaver
+  tags: weaver,ecology,fileupload,intrusive,vuln
+
 variables:
   num1: "{{rand_int(40000, 50000)}}"
   num2: "{{rand_int(40000, 50000)}}"

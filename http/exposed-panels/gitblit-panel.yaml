@@ -21,8 +21,7 @@ info:
       - body="gitblit"
       - title="gitblit"
     google-query: intitle:"gitblit"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)gitblit"}) || service["http.body"] matches "(?i)gitblit"
-  tags: panel,gitblit
+  tags: panel,gitblit,discovery
 
 http:
   - method: GET

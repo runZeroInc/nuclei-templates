@@ -9,9 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"Nginx Proxy Manager"
-    runzero-match: service["http.body"] matches "Nginx Proxy Manager"
-  tags: nginx,proxy-manager,default-login
+  tags: nginx,proxy-manager,default-login,vuln
 
 http:
   - raw:

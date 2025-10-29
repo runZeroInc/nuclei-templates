@@ -15,12 +15,7 @@ info:
     verified: true
     max-request: 1
     vendor: machform
-    product: machform
-    shodan-query: http.title:"machform admin panel"
-    fofa-query: title="machform admin panel"
-    google-query: intitle:"machform admin panel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MachForm Admin Panel"})
-  tags: panel,machform,admin
+  tags: panel,machform,admin,discovery
 
 http:
   - method: GET

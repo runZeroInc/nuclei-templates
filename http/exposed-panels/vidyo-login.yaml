@@ -12,11 +12,7 @@ info:
   metadata:
     max-request: 2
     vendor: vidyo
-    product: vidyo
-    shodan-query: http.favicon.hash:"-1970367401"
-    fofa-query: icon_hash=-1970367401
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1970367401"
-  tags: panel,vidyo
+  tags: panel,vidyo,discovery
 
 http:
   - method: GET

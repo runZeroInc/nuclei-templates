@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"vmware vcenter converter standalone"
     fofa-query: title="vmware vcenter converter standalone"
     google-query: intitle:"vmware vcenter converter standalone"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vmware vcenter converter standalone"})
-  tags: panel,vmware,vcenter
+  tags: panel,vmware,vcenter,discovery
 
 http:
   - method: GET

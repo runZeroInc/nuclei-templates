@@ -21,11 +21,10 @@ info:
     fofa-query:
       - title="piwigo"
       - icon_hash=540706145
-      - body="- installation"
-      - body="piwigo" html:"- installation"
-    google-query: powered by piwigo
-    runzero-match: service["favicon.ico.image.mmh3"] == "540706145"
-  tags: panel,piwigo,detect
+    google-query:
+      - Powered by Piwigo
+      - powered by piwigo
+  tags: panel,piwigo,detect,discovery
 
 http:
   - method: GET

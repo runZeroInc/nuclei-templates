@@ -16,8 +16,7 @@ info:
     product: freeipa
     shodan-query: http.html:"freeipa"
     fofa-query: body="freeipa"
-    runzero-match: service["http.body"] matches "(?i)freeipa"
-  tags: panel,login,freeipa
+  tags: panel,login,freeipa,discovery
 
 http:
   - method: GET

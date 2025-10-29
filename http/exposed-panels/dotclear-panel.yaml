@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"dotclear"
     fofa-query: title="dotclear"
     google-query: intitle:"dotclear"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dotclear"})
-  tags: panel,dotclear
+  tags: panel,dotclear,discovery
 
 http:
   - method: GET

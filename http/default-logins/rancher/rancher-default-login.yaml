@@ -15,8 +15,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 2
-    runzero-match: service["favicon.ico.image.mmh3"] == "464587962"
-  tags: default-login,rancher,kubernetes,devops,cloud
+  tags: default-login,rancher,kubernetes,devops,cloud,vuln
 
 http:
   - raw:

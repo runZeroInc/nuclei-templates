@@ -19,8 +19,8 @@ info:
   metadata:
     max-request: 2
     vendor: graphql
-    product: playground
-  tags: graphql,misconfig
+  tags: graphql,misconfig,vuln
+
 variables:
   str: "{{to_lower(rand_text_alpha(5))}}"
 

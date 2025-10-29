@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: body="上层网络出现异常，请检查外网线路或联系ISP运营商协助排查"
-    runzero-match: service["http.body"] matches "(?i)上层网络出现异常，请检查外网线路或联系ISP运营商协助排查"
-  tags: default-login,ruijie-nbr
+  tags: default-login,ruijie-nbr,vuln
 
 http:
   - raw:

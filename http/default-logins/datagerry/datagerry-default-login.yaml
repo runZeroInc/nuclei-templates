@@ -11,10 +11,8 @@ info:
     vendor: becon
     product: datagerry
     shodan-query: http.title:"datagerry"
-    fofa-query: title="datagerry"
-    google-query: intitle:"datagerry"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)datagerry"})
-  tags: datagerry,default-login
+  tags: datagerry,default-login,vuln
+
 variables:
   username: admin
   password: admin

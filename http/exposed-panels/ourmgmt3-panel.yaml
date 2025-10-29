@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: http.title:"OurMGMT3"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OurMGMT3"})
-  tags: panel,ourmgmt3
+  tags: panel,ourmgmt3,discovery
 
 http:
   - method: GET

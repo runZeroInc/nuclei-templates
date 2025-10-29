@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"hp service manager"
     fofa-query: title="hp service manager"
     google-query: intitle:"hp service manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hp service manager"})
-  tags: panel,hp,service
+  tags: panel,hp,service,discovery
 
 http:
   - method: GET

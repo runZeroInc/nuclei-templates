@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Plastic SCM"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Plastic SCM"})
-  tags: panel,plastic
+  tags: panel,plastic,discovery
 
 http:
   - method: GET

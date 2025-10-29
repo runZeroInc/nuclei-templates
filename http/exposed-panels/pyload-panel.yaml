@@ -26,11 +26,8 @@ info:
     google-query:
       - intitle:"pyload"
       - intitle:"login - pyload"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - pyload"}) || service["http.body"] matches "(?i)pyload" || any(each(service["html.titles"]), {# matches "(?i)pyload"})
-    zoomeye-query:
-      - app="pyload"
-      - app:"pyload"
-  tags: panel,pyload,login
+    zoomeye-query: app="pyLoad"
+  tags: panel,pyload,login,discovery
 
 http:
   - method: GET

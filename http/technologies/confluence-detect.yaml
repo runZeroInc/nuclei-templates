@@ -16,7 +16,7 @@ info:
     runzero-vendor: Atlassian
     runzero-product: Confluence
     category: productivity
-  tags: tech,confluence,atlassian,detect
+  tags: tech,confluence,atlassian,detect,discovery
 
 http:
   - method: GET

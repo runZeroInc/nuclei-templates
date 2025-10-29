@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: nconf_project
-    product: nconf
-    shodan-query: http.title:"nconf"
-    fofa-query: title="nconf"
-    google-query: intitle:"nconf"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nconf"})
-  tags: panel,nconf
+  tags: panel,nconf,discovery
 
 http:
   - method: GET

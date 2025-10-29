@@ -13,11 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: lancom-systems
-    product: wlc-4006
-    shodan-query: http.html:"lancom systems gmbh"
-    fofa-query: body="lancom systems gmbh"
-    runzero-match: service["http.body"] matches "(?i)LANCOM Systems GmbH"
-  tags: panel,lancom,router
+  tags: panel,lancom,router,discovery
 
 http:
   - method: GET

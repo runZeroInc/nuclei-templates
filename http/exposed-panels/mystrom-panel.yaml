@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"myStrom"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)myStrom"})
-  tags: panel,mystrom,iot
+  tags: panel,mystrom,iot,discovery
 
 http:
   - method: GET

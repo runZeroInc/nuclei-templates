@@ -11,8 +11,7 @@ info:
     verified: "true"
     max-request: 1
     shodan-query: html:'content="eArcu'
-    runzero-match: service["http.body"] matches "(?i)'content=\"eArcu'"
-  tags: panel,earcu,detect
+  tags: panel,earcu,detect,discovery
 
 http:
   - method: GET

@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"qbittorrent"
     fofa-query: title="qbittorrent"
     google-query: intitle:"qbittorrent"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qbittorrent"})
-  tags: panel,qbittorrent,detect
+  tags: panel,qbittorrent,detect,discovery
 
 http:
   - method: GET

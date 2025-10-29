@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"Login to Frappe"
-    runzero-match: service["http.body"] matches "(?i)Login to Frappe"
-  tags: frappe,login,web,erp,detect
+  tags: frappe,login,web,erp,detect,discovery
 
 http:
   - method: GET

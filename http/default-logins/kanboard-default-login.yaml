@@ -18,13 +18,7 @@ info:
     verified: true
     max-request: 2
     vendor: kanboard
-    product: kanboard
-    shodan-query: http.favicon.hash:"2056442365"
-    fofa-query:
-      - app="kanboard"
-      - icon_hash=2056442365
-    runzero-match: service["http.body.mmh3"] == "1605834045"
-  tags: default-login,kanboard
+  tags: default-login,kanboard,vuln
 
 http:
   - raw:

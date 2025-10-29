@@ -20,8 +20,7 @@ info:
     fofa-query:
       - app="ektron-cms"
       - body="ektron"
-    runzero-match: service["http.body"] matches "(?i)ektron"
-  tags: panel,ektron,cms
+  tags: panel,ektron,cms,discovery
 
 http:
   - method: GET

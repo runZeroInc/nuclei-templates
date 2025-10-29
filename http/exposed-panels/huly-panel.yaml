@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"Huly"
-    runzero-match: service["http.body"] matches "(?i)Huly"
-  tags: panel,huly,login
+  tags: panel,huly,login,discovery
 
 http:
   - method: GET

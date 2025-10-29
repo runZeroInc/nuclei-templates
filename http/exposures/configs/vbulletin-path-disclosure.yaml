@@ -12,9 +12,7 @@ info:
     verified: true
     max-request: 11
     vendor: vbulletin
-    product: vbulletin
-    shodan-query: "title:\"vBulletin\""
-  tags: config,exposure,fpd,vbulletin
+  tags: config,exposure,fpd,vbulletin,vuln
 flow: http(1) && http(2)
 
 http:

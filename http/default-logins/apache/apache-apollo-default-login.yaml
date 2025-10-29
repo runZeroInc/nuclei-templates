@@ -12,11 +12,8 @@ info:
     max-request: 1
     vendor: apache
     product: activemq_apollo
-    shodan-query: http.title:"apache apollo"
-    fofa-query: title="apache apollo"
-    google-query: intitle:"apache apollo"
-    runzero-match: any(each(service["html.titles"]), {# matches "Apache Apollo"})
-  tags: apache,apollo,default-login,misconfig
+    shodan-query: title:"Apache Apollo"
+  tags: apache,apollo,default-login,misconfig,vuln
 variables:
   username: admin
   password: admin

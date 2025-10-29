@@ -16,8 +16,7 @@ info:
     product: filr
     shodan-query: http.html:"micro focus filr"
     fofa-query: body="micro focus filr"
-    runzero-match: service["http.body"] matches "(?i)micro focus filr"
-  tags: panel,microfocus,filr,detect
+  tags: panel,microfocus,filr,detect,discovery
 
 http:
   - method: GET

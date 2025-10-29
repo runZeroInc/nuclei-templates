@@ -21,8 +21,7 @@ info:
     fofa-query:
       - title="manageengine - exchange reporter plus"
       - icon_hash="230963457"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ManageEngine - Exchange Reporter Plus"}) || service["favicon.ico.image.mmh3"] == "230963457"
-  tags: panel,zoho,manageengine,zohocorp,login
+  tags: panel,zoho,manageengine,zohocorp,login,discovery
 
 http:
   - method: GET

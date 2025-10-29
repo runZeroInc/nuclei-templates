@@ -13,11 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: springsignage
-    product: xibo
-    shodan-query: http.html:"/xibosignage/xibo-cms"
-    fofa-query: body="/xibosignage/xibo-cms"
-    runzero-match: service["http.body"] matches "(?i)/xibosignage/xibo-cms"
-  tags: panel,xibocms
+  tags: panel,xibocms,discovery
 
 http:
   - method: GET

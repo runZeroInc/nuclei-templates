@@ -12,12 +12,7 @@ info:
     verified: true
     max-request: 2
     vendor: audiobookshelf
-    product: audiobookshelf
-    shodan-query: http.title:"audiobookshelf"
-    fofa-query: title="audiobookshelf"
-    google-query: intitle:"audiobookshelf"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Audiobookshelf"})
-  tags: panel,audiobookshelf,detect
+  tags: panel,audiobookshelf,detect,discovery
 
 http:
   - method: GET

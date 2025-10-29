@@ -11,8 +11,7 @@ info:
   metadata:
     verified: true
     shodan-query: "text/event-stream"
-    max-requests: 2
-  tags: mcp,devtools,exposure,api,ai,llm
+  tags: mcp,devtools,exposure,api,ai,llm,discovery
 
 http:
   - method: GET

@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"VMware Aria Operations"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware Aria Operations"})
-  tags: panel,aria,login,detect
+  tags: panel,aria,login,detect,discovery
 
 http:
   - method: GET

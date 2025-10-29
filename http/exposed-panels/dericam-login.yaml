@@ -13,8 +13,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Dericam"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dericam"})
-  tags: panel,dericam,edb
+  tags: panel,dericam,edb,discovery
 
 http:
   - method: GET

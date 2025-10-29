@@ -17,7 +17,9 @@ info:
     product: opengear
     fofa-query: app="opengear-Management-Console"
     google-query: intitle:"Opengear Management Console"
-  tags: panel,opengear
+    product: opengear
+    vendor: opengear
+  tags: panel,opengear,discovery
 
 http:
   - method: GET

@@ -16,10 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: apache
-    product: karaf
-    shodan-query: realm="karaf"
-    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="karaf'})
-  tags: default-login,apache,karaf
+  tags: default-login,apache,karaf,vuln
 
 http:
   - raw:

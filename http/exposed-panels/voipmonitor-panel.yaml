@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"voipmonitor"
     fofa-query: title="voipmonitor"
     google-query: intitle:"voipmonitor"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)voipmonitor"})
-  tags: panel,voipmonitor,login
+  tags: panel,voipmonitor,login,discovery
 
 http:
   - method: GET

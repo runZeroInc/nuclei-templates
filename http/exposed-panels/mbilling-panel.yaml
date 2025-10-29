@@ -9,9 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: html:"MagnusBilling"
-    runzero-match: service["http.body"] matches "(?i)MagnusBilling"
-  tags: mbilling,login,panel,magnusbilling
+  tags: mbilling,login,panel,magnusbilling,discovery
 
 http:
   - method: GET

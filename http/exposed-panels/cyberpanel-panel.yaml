@@ -14,10 +14,7 @@ info:
   metadata:
     max-request: 1
     product: cyberpanel
-    shodan-query: http.html:"cyberpanel"
-    fofa-query: app="Cyberpanel"
-    runzero-match: service["http.body"] matches "(?i)cyberpanel"
-  tags: cyberpanel,panel,login,detect
+  tags: cyberpanel,panel,login,detect,discovery
 
 http:
   - method: GET

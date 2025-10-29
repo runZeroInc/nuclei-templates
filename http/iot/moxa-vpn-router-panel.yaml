@@ -9,8 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.favicon.hash:-234487373
-  tags: moxo,oncel,vpn,login,panel
+  tags: moxo,oncel,vpn,login,panel,discovery
 
 http:
   - method: GET

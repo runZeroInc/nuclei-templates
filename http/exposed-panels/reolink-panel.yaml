@@ -10,9 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Reolink"
-    fofa-query: "Reolink"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Reolink"})
-  tags: panel,login,reolink,detect
+  tags: panel,login,reolink,detect,discovery
 
 http:
   - method: GET

@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"nessus"
     fofa-query: title="nessus"
     google-query: intitle:"nessus"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nessus"})
-  tags: panel,nessus,tenable
+  tags: panel,nessus,tenable,discovery
 
 http:
   - method: GET

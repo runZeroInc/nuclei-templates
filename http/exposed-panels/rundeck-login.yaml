@@ -13,14 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: pagerduty
-    product: rundeck
-    shodan-query: http.title:"rundeck"
-    fofa-query:
-      - app="rundeck-login"
-      - title="rundeck"
-    google-query: intitle:"rundeck"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Rundeck"})
-  tags: panel,rundeck
+  tags: panel,rundeck,discovery
 
 http:
   - method: GET

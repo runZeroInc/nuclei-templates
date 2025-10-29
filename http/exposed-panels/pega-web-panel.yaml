@@ -25,10 +25,8 @@ info:
       - title="pega"
     google-query:
       - inurl:"/prweb/prauth/app/default"
-      - intitle:"pega platform"
-      - intitle:"pega"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pega platform"})
-  tags: panel,pega
+    fofa-query: title="pega platform"
+  tags: panel,pega,discovery
 
 http:
   - method: GET

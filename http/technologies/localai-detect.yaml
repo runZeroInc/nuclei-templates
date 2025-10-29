@@ -15,8 +15,7 @@ info:
     vendor: mudler
     product: localai
     shodan-query: http.favicon.hash:-976853304
-    fofa-query: "LocalAI API"
-  tags: localai,tech,detect
+  tags: localai,tech,detect,discovery
 
 http:
   - method: GET

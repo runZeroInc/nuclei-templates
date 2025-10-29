@@ -12,11 +12,7 @@ info:
     verified: true
     max-request: 1
     vendor: redhat
-    product: satellite
-    shodan-query: http.html:"redhat" "satellite"
-    fofa-query: body="redhat" "satellite"
-    runzero-match: service["http.body"] matches "(?i)redhat"
-  tags: panel,redhat,satellite
+  tags: panel,redhat,satellite,discovery
 
 http:
   - method: GET

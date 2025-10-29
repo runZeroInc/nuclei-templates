@@ -15,11 +15,8 @@ info:
     max-request: 2
     vendor: rconfig
     product: rconfig
-    shodan-query: http.title:"rconfig"
-    fofa-query: title="rconfig"
-    google-query: intitle:"rconfig"
-    runzero-match: any(each(service["html.titles"]), {# matches "rConfig"})
-  tags: rconfig,default-login
+    shodan-query: http.title:"rConfig"
+  tags: rconfig,default-login,vuln
 
 http:
   - raw:

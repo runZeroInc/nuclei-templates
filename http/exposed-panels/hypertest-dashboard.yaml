@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"HyperTest"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)HyperTest"})
-  tags: panel,exposure,hypertest
+  tags: panel,exposure,hypertest,discovery
 
 http:
   - method: GET

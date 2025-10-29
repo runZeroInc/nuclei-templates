@@ -14,8 +14,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-    runzero-match: service["http.head.server"] contains "Apache Tomcat"
-  tags: default-login,tomcat
+  tags: default-login,tomcat,vuln
 
 http:
   - raw:

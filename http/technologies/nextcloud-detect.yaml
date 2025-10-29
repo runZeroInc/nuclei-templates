@@ -15,13 +15,8 @@ info:
     max-request: 4
     vendor: nextcloud
     product: nextcloud_server
-    shodan-query: http.title:"nextcloud"
-    fofa-query: title="nextcloud"
-    google-query: intitle:"nextcloud"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nextcloud"})
-    runzero-vendor: Nextcloud
-    runzero-product: Nextcloud Server
-  tags: tech,nextcloud,storage
+    shodan-query: http.title:"Nextcloud"
+  tags: tech,nextcloud,storage,discovery
 
 http:
   - method: GET

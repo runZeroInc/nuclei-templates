@@ -19,11 +19,8 @@ info:
       - title="users - misp"
       - title="errors - misp"
       - icon_hash="-137577333"
-    google-query:
-      - intitle:"users - misp"
-      - intitle:"errors - misp"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-137577333" || any(each(service["html.titles"]), {# matches "(?i)users - misp"}) || any(each(service["html.titles"]), {# matches "(?i)errors - misp"})
-  tags: panel,misp
+    google-query: intitle:"users - misp"
+  tags: panel,misp,discovery
 
 http:
   - method: GET

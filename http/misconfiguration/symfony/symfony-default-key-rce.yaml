@@ -16,7 +16,9 @@ info:
     verified: true
     max-request: 12
     shodan-query: http.html:"Symfony Profiler"
-  tags: rce,symfony,misconfig
+    verified: true
+  tags: rce,symfony,misconfig,vuln
+
 variables:
   badsecretkey: 'ThisIsAlmostCertainlyNotIt'
   uri_part: '_fragment?_path=what%3D-1%26_controller%3Dphpinfo'

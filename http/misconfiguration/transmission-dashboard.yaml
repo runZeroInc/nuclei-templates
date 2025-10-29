@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: transmissionbt
-    product: transmission
-    shodan-query: http.title:"Transmission Web Interface"
-  tags: misconfig,transmission,exposure,dashboard
+  tags: misconfig,transmission,exposure,dashboard,discovery
 
 http:
   - method: GET

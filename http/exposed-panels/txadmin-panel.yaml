@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: title="txAdmin Login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)txAdmin Login"})
-  tags: panel,login,txadmin,detect
+  tags: panel,login,txadmin,detect,discovery
 
 http:
   - method: GET

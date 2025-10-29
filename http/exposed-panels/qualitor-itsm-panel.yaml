@@ -15,11 +15,7 @@ info:
     vendor: qualitor
     product: qualitor
     shodan-query: http.favicon.hash:"-1217039701"
-    fofa-query:
-      - icon_hash="-1217039701"
-      - qualitor
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1217039701"
-  tags: panel,qualitor
+  tags: panel,qualitor,discovery
 
 http:
   - method: GET

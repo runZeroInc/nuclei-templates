@@ -17,7 +17,9 @@ info:
     product: avideo
     shodan-query: http.title:"AVideo"
     fofa-query: "AVideo"
-  tags: panel,install,avideo,misconfig
+    product: avideo
+    vendor: wwbn
+  tags: panel,install,avideo,misconfig,vuln
 
 http:
   - method: GET

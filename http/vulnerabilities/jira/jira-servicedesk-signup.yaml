@@ -15,9 +15,7 @@ info:
   metadata:
     max-request: 4
     vendor: atlassian
-    product: jira_service_management
-    shodan-query: http.component:"Atlassian Jira"
-  tags: atlassian,servicedesk,jira,confluence
+  tags: atlassian,servicedesk,jira,confluence,vuln
 
 http:
   - raw:

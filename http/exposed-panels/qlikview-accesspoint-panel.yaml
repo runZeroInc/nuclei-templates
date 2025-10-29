@@ -15,11 +15,8 @@ info:
     max-request: 1
     vendor: qlik
     product: qlikview
-    shodan-query: http.title:"qlikview - accesspoint"
-    fofa-query: title="qlikview - accesspoint"
-    google-query: intitle:"qlikview - accesspoint"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)QlikView - AccessPoint"})
-  tags: panel,qlikview,login,detect
+    shodan-query: title:"QlikView - AccessPoint"
+  tags: panel,qlikview,login,detect,discovery
 
 http:
   - method: GET

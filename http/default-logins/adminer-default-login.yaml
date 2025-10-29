@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 5
     shodan-query: http.title:adminer
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adminer"})
-  tags: default-login,adminer
+  tags: default-login,adminer,vuln
 
 http:
   - raw:

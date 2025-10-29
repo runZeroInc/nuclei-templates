@@ -17,9 +17,7 @@ info:
     verified: "true"
     max-request: 2
     vendor: magento
-    product: magento
-    shodan-query: http.component:"Magento"
-  tags: tech,magento,cms
+  tags: tech,magento,cms,discovery
 
 http:
   - raw:

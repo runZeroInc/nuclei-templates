@@ -15,8 +15,7 @@ info:
     product: tew-827dru_firmware
     shodan-query: http.html:"tew-827dru"
     fofa-query: body="tew-827dru"
-    runzero-match: service["http.body"] matches "(?i)tew-827dru"
-  tags: panel,router,trendnet
+  tags: panel,router,trendnet,discovery
 
 http:
   - method: GET

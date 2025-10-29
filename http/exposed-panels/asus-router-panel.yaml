@@ -13,9 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: asus
-    product: rt-n53
-    shodan-query: 'Server: httpd/2.0 port:8080'
-  tags: panel,asus,router,iot
+  tags: panel,asus,router,iot,discovery
 
 http:
   - method: GET

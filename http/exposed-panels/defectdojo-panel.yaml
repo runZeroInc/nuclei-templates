@@ -12,11 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: owasp
-    product: defectdojo
-    shodan-query: http.html:"defectdojo logo"
-    fofa-query: body="defectdojo logo"
-    runzero-match: service["http.body"] matches "(?i)DefectDojo Logo"
-  tags: panel,defectdojo
+  tags: panel,defectdojo,discovery
 
 http:
   - method: GET

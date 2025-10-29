@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"SequoiaDB"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SequoiaDB"})
-  tags: sequoiadb,panel,login
+  tags: sequoiadb,panel,login,discovery
 
 http:
   - method: GET

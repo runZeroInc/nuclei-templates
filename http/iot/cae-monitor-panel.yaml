@@ -9,8 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: http.favicon.hash:-268676052
-  tags: cae,login,panel,detect
+  tags: cae,login,panel,detect,discovery
 
 http:
   - method: GET

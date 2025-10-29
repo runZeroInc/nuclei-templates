@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"identity services engine"
     fofa-query: title="identity services engine"
     google-query: intitle:"identity services engine"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)identity services engine"})
-  tags: panel,cisco
+  tags: panel,cisco,discovery
 
 http:
   - method: GET

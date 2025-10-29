@@ -15,12 +15,7 @@ info:
     verified: true
     max-request: 4
     vendor: opencats
-    product: opencats
-    shodan-query: http.title:"opencats"
-    fofa-query: title="opencats"
-    google-query: intitle:"opencats"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)opencats"})
-  tags: default-login,opencats
+  tags: default-login,opencats,vuln
 
 http:
   - raw:

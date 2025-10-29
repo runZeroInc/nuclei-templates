@@ -13,9 +13,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 2
-    shodan-query: http.favicon.hash:892542951
-    runzero-match: service["favicon.ico.image.mmh3"] == "892542951"
-  tags: zabbix,default-login
+  tags: zabbix,default-login,vuln
 
 http:
   - raw:

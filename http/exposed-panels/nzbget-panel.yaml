@@ -16,8 +16,7 @@ info:
     product: nzbget
     shodan-query: http.html:"nzbget"
     fofa-query: body="nzbget"
-    runzero-match: service["http.body"] matches "(?i)nzbget"
-  tags: panel,nzbget
+  tags: panel,nzbget,discovery
 
 http:
   - method: GET

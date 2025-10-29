@@ -13,12 +13,7 @@ info:
     verified: true
     max-request: 2
     vendor: factorfx
-    product: ocs_inventory
-    shodan-query: http.title:"ocs inventory"
-    fofa-query: title="ocs inventory"
-    google-query: intitle:"ocs inventory"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OCS Inventory"})
-  tags: ocs-inventory,panel
+  tags: ocs-inventory,panel,discovery
 
 http:
   - method: GET

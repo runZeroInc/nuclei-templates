@@ -22,13 +22,8 @@ info:
     fofa-query:
       - body="apache tomcat"
       - title="apache tomcat"
-      - body="jk status manager"
-      - server=="apache tomcat"
-    google-query:
-      - intitle:"apache tomcat"
-      - site:*/examples/jsp/snp/snoop.jsp
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache tomcat"}) || service["http.body"] matches "(?i)apache tomcat"
-  tags: tomcat,panel,apache,detect
+    google-query: intitle:"apache tomcat"
+  tags: tomcat,panel,apache,detect,discovery
 
 http:
   - method: GET

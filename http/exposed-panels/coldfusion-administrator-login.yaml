@@ -21,8 +21,7 @@ info:
       - app="adobe-coldfusion"
       - title="coldfusion administrator login"
     google-query: intitle:"coldfusion administrator login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)coldfusion administrator login"})
-  tags: panel,coldfusion,adobe
+  tags: panel,coldfusion,adobe,discovery
 
 http:
   - method: GET

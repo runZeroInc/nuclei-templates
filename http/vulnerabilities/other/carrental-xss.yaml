@@ -18,9 +18,7 @@ info:
     verified: true
     max-request: 3
     vendor: car_rental_management_system_project
-    product: car_rental_management_system
-    shodan-query: http.html:"Car Rental Management System"
-  tags: xss,cms,authenticated,edb,intrusive
+  tags: xss,cms,authenticated,edb,intrusive,vuln
 
 http:
   - raw:

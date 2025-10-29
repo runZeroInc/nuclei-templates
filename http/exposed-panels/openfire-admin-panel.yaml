@@ -25,8 +25,7 @@ info:
     google-query:
       - intitle:"openfire admin console"
       - intitle:"openfire"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openfire admin console"}) || any(each(service["html.titles"]), {# matches "(?i)openfire"})
-  tags: panel,openfire,admin,console,igniterealtime
+  tags: panel,openfire,admin,console,igniterealtime,discovery
 
 http:
   - method: GET

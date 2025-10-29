@@ -14,8 +14,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: title=="VectorAdmin - Vector database management made easy."
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VectorAdmin - Vector database management made easy\\."})
-  tags: panel,login,vectoradmin,detect
+  tags: panel,login,vectoradmin,detect,discovery
 
 http:
   - method: GET

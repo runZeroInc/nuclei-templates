@@ -27,7 +27,7 @@ info:
     google-query: intitle:"phpmyadmin"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)phpmyadmin"})
     hunter-query: app.name="phpmyadmin"&&web.body="pma_servername"&&web.body="4.8.4"
-  tags: panel,phpmyadmin,detect
+  tags: panel,phpmyadmin,detect,discovery
 
 http:
   - method: GET

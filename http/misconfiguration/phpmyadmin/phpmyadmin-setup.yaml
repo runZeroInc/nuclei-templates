@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 16
     vendor: phpmyadmin
-    product: phpmyadmin
-    shodan-query: http.html:"phpMyAdmin"
-  tags: phpmyadmin,misconfig
+  tags: phpmyadmin,misconfig,vuln
 
 http:
   - method: GET

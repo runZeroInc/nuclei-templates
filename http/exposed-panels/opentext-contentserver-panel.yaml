@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"Content Server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Content Server"})
-  tags: panel,opentext,login
+  tags: panel,opentext,login,discovery
 
 http:
   - method: GET

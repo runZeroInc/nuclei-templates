@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"network configuration manager"
     fofa-query: title="network configuration manager"
     google-query: intitle:"network configuration manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)network configuration manager"})
-  tags: panel,zoho,manageengine,zohocorp
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET

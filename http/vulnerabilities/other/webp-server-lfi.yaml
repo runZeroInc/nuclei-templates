@@ -12,7 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: header="Webp-Server-Go"
-  tags: webp,webp-server,lfi
+  tags: webp,webp-server,lfi,vuln
 
 http:
   - method: GET

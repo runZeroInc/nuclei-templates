@@ -14,8 +14,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: html:"mempool-space" || title:"Signet Explorer"
-    runzero-match: service["http.body"] matches "(?i)mempool-space"
-  tags: panel,signet,bitcoin,dashboard
+  tags: panel,signet,bitcoin,dashboard,discovery
 
 http:
   - method: GET

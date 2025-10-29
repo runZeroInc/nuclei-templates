@@ -19,7 +19,9 @@ info:
     shodan-query:
       - http.title:"AEM Sign In"
       - http.component:"Adobe Experience Manager"
-  tags: xss,aem,adobe,misconfig
+    product: experience_manager
+    vendor: adobe
+  tags: xss,aem,adobe,misconfig,vuln
 
 http:
   - method: GET

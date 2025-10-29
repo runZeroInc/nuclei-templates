@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"project insight - login"
     fofa-query: title="project insight - login"
     google-query: intitle:"project insight - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)project insight - login"})
-  tags: panel,edb,helpproject
+  tags: panel,edb,helpproject,discovery
 
 http:
   - method: GET

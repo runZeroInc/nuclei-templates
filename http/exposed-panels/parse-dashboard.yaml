@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"parse dashboard"
     fofa-query: title="parse dashboard"
     google-query: intitle:"parse dashboard"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)parse dashboard"})
-  tags: panel,parse,exposure,parseplatform
+  tags: panel,parse,exposure,parseplatform,discovery
 
 http:
   - method: GET

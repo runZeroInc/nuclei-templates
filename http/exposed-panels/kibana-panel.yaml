@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"kibana"
     fofa-query: title="kibana"
     google-query: intitle:"kibana"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kibana"})
-  tags: panel,kibana,elastic
+  tags: panel,kibana,elastic,discovery
 
 http:
   - method: GET

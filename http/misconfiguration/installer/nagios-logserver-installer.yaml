@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Install &middot; Nagios Log Server"
-    fofa-query: title="Install &middot; Nagios Log Server"
-  tags: misconfig,install,nagios,nagios-logserver
+  tags: misconfig,install,nagios,nagios-logserver,vuln
 
 http:
   - method: GET

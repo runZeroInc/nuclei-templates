@@ -13,8 +13,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:1354079303
-    runzero-match: service["favicon.ico.image.mmh3"] == "1354079303"
-  tags: panel,droneci,cicd
+  tags: panel,droneci,cicd,discovery
 
 http:
   - method: GET

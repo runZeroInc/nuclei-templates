@@ -14,8 +14,8 @@ info:
     verified: true
     max-request: 1
     fofa-query: title="Fumeng Cloud"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Fumeng Cloud"})
-  tags: fumasoft,sqli
+  tags: fumasoft,sqli,vuln
+
 variables:
   num: "999999999"
 

@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"opensis"
     fofa-query: title="opensis"
     google-query: intitle:"opensis"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)opensis"})
-  tags: panel,opensis,login,os4ed
+  tags: panel,opensis,login,os4ed,discovery
 
 http:
   - method: GET

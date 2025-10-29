@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"Dolibarr"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dolibarr"})
-  tags: panel,dolibarr
+  tags: panel,dolibarr,discovery
 
 http:
   - method: GET

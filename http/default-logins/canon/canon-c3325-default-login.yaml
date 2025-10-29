@@ -11,8 +11,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"c3325"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)c3325"})
-  tags: canon,c3325,default-login,misconfig
+  tags: canon,c3325,default-login,misconfig,vuln
+
 variables:
   username: "Administrator"
   password: "7654321"

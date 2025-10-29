@@ -9,8 +9,8 @@ info:
   metadata:
     verified: true
     max-request: 1
-    shodan-query: 'title:"Joplin Server"'
-  tags: joplin,oss,default-login
+  tags: joplin,oss,default-login,vuln
+
 variables:
   username: admin@localhost
   password: admin

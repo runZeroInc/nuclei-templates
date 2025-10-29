@@ -14,12 +14,9 @@ info:
     max-request: 3
     vendor: sysaid
     product: sysaid
-    shodan-query: http.favicon.hash:"1540720428"
-    fofa-query:
-      - icon_hash=1540720428
-      - icon_hash="1540720428"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1540720428"
-  tags: panel,sysaid,helpdesk,detect
+    shodan-query: http.favicon.hash:1540720428
+    fofa-query: icon_hash=1540720428
+  tags: panel,sysaid,helpdesk,detect,discovery
 
 http:
   - method: GET

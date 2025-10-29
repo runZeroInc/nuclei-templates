@@ -23,8 +23,7 @@ info:
     google-query:
       - intitle:"adselfservice plus"
       - intitle:"manageengine"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adselfservice plus"}) || any(each(service["html.titles"]), {# matches "(?i)manageengine"})
-  tags: panel,zoho,manageengine,zohocorp
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET

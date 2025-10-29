@@ -13,11 +13,8 @@ info:
     max-request: 1
     vendor: softether
     product: vpn
-    shodan-query: http.title:"softether vpn server"
-    fofa-query: title="softether vpn server"
-    google-query: intitle:"softether vpn server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SoftEther VPN Server"})
-  tags: panel,vpn,softether
+    shodan-query: http.title:"SoftEther VPN Server"
+  tags: panel,vpn,softether,discovery
 
 http:
   - method: GET

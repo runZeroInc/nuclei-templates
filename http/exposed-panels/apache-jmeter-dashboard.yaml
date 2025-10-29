@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"apache jmeter dashboard"
     fofa-query: title="apache jmeter dashboard"
     google-query: intitle:"apache jmeter dashboard"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache jmeter dashboard"})
-  tags: apache,jmeter,panel
+  tags: apache,jmeter,panel,discovery
 
 http:
   - method: GET

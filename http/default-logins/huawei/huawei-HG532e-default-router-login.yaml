@@ -13,11 +13,7 @@ info:
   metadata:
     max-request: 1
     vendor: huawei
-    product: hg532e
-    shodan-query: http.html:"hg532e"
-    fofa-query: body="hg532e"
-    runzero-match: service["http.body"] matches "HG532e"
-  tags: default-login,huawei
+  tags: default-login,huawei,vuln
 
 http:
   - raw:

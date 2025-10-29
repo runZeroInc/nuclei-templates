@@ -14,8 +14,7 @@ info:
     shodan-query: http.title:"horizon daas"
     fofa-query: title="horizon daas"
     google-query: intitle:"horizon daas"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)horizon daas"})
-  tags: panel,vmware
+  tags: panel,vmware,discovery
 
 http:
   - method: GET

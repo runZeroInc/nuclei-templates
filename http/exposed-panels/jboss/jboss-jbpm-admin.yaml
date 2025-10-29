@@ -18,8 +18,7 @@ info:
     product: jbpm
     shodan-query: http.html:"jbossws"
     fofa-query: body="jbossws"
-    runzero-match: service["http.body"] matches "(?i)jbossws"
-  tags: jboss,panel,login,redhat
+  tags: jboss,panel,login,redhat,discovery
 
 http:
   - method: GET

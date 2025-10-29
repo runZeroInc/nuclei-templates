@@ -21,8 +21,7 @@ info:
       - icon_hash=-379154636
       - title="kubeview"
     google-query: intitle:"kubeview"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-379154636" || any(each(service["html.titles"]), {# matches "(?i)kubeview"})
-  tags: exposure,k8s,kubernetes,kubeview,dashboard,panel,kubeview_project
+  tags: exposure,k8s,kubernetes,kubeview,dashboard,panel,kubeview_project,discovery
 
 http:
   - method: GET

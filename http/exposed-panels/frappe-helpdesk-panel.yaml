@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.html:"window.frappe_version"
-    runzero-match: service["http.body"] matches "(?i)window\\.frappe_version"
-  tags: panel,frappe,login
+  tags: panel,frappe,login,discovery
 
 http:
   - method: GET

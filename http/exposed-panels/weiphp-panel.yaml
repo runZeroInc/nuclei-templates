@@ -20,8 +20,7 @@ info:
     fofa-query:
       - body="weiphp"
       - body="weiphp5.0"
-    runzero-match: service["http.body"] matches "(?i)weiphp" || service["http.body"] matches "(?i)weiphp5\\.0"
-  tags: panel,weiphp
+  tags: panel,weiphp,discovery
 
 http:
   - method: GET

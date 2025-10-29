@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: title="emlog"
-  tags: emlog,install,misconfig
+  tags: emlog,install,misconfig,vuln
 
 http:
   - method: GET

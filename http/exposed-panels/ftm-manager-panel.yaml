@@ -20,9 +20,7 @@ info:
     fofa-query:
       - title="ftm manager"
       - body="ftm manager"
-    google-query: intitle:"ftm manager"
-    runzero-match: service["http.body"] matches "(?i)ftm manager" || any(each(service["html.titles"]), {# matches "(?i)ftm manager"})
-  tags: panel,ftm,ibm
+  tags: panel,ftm,ibm,discovery
 
 http:
   - method: GET

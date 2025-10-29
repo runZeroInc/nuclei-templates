@@ -18,8 +18,7 @@ info:
       - cpe:"cpe:2.3:a:odoo:odoo"
     fofa-query: title="odoo"
     google-query: intitle:"odoo"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)odoo"})
-  tags: openerp,panel,odoo
+  tags: openerp,panel,odoo,discovery
 
 http:
   - method: GET

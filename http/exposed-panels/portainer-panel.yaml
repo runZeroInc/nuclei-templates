@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"portainer"
     fofa-query: title="portainer"
     google-query: intitle:"portainer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)portainer"})
-  tags: panel,portainer,detect
+  tags: panel,portainer,detect,discovery
 
 http:
   - method: GET

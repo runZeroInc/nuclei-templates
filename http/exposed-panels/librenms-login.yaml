@@ -13,12 +13,8 @@ info:
     max-request: 1
     vendor: librenms
     product: librenms
-    shodan-query: http.html:"librenms install"
-    fofa-query:
-      - title="librenms"
-      - body="librenms install"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)librenms"})
-  tags: librenms,panel
+    fofa-query: title="librenms"
+  tags: librenms,panel,discovery
 
 http:
   - method: GET

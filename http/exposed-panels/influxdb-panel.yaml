@@ -21,8 +21,7 @@ info:
       - x-influxdb-
     fofa-query: title="influxdb - admin interface"
     google-query: intitle:"influxdb - admin interface"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)influxdb - admin interface"})
-  tags: panel,influxdb,influxdata
+  tags: panel,influxdb,influxdata,discovery
 
 http:
   - method: GET

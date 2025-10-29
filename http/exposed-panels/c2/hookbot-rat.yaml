@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"hookbot"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hookbot"})
-  tags: tech,rat,hookbot,c2,panel,detect
+  tags: tech,rat,hookbot,c2,panel,detect,vuln
 
 http:
   - method: GET

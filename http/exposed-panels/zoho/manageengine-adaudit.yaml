@@ -21,8 +21,7 @@ info:
     shodan-query: http.title:"adaudit plus" || http.title:"manageengine - admanager plus"
     fofa-query: title="adaudit plus" || http.title:"manageengine - admanager plus"
     google-query: intitle:"adaudit plus" || http.title:"manageengine - admanager plus"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adaudit plus"})
-  tags: panel,zoho,manageengine,zohocorp
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET

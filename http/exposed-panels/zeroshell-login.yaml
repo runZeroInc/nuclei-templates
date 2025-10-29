@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"zeroshell"
     fofa-query: title="zeroshell"
     google-query: intitle:"zeroshell"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)zeroshell"})
-  tags: panel,zeroshell
+  tags: panel,zeroshell,discovery
 
 http:
   - method: GET

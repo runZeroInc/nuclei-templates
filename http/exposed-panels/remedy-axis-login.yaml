@@ -12,11 +12,7 @@ info:
     verified: true
     max-request: 3
     vendor: bmc
-    product: remedy_action_request_system
-    shodan-query: http.html:"bmc remedy"
-    fofa-query: body="bmc remedy"
-    runzero-match: service["http.body"] matches "(?i)BMC Remedy"
-  tags: panel,remedy,bmc
+  tags: panel,remedy,bmc,discovery
 
 http:
   - method: GET

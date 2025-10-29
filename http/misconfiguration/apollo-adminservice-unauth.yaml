@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: ctrip
-    product: apollo
-    shodan-query: http.html:"apollo-adminservice"
-  tags: misconfig,unauth,apollo,apolloadminservice
+  tags: misconfig,unauth,apollo,apolloadminservice,vuln
 
 http:
   - method: GET

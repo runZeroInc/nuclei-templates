@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"hybris"
     fofa-query: title="hybris"
     google-query: intitle:"hybris"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hybris"})
-  tags: panel,hybris,sap
+  tags: panel,hybris,sap,discovery
 
 http:
   - method: GET

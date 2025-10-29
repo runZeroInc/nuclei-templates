@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"ilch"
     fofa-query: title="ilch"
     google-query: intitle:"ilch"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ilch"})
-  tags: panel,ilch,cms
+  tags: panel,ilch,cms,discovery
 
 http:
   - method: GET

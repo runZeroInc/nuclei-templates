@@ -15,7 +15,9 @@ info:
     fofa-query:
       - "sap-server:"
       - icon_hash=-266008933
-  tags: sap,webserver,tech,detect
+    product: content_server
+    vendor: sap
+  tags: sap,webserver,tech,detect,discovery
 
 http:
   - method: GET

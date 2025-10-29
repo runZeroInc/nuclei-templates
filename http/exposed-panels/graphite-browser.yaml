@@ -14,12 +14,7 @@ info:
   metadata:
     max-request: 1
     vendor: graphite_project
-    product: graphite
-    shodan-query: http.title:"graphite browser"
-    fofa-query: title="graphite browser"
-    google-query: intitle:"graphite browser"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graphite Browser"})
-  tags: graphite,panel
+  tags: graphite,panel,discovery
 
 http:
   - method: GET

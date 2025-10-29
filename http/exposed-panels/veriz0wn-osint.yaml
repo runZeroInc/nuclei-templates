@@ -8,8 +8,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Veriz0wn"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Veriz0wn"})
-  tags: veriz0wn,panel
+  tags: veriz0wn,panel,discovery
 
 http:
   - method: GET

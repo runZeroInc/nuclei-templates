@@ -16,8 +16,7 @@ info:
     product: nagvis
     shodan-query: http.html:"nagvis"
     fofa-query: body="nagvis"
-    runzero-match: service["http.body"] matches "(?i)nagvis"
-  tags: panel,nagvis
+  tags: panel,nagvis,discovery
 
 http:
   - method: GET

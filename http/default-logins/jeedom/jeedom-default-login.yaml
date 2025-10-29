@@ -13,11 +13,8 @@ info:
     max-request: 2
     vendor: jeedom
     product: jeedom
-    shodan-query: http.title:"jeedom"
-    fofa-query: title="jeedom"
-    google-query: intitle:"jeedom"
-    runzero-match: any(each(service["html.titles"]), {# matches "Jeedom"})
-  tags: jeedom,default-login,misconfig
+    shodan-query: title:"Jeedom"
+  tags: jeedom,default-login,misconfig,vuln
 variables:
   username: admin
   password: admin

@@ -19,8 +19,7 @@ info:
     shodan-query: http.title:"buildbot"
     fofa-query: title="buildbot"
     google-query: intitle:"buildbot"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)buildbot"})
-  tags: panel,buildbot,cicd
+  tags: panel,buildbot,cicd,discovery
 
 http:
   - method: GET

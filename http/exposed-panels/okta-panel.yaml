@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.title:"okta"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)okta"})
-  tags: panel,okta,login
+  tags: panel,okta,login,discovery
 
 http:
   - method: GET

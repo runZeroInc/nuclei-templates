@@ -17,12 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: synopsys
-    product: black_duck_hub
-    shodan-query: http.title:"black duck"
-    fofa-query: title="black duck"
-    google-query: intitle:"black duck"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Black Duck"})
-  tags: panel,blackduck,synopsys
+  tags: panel,blackduck,synopsys,discovery
 
 http:
   - method: GET

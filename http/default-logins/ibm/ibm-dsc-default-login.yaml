@@ -11,8 +11,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: "title:\"Rule Execution Server\""
-    runzero-match: any(each(service["html.titles"]), {# matches "Rule Execution Server"})
-  tags: ibm,default-login,decision-server
+  tags: ibm,default-login,decision-server,vuln
 
 http:
   - raw:

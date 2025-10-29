@@ -21,7 +21,9 @@ info:
     product: zentao
     shodan-query: http.title:"zentao"
     fofa-query: "Zentao"
-  tags: cnvd,cnvd2022,zentao,sqli
+    product: zentao
+    vendor: easycorp
+  tags: cnvd,cnvd2022,zentao,sqli,vuln
 variables:
   num: "999999999"
 

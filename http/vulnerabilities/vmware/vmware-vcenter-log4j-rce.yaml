@@ -21,9 +21,7 @@ info:
   metadata:
     max-request: 1
     vendor: vmware
-    product: vcenter_server
-    shodan-query: title:"VMware VCenter"
-  tags: cve,cve2021,rce,jndi,log4j,vcenter,vmware,oast,kev
+  tags: cve,cve2021,rce,jndi,log4j,vcenter,vmware,oast,kev,vuln
 
 http:
   - raw:

@@ -13,11 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: vmware
-    product: nsx-t_data_center
-    shodan-query: http.html:"vmw_nsx_logo-black-triangle-500w.png"
-    fofa-query: body="vmw_nsx_logo-black-triangle-500w.png"
-    runzero-match: service["http.body"] matches "(?i)vmw_nsx_logo-black-triangle-500w\\.png"
-  tags: panel,vmware
+  tags: panel,vmware,discovery
 
 http:
   - method: GET

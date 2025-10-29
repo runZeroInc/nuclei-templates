@@ -23,8 +23,7 @@ info:
       - title=zblog
       - body="z-blogphp"
     google-query: intitle:zblog
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)zblog"})
-  tags: zblog,panel,zblogcn
+  tags: zblog,panel,zblogcn,discovery
 
 http:
   - method: GET

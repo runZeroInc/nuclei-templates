@@ -17,8 +17,7 @@ info:
     product: truenas
     shodan-query: http.html:"truenas"
     fofa-query: body="truenas"
-    runzero-match: service["http.body"] matches "(?i)truenas"
-  tags: login,panel,truenas,ixsystems
+  tags: login,panel,truenas,ixsystems,discovery
 
 http:
   - method: GET

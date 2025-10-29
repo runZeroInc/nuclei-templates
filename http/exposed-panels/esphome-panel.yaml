@@ -16,15 +16,9 @@ info:
     product: esphome
     shodan-query:
       - http.title:"login - esphome"
-      - http.title:"dashboard - esphome"
-    fofa-query:
-      - title="login - esphome"
-      - title="dashboard - esphome"
-    google-query:
-      - intitle:"login - esphome"
-      - intitle:"dashboard - esphome"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - esphome"})
-  tags: panel,esphome,iot
+    fofa-query: title="login - esphome"
+    google-query: intitle:"login - esphome"
+  tags: panel,esphome,iot,discovery
 
 http:
   - method: GET

@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"clearpass policy manager"
     fofa-query: title="clearpass policy manager"
     google-query: intitle:"clearpass policy manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)clearpass policy manager"})
-  tags: panel,aruba,arubanetworks
+  tags: panel,aruba,arubanetworks,discovery
 
 http:
   - method: GET

@@ -14,8 +14,7 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-    runzero-match: any(each(service["html.titles"]), {# matches "^MOFI4500"})
-  tags: mofi,default-login
+  tags: mofi,default-login,vuln
 
 http:
   - raw:

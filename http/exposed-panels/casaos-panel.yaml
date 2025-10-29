@@ -13,15 +13,7 @@ info:
     verified: true
     max-request: 2
     vendor: icewhale
-    product: casaos
-    shodan-query:
-      - http.html:"casaos"
-      - http.html:"/casaos-ui/public/index.html"
-    fofa-query:
-      - body="/casaos-ui/public/index.html"
-      - body="casaos"
-    runzero-match: service["http.body"] matches "(?i)CasaOS"
-  tags: panel,casaos,login,detect
+  tags: panel,casaos,login,detect,discovery
 
 http:
   - method: GET

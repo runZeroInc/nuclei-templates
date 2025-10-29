@@ -13,8 +13,7 @@ info:
     product: open-xchange_appsuite
     shodan-query: http.html:"appsuite"
     fofa-query: body="appsuite"
-    runzero-match: service["http.body"] matches "(?i)appsuite"
-  tags: panel,appsuite,detect,open-xchange
+  tags: panel,appsuite,detect,open-xchange,discovery
 
 http:
   - method: GET

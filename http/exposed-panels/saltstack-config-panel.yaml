@@ -14,12 +14,7 @@ info:
     verified: true
     max-request: 1
     vendor: saltstack
-    product: saltstack
-    shodan-query: http.title:"saltstack config"
-    fofa-query: title="saltstack config"
-    google-query: intitle:"saltstack config"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SaltStack Config"})
-  tags: panel,vmware,login,saltstack
+  tags: panel,vmware,login,saltstack,discovery
 
 http:
   - method: GET

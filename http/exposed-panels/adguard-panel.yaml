@@ -13,11 +13,8 @@ info:
     max-request: 1
     vendor: adguard
     product: adguard
-    fofa-query:
-      - title="adguard home"
-      - title="setup adguard home"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AdGuard Home"})
-  tags: adguard,panel,login,detect
+    fofa-query: title="AdGuard Home"
+  tags: adguard,panel,login,detect,discovery
 
 http:
   - method: GET

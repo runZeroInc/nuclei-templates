@@ -11,8 +11,7 @@ info:
     max-request: 2
     shodan-query: http.title:"WoodWing Studio Server"
     fofa-query: title=="WoodWing Studio Server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WoodWing Studio Server"})
-  tags: woodwing,panel
+  tags: woodwing,panel,discovery
 
 http:
   - method: GET

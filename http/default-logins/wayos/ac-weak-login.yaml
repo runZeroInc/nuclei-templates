@@ -13,8 +13,7 @@ info:
     verified: "true"
     max-request: 1
     fofa-query: 'title="安网科技-智能路由系统"'
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)安网科技-智能路由系统"})
-  tags: ways-ac,default-login
+  tags: ways-ac,default-login,vuln
 
 http:
   - raw:

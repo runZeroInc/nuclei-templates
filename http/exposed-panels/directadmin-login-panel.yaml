@@ -18,8 +18,7 @@ info:
     shodan-query: http.title:"directadmin login"
     fofa-query: title="directadmin login"
     google-query: intitle:"directadmin login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)directadmin login"})
-  tags: panel,directadmin
+  tags: panel,directadmin,discovery
 
 http:
   - method: GET

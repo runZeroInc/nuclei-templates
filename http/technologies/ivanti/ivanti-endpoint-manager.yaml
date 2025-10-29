@@ -15,7 +15,7 @@ info:
     max-request: 4
     shodan-query: html:"LANDesk"
     fofa-query: body="LANDesk"
-  tags: tech,ivanti,epm,detect,landdesk
+  tags: tech,ivanti,epm,detect,landdesk,discovery
 
 http:
   - method: GET

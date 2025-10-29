@@ -16,8 +16,7 @@ info:
     vendor: saltbo
     product: zpan
     shodan-query: title:"zpan"
-    fofa-query: title="zpan"
-  tags: panel,zpan,login,detect
+  tags: panel,zpan,login,detect,discovery
 
 http:
   - method: GET

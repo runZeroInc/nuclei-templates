@@ -15,16 +15,10 @@ info:
     max-request: 200
     vendor: tongda2000
     product: office_anywhere
-    shodan-query: http.title:"通达oa"
-    fofa-query:
-      - title="通达oa"
-      - app="tdxk-通达oa"
-    google-query: intitle:"通达oa"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)通达OA"})
-    zoomeye-query:
-      - app="通达oa"
-      - app:"通达oa"
-  tags: tongda,auth-bypass,fuzz
+    shodan-query: title:"通达OA"
+    fofa-query: title="通达OA"
+    zoomeye-query: app="通达OA"
+  tags: tongda,auth-bypass,fuzz,vuln
 
 http:
   - raw:

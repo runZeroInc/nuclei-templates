@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 2
     vendor: broadcom
-    product: siteminder
-    google-query: inurl:"smpwservices.fcc"
-  tags: dom,xss,siteminder
+  tags: dom,xss,siteminder,vuln
 
 http:
   - method: GET

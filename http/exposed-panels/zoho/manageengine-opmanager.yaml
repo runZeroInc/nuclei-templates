@@ -17,15 +17,9 @@ info:
     product: manageengine_opmanager
     shodan-query:
       - http.title:"opmanager plus"
-      - http.title:"opmanager"
-    fofa-query:
-      - title="opmanager plus"
-      - title="opmanager"
-    google-query:
-      - intitle:"opmanager plus"
-      - intitle:"opmanager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)opmanager plus"})
-  tags: panel,zoho,manageengine,zohocorp
+    fofa-query: title="opmanager plus"
+    google-query: intitle:"opmanager plus"
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET

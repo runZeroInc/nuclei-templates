@@ -19,9 +19,7 @@ info:
     verified: true
     max-request: 1
     vendor: cisco
-    product: unified_communications_domain_manager
-    shodan-query: title:"Cisco Unified"
-  tags: cve,cve2021,rce,jndi,log4j,cisco,kev,oast
+  tags: cve,cve2021,rce,jndi,log4j,cisco,kev,oast,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

@@ -14,12 +14,9 @@ info:
     max-request: 1
     vendor: kanboard
     product: kanboard
-    shodan-query: http.favicon.hash:"2056442365"
-    fofa-query:
-      - icon_hash=2056442365
-      - app="kanboard"
-    runzero-match: service["favicon.ico.image.mmh3"] == "2056442365"
-  tags: panel,kanboard
+    shodan-query: http.favicon.hash:2056442365
+    fofa-query: icon_hash=2056442365
+  tags: panel,kanboard,discovery
 
 http:
   - method: GET

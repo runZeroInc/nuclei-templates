@@ -17,8 +17,7 @@ info:
     product: linkerd
     shodan-query: http.html:"data-controller-namespace"
     fofa-query: body="data-controller-namespace"
-    runzero-match: service["http.body"] matches "(?i)data-controller-namespace"
-  tags: panel,misconfig,linkerd,exposure
+  tags: panel,misconfig,linkerd,exposure,discovery
 
 http:
   - method: GET

@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 2
     shodan-query: http.title:"Lucee"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Lucee"})
-  tags: panel,lucee
+  tags: panel,lucee,discovery
 
 http:
   - method: GET

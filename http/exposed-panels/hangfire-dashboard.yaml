@@ -17,8 +17,7 @@ info:
     shodan-query: http.title:"overview – hangfire dashboard"
     fofa-query: title="overview – hangfire dashboard"
     google-query: intitle:"overview – hangfire dashboard"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)overview – hangfire dashboard"})
-  tags: panel,hangfire
+  tags: panel,hangfire,discovery
 
 http:
   - method: GET

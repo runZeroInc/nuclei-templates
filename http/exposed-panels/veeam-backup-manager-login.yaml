@@ -19,8 +19,7 @@ info:
     fofa-query:
       - title="veeam backup enterprise manager"
       - icon_hash="169658321"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)veeam backup enterprise manager"}) || service["favicon.ico.image.mmh3"] == "169658321" || service["http.body"] matches "(?i)Veeam"
-  tags: veeam,panel,enterprise-manager,login,detect
+  tags: veeam,panel,enterprise-manager,login,detect,discovery
 
 http:
   - method: GET

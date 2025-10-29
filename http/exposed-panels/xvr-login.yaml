@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"xvr login"
     fofa-query: title="xvr login"
     google-query: intitle:"xvr login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)xvr login"})
-  tags: panel,xvr,dahuasecurity
+  tags: panel,xvr,dahuasecurity,discovery
 
 http:
   - method: GET

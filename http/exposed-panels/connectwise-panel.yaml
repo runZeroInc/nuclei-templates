@@ -19,10 +19,8 @@ info:
       - icon_hash=-82958153
     runzero-match: service["favicon.ico.image.mmh3"] == "-82958153"
     hunter-query: app.name="connectwise screenconnect software"
-    zoomeye-query:
-      - app="screenconnect remote management software"
-      - app:"screenconnect remote management software"
-  tags: screenconnect,panel,connectwise,detect
+    zoomeye-query: app="screenconnect remote management software"
+  tags: screenconnect,panel,connectwise,detect,discovery
 
 http:
   - method: GET

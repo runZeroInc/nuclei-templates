@@ -13,16 +13,7 @@ info:
     verified: true
     max-request: 2
     vendor: fortinet
-    product: fortiportal
-    shodan-query:
-      - http.title:"fortinet login"
-      - http.html:"fortiportal"
-    fofa-query:
-      - body="fortiportal"
-      - title="fortinet login"
-    google-query: intitle:"fortinet login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FORTINET LOGIN"})
-  tags: panel,fortinet,login,detect
+  tags: panel,fortinet,login,detect,discovery
 
 http:
   - method: GET

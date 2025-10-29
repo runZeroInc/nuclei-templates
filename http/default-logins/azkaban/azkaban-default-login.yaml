@@ -11,12 +11,7 @@ info:
   metadata:
     max-request: 1
     vendor: azkaban_project
-    product: azkaban
-    shodan-query: http.title:"azkaban web client"
-    fofa-query: title="azkaban web client"
-    google-query: intitle:"azkaban web client"
-    runzero-match: any(each(service["html.titles"]), {# matches "Azkaban Web Client"})
-  tags: default-login,azkaban
+  tags: default-login,azkaban,vuln
 
 http:
   - raw:

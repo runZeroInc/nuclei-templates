@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: dedecms
-    product: dedecms
-    shodan-query: http.html:"power by dedecms" || title:"dedecms"
-  tags: dedecms,redirect
+  tags: dedecms,redirect,vuln
 
 http:
   - method: GET

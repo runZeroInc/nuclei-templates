@@ -15,13 +15,8 @@ info:
     verified: true
     max-request: 2
     vendor: xuxueli
-    product: xxl-job
-    shodan-query: http.favicon.hash:"1691956220"
-    fofa-query:
-      - icon_hash=1691956220
-      - app="xxl-job"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1691956220"
-  tags: default-login,xxljob
+    fofa-query: icon_hash=1691956220
+  tags: default-login,xxljob,vuln
 
 http:
   - raw:

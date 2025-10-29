@@ -10,10 +10,9 @@ info:
     - https://github.com/alexta69/metube
   metadata:
     verified: true
-    max-request: 1
     shodan-query: http.title:MeTube
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MeTube"})
-  tags: metube,detect,panel,login
+    max-request: 1
+  tags: metube,detect,panel,login,discovery
 
 http:
   - method: GET

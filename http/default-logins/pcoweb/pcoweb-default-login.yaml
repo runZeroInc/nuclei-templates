@@ -11,8 +11,8 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"pCOWeb"
-    runzero-match: any(each(service["html.titles"]), {# matches "pCOWeb"})
-  tags: pcoweb,default-login,misconfig
+  tags: pcoweb,default-login,misconfig,vuln
+
 variables:
   username: "admin"
   password: "fadmin"

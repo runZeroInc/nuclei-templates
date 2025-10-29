@@ -13,9 +13,7 @@ info:
     verified: true
     max-request: 6
     vendor: dompdf_project
-    product: dompdf
-    fofa-query: title="dompdf - The PHP 5 HTML to PDF Converter"
-  tags: config,exposure,dompdf
+  tags: config,exposure,dompdf,vuln
 
 http:
   - method: GET

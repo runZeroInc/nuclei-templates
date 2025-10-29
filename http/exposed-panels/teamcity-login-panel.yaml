@@ -19,8 +19,7 @@ info:
       - http.title:"teamcity"
     fofa-query: title=teamcity
     google-query: intitle:teamcity
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)teamcity"})
-  tags: panel,teamcity,jetbrains,detect
+  tags: panel,teamcity,jetbrains,detect,discovery
 
 http:
   - method: GET

@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"LISTSERV Maestro"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LISTSERV Maestro"})
-  tags: panel,maestro,detect,login
+  tags: panel,maestro,detect,login,discovery
 
 http:
   - method: GET

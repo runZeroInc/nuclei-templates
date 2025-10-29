@@ -23,8 +23,7 @@ info:
       - title="zabbix-server"
       - icon_hash="892542951"
     google-query: intitle:"zabbix-server"
-    runzero-match: service["favicon.ico.image.mmh3"] == "892542951" || any(each(service["html.titles"]), {# matches "(?i)zabbix-server"})
-  tags: panel,zabbix
+  tags: panel,zabbix,discovery
 
 http:
   - method: GET

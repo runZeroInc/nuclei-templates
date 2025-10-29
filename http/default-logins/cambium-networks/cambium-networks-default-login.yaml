@@ -8,9 +8,8 @@ info:
   metadata:
     verified: true
     max-request: 2
-    fofa-query: title="Welcome to Canopy"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Welcome to Canopy"})
-  tags: default-login,cambium,canopy
+    fofa-query: "title=\"Welcome to Canopy\""
+  tags: default-login,cambium,canopy,vuln
 
 http:
   - raw:

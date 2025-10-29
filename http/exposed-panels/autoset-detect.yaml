@@ -10,8 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"AutoSet"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AutoSet"})
-  tags: tech,php,autoset,apache,panel
+  tags: tech,php,autoset,apache,panel,discovery
 
 http:
   - method: GET

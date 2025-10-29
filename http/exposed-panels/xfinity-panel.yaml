@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"xfinity"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)xfinity"})
-  tags: panel,xfinity
+  tags: panel,xfinity,discovery
 
 http:
   - method: GET

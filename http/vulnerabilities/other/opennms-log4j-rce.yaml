@@ -21,9 +21,7 @@ info:
     verified: true
     max-request: 1
     vendor: opennms
-    product: horizon
-    shodan-query: title:"OpenNMS Web Console"
-  tags: jndi,log4j,rce,opennms,cve,cve2021,kev,oast
+  tags: jndi,log4j,rce,opennms,cve,cve2021,kev,oast,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

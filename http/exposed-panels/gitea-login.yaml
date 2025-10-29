@@ -22,13 +22,8 @@ info:
     fofa-query:
       - title="gitea"
       - body="powered by gitea version"
-      - body="powered by gitea"
-      - 'title="installation -  gitea: git with a cup of tea"'
-    google-query:
-      - intitle:"gitea"
-      - 'intitle:"installation -  gitea: git with a cup of tea"'
-    runzero-match: service["http.body"] matches "(?i)powered by gitea version" || any(each(service["html.titles"]), {# matches "(?i)gitea"})
-  tags: gitea,panel
+    google-query: intitle:"gitea"
+  tags: gitea,panel,discovery
 
 http:
   - method: GET

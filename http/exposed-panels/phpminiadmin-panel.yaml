@@ -16,11 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: phpminiadmin_project
-    product: phpminiadmin
-    shodan-query: http.html:"phpminiadmin"
-    fofa-query: body="phpminiadmin"
-    runzero-match: service["http.body"] matches "(?i)phpMiniAdmin"
-  tags: panel,phpminiadmin
+  tags: panel,phpminiadmin,discovery
 
 http:
   - method: GET

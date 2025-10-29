@@ -15,15 +15,7 @@ info:
   metadata:
     max-request: 2
     vendor: ctrip
-    product: apollo
-    shodan-query:
-      - http.favicon.hash:"11794165"
-      - http.html:"apollo-adminservice"
-    fofa-query:
-      - body="apollo-adminservice"
-      - icon_hash=11794165
-    runzero-match: service["favicon.ico.image.mmh3"] == "11794165"
-  tags: apollo,default-login
+  tags: apollo,default-login,vuln
 
 http:
   - raw:

@@ -10,8 +10,7 @@ info:
     - https://steampowered.com
   metadata:
     max-request: 1
-  tags: phishing,steam,osint
-
+  tags: phishing,steam,osint,discovery
 http:
   - method: GET
     path:
@@ -27,6 +26,7 @@ http:
           - 'Welcome to Steam'
           - 'Steam is the ultimate destination for playing, discussing, and creating games.'
         condition: and
+
 
       - type: status
         status:

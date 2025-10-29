@@ -11,8 +11,7 @@ info:
   metadata:
     max-request: 1
     fofa-query: title="emessage"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)emessage"})
-  tags: panel,emessage
+  tags: panel,emessage,discovery
 
 http:
   - method: GET

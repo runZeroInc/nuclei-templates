@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: redis
-    product: redis
-    shodan-query: html:"redis.conf"
-  tags: redis,exposure,config
+  tags: redis,exposure,config,vuln
 
 http:
   - method: GET

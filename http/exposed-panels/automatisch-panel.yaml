@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 2
     shodan-query: title:"Automatisch"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Automatisch"})
-  tags: panel,automatisch,detect
+  tags: panel,automatisch,detect,discovery
 
 http:
   - method: GET

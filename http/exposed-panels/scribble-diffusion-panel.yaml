@@ -13,8 +13,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Scribble Diffusion"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Scribble Diffusion"})
-  tags: panel,scribble,detect
+  tags: panel,scribble,detect,discovery
 
 http:
   - method: GET

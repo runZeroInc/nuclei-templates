@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"PairDrop"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PairDrop"})
-  tags: panel,pairdrop,login
+  tags: panel,pairdrop,login,discovery
 
 http:
   - method: GET

@@ -13,14 +13,7 @@ info:
     verified: true
     max-request: 1
     vendor: home-assistant
-    product: home-assistant
-    shodan-query:
-      - http.title:"home assistant"
-      - cpe:"cpe:2.3:a:home-assistant:home-assistant"
-    fofa-query: title="home assistant"
-    google-query: intitle:"home assistant"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
-  tags: panel,iot,homeassistant
+  tags: panel,iot,homeassistant,discovery
 
 http:
   - method: GET

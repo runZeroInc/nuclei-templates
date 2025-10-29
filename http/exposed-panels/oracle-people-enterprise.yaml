@@ -16,8 +16,7 @@ info:
     shodan-query: http.title:"oracle peoplesoft enterprise"
     fofa-query: title="oracle peoplesoft enterprise"
     google-query: intitle:"oracle peoplesoft enterprise"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)oracle peoplesoft enterprise"})
-  tags: oracle,login,panel
+  tags: oracle,login,panel,discovery
 
 http:
   - method: GET

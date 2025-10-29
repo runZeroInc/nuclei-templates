@@ -15,12 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: apache
-    product: dolphinscheduler
-    shodan-query: http.title:"dolphinscheduler"
-    fofa-query: title="dolphinscheduler"
-    google-query: intitle:"dolphinscheduler"
-    runzero-match: any(each(service["html.titles"]), {# matches "DolphinScheduler"})
-  tags: apache,dolphinscheduler,default-login,oss
+  tags: apache,dolphinscheduler,default-login,oss,vuln
 
 http:
   - raw:

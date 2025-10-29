@@ -13,15 +13,9 @@ info:
     product: fusionauth
     shodan-query:
       - http.title:"fusionauth"
-      - http.title:"fusionauth setup wizard"
-    fofa-query:
-      - title="fusionauth"
-      - title="fusionauth setup wizard"
-    google-query:
-      - intitle:"fusionauth"
-      - intitle:"fusionauth setup wizard"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fusionauth"})
-  tags: panel,fusionauth,detect,login
+    fofa-query: title="fusionauth"
+    google-query: intitle:"fusionauth"
+  tags: panel,fusionauth,detect,login,discovery
 
 http:
   - method: GET

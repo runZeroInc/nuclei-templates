@@ -14,7 +14,8 @@ info:
     vendor: fastbee
     product: fastbee
     fofa-query: "fastbee"
-  tags: fastbee,iot,lfi
+  tags: fastbee,iot,lfi,vuln
+
 flow: http(1) && http(2)
 
 http:

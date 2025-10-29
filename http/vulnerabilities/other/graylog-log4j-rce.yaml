@@ -19,9 +19,7 @@ info:
     verified: true
     max-request: 1
     vendor: graylog
-    product: graylog
-    shodan-query: title:"Graylog Web Interface"
-  tags: cve,cve2021,rce,jndi,log4j,graylog,kev,oast
+  tags: cve,cve2021,rce,jndi,log4j,graylog,kev,oast,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

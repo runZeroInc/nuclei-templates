@@ -14,10 +14,8 @@ info:
     max-request: 1
     vendor: dataease_project
     product: dataease
-    shodan-query: http.html:"dataease"
-    fofa-query: body="dataease"
-    runzero-match: service["http.body"] matches "Dataease"
-  tags: default-login,dataease
+    shodan-query: html:"Dataease"
+  tags: default-login,dataease,vuln
 
 http:
   - method: POST

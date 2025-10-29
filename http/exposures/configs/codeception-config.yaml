@@ -11,9 +11,7 @@ info:
     verified: true
     max-request: 1
     vendor: codeception
-    product: codeception
-    shodan-query: html:"codeception.yml"
-  tags: exposure,devops,codeception,config,cicd
+  tags: exposure,devops,codeception,config,cicd,vuln
 
 http:
   - method: GET

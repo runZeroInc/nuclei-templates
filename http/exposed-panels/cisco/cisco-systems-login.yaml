@@ -12,8 +12,7 @@ info:
     max-request: 1
     shodan-query: http.title:"Cisco Systems Login"
     google-query: intitle:"Cisco Systems Login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco Systems Login"})
-  tags: panel,cisco
+  tags: panel,cisco,discovery
 
 http:
   - method: GET

@@ -17,9 +17,7 @@ info:
       - title="SUSE Multi-Linux Manager - Sign In"
       - title="Uyuni - Sign In"
       - icon_hash="1158194469"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SUSE Manager - Sign In"}) || any(each(service["html.titles"]), {# matches "(?i)SUSE Multi-Linux Manager - Sign In"}) || any(each(service["html.titles"]), {# matches "(?i)Uyuni - Sign In"}) || service["favicon.ico.image.mmh3"] == "1158194469"
-    verify: true
-  tags: panel,detect,suse,login
+  tags: panel,detect,suse,login,discovery
 
 http:
   - method: GET

@@ -12,9 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: afterlogic
-    product: aurora
-    fofa-query: 'X-Server: AfterlogicDAVServer'
-  tags: panel,afterlogic,login,detect
+  tags: panel,afterlogic,login,detect,discovery
 
 http:
   - method: GET

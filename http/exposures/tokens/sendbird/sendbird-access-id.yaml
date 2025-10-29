@@ -9,8 +9,7 @@ info:
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/sendbird-access-id.yaml
   metadata:
     verified: true
-    max-request: 1
-  tags: exposure,token,sendbird
+  tags: exposure,token,sendbird,vuln
 
 http:
   - method: GET

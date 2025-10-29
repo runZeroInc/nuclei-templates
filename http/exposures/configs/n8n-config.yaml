@@ -15,8 +15,7 @@ info:
     vendor: n8n
     product: n8n
     shodan-query: http.html:"N8n"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)n8n.io*workflow automation"})
-  tags: n8n,config,exposed
+  tags: n8n,config,exposed,vuln
 
 http:
   - raw:

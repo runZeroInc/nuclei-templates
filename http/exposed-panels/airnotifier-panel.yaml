@@ -12,8 +12,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.title:"AirNotifier"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AirNotifier"})
-  tags: panel,airnotifier
+  tags: panel,airnotifier,discovery
 
 http:
   - method: GET

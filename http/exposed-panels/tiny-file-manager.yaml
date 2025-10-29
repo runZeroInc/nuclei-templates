@@ -14,7 +14,7 @@ info:
     shodan-query: title:"Tiny File Manager"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tiny File Manager"})
     zoomeye-query: app="Tiny File Manager"
-  tags: panel,filemanager,login,detect
+  tags: panel,filemanager,login,detect,discovery
 
 http:
   - method: GET
