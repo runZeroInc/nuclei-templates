@@ -13,7 +13,6 @@ info:
   reference:
     - https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments
   metadata:
-    verified: true
     max-request: 1
     vendor: microsoft
     product: asp.net-core

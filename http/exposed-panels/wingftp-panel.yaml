@@ -9,7 +9,6 @@ info:
   reference:
     - https://www.wftpserver.com/
   metadata:
-    verified: true
     vendor: wingftp
     product: wingftp
     shodan-query:

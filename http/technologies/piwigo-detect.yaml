@@ -8,7 +8,6 @@ info:
     max-request: 1
     vendor: piwigo
     product: piwigo
-    shodan-query: http.favicon.hash:540706145
     fofa-query:
       - title="piwigo"
       - icon_hash=540706145

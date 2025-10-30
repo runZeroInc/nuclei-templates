@@ -9,7 +9,6 @@ info:
   reference:
     - https://github.com/laluka/jolokia-exploitation-toolkit/blob/main/exploits/info-leak-tomcat-creds.py
     - https://therealcoiffeur.github.io/c11011
-  tags: jolokia,tomcat,exposure
 
 http:
   - method: GET
