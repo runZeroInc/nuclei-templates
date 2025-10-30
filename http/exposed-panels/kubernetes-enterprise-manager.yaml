@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:kubernetes:kubernetes:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kubernetes web view"})
     max-request: 1
     vendor: kubernetes
     product: kubernetes
@@ -18,8 +19,7 @@ info:
       - app="kubernetes-enterprise-manager"
       - title="kubernetes web view"
     google-query: intitle:"kubernetes web view"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kubernetes web view"})
-  tags: tech,kubernetes,panel
+  tags: tech,kubernetes,panel,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

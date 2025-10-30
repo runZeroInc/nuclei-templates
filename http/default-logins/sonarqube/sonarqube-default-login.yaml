@@ -14,17 +14,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:sonarsource:sonarqube:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "SonarQube"})
     verified: true
     max-request: 4
     vendor: sonarsource
-    product: sonarqube
-    shodan-query: http.title:"sonarqube"
-    fofa-query:
-      - app="sonarqube-代码管理"
-      - title="sonarqube"
-    google-query: intitle:"sonarqube"
-    runzero-match: any(each(service["html.titles"]), {# matches "SonarQube"})
-  tags: default-login,sonarqube
+  tags: default-login,sonarqube,vuln
 
 http:
   - raw:
@@ -50,4 +44,3 @@ http:
           - 'len(body) == 0'
           - 'contains(set_cookie, "JWT-SESSION=")'
         condition: and
-

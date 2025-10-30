@@ -7,11 +7,12 @@ info:
   description: |
     TP-Link Wireless N Router WR940N default login credentials were discovered.
   metadata:
+    runzero-match: service["http.body"] matches "/userRpm/"
     verified: true
     max-request: 1
     shodan-query: html:"/userRpm/"
-    runzero-match: service["http.body"] matches "/userRpm/"
-  tags: tplink,wR940n,default-login,misconfig
+  tags: tplink,wR940n,default-login,misconfig,vuln
+
 variables:
   username: "admin"
   password: "admin"
@@ -44,4 +45,3 @@ http:
         part: header
         status:
           - 200
-

@@ -9,8 +9,7 @@ info:
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/scalingo-api-token.yaml
   metadata:
     verified: true
-    max-request: 1
-  tags: exposure,token,scalingo
+  tags: exposure,token,scalingo,vuln
 
 http:
   - method: GET

@@ -17,9 +17,7 @@ info:
   metadata:
     max-request: 2
     vendor: adobe
-    product: experience_manager
-    shodan-query: http.component:"Adobe Experience Manager"
-  tags: aem,xss,misconfig
+  tags: aem,xss,misconfig,vuln
 
 http:
   - method: GET

@@ -14,7 +14,8 @@ info:
     product: ap_pagebuilder
     framework: prestashop
     shodan-query: "http.component:\"prestashop\""
-  tags: intrusive,file-upload,cartabandonmentpro,prestashop
+  tags: intrusive,file-upload,cartabandonmentpro,prestashop,vuln
+
 flow: http(1) && http(2)
 variables:
   filename: '{{rand_base(7, "abc")}}'

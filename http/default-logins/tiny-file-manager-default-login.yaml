@@ -14,14 +14,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:tinyfilemanager_project:tinyfilemanager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "Tiny File Manager"
     verified: true
     max-request: 3
     vendor: tinyfilemanager_project
-    product: tinyfilemanager
-    shodan-query: http.html:"tiny file manager"
-    fofa-query: body="tiny file manager"
-    runzero-match: service["http.body"] matches "Tiny File Manager"
-  tags: default-login,tiny,filemanager
+  tags: default-login,tiny,filemanager,vuln
 
 http:
   - raw:
@@ -68,4 +65,3 @@ http:
         regex:
           - '([a-f0-9]{64})'
         internal: true
-

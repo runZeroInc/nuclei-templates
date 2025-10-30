@@ -11,14 +11,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:linkerd:linkerd:*:*:*:*:kubernetes:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)data-controller-namespace"
     verified: true
     max-request: 1
     vendor: linkerd
     product: linkerd
     shodan-query: http.html:"data-controller-namespace"
     fofa-query: body="data-controller-namespace"
-    runzero-match: service["http.body"] matches "(?i)data-controller-namespace"
-  tags: panel,misconfig,linkerd,exposure
+  tags: panel,misconfig,linkerd,exposure,discovery
 
 http:
   - method: GET
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -11,24 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:moodle:moodle:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)moodle"
     verified: true
     max-request: 1
     vendor: moodle
     product: moodle
-    shodan-query:
-      - http.html:"moodle"
-      - cpe:"cpe:2.3:a:moodle:moodle"
-      - http.title:"installation moodle"
-      - http.title:"moodle"
-    fofa-query:
-      - body="moodle"
-      - title="installation moodle"
-      - title="moodle"
-    google-query:
-      - intitle:"installation moodle"
-      - intitle:"moodle"
-    runzero-match: service["http.body"] matches "(?i)moodle"
-  tags: panel,moodle,login,detect
+    shodan-query: http.html:"moodle"
+  tags: panel,moodle,login,detect,discovery
 
 http:
   - method: GET
@@ -41,4 +30,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "content=\"moodle", "\"name\":\"moodle\"") && contains(body, "workplace")'
         condition: and
-

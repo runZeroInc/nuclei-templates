@@ -19,9 +19,7 @@ info:
     verified: true
     max-request: 1
     vendor: dedecms
-    product: dedecms
-    shodan-query: http.html:"DedeCms"
-  tags: dedecms,xss
+  tags: dedecms,xss,vuln
 
 http:
   - method: GET

@@ -14,26 +14,16 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:tooljet:tooljet:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tooljet"})
     verified: true
     max-request: 1
     vendor: tooljet
-    product: tooljet
-    shodan-query:
-      - http.title:"tooljet"
-      - http.title:"tooljet - dashboard"
-    fofa-query:
-      - title="tooljet - dashboard"
-      - title="tooljet"
-    google-query:
-      - intitle:"tooljet - dashboard"
-      - intitle:"tooljet"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tooljet"})
-  tags: default-login,tooljet
+  tags: default-login,tooljet,vuln
 
 http:
   - raw:
       - |
-        POST /api/authenticate HTTP/2
+        POST /api/authenticate HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
 
@@ -63,4 +53,3 @@ http:
       - type: status
         status:
           - 201
-

@@ -10,19 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:ui:aircube:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AirCube Dashboard"})
     verified: true
     max-request: 1
     vendor: ui
-    product: aircube
-    shodan-query:
-      - http.title:"aircube dashboard"
-      - http.favicon.hash:"1249285083"
-    fofa-query:
-      - icon_hash=1249285083
-      - title="aircube dashboard"
-    google-query: intitle:"aircube dashboard"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AirCube Dashboard"})
-  tags: panel,aircube
+  tags: panel,aircube,discovery
 
 http:
   - method: GET
@@ -39,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

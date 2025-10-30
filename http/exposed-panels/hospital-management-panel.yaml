@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hospital_management_system_project:hospital_management_system:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)hospital management system"
     verified: true
     max-request: 1
     vendor: hospital_management_system_project
     product: hospital_management_system
     shodan-query: http.html:"hospital management system"
     fofa-query: body="hospital management system"
-    runzero-match: service["http.body"] matches "(?i)hospital management system"
-  tags: panel,hms,cms,hospital_management_system_project
+  tags: panel,hms,cms,hospital_management_system_project,discovery
 
 http:
   - method: GET
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

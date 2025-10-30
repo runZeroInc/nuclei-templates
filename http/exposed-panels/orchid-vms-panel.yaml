@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ipconfigure:orchid_core_vms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)orchid core vms"})
     max-request: 1
     vendor: ipconfigure
     product: orchid_core_vms
     shodan-query: http.title:"orchid core vms"
     fofa-query: title="orchid core vms"
     google-query: intitle:"orchid core vms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)orchid core vms"})
-  tags: panel,orchid,ipconfigure
+  tags: panel,orchid,ipconfigure,discovery
 
 http:
   - method: GET
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

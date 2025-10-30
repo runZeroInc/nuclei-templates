@@ -20,9 +20,7 @@ info:
     verified: true
     max-request: 1
     vendor: microsoft
-    product: exchange_server
-    shodan-query: http.title:outlook exchange
-  tags: misconfig,microsoft,ms-exchange,ad,dc
+  tags: misconfig,microsoft,ms-exchange,ad,dc,vuln
 
 http:
   - method: GET

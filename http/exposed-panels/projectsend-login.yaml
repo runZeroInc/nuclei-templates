@@ -13,21 +13,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:projectsend:projectsend:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)provided"
     max-request: 1
     vendor: projectsend
     product: projectsend
-    shodan-query:
-      - http.html:"provided by projectsend"
-      - http.html:"projectsend setup"
-      - http.html:"projectsend"
-    fofa-query:
-      - body=provided by projectsend
-      - body="projectsend setup"
-      - body="projectsend"
-      - body="provided by projectsend"
-    google-query: intext:provided by projectsend
-    runzero-match: service["http.body"] matches "(?i)provided"
-  tags: panel,projectsend,edb
+    google-query:
+      - intext:Provided by ProjectSend
+      - intext:provided by projectsend
+    shodan-query: http.html:provided by projectsend
+    fofa-query: body=provided by projectsend
+  tags: panel,projectsend,edb,discovery
 
 http:
   - method: GET
@@ -56,4 +51,3 @@ http:
         group: 1
         regex:
           - "version (.*) - Free software"
-

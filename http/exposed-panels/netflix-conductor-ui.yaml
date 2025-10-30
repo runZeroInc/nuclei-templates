@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:netflix:conductor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)conductor ui"})
     max-request: 1
     vendor: netflix
     product: conductor
     shodan-query: http.title:"conductor ui", http.title:"workflow ui"
     fofa-query: title="conductor ui", http.title:"workflow ui"
     google-query: intitle:"conductor ui", http.title:"workflow ui"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)conductor ui"})
-  tags: webserver,netflix,conductor,panel
+  tags: webserver,netflix,conductor,panel,discovery
 
 http:
   - method: GET
@@ -39,4 +39,3 @@ http:
           - '<title>Conductor UI</title>'
           - '<title>Workflow UI</title>'
         condition: or
-

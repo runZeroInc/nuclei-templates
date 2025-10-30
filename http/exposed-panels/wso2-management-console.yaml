@@ -12,14 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:wso2:api_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1398055326"
     max-request: 1
     vendor: wso2
     product: api_manager
     shodan-query: http.favicon.hash:"1398055326"
     fofa-query: icon_hash=1398055326
     google-query: inurl:"carbon/admin/login"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1398055326"
-  tags: panel,wso2,edb
+  tags: panel,wso2,edb,discovery
 
 http:
   - method: GET
@@ -44,4 +44,3 @@ http:
         part: header
         kval:
           - server
-

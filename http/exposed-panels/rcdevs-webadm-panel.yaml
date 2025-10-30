@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.rcdevs.com/solutions/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)WebADM"
     verified: true
     max-request: 4
     shodan-query: http.html:"WebADM"
-    runzero-match: service["http.body"] matches "(?i)WebADM"
-  tags: panel,rcdevs,webadm,login,detect
+  tags: panel,rcdevs,webadm,login,detect,discovery
 
 http:
   - method: GET
@@ -46,4 +46,3 @@ http:
         group: 1
         regex:
           - '(?i)webadm\s+(free|enterprise)\s+edition'
-

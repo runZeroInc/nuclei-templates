@@ -15,8 +15,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: http.component:"Sharepoint"
-    runzero-query: service["favicon.ico.image.md5"] matches `^50996da127314e31e0b14d57b9847c9f$` || service["http.head.microsoftsharepointteamservices"] != "" || service["tls.issuer"] matches `(i)sharepoint`
-  tags: sharepoint,webshell,implant,aspx,backdoor
+  tags: sharepoint,webshell,implant,aspx,backdoor,vuln
 
 http:
   - method: GET

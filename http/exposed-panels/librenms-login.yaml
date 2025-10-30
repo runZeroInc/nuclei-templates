@@ -10,15 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:librenms:librenms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)librenms"})
     max-request: 1
     vendor: librenms
     product: librenms
-    shodan-query: http.html:"librenms install"
-    fofa-query:
-      - title="librenms"
-      - body="librenms install"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)librenms"})
-  tags: librenms,panel
+    fofa-query: title="librenms"
+  tags: librenms,panel,discovery
 
 http:
   - method: GET
@@ -35,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

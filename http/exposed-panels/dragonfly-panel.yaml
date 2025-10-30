@@ -7,11 +7,11 @@ info:
   description: |
     Dragonfly Login Panel was discovered
   metadata:
+    runzero-match: service["http.body"] matches "(?i)logo-dragonfly\\.png"
     verified: true
     max-request: 1
     fofa-query: body="logo-dragonfly.png"
-    runzero-match: service["http.body"] matches "(?i)logo-dragonfly\\.png"
-  tags: dragonfly,panel,login
+  tags: dragonfly,panel,login,discovery
 
 http:
   - method: GET
@@ -31,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

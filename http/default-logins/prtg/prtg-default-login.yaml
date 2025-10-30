@@ -12,18 +12,10 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:paessler:prtg_network_monitor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-655683626"
     max-request: 1
     vendor: paessler
-    product: prtg_network_monitor
-    shodan-query:
-      - http.favicon.hash:"-655683626"
-      - http.title:"prtg"
-    fofa-query:
-      - icon_hash="-655683626"
-      - title="prtg"
-    google-query: intitle:"prtg"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-655683626"
-  tags: prtg,default-login
+  tags: prtg,default-login,vuln
 
 http:
   - raw:
@@ -53,4 +45,3 @@ http:
       - type: status
         status:
           - 302
-

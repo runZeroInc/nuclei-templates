@@ -10,8 +10,7 @@ info:
     - https://python.org
   metadata:
     max-request: 1
-  tags: phishing,python,osint
-
+  tags: phishing,python,osint,discovery
 http:
   - method: GET
     path:
@@ -27,6 +26,7 @@ http:
           - 'Welcome to Python.org'
           - 'The official home of the Python Programming Language'
         condition: and
+
 
       - type: status
         status:

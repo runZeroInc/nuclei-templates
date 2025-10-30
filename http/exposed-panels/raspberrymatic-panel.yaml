@@ -10,13 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:raspberrymatic:raspberrymatic:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-578216669"
     max-request: 1
     vendor: raspberrymatic
-    product: raspberrymatic
-    shodan-query: http.favicon.hash:"-578216669"
-    fofa-query: icon_hash=-578216669
-    runzero-match: service["favicon.ico.image.mmh3"] == "-578216669"
-  tags: panel,raspberrymatic,iot
+  tags: panel,raspberrymatic,iot,discovery
 
 http:
   - method: GET
@@ -36,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

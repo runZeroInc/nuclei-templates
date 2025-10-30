@@ -13,14 +13,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pfsense:pfsense:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pfsense - login"})
     max-request: 1
     vendor: pfsense
     product: pfsense
     shodan-query: http.title:"pfsense - login"
     fofa-query: title="pfsense - login"
-    google-query: intitle:"pfsense - login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pfsense - login"})
-  tags: panel,pfsense
+  tags: panel,pfsense,discovery
 
 http:
   - method: GET
@@ -43,4 +42,3 @@ http:
         group: 1
         regex:
           - '<script src="\/js\/pfSense\.js\?(.+)"><\/script>'
-

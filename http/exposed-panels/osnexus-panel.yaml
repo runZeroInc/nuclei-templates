@@ -11,14 +11,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:osnexus:quantastor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OSNEXUS QuantaStor Manager"})
     max-request: 1
     vendor: osnexus
-    product: quantastor
-    shodan-query: http.title:"osnexus quantastor manager"
-    fofa-query: title="osnexus quantastor manager"
-    google-query: intitle:"osnexus quantastor manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OSNEXUS QuantaStor Manager"})
-  tags: panel,osnexus,login
+  tags: panel,osnexus,login,discovery
 
 http:
   - method: GET
@@ -34,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -8,17 +8,13 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:cloudstack:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Apache CloudStack"})
     verified: true
     max-request: 1
     vendor: apache
     product: cloudstack
-    shodan-query: http.title:"apache cloudstack"
-    fofa-query:
-      - app="apache-cloudstack"
-      - title="apache cloudstack"
-    google-query: intitle:"apache cloudstack"
-    runzero-match: any(each(service["html.titles"]), {# matches "Apache CloudStack"})
-  tags: default-login,apache,cloudstack
+    shodan-query: http.title:"Apache CloudStack"
+  tags: default-login,apache,cloudstack,vuln
 
 http:
   - raw:
@@ -44,4 +40,3 @@ http:
           - contains(content_type, 'application/json')
           - contains_all(body, 'sessionkey','domainid','userid')
         condition: and
-

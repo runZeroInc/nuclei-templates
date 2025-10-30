@@ -13,18 +13,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:seafile:seafile:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1552322396"
     verified: true
     max-request: 1
     vendor: seafile
     product: seafile
-    shodan-query:
-      - http.favicon.hash:"1552322396"
-      - http.html:"seafile"
-    fofa-query:
-      - icon_hash=1552322396
-      - body="seafile"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1552322396"
-  tags: sefile,panel,login,seafile
+    shodan-query: http.favicon.hash:1552322396
+    fofa-query: icon_hash=1552322396
+  tags: sefile,panel,login,seafile,discovery
 
 http:
   - method: GET
@@ -41,4 +37,3 @@ http:
           - "status_code==200"
           - 'contains(body, "SEAFILE_GLOBAL") && contains(body, "seafile-ui.css")'
         condition: and
-

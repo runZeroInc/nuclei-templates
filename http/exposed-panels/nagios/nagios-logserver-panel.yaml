@@ -7,12 +7,11 @@ info:
   description: |
     Detects the presence of Nagios Log Server by identifying specific response patterns, HTTP headers, or unique page elements.
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1460499495"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1460499495
-    fofa-query: icon_hash="1460499495"
-    runzero-match: service["favicon.ico.image.mmh3"] == "1460499495"
-  tags: panel,nagios,nagios-logserver,login,detect
+  tags: panel,nagios,nagios-logserver,login,detect,discovery
 
 http:
   - method: GET
@@ -26,4 +25,3 @@ http:
           - "Nagios Log Server"
           - "/nagioslogserver/"
         condition: or
-

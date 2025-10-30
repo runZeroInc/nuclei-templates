@@ -8,6 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:a:wowza:streaming_engine:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)manager"})
     max-request: 1
     vendor: wowza
     product: streaming_engine
@@ -16,8 +17,7 @@ info:
       - cpe:"cpe:2.3:a:wowza:streaming_engine"
     fofa-query: title="manager" product:"wowza streaming engine"
     google-query: intitle:"manager" product:"wowza streaming engine"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)manager"})
-  tags: panel,wowza
+  tags: panel,wowza,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

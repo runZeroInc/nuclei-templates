@@ -15,9 +15,7 @@ info:
     verified: true
     max-request: 2
     vendor: flir
-    product: flir_ax8_firmware
-    fofa-query: app="FLIR-FLIR-AX8"
-  tags: flir-ax8,rce,exploitdb,iot,sensor,authenticated
+  tags: flir-ax8,rce,exploitdb,iot,sensor,authenticated,vuln
 variables:
   username: admin
   password: admin

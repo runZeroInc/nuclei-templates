@@ -6,6 +6,7 @@ info:
   severity: info
   description: WS_FTP Ad Hoc panel was detected.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ad hoc transfer"}) || any(each(service["html.titles"]), {# matches "(?i)ws_ftp server web transfer"})
     verified: true
     max-request: 1
     vendor: progress
@@ -17,12 +18,11 @@ info:
     fofa-query:
       - title="ws_ftp server web transfer"
       - title="ad hoc transfer"
-    censys-query: services.http.request.uri="*/thinclient/wtm/public/index.html"
     google-query:
       - intitle:"ws_ftp server web transfer"
       - intitle:"ad hoc transfer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ad hoc transfer"}) || any(each(service["html.titles"]), {# matches "(?i)ws_ftp server web transfer"})
-  tags: panel,wsftp,ad-hoc,detect,login,progress
+    censys-query: services.http.request.uri="*/thinclient/wtm/public/index.html"
+  tags: panel,wsftp,ad-hoc,detect,login,progress,discovery
 
 http:
   - method: GET
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

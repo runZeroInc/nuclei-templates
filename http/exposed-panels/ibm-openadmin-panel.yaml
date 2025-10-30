@@ -5,11 +5,11 @@ info:
   author: DhiyaneshDK
   severity: info
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "965982073"
     verified: "true"
     max-request: 1
     shodan-query: http.favicon.hash:965982073
-    runzero-match: service["favicon.ico.image.mmh3"] == "965982073"
-  tags: openadmin,login,panel
+  tags: openadmin,login,panel,discovery
 
 http:
   - method: GET
@@ -25,4 +25,3 @@ http:
       - type: status
         status:
           - 200
-

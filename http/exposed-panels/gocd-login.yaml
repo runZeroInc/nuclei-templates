@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:thoughtworks:gocd:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)create a pipeline - go"}) || service["http.body"] matches "(?i)gocd version"
     max-request: 1
     vendor: thoughtworks
     product: gocd
@@ -20,8 +21,7 @@ info:
       - title="create a pipeline - go" html:"gocd version"
       - body="gocd version"
     google-query: intitle:"create a pipeline - go" html:"gocd version"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)create a pipeline - go"}) || service["http.body"] matches "(?i)gocd version"
-  tags: go,panel,gocd,thoughtworks
+  tags: go,panel,gocd,thoughtworks,discovery
 
 http:
   - method: GET
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,12 +12,12 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-1392
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "ChirpStack LoRaWAN"})
     verified: true
     max-request: 1
     shodan-query: http.title:"ChirpStack LoRaWAN"
     fofa-query: title="ChirpStack LoRaWAN"
-    runzero-match: any(each(service["html.titles"]), {# matches "ChirpStack LoRaWAN"})
-  tags: default-login,chirpstack
+  tags: default-login,chirpstack,vuln
 
 http:
   - raw:
@@ -37,4 +37,3 @@ http:
           - status_code==200
           - contains(body, 'AAAAA')
         condition: and
-

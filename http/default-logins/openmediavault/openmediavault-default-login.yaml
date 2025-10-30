@@ -14,15 +14,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:openmediavault:openmediavault:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "OpenMediaVault"})
     verified: true
     max-request: 1
     vendor: openmediavault
-    product: openmediavault
-    shodan-query: http.title:"openmediavault"
-    fofa-query: title="openmediavault"
-    google-query: intitle:"openmediavault"
-    runzero-match: any(each(service["html.titles"]), {# matches "OpenMediaVault"})
-  tags: default-login,openmediavault
+  tags: default-login,openmediavault,vuln
 
 http:
   - raw:
@@ -57,4 +53,3 @@ http:
       - type: status
         status:
           - 200
-

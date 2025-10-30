@@ -14,9 +14,7 @@ info:
   metadata:
     max-request: 1
     vendor: bachmann
-    product: atvise
-    google-query: intitle:"atvise - next generation"
-  tags: panel,atvise,edb
+  tags: panel,atvise,edb,discovery
 
 http:
   - method: GET

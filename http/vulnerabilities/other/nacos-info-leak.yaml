@@ -9,18 +9,11 @@ info:
   reference:
     - https://github.com/wy876/POC/blob/main/Nacos/Nacos%E6%9C%AA%E6%8E%88%E6%9D%83%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.md
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nacos"})
     verified: true
     max-request: 1
     vendor: alibaba
-    product: nacos
-    shodan-query: http.title:"nacos"
-    fofa-query:
-      - app="nacos"
-      - title="nacos"
-      - title=="nacos"
-    google-query: intitle:"nacos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nacos"})
-  tags: nacos,tech,config,exposure
+  tags: nacos,tech,config,exposure,vuln
 
 http:
   - method: GET
@@ -35,4 +28,3 @@ http:
           - 'regex("attachment;filename=(.*).zip", content_disposition)'
           - 'status_code == 200'
         condition: and
-

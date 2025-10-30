@@ -14,7 +14,7 @@ info:
     product: ap_pagebuilder
     framework: prestashop
     shodan-query: "http.component:\"prestashop\""
-  tags: intrusive,file-upload,blocktestimonial,prestashop
+  tags: intrusive,file-upload,blocktestimonial,prestashop,vuln
 variables:
   filename: '{{rand_base(7, "abc")}}'
   data: '{{rand_base(6, "abc")}}'

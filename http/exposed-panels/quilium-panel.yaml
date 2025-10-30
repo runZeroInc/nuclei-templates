@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.quilium.io/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)CMS Quilium"
     verified: true
     max-request: 2
     shodan-query: http.html:"CMS Quilium"
-    runzero-match: service["http.body"] matches "(?i)CMS Quilium"
-  tags: panel,quilium,login,detect
+  tags: panel,quilium,login,detect,discovery
 
 http:
   - method: GET
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - 'CMS Quilium ([a-f0-9.]+)'
-

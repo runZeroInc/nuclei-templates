@@ -23,7 +23,7 @@ info:
     fofa-query: app="ChurchCRM"
     product: churchcrm
     vendor: churchcrm
-  tags: churchcrm,xss,crm
+  tags: churchcrm,xss,crm,vuln
 
 http:
   - method: GET
@@ -37,3 +37,4 @@ http:
           - 'contains(to_lower(content_type), "text/html")'
           - 'contains_all(tolower(body), "<script>alert(document.domain)</script>", "churchcrm")'
         condition: and
+

@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 3
     vendor: magento
-    product: magento
-    shodan-query: http.component:"Magento"
-  tags: magento,exposure,credential,config
+  tags: magento,exposure,credential,config,vuln
 
 http:
   - method: GET

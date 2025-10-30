@@ -12,11 +12,11 @@ info:
     cvss-score: 6.5
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nsqadmin"})
     verified: true
     max-request: 1
     shodan-query: title:"nsqadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nsqadmin"})
-  tags: nsq,admin,panel,exposure
+  tags: nsq,admin,panel,exposure,discovery
 
 http:
   - method: GET
@@ -39,4 +39,3 @@ http:
         group: 1
         regex:
           - "nsqadmin/v([0-9.]+)"
-

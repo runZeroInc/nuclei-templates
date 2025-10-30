@@ -11,10 +11,7 @@ info:
     verified: true
     max-request: 1
     vendor: limesurvey
-    product: limesurvey
-    shodan-query: html:"Limesurvey Installer"
-  tags: misconfig,limesurvey,install
-
+  tags: misconfig,limesurvey,install,vuln
 http:
   - method: GET
     path:

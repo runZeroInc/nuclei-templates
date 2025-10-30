@@ -11,14 +11,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:azkaban_project:azkaban:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Azkaban Web Client"})
     max-request: 1
     vendor: azkaban_project
-    product: azkaban
-    shodan-query: http.title:"azkaban web client"
-    fofa-query: title="azkaban web client"
-    google-query: intitle:"azkaban web client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Azkaban Web Client"})
-  tags: panel,azkaban
+  tags: panel,azkaban,discovery
 
 http:
   - method: GET
@@ -34,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,21 +9,13 @@ info:
   classification:
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] contains "CrushFTP" || service["http.head.server"] contains "CrushFTP" || any(each(service["favicon.ico.image.mmh3"]), {# == "-1022206565"})
     verified: true
     max-request: 2
     vendor: crushftp
     product: crushftp
-    shodan-query:
-      - http.html:"crushftp"
-      - http.favicon.hash:"-1022206565"
-      - http.title:"crushftp webinterface"
-    fofa-query:
-      - body="crushftp"
-      - icon_hash="-1022206565"
-      - title="crushftp webinterface"
-    google-query: intitle:"crushftp webinterface"
-    runzero-match: service["http.body"] contains "CrushFTP" || service["http.head.server"] contains "CrushFTP" || any(each(service["favicon.ico.image.mmh3"]), {# == "-1022206565"})
-  tags: default-logins,anonymous,crushftp,default-login
+    shodan-query: html:"CrushFTP"
+  tags: default-logins,anonymous,crushftp,default-login,vuln
 
 http:
   - raw:
@@ -57,4 +49,3 @@ http:
         group: 1
         regex:
           - 'currentAuth=([0-9a-zA-Z]+)'
-

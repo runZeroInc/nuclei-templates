@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:minio:minio:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)minio browser"}) || any(each(service["html.titles"]), {# matches "(?i)minio console"})
     max-request: 1
     vendor: minio
     product: minio
@@ -26,8 +27,7 @@ info:
     google-query:
       - intitle:"minio browser"
       - intitle:"minio console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)minio browser"}) || any(each(service["html.titles"]), {# matches "(?i)minio console"})
-  tags: panel,minio
+  tags: panel,minio,discovery
 
 http:
   - method: GET
@@ -43,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

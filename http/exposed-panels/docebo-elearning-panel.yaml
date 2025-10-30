@@ -10,13 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:docebo:docebo:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Docebo E-learning"})
     verified: true
     max-request: 1
     vendor: docebo
-    product: docebo
-    fofa-query: title="docebo e-learning"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Docebo E-learning"})
-  tags: panel,docebo
+  tags: panel,docebo,discovery
 
 http:
   - method: GET
@@ -33,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

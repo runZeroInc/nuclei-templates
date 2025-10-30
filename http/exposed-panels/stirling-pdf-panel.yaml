@@ -9,11 +9,11 @@ info:
   reference:
     - https://github.com/Stirling-Tools/Stirling-PDF
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)StirlingPDF"})
     verified: true
     max-request: 1
     fofa-query: title="StirlingPDF"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)StirlingPDF"})
-  tags: panel,login,stirling-pdf,detect
+  tags: panel,login,stirling-pdf,detect,discovery
 
 http:
   - method: GET
@@ -28,4 +28,3 @@ http:
           - 'contains_any(body, "<title>StirlingPDF - Sign in", "content=\"StirlingPDF", "window.stirlingPDF")'
           - 'status_code == 200'
         condition: and
-

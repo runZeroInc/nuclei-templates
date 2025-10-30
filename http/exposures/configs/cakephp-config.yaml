@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 2
     vendor: cakephp
-    product: cakephp
-    shodan-query: html:"phinx.yml"
-  tags: files,exposure,config
+  tags: files,exposure,config,vuln
 
 http:
   - method: GET

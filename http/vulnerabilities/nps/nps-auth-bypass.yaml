@@ -9,11 +9,11 @@ info:
   reference:
     - https://mari0er.club/post/nps.html/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)window\\.nps"
     verified: true
     max-request: 1
     shodan-query: html:"window.nps"
-    runzero-match: service["http.body"] matches "(?i)window\\.nps"
-  tags: nps,auth-bypass
+  tags: nps,auth-bypass,vuln
 
 http:
   - raw:
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

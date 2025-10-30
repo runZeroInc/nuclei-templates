@@ -11,8 +11,7 @@ info:
     - https://github.com/google/adk-samples
   metadata:
     verified: true
-    max-request: 1
-  tags: adk,exposure,google,ai,agent,api,devops
+  tags: adk,exposure,google,ai,agent,api,devops,discovery
 
 http:
   - raw:

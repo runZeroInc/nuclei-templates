@@ -7,15 +7,13 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:activemq_apollo:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache Apollo"})
     verified: true
     max-request: 1
     vendor: apache
     product: activemq_apollo
-    shodan-query: http.title:"apache apollo"
-    fofa-query: title="apache apollo"
-    google-query: intitle:"apache apollo"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache Apollo"})
-  tags: panel,apache,apollo,login,detect
+    shodan-query: title:"Apache Apollo"
+  tags: panel,apache,apollo,login,detect,discovery
 
 http:
   - method: GET
@@ -32,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

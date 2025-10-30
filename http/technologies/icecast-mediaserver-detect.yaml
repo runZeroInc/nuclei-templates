@@ -14,9 +14,7 @@ info:
     verified: true
     max-request: 1
     vendor: xiph
-    product: icecast
-    shodan-query: title:"Icecast Streaming Media Server"
-  tags: tech,icecast,media-server,detect
+  tags: tech,icecast,media-server,detect,discovery
 
 http:
   - method: GET

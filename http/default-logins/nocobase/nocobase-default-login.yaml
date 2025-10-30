@@ -11,11 +11,12 @@ info:
     - https://github.com/nocobase/nocobase
     - https://docs.nocobase.com/welcome/getting-started/installation/docker-compose
   metadata:
+    runzero-match: any(each(service["http.bodies"]), {# matches "'NOCOBASE_'"})
     verified: true
     max-request: 2
     zoomeye-query: app="NocoBase"
-    runzero-match: any(each(service["http.bodies"]), {# matches "'NOCOBASE_'"})
-  tags: default-login,nocobase
+  tags: default-login,nocobase,vuln
+
 variables:
   username: "admin@nocobase.com"
   password: "admin123"
@@ -54,4 +55,3 @@ http:
       - type: status
         status:
           - 200
-

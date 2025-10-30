@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:intelliantech:aptus_web:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)intellian aptus web"})
     max-request: 1
     vendor: intelliantech
     product: aptus_web
     shodan-query: http.title:"intellian aptus web"
     fofa-query: title="intellian aptus web"
     google-query: intitle:"intellian aptus web"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)intellian aptus web"})
-  tags: panel,intellian,aptus,intelliantech
+  tags: panel,intellian,aptus,intelliantech,discovery
 
 http:
   - method: GET
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - '<title>Intellian Aptus Web (.*)</title>'
-

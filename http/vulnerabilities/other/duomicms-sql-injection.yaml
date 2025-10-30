@@ -12,11 +12,11 @@ info:
     cvss-score: 10
     cwe-id: CWE-89
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)DuomiCMS"})
     verified: true
     max-request: 1
     shodan-query: title:"DuomiCMS"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)DuomiCMS"})
-  tags: duomicms,sqli
+  tags: duomicms,sqli,vuln
 variables:
   num: "999999999"
 
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

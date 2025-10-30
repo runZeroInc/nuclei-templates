@@ -10,6 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:appspace:appspace:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)appspace"})
     verified: true
     max-request: 3
     vendor: appspace
@@ -17,8 +18,7 @@ info:
     shodan-query: http.title:"appspace"
     fofa-query: title="appspace"
     google-query: intitle:"appspace"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)appspace"})
-  tags: appspace,panel,detect
+  tags: appspace,panel,detect,discovery
 
 http:
   - method: GET
@@ -47,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

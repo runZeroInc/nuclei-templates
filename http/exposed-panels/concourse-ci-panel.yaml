@@ -13,14 +13,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pivotal_software:concourse:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
     max-request: 1
     vendor: pivotal_software
-    product: concourse
-    shodan-query: http.title:"concourse"
-    fofa-query: title="concourse"
-    google-query: intitle:"concourse"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
-  tags: panel,concourse,oss
+  tags: panel,concourse,oss,discovery
 
 http:
   - method: GET
@@ -33,4 +29,3 @@ http:
           - '<title>Concourse</title>'
           - 'login to Concourse'
         condition: or
-

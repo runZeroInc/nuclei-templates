@@ -12,11 +12,11 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Portainer"})
     verified: true
     max-request: 1
     shodan-query: title:"Portainer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Portainer"})
-  tags: portainer,exposure,docker,devops,disclosure
+  tags: portainer,exposure,docker,devops,disclosure,vuln
 
 http:
   - method: GET
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 404
-

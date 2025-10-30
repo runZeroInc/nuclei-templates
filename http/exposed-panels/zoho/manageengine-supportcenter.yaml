@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zohocorp:manageengine_supportcenter_plus:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)manageengine supportcenter plus"})
     max-request: 1
     vendor: zohocorp
     product: manageengine_supportcenter_plus
     shodan-query: http.title:"manageengine supportcenter plus"
     fofa-query: title="manageengine supportcenter plus"
     google-query: intitle:"manageengine supportcenter plus"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)manageengine supportcenter plus"})
-  tags: panel,zoho,manageengine,zohocorp
+  tags: panel,zoho,manageengine,zohocorp,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

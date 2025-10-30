@@ -11,9 +11,9 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    max-request: 1
     runzero-match: service["http.head.setCookie"] contains "NXSESSIONID"
-  tags: nexus,default-login
+    max-request: 1
+  tags: nexus,default-login,vuln
 
 http:
   - raw:
@@ -44,4 +44,3 @@ http:
           - "NXSESSIONID"
         part: header
         condition: and
-

@@ -10,13 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zohocorp:manageengine_mobile_device_manager_plus:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)移动管理平台-企业管理"})
     verified: true
     max-request: 1
     vendor: zohocorp
-    product: manageengine_mobile_device_manager_plus
-    fofa-query: title="移动管理平台-企业管理"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)移动管理平台-企业管理"})
-  tags: panel,mobile,management
+  tags: panel,mobile,management,discovery
 
 http:
   - method: GET
@@ -42,4 +40,3 @@ http:
         group: 1
         regex:
           - 'version = "(.*)"'
-

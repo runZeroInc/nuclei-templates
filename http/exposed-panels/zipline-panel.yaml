@@ -9,13 +9,13 @@ info:
   reference:
     - https://github.com/diced/zipline
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Zipline"
     verified: true
     max-request: 1
     vendor: diced
     product: zipline
     shodan-query: html:"Zipline"
-    runzero-match: service["http.body"] matches "(?i)Zipline"
-  tags: diced,zipline,login,panel,detect
+  tags: diced,zipline,login,panel,detect,discovery
 
 http:
   - method: GET
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

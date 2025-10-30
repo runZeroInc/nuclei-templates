@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:osgeo:geoserver:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)geoserver"})
     verified: true
     max-request: 2
     vendor: osgeo
@@ -21,8 +22,7 @@ info:
       - app="geoserver"
       - title="geoserver"
     google-query: intitle:"geoserver"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)geoserver"})
-  tags: panel,geoserver,osgeo
+  tags: panel,geoserver,osgeo,discovery
 
 http:
   - method: GET
@@ -51,4 +51,3 @@ http:
         group: 1
         regex:
           - '<span>GeoServer ([0-9.]+)'
-

@@ -11,19 +11,10 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:jellyfin:jellyfin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Jellyfin"})
     verified: true
     vendor: jellyfin
-    product: jellyfin
-    shodan-query:
-      - http.html:"jellyfin"
-      - http.title:"jellyfin"
-    fofa-query:
-      - title="jellyfin"
-      - body="jellyfin"
-      - title="jellyfin" || body="http://jellyfin.media"
-    google-query: intitle:"jellyfin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Jellyfin"})
-  tags: default-login,jellyfin,misconfig
+  tags: default-login,jellyfin,misconfig,vuln
 
 http:
   - raw:
@@ -66,4 +57,3 @@ http:
       - type: status
         status:
           - 200
-

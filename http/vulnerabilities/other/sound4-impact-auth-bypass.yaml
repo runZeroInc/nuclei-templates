@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.zeroscience.mk/en/vulnerabilities/ZSL-2022-5727.php
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1548359600"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-1548359600
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1548359600"
-  tags: sqli,zeroscience,sound4,auth-bypass
+  tags: sqli,zeroscience,sound4,auth-bypass,vuln
 
 http:
   - raw:
@@ -32,4 +32,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Network Diagnostic:", "disconnect the user")'
         condition: and
-

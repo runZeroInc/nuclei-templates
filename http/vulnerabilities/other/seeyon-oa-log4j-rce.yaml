@@ -20,9 +20,7 @@ info:
     verified: true
     max-request: 1
     vendor: apache
-    product: log4j
-    fofa-query: app="致远互联-OA"
-  tags: cve,cve2021,rce,jndi,log4j,seeyon-oa,kev,oast
+  tags: cve,cve2021,rce,jndi,log4j,seeyon-oa,kev,oast,vuln
 
 http:
   - raw:

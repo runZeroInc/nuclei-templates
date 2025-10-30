@@ -7,10 +7,10 @@ info:
   description: |
     Trellix login panel was detected.
   metadata:
-    verified: true
     max-request: 1
     shodan-query: "Server: Trellix"
-  tags: trellix,panel,login
+    verified: true
+  tags: trellix,panel,login,discovery
 
 http:
   - method: GET

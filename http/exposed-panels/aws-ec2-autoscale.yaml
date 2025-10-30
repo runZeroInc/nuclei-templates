@@ -7,11 +7,11 @@ info:
   reference:
     - https://www.facebook.com/photo/?fbid=620605120110011&set=a.467014098802448
   metadata:
+    runzero-match: service["http.body"] matches "(?i)AWS EC2 Auto Scaling Lab"
     verified: true
     max-request: 1
     shodan-query: html:"AWS EC2 Auto Scaling Lab"
-    runzero-match: service["http.body"] matches "(?i)AWS EC2 Auto Scaling Lab"
-  tags: exposure,ec2,aws,amazon,panel
+  tags: exposure,ec2,aws,amazon,panel,discovery
 
 http:
   - method: GET
@@ -30,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

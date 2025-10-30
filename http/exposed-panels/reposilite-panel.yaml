@@ -10,11 +10,11 @@ info:
     - https://reposilite.com/
     - https://github.com/dzikoysk/reposilite
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)reposilite"})
     verified: true
     max-request: 1
     shodan-query: http.title:"reposilite"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)reposilite"})
-  tags: panel,reposilite,login
+  tags: panel,reposilite,login,discovery
 
 http:
   - method: GET
@@ -27,4 +27,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "reposilite repository", "reposilite description", "hosted through the reposilite")'
         condition: and
-

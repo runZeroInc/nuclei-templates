@@ -10,13 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:faraday_project:faraday:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)faradayApp"
     max-request: 1
     vendor: faraday_project
-    product: faraday
-    shodan-query: http.html:"faradayapp"
-    fofa-query: body="faradayapp"
-    runzero-match: service["http.body"] matches "(?i)faradayApp"
-  tags: panel,faraday
+  tags: panel,faraday,discovery
 
 http:
   - method: GET
@@ -32,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

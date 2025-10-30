@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.opentext.com/products/document-management
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Content Server"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Content Server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Content Server"})
-  tags: panel,opentext,login
+  tags: panel,opentext,login,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
         regex:
           - '(?i)login\.js\?v=([0-9.]+)'
           - '(?i)OpenText\s+Content\s+Server\s+version\s+([0-9.]+)'
-

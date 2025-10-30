@@ -10,11 +10,11 @@ info:
     - https://www.exploit-db.com/exploits/51695
     - https://phpgurukul.com/user-registration-login-and-user-management-system-with-admin-panel/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Registration and Login System"})
     verified: true
     max-request: 2
     shodan-query: title:"Registration and Login System"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Registration and Login System"})
-  tags: sqli,auth-bypass,user-management
+  tags: sqli,auth-bypass,user-management,vuln
 
 http:
   - raw:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

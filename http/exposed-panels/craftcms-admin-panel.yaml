@@ -10,14 +10,15 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nystudio107:seomatic:*:*:*:*:craft_cms:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)seomatic"
     max-request: 1
     vendor: nystudio107
     product: seomatic
     shodan-query:
-      - x-powered-by:"craft cms"
-      - x-powered-by:"craft cms html"seomatic""
-    runzero-match: service["http.body"] matches "(?i)seomatic"
-  tags: panel,craftcms,nystudio107
+      - 'X-Powered-By: Craft CMS'
+      - "x-powered-by: craft cms"
+      - 'x-powered-by: craft cms html:"seomatic"'
+  tags: panel,craftcms,nystudio107,discovery
 
 http:
   - method: GET
@@ -35,4 +36,3 @@ http:
         part: body
         words:
           - '<a id=\"poweredby\" href=\"http:\/\/craftcms.com\/\"'
-

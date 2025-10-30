@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: product:"WinRM"
-  tags: network,winrm,windows
+  tags: network,winrm,windows,discovery
 
 http:
   - method: POST

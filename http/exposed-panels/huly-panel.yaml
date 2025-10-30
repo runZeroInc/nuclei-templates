@@ -9,11 +9,11 @@ info:
   reference:
     - https://huly.io/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Huly"
     verified: true
     max-request: 1
     shodan-query: http.html:"Huly"
-    runzero-match: service["http.body"] matches "(?i)Huly"
-  tags: panel,huly,login
+  tags: panel,huly,login,discovery
 
 http:
   - method: GET
@@ -26,4 +26,3 @@ http:
           - 'status_code == 200'
           - 'contains(to_lower(body), "<title>huly</title>")'
         condition: and
-

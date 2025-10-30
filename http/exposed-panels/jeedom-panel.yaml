@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jeedom:jeedom:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jeedom"})
     max-request: 1
     vendor: jeedom
     product: jeedom
     shodan-query: http.title:"jeedom"
     fofa-query: title="jeedom"
     google-query: intitle:"jeedom"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jeedom"})
-  tags: panel,jeedom,login
+  tags: panel,jeedom,login,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

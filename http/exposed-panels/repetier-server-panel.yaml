@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:repetier-server:repetier-server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)repetier-server"})
     verified: true
     max-request: 1
     vendor: repetier-server
@@ -16,8 +17,7 @@ info:
     shodan-query: http.title:"repetier-server"
     fofa-query: title="repetier-server"
     google-query: intitle:"repetier-server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)repetier-server"})
-  tags: panel,repetier,detect,repetier-server
+  tags: panel,repetier,detect,repetier-server,discovery
 
 http:
   - method: GET
@@ -43,4 +43,3 @@ http:
         group: 2
         regex:
           - 'Repetier\-Server ([A-Za-z]+) ([0-9.]+)'
-

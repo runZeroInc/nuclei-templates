@@ -7,15 +7,13 @@ info:
   classification:
     cpe: cpe:2.3:a:supremainc:biostar_2:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Biostar"})
     verified: true
     max-request: 1
     vendor: supremainc
     product: biostar_2
-    shodan-query: http.title:"biostar"
-    fofa-query: title="biostar"
-    google-query: intitle:"biostar"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Biostar"})
-  tags: panel,login,biostar,detect
+    shodan-query: title:"Biostar"
+  tags: panel,login,biostar,detect,discovery
 
 http:
   - method: GET
@@ -32,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

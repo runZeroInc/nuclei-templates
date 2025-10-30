@@ -9,14 +9,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:apisix:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache apisix dashboard"})
     max-request: 1
     vendor: apache
     product: apisix
     shodan-query: http.title:"apache apisix dashboard"
     fofa-query: title="apache apisix dashboard"
     google-query: intitle:"apache apisix dashboard"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache apisix dashboard"})
-  tags: apache,apisix,panel,login,detect
+  tags: apache,apisix,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -40,4 +40,3 @@ http:
         group: 1
         regex:
           - '(?i)Server:\s+APISIX\/([0-9.]+)'
-

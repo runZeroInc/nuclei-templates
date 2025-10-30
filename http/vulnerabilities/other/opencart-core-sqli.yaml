@@ -12,21 +12,10 @@ info:
   classification:
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenCart"})
     max-request: 2
     vendor: opencart
-    product: opencart
-    shodan-query:
-      - http.title:"opencart"
-      - cpe:"cpe:2.3:a:opencart:opencart"
-      - http.favicon.hash:"-1443008128"
-      - http.html:"opencart"
-    fofa-query:
-      - icon_hash="-1443008128"
-      - body="opencart"
-      - title="opencart"
-    google-query: intitle:"opencart"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenCart"})
-  tags: time-based-sqli,opencart,sqli
+  tags: time-based-sqli,opencart,sqli,vuln
 flow: http(1) && http(2)
 
 http:
@@ -55,4 +44,3 @@ http:
           - 'contains(body, "Nabb</title>")'
           - "status_code == 200"
         condition: and
-

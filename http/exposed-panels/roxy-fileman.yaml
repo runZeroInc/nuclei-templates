@@ -10,15 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:roxyfileman:roxy_fileman:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)roxy file manager"})
     verified: true
     max-request: 4
     vendor: roxyfileman
     product: roxy_fileman
     shodan-query: http.title:"roxy file manager"
     fofa-query: title="roxy file manager"
-    google-query: intitle:"roxy file manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)roxy file manager"})
-  tags: tech,roxy,fileman,panel,roxyfileman
+  tags: tech,roxy,fileman,panel,roxyfileman,discovery
 
 http:
   - method: GET
@@ -44,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

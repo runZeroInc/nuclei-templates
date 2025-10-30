@@ -9,15 +9,10 @@ info:
   reference:
     - https://help.sap.com/doc/saphelp_scm700_ehp02/7.0.2/en-US/f6/2a7cb018bc4b239ea5b7af675a18ef/content.htm?no_cache=true
   metadata:
-    max-request: 1
-    vendor: sap
-    product: content_server
-    shodan-query: http.favicon.hash:"-266008933"
-    fofa-query:
-      - icon_hash=-266008933
-      - "sap-server:"
     runzero-match: service["favicon.ico.image.mmh3"] == "-266008933"
-  tags: sap,netweaver,cet,detect
+    max-request: 1
+    shodan-query: http.favicon.hash:-266008933
+  tags: sap,netweaver,cet,detect,discovery
 
 http:
   - method: GET
@@ -39,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

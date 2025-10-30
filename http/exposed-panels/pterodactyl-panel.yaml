@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/pterodactyl/panel
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pterodactyl"}) || service["favicon.ico.image.mmh3"] == "-456405319" || service["favicon.ico.image.mmh3"] == "846001371"
     verified: true
     max-request: 1
     vendor: pterodactyl
@@ -22,9 +23,8 @@ info:
       - title="pterodactyl"
       - icon_hash="-456405319"
       - icon_hash="846001371"
-      - "set-cookie: pterodactyl_session="
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pterodactyl"}) || service["favicon.ico.image.mmh3"] == "-456405319" || service["favicon.ico.image.mmh3"] == "846001371"
-  tags: detect,pterodactyl,panel,oos
+      - "Set-Cookie: pterodactyl_session="
+  tags: detect,pterodactyl,panel,oos,discovery
 
 http:
   - method: GET
@@ -46,4 +46,3 @@ http:
         part: body
         words:
           - "window.SiteConfiguration"
-

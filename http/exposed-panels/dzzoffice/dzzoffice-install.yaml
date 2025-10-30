@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dzzoffice:dzzoffice:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1961736892"
     verified: true
     max-request: 1
     vendor: dzzoffice
@@ -21,9 +22,7 @@ info:
     fofa-query:
       - title="dzzoffice"
       - icon_hash=-1961736892
-      - body="dzzoffice"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1961736892"
-  tags: panel,dzzoffice,install
+  tags: panel,dzzoffice,install,discovery
 
 http:
   - method: GET
@@ -47,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:seeddms:seeddms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)seeddms"})
     max-request: 2
     vendor: seeddms
     product: seeddms
     shodan-query: http.title:"seeddms"
     fofa-query: title="seeddms"
     google-query: intitle:"seeddms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)seeddms"})
-  tags: panel,seeddms,login
+  tags: panel,seeddms,login,discovery
 
 http:
   - method: GET
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

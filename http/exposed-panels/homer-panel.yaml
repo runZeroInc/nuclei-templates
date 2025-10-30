@@ -10,11 +10,11 @@ info:
     - https://github.com/bastienwirtz/homer
     - https://homer-demo.netlify.app/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-417785140"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-417785140
-    runzero-match: service["favicon.ico.image.mmh3"] == "-417785140"
-  tags: panel,homer,detect,login
+  tags: panel,homer,detect,login,discovery
 
 http:
   - method: GET
@@ -31,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

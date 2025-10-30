@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:coder:code-server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)code-server login"})
     verified: true
     max-request: 1
     vendor: coder
@@ -17,8 +18,7 @@ info:
     shodan-query: http.title:"code-server login"
     fofa-query: title="code-server login"
     google-query: intitle:"code-server login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)code-server login"})
-  tags: panel,detect,misc,coder
+  tags: panel,detect,misc,coder,discovery
 
 http:
   - method: GET
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

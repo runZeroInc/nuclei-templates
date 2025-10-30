@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sas:base_sas:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "957255151"
     verified: true
     max-request: 1
     vendor: sas
     product: base_sas
     shodan-query: http.favicon.hash:"957255151"
     fofa-query: icon_hash=957255151
-    runzero-match: service["favicon.ico.image.mmh3"] == "957255151"
-  tags: sas,panel
+  tags: sas,panel,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

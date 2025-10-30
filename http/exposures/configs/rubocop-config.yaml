@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: rubocop_project
-    product: rubocop
-    shodan-query: html:"rubocop.yml"
-  tags: exposure,files,config,ruby
+  tags: exposure,files,config,ruby,vuln
 
 http:
   - method: GET

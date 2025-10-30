@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:contec:solarview_compact_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)solarview compact" || service["favicon.ico.image.mmh3"] == "-244067125"
     verified: true
     max-request: 1
     vendor: contec
@@ -22,8 +23,7 @@ info:
       - body="solarview compact" && title="top"
       - icon_hash="-244067125"
       - body="solarview compact"
-    runzero-match: service["http.body"] matches "(?i)solarview compact" || service["favicon.ico.image.mmh3"] == "-244067125"
-  tags: panel,solarview,iot,contec
+  tags: panel,solarview,iot,contec,discovery
 
 http:
   - method: GET
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

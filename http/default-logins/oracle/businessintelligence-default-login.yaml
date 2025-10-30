@@ -13,9 +13,9 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    max-request: 1
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)oracle business intelligence sign in"})
-  tags: oracle,default-login
+    max-request: 1
+  tags: oracle,default-login,vuln
 
 http:
   - raw:
@@ -54,4 +54,3 @@ http:
         words:
           - 'createSessionReturn'
         part: body
-

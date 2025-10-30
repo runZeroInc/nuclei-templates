@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:contao:contao:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)contao open source cms" || any(each(service["html.titles"]), {# matches "(?i)contao"})
     verified: true
     max-request: 1
     vendor: contao
@@ -22,8 +23,7 @@ info:
       - title="contao"
       - body="contao open source cms"
     google-query: intitle:"contao"
-    runzero-match: service["http.body"] matches "(?i)contao open source cms" || any(each(service["html.titles"]), {# matches "(?i)contao"})
-  tags: panel,contao
+  tags: panel,contao,discovery
 
 http:
   - method: GET
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

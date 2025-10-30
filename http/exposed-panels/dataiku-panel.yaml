@@ -10,15 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dataiku:data_science_studio:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
     verified: true
     max-request: 1
     vendor: dataiku
-    product: data_science_studio
-    shodan-query: http.title:"dataiku"
-    fofa-query: title="dataiku"
-    google-query: intitle:"dataiku"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
-  tags: panel,dataiku
+  tags: panel,dataiku,discovery
 
 http:
   - method: GET
@@ -35,4 +31,3 @@ http:
         part: header
         words:
           - "text/html"
-

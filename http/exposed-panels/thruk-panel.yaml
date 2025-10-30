@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:thruk:thruk:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)thruk"
     max-request: 6
     vendor: thruk
     product: thruk
@@ -19,8 +20,7 @@ info:
     fofa-query:
       - title=="thruk monitoring webinterface"
       - body="thruk"
-    runzero-match: service["http.body"] matches "(?i)thruk"
-  tags: thruk,panel,login
+  tags: thruk,panel,login,discovery
 
 http:
   - method: GET
@@ -48,4 +48,3 @@ http:
         group: 1
         regex:
           - '(?i)version_info\s*=\s*.?([a-z0-9./\s.-]+).?'
-

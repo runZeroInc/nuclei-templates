@@ -12,15 +12,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:temenos:t24:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)t24 sign in"})
     verified: true
     max-request: 1
     vendor: temenos
-    product: t24
-    shodan-query: http.title:"t24 sign in"
-    fofa-query: title="t24 sign in"
-    google-query: intitle:"t24 sign in"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)t24 sign in"})
-  tags: panel,exposure,temenos
+  tags: panel,exposure,temenos,discovery
 
 http:
   - method: GET
@@ -39,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

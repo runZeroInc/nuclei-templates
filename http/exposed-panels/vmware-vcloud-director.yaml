@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:vcloud_director:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vmware vcloud director"})
     verified: true
     max-request: 1
     vendor: vmware
@@ -17,8 +18,7 @@ info:
     shodan-query: http.title:"vmware vcloud director"
     fofa-query: title="vmware vcloud director"
     google-query: intitle:"vmware vcloud director"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vmware vcloud director"})
-  tags: panel,vmware,vcloud
+  tags: panel,vmware,vcloud,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

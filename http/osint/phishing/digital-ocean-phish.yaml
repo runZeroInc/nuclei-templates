@@ -10,8 +10,7 @@ info:
     - https://digitalocean.com
   metadata:
     max-request: 1
-  tags: phishing,digital-ocean,osint
-
+  tags: phishing,digital-ocean,osint,discovery
 http:
   - method: GET
     path:
@@ -27,6 +26,7 @@ http:
           - 'DigitalOcean | Cloud Infrastructure for Developers'
           - 'DigitalOcean'
         condition: and
+
 
       - type: status
         status:

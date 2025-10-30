@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:n-able:n-central:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
     verified: true
     max-request: 1
     shodan-query:
@@ -23,10 +24,7 @@ info:
       - icon_hash="1937353549"
       - "Set-Cookie: ncentral_version="
     vendor: n-able
-    product: n-central
-    google-query: intitle:"n-central login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
-  tags: panel,n-central
+  tags: panel,n-central,discovery
 
 http:
   - method: GET
@@ -49,4 +47,3 @@ http:
         group: 1
         regex:
           - "ncentralVersion:\\s+\"([\\d\\.]+)\","
-

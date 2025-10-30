@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mysql:eventum:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "305412257"
     verified: true
     max-request: 1
     vendor: mysql
     product: eventum
     shodan-query: http.favicon.hash:"305412257"
     fofa-query: icon_hash=305412257
-    runzero-match: service["favicon.ico.image.mmh3"] == "305412257"
-  tags: panel,eventum,mysql
+  tags: panel,eventum,mysql,discovery
 
 http:
   - method: GET
@@ -42,4 +42,3 @@ http:
           - 'Database Error:'
           - 'There seems to be a problem connecting to the database server specified in your configuration file'
         condition: and
-

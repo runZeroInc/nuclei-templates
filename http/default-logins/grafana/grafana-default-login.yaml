@@ -15,18 +15,10 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Grafana"})
     max-request: 2
     vendor: grafana
-    product: grafana
-    shodan-query:
-      - http.title:"grafana"
-      - cpe:"cpe:2.3:a:grafana:grafana"
-    fofa-query:
-      - app="grafana"
-      - title="grafana"
-    google-query: intitle:"grafana"
-    runzero-match: any(each(service["html.titles"]), {# matches "Grafana"})
-  tags: grafana,default-login
+  tags: grafana,default-login,vuln
 
 http:
   - raw:
@@ -64,4 +56,3 @@ http:
       - type: status
         status:
           - 200
-

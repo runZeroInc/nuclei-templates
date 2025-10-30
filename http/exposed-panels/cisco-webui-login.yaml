@@ -7,12 +7,12 @@ info:
   description: |
     Detects the presence of Cisco Web UI login panels
   metadata:
+    runzero-match: service["http.body"] matches "(?i)webui-centerpanel"
     verified: true
     max-request: 1
     shodan-query: html:"webui-centerpanel"
     fofa-query: body="webui-centerpanel"
-    runzero-match: service["http.body"] matches "(?i)webui-centerpanel"
-  tags: webui,cisco,login,panel,detect
+  tags: webui,cisco,login,panel,detect,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

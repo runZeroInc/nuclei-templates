@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:rapid7:metasploit:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)metasploit - setup and configuration"}) || any(each(service["html.titles"]), {# matches "(?i)metasploit"})
     verified: true
     max-request: 1
     vendor: rapid7
@@ -23,11 +24,7 @@ info:
     google-query:
       - intitle:"metasploit"
       - intitle:"metasploit - setup and configuration"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)metasploit - setup and configuration"}) || any(each(service["html.titles"]), {# matches "(?i)metasploit"})
-    zoomeye-query:
-      - app="metasploit"
-      - title:'metasploit'
-  tags: panel,metasploit,setup,rapid7
+  tags: panel,metasploit,setup,rapid7,discovery
 
 http:
   - method: GET
@@ -40,4 +37,3 @@ http:
         part: body
         words:
           - 'Metasploit - Setup and Configuration'
-

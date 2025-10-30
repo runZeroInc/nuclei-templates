@@ -10,8 +10,7 @@ info:
     - https://www.jway.eu/produits-services
   metadata:
     verified: true
-    max-request: 1
-  tags: panel,jway,detect
+  tags: panel,jway,detect,discovery
 
 http:
   - method: GET

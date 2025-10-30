@@ -11,18 +11,18 @@ info:
   classification:
     cpe: cpe:2.3:a:bloofox:bloofoxcms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Powered by bloofoxCMS"
     verified: 'true'
     max-request: 1
     vendor: bloofox
     product: bloofoxcms
-    fofa-query: powered by bloofoxcms
-    runzero-match: service["http.body"] matches "(?i)Powered by bloofoxCMS"
-  tags: bloofox,cms,default-login
+    fofa-query: "Powered by bloofoxCMS"
+  tags: bloofox,cms,default-login,vuln
 
 http:
   - raw:
       - |
-        POST /admin/index.php HTTP/2
+        POST /admin/index.php HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
@@ -42,4 +42,3 @@ http:
           - contains(body, 'bloofoxCMS Admincenter')
           - status_code == 200
         condition: and
-

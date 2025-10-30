@@ -11,17 +11,17 @@ info:
     - https://vulners.com/zdt/1337DAY-ID-38725
     - https://codecanyon.net/item/stackposts-social-marketing-tool/21747459
   metadata:
+    runzero-match: service["http.body"] matches "(?i)stackposts"
     verified: true
     max-request: 1
     shodan-query: html:"stackposts"
-    runzero-match: service["http.body"] matches "(?i)stackposts"
-  tags: time-based-sqli,sqli,unauth,stackposts
+  tags: time-based-sqli,sqli,unauth,stackposts,vuln
 
 http:
   - raw:
       - |
         @timeout: 15s
-        POST /spre/auth/login HTTP/2
+        POST /spre/auth/login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
@@ -35,4 +35,3 @@ http:
           - 'contains(body, "account you entered")'
           - 'status_code == 200'
         condition: and
-

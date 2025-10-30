@@ -15,9 +15,7 @@ info:
   metadata:
     max-request: 1
     vendor: teltonika
-    product: rut900
-    google-query: intitle:"Teltonika -Web UI" | intitle:"Teltonika-RUT -Web UI" inurl:"/cgi-bin/luci"
-  tags: panel,teltonika,edb
+  tags: panel,teltonika,edb,discovery
 
 http:
   - method: GET

@@ -13,13 +13,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:huawei:hg532e:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)HG532e"
     max-request: 1
     vendor: huawei
-    product: hg532e
-    shodan-query: http.html:"hg532e"
-    fofa-query: body="hg532e"
-    runzero-match: service["http.body"] matches "(?i)HG532e"
-  tags: huawei,panel
+  tags: huawei,panel,discovery
 
 http:
   - method: GET
@@ -36,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

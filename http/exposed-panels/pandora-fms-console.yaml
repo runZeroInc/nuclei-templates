@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pandorafms:pandora_fms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pandora fms"})
     max-request: 1
     vendor: pandorafms
     product: pandora_fms
@@ -22,8 +23,7 @@ info:
       - title="pandora fms"
       - body="pandora fms - installation wizard"
     google-query: intitle:"pandora fms"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pandora fms"})
-  tags: panel,edb,pandorafms
+  tags: panel,edb,pandorafms,discovery
 
 http:
   - method: GET
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

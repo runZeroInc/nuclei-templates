@@ -11,11 +11,12 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-89
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Fumeng Cloud"})
     verified: true
     max-request: 1
     fofa-query: title="Fumeng Cloud"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Fumeng Cloud"})
-  tags: fumasoft,sqli
+  tags: fumasoft,sqli,vuln
+
 variables:
   num: "999999999"
 
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 500
-

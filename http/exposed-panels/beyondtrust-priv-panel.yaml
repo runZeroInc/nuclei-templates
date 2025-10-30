@@ -11,14 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:beyondtrust:privileged_remote_access:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)BeyondTrust Privileged Remote Access Login"
     verified: true
     max-request: 2
     vendor: beyondtrust
     product: privileged_remote_access
-    shodan-query: http.html:"beyondtrust privileged remote access login"
-    fofa-query: body="beyondtrust privileged remote access login"
-    runzero-match: service["http.body"] matches "(?i)BeyondTrust Privileged Remote Access Login"
-  tags: panel,beyondtrust,login,detect
+    shodan-query: "http.html:\"BeyondTrust Privileged Remote Access Login\""
+  tags: panel,beyondtrust,login,detect,discovery
 
 http:
   - method: GET
@@ -33,4 +32,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>beyondtrust privileged remote access login", "privileged-remote-access") && contains(to_lower(body), "login")'
         condition: and
-

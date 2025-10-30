@@ -8,8 +8,8 @@ info:
     - https://github.com/trufflesecurity/trufflehog/blob/main/pkg/detectors/zenscrape/zenscrape.go
   metadata:
     verified: true
-    max-request: 2
-  tags: exposure,token,zenscrape,apikey
+  tags: exposure,token,zenscrape,apikey,vuln
+
 flow: http(1) && http(2)
 
 http:

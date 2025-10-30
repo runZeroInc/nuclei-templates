@@ -12,15 +12,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:avtech:room_alert_3e:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Room Alert"})
     verified: true
     max-request: 2
     vendor: avtech
-    product: room_alert_3e
-    shodan-query: http.title:"room alert"
-    fofa-query: title="room alert"
-    google-query: intitle:"room alert"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Room Alert"})
-  tags: panel,room-alert,avtech
+  tags: panel,room-alert,avtech,discovery
 
 http:
   - method: GET
@@ -48,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

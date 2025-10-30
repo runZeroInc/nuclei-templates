@@ -22,9 +22,7 @@ info:
     verified: true
     max-request: 1
     vendor: vmware
-    product: vrealize_operations
-    shodan-query: http.title:"vRealize Operations Tenant App"
-  tags: cve,cve2021,oast,rce,log4j,vmware,vrealize,kev
+  tags: cve,cve2021,oast,rce,log4j,vmware,vrealize,kev,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

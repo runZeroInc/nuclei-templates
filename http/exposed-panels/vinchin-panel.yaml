@@ -9,14 +9,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vinchin:vinchin_backup_and_recovery:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)VinChin"
     verified: true
     max-request: 1
     vendor: vinchin
-    product: vinchin_backup_and_recovery
-    shodan-query: http.html:"vinchin"
-    fofa-query: body="vinchin"
-    runzero-match: service["http.body"] matches "(?i)VinChin"
-  tags: panel,vinchin,login
+  tags: panel,vinchin,login,discovery
 
 http:
   - method: GET
@@ -35,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,15 +12,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:eclipse:business_intelligence_and_reporting_tools:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Eclipse BIRT Home"})
     verified: true
     max-request: 2
     vendor: eclipse
-    product: business_intelligence_and_reporting_tools
-    shodan-query: http.title:"eclipse birt home"
-    fofa-query: title="eclipse birt home"
-    google-query: intitle:"eclipse birt home"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Eclipse BIRT Home"})
-  tags: panel,eclipsebirt,detect
+  tags: panel,eclipsebirt,detect,discovery
 
 http:
   - method: GET
@@ -51,4 +47,3 @@ http:
         group: 1
         regex:
           - 'Viewer Version : ([0-9.-]+)'
-

@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:citrix:sharefile:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sharefile login"})
     verified: true
     max-request: 1
     vendor: citrix
@@ -18,8 +19,7 @@ info:
     shodan-query: http.title:"sharefile login"
     fofa-query: title="sharefile login"
     google-query: intitle:"sharefile login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sharefile login"})
-  tags: sharefile,login,panel,detect,citrix
+  tags: sharefile,login,panel,detect,citrix,discovery
 
 http:
   - method: GET
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

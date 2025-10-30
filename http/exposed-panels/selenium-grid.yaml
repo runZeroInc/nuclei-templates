@@ -10,14 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:selenium:selenium_grid:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Selenium Grid"})
     max-request: 1
     vendor: selenium
-    product: selenium_grid
-    shodan-query: http.title:"selenium grid"
-    fofa-query: title="selenium grid"
-    google-query: intitle:"selenium grid"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Selenium Grid"})
-  tags: panel,unauth,selenium
+  tags: panel,unauth,selenium,discovery
 
 http:
   - method: GET
@@ -34,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

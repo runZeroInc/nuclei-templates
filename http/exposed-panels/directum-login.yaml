@@ -10,12 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:directum:directum:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Directum"})
     max-request: 1
     vendor: directum
-    product: directum
-    fofa-query: title="directum"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Directum"})
-  tags: directum,panel
+  tags: directum,panel,discovery
 
 http:
   - method: GET
@@ -34,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

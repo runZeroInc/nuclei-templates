@@ -11,14 +11,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:extremenetworks:aerohive_netconfig:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aerohive NetConfig UI"})
     max-request: 1
     vendor: extremenetworks
-    product: aerohive_netconfig
-    shodan-query: http.title:"aerohive netconfig ui"
-    fofa-query: title="aerohive netconfig ui"
-    google-query: intitle:"aerohive netconfig ui"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aerohive NetConfig UI"})
-  tags: panel,tech,hiveos,aerohive
+  tags: panel,tech,hiveos,aerohive,discovery
 
 http:
   - method: GET
@@ -42,4 +38,3 @@ http:
         group: 1
         regex:
           - 'version" align="right" valign="bottom">([0-9.a-z]+)<\/td>'
-

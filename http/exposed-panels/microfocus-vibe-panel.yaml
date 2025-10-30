@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:microfocus:vibe:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)micro focus vibe"
     verified: true
     max-request: 1
     vendor: microfocus
     product: vibe
     shodan-query: http.html:"micro focus vibe"
     fofa-query: body="micro focus vibe"
-    runzero-match: service["http.body"] matches "(?i)micro focus vibe"
-  tags: panel,microfocus,vibe
+  tags: panel,microfocus,vibe,discovery
 
 http:
   - method: GET
@@ -46,4 +46,3 @@ http:
         group: 1
         regex:
           - '(?i)Copyright\s+([0-9-]+)\s+Micro\s+Focus'
-

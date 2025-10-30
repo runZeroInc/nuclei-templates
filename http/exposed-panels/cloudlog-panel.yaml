@@ -10,11 +10,11 @@ info:
     - https://github.com/magicbug/Cloudlog
     - https://lab.uberspace.de/guide_cloudlog/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Login - Cloudlog"})
     verified: true
     max-request: 1
     fofa-query: title="Login - Cloudlog"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Login - Cloudlog"})
-  tags: panel,login,cloudlog,detect
+  tags: panel,login,cloudlog,detect,discovery
 
 http:
   - method: GET
@@ -31,4 +31,3 @@ http:
           - 'contains_any(body, "<title>Login - Cloudlog", "Login to Cloudlog", "/CloudLog_logo.png")'
           - 'status_code == 200'
         condition: and
-

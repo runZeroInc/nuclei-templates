@@ -12,15 +12,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:checkmk:checkmk:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Check_MK"})
     verified: true
     max-request: 5
     vendor: checkmk
     product: checkmk
-    shodan-query: http.title:"check_mk"
-    fofa-query: title="check_mk"
-    google-query: intitle:"check_mk"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Check_MK"})
-  tags: panel,checkmk,detect,login
+    shodan-query: http.title:"Check_MK"
+  tags: panel,checkmk,detect,login,discovery
 
 http:
   - method: GET
@@ -44,4 +42,3 @@ http:
         regex:
           - '<div id="version">([0-9.a-z]+)<\/div>'
           - '<div id="foot">Version: ([0-9.a-z]+)'
-

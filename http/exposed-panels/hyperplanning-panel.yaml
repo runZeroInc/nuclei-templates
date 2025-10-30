@@ -9,10 +9,10 @@ info:
   reference:
     - https://www.index-education.com/fr/presentation-hyperplanning.php
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)HYPERPLANNING"})
     max-request: 1
     shodan-query: http.title:"HYPERPLANNING"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)HYPERPLANNING"})
-  tags: panel,hyperplanning,login,detect
+  tags: panel,hyperplanning,login,detect,discovery
 
 http:
   - method: GET
@@ -20,6 +20,7 @@ http:
       - "{{BaseURL}}"
 
     host-redirects: true
+
     matchers:
       - type: dsl
         dsl:
@@ -33,4 +34,3 @@ http:
         group: 1
         regex:
           - '(?i)Server:\s+HYPERPLANNING\s+([0-9.\s\-]+)'
-

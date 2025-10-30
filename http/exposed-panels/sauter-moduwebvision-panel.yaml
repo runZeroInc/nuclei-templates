@@ -11,14 +11,14 @@ info:
   classification:
     cpe: cpe:2.3:o:sauter:moduweb_vision:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1663319756"
     verified: true
     max-request: 1
     vendor: sauter
     product: moduweb_vision
     shodan-query: http.favicon.hash:"-1663319756"
     fofa-query: icon_hash=-1663319756
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1663319756"
-  tags: panel,moduweb,sauter,login
+  tags: panel,moduweb,sauter,login,discovery
 
 http:
   - method: GET
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

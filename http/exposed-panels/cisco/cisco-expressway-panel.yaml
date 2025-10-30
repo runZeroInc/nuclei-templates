@@ -11,14 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:cisco:expressway_software:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Cisco Expressway"
     verified: true
     max-request: 1
     vendor: cisco
     product: expressway_software
-    shodan-query: http.html:"cisco expressway"
-    fofa-query: body="cisco expressway"
-    runzero-match: service["http.body"] matches "(?i)Cisco Expressway"
-  tags: panel,cisco,login,detect
+    shodan-query: html:"Cisco Expressway"
+  tags: panel,cisco,login,detect,discovery
 
 http:
   - method: GET
@@ -38,4 +37,3 @@ http:
         group: 1
         regex:
           - 'Cisco\s+(?:Expressway|Expway)\s+([A-Za-z\s]+)<\/legend>'
-

@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:purestorage:purity:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pure storage login"})
     max-request: 1
     vendor: purestorage
     product: purity
     shodan-query: http.title:"pure storage login"
     fofa-query: title="pure storage login"
     google-query: intitle:"pure storage login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pure storage login"})
-  tags: panel,purestorage
+  tags: panel,purestorage,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

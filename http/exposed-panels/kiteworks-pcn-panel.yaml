@@ -11,14 +11,14 @@ info:
   classification:
     cpe: cpe:2.3:a:accellion:kiteworks:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1215318992"
     verified: true
     max-request: 1
     vendor: accellion
     product: kiteworks
     shodan-query: http.favicon.hash:"-1215318992"
     fofa-query: icon_hash=-1215318992
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1215318992"
-  tags: panel,kiteworks,login,detect,accellion
+  tags: panel,kiteworks,login,detect,accellion,discovery
 
 http:
   - method: GET
@@ -43,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

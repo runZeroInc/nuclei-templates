@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:squirrelmail:squirrelmail:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)squirrelmail"})
     max-request: 4
     vendor: squirrelmail
     product: squirrelmail
@@ -20,8 +21,7 @@ info:
       - cpe:"cpe:2.3:a:squirrelmail:squirrelmail"
     fofa-query: title="squirrelmail"
     google-query: intitle:"squirrelmail"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)squirrelmail"})
-  tags: squirrelmail,edb,panel
+  tags: squirrelmail,edb,panel,discovery
 
 http:
   - method: GET
@@ -45,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

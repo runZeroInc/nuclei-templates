@@ -9,8 +9,7 @@ info:
     verified: true
     vendor: peplink
     product: balance_two_firmware
-    shodan-query: html:"PEPLINK"
-  tags: panel,peplink,router,login
+  tags: panel,peplink,router,login,discovery
 
 http:
   - method: GET

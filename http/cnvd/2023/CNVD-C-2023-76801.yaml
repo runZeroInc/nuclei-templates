@@ -12,7 +12,8 @@ info:
     verified: true
     max-request: 2
     fofa-query: app="用友-NC-Cloud"
-  tags: cnvd,cnvd2023,yonyou,rce,intrusive
+  tags: cnvd,cnvd2023,yonyou,rce,intrusive,vuln
+
 variables:
   filename: "{{rand_base(12)}}"
 flow: http(1) && http(2)

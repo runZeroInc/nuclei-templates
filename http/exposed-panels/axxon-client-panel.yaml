@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:axxonsoft:axxon_next:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)axxon next client"})
     verified: true
     max-request: 1
     vendor: axxonsoft
@@ -19,8 +20,7 @@ info:
     shodan-query: http.title:"axxon next client"
     fofa-query: title="axxon next client"
     google-query: intitle:"axxon next client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)axxon next client"})
-  tags: panel,axxon,vms,login,detect,axxonsoft
+  tags: panel,axxon,vms,login,detect,axxonsoft,discovery
 
 http:
   - method: GET
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

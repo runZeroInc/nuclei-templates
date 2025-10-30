@@ -11,7 +11,7 @@ info:
     runzero-match: service["favicon.ico.image.mmh3"] == "-542502280"
     verified: true
     shodan-query: http.favicon.hash:-542502280
-  tags: panel,commvault,backup,login,detect
+  tags: panel,commvault,backup,login,detect,discovery
 
 http:
   - method: GET
@@ -33,3 +33,4 @@ http:
       - type: status
         status:
           - 200
+

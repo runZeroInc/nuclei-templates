@@ -12,10 +12,10 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Kafka Center"})
     max-request: 1
     shodan-query: http.title:"Kafka Center"
-    runzero-match: any(each(service["html.titles"]), {# matches "Kafka Center"})
-  tags: kafka,default-login
+  tags: kafka,default-login,vuln
 
 http:
   - raw:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

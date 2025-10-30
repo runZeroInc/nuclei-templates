@@ -14,15 +14,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:h:samsung:scx-6555n:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "SyncThru Web Service"})
     verified: true
     max-request: 1
     vendor: samsung
-    product: scx-6555n
-    shodan-query: http.title:"syncthru web service"
-    fofa-query: title="syncthru web service"
-    google-query: intitle:"syncthru web service"
-    runzero-match: any(each(service["html.titles"]), {# matches "SyncThru Web Service"})
-  tags: default-login,iot,samsung,printer
+  tags: default-login,iot,samsung,printer,vuln
 
 http:
   - raw:
@@ -56,4 +52,3 @@ http:
       - type: status
         status:
           - 200
-

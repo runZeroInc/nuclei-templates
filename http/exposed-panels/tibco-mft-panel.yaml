@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.tibco.com/products/managed-file-transfer
   metadata:
+    runzero-match: service["http.body"] matches "(?i)TIBCO Managed"
     verified: true
     max-request: 1
     shodan-query: html:"TIBCO Managed"
-    runzero-match: service["http.body"] matches "(?i)TIBCO Managed"
-  tags: tibco,mft,login,web,panel
+  tags: tibco,mft,login,web,panel,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

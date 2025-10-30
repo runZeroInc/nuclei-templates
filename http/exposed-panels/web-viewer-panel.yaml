@@ -7,6 +7,7 @@ info:
   classification:
     cpe: cpe:2.3:h:samsung:dvr:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)web viewer for samsung dvr"})
     verified: true
     max-request: 1
     vendor: samsung
@@ -14,8 +15,7 @@ info:
     shodan-query: http.title:"web viewer for samsung dvr"
     fofa-query: title="web viewer for samsung dvr"
     google-query: intitle:"web viewer for samsung dvr"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)web viewer for samsung dvr"})
-  tags: panel,web-viewer,detect,samsung
+  tags: panel,web-viewer,detect,samsung,discovery
 
 http:
   - method: GET
@@ -31,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

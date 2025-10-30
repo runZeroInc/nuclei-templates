@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phoronix-media:phoronix_test_suite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phoronix-test-suite"})
     max-request: 1
     vendor: phoronix-media
     product: phoronix_test_suite
     shodan-query: http.title:"phoronix-test-suite"
     fofa-query: title="phoronix-test-suite"
     google-query: intitle:"phoronix-test-suite"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phoronix-test-suite"})
-  tags: panel,phoronix,phoronix-media
+  tags: panel,phoronix,phoronix-media,discovery
 
 http:
   - method: GET
@@ -40,4 +40,3 @@ http:
         group: 1
         regex:
           - '<title>Phoronix Test Suite (.*) - Phoromatic - Welcome</title>'
-

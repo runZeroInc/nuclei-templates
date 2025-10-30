@@ -12,11 +12,11 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: service["http.body"] matches "Camunda Welcome"
     verified: true
     max-request: 2
     shodan-query: http.html:"Camunda Welcome"
-    runzero-match: service["http.body"] matches "Camunda Welcome"
-  tags: default-login,camunda
+  tags: default-login,camunda,vuln
 
 http:
   - raw:
@@ -60,4 +60,3 @@ http:
         part: header
         regex:
           - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
-

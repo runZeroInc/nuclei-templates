@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:qnap:photo_station:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)photo station"}) || any(each(service["html.titles"]), {# matches "(?i)qnap"})
     verified: true
     max-request: 1
     vendor: qnap
@@ -27,8 +28,7 @@ info:
     google-query:
       - intitle:"qnap"
       - intitle:"photo station"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)photo station"}) || any(each(service["html.titles"]), {# matches "(?i)qnap"})
-  tags: panel,photostation,qnap
+  tags: panel,photostation,qnap,discovery
 
 http:
   - method: GET
@@ -45,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

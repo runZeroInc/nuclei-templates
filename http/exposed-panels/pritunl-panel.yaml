@@ -12,15 +12,9 @@ info:
   classification:
     cpe: cpe:2.3:a:pritunl:pritunl:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 1
-    vendor: pritunl
-    product: pritunl
-    shodan-query: http.title:"pritunl"
-    fofa-query: title="pritunl"
-    google-query: intitle:"pritunl"
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
-  tags: pritunl,panel,login
+    verified: true
+  tags: pritunl,panel,login,discovery
 
 http:
   - method: GET
@@ -36,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

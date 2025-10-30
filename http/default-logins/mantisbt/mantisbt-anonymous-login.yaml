@@ -9,22 +9,13 @@ info:
   classification:
     cpe: cpe:2.3:a:mantisbt:mantisbt:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "662709064"
     verified: true
     max-request: 1
     vendor: mantisbt
     product: mantisbt
-    shodan-query:
-      - http.favicon.hash:"662709064"
-      - cpe:"cpe:2.3:a:mantisbt:mantisbt"
-      - http.html:"administration - installation - mantisbt"
-      - http.title:"mantisbt"
-    fofa-query:
-      - body="administration - installation - mantisbt"
-      - icon_hash=662709064
-      - title="mantisbt"
-    google-query: intitle:"mantisbt"
-    runzero-match: service["favicon.ico.image.mmh3"] == "662709064"
-  tags: default-logins,anonymous,mantisbt,default-login
+    shodan-query: http.favicon.hash:662709064
+  tags: default-logins,anonymous,mantisbt,default-login,vuln
 
 http:
   - method: GET
@@ -44,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

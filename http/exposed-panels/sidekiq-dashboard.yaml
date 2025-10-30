@@ -15,14 +15,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:contribsys:sidekiq:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sidekiq"})
     max-request: 1
     vendor: contribsys
     product: sidekiq
     shodan-query: http.title:"sidekiq"
     fofa-query: title="sidekiq"
     google-query: intitle:"sidekiq"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sidekiq"})
-  tags: unauth,panel,sidekiq,contribsys
+  tags: unauth,panel,sidekiq,contribsys,discovery
 
 http:
   - method: GET
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

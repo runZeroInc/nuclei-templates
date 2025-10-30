@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:forgerock:openam:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openam"})
     max-request: 20
     vendor: forgerock
     product: openam
     shodan-query: http.title:"openam"
     fofa-query: title="openam"
     google-query: intitle:"openam"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openam"})
-  tags: panel,openam,opensso,login,forgerock
+  tags: panel,openam,opensso,login,forgerock,discovery
 
 http:
   - method: GET
@@ -72,4 +72,3 @@ http:
         group: 1
         regex:
           - 'urlArgs: "v=([0-9.abcd]+)'
-

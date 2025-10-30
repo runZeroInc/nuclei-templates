@@ -9,12 +9,12 @@ info:
   reference:
     - https://www.advantive.com/brands/veracore/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)veraCoreScreenHeight"
     verified: true
     max-request: 1
     shodan-query: html:"veraCoreScreenHeight"
     fofa-query: body="veraCoreScreenHeight"
-    runzero-match: service["http.body"] matches "(?i)veraCoreScreenHeight"
-  tags: panel,veracore,login,detect
+  tags: panel,veracore,login,detect,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jenkins:jenkins:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "81586312"
     max-request: 1
     vendor: jenkins
     product: jenkins
@@ -17,15 +18,8 @@ info:
       - cpe:"cpe:2.3:a:jenkins:jenkins"
       - http.favicon.hash:"81586312"
       - product:"jenkins"
-      - http.title:"jenkins"
-      - x-jenkins
-    fofa-query:
-      - icon_hash=81586312
-      - icon_hash="81586312"
-      - title="jenkins"
-    google-query: intitle:"jenkins"
-    runzero-match: service["favicon.ico.image.mmh3"] == "81586312"
-  tags: panel,api,jenkins
+    fofa-query: icon_hash=81586312
+  tags: panel,api,jenkins,discovery
 
 http:
   - method: GET
@@ -41,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

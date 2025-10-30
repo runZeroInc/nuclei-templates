@@ -9,11 +9,11 @@ info:
   reference:
     - https://github.com/searxng/searxng
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-178113786"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-178113786
-    runzero-match: service["favicon.ico.image.mmh3"] == "-178113786"
-  tags: authentik,sso,mfa,panel,detect
+  tags: authentik,sso,mfa,panel,detect,discovery
 
 http:
   - method: GET
@@ -39,4 +39,3 @@ http:
       - type: dsl
         dsl:
           - "(\"-178113786\" == mmh3(base64_py(body)))"
-

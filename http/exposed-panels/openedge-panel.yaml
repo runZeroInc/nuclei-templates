@@ -9,14 +9,13 @@ info:
   classification:
     cpe: cpe:2.3:a:progress:openedge:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Welcome to Progress Application Server for OpenEdge"
     verified: true
     max-request: 1
     vendor: progress
     product: openedge
-    shodan-query: http.html:"welcome to progress application server for openedge"
-    fofa-query: body="welcome to progress application server for openedge"
-    runzero-match: service["http.body"] matches "(?i)Welcome to Progress Application Server for OpenEdge"
-  tags: panel,openedge,login,detect
+    shodan-query: html:"Welcome to Progress Application Server for OpenEdge"
+  tags: panel,openedge,login,detect,discovery
 
 http:
   - method: GET
@@ -33,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

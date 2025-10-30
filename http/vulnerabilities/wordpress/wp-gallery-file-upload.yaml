@@ -21,7 +21,8 @@ info:
     product: gallery
     publicwww-query: /wp-content/plugins/gallery-plugin/
     google-query: inurl:/wp-content/plugins/gallery-plugin/
-  tags: wp,wp-plugin,wordpress,wpscan,file-upload,intrusive
+  tags: wp,wp-plugin,wordpress,wpscan,file-upload,intrusive,vuln
+
 variables:
   filename: "{{to_lower(rand_text_alpha(5))}}"
 

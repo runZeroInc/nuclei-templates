@@ -13,25 +13,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jupyter:notebook:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)JupyterHub"
     max-request: 4
     vendor: jupyter
-    product: notebook
-    shodan-query:
-      - http.html:"jupyterhub"
-      - http.title:"home page - select or create a notebook"
-      - http.title:"jupyter notebook"
-    fofa-query:
-      - body="jupyterhub"
-      - title="home page - select or create a notebook"
-      - title="jupyter notebook"
-    google-query:
-      - intitle:"home page - select or create a notebook"
-      - intitle:"jupyter notebook"
-    runzero-match: service["http.body"] matches "(?i)JupyterHub"
-    zoomeye-query:
-      - app="jupyter notebook"
-      - title:"jupyter notebook"
-  tags: edb,panel,jupyter,notebook,exposure
+  tags: edb,panel,jupyter,notebook,exposure,discovery
 
 http:
   - method: GET
@@ -59,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

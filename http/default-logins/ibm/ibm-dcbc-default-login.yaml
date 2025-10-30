@@ -8,11 +8,11 @@ info:
   reference:
     - https://www.ibm.com/docs/en/odm/8.0.1?topic=users-tutorial-getting-started-decision-center-business-console
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Decision Center \\| Business Console"})
     verified: true
     max-request: 1
     shodan-query: "title=\"Decision Center | Business Console\""
-    runzero-match: any(each(service["html.titles"]), {# matches "Decision Center \\| Business Console"})
-  tags: ibm,default-login,decision-center
+  tags: ibm,default-login,decision-center,vuln
 
 http:
   - raw:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

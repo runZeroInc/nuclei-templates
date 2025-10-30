@@ -11,8 +11,8 @@ info:
     - https://github.com/HackAllSec/CVEs/blob/81e63ae5caae40be47905adae601e0c2f480190b/Jan%20Arbitrary%20File%20Upload%20vulnerability/README.md
   metadata:
     max-request: 2
-    fofa-query: icon_hash="-165268926"
-  tags: jan,intrusive,file-upload
+  tags: jan,intrusive,file-upload,vuln
+
 variables:
   string: "{{to_lower(rand_base(5))}}"
 

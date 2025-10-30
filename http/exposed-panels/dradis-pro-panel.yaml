@@ -12,15 +12,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dradisframework:dradis:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dradis Professional Edition"})
     verified: true
     max-request: 1
     vendor: dradisframework
-    product: dradis
-    shodan-query: http.title:"dradis professional edition"
-    fofa-query: title="dradis professional edition"
-    google-query: intitle:"dradis professional edition"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dradis Professional Edition"})
-  tags: panel,dradis
+  tags: panel,dradis,discovery
 
 http:
   - method: GET
@@ -37,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

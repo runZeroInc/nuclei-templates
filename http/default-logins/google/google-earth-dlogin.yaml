@@ -19,10 +19,10 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "GEE Server"})
     max-request: 1
     shodan-query: title:"GEE Server"
-    runzero-match: any(each(service["html.titles"]), {# matches "GEE Server"})
-  tags: default-login,google-earth
+  tags: default-login,google-earth,vuln
 
 http:
   - raw:
@@ -49,4 +49,3 @@ http:
         words:
           - 'DashboardPanel'
           - 'Earth Enterprise Server'
-

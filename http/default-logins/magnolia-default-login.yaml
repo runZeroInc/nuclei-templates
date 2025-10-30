@@ -14,19 +14,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:magnolia-cms:magnolia_cms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "Magnolia is a registered trademark"
     verified: true
     max-request: 3
     vendor: magnolia-cms
-    product: magnolia_cms
-    shodan-query:
-      - http.html:"magnolia is a registered trademark"
-      - http.title:"magnolia installation"
-    fofa-query:
-      - body="magnolia is a registered trademark"
-      - title="magnolia installation"
-    google-query: intitle:"magnolia installation"
-    runzero-match: service["http.body"] matches "Magnolia is a registered trademark"
-  tags: magnolia,default-login
+  tags: magnolia,default-login,vuln
 
 http:
   - raw:
@@ -86,4 +78,3 @@ http:
       - type: status
         status:
           - 200
-

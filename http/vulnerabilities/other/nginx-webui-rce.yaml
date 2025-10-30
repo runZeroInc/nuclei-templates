@@ -9,11 +9,11 @@ info:
   reference: |
     - https://forum.butian.net/article/243
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nginxwebui"})
     max-request: 1
     shodan-query: title="nginxwebui"
     fofa-query: title="nginxwebui"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nginxwebui"})
-  tags: nginx,nginxwebui,webui,rce
+  tags: nginx,nginxwebui,webui,rce,vuln
 
 http:
   - raw:
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,11 +10,11 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-749942143"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-749942143
-    runzero-match: service["favicon.ico.image.mmh3"] == "-749942143"
-  tags: panel,sensu,sumo,detect
+  tags: panel,sensu,sumo,detect,discovery
 
 http:
   - method: GET
@@ -31,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

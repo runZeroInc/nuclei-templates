@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:philips:vue_pacs:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vue pacs"})
     verified: true
     max-request: 1
     vendor: philips
@@ -18,8 +19,7 @@ info:
     shodan-query: http.title:"vue pacs"
     fofa-query: title="vue pacs"
     google-query: intitle:"vue pacs"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vue pacs"})
-  tags: vue,pacs,panel,login,philips
+  tags: vue,pacs,panel,login,philips,discovery
 
 http:
   - method: GET
@@ -46,4 +46,3 @@ http:
         group: 1
         regex:
           - 'version=([a-z0-9\.\s\-]+)'
-

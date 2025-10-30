@@ -12,14 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:jbpm:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)jbossws"
     verified: true
     max-request: 1
     vendor: redhat
     product: jbpm
     shodan-query: http.html:"jbossws"
     fofa-query: body="jbossws"
-    runzero-match: service["http.body"] matches "(?i)jbossws"
-  tags: jboss,panel,login,redhat
+  tags: jboss,panel,login,redhat,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,13 +10,13 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:ruijie:rg-uac_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)get_verify_info"
     max-request: 1
     vendor: ruijie
     product: rg-uac_firmware
     shodan-query: http.html:"get_verify_info"
     fofa-query: body="get_verify_info"
-    runzero-match: service["http.body"] matches "(?i)get_verify_info"
-  tags: panel,ruijie,router,firewall
+  tags: panel,ruijie,router,firewall,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

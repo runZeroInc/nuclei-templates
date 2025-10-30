@@ -10,15 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nconf_project:nconf:*:*:*:*:node.js:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nconf"})
     verified: true
     max-request: 1
     vendor: nconf_project
-    product: nconf
-    shodan-query: http.title:"nconf"
-    fofa-query: title="nconf"
-    google-query: intitle:"nconf"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nconf"})
-  tags: panel,nconf
+  tags: panel,nconf,discovery
 
 http:
   - method: GET
@@ -37,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

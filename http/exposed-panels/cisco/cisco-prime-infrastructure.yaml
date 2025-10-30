@@ -11,14 +11,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cisco:prime_infrastructure:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)prime infrastructure"})
     max-request: 1
     vendor: cisco
     product: prime_infrastructure
     shodan-query: http.title:"prime infrastructure"
     fofa-query: title="prime infrastructure"
     google-query: intitle:"prime infrastructure"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)prime infrastructure"})
-  tags: panel,cisco
+  tags: panel,cisco,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

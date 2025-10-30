@@ -13,7 +13,7 @@ info:
     product: crestron-device
     vendor: crestron
     shodan-query: html:"airmedia"
-  tags: crestron,default-login,iot,misconfig
+  tags: crestron,default-login,iot,misconfig,vuln
 
 variables:
   username: admin
@@ -44,3 +44,4 @@ http:
           - 'contains(body_1, "Device Administration")'
           - 'contains_all(tolower(body_3), "/webview", "crestron")'
         condition: and
+

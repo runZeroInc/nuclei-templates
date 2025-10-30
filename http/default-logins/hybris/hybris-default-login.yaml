@@ -11,15 +11,11 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:sap:hybris:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
     verified: true
     max-request: 3
     vendor: sap
-    product: hybris
-    shodan-query: http.title:"hybris"
-    fofa-query: title="hybris"
-    google-query: intitle:"hybris"
-    runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
-  tags: default-login,hybris
+  tags: default-login,hybris,vuln
 
 http:
   - raw:
@@ -74,4 +70,3 @@ http:
         group: 1
         regex:
           - '<meta name="_csrf" content="([a-z0-9-]+)" \/>'
-

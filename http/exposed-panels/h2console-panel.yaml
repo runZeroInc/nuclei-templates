@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:h2database:h2:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)h2 console"})
     max-request: 1
     vendor: h2database
     product: h2
@@ -24,8 +25,7 @@ info:
       - title="h2 console"
       - icon_hash=116323821
     google-query: intitle:"h2 console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)h2 console"})
-  tags: panel,h2,console,h2database
+  tags: panel,h2,console,h2database,discovery
 
 http:
   - method: GET
@@ -38,4 +38,3 @@ http:
           - "status_code==200"
           - "contains(tolower(body), '<title>h2 console</title>')"
         condition: and
-

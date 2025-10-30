@@ -20,7 +20,7 @@ info:
     product: framework
     shodan-query: Laravel-Framework
     fofa-query: app="Laravel-Framework"
-  tags: misconfig,laravel,debug,infoleak
+  tags: misconfig,laravel,debug,infoleak,vuln
 
 http:
   - raw:

@@ -10,15 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:gira:gira_home_server_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gira HomeServer 4"})
     verified: true
     max-request: 1
     vendor: gira
-    product: gira_home_server_firmware
-    shodan-query: http.title:"gira homeserver 4"
-    fofa-query: title="gira homeserver 4"
-    google-query: intitle:"gira homeserver 4"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gira HomeServer 4"})
-  tags: panel,gira
+  tags: panel,gira,discovery
 
 http:
   - method: GET
@@ -42,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

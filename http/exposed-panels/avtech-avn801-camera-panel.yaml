@@ -11,10 +11,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches `(?i):::\s+login\s+:::`})
     max-request: 1
     shodan-query: title:"login" product:"Avtech AVN801 network camera"
-    runzero-match: any(each(service["html.titles"]), {# matches `(?i):::\s+login\s+:::`})
-  tags: panel,avtech,iot,camera
+  tags: panel,avtech,iot,camera,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

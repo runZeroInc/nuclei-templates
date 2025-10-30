@@ -10,21 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:cloud_director:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware Cloud Director Availability"})
     verified: true
     max-request: 1
     vendor: vmware
-    product: cloud_director
-    shodan-query:
-      - http.title:"vmware cloud director availability"
-      - http.title:"welcome to vmware cloud director"
-    fofa-query:
-      - title="vmware cloud director availability"
-      - title="welcome to vmware cloud director"
-    google-query:
-      - intitle:"vmware cloud director availability"
-      - intitle:"welcome to vmware cloud director"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware Cloud Director Availability"})
-  tags: panel,vmware
+  tags: panel,vmware,discovery
 
 http:
   - method: GET
@@ -41,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

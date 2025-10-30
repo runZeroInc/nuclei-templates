@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:checkpoint:ssl_network_extender:*:*:*:*:-:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)check point ssl network extender"}) || any(each(service["html.titles"]), {# matches "(?i)ssl network extender login"})
     max-request: 1
     vendor: checkpoint
     product: ssl_network_extender
@@ -22,11 +23,7 @@ info:
     fofa-query:
       - title="check point ssl network extender"
       - title="ssl network extender login"
-    google-query:
-      - intitle:"ssl network extender login"
-      - intitle:"check point ssl network extender"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)check point ssl network extender"}) || any(each(service["html.titles"]), {# matches "(?i)ssl network extender login"})
-  tags: panel,checkpoint,router
+  tags: panel,checkpoint,router,discovery
 
 http:
   - method: GET
@@ -43,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

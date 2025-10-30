@@ -7,11 +7,11 @@ info:
   description: |
     Rapid7 Nexpose VM Security Console login panel was detected.
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-516760689"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-516760689
-    runzero-match: service["favicon.ico.image.mmh3"] == "-516760689"
-  tags: nexpose,panel,login,detect
+  tags: nexpose,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -31,4 +31,3 @@ http:
         part: header
         kval:
           - Server
-

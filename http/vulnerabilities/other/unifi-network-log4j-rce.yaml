@@ -21,9 +21,7 @@ info:
     verified: true
     max-request: 1
     vendor: ui
-    product: unifi_network_application
-    shodan-query: http.title:"UniFi Network"
-  tags: cve,cve2021,rce,log4j,ubnt,unifi,oast,jndi,kev
+  tags: cve,cve2021,rce,log4j,ubnt,unifi,oast,jndi,kev,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'

@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:solr:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)solr admin"}) || any(each(service["html.titles"]), {# matches "(?i)apache solr"})
     verified: true
     max-request: 2
     vendor: apache
@@ -28,9 +29,7 @@ info:
     google-query:
       - intitle:"apache solr"
       - intitle:"solr admin"
-      - intitle:"solr"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)solr admin"}) || any(each(service["html.titles"]), {# matches "(?i)apache solr"})
-  tags: panel,solr,apache,admin
+  tags: panel,solr,apache,admin,discovery
 
 http:
   - method: GET
@@ -53,4 +52,3 @@ http:
         group: 1
         regex:
           - 'favicon\.ico\?_=([0-9.]+)'
-

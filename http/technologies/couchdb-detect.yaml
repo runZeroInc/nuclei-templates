@@ -7,11 +7,11 @@ info:
   description: |
     Detects instances of Apache CouchDB server.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)couchdb\":"
     verified: true
     max-request: 1
-    shodan-query: html:"\"couchdb\":"
-    runzero-match: service["http.body"] matches "(?i)couchdb\":"
-  tags: couchdb,tech,detect,db
+    shodan-query: html:""couchdb":"
+  tags: couchdb,tech,detect,db,discovery
 
 http:
   - method: GET
@@ -43,4 +43,3 @@ http:
         group: 1
         regex:
           - '"version":"([0-9]+\.[0-9]+\.[0-9]+)"'
-

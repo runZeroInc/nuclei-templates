@@ -9,11 +9,11 @@ info:
   remediation: |
     To remediate this vulnerability, ensure that the device firmware is updated to the latest version provided by the manufacturer. Additionally, consider implementing network segmentation and firewall rules to restrict unauthorized access to the device.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/cgi-bin/login_mgr\\.cgi"
     verified: true
     max-request: 1
     fofa-query: 'body="/cgi-bin/login_mgr.cgi" && body="cmd=cgi_get_ssl_info"'
-    runzero-match: service["http.body"] matches "(?i)/cgi-bin/login_mgr\\.cgi"
-  tags: dlink,nas,rce
+  tags: dlink,nas,rce,vuln
 
 http:
   - raw:
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

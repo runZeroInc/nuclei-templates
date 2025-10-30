@@ -8,11 +8,11 @@ info:
   reference:
     - https://www.ibm.com/docs/en/odm/8.5.1?topic=console-tutorial-getting-started-decision-center-enterprise
   metadata:
+    runzero-match: service["http.body"] matches "Decision Center Enterprise console"
     verified: true
     max-request: 1
     shodan-query: "html=\"Decision Center Enterprise console\""
-    runzero-match: service["http.body"] matches "Decision Center Enterprise console"
-  tags: ibm,default-login,decision-center
+  tags: ibm,default-login,decision-center,vuln
 
 http:
   - raw:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -18,9 +18,7 @@ info:
     verified: true
     max-request: 1
     vendor: liferay
-    product: liferay_portal
-    shodan-query: title:"Liferay"
-  tags: liferay,lfi,j2ee
+  tags: liferay,lfi,j2ee,vuln
 
 http:
   - method: GET

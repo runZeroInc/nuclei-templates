@@ -11,20 +11,18 @@ info:
   classification:
     cpe: cpe:2.3:a:batflat:batflat:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] contains "Powered by Batflat"
     verified: true
     max-request: 1
     vendor: batflat
     product: batflat
-    shodan-query: http.html:"powered by batflat."
-    fofa-query: body="powered by batflat."
-    google-query: intext:"powered by batflat."
-    runzero-match: service["http.body"] contains "Powered by Batflat"
-  tags: default-login,batflat
+    google-query: intext:"Powered by Batflat."
+  tags: default-login,batflat,vuln
 
 http:
   - raw:
       - |
-        POST /admin/ HTTP/2
+        POST /admin/ HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
@@ -44,4 +42,3 @@ http:
           - contains(content_type, "text/html")
           - contains(body, "Batflat - Dashboard")
         condition: and
-

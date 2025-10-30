@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortiauthenticator:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1653412201"
     verified: true
     max-request: 1
     vendor: fortinet
     product: fortiauthenticator
     shodan-query: http.favicon.hash:"-1653412201"
     fofa-query: icon_hash=-1653412201
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1653412201"
-  tags: panel,fortinet,fortiauthenticator,detect
+  tags: panel,fortinet,fortiauthenticator,detect,discovery
 
 http:
   - method: GET
@@ -45,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

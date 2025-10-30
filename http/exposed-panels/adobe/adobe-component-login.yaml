@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adobe:coldfusion:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)coldfusion administrator login"})
     max-request: 2
     vendor: adobe
     product: coldfusion
@@ -22,8 +23,7 @@ info:
       - app="adobe-coldfusion"
       - title="coldfusion administrator login"
     google-query: intitle:"coldfusion administrator login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)coldfusion administrator login"})
-  tags: panel,adobe,coldfusion,edb
+  tags: panel,adobe,coldfusion,edb,discovery
 
 http:
   - method: GET
@@ -40,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

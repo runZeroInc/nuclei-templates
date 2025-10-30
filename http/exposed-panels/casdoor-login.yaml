@@ -12,14 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:casbin:casdoor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)casdoor"})
     max-request: 1
     vendor: casbin
     product: casdoor
     shodan-query: http.title:"casdoor"
     fofa-query: title="casdoor"
     google-query: intitle:"casdoor"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)casdoor"})
-  tags: panel,casdoor,casbin
+  tags: panel,casdoor,casbin,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

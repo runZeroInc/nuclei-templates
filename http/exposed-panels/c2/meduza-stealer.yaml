@@ -7,11 +7,11 @@ info:
   description: |
     Meduza Stealer panel were detected.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Meduza Stealer"})
     verified: "true"
     max-request: 1
     shodan-query: http.title:"Meduza Stealer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Meduza Stealer"})
-  tags: rat,meduza-stealer,c2,panel
+  tags: rat,meduza-stealer,c2,panel,vuln
 
 http:
   - method: GET
@@ -30,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

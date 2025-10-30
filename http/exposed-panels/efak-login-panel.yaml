@@ -10,11 +10,11 @@ info:
     - https://github.com/smartloli/efak
     - https://www.kafka-eagle.org/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1693580324"
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:1693580324
-    runzero-match: service["favicon.ico.image.mmh3"] == "1693580324"
-  tags: panel,efak,login,detect
+  tags: panel,efak,login,detect,discovery
 
 http:
   - method: GET
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

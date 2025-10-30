@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bitdefender:gravityzone:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bitdefender gravityzone"})
     verified: true
     max-request: 1
     vendor: bitdefender
@@ -17,8 +18,7 @@ info:
     shodan-query: http.title:"bitdefender gravityzone"
     fofa-query: title="bitdefender gravityzone"
     google-query: intitle:"bitdefender gravityzone"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bitdefender gravityzone"})
-  tags: panel,bitdefender
+  tags: panel,bitdefender,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

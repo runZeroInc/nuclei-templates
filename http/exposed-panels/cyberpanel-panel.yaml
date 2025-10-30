@@ -12,12 +12,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)cyberpanel"
     max-request: 1
     product: cyberpanel
-    shodan-query: http.html:"cyberpanel"
-    fofa-query: app="Cyberpanel"
-    runzero-match: service["http.body"] matches "(?i)cyberpanel"
-  tags: cyberpanel,panel,login,detect
+  tags: cyberpanel,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -34,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

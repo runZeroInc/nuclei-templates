@@ -15,9 +15,7 @@ info:
     verified: true
     max-request: 2
     vendor: gnu
-    product: wget
-    shodan-query: html:".wgetrc"
-  tags: devops,exposure
+  tags: devops,exposure,vuln
 
 http:
   - method: GET

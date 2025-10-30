@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:fortinet:fortiddos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiddos"})
     verified: true
     max-request: 1
     vendor: fortinet
@@ -18,8 +19,7 @@ info:
     shodan-query: http.title:"fortiddos"
     fofa-query: title="fortiddos"
     google-query: intitle:"fortiddos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiddos"})
-  tags: panel,fortinet,fortiddos,login
+  tags: panel,fortinet,fortiddos,login,discovery
 
 http:
   - method: GET
@@ -39,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -11,12 +11,8 @@ info:
     max-request: 2
     vendor: roundcube
     product: webmail
-    shodan-query:
-      - http.component:"roundcube"
-      - cpe:"cpe:2.3:a:roundcube:webmail"
-    runzero-vendor: Roundcube
-    runzero-product: Webmail
-  tags: roundcube,portal,tech
+    shodan-query: http.component:"RoundCube"
+  tags: roundcube,portal,tech,discovery
 
 http:
   - method: GET

@@ -9,11 +9,11 @@ info:
   reference:
     - https://ironmansoftware.com/powershell-universal
   metadata:
+    runzero-match: service["http.body"] matches "PowerShell Universal"
     verified: true
     max-request: 3
     shodan-query: "html:\"PowerShell Universal\""
-    runzero-match: service["http.body"] matches "PowerShell Universal"
-  tags: default-login,powershell-universal
+  tags: default-login,powershell-universal,vuln
 
 http:
   - raw:
@@ -56,4 +56,3 @@ http:
         words:
           - '{"errorMessage":"Bad username or password"}'
         negative: true
-

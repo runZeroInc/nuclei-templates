@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:corebos:corebos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)corebos"
     verified: true
     max-request: 1
     vendor: corebos
     product: corebos
     shodan-query: http.html:"corebos"
     fofa-query: body="corebos"
-    runzero-match: service["http.body"] matches "(?i)corebos"
-  tags: panel,corebos
+  tags: panel,corebos,discovery
 
 http:
   - method: GET
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

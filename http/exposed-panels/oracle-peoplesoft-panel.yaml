@@ -12,15 +12,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:oracle:peoplesoft_enterprise_peopletools:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle PeopleSoft Sign-in"})
     verified: true
     max-request: 12
     vendor: oracle
-    product: peoplesoft_enterprise_peopletools
-    shodan-query: http.title:"oracle peoplesoft sign-in"
-    fofa-query: title="oracle peoplesoft sign-in"
-    google-query: intitle:"oracle peoplesoft sign-in"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle PeopleSoft Sign-in"})
-  tags: oracle,peoplesoft,panel,login,detect
+  tags: oracle,peoplesoft,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -53,4 +49,3 @@ http:
         group: 1
         regex:
           - '(?i)\*\s+Copyright\s+\(c\)\s+([0-9,\s]+)\s+Oracle\s+and\/or\s+its\s+affiliates.'
-

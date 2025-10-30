@@ -6,11 +6,11 @@ info:
   severity: high
   description: ASUS WL-500G default login credentials were discovered.
   metadata:
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# matches '(?i)realm="WL-500G'})
     verified: true
     max-request: 1
-    shodan-query: WL-500G
-    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# matches '(?i)realm="WL-500G'})
-  tags: default-login,asus,wl-500
+    shodan-query: "WL-500G"
+  tags: default-login,asus,wl-500,vuln
 
 http:
   - raw:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

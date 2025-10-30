@@ -12,9 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: emerson
-    product: dixell_xweb-500_firmware
-    google-query: inurl:"xweb500.cgi"
-  tags: panel,xweb500
+  tags: panel,xweb500,discovery
 
 http:
   - method: GET

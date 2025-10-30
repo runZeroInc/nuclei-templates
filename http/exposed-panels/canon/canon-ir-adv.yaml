@@ -5,11 +5,11 @@ info:
   author: ritikchaddha,matejsmycka
   severity: info
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Canon iR-ADV"})
     verified: true
     max-request: 2
     shodan-query: title:"Canon iR-ADV"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Canon iR-ADV"})
-  tags: canon,panel,login,detect
+  tags: canon,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -39,4 +39,3 @@ http:
         regex:
           - '(iR-ADV C[0-9]+)'
         group: 1
-

@@ -20,7 +20,7 @@ info:
     product: zeppelin
     shodan-query: title:"Zeppelin"
     fofa-query: title="Zeppelin"
-  tags: misconfig,apache,zeppelin,unauth
+  tags: misconfig,apache,zeppelin,unauth,vuln
 
 http:
   - method: GET

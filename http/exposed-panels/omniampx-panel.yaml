@@ -10,14 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:telosalliance:omnia_mpx_node:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Omnia MPX"
     verified: true
     max-request: 1
     vendor: telosalliance
-    product: omnia_mpx_node
-    shodan-query: http.html:"omnia mpx"
-    fofa-query: body="omnia mpx"
-    runzero-match: service["http.body"] matches "(?i)Omnia MPX"
-  tags: panel,omnia,omniampx
+  tags: panel,omnia,omniampx,discovery
 
 http:
   - method: GET
@@ -33,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

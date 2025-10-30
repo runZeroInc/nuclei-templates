@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:darktrace:threat_visualizer:*:*:*:*:android:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)darktrace threat visualizer"
     verified: true
     max-request: 1
     vendor: darktrace
     product: threat_visualizer
     shodan-query: http.html:"darktrace threat visualizer"
     fofa-query: body="darktrace threat visualizer"
-    runzero-match: service["http.body"] matches "(?i)darktrace threat visualizer"
-  tags: panel,darktrace
+  tags: panel,darktrace,discovery
 
 http:
   - method: GET
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

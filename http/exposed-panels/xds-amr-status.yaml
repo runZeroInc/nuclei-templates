@@ -9,10 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)XDS-AMR - status"})
     max-request: 1
     shodan-query: http.title:"XDS-AMR - status"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)XDS-AMR - status"})
-  tags: panel,tech,xamr,xds
+  tags: panel,tech,xamr,xds,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
         part: body
         regex:
           - 'XAMR\-([0-9]+)'
-

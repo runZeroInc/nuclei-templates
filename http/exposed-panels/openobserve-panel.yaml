@@ -9,11 +9,11 @@ info:
   reference:
     - https://github.com/openobserve/openobserve
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenObserve"})
     verified: true
     max-request: 1
     shodan-query: http.title:"OpenObserve"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenObserve"})
-  tags: panel,openobserve,login
+  tags: panel,openobserve,login,discovery
 
 http:
   - method: GET
@@ -26,4 +26,3 @@ http:
           - 'status_code == 200'
           - 'contains(to_lower(body), "openobserve</title>")'
         condition: and
-

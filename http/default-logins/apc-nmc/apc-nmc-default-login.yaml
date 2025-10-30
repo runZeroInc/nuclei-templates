@@ -20,7 +20,7 @@ info:
     product: apc-network-management-card
     shodan-query: title:"APC | Log On"
     fofa-query: title="APC | Log On"
-  tags: apc,default-login,iot,ups
+  tags: apc,default-login,iot,ups,vuln
 
 http:
   - raw:

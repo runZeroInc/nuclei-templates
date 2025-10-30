@@ -13,14 +13,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mylittletools:mylittleadmin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
     verified: true
     max-request: 2
     vendor: mylittletools
-    product: mylittleadmin
-    shodan-query: http.html:"mylittleadmin"
-    fofa-query: body="mylittleadmin"
-    runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
-  tags: panel,mylittleadmin,login
+  tags: panel,mylittleadmin,login,discovery
 
 http:
   - method: GET
@@ -37,4 +34,3 @@ http:
           - "status_code == 200"
           - "contains(body, '<title>myLittleAdmin for SQL Server')"
         condition: and
-

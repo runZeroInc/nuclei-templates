@@ -10,20 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:keking:kkfileview:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kkFileView"})
     verified: true
     max-request: 1
     vendor: keking
-    product: kkfileview
-    shodan-query:
-      - http.title:"kkfileview"
-      - http.html:"kkfileview"
-    fofa-query:
-      - app="kkfileview"
-      - body="kkfileview"
-      - title="kkfileview"
-    google-query: intitle:"kkfileview"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)kkFileView"})
-  tags: panel,kkfileview
+  tags: panel,kkfileview,discovery
 
 http:
   - method: GET
@@ -39,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

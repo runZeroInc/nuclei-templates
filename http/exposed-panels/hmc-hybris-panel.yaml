@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sap:hybris:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hybris"})
     max-request: 2
     vendor: sap
     product: hybris
     shodan-query: http.title:"hybris"
     fofa-query: title="hybris"
     google-query: intitle:"hybris"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)hybris"})
-  tags: panel,sap
+  tags: panel,sap,discovery
 
 http:
   - method: GET
@@ -30,4 +30,3 @@ http:
         words:
           - "hybris Management Console"
         part: body
-

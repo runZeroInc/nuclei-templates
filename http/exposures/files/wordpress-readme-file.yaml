@@ -7,12 +7,12 @@ info:
   metadata:
     verified: true
     max-request: 3
-    vendor: wordpress
-    product: wordpress
     shodan-query:
       - http.component:"wordpress"
       - cpe:"cpe:2.3:a:wordpress:wordpress"
-  tags: exposure,wordpress,wp,readme,files
+    product: wordpress
+    vendor: wordpress
+  tags: exposure,wordpress,wp,readme,files,vuln
 
 http:
   - method: GET

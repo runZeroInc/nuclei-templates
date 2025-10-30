@@ -9,6 +9,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ws_ftp server web transfer"}) || any(each(service["html.titles"]), {# matches "(?i)ad hoc transfer"})
     verified: true
     max-request: 1
     vendor: progress
@@ -24,8 +25,7 @@ info:
     google-query:
       - intitle:"ws_ftp server web transfer"
       - intitle:"ad hoc transfer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ws_ftp server web transfer"}) || any(each(service["html.titles"]), {# matches "(?i)ad hoc transfer"})
-  tags: panel,ws_ftp,progress
+  tags: panel,ws_ftp,progress,discovery
 
 http:
   - method: GET
@@ -40,4 +40,3 @@ http:
           - contains(body, 'Web Transfer Client')
           - status_code == 200
         condition: and
-

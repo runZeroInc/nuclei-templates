@@ -11,11 +11,11 @@ info:
     - https://www.ctfiot.com/124166.html
     - https://www.sangfor.com/farsight-labs-threat-intelligence/cybersecurity/nginxwebui-runcmd-remote-command-execution-vulnerability
   metadata:
+    runzero-match: service["http.body"] matches "(?i)nginxWebUI"
     verified: true
     max-request: 1
     shodan-query: html:"nginxWebUI"
-    runzero-match: service["http.body"] matches "(?i)nginxWebUI"
-  tags: nginx,nginxwebui,rce
+  tags: nginx,nginxwebui,rce,vuln
 
 http:
   - method: GET
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

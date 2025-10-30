@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: reliablecontrols
-    product: mach-prowebcom
-    google-query: intitle:"Log on to MACH-ProWeb"
-  tags: panel,machproweb,edb
+  tags: panel,machproweb,edb,discovery
 
 http:
   - method: GET

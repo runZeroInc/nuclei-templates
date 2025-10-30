@@ -10,14 +10,14 @@ info:
   classification:
     cpe: cpe:2.3:a:x-wrt:luci:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
     max-request: 1
     vendor: x-wrt
     product: luci
     shodan-query: http.title:"openwrt - luci"
     fofa-query: title="openwrt - luci"
     google-query: intitle:"openwrt - luci"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
-  tags: panel,default-login,openwrt,x-wrt
+  tags: panel,default-login,openwrt,x-wrt,discovery
 
 http:
   - method: GET
@@ -31,4 +31,3 @@ http:
           - 'LuCI'
           - 'login'
         condition: and
-

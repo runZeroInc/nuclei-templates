@@ -5,6 +5,7 @@ info:
   author: darses
   severity: info
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-924708843" || any(each(service["html.titles"]), {# matches "(?i)MyQ"}) || service["favicon.ico.image.mmh3"] == "864100810" || service["favicon.ico.image.mmh3"] == "784616151" || service["favicon.ico.image.mmh3"] == "-2012429205"
     verified: true
     max-request: 1
     vendor: MyQ
@@ -20,8 +21,7 @@ info:
       - icon_hash="-2012429205"
       - icon_hash="-924708843"
       - title="MyQ"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-924708843" || any(each(service["html.titles"]), {# matches "(?i)MyQ"}) || service["favicon.ico.image.mmh3"] == "864100810" || service["favicon.ico.image.mmh3"] == "784616151" || service["favicon.ico.image.mmh3"] == "-2012429205"
-  tags: panel,myq,detect
+  tags: panel,myq,detect,discovery
 
 http:
   - method: GET
@@ -46,4 +46,3 @@ http:
         group: 1
         regex:
           - "<span class=\"version\">MyQ ([\\d\\.\\w\\s\\(\\)]+)<\\/span>"
-

@@ -9,10 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PGP Global Directory"})
     max-request: 1
     shodan-query: http.title:"PGP Global Directory"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PGP Global Directory"})
-  tags: symantec,panel
+  tags: symantec,panel,discovery
 
 http:
   - method: GET
@@ -29,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

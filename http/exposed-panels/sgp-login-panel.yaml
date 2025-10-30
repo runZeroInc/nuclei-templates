@@ -9,10 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SGP"})
     max-request: 1
     shodan-query: http.title:"SGP"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SGP"})
-  tags: panel,sgp
+  tags: panel,sgp,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
         group: 1
         regex:
           - ">Ver\\. ([0-9.A-Z]+)</p>"
-

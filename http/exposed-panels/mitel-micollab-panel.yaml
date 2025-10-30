@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:mitel:micollab:*:*:*:*:-:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)MiCollab End User Portal" || service["favicon.ico.image.mmh3"] == "-1922044295"
     verified: true
     max-request: 2
     vendor: mitel
@@ -21,9 +22,7 @@ info:
     fofa-query:
       - '"micollab end user portal" && title=="redirecting..."'
       - icon_hash="-1922044295"
-      - body="micollab end user portal"
-    runzero-match: service["http.body"] matches "(?i)MiCollab End User Portal" || service["favicon.ico.image.mmh3"] == "-1922044295"
-  tags: panel,mitel,login,detect
+  tags: panel,mitel,login,detect,discovery
 
 http:
   - method: GET
@@ -45,4 +44,3 @@ http:
         group: 1
         regex:
           - "SVR_VER=([\\d.\\-]+)"
-

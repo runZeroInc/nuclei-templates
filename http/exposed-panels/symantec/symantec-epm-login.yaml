@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:symantec:endpoint_protection_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)symantec endpoint protection manager"})
     max-request: 1
     vendor: symantec
     product: endpoint_protection_manager
     shodan-query: http.title:"symantec endpoint protection manager"
     fofa-query: title="symantec endpoint protection manager"
     google-query: intitle:"symantec endpoint protection manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)symantec endpoint protection manager"})
-  tags: symantec,panel,login
+  tags: symantec,panel,login,discovery
 
 http:
   - method: GET
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

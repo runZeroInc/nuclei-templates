@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:f5:big-ip_access_policy_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)big-ip&reg;-\\+redirect"})
     max-request: 1
     vendor: f5
     product: big-ip_access_policy_manager
@@ -25,8 +26,7 @@ info:
       - title="big-ip&reg;-+redirect" +"server"
       - body="big-ip apm"
     google-query: intitle:"big-ip&reg;-+redirect" +"server"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)big-ip&reg;-\\+redirect"})
-  tags: panel,bigip,f5
+  tags: panel,bigip,f5,discovery
 
 http:
   - method: GET
@@ -43,4 +43,3 @@ http:
       - type: status
         status:
           - 401
-

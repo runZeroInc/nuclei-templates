@@ -10,14 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mongodb:ops_manager_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MongoDB Ops Manager"})
     max-request: 1
     vendor: mongodb
-    product: ops_manager_server
-    shodan-query: http.title:"mongodb ops manager"
-    fofa-query: title="mongodb ops manager"
-    google-query: intitle:"mongodb ops manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MongoDB Ops Manager"})
-  tags: panel,mongodb
+  tags: panel,mongodb,discovery
 
 http:
   - method: GET
@@ -33,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

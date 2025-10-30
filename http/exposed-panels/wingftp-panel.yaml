@@ -9,7 +9,6 @@ info:
   reference:
     - https://www.wftpserver.com/
   metadata:
-    verified: true
     vendor: wingftp
     product: wingftp
     shodan-query:
@@ -23,7 +22,8 @@ info:
       - "Server: Wing FTP Server"
     zoomeye-query:
       - app="Wing FTP Server"
-  tags: panel,login,wingftp
+    verified: true
+  tags: panel,login,wingftp,discovery
 
 http:
   - method: GET

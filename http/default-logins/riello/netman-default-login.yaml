@@ -11,24 +11,14 @@ info:
   classification:
     cpe: cpe:2.3:o:riello-ups:netman_204_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Netman"})
     verified: "true"
     max-request: 1
     vendor: riello-ups
     product: netman_204_firmware
-    shodan-query:
-      - http.title:"netman"
-      - http.html:"ups network management card 4"
-      - http.title:"netman 204"
-    fofa-query:
-      - body="ups network management card 4"
-      - title="netman 204"
-      - title="netman"
-    censys-query: services.http.response.body:"netman204"
-    google-query:
-      - intitle:"netman 204"
-      - intitle:"netman"
-    runzero-match: any(each(service["html.titles"]), {# matches "Netman"})
-  tags: default-login,netman
+    shodan-query: title:"Netman"
+    censys-query: services.http.response.body:"Netman204"
+  tags: default-login,netman,vuln
 
 http:
   - raw:
@@ -55,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

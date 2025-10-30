@@ -12,9 +12,7 @@ info:
   metadata:
     max-request: 2
     vendor: ems_project
-    product: ems
-    google-query: inurl:EMSWebClient/
-  tags: panel,ems
+  tags: panel,ems,discovery
 
 http:
   - method: GET

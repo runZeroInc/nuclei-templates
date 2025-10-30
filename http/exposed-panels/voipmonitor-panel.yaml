@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:voipmonitor:voipmonitor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)voipmonitor"})
     max-request: 1
     vendor: voipmonitor
     product: voipmonitor
     shodan-query: http.title:"voipmonitor"
     fofa-query: title="voipmonitor"
     google-query: intitle:"voipmonitor"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)voipmonitor"})
-  tags: panel,voipmonitor,login
+  tags: panel,voipmonitor,login,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
           - "appShareUrl = 'share.voipmonitor.org'"
           - "VoIPmonitor"
         condition: and
-

@@ -7,11 +7,11 @@ info:
   reference:
     - https://blog.projectdiscovery.io/hello-lucee-let-us-hack-apple-again
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Lucee"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Lucee"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Lucee"})
-  tags: lucee,rce,oast
+  tags: lucee,rce,oast,vuln
 
 http:
   - raw:
@@ -27,4 +27,3 @@ http:
           - contains(header, "cfid")
           - contains(header, "cftoken")
         condition: and
-

@@ -9,11 +9,11 @@ info:
   reference:
     - https://gfi.ai/products-and-solutions/network-security-solutions/keriocontrol
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-631002664"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-631002664
-    runzero-match: service["favicon.ico.image.mmh3"] == "-631002664"
-  tags: panel,kerio,login
+  tags: panel,kerio,login,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
         part: header
         kval:
           - Server
-

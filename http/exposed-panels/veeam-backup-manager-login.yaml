@@ -10,6 +10,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cve-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)veeam backup enterprise manager"}) || service["favicon.ico.image.mmh3"] == "169658321" || service["http.body"] matches "(?i)Veeam"
     verified: true
     max-request: 1
     shodan-query:
@@ -19,8 +20,7 @@ info:
     fofa-query:
       - title="veeam backup enterprise manager"
       - icon_hash="169658321"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)veeam backup enterprise manager"}) || service["favicon.ico.image.mmh3"] == "169658321" || service["http.body"] matches "(?i)Veeam"
-  tags: veeam,panel,enterprise-manager,login,detect
+  tags: veeam,panel,enterprise-manager,login,detect,discovery
 
 http:
   - method: GET
@@ -44,4 +44,3 @@ http:
         group: 1
         regex:
           - login.bundle.js\?v=([\d\.]+)
-

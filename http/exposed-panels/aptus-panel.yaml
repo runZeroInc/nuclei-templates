@@ -10,14 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:intelliantech:aptus:*:*:*:*:android:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aptus Login"})
     max-request: 1
     vendor: intelliantech
-    product: aptus
-    shodan-query: http.title:"aptus login"
-    fofa-query: title="aptus login"
-    google-query: intitle:"aptus login"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Aptus Login"})
-  tags: panel,aptus
+  tags: panel,aptus,discovery
 
 http:
   - method: GET
@@ -34,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

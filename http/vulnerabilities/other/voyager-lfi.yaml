@@ -16,9 +16,7 @@ info:
     verified: true
     max-request: 1
     vendor: voyager_project
-    product: voyager
-    shodan-query: html:"voyager-assets"
-  tags: voyager,lfi
+  tags: voyager,lfi,vuln
 
 http:
   - method: GET

@@ -12,14 +12,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ibm:websphere_application_server:*:*:*:*:z\/os:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1337147129"
     verified: true
     max-request: 1
     vendor: ibm
     product: websphere_application_server
     shodan-query: http.favicon.hash:"1337147129"
     fofa-query: icon_hash=1337147129
-    runzero-match: service["favicon.ico.image.mmh3"] == "1337147129"
-  tags: websphere,panel,ibm
+  tags: websphere,panel,ibm,discovery
 
 http:
   - method: GET
@@ -41,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

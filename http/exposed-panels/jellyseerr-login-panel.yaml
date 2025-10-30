@@ -7,11 +7,11 @@ info:
   reference:
     - https://github.com/Fallenbagel/jellyseerr
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-2017604252"
     verified: true
     max-request: 2
     shodan-query: http.favicon.hash:-2017604252
-    runzero-match: service["favicon.ico.image.mmh3"] == "-2017604252"
-  tags: panel,jellyseerr,detect
+  tags: panel,jellyseerr,detect,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adminer:adminer:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
     max-request: 741
     vendor: adminer
     product: adminer
@@ -22,9 +23,7 @@ info:
       - title="login - adminer"
       - app="adminer" && body="4.7.8"
     google-query: intitle:"login - adminer"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
-    hunter-query: app.name="adminer"&&web.body="4.7.8"
-  tags: panel,fuzz,adminer,login,sqli
+  tags: panel,fuzz,adminer,login,sqli,discovery
 
 http:
   - raw:
@@ -53,4 +52,3 @@ http:
         group: 1
         regex:
           - '<span class="version">([0-9.]+)'
-

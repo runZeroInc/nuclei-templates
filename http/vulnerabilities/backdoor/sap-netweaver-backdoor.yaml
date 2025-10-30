@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.bleepingcomputer.com/news/security/sap-fixes-suspected-netweaver-zero-day-exploited-in-attacks/
   metadata:
-    verified: true
+    runzero-match: service["http.body"] matches "(?i)SAP NetWeaver Application Server Java"
     max-request: 1
     shodan-query: html:"SAP NetWeaver Application Server Java"
-    runzero-match: service["http.body"] matches "(?i)SAP NetWeaver Application Server Java"
-  tags: sap,netweaver,backdoor
+    verified: true
+  tags: sap,netweaver,backdoor,vuln
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

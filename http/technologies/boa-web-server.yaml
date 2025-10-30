@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 1
     vendor: boa
-    product: boa
-    shodan-query: "Server: Boa/"
-  tags: boa,tech
+  tags: boa,tech,discovery
 
 http:
   - method: GET

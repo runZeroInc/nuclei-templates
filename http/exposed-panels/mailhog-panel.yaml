@@ -12,11 +12,11 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)mailhog"
     verified: true
     max-request: 1
     shodan-query: http.html:"mailhog"
-    runzero-match: service["http.body"] matches "(?i)mailhog"
-  tags: panel,mailhog,mail,smtp
+  tags: panel,mailhog,mail,smtp,discovery
 
 http:
   - method: GET
@@ -35,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

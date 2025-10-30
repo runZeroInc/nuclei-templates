@@ -5,11 +5,11 @@ info:
   author: rxerium
   severity: info
   metadata:
-    verified: true
-    max-request: 2
-    shodan-query: http.favicon.hash:1952289652
     runzero-match: service["favicon.ico.image.mmh3"] == "1952289652"
-  tags: panel,login,detect,procore
+    max-request: 2
+    verified: true
+    shodan-query: http.favicon.hash:1952289652
+  tags: panel,login,detect,procore,discovery
 
 http:
   - method: GET
@@ -19,7 +19,6 @@ http:
       - "{{BaseURL}}/images/favicon.ico"
 
     stop-at-first-match: true
-
     matchers-condition: or
     matchers:
       - type: dsl
@@ -31,4 +30,3 @@ http:
           - '<title>Procore Log In</title>'
           - 'Log in to your Procore account using your email and password'
         condition: and
-

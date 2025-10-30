@@ -13,22 +13,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:workspace_one_uem:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "321909464" || service["http.body"] matches "(?i)Self-Service Portal"
     verified: true
     max-request: 1
     vendor: vmware
     product: workspace_one_uem
     shodan-query:
       - http.favicon.hash:"321909464"
-      - http.html:"self-service portal"
-      - http.html:"airwatch"
-      - http.html:"ssp loginscreen"
-    fofa-query:
-      - body="ssp loginscreen"
-      - body="airwatch"
-      - body="self-service portal"
-      - icon_hash="321909464"
-    runzero-match: service["favicon.ico.image.mmh3"] == "321909464" || service["http.body"] matches "(?i)Self-Service Portal"
-  tags: panel,workspaceone,vmware,airwatch,ssp,login,detect
+      - http.html:"Self-Service Portal"
+    fofa-query: body="ssp loginscreen"
+  tags: panel,workspaceone,vmware,airwatch,ssp,login,detect,discovery
 
 http:
   - method: GET
@@ -43,4 +37,3 @@ http:
           - "AirWatch"
         condition: and
         case-insensitive: true
-

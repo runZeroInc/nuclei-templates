@@ -11,15 +11,12 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1217039701"
     max-request: 1
     vendor: qualitor
     product: qualitor
     shodan-query: http.favicon.hash:"-1217039701"
-    fofa-query:
-      - icon_hash="-1217039701"
-      - qualitor
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1217039701"
-  tags: panel,qualitor
+  tags: panel,qualitor,discovery
 
 http:
   - method: GET
@@ -39,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

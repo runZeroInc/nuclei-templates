@@ -7,11 +7,11 @@ info:
   description: |
     Cnzxsoft Golden Shield Information Security Management System default login credentials were discovered.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)中新金盾信息安全管理系统"})
     verified: true
     max-request: 1
     fofa-query: 'title=="中新金盾信息安全管理系统"'
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)中新金盾信息安全管理系统"})
-  tags: default-login,cnzxsoft
+  tags: default-login,cnzxsoft,vuln
 
 http:
   - raw:
@@ -35,4 +35,3 @@ http:
           - 'status_code == 200'
           - 'contains(body,"1") && contains(header,"ZXSOFT_JDIS_USR_NAME=deleted") && !contains(body_1,"userpwd_error")'
         condition: and
-

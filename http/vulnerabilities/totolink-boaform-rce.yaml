@@ -11,11 +11,12 @@ info:
   classification:
     cwe-id: CWE-78
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TOTOLINK"})
     max-request: 2
     product: TOTOLINK
     fofa-query: title="TOTOLINK"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TOTOLINK"})
-  tags: totolink,rce,router,boaform
+  tags: totolink,rce,router,boaform,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -49,4 +50,3 @@ http:
       - type: status
         status:
           - 200
-

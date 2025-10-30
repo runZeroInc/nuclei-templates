@@ -9,14 +9,13 @@ info:
   classification:
     cpe: cpe:2.3:a:zohocorp:manageengine_netflow_analyzer:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "Login - Netflow Analyzer"
     verified: true
     max-request: 1
     vendor: zohocorp
     product: manageengine_netflow_analyzer
-    shodan-query: http.html:"login - netflow analyzer"
-    fofa-query: body="login - netflow analyzer"
-    runzero-match: service["http.body"] matches "Login - Netflow Analyzer"
-  tags: default-login,netflow,misconfig
+    shodan-query: html:"Login - Netflow Analyzer"
+  tags: default-login,netflow,misconfig,vuln
 
 http:
   - raw:
@@ -47,4 +46,3 @@ http:
         part: location
         words:
           - "/netflow;jsessionid"
-

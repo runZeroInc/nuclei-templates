@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:hashicorp:consul:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)consul by hashicorp"})
     max-request: 1
     vendor: hashicorp
     product: consul
@@ -18,8 +19,7 @@ info:
       - cpe:"cpe:2.3:a:hashicorp:consul"
     fofa-query: title="consul by hashicorp"
     google-query: intitle:"consul by hashicorp"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)consul by hashicorp"})
-  tags: consul,webserver,panel,hashicorp
+  tags: consul,webserver,panel,hashicorp,discovery
 
 http:
   - method: GET
@@ -48,4 +48,3 @@ http:
         group: 1
         regex:
           - "CONSUL_VERSION:.*([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})"
-

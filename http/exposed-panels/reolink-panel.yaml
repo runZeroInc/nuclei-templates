@@ -7,12 +7,11 @@ info:
   description: |
     Reolink panel was discovered.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Reolink"})
     verified: true
     max-request: 1
     shodan-query: title:"Reolink"
-    fofa-query: "Reolink"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Reolink"})
-  tags: panel,login,reolink,detect
+  tags: panel,login,reolink,detect,discovery
 
 http:
   - method: GET
@@ -27,4 +26,3 @@ http:
           - 'contains(body, "Reolink</title>")'
           - 'status_code == 200'
         condition: and
-

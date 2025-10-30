@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cpanel:cpanel:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cpanel - api codes"}) || any(each(service["html.titles"]), {# matches "(?i)cpanel"})
     verified: true
     max-request: 1
     vendor: cpanel
@@ -24,8 +25,7 @@ info:
     google-query:
       - intitle:"cpanel - api codes"
       - intitle:"cpanel"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)cpanel - api codes"}) || any(each(service["html.titles"]), {# matches "(?i)cpanel"})
-  tags: panel,cpanel
+  tags: panel,cpanel,discovery
 
 http:
   - method: GET
@@ -46,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

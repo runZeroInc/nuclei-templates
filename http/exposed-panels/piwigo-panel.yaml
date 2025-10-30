@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:piwigo:piwigo:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "540706145"
     verified: true
     max-request: 2
     vendor: piwigo
@@ -21,11 +22,10 @@ info:
     fofa-query:
       - title="piwigo"
       - icon_hash=540706145
-      - body="- installation"
-      - body="piwigo" html:"- installation"
-    google-query: powered by piwigo
-    runzero-match: service["favicon.ico.image.mmh3"] == "540706145"
-  tags: panel,piwigo,detect
+    google-query:
+      - Powered by Piwigo
+      - powered by piwigo
+  tags: panel,piwigo,detect,discovery
 
 http:
   - method: GET
@@ -57,4 +57,3 @@ http:
         group: 1
         regex:
           - 'jquery\.min\.js\?v([0-9.]+)">'
-

@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:o:seagate:nas_os:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)seagate nas - seagate"})
     verified: true
     max-request: 1
     vendor: seagate
@@ -16,8 +17,7 @@ info:
     shodan-query: http.title:"seagate nas - seagate"
     fofa-query: title="seagate nas - seagate"
     google-query: intitle:"seagate nas - seagate"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)seagate nas - seagate"})
-  tags: panel,seagate,login
+  tags: panel,seagate,login,discovery
 
 http:
   - method: GET
@@ -34,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

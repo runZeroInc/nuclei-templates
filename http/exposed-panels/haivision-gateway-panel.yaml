@@ -8,11 +8,11 @@ info:
   reference:
     - https://www.haivision.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Haivision Gateway"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Haivision Gateway"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Haivision Gateway"})
-  tags: panel,haivision,login,detect
+  tags: panel,haivision,login,detect,discovery
 
 http:
   - method: GET
@@ -25,4 +25,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>Haivision Gateway", "content=\"Haivision Gateway")'
         condition: and
-

@@ -9,11 +9,12 @@ info:
   reference:
     - https://forum.butian.net/article/251
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/needUsbkey\\.php\\?username="
     verified: true
     max-request: 2
     fofa-query: body="/needUsbkey.php?username=" && "NSFOCUS"
-    runzero-match: service["http.body"] matches "(?i)/needUsbkey\\.php\\?username="
-  tags: nsfocus,auth-bypass
+  tags: nsfocus,auth-bypass,vuln
+
 flow: http(1) && http(2)
 
 http:
@@ -49,4 +50,3 @@ http:
         part: content_type
         words:
           - application/json
-

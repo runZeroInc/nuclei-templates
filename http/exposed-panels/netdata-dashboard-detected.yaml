@@ -10,21 +10,17 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:netdata:netdata:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)netdata dashboard"})
     max-request: 1
     vendor: netdata
     product: netdata
     shodan-query:
       - server:"netdata embedded http server"
       - http.title:"netdata dashboard"
-      - http.title:"netdata console"
-    fofa-query:
-      - title="netdata dashboard"
-      - title="netdata console"
-    google-query:
-      - intitle:"netdata dashboard"
-      - intitle:"netdata console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)netdata dashboard"})
-  tags: netdata,panel,tech
+      - "server: netdata embedded http server"
+    fofa-query: title="netdata dashboard"
+    google-query: intitle:"netdata dashboard"
+  tags: netdata,panel,tech,discovery
 
 http:
   - method: GET
@@ -41,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

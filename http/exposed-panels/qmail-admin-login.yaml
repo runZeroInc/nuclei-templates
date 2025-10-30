@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:qmail_project:qmail:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qmailadmin"})
     verified: true
     max-request: 5
     vendor: qmail_project
@@ -17,8 +18,7 @@ info:
     shodan-query: http.title:"qmailadmin"
     fofa-query: title="qmailadmin"
     google-query: intitle:"qmailadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qmailadmin"})
-  tags: qmail,panel,qmail_project
+  tags: qmail,panel,qmail_project,discovery
 
 http:
   - method: GET
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

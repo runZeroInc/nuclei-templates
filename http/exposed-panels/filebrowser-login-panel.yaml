@@ -9,14 +9,14 @@ info:
   classification:
     cpe: cpe:2.3:a:filebrowser:filebrowser:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1052926265"
     verified: true
     max-request: 3
     vendor: filebrowser
     product: filebrowser
     shodan-query: http.favicon.hash:"1052926265"
     fofa-query: icon_hash=1052926265
-    runzero-match: service["favicon.ico.image.mmh3"] == "1052926265"
-  tags: panel,filebrowser,detect
+  tags: panel,filebrowser,detect,discovery
 
 http:
   - method: GET
@@ -41,4 +41,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && ('1052926265' == mmh3(base64_py(body)))"
-

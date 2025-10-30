@@ -10,11 +10,11 @@ info:
     - https://frappe.io/helpdesk
     - https://github.com/frappe/helpdesk
   metadata:
+    runzero-match: service["http.body"] matches "(?i)window\\.frappe_version"
     verified: true
     max-request: 1
     shodan-query: http.html:"window.frappe_version"
-    runzero-match: service["http.body"] matches "(?i)window\\.frappe_version"
-  tags: panel,frappe,login
+  tags: panel,frappe,login,discovery
 
 http:
   - method: GET
@@ -34,4 +34,3 @@ http:
         group: 1
         regex:
           - '(?i)helpdesk_version\s*=\s*"([0-9.]+)"'
-

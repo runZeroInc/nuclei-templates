@@ -10,14 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gfi:kerio_connect:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kerio Connect Client"})
     max-request: 1
     vendor: gfi
-    product: kerio_connect
-    shodan-query: http.title:"kerio connect client"
-    fofa-query: title="kerio connect client"
-    google-query: intitle:"kerio connect client"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kerio Connect Client"})
-  tags: panel,kerio
+  tags: panel,kerio,discovery
 
 http:
   - method: GET
@@ -34,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

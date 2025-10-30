@@ -12,11 +12,11 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adminer"})
     verified: true
     max-request: 5
     shodan-query: http.title:adminer
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)adminer"})
-  tags: default-login,adminer
+  tags: default-login,adminer,vuln
 
 http:
   - raw:
@@ -61,4 +61,3 @@ http:
       - type: status
         status:
           - 200
-

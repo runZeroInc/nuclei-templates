@@ -10,14 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:watchguard:fireware_xtm:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fireware xtm user authentication"})
     max-request: 1
     vendor: watchguard
     product: fireware_xtm
     shodan-query: http.title:"fireware xtm user authentication"
     fofa-query: title="fireware xtm user authentication"
     google-query: intitle:"fireware xtm user authentication"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)fireware xtm user authentication"})
-  tags: panel,watchguard
+  tags: panel,watchguard,discovery
 
 http:
   - method: GET
@@ -33,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

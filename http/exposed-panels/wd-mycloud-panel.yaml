@@ -9,14 +9,14 @@ info:
   classification:
     cpe: cpe:2.3:a:western_digital:mycloud_nas:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1074357885"
     verified: true
     max-request: 1
     vendor: western_digital
     product: mycloud_nas
     shodan-query: http.favicon.hash:"-1074357885"
     fofa-query: icon_hash=-1074357885
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1074357885"
-  tags: panel,login,mycloud,wd,detect,western_digital
+  tags: panel,login,mycloud,wd,detect,western_digital,discovery
 
 http:
   - method: GET
@@ -37,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:plesk:obsidian:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)plesk obsidian" || any(each(service["html.titles"]), {# matches "(?i)plesk obsidian"})
     verified: true
     max-request: 1
     vendor: plesk
@@ -21,8 +22,7 @@ info:
       - body="plesk obsidian"
       - title="plesk obsidian"
     google-query: intitle:"plesk obsidian"
-    runzero-match: service["http.body"] matches "(?i)plesk obsidian" || any(each(service["html.titles"]), {# matches "(?i)plesk obsidian"})
-  tags: panel,plesk,login,edb
+  tags: panel,plesk,login,edb,discovery
 
 http:
   - method: GET
@@ -44,4 +44,3 @@ http:
         group: 1
         regex:
           - '(?i)<title>([A-Za-z 0-9.]+)</title>'
-

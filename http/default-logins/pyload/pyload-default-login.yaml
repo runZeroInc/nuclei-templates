@@ -11,26 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:pyload:pyload:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)pyload"
     verified: true
     max-request: 1
     vendor: pyload
     product: pyload
-    shodan-query:
-      - http.html:"pyload"
-      - http.title:"login - pyload"
-      - http.title:"pyload"
-    fofa-query:
-      - body="pyload"
-      - title="login - pyload"
-      - title="pyload"
-    google-query:
-      - intitle:"login - pyload"
-      - intitle:"pyload"
-    runzero-match: service["http.body"] matches "(?i)pyload"
-    zoomeye-query:
-      - app:"pyload"
-      - app="pyload"
-  tags: default-login,pyload
+    shodan-query: html:"pyload"
+  tags: default-login,pyload,vuln
 
 http:
   - raw:
@@ -60,4 +47,3 @@ http:
       - type: status
         status:
           - 302
-

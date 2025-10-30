@@ -7,11 +7,11 @@ info:
   reference:
     - https://www.facebook.com/photo/?fbid=612496907587499&set=a.467014098802448
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Teradek Cube Administrative Console"})
     verified: true
     max-request: 1
     shodan-query: title:"Teradek Cube Administrative Console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Teradek Cube Administrative Console"})
-  tags: panel,login,teradek
+  tags: panel,login,teradek,discovery
 
 http:
   - method: GET
@@ -30,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

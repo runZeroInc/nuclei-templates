@@ -13,7 +13,8 @@ info:
     cwe-id: CWE-77
   metadata:
     max-request: 2
-  tags: thinkcmf,rce,intrusive
+  tags: thinkcmf,rce,intrusive,vuln
+
 variables:
   string: "thinkcmf-rce"
 

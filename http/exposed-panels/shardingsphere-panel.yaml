@@ -9,14 +9,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:shardingsphere_elasticjob-ui:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "816588900"
     verified: true
     max-request: 1
     vendor: apache
     product: shardingsphere_elasticjob-ui
     shodan-query: http.favicon.hash:"816588900"
     fofa-query: icon_hash=816588900
-    runzero-match: service["favicon.ico.image.mmh3"] == "816588900"
-  tags: panel,shardingsphere,login,apache
+  tags: panel,shardingsphere,login,apache,discovery
 
 http:
   - method: GET
@@ -36,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

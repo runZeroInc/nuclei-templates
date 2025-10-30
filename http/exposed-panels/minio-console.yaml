@@ -10,16 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:minio:console:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MinIO Console"})
     max-request: 1
     vendor: minio
-    product: console
-    shodan-query: http.title:"minio console"
-    fofa-query:
-      - app="minio-console"
-      - title="minio console"
-    google-query: intitle:"minio console"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MinIO Console"})
-  tags: panel,minio
+  tags: panel,minio,discovery
 
 http:
   - method: GET
@@ -35,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,14 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:oracle:integrated_lights_out_manager_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle\\(R\\) Integrated Lights Out Manager"})
     max-request: 1
     vendor: oracle
-    product: integrated_lights_out_manager_firmware
-    shodan-query: http.title:"oracle(r) integrated lights out manager"
-    fofa-query: title="oracle(r) integrated lights out manager"
-    google-query: intitle:"oracle(r) integrated lights out manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle\\(R\\) Integrated Lights Out Manager"})
-  tags: oracle,login,panel
+  tags: oracle,login,panel,discovery
 
 http:
   - method: GET
@@ -41,4 +37,3 @@ http:
         group: 1
         regex:
           - 'id="hostname">([a-z0-9-]+)<\/span><\/td>'
-

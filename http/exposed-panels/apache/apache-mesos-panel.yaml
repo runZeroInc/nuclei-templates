@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:mesos:*:*:*:*:jenkins:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)mesos"})
     verified: true
     max-request: 2
     vendor: apache
@@ -19,8 +20,7 @@ info:
       - app="apache-mesos"
       - title="mesos"
     google-query: intitle:"mesos"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)mesos"})
-  tags: panel,apache,mesos
+  tags: panel,apache,mesos,discovery
 
 http:
   - method: GET
@@ -42,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,14 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:aerohive:hivemanager_classic:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1604363273"
     verified: true
     max-request: 1
     vendor: aerohive
-    product: hivemanager_classic
-    shodan-query: http.favicon.hash:"1604363273"
-    fofa-query: icon_hash=1604363273
-    runzero-match: service["favicon.ico.image.mmh3"] == "1604363273"
-  tags: panel,hivemanager,aerohive
+  tags: panel,hivemanager,aerohive,discovery
 
 http:
   - method: GET
@@ -37,4 +34,3 @@ http:
           - "HiveManager"
           - 'alt="Aerohive'
         condition: and
-

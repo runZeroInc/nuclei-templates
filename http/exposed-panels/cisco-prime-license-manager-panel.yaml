@@ -4,14 +4,14 @@ info:
   name: Cisco Prime License Manager - Detect
   author: rxerium
   severity: info
-  description: |
-    Detected exposed Cisco Prime License Manager portals
   reference:
     - https://www.cisco.com/c/en/us/support/cloud-systems-management/prime-license-manager/series.html
+  description: |
+    Detected exposed Cisco Prime License Manager portals
   metadata:
     max-request: 1
     shodan-query: http.title:"Cisco Prime License Manager"
-  tags: cisco,cisco-prime-license-manager,panel
+  tags: cisco,cisco-prime-license-manager,panel,discovery
 
 http:
   - method: GET

@@ -10,24 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortra:goanywhere_managed_file_transfer:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)GoAnywhere Managed File Transfer"
     verified: true
     max-request: 2
     vendor: fortra
-    product: goanywhere_managed_file_transfer
-    shodan-query:
-      - http.html:"goanywhere managed file transfer"
-      - http.favicon.hash:"1484947000"
-      - http.favicon.hash:"1484947000,1828756398,1170495932"
-    fofa-query:
-      - app="goanywhere-mft"
-      - body="goanywhere managed file transfer"
-      - icon_hash=1484947000
-      - icon_hash=1484947000,1828756398,1170495932
-    runzero-match: service["http.body"] matches "(?i)GoAnywhere Managed File Transfer"
-    zoomeye-query:
-      - app:"fortra goanywhere-mft"
-      - app="fortra goanywhere-mft"
-  tags: panel,goanywhere,login,filetransfer
+  tags: panel,goanywhere,login,filetransfer,discovery
 
 http:
   - method: GET
@@ -49,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

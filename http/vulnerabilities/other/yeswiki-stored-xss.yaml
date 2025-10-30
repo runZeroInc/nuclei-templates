@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 2
     vendor: yeswiki
-    product: cercopitheque
-    shodan-query: http.html:"yeswiki"
-  tags: yeswiki,xss,stored-xss,huntr,intrusive
+  tags: yeswiki,xss,stored-xss,huntr,intrusive,vuln
 
 http:
   - raw:

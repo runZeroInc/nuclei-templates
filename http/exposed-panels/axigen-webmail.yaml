@@ -11,20 +11,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:axigen:axigen_mail_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Axigen WebMail"})
     max-request: 1
     vendor: axigen
-    product: axigen_mail_server
-    shodan-query:
-      - http.title:"axigen webmail"
-      - http.title:"axigen webadmin"
-    fofa-query:
-      - title="axigen webmail"
-      - title="axigen webadmin"
-    google-query:
-      - intitle:"axigen webmail"
-      - intitle:"axigen webadmin"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Axigen WebMail"})
-  tags: axigen,panel
+  tags: axigen,panel,discovery
 
 http:
   - method: GET
@@ -49,4 +39,3 @@ http:
         part: body
         regex:
           - '<script type="text\/javascript" src="js\/lib_login\.js\?v=(.+)"><\/script>'
-

@@ -11,14 +11,14 @@ info:
   classification:
     cpe: cpe:2.3:a:microsoft:remote_desktop:*:*:*:*:android:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)rd web access"
     verified: true
     max-request: 1
     vendor: microsoft
     product: remote_desktop
     shodan-query: http.html:"rd web access"
     fofa-query: body="rd web access"
-    runzero-match: service["http.body"] matches "(?i)rd web access"
-  tags: panel,login,rdp,web-access,Microsoft,detect,microsoft
+  tags: panel,login,rdp,web-access,Microsoft,detect,microsoft,discovery
 
 http:
   - method: GET
@@ -41,4 +41,3 @@ http:
           - "<rdp-client-top-view>"
           - "Microsoft Remote Desktop"
         condition: and
-

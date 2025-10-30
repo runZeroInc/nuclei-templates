@@ -17,9 +17,7 @@ info:
   metadata:
     verified: true
     vendor: Drupal
-    product: Drupal
-    fofa-query: app="drupal"
-  tags: drupal,elfinder,filemanager,exposure
+  tags: drupal,elfinder,filemanager,exposure,vuln
 
 http:
   - method: GET

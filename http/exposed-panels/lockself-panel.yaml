@@ -9,11 +9,11 @@ info:
   reference:
     - https://www.lockself.com/en/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LockSelf"})
     verified: true
     max-request: 1
     shodan-query: http.title:"LockSelf"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LockSelf"})
-  tags: panel,lockself,login,detect
+  tags: panel,lockself,login,detect,discovery
 
 http:
   - method: GET
@@ -26,4 +26,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>LockSelf","content=\"LockSelf", "name=\"LockSelf")'
         condition: and
-

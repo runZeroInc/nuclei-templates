@@ -12,15 +12,13 @@ info:
   classification:
     cpe: cpe:2.3:a:dockge.kuma:dockge:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dockge"})
     verified: true
     max-request: 1
     vendor: dockge.kuma
     product: dockge
-    shodan-query: http.title:"dockge"
-    fofa-query: title="dockge"
-    google-query: intitle:"dockge"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dockge"})
-  tags: panel,dockge,login
+    shodan-query: title:"Dockge"
+  tags: panel,dockge,login,discovery
 
 http:
   - method: GET
@@ -39,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

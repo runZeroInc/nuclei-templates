@@ -10,18 +10,11 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jorani:jorani:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Login - Jorani"
     verified: true
     max-request: 2
     vendor: jorani
-    product: jorani
-    shodan-query:
-      - http.html:"login - jorani"
-      - http.favicon.hash:"-2032163853"
-    fofa-query:
-      - body="login - jorani"
-      - icon_hash=-2032163853
-    runzero-match: service["http.body"] matches "(?i)Login - Jorani"
-  tags: panel,jorani,login
+  tags: panel,jorani,login,discovery
 
 http:
   - method: GET
@@ -52,4 +45,3 @@ http:
         group: 1
         regex:
           - '&nbsp;v([0-9.]+)'
-

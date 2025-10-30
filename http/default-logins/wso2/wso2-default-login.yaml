@@ -13,10 +13,9 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    max-request: 1
-    shodan-query: title:"WSO2 Management Console"
     runzero-match: any(each(service["html.titles"]), {# matches "WSO2 Management Console"})
-  tags: default-login,wso2
+    max-request: 1
+  tags: default-login,wso2,vuln
 
 http:
   - raw:
@@ -41,4 +40,3 @@ http:
           - "JSESSIONID"
         part: header
         condition: and
-

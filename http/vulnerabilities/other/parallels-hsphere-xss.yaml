@@ -17,9 +17,7 @@ info:
     verified: true
     max-request: 2
     vendor: parallels
-    product: h-sphere
-    shodan-query: title:"h-sphere"
-  tags: hsphere,xss,edb,parallels
+  tags: hsphere,xss,edb,parallels,vuln
 
 http:
   - method: GET

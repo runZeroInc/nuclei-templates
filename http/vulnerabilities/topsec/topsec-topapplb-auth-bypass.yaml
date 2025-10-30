@@ -9,11 +9,11 @@ info:
   reference:
     - https://github.com/cqr-cryeye-forks/goby-pocs/blob/main/Topsec-TopAppLB-Any-account-Login.json
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TopApp-LB 负载均衡系统"})
     verified: true
     max-request: 2
     fofa-query: title="TopApp-LB 负载均衡系统"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TopApp-LB 负载均衡系统"})
-  tags: topsec,topapplb,auth-bypass
+  tags: topsec,topapplb,auth-bypass,vuln
 
 http:
   - raw:
@@ -34,4 +34,3 @@ http:
           - 'contains(body_2,"var IsHeadMin ")'
           - 'contains(header_1,"redirect.php") && !contains(tolower(header_1), "error=1")'
         condition: and
-

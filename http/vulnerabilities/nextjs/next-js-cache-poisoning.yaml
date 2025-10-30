@@ -23,7 +23,8 @@ info:
       - x-middleware-rewrite
     runzero-match: service["http.body"] matches "(?i)/_next/static"
     zoomeye-query: app="Next.js"
-  tags: cve,cve2023,next-js,cache
+  tags: cve,cve2023,next-js,cache,vuln
+
 variables:
   rand: "{{rand_text_numeric(5)}}"
 

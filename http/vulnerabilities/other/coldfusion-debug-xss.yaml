@@ -15,9 +15,7 @@ info:
   metadata:
     max-request: 2
     vendor: adobe
-    product: coldfusion
-    shodan-query: http.component:"Adobe ColdFusion"
-  tags: adobe,coldfusion,xss
+  tags: adobe,coldfusion,xss,vuln
 
 http:
   - method: GET

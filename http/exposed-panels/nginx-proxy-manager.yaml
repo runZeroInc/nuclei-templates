@@ -10,14 +10,10 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nginxproxymanager:nginx_proxy_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nginx Proxy Manager"})
     max-request: 1
     vendor: nginxproxymanager
-    product: nginx_proxy_manager
-    shodan-query: http.title:"nginx proxy manager"
-    fofa-query: title="nginx proxy manager"
-    google-query: intitle:"nginx proxy manager"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nginx Proxy Manager"})
-  tags: panel,nginx,proxy
+  tags: panel,nginx,proxy,discovery
 
 http:
   - method: GET
@@ -40,4 +36,3 @@ http:
         group: 1
         regex:
           - '"page" id="login" data\-version="([0-9.]+)">'
-

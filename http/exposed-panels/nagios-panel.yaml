@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nagios:nagios:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nagios"})
     verified: true
     max-request: 2
     vendor: nagios
@@ -17,8 +18,7 @@ info:
     shodan-query: http.title:"nagios"
     fofa-query: title="nagios"
     google-query: intitle:"nagios"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)nagios"})
-  tags: panel,nagios
+  tags: panel,nagios,discovery
 
 http:
   - method: GET
@@ -38,4 +38,3 @@ http:
       - type: status
         status:
           - 401
-

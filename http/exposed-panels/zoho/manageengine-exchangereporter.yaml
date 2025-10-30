@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:zohocorp:manageengine_exchange_reporter_plus:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ManageEngine - Exchange Reporter Plus"}) || service["favicon.ico.image.mmh3"] == "230963457"
     verified: true
     max-request: 1
     vendor: zohocorp
@@ -21,8 +22,7 @@ info:
     fofa-query:
       - title="manageengine - exchange reporter plus"
       - icon_hash="230963457"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ManageEngine - Exchange Reporter Plus"}) || service["favicon.ico.image.mmh3"] == "230963457"
-  tags: panel,zoho,manageengine,zohocorp,login
+  tags: panel,zoho,manageengine,zohocorp,login,discovery
 
 http:
   - method: GET
@@ -47,4 +47,3 @@ http:
         name: version
         regex:
           - src="js/div-util.js\?v=(\d+)"
-

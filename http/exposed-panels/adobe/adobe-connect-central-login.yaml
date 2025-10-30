@@ -11,20 +11,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adobe:connect:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openvpn connect"})
     max-request: 1
     vendor: adobe
     product: connect
-    shodan-query:
-      - http.title:"openvpn connect"
-      - http.title:"ovpn config download"
-    fofa-query:
-      - title="openvpn connect"
-      - title="ovpn config download"
-    google-query:
-      - intitle:"openvpn connect"
-      - intitle:"ovpn config download"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openvpn connect"})
-  tags: adobe,panel,connect-central
+    shodan-query: http.title:"openvpn connect"
+    fofa-query: title="openvpn connect"
+    google-query: intitle:"openvpn connect"
+  tags: adobe,panel,connect-central,discovery
 
 http:
   - method: GET
@@ -41,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

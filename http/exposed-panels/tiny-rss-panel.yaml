@@ -11,19 +11,13 @@ info:
   classification:
     cpe: cpe:2.3:a:tt-rss:tiny_tiny_rss:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-418614327"
     verified: true
     max-request: 1
     vendor: tt-rss
     product: tiny_tiny_rss
-    shodan-query:
-      - http.favicon.hash:"-418614327"
-      - http.title:"tiny tiny rss - installer"
-    fofa-query:
-      - icon_hash=-418614327
-      - title="tiny tiny rss - installer"
-    google-query: intitle:"tiny tiny rss - installer"
-    runzero-match: service["favicon.ico.image.mmh3"] == "-418614327"
-  tags: panel,tiny-rss,login,detect
+    shodan-query: http.favicon.hash:-418614327
+  tags: panel,tiny-rss,login,detect,discovery
 
 http:
   - method: GET
@@ -36,4 +30,3 @@ http:
           - 'status_code==200'
           - 'contains_any(body, "Tiny Tiny RSS", "ttrss_login", "ttrss_utility")'
         condition: and
-

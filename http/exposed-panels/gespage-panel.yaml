@@ -12,9 +12,7 @@ info:
   metadata:
     max-request: 1
     vendor: gespage
-    product: gespage
-    shodan-query: Path=/gespage
-  tags: panel,gespage
+  tags: panel,gespage,discovery
 
 http:
   - method: GET

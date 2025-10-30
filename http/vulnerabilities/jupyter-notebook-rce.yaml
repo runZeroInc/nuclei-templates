@@ -11,26 +11,15 @@ info:
   classification:
     cpe: cpe:2.3:a:jupyter:notebook:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jupyter notebook"})
     verified: true
     max-request: 1
     vendor: jupyter
     product: notebook
-    shodan-query:
-      - http.title:"jupyter notebook"
-      - http.html:"jupyterhub"
-      - http.title:"home page - select or create a notebook"
-    fofa-query:
-      - title="jupyter notebook"
-      - body="jupyterhub"
-      - title="home page - select or create a notebook"
-    google-query:
-      - intitle:"home page - select or create a notebook"
-      - intitle:"jupyter notebook"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)jupyter notebook"})
-    zoomeye-query:
-      - app="jupyter notebook"
-      - title:"jupyter notebook"
-  tags: jupyter,notebook,rce,bypass
+    shodan-query: title:"jupyter notebook"
+    fofa-query: title="jupyter notebook"
+    zoomeye-query: app="Jupyter Notebook"
+  tags: jupyter,notebook,rce,bypass,vuln
 
 http:
   - raw:
@@ -56,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

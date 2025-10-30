@@ -8,14 +8,13 @@ info:
   classification:
     cpe: cpe:2.3:h:indionetworks:unibox:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "176427349"
     verified: true
     max-request: 1
     vendor: indionetworks
     product: unibox
-    shodan-query: http.favicon.hash:"176427349"
-    fofa-query: icon_hash=176427349
-    runzero-match: service["favicon.ico.image.mmh3"] == "176427349"
-  tags: panel,unibox,login
+    shodan-query: http.favicon.hash:176427349
+  tags: panel,unibox,login,discovery
 
 http:
   - method: GET
@@ -42,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

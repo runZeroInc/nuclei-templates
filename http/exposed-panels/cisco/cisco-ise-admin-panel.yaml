@@ -7,6 +7,7 @@ info:
   description: |
     Cisco Identity Services Engine (ISE) admin login panel was discovered.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Identity Services Engine"
     verified: true
     max-request: 1
     shodan-query:
@@ -19,8 +20,7 @@ info:
       - '"Set-Cookie: APPSESSIONID=" && "Path=/admin"'
       - icon_hash="-945076912"
       - icon_hash="-12304266"
-    runzero-match: service["http.body"] matches "(?i)Identity Services Engine"
-  tags: cisco,ise,admin,login,panel,detect
+  tags: cisco,ise,admin,login,panel,detect,discovery
 
 http:
   - method: GET
@@ -46,4 +46,3 @@ http:
         name: extracted_date
         dsl:
           - "date_time('%Y-%M-%D', extracted_unix_timestamp)"
-

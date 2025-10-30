@@ -9,11 +9,11 @@ info:
   reference:
     - https://github.com/dushixiang/next-terminal
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Next Terminal"})
     verified: true
     max-request: 1
     fofa-query: title="Next Terminal"
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Next Terminal"})
-  tags: default-login,next-terminal,next
+  tags: default-login,next-terminal,next,vuln
 
 http:
   - raw:
@@ -44,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-
