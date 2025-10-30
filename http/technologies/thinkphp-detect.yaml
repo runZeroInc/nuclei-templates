@@ -17,8 +17,6 @@ info:
     product: thinkphp
     shodan-query: title:"ThinkPHP"
     fofa-query: app="ThinkPHP"
-    product: thinkphp
-    vendor: thinkphp
   tags: thinkphp,tech,detect,intrusive,discovery
 
 http:

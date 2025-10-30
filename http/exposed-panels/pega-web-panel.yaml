@@ -25,7 +25,6 @@ info:
       - title="pega"
     google-query:
       - inurl:"/prweb/prauth/app/default"
-    fofa-query: title="pega platform"
   tags: panel,pega,discovery
 
 http:

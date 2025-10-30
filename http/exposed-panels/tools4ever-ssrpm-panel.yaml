@@ -6,8 +6,6 @@ info:
   severity: info
   description: |
     Detects Tools4Ever Self-Service Reset Password Manager login panel.
-  reference:
-    - https://www.tools4ever.com/ssrpm/
   metadata:
     vendor: tools4ever
     product: self_service_reset_password_management

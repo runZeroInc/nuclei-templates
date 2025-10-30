@@ -17,8 +17,6 @@ info:
     product: avideo
     shodan-query: http.title:"AVideo"
     fofa-query: "AVideo"
-    product: avideo
-    vendor: wwbn
   tags: panel,install,avideo,misconfig,vuln
 
 http:

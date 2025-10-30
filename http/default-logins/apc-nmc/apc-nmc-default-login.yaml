@@ -20,8 +20,6 @@ info:
     product: apc-network-management-card
     shodan-query: title:"APC | Log On"
     fofa-query: title="APC | Log On"
-    product: apc-network-management-card
-    vendor: schneider-electric
   tags: apc,default-login,iot,ups,vuln
 
 http:

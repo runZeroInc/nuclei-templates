@@ -8,7 +8,6 @@ info:
     Mattermost Login Panel was discovered.
   metadata:
     verified: true
-    vendor: mattermost
     shodan-query: html:'content="Mattermost"'
     fofa-query: 'content="Mattermost"'
     vendor: mattermost

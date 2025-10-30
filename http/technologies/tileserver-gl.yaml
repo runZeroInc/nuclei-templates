@@ -18,8 +18,6 @@ info:
     product: tileservergl
     shodan-query: http.title:"TileServer GL - Server for vector and raster maps with GL styles"
     google-query: intitle:"TileServer GL - Server for vector and raster maps with GL styles"
-    product: tileservergl
-    vendor: tileserver
   tags: tech,tileserver,edb,discovery
 
 http:

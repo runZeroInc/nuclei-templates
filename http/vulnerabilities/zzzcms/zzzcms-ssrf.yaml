@@ -16,8 +16,6 @@ info:
     product: zzzcms
     shodan-query: html:"ZzzCMS"
     fofa-query: title="ZzzCMS"
-    product: zzzcms
-    vendor: zzzcms
   tags: zzzcms,ssrf,oast,vuln
 
 variables:

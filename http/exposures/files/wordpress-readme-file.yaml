@@ -7,8 +7,6 @@ info:
   metadata:
     verified: true
     max-request: 3
-    vendor: wordpress
-    product: wordpress
     shodan-query:
       - http.component:"wordpress"
       - cpe:"cpe:2.3:a:wordpress:wordpress"

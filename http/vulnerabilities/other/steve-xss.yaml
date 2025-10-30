@@ -20,8 +20,6 @@ info:
     product: steve
     shodan-query: http.title:"SteVe - Steckdosenverwaltung"
     google-query: intitle:"SteVe - Steckdosenverwaltung"
-    product: steve
-    vendor: steve-community
   tags: steve,xss,oss,vuln
 
 http:

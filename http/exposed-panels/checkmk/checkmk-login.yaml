@@ -16,7 +16,6 @@ info:
     max-request: 5
     vendor: checkmk
     product: checkmk
-    verified: true
     shodan-query: http.title:"Check_MK"
   tags: panel,checkmk,detect,login,discovery
 

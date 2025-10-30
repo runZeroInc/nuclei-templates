@@ -12,8 +12,6 @@ info:
     cpe: cpe:2.3:a:octoprint:octoprint:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    vendor: octoprint
-    product: octoprint
     shodan-query:
       - http.favicon.hash:1307375944
       - http.title:"OctoPrint"

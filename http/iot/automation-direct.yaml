@@ -18,8 +18,6 @@ info:
     product: ea9-t6cl
     shodan-query: http.title:"C-more -- the best HMI presented by AutomationDirect"
     google-query: intitle:"C-more -- the best HMI presented by AutomationDirect"
-    product: ea9-t6cl
-    vendor: automationdirect
   tags: panel,iot,edb,discovery
 
 http:

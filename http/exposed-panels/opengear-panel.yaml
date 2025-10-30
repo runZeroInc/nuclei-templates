@@ -13,8 +13,6 @@ info:
   metadata:
     verified: true
     max-request: 1
-    vendor: opengear
-    product: opengear
     fofa-query: app="opengear-Management-Console"
     google-query: intitle:"Opengear Management Console"
     product: opengear
