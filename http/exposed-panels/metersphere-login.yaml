@@ -19,7 +19,6 @@ info:
     fofa-query:
       - body="metersphere"
       - title="metersphere"
-    shodan-query: http.html:"metersphere"
   tags: panel,metersphere,discovery
 
 http:

@@ -19,7 +19,6 @@ info:
     fofa-query:
       - title=="thruk monitoring webinterface"
       - body="thruk"
-    shodan-query: http.html:"thruk" || http.title:"thruk monitoring webinterface"
   tags: thruk,panel,login,discovery
 
 http:
