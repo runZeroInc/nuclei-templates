@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:cisco:expressway_software:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Cisco Expressway"
     verified: true
     max-request: 1
     vendor: cisco
@@ -36,4 +37,3 @@ http:
         group: 1
         regex:
           - 'Cisco\s+(?:Expressway|Expway)\s+([A-Za-z\s]+)<\/legend>'
-

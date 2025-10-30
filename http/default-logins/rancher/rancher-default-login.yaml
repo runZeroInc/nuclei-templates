@@ -14,6 +14,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "464587962"
     max-request: 2
   tags: default-login,rancher,kubernetes,devops,cloud,vuln
 
@@ -59,4 +60,3 @@ http:
         part: header
         regex:
           - 'Set-Cookie: CSRF=([a-z0-9]+)'
-

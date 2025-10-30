@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:piwigo:piwigo:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "540706145"
     verified: true
     max-request: 2
     vendor: piwigo
@@ -56,4 +57,3 @@ http:
         group: 1
         regex:
           - 'jquery\.min\.js\?v([0-9.]+)">'
-

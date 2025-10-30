@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:mitel:micollab:*:*:*:*:-:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)MiCollab End User Portal" || service["favicon.ico.image.mmh3"] == "-1922044295"
     verified: true
     max-request: 2
     vendor: mitel
@@ -43,4 +44,3 @@ http:
         group: 1
         regex:
           - "SVR_VER=([\\d.\\-]+)"
-

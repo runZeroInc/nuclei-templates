@@ -14,6 +14,7 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WNR614"})
     verified: true
     max-request: 1
     vendor: Netgear
@@ -33,4 +34,3 @@ http:
           - 'contains_all(body, "Router Information", "Show Statistics", "Internet Port")'
           - 'status_code == 200'
         condition: and
-

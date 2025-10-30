@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:checkpoint:ssl_network_extender:*:*:*:*:-:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)check point ssl network extender"}) || any(each(service["html.titles"]), {# matches "(?i)ssl network extender login"})
     max-request: 1
     vendor: checkpoint
     product: ssl_network_extender
@@ -39,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

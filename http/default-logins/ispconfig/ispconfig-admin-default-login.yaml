@@ -7,6 +7,7 @@ info:
   description: |
     ISPConfig Admin Panel default login credentials were discovered.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ispconfig"})
     verified: true
     max-request: 9
     shodan-query: "http.title:\"ispconfig\""
@@ -57,4 +58,3 @@ http:
       - type: status
         status:
           - 200
-

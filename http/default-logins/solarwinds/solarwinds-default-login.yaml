@@ -12,6 +12,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "SolarWinds Orion"})
     max-request: 2
   tags: solarwinds,default-login,vuln
 
@@ -51,4 +52,3 @@ http:
       - type: status
         status:
           - 200
-

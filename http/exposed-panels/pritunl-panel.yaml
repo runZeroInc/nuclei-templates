@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:pritunl:pritunl:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
     verified: true
   tags: pritunl,panel,login,discovery
 
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

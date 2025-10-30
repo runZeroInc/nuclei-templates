@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:h:ibm:integrated_management_module:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)ibmdojo"
     verified: true
     max-request: 1
     vendor: ibm
@@ -43,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

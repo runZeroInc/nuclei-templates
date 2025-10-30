@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)aem sign in"})
     max-request: 1
     vendor: adobe
     product: experience_manager
@@ -42,4 +43,3 @@ http:
       - type: status
         status:
           - 200
-

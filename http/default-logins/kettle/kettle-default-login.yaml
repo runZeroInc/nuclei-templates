@@ -10,6 +10,7 @@ info:
     cvss-score: 5.8
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="Kettle'})
     verified: true
     max-request: 1
     shodan-query: basic realm="Kettle"
@@ -39,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

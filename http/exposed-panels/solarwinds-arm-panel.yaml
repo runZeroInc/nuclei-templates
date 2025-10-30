@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:solarwinds:access_rights_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1416464161"
     verified: true
     max-request: 1
     vendor: solarwinds
@@ -39,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zabbix:zabbix:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "892542951" || any(each(service["html.titles"]), {# matches "(?i)zabbix-server"})
     max-request: 1
     vendor: zabbix
     product: zabbix
@@ -39,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

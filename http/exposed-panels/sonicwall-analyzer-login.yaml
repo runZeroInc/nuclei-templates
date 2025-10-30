@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sonicwall:analyzer:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sonicwall analyzer login"})
     verified: true
     max-request: 1
     vendor: sonicwall
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ansible-semaphore:ansible_semaphore:*:*:*:*:ansible:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Semaphore</title>"
     max-request: 1
     vendor: ansible-semaphore
   tags: panel,ansible,semaphore,cicd,oss,discovery
@@ -30,4 +31,3 @@ http:
       - type: regex
         regex:
           - '<title(.*)>Semaphore</title>'
-

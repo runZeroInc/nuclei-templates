@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mylittletools:mylittlebackup:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)myLittleBackup"
     verified: true
     max-request: 3
     vendor: mylittletools
@@ -41,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

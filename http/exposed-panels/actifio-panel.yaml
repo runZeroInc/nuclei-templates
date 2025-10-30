@@ -9,6 +9,7 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Actifio Resource Center"})
     max-request: 1
     shodan-query: http.title:"Actifio Resource Center"
   tags: panel,actifio,login,detect,discovery
@@ -24,4 +25,3 @@ http:
           - 'contains(body, "<title>Actifio Resource Center")'
           - 'status_code == 200'
         condition: and
-

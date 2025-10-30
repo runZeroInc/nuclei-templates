@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:axway:securetransport:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)securetransport"}) || any(each(service["html.titles"]), {# matches "(?i)st web client"})
     verified: true
     max-request: 1
     vendor: axway
@@ -54,4 +55,3 @@ http:
         group: 1
         regex:
           - '"SecureTransport", "([0-9.]+)",'
-

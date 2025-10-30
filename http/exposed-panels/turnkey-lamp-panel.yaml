@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.turnkeylinux.org/lamp
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TurnKey LAMP"})
     verified: true
     max-request: 1
     shodan-query: title:"TurnKey LAMP"
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

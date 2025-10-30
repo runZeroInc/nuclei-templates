@@ -10,6 +10,7 @@ info:
     - https://packetstormsecurity.com/files/170263/SOUND4-IMPACT-FIRST-PULSE-Eco-2.x-Unauthenticated-File-Disclosure.html
     - https://www.zeroscience.mk/en/vulnerabilities/ZSL-2022-5736.php
   metadata:
+    runzero-match: service["http.body"] matches "(?i)SOUND4"
     verified: true
     max-request: 1
     shodan-query: http.html:"SOUND4"
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

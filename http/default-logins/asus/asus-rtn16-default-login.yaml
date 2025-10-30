@@ -8,6 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:h:asus:rt-n16:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="RT-N16'})
     verified: true
     max-request: 1
     vendor: asus
@@ -43,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:tigase:tigase:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tigase XMPP Server"})
     verified: true
     max-request: 1
     vendor: tigase
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

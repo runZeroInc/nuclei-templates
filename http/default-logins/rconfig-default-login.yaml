@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:rconfig:rconfig:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "rConfig"})
     verified: true
     max-request: 2
     vendor: rconfig
@@ -57,4 +58,3 @@ http:
         part: header_2
         status:
           - 200
-

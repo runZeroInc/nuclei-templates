@@ -10,6 +10,7 @@ info:
     - https://github.com/tdragon6/Supershell
     - https://www.ctfiot.com/129689.html
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)supershell"})
     verified: true
     max-request: 1
     fofa-query: title="supershell"
@@ -37,4 +38,3 @@ http:
           - 'status_code_1 == 200 && !contains(body_1,"result\":\"failed")'
           - 'contains(header_1,"token=ey") && contains(body_1,"{\"result\":\"success")'
         condition: and
-

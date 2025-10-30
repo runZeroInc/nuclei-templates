@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:qlik:qlikview:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)QlikView - AccessPoint"})
     verified: true
     max-request: 1
     vendor: qlik
@@ -31,4 +32,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>qlikview - accesspoint", "alt=\"qlikview")'
         condition: and
-

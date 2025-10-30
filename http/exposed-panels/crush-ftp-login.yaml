@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)crushftp" || any(each(service["favicon.ico.image.mmh3"]), {# == "-1022206565"})
     verified: true
     max-request: 1
     vendor: crushftp
@@ -39,4 +40,3 @@ http:
         part: header
         words:
           - 'Server: CrushFTP HTTP Server'
-

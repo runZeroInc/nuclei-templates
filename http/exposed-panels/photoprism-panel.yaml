@@ -9,6 +9,7 @@ info:
   reference:
     - https://docs.photoprism.app/getting-started/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PhotoPrism"})
     verified: true
     max-request: 1
     shodan-query: title:"PhotoPrism"
@@ -27,4 +28,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "PhotoPrism", "login")'
         condition: and
-

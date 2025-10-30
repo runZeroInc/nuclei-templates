@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-89
     cpe: cpe:2.3:a:yeswiki:cercopitheque:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)yeswiki"
     verified: true
     max-request: 1
     vendor: yeswiki
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

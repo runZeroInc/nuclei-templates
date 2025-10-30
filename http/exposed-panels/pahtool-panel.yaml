@@ -9,6 +9,7 @@ info:
   reference:
     - http://www.inovultus.com/index.html
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PAHTool"})
     verified: true
     max-request: 1
     shodan-query: http.title:"PAHTool"
@@ -32,4 +33,3 @@ http:
         group: 1
         regex:
           - 'id="appVersion"\s+value="([0-9\.]+)"'
-

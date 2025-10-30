@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sixapart:movable_type:*:*:*:*:-:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)サインイン \\| movable type pro"})
     max-request: 2
     vendor: sixapart
     product: movable_type
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

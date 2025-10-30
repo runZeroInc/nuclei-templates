@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:dashy:dashy:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1013024216"
     verified: true
     max-request: 1
     vendor: dashy
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

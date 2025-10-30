@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] contains "CrushFTP" || service["http.head.server"] contains "CrushFTP" || any(each(service["favicon.ico.image.mmh3"]), {# == "-1022206565"})
     verified: true
     max-request: 2
     vendor: crushftp
@@ -48,4 +49,3 @@ http:
         group: 1
         regex:
           - 'currentAuth=([0-9a-zA-Z]+)'
-

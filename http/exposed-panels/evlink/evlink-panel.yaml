@@ -5,6 +5,7 @@ info:
   author: ritikchaddha
   severity: info
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)EVlink Local Controller"})
     verified: true
     max-request: 1
     shodan-query: title:"EVlink Local Controller"
@@ -26,4 +27,3 @@ http:
       - type: status
         status:
           - 200
-

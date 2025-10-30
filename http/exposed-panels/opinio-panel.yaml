@@ -8,6 +8,7 @@ info:
   reference:
     - https://www.objectplanet.com/opinio/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Opinio"})
     verified: true
     max-request: 2
     shodan-query: http.title:"Opinio"
@@ -34,4 +35,3 @@ http:
         group: 1
         regex:
           - 'Opinio\s+([0-9.]+)'
-

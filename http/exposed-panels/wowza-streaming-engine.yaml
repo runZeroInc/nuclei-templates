@@ -8,6 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:a:wowza:streaming_engine:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)manager"})
     max-request: 1
     vendor: wowza
     product: streaming_engine
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,6 +12,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "892542951"
     max-request: 2
   tags: zabbix,default-login,vuln
 
@@ -46,4 +47,3 @@ http:
       - type: status
         status:
           - 302
-

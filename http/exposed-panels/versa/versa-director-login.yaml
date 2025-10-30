@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:versa-networks:versa_director:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Versa Director"})
     verified: true
     max-request: 1
     vendor: versa-networks
@@ -33,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

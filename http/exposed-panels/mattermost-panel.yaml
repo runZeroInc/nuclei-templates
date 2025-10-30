@@ -7,6 +7,7 @@ info:
   description: |
     Mattermost Login Panel was discovered.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)'content=\"Mattermost\"'"
     verified: true
     shodan-query: html:'content="Mattermost"'
     fofa-query: 'content="Mattermost"'
@@ -37,4 +38,3 @@ http:
         group: 1
         regex:
           - 'X-Version-Id: (\d+\.\d+\.\d+)'
-

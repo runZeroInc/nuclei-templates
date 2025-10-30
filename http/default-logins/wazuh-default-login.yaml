@@ -13,6 +13,7 @@ info:
   classification:
     cpe: cpe:2.3:a:wazuh:wazuh:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Wazuh"})
     verified: true
     max-request: 7
     vendor: wazuh
@@ -73,4 +74,3 @@ http:
       - type: status
         status:
           - 200
-

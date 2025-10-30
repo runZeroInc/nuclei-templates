@@ -5,6 +5,7 @@ info:
   author: DhiyaneshDk
   severity: info
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)macOS Server"})
     verified: true
     max-request: 1
     shodan-query: title:"macOS Server"
@@ -26,4 +27,3 @@ http:
       - type: status
         status:
           - 200
-

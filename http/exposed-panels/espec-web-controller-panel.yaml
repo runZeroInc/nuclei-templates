@@ -9,6 +9,7 @@ info:
   reference:
     - https://espec.com/na/products/option_detail/web_controller/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "529766441" || any(each(service["html.titles"]), {# matches "(?i)Espec Web Controller"})
     max-request: 2
     vendor: espec
     product: web_controller
@@ -41,4 +42,3 @@ http:
         group: 1
         regex:
           - "Version: ([\\d\\.]+)"
-

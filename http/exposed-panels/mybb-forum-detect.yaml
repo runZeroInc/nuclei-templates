@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mybb:mybb:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)mybb"})
     verified: true
     max-request: 1
     vendor: mybb
@@ -35,4 +36,3 @@ http:
           - 'MyBB Forum'
           - '<title>MyBB'
         condition: or
-

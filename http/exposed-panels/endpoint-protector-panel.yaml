@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:cososys:endpoint_protector:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Endpoint Protector"})
     verified: true
     max-request: 1
     vendor: cososys
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

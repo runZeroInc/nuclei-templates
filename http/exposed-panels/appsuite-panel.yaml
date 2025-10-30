@@ -7,6 +7,7 @@ info:
   classification:
     cpe: cpe:2.3:a:open-xchange:open-xchange_appsuite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)appsuite"
     verified: true
     max-request: 1
     vendor: open-xchange
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

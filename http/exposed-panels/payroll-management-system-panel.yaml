@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:payroll_management_system_project:payroll_management_system:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Admin \\| Employee's Payroll Management System"})
     verified: true
     max-request: 1
     vendor: payroll_management_system_project
@@ -33,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

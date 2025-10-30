@@ -9,6 +9,7 @@ info:
   reference:
     - https://fsmlabs.com
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "2134367771"
     verified: true
     max-request: 1
     vendor: fsmlabs
@@ -45,4 +46,3 @@ http:
       - type: status
         status:
           - 200
-

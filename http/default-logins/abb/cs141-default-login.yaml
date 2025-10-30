@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:h:generex:cs141:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "CS141"
     max-request: 3
     vendor: generex
   tags: hiawatha,iot,default-login,vuln
@@ -61,4 +62,3 @@ http:
       - type: kval
         kval:
           - accessToken
-

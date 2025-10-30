@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:livezilla:livezilla:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)livezilla"
     max-request: 1
     vendor: livezilla
     product: livezilla
@@ -31,4 +32,3 @@ http:
       - type: word
         words:
           - 'LiveZilla'
-

@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.tixeo.com/en/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)tixeo"})
     verified: true
     max-request: 3
     shodan-query: "http.title:\"tixeo\""
@@ -35,4 +36,3 @@ http:
         group: 1
         regex:
           - '"applicationVersion"\s*:\s*"([0-9.]+)"'
-

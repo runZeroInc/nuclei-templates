@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-78
     cpe: cpe:2.3:o:tamronos:tamronos:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TamronOS IPTV系统"})
     verified: true
     max-request: 1
     vendor: tamronos
@@ -33,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

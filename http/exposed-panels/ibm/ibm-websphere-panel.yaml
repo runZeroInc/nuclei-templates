@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ibm:websphere_portal:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)ibm websphere portal"
     max-request: 1
     vendor: ibm
     product: websphere_portal
@@ -44,4 +45,3 @@ http:
         regex:
           - "Content-Location: .+"
         negative: true
-

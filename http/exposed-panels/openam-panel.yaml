@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:forgerock:openam:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)openam"})
     max-request: 20
     vendor: forgerock
     product: openam
@@ -71,4 +72,3 @@ http:
         group: 1
         regex:
           - 'urlArgs: "v=([0-9.abcd]+)'
-

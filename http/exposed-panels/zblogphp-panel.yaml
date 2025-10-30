@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zblogcn:zblogphp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Z-BlogPHP"
     max-request: 1
     vendor: zblogcn
   tags: panel,zblogphp,discovery
@@ -36,4 +37,3 @@ http:
         group: 1
         regex:
           - '<meta name="generator" content="([:A-Z-a-z 0-9.]+)"'
-

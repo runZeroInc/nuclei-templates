@@ -9,6 +9,7 @@ info:
   reference:
     - https://ironmansoftware.com/powershell-universal
   metadata:
+    runzero-match: service["http.body"] matches "PowerShell Universal"
     verified: true
     max-request: 3
     shodan-query: "html:\"PowerShell Universal\""
@@ -55,4 +56,3 @@ http:
         words:
           - '{"errorMessage":"Bad username or password"}'
         negative: true
-

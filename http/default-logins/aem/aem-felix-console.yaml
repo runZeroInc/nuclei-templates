@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:adobe:experience_manager_cloud_service:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "AEM Sign In"})
     max-request: 2
     vendor: adobe
   tags: default-login,misconfig,aem,adobe,vuln
@@ -49,4 +50,3 @@ http:
       - type: status
         status:
           - 200
-

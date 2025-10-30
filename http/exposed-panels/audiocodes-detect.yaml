@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:audiocodes:420hd_ip_phone_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Audiocodes"
     verified: true
     max-request: 1
     vendor: audiocodes
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 203
-

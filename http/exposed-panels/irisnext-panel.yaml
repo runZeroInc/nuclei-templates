@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.irislink.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)irisnext"})
     verified: true
     max-request: 1
     shodan-query: http.title:"irisnext"
@@ -32,4 +33,3 @@ http:
         group: 1
         regex:
           - 'IRISNext\s+-\s+V([0-9.]+)'
-

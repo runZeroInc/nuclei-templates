@@ -10,6 +10,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cve-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)veeam backup enterprise manager"}) || service["favicon.ico.image.mmh3"] == "169658321" || service["http.body"] matches "(?i)Veeam"
     verified: true
     max-request: 1
     shodan-query:
@@ -43,4 +44,3 @@ http:
         group: 1
         regex:
           - login.bundle.js\?v=([\d\.]+)
-

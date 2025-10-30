@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/theonedev/onedev
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OneDev"})
     verified: true
     max-request: 1
     shodan-query: title:"OneDev"
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

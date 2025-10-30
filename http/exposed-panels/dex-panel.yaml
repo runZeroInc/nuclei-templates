@@ -10,6 +10,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Log in to dex"
     verified: true
     max-request: 1
     shodan-query: html:"Log in to dex"
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

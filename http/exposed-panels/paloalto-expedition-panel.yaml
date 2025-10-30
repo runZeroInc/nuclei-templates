@@ -7,6 +7,7 @@ info:
   description: |
     Palo Alto Expedition Project login panel was detected.
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1499876150"
     verified: true
     max-request: 1
     vendor: paloaltonetworks
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

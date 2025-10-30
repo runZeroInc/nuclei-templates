@@ -7,6 +7,7 @@ info:
   description: |
     OSASI Login panel was discovered.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/css/osasiasp\\.css"
     verified: true
     max-request: 1
   tags: osasi,panel,login,detect,discovery
@@ -28,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

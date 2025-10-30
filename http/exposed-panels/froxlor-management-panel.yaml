@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:froxlor:froxlor:*:*:*:*:gentoo:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)froxlor server management panel"})
     verified: true
     max-request: 1
     vendor: froxlor
@@ -40,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

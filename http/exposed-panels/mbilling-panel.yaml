@@ -7,6 +7,7 @@ info:
   description: |
     Identified an exposed MagnusBilling login panel.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)MagnusBilling"
     verified: true
     max-request: 1
   tags: mbilling,login,panel,magnusbilling,discovery
@@ -28,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

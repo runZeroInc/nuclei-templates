@@ -7,6 +7,7 @@ info:
   description: |
     Joplin Server login panel detected.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Joplin Server"})
     verified: true
     max-request: 1
   tags: panel,joplin,login,discovery
@@ -26,4 +27,3 @@ http:
       - type: status
         status:
           - 200
-

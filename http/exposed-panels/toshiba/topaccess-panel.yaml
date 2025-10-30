@@ -7,6 +7,7 @@ info:
   reference:
     - https://business.toshiba.com/downloads/KB/f1Ulds/11646/KH-1020_TAG_EN_0002.pdf
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)topaccess"})
     verified: true
     max-request: 1
     shodan-query: title:"topaccess"
@@ -34,4 +35,3 @@ http:
         part: header
         status:
           - 200
-

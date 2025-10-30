@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:seeddms:seeddms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "SeedDMS"})
     max-request: 1
     vendor: seeddms
   tags: default-login,seeddms,vuln
@@ -44,4 +45,3 @@ http:
       - type: status
         status:
           - 302
-

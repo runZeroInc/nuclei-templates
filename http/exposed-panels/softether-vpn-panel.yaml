@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:softether:vpn:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SoftEther VPN Server"})
     verified: true
     max-request: 1
     vendor: softether
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 202
-

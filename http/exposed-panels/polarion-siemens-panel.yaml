@@ -9,6 +9,7 @@ info:
   reference:
     - https://polarion.plm.automation.siemens.com/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1135703796" || service["favicon.ico.image.mmh3"] == "707299418"
     verified: true
     shodan-query:
       - http.favicon.hash:-1135703796
@@ -37,4 +38,3 @@ http:
         group: 1
         regex:
           - "buildId=([\\d\\w\\-\\_]+)\""
-

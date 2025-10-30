@@ -17,6 +17,7 @@ info:
     cwe-id: CWE-88
     cpe: cpe:2.3:a:inspur:clusterengine:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TSCEV4\\.0"})
     max-request: 1
     vendor: inspur
   tags: inspur,clusterengine,rce,vuln
@@ -44,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

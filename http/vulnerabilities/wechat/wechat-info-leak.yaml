@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:tencent:wechat:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)wework_admin\\.normal_layout"
     verified: true
     max-request: 1
     vendor: tencent
@@ -32,4 +33,3 @@ http:
           - status_code_1 == 200 && contains(body_1,"errcode") && contains(body_1,"strcorpid")
           - contains(body_1,"corpid")
         condition: and
-

@@ -11,6 +11,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)DLP system"
     verified: true
     max-request: 2
     shodan-query: http.html:"DLP system"
@@ -37,4 +38,3 @@ http:
       - type: dsl
         dsl:
           - "status_code==200 && (\"-1217239281\" == mmh3(base64_py(body)))"
-

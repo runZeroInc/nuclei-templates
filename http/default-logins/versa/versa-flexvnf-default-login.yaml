@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:o:versa-networks:versa_operating_system:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Flex VNF Web-UI"})
     verified: true
     max-request: 4
     vendor: versa-networks
@@ -60,4 +61,3 @@ http:
         part: header
         regex:
           - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
-

@@ -12,6 +12,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)<title>SuperTokens "
     max-request: 1
     shodan-query: html:"<title>SuperTokens "
   tags: panel,login,supertokens,discovery
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

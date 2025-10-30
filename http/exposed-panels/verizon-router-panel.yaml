@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:verizon:fios_actiontec_mi424wr-gen31_router_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Verizon Router"})
     verified: true
     max-request: 1
     vendor: verizon
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,6 +9,7 @@ info:
   reference:
     - https://docs.structurizr.com/onpremises/quickstart
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1199592666"
     verified: true
     max-request: 3
     vendor: structurizr
@@ -61,4 +62,3 @@ http:
         regex:
           - 'name="_csrf" value="([0-9a-z-]+)"'
         internal: true
-

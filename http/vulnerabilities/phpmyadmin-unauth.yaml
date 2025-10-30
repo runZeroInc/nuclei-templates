@@ -10,6 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:phpmyadmin:phpmyadmin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)server_databases\\.php"
     verified: true
     max-request: 6
     vendor: phpmyadmin
@@ -60,4 +61,3 @@ http:
       - type: status
         status:
           - 200
-

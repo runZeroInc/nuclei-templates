@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:nextcloud:nextcloud_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nextcloud"})
     verified: true
     max-request: 4
     vendor: nextcloud
@@ -49,4 +50,3 @@ http:
         group: 1
         regex:
           - '(?m)"version":"([0-9.]+)",'
-

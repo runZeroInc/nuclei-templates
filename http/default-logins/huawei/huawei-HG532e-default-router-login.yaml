@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:h:huawei:hg532e:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "HG532e"
     max-request: 1
     vendor: huawei
   tags: default-login,huawei,vuln
@@ -40,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

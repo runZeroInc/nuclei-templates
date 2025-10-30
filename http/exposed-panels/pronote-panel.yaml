@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.index-education.com/fr/logiciel-gestion-vie-scolaire.php
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PRONOTE"})
     max-request: 1
     shodan-query: http.title:"PRONOTE"
   tags: panel,pronote,login,discovery
@@ -33,4 +34,3 @@ http:
         group: 1
         regex:
           - '(?i)Server:\s+PRONOTE\s+([0-9.\s\-]+)'
-

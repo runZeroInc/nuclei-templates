@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:nginxproxymanager:nginx_proxy_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nginx Proxy Manager"})
     max-request: 1
     vendor: nginxproxymanager
   tags: panel,nginx,proxy,discovery
@@ -35,4 +36,3 @@ http:
         group: 1
         regex:
           - '"page" id="login" data\-version="([0-9.]+)">'
-

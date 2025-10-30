@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:factorfx:ocs_inventory:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OCS Inventory"})
     verified: true
     max-request: 2
     vendor: factorfx
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

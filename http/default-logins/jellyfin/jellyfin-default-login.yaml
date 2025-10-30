@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:jellyfin:jellyfin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Jellyfin"})
     verified: true
     vendor: jellyfin
   tags: default-login,jellyfin,misconfig,vuln
@@ -56,4 +57,3 @@ http:
       - type: status
         status:
           - 200
-

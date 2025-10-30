@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:progress:telerik_report_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Telerik Report Server"
     verified: true
     max-request: 1
     vendor: progress
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

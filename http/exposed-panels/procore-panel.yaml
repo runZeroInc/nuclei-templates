@@ -5,6 +5,7 @@ info:
   author: rxerium
   severity: info
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1952289652"
     max-request: 2
     verified: true
     shodan-query: http.favicon.hash:1952289652
@@ -29,4 +30,3 @@ http:
           - '<title>Procore Log In</title>'
           - 'Log in to your Procore account using your email and password'
         condition: and
-

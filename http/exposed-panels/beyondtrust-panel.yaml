@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:beyondtrust:beyondinsight:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)BeyondInsight"
     max-request: 1
     vendor: beyondtrust
   tags: beyondtrust,pam,panel,discovery
@@ -24,4 +25,3 @@ http:
         part: body
         words:
           - "<title>BeyondInsight</title>"
-

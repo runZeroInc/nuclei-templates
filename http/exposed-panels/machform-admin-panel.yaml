@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:machform:machform:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MachForm Admin Panel"})
     verified: true
     max-request: 1
     vendor: machform
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

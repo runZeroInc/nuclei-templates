@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.lesphinx-developpement.fr/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Connection - SphinxOnline"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Connection - SphinxOnline"
@@ -39,4 +40,3 @@ http:
         group: 1
         regex:
           - 'Sphinxonline ([a-f0-9.]+)</a>'
-

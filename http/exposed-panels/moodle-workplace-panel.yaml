@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:moodle:moodle:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)moodle"
     verified: true
     max-request: 1
     vendor: moodle
@@ -29,4 +30,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "content=\"moodle", "\"name\":\"moodle\"") && contains(body, "workplace")'
         condition: and
-

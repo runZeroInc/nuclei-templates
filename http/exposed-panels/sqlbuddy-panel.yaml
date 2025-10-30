@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sqlbuddy:sql_buddy:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
     verified: true
     max-request: 2
     vendor: sqlbuddy
@@ -33,4 +34,3 @@ http:
           - "status_code == 200"
           - "contains(body, '<title>SQL Buddy')"
         condition: and
-

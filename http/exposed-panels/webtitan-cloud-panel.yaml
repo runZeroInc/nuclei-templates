@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:titanhq:webtitan:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1090061843"
     verified: true
     max-request: 1
     vendor: titanhq
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

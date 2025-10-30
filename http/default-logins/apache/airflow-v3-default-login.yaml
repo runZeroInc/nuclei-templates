@@ -12,6 +12,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Airflow"})
     max-request: 2
     shodan-query: title:"Airflow"
   tags: airflow,default-login,apache,vuln
@@ -56,4 +57,3 @@ http:
           - 'contains(header_2, "session=")'
           - '!contains(location_2, "/login")'
         condition: and
-

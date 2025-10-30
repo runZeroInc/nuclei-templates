@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:rocketmq:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)rocketmq"}) || any(each(service["html.titles"]), {# matches "(?i)rocketmq-console-ng"})
     verified: true
     max-request: 1
     vendor: apache
@@ -35,4 +36,3 @@ http:
       - type: word
         words:
           - "<title>RocketMq-console-ng</title>"
-

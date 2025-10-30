@@ -11,6 +11,7 @@ info:
     - https://vulners.com/zdt/1337DAY-ID-38725
     - https://codecanyon.net/item/stackposts-social-marketing-tool/21747459
   metadata:
+    runzero-match: service["http.body"] matches "(?i)stackposts"
     verified: true
     max-request: 1
     shodan-query: html:"stackposts"
@@ -34,4 +35,3 @@ http:
           - 'contains(body, "account you entered")'
           - 'status_code == 200'
         condition: and
-

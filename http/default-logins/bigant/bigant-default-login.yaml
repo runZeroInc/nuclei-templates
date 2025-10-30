@@ -10,6 +10,7 @@ info:
   classification:
     cwe-id: CWE-522
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "BigAnt"})
     verified: true
     max-request: 2
     shodan-query: title:"BigAnt"
@@ -55,4 +56,3 @@ http:
         regex:
           - name="__hash__" content="([0-9a-z_]+)"
         internal: true
-

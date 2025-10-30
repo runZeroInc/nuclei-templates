@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:telosalliance:omnia_mpx_node:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Omnia MPX"
     verified: true
     max-request: 1
     vendor: telosalliance
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

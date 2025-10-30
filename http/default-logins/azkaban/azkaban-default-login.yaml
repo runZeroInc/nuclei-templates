@@ -9,6 +9,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:azkaban_project:azkaban:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Azkaban Web Client"})
     max-request: 1
     vendor: azkaban_project
   tags: default-login,azkaban,vuln
@@ -52,4 +53,3 @@ http:
       - type: kval
         kval:
           - azkaban.browser.session.id
-

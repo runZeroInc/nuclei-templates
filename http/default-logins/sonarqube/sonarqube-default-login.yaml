@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:sonarsource:sonarqube:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "SonarQube"})
     verified: true
     max-request: 4
     vendor: sonarsource
@@ -43,4 +44,3 @@ http:
           - 'len(body) == 0'
           - 'contains(set_cookie, "JWT-SESSION=")'
         condition: and
-

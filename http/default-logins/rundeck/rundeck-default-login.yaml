@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:pagerduty:rundeck:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Rundeck - Login"})
     verified: true
     max-request: 2
     vendor: pagerduty
@@ -46,4 +47,3 @@ http:
       - type: status
         status:
           - 200
-

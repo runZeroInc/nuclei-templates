@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:jenkins:jenkins:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Jenkins"})
     vendor: jenkins
     product: jenkins
     shodan-query:
@@ -43,4 +44,3 @@ http:
           - 'contains(body_3, "/logout")'
           - 'contains(body_3, "<title>Dashboard -") || contains(body_3, "Dashboard [Jenkins]")'
         condition: and
-

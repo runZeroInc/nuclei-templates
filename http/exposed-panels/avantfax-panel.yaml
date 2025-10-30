@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-668
     cpe: cpe:2.3:a:avantfax:avantfax:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)avantfax - login"})
     max-request: 1
     vendor: avantfax
     product: avantfax
@@ -42,4 +43,3 @@ http:
         group: 1
         regex:
           - '<p align="center">([0-9.]+)<\/p>'
-

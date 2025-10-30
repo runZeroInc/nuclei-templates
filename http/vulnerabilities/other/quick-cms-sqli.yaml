@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:opensolution:quick.cms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Quick\\.Cms v6\\.7"
     verified: true
     max-request: 1
     vendor: opensolution
@@ -44,4 +45,3 @@ http:
       - type: status
         status:
           - 200
-

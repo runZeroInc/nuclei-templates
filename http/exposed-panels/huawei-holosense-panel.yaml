@@ -9,6 +9,7 @@ info:
   reference: |
     - https://www.huawei.com/en/products/intelligent-devices/holosens-sdc
   metadata:
+    runzero-match: service["http.head.server"] matches "SDC Server" || service["http.body.mmh3"] == "-968212412"
     vendor: huawei
     product: holosense_sdc
     shodan-query:
@@ -74,4 +75,3 @@ http:
         group: 1
         regex:
           - '"version"\s*:\s*"([^"]+)"'
-

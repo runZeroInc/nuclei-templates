@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:plesk:onyx:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)plesk onyx"
     verified: true
     max-request: 1
     vendor: plesk
@@ -53,4 +54,3 @@ http:
         regex:
           - 'alt="Plesk Onyx ([0-9.]+)"'
           - '(?i)"urlArgs":"([0-9.-]+)"'
-

@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:reportico:reportico:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)reportico administration page"})
     verified: true
     max-request: 2
     vendor: reportico
@@ -40,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/pterodactyl/panel
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pterodactyl"}) || service["favicon.ico.image.mmh3"] == "-456405319" || service["favicon.ico.image.mmh3"] == "846001371"
     verified: true
     max-request: 1
     vendor: pterodactyl
@@ -45,4 +46,3 @@ http:
         part: body
         words:
           - "window.SiteConfiguration"
-

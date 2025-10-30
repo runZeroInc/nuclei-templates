@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:bloofox:bloofoxcms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Powered by bloofoxCMS"
     verified: 'true'
     max-request: 1
     vendor: bloofox
@@ -41,4 +42,3 @@ http:
           - contains(body, 'bloofoxCMS Admincenter')
           - status_code == 200
         condition: and
-

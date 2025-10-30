@@ -7,6 +7,7 @@ info:
   description: |
     AVTECH Video Surveillance Products password disclosure through /cgi-bin/user/Config.cgi.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login\" product:\"Avtech"})
     verified: true
     max-request: 2
     shodan-query: title:"login" product:"Avtech"
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

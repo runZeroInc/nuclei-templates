@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cgit_project:cgit:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)git repository browser"})
     verified: true
     max-request: 1
     vendor: cgit_project
@@ -39,4 +40,3 @@ http:
         group: 1
         regex:
           - '(?i)<meta\s+name=.?generator.?\s+content=.?([a-z0-9\s.]+).?'
-

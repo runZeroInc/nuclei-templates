@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenCart"})
     max-request: 2
     vendor: opencart
   tags: time-based-sqli,opencart,sqli,vuln
@@ -43,4 +44,3 @@ http:
           - 'contains(body, "Nabb</title>")'
           - "status_code == 200"
         condition: and
-

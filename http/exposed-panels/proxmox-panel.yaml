@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:proxmox:proxmox:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "213144638"
     verified: true
     max-request: 1
     vendor: proxmox
@@ -45,4 +46,3 @@ http:
         group: 1
         regex:
           - "(?:pvemanagerlib.js[?](ver=[0-9]{1}[.][0-9]{1,}[-][0-9]))"
-

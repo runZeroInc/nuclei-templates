@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:jbpm:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)jbossws"
     verified: true
     max-request: 1
     vendor: redhat
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:qmail_project:qmail:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qmailadmin"})
     verified: true
     max-request: 5
     vendor: qmail_project
@@ -41,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

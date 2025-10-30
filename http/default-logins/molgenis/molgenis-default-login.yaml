@@ -10,6 +10,7 @@ info:
     - https://molgenis.org/
     - https://github.com/molgenis/molgenis-emx2
   metadata:
+    runzero-match: service["http.body"] contains "MOLGENIS" || service["last.http.body"] contains "MOLGENIS"
     verified: true
     max-request: 1
     shodan-query: html:"MOLGENIS"
@@ -44,4 +45,3 @@ http:
           - "Sign out</button>"
           - "Log manager</a>"
         condition: and
-

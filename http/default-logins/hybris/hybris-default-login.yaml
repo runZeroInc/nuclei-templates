@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:sap:hybris:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
     verified: true
     max-request: 3
     vendor: sap
@@ -69,4 +70,3 @@ http:
         group: 1
         regex:
           - '<meta name="_csrf" content="([a-z0-9-]+)" \/>'
-

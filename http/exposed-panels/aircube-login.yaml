@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:ui:aircube:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1249285083"
     verified: true
     max-request: 1
     vendor: ui
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

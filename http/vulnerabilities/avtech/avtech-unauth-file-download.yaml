@@ -7,6 +7,7 @@ info:
   description: |
     AVTECH video surveillance products unauthenticated file download from web root through /cgi-bin/cgibox, Since the .cab string is verified by the strstr method, the file download can be realized by adding ?.cab at the end of the file name.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login\" product:\"Avtech"})
     verified: true
     max-request: 2
     shodan-query: title:"login" product:"Avtech"
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

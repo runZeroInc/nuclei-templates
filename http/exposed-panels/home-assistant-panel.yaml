@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:home-assistant:home-assistant:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
     verified: true
     max-request: 1
     vendor: home-assistant
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

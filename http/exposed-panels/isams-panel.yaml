@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:iris:isams:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-81573405"
     verified: true
     max-request: 1
     vendor: iris
@@ -45,4 +46,3 @@ http:
         group: 1
         regex:
           - 'Version&nbsp;([0-9\.]+)'
-

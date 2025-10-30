@@ -5,6 +5,7 @@ info:
   author: pussycat0x
   severity: info
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SevOne NMS - Network Manager"})
     verified: true
     max-request: 1
     shodan-query: http.title:"SevOne NMS - Network Manager"
@@ -28,4 +29,3 @@ http:
       - type: status
         status:
           - 200
-

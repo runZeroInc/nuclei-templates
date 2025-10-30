@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:arubanetworks:aruba_instant:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)jscripts/third_party/raphael-treemap\\.min\\.js"
     verified: true
     max-request: 1
     vendor: arubanetworks
@@ -40,4 +41,3 @@ http:
           - 'status_code_1 == 200'
           - 'contains(body_1,"name=\"sid") && contains(body_1,"true\">Admin")'
         condition: and
-

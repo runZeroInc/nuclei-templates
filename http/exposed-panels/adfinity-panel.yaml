@@ -9,6 +9,7 @@ info:
   reference:
     - https://easi.net/en/solutions/adfinity
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Adfinity"
     max-request: 1
     verified: true
     shodan-query: http.html:"Adfinity"
@@ -32,4 +33,3 @@ http:
         group: 1
         regex:
           - '(?i)Version\s+Adfinity([0-9.]+)'
-

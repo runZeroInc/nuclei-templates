@@ -11,6 +11,7 @@ info:
   remediation: |
     Update the application to remove hard-coded credentials and implement secure credential management practices.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Netdisco"})
     verified: true
     max-request: 1
     shodan-query: title:"Netdisco"
@@ -38,4 +39,3 @@ http:
           - contains_all(body, "User Management", "/admin/discoverall", "Logged in as")
           - status_code == 200
         condition: and
-

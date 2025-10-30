@@ -8,6 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:o:barco:clickshare_cs-100_huddle_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.head.setCookie"] contains "ClickShareSession"
     max-request: 3
     vendor: barco
     product: clickshare_cs-100_huddle_firmware
@@ -51,4 +52,3 @@ http:
         regex:
           - ="csrf_protection_token" value="([0-9a-z]+)" \/>
         internal: true
-

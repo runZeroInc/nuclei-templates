@@ -7,6 +7,7 @@ info:
   reference:
     - https://www.facebook.com/photo/?fbid=626548889515634&set=a.467014098802448
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebcomCo"})
     verified: true
     max-request: 1
     shodan-query: title:"WebcomCo"
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

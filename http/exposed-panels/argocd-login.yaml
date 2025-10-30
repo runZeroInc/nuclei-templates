@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:argoproj:argo_cd:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Argo CD"})
     max-request: 2
     vendor: argoproj
   tags: panel,argocd,login,kubernetes,discovery
@@ -41,4 +42,3 @@ http:
       - type: json
         json:
           - .Version
-

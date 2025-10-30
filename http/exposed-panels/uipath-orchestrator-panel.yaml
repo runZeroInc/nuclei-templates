@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:uipath:orchestrator:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)UiPath Orchestrator"})
     verified: true
     max-request: 1
     vendor: uipath
@@ -36,4 +37,3 @@ http:
         group: 1
         regex:
           - '\?(?:version|v)=([0-9.]+)'
-

@@ -5,6 +5,7 @@ info:
   author: ritikchaddha,matejsmycka
   severity: info
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Canon iR-ADV"})
     verified: true
     max-request: 2
     shodan-query: title:"Canon iR-ADV"
@@ -38,4 +39,3 @@ http:
         regex:
           - '(iR-ADV C[0-9]+)'
         group: 1
-

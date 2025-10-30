@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:freeipa:freeipa:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)freeipa"
     verified: true
     max-request: 2
     vendor: freeipa
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

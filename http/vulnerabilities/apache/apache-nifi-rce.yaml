@@ -13,6 +13,7 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:nifi:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NiFi"})
     verified: true
     max-request: 1
     vendor: apache
@@ -46,4 +47,3 @@ http:
       - type: json
         json:
           - .id
-

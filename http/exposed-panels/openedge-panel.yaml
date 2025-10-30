@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:progress:openedge:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Welcome to Progress Application Server for OpenEdge"
     verified: true
     max-request: 1
     vendor: progress
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

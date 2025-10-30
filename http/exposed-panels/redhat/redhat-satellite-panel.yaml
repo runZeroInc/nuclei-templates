@@ -9,6 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:satellite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)redhat"
     verified: true
     max-request: 1
     vendor: redhat
@@ -39,4 +40,3 @@ http:
         group: 1
         regex:
           - '&quot;version&quot;:&quot;([0-9.]+)&quot;,'
-

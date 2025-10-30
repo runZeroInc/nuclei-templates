@@ -5,6 +5,7 @@ info:
   author: DhiyaneshDk
   severity: info
   metadata:
+    runzero-match: service["http.body"] matches "(?i)<title>Webinterface</title>"
     verified: true
     max-request: 1
     shodan-query: html:"<title>Webinterface</title>"
@@ -26,4 +27,3 @@ http:
       - type: status
         status:
           - 200
-

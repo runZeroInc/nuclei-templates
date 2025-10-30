@@ -7,6 +7,7 @@ info:
   description: |
     This template checks for GitLab instances by verifying if /explore and /api/v4/projects endpoints are accessible with a 200 response.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)GitLab"})
     verified: true
     max-request: 2
     shodan-query: title:"GitLab"
@@ -34,4 +35,3 @@ http:
           - 'contains_all(body, ">Most starred", "Explore public groups")'
           - 'status_code == 200'
         condition: and
-

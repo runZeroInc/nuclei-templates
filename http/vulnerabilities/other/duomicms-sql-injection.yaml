@@ -12,6 +12,7 @@ info:
     cvss-score: 10
     cwe-id: CWE-89
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)DuomiCMS"})
     verified: true
     max-request: 1
     shodan-query: title:"DuomiCMS"
@@ -33,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

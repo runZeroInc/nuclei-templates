@@ -9,6 +9,7 @@ info:
   reference:
     - https://cloud.google.com/apigee?hl=en
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-839356603"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:"-839356603"
@@ -32,4 +33,3 @@ http:
         group: 1
         regex:
           - 'Version:?\s+([0-9.]+)'
-

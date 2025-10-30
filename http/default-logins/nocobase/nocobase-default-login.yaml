@@ -11,6 +11,7 @@ info:
     - https://github.com/nocobase/nocobase
     - https://docs.nocobase.com/welcome/getting-started/installation/docker-compose
   metadata:
+    runzero-match: any(each(service["http.bodies"]), {# matches "'NOCOBASE_'"})
     verified: true
     max-request: 2
     zoomeye-query: app="NocoBase"
@@ -54,4 +55,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mirantis:kubernetes_engine:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Mirantis Kubernetes Engine"
     verified: true
     max-request: 1
     vendor: mirantis
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

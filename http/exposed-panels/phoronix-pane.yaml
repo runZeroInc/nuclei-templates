@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phoronix-media:phoronix_test_suite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)phoronix-test-suite"})
     max-request: 1
     vendor: phoronix-media
     product: phoronix_test_suite
@@ -39,4 +40,3 @@ http:
         group: 1
         regex:
           - '<title>Phoronix Test Suite (.*) - Phoromatic - Welcome</title>'
-

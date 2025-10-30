@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:influxdata:influxdb:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)influxdb - admin interface"})
     max-request: 1
     vendor: influxdata
     product: influxdb
@@ -44,4 +45,3 @@ http:
         group: 1
         regex:
           - '<b>InfluxDB<\/b> v([\d.]+)<\/p>'
-

@@ -9,6 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:owncloud:owncloud:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)owncloud"
     verified: true
     max-request: 1
     vendor: owncloud
@@ -35,4 +36,3 @@ http:
         name: version
         json:
           - .version
-

@@ -9,6 +9,7 @@ info:
   reference:
     - https://httpd.apache.org/docs/2.4/mod/mod_proxy_cluster.html
   metadata:
+    runzero-match: service["http.body"] contains "Mod_cluster Status" || service["http.body"] contains "mod_proxy_cluster"
     verified: true
     max-request: 3
   tags: apache,mod_proxy,cluster,exposure,discovery
@@ -33,4 +34,3 @@ http:
           - 'contains(header, "text/html")'
           - 'status_code == 200'
         condition: and
-

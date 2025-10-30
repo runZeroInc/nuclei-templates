@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:passbolt:passbolt_api:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Passbolt \\| Open source password manager for teams"})
     verified: true
     max-request: 1
     vendor: passbolt
@@ -36,4 +37,3 @@ http:
         group: 1
         regex:
           - '(?i)v=([0-9a-z.-]+)'
-

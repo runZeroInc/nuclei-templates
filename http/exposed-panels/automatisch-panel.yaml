@@ -10,6 +10,7 @@ info:
     - https://automatisch.io/
     - https://github.com/automatisch/automatisch
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Automatisch"})
     verified: true
     max-request: 2
     shodan-query: title:"Automatisch"
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

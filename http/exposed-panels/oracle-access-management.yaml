@@ -10,6 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:oracle:access_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/oam/pages/css/login_page\\.css" || any(each(service["html.titles"]), {# matches "(?i)oracle access management"})
     verified: true
     max-request: 2
     vendor: oracle
@@ -49,4 +50,3 @@ http:
         group: 1
         regex:
           - '(?i)Login\s+-\s+Oracle\s+Access\s+Management\s+([a-z0-9]+)</title>'
-

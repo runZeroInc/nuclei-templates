@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:novnc:novnc:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)noVNC"})
     verified: true
     max-request: 2
     vendor: novnc
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

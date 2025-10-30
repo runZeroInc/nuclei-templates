@@ -9,6 +9,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Plastic SCM"})
     max-request: 1
     shodan-query: http.title:"Plastic SCM"
   tags: panel,plastic,discovery
@@ -27,4 +28,3 @@ http:
       - type: status
         status:
           - 200
-

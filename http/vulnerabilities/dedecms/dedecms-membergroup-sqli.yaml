@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-89
     cpe: cpe:2.3:a:dedecms:dedecms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)DedeCms"
     max-request: 1
     vendor: dedecms
   tags: sqli,dedecms,vuln
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

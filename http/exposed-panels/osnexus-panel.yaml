@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:osnexus:quantastor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OSNEXUS QuantaStor Manager"})
     max-request: 1
     vendor: osnexus
   tags: panel,osnexus,login,discovery
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-

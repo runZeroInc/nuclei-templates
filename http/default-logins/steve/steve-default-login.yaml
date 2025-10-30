@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:steve-community:steve:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "SteVe - Steckdosenverwaltung"})
     verified: true
     max-request: 2
     vendor: steve-community
@@ -62,4 +63,3 @@ http:
         regex:
           - '_csrf" value="(.*?)"/>'
         internal: true
-

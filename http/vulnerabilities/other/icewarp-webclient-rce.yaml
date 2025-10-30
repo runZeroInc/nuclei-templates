@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:icewarp:icewarp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)icewarp"})
     max-request: 1
     vendor: icewarp
   tags: icewarp,rce,vuln
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 302
-

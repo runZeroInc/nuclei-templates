@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:voipmonitor:voipmonitor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)voipmonitor"})
     max-request: 1
     vendor: voipmonitor
     product: voipmonitor
@@ -34,4 +35,3 @@ http:
           - "appShareUrl = 'share.voipmonitor.org'"
           - "VoIPmonitor"
         condition: and
-

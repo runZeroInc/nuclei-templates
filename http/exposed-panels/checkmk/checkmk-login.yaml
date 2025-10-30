@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:checkmk:checkmk:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Check_MK"})
     verified: true
     max-request: 5
     vendor: checkmk
@@ -41,4 +42,3 @@ http:
         regex:
           - '<div id="version">([0-9.a-z]+)<\/div>'
           - '<div id="foot">Version: ([0-9.a-z]+)'
-

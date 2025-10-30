@@ -12,6 +12,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)<a href=\\\\"
     verified: true
     max-request: 1
     shodan-query: html:"<a href=\"https://github.com/composer/satis\">Satis</a>"
@@ -40,4 +41,3 @@ http:
         part: body
         regex:
           - '\d+\.\d+\.\d+-dev'
-

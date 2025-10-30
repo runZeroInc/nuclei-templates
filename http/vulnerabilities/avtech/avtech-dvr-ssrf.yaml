@@ -7,6 +7,7 @@ info:
   description: |
     AVTECH DVR device, Search.cgi can be accessed directly. Search.cgi is responsible for searching and accessing cameras in the local network. Search.cgi provides the cgi_query function.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login\" product:\"Avtech"})
     verified: true
     max-request: 1
     shodan-query: title:"login" product:"Avtech"
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

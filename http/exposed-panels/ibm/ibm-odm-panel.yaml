@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:ibm:operational_decision_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Decision Center \\| Business Console"})
     verified: true
     max-request: 1
     vendor: ibm
@@ -45,4 +46,3 @@ http:
         group: 1
         regex:
           - '(?i)"js/dist/([0-9.]+)/decisioncenter"'
-

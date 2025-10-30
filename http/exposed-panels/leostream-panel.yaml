@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:leostream:connection_broker:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Leostream"})
     max-request: 1
     vendor: leostream
   tags: panel,leostream,discovery
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

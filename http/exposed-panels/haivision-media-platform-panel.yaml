@@ -8,6 +8,7 @@ info:
   reference:
     - https://www.haivision.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Haivision Media Platform"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Haivision Media Platform"
@@ -24,4 +25,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>Haivision Media Platform", "content=\"Haivision Network Video")'
         condition: and
-

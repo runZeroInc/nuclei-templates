@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:veeam:one_reporter:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-633512412"
     verified: true
   tags: panel,veeam,discovery
 
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

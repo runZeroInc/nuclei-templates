@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/wy876/POC/blob/main/EnjoyRMIS-GetOAById%E5%AD%98%E5%9C%A8SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.md
   metadata:
+    runzero-match: service["http.body"] matches "(?i)CheckSilverlightInstalled"
     verified: true
     max-request: 1
   tags: enjoyrmis,sqli,vuln
@@ -37,4 +38,3 @@ http:
           - 'contains(header,"text/xml")'
           - "status_code == 500"
         condition: and
-

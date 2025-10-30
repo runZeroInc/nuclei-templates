@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:kiwitcms:kiwi_tcms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kiwi TCMS - Login"})
     max-request: 1
     vendor: kiwitcms
     product: kiwi_tcms
@@ -48,4 +49,3 @@ http:
         part: body
         json:
           - .result[].username
-

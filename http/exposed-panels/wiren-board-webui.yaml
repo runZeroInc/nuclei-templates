@@ -10,6 +10,7 @@ info:
     cvss-score: 6.5
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Wiren Board Web UI"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Wiren Board Web UI"
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

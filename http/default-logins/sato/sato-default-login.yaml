@@ -7,6 +7,7 @@ info:
   description: |
     Sato default login credentials were discovered.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Sato"})
     verified: true
     max-request: 1
     shodan-query: title:"Sato"
@@ -48,4 +49,3 @@ http:
       - type: status
         status:
           - 200
-

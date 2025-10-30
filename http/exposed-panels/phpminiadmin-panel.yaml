@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phpminiadmin_project:phpminiadmin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)phpMiniAdmin"
     verified: true
     max-request: 1
     vendor: phpminiadmin_project
@@ -36,4 +37,3 @@ http:
         group: 1
         regex:
           - 'phpMiniAdmin ([0-9._]+)'
-

@@ -10,6 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:gradle:build_cache_node:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Develocity Build Cache Node"
     verified: true
     max-request: 1
     vendor: gradle
@@ -35,4 +36,3 @@ http:
         group: 1
         regex:
           - '(?i)"applicationVersion":"([0-9.]+)"'
-

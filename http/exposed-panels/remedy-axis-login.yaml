@@ -9,6 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bmc:remedy_action_request_system:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)BMC Remedy"
     verified: true
     max-request: 3
     vendor: bmc
@@ -33,4 +34,3 @@ http:
           - "BMC Remedy"
           - "BMC Smart Reporting"
         condition: or
-

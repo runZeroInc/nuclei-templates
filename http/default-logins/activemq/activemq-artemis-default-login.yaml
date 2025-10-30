@@ -8,6 +8,7 @@ info:
   reference:
     - https://activemq.apache.org/components/artemis/documentation/latest/management-console.html
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# contains "ActiveMQ Artemis Console"})
     max-request: 2
     vendor: apache
     product: activemq
@@ -42,4 +43,3 @@ http:
         group: 0
         regex:
           - '{"credentials":.*}'
-

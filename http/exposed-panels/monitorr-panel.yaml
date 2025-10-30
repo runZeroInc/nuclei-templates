@@ -7,6 +7,7 @@ info:
   classification:
     cpe: cpe:2.3:a:monitorr:monitorr:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-211006074"
     verified: true
     max-request: 1
     vendor: monitorr
@@ -26,4 +27,3 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "content=\"Monitorr", "Monitorr is loading", "title=\"Monitorr Settings")'
         condition: and
-

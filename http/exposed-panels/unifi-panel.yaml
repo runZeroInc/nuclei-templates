@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ui:unifi_network_application:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)UniFi Network"})
     max-request: 1
     vendor: ui
   tags: unifi,ubnt,panel,discovery
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,6 +12,7 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.head.server"] contains "Apache Tomcat"
     verified: true
     max-request: 2
   tags: default-login,tomcat,vuln
@@ -45,4 +46,3 @@ http:
           - You are logged in as remote user
           - '{{username}}'
         condition: and
-

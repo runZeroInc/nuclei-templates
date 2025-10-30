@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:kanboard:kanboard:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body.mmh3"] == "1605834045"
     verified: true
     max-request: 2
     vendor: kanboard
@@ -53,4 +54,3 @@ http:
           - contains(location, 'controller=DashboardController&action=show')
           - status_code == 302
         condition: and
-

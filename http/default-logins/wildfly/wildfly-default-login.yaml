@@ -9,6 +9,7 @@ info:
   reference:
     - https://docs.wildfly.org/26.1/#administrator-guides
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Welcome to WildFly"})
     max-request: 1
   tags: wildfly,default-login,vuln
 
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

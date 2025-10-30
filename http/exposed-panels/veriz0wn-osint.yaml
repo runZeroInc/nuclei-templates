@@ -5,6 +5,7 @@ info:
   author: pussycat0x
   severity: info
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Veriz0wn"})
     verified: true
     max-request: 1
     shodan-query: title:"Veriz0wn"
@@ -25,4 +26,3 @@ http:
       - type: status
         status:
           - 200
-

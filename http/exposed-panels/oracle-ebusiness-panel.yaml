@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:oracle:e-business_suite:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Oracle UIX"
     verified: true
     max-request: 1
     vendor: oracle
@@ -38,4 +39,3 @@ http:
         group: 1
         regex:
           - '(?i)/OA_HTML/cabo/oajsLibs/oafcore([A-Z0-9]+).js'
-

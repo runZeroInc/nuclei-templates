@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:hyperic_hq:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sign In - Hyperic"})
     verified: true
     max-request: 1
     vendor: vmware
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

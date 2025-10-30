@@ -10,6 +10,7 @@ info:
     - https://plausible.io/
     - https://github.com/plausible/analytics
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Plausible"
     verified: true
     max-request: 1
     shodan-query: html:"Plausible"
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-

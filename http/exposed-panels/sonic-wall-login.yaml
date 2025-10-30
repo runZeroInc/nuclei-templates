@@ -8,6 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:h:sonicwall:tz_350:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sonicwall network security login"})
     verified: true
     max-request: 2
     vendor: sonicwall
@@ -36,4 +37,3 @@ http:
       - type: status
         status:
           - 200
-

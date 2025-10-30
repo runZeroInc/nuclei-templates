@@ -7,6 +7,7 @@ info:
   description: |
     SUSE Manager login panel detected.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SUSE Manager - Sign In"}) || any(each(service["html.titles"]), {# matches "(?i)SUSE Multi-Linux Manager - Sign In"}) || any(each(service["html.titles"]), {# matches "(?i)Uyuni - Sign In"}) || service["favicon.ico.image.mmh3"] == "1158194469"
     shodan-query:
       - title:"SUSE Manager - Sign In"
       - title:"SUSE Multi-Linux Manager - Sign In"
@@ -45,4 +46,3 @@ http:
         group: 1
         regex:
           - "webVersion:\\s+'([\\d\\.\\s\\w]+)',"
-

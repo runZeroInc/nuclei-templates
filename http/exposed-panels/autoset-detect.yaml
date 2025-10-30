@@ -7,6 +7,7 @@ info:
   reference:
     - http://autoset.net/xe/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)AutoSet"})
     verified: true
     max-request: 1
     shodan-query: title:"AutoSet"
@@ -36,4 +37,3 @@ http:
         group: 1
         regex:
           - '<title>AutoSet (\d+(\.\d+)+)\b'
-

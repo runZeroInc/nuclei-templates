@@ -10,6 +10,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Puppetboard"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Puppetboard"
@@ -42,4 +43,3 @@ http:
         group: 1
         regex:
           - '<a href="https://github.com/voxpupuli/puppetboard" target="_blank">([0-9.]+)</a></div>'
-

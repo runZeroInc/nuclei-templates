@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:osgeo:geoserver:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)geoserver"})
     verified: true
     max-request: 2
     vendor: osgeo
@@ -50,4 +51,3 @@ http:
         group: 1
         regex:
           - '<span>GeoServer ([0-9.]+)'
-

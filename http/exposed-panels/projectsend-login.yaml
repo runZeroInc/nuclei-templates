@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:projectsend:projectsend:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)provided"
     max-request: 1
     vendor: projectsend
     product: projectsend
@@ -50,4 +51,3 @@ http:
         group: 1
         regex:
           - "version (.*) - Free software"
-

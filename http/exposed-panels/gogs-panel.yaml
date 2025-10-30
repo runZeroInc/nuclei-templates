@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gogs:gogs:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "917966895" || service["favicon.ico.image.mmh3"] == "1935513730" || any(each(service["html.titles"]), {# matches "(?i)sign in - gogs"}) || service["favicon.ico.image.mmh3"] == "-449283196"
     verified: true
     max-request: 1
     vendor: gogs
@@ -56,4 +57,3 @@ http:
         group: 1
         regex:
           - "Version: ([0-9.]+) Page:"
-

@@ -10,6 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bitdefender:gravityzone:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)bitdefender gravityzone"})
     verified: true
     max-request: 1
     vendor: bitdefender
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

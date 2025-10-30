@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.regify.com/
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1817615343"
     verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1817615343
@@ -40,4 +41,3 @@ http:
         group: 1
         regex:
           - '(?i)appv=([0-9.-]+)'
-

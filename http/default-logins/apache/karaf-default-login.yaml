@@ -13,6 +13,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:apache:karaf:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="karaf'})
     verified: true
     max-request: 1
     vendor: apache
@@ -41,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -12,6 +12,7 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-1391
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ruckus"})
     verified: true
     max-request: 1
     shodan-query: title:"ruckus"
@@ -47,4 +48,3 @@ http:
       - type: status
         status:
           - 200
-

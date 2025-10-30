@@ -11,6 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adminer:adminer:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
     verified: true
     max-request: 8
     vendor: adminer
@@ -59,4 +60,3 @@ http:
         group: 1
         regex:
           - '<span class="version">([0-9.]+)'
-

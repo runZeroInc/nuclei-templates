@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:dataease:dataease:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)dataease"
     verified: true
     max-request: 1
     vendor: dataease
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

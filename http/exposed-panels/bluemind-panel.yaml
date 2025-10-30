@@ -9,6 +9,7 @@ info:
   reference:
     - https://bluemind.net/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Welcome to BlueMind"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Welcome to BlueMind"
@@ -38,4 +39,3 @@ http:
         part: body
         regex:
           - 'window\.applicationVersion = "([0-9.]+)";'
-
