@@ -32,3 +32,4 @@ http:
           - 'status_code==200 && contains(body, "<title>JFrog")'
           - "status_code==200 && (\"-595620639\" == mmh3(base64_py(body)))"
         condition: or
+

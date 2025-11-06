@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - '<meta name="generator" content="([:A-Z-a-z 0-9.]+)"'
+

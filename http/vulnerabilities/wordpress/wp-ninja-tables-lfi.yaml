@@ -59,3 +59,4 @@ http:
           - status_code == 200
           - contains(body, "PRETTY_NAME=")
         condition: and
+

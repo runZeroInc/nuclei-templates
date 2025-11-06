@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - '(?i)"current":\s*"([0-9a-z.-]+)"'
+

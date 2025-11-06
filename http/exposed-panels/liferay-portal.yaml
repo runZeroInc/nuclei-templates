@@ -55,3 +55,4 @@ http:
         group: 2
         regex:
           - '(i?)Liferay-Portal:.*?(\d+\.?.*?)\s'
+

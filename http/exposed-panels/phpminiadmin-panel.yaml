@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - 'phpMiniAdmin ([0-9._]+)'
+

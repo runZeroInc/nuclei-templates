@@ -32,4 +32,4 @@ file:
           - "config router"
           - "config firewall"
         condition: or
-# digest: 4a0a00473045022000b50bb20d9581ff9ce5e92380a7a961848f38ca6a10e2cabd48ad51e866888f022100c8170d942b92290f6e43310102701e16029ab66dc83b39d87bbcd9b21f61d9c4:922c64590222798bb761d5b6d8e72950
+

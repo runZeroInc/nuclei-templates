@@ -43,3 +43,4 @@ http:
         group: 1
         regex:
           - '<div class="type"><font id="">(.+)<\/font><\/div>'
+

@@ -30,3 +30,4 @@ http:
           - 'status_code==200'
           - 'contains_any(body, "Tiny Tiny RSS", "ttrss_login", "ttrss_utility")'
         condition: and
+

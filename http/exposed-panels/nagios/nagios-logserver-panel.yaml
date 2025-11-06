@@ -25,3 +25,4 @@ http:
           - "Nagios Log Server"
           - "/nagioslogserver/"
         condition: or
+

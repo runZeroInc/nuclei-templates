@@ -42,3 +42,4 @@ http:
         group: 1
         regex:
           - "<title>(.*)</title>"
+

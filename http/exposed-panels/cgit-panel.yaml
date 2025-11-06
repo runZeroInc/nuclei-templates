@@ -40,3 +40,4 @@ http:
         group: 1
         regex:
           - '(?i)<meta\s+name=.?generator.?\s+content=.?([a-z0-9\s.]+).?'
+

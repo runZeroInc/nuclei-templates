@@ -35,3 +35,4 @@ http:
         regex:
 
           - '(?i)"version":"([0-9.]+)"'
+

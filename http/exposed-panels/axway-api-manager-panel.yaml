@@ -36,3 +36,4 @@ http:
         group: 1
         regex:
           - '"productVersion":\s*"([0-9.]+)"'
+

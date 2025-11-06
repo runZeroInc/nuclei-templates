@@ -25,3 +25,4 @@ http:
           - 'contains_any(body, "<title>Traccar</title>", "Traccar GPS Tracking System")'
           - 'status_code == 200'
         condition: and
+

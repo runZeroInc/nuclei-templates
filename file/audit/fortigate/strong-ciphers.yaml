@@ -26,4 +26,4 @@ file:
           - "config router"
           - "config firewall"
         condition: or
-# digest: 490a0046304402204e62d0ccc58bf72be1f3964718f06f8e0c7be34d11d4ee0f3e29fbad2a90c297022014b379256249da5c184b94f808d932eb899df5aeabe8613f425c1b43c909814d:922c64590222798bb761d5b6d8e72950
+

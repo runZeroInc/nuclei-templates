@@ -42,4 +42,4 @@ http:
           - '."m.server" | select( . != null )'
           - '."m.homeserver" | .base_url | select( . != null )'
           - '."m.identity_server" | .base_url | select( . != null )'
-# digest: 4a0a00473045022072b4ebbe443552d75459ce433fd4c06d021c9e592ba5a7abb24fc0e0f6243866022100dd5237b0789347bd910c8b671d437b527fc28a608c8a5f30a18368f31c476f75:922c64590222798bb761d5b6d8e72950
+

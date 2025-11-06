@@ -39,4 +39,4 @@ http:
           - 'contains(body_1, "{\"_result\":")'
           - 'contains(body_2, "{{data}}")'
         condition: and
-# digest: 4b0a00483046022100ee87d2a68cd5a9a6b5fa0139e2a35606c7fcba93b8224745c4ad5f6fdcc8c0ff022100aba5ec819e86125b59b7399cf4dd55457046234a0cf5464b287bfaa617a04ab1:922c64590222798bb761d5b6d8e72950
+

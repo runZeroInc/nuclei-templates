@@ -40,3 +40,4 @@ http:
         group: 1
         regex:
           - '<em>X([0-9.]+)<\/em><\/p>'
+

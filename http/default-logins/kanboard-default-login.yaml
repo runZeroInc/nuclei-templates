@@ -54,3 +54,4 @@ http:
           - contains(location, 'controller=DashboardController&action=show')
           - status_code == 302
         condition: and
+

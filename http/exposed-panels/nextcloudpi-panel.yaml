@@ -29,3 +29,4 @@ http:
           - "contains_any(body, 'NextcloudPi', 'https://nextcloudpi.com')"
           - "status_code==200"
         condition: and
+

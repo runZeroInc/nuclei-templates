@@ -43,3 +43,4 @@ http:
           - "/mga/sps/authsvc/policy/forgot_password"
         part: body
         condition: and
+

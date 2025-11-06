@@ -31,4 +31,4 @@ http:
           - "<a href=\"http://interact.sh?kind=jwt&message=Nil+JSON+web+token\""
         condition: or
         part: body
-# digest: 4b0a00483046022100c1d78b58050839484346ff0d310c897a3c6e991b59d0766cb81dd9c28b06a953022100ebc10d0519e7367e25fadaf9e78926770274d0b354d6d62c3a3dc7501b828195:922c64590222798bb761d5b6d8e72950
+

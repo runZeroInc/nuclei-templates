@@ -46,3 +46,4 @@ http:
           - "!contains(tolower(location_1), 'error=true')"
           - 'status_code_1 == 302'
         condition: and
+

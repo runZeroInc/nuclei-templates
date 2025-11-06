@@ -39,3 +39,4 @@ http:
           - 'status_code == 200'
           - 'regex("uid=([0-9(a-z)]+) gid=([0-9(a-z)]+)", body)'
         condition: and
+

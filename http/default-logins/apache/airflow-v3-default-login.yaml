@@ -57,3 +57,4 @@ http:
           - 'contains(header_2, "session=")'
           - '!contains(location_2, "/login")'
         condition: and
+
