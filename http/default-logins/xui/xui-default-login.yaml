@@ -49,3 +49,4 @@ http:
           - "contains(http_2_header, 'application/json')"
           - "http_2_status_code == 200"
         condition: and
+

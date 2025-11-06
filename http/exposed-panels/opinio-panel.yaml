@@ -35,3 +35,4 @@ http:
         group: 1
         regex:
           - 'Opinio\s+([0-9.]+)'
+

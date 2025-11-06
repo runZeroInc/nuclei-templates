@@ -44,3 +44,4 @@ http:
           - 'contains(body_3, "/logout")'
           - 'contains(body_3, "<title>Dashboard -") || contains(body_3, "Dashboard [Jenkins]")'
         condition: and
+

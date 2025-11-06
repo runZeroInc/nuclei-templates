@@ -39,3 +39,4 @@ http:
           - contains_all(body, "User Management", "/admin/discoverall", "Logged in as")
           - status_code == 200
         condition: and
+

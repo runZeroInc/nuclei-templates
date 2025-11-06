@@ -41,3 +41,4 @@ http:
           - 'status_code_1 == 200'
           - 'contains(body_1,"name=\"sid") && contains(body_1,"true\">Admin")'
         condition: and
+

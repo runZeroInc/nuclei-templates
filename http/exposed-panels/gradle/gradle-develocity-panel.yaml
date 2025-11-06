@@ -36,3 +36,4 @@ http:
         group: 1
         regex:
           - '(?i)"applicationVersion":"([0-9.]+)"'
+

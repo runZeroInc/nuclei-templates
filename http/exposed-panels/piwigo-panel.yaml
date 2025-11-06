@@ -57,3 +57,4 @@ http:
         group: 1
         regex:
           - 'jquery\.min\.js\?v([0-9.]+)">'
+

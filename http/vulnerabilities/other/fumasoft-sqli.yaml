@@ -35,3 +35,4 @@ http:
       - type: status
         status:
           - 500
+

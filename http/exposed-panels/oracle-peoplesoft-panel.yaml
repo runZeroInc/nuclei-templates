@@ -49,3 +49,4 @@ http:
         group: 1
         regex:
           - '(?i)\*\s+Copyright\s+\(c\)\s+([0-9,\s]+)\s+Oracle\s+and\/or\s+its\s+affiliates.'
+

@@ -54,3 +54,4 @@ http:
         regex:
           - 'alt="Plesk Onyx ([0-9.]+)"'
           - '(?i)"urlArgs":"([0-9.-]+)"'
+

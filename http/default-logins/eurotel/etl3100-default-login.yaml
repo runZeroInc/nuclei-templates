@@ -46,3 +46,4 @@ http:
           - 'status_code_2 == 200'
           - 'contains_all(body_2, "FM Exciter", "Summary", "/logout.php")'
         condition: and
+

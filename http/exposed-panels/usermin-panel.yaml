@@ -24,3 +24,4 @@ http:
           - 'contains_all(body, "<title>Login to Usermin</title>", "/manifest-usermin.json")'
           - 'status_code == 200'
         condition: and
+

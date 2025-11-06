@@ -39,3 +39,4 @@ http:
         group: 1
         regex:
           - 'displayVersion: "([0-9.]+)",'
+

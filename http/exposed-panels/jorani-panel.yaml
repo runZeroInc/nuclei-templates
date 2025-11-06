@@ -45,3 +45,4 @@ http:
         group: 1
         regex:
           - '&nbsp;v([0-9.]+)'
+

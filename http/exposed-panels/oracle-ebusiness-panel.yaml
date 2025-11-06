@@ -39,3 +39,4 @@ http:
         group: 1
         regex:
           - '(?i)/OA_HTML/cabo/oajsLibs/oafcore([A-Z0-9]+).js'
+

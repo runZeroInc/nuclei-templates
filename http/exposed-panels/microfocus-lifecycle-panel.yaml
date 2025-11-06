@@ -35,3 +35,4 @@ http:
         group: 1
         regex:
           - '(?i)Micro\s+Focus\s+Application\s+Lifecycle\s+Management\s+([0-9.]+)'
+

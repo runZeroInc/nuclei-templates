@@ -38,3 +38,4 @@ http:
         group: 1
         regex:
           - '(?i)x-akuiteo-masterhash:\s+([0-9a-f]+)'
+

@@ -48,3 +48,4 @@ http:
           - "contains(body,'/admin</title>')"
           - "status_code == 302"
         condition: and
+

@@ -34,3 +34,4 @@ http:
           - 'contains(header, "text/html")'
           - 'status_code == 200'
         condition: and
+

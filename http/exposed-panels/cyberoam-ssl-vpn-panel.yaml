@@ -40,3 +40,4 @@ http:
         group: 1
         regex:
           - 'src="\/javascript\/validation\/sslvpnlogin\.js\?version=(.+)" ><\/script>'
+

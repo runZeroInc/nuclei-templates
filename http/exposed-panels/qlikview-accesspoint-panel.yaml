@@ -32,3 +32,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>qlikview - accesspoint", "alt=\"qlikview")'
         condition: and
+

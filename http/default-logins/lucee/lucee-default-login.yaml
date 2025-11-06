@@ -43,3 +43,4 @@ http:
           - '!contains(body, "Access is protected")'
           - 'status_code == 200'
         condition: and
+

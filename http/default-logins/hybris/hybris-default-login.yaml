@@ -70,3 +70,4 @@ http:
         group: 1
         regex:
           - '<meta name="_csrf" content="([a-z0-9-]+)" \/>'
+

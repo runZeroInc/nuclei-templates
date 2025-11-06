@@ -38,3 +38,4 @@ http:
       - type: json
         json:
           - " .Config.Version"
+

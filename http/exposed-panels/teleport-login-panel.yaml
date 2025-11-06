@@ -41,3 +41,4 @@ http:
       - type: json
         json:
           - '"Version: " +.server_version'
+

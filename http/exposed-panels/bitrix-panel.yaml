@@ -34,3 +34,4 @@ http:
           - "USER_LOGIN"
           - "/bitrix/js/main/"
         condition: and
+

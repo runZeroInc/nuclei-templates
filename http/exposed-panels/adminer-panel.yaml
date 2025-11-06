@@ -60,3 +60,4 @@ http:
         group: 1
         regex:
           - '<span class="version">([0-9.]+)'
+
