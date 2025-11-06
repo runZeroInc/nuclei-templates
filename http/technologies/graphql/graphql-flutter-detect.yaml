@@ -4,8 +4,9 @@ info:
   name: Graphql Flutter Detect
   author: princechaddha
   severity: info
-  reference: https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
-  tags: tech,graphql,flutter,discovery
+  reference:
+    - https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
+  tags: tech,graphql,flutter
 
 http:
   - method: POST

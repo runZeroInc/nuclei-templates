@@ -39,9 +39,10 @@ http:
         condition: or
 
       - type: word
-        part: header
+        part: content_type
         words:
           - "text/html"
+          - "text/javascript"
         negative: true
 
       - type: status

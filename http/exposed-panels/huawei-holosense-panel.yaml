@@ -6,7 +6,7 @@ info:
   severity: info
   description: |
     Huawei HoloSens SDC Panel was discovered.
-  reference: |
+  reference:
     - https://www.huawei.com/en/products/intelligent-devices/holosens-sdc
   metadata:
     runzero-match: service["http.head.server"] matches "SDC Server" || service["http.body.mmh3"] == "-968212412"
