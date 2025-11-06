@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/ChurchCRM/CRM
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)churchcrm"})
     vendor: churchcrm
     product: churchcrm
     shodan-query: http.title:"churchcrm"
@@ -39,4 +40,3 @@ http:
           - 'contains_all(body, "ChurchCRM", "Dashboard", "Change Password")'
           - 'status_code == 200'
         condition: and
-
