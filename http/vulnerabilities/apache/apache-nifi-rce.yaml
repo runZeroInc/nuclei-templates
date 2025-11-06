@@ -1,7 +1,7 @@
 id: apache-nifi-rce
 
 info:
-  name: Apache NiFi  - Remote Code Execution
+  name: Apache NiFi - Remote Code Execution
   author: arliya
   severity: critical
   description: |
@@ -47,3 +47,4 @@ http:
       - type: json
         json:
           - .id
+# digest: 490a0046304402202a20508e118f1e397ce2a8ff55d3b2a2eecf13f4a1fa51fc9ed0fcc16a9ab2f3022070e2bc1197ec1b5e39f1028b587790e965339aa819224c9f6dbe1cad7dfe3751:922c64590222798bb761d5b6d8e72950

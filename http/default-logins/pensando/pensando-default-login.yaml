@@ -1,7 +1,7 @@
 id: pensando-default-login
 
 info:
-  name: AMD Pensando PSM  - Default Login
+  name: AMD Pensando PSM - Default Login
   author: tpierru
   severity: high
   description: |
@@ -49,4 +49,4 @@ http:
           - 'contains_all(body, "\"name\":\"admin\"")'
           - 'contains(content_type, "application/json")'
         condition: and
-
+# digest: 4a0a00473045022059b9ba10a33f6c65e16c81346753c7d4959007018e010bb1c51e13fec1d51341022100e3dbe6209b2004d04ea7e700f2b3bf4ab27c804107ec9c5c4447d80e6dc624a0:922c64590222798bb761d5b6d8e72950

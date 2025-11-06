@@ -4,8 +4,9 @@ info:
   name: Graphql Gqlgen Detect
   author: princechaddha
   severity: info
-  reference: https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
-  tags: tech,graphql,gqlgen,discovery
+  reference:
+    - https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
+  tags: tech,graphql,gqlgen
 
 http:
   - method: POST
@@ -32,4 +33,4 @@ http:
         words:
           - 'expected at least one definition'
         part: body
-
+# digest: 4a0a0047304502207481fa581b2d23f3edf56feb41f7658a13f76265cd7b45f4461924b8a16e87ae0221008aa353509b7cbd46d5da07000e4ffecb040c30d3788c0f70e44553c5d865e3f0:922c64590222798bb761d5b6d8e72950
