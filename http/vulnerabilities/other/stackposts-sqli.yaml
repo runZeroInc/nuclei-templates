@@ -35,3 +35,4 @@ http:
           - 'contains(body, "account you entered")'
           - 'status_code == 200'
         condition: and
+

@@ -33,3 +33,4 @@ http:
           - 'contains(body,"操作成功")'
           - 'status_code == 200'
         condition: and
+

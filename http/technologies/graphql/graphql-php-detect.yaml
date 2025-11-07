@@ -4,8 +4,9 @@ info:
   name: Graphql PHP Detect
   author: princechaddha
   severity: info
-  reference: https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
-  tags: tech,graphql,php,discovery
+  reference:
+    - https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
+  tags: tech,graphql,php
 
 http:
   - method: POST

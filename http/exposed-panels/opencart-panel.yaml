@@ -39,3 +39,4 @@ http:
           - '(?i)footer\s.*OpenCart.*All.Rights.Reserved|img\s.*logo.*\salt=.*OpenCart'
           - "(?i)Powered.By.*http.*OpenCart"
         condition: or
+

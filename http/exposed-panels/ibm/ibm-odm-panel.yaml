@@ -46,3 +46,4 @@ http:
         group: 1
         regex:
           - '(?i)"js/dist/([0-9.]+)/decisioncenter"'
+

@@ -43,3 +43,4 @@ http:
         group: 1
         regex:
           - '<span style="float:right">\(v([0-9.-]+)\)</span>'
+

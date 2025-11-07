@@ -25,3 +25,4 @@ http:
         part: body
         words:
           - "<title>BeyondInsight</title>"
+

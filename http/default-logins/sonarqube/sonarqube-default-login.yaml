@@ -44,3 +44,4 @@ http:
           - 'len(body) == 0'
           - 'contains(set_cookie, "JWT-SESSION=")'
         condition: and
+

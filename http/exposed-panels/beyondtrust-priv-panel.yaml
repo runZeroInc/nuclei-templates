@@ -32,3 +32,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "<title>beyondtrust privileged remote access login", "privileged-remote-access") && contains(to_lower(body), "login")'
         condition: and
+

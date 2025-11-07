@@ -30,3 +30,4 @@ http:
           - 'contains(body, "<title>VectorAdmin")'
           - 'status_code == 200'
         condition: and
+

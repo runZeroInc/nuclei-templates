@@ -36,3 +36,4 @@ http:
         group: 1
         regex:
           - '(?i)Copyright\s+&copy;\s+([0-9,\s]+),\s+Oracle'
+

@@ -51,3 +51,4 @@ http:
       - type: status
         status:
           - 302
+

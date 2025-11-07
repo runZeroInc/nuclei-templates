@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - '<link href="css\/font-awesome\.min\.css\?(.+)" rel="stylesheet">'
+

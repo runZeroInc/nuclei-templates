@@ -4,8 +4,9 @@ info:
   name: Graphql Strawberry Detect
   author: princechaddha
   severity: info
-  reference: https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
-  tags: tech,graphql,strawberry,discovery
+  reference:
+    - https://github.com/dolevf/graphw00f/blob/main/graphw00f/lib.py
+  tags: tech,graphql,strawberry
 
 http:
   - method: POST

@@ -50,3 +50,4 @@ http:
         group: 1
         regex:
           - '(?m)"version":"([0-9.]+)",'
+

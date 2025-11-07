@@ -46,3 +46,4 @@ http:
         regex:
           - 'version\s+([0-9A-Za-z\s\.]+)\s+-'
           - 'pvpVersion = "([a-z0-9.]+)";'
+

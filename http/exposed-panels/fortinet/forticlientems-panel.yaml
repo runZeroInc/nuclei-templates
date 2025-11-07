@@ -38,3 +38,4 @@ http:
         group: 1
         regex:
           - 'VERSION_FULL\\u0022: \\u0022(.*?)\\u0022'
+

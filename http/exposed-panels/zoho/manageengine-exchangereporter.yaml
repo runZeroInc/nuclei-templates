@@ -47,3 +47,4 @@ http:
         name: version
         regex:
           - src="js/div-util.js\?v=(\d+)"
+

@@ -68,3 +68,4 @@ http:
           - 'regex("^0$", body_2)'
           - 'contains(content_type_2, "text/plain")'
         condition: and
+

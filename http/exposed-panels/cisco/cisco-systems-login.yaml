@@ -36,3 +36,4 @@ http:
         group: 1
         regex:
           - '<script src="javascript\/translate\.js\?ver=(.+)"><\/script>'
+

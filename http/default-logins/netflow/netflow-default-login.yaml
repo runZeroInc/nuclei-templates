@@ -46,3 +46,4 @@ http:
         part: location
         words:
           - "/netflow;jsessionid"
+

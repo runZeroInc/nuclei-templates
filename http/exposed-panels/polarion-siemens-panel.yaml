@@ -38,3 +38,4 @@ http:
         group: 1
         regex:
           - "buildId=([\\d\\w\\-\\_]+)\""
+

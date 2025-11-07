@@ -36,3 +36,4 @@ http:
         group: 2
         regex:
           - '<li>(Version:[ \n\t]*([^<]+)[ \n\t]*)</li>'
+

@@ -35,3 +35,4 @@ http:
           - 'contains_all(body, ">Most starred", "Explore public groups")'
           - 'status_code == 200'
         condition: and
+

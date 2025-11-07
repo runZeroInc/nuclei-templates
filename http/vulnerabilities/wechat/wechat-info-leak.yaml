@@ -1,7 +1,7 @@
 id: wechat-info-leak
 
 info:
-  name: WeChat agentinfo  - Information Exposure
+  name: WeChat agentinfo - Information Exposure
   author: SleepingBag945
   severity: high
   description: |
@@ -33,3 +33,4 @@ http:
           - status_code_1 == 200 && contains(body_1,"errcode") && contains(body_1,"strcorpid")
           - contains(body_1,"corpid")
         condition: and
+

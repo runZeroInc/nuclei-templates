@@ -45,3 +45,4 @@ http:
           - "Sign out</button>"
           - "Log manager</a>"
         condition: and
+

@@ -36,3 +36,4 @@ http:
         part: header
         words:
           - 'eZ Publish'
+

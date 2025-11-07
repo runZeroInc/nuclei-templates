@@ -47,3 +47,4 @@ http:
         group: 1
         regex:
           - "ncentralVersion:\\s+\"([\\d\\.]+)\","
+

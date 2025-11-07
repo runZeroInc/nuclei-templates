@@ -37,3 +37,4 @@ http:
           - 'contains(body,"Netman 204")'
           - 'status_code == 200'
         condition: and
+

@@ -30,3 +30,4 @@ http:
           - 'status_code == 200'
           - 'contains_any(body, "<title>Cortex XSOAR</title>", "content=\"Cortex XSOAR\">")'
         condition: and
+

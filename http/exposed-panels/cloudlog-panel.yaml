@@ -31,3 +31,4 @@ http:
           - 'contains_any(body, "<title>Login - Cloudlog", "Login to Cloudlog", "/CloudLog_logo.png")'
           - 'status_code == 200'
         condition: and
+

@@ -52,3 +52,4 @@ http:
         regex:
           - ="csrf_protection_token" value="([0-9a-z]+)" \/>
         internal: true
+

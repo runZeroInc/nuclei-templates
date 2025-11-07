@@ -45,3 +45,4 @@ http:
       - type: dsl
         dsl:
           - 'contains(location,"/admin/dashboard")'
+
