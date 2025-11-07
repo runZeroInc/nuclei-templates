@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:citrix:xenapp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     vendor: citrix
   tags: cve,cve2021,rce,jndi,log4j,citrix,oast,kev,vuln

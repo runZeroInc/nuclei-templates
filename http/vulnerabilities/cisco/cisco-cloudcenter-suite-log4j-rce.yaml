@@ -17,6 +17,7 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-77
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     shodan-query: title:"CloudCenter Suite"
     fofa-query: title="CloudCenter Suite"

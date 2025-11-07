@@ -10,6 +10,7 @@ info:
     - https://twitter.com/frycos/status/1717571552470819285
     - https://wordpress.org/plugins/blog-designer-pack/
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 3
     google-query: inurl:"/wp-content/plugins/blog-designer-pack/"

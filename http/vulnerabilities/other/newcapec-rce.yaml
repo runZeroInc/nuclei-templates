@@ -9,6 +9,7 @@ info:
   reference:
     - https://forum.butian.net/article/242
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
     fofa-query: title="掌上校园服务管理平台"
   tags: newcapec,rce,intrusive,vuln

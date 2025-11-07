@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:tongda2000:office_anywhere:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     vendor: tongda2000

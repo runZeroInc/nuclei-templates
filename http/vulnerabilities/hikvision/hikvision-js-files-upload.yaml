@@ -11,6 +11,7 @@ info:
     - https://mp.weixin.qq.com/s/DR9xbwnrpg6YYSTw5pIAhw
     - https://github.com/zan8in/afrog/blob/main/v2/pocs/afrog-pocs/vulnerability/hikvision-files-upload.yaml
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     fofa-query: icon_hash="-808437027",app="HIKVISION-综合安防管理平台",title="综合安防管理平台"

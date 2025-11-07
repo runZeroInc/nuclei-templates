@@ -11,6 +11,7 @@ info:
     - https://wordpress.org/plugins/kadence-blocks/
     - https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/kadence-blocks/kadence-blocks-3110-unauthenticated-arbitrary-file-upload
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     publicwww-query: "/wp-content/plugins/kadence-blocks/"

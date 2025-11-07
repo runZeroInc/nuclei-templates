@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:flexera:flexnet_publisher:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     vendor: flexera
   tags: cve,cve2021,rce,jndi,log4j,flexnet,oast,kev,vuln

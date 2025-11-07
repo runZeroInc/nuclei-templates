@@ -8,6 +8,7 @@ info:
   reference:
     - https://github.com/NHPT/WebReportV9Exp/blob/main/WebReport_Exp.
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
     fofa-query: app="帆软-FineReport"
   tags: finereport,fileupload,intrusive,vuln

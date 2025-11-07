@@ -8,6 +8,7 @@ info:
   reference:
     - https://cxsecurity.com/issue/WLB-2021040115
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: hasura,ssrf,graphql,vuln
 

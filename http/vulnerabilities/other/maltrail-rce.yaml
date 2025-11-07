@@ -12,6 +12,7 @@ info:
     - https://huntr.dev/bounties/be3c5204-fbd9-448d-b97c-96a8d2941e87/
     - https://github.com/stamparm/maltrail/commit/a299967318cc226c18a6a07d1be708e3f21edd39
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     verified: true
     max-request: 1
     fofa-query: "Server: Maltrail"

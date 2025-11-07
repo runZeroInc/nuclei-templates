@@ -8,6 +8,7 @@ info:
   reference:
     - https://github.com/l0ggg/VMware_vCenter
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: ssrf,lfi,xss,oast,vcenter,vmware,vuln
 

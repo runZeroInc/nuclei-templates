@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:weaver:e-cology:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 3
     vendor: weaver
   tags: ecology,fileupload,intrusive,vuln

@@ -17,6 +17,7 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-502
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: cve,cve2021,springboot,rce,oast,log4j,kev,vuln
 variables:

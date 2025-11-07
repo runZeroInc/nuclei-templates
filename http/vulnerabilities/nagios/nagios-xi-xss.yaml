@@ -16,6 +16,7 @@ info:
     epss-percentile: 0.94141
     cpe: cpe:2.3:a:nagios:nagios_xi:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 3
     vendor: nagios
     product: nagios_xi

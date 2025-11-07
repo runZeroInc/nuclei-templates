@@ -8,6 +8,7 @@ info:
   reference:
     - https://www.synack.com/blog/a-deep-dive-into-xxe-injection/
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: xxe,ssrf,jamf,vuln
 

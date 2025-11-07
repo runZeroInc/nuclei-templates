@@ -10,6 +10,7 @@ info:
     - https://cn-sec.com/archives/1249492.html
     - https://github.com/ax1sX/SecurityList/blob/main/Java_OA/LandrayEkpAudit.md
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     verified: true
     max-request: 1
     fofa-query: app="Landray-OA系统"

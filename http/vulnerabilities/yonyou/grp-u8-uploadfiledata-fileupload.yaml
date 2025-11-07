@@ -9,6 +9,7 @@ info:
   reference:
     - https://mp.weixin.qq.com/s/DZXFxLC7fFKbPUWrdyITag
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     fofa-query: title="用友GRP-U8行政事业内控管理软件"

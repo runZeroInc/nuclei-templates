@@ -15,6 +15,7 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-1391
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 1
     fofa-query: app="Panabit-智能网关"

@@ -14,6 +14,7 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-22
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 2
   tags: lfi,wp,wordpress,wp-plugin,authenticated,lfr,wpscan,vuln
 

@@ -12,6 +12,7 @@ info:
     cvss-score: 6.8
     cwe-id: CWE-918
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     verified: true
     max-request: 3
     shodan-query: http.html:"Umbraco"

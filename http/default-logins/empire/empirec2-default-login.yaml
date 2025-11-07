@@ -10,6 +10,7 @@ info:
     - https://github.com/BC-SECURITY/Empire
     - https://github.com/BC-SECURITY/empire-docs/blob/main/restful-api/README.md
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
   tags: default-login,empire,c2,intrusive,vuln

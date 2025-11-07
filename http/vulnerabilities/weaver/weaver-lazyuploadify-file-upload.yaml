@@ -8,6 +8,7 @@ info:
   reference:
     - https://github.com/w-digital-scanner/w9scan/blob/master/plugins/weaver_oa/2158.py
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 3
     fofa-query: app="泛微-EOffice"

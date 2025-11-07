@@ -12,6 +12,7 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-601
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 14
     shodan-query: "html:\"/bitrix/\""
   tags: redirect,bitrix,packetstorm,vuln

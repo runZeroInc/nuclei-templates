@@ -13,6 +13,7 @@ info:
     cvss-score: 5.4
     cwe-id: CWE-80
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     verified: true
     max-request: 2
   tags: wp-plugin,xss,wp,wordpress,authenticated,curcy,wpscan,vuln

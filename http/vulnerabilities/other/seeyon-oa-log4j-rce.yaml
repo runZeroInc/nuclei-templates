@@ -17,6 +17,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:apache:log4j:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     verified: true
     max-request: 1
     vendor: apache

@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.ctfiot.com/126482.html
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 2
     fofa-query: app="CAIMORE-Gateway"
   tags: ciamore-gateway,rce,authenticated,intrusive,vuln

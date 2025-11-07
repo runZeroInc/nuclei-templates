@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-80
     cpe: cpe:2.3:a:car_rental_management_system_project:car_rental_management_system:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     verified: true
     max-request: 3
     vendor: car_rental_management_system_project

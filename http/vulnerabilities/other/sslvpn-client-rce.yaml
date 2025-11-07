@@ -9,6 +9,7 @@ info:
     - https://github.com/server2565543706/Poc/blob/master/POC/anquantongsha.py
     - https://github.com/Vme18000yuan/FreePOC/blob/master/poc/pocsuite/security_products_rce.py
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     fofa-query: body="/webui/images/default/default/alert_close.jpg"

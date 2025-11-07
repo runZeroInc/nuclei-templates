@@ -8,6 +8,7 @@ info:
   reference:
     - https://portswigger.net/research/cracking-the-lens-targeting-https-hidden-attack-surface
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 5
   tags: oast,ssrf,generic,vuln
 

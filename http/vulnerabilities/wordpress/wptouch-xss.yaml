@@ -14,6 +14,7 @@ info:
     cvss-score: 5.4
     cwe-id: CWE-80
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 2
   tags: wp-plugin,wp,wordpress,xss,authenticated,wptouch,wpscan,vuln
 

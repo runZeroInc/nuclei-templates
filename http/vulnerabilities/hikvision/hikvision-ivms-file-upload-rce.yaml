@@ -10,6 +10,7 @@ info:
     - https://www.wangan.com/p/11v754aceadb994f
     - https://cn-sec.com/archives/1828326.html
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
     fofa-query: icon_hash="-911494769"
   tags: hikvision,ivms,fileupload,rce,intrusive,vuln

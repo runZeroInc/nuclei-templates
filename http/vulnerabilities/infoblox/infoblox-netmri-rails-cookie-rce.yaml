@@ -16,6 +16,7 @@ info:
   classification:
     cwe-id: CWE-502
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     verified: true
     max-request: 1
     vendor: infoblox
