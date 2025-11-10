@@ -29,3 +29,4 @@ http:
           - 'contains_all(body, "<title>ChurchCRM", "Login")'
           - "status_code == 200"
         condition: and
+

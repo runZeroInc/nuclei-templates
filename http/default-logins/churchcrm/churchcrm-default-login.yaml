@@ -40,3 +40,4 @@ http:
           - 'contains_all(body, "ChurchCRM", "Dashboard", "Change Password")'
           - 'status_code == 200'
         condition: and
+
