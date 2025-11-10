@@ -11,6 +11,7 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)UniFi OS"})
     max-request: 1
     verified: true
     shodan-query: title:"UniFi OS"
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-

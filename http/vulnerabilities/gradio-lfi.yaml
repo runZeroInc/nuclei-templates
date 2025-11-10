@@ -13,6 +13,7 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-20
   metadata:
+    runzero-match: service["http.body"] matches "(?i)__gradio_mode__" || any(each(service["html.titles"]), {# matches "(?i)gradio"})
     max-request: 1
     vendor: gradio_app
     product: gradio
@@ -53,4 +54,3 @@ http:
       - type: status
         status:
           - 200
-

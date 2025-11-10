@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.hannonhill.com/products/cascade-cms-web-content-management/index.html
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cascade CMS"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Cascade CMS"
@@ -32,4 +33,3 @@ http:
         group: 1
         regex:
           - '(?i)\-\s*v([0-9\.]+)'
-
