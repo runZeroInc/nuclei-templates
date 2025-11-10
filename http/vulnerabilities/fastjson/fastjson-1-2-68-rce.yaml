@@ -14,6 +14,7 @@ info:
     cvss-score: 10
     cwe-id: CWE-77
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 3
   tags: fastjson,rce,deserialization,oast,vuln
 

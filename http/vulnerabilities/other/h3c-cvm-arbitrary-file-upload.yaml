@@ -10,6 +10,7 @@ info:
     - https://github.com/zan8in/afrog/blob/main/v2/pocs/afrog-pocs/vulnerability/h3c-cvm-fileupload.yaml
     - https://github.com/tr0uble-mAker/POC-bomber/blob/main/pocs/redteam/h3c_cvm_fileupload_2022.py
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     fofa-query: server="H3C-CVM"

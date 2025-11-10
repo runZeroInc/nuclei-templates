@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-434
     cpe: cpe:2.3:a:baidu:ueditor:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
     vendor: baidu
     product: ueditor

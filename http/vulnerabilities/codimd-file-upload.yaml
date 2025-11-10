@@ -10,6 +10,7 @@ info:
     - https://github.com/hackmdio/codimd/security/advisories/GHSA-2764-jppc-p2hm
     - https://pulsesecurity.co.nz/advisories/codimd-missing-image-access-controls
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 1
     shodan-query: html:"CodiMD"

@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.catchify.sa/post/cve-2025-52665-rce-in-unifi-os-25-000
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 1
     shodan-query: html:"UniFi Dream Machine SE"

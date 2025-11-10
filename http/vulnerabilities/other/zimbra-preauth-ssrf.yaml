@@ -15,6 +15,7 @@ info:
     cve-id: CVE-2020-7796
     cwe-id: CWE-918
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: zimbra,ssrf,oast,vuln
 

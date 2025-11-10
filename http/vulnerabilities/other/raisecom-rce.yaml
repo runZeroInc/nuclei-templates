@@ -11,6 +11,7 @@ info:
   reference:
     - https://github.com/koishi0x01/CVE/blob/main/CVE_1.md
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     fofa-query: '"<TITLE>Web user login</TITLE>" && "<META content\==MSHTML 6.00.2900.5583\" name\=GENERATOR></HEAD>"'

@@ -16,6 +16,7 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-79
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 3
     vendor: wordpress
     product: wordpress

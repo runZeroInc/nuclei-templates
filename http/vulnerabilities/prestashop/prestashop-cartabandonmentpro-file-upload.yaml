@@ -8,6 +8,7 @@ info:
     - https://www.openservis.cz/prestashop-blog/nejcastejsi-utoky-v-roce-2023-seznam-deravych-modulu-nemate-nejaky-z-nich-na-e-shopu-i-vy/
     - https://dh42.com/blog/prestashop-security/
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     verified: true
     max-request: 2
     vendor: apollotheme

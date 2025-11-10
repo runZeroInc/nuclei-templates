@@ -18,6 +18,7 @@ info:
     cwe-id: CWE-79
     cpe: cpe:2.3:a:ninjaforms:ninja_forms:*:*:*:*:*:wordpress:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 5
     vendor: ninjaforms
     product: ninja_forms

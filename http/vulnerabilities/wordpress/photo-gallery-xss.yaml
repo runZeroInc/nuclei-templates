@@ -13,6 +13,7 @@ info:
   classification:
     cpe: cpe:2.3:a:10web:photo_gallery:*:*:*:*:wordpress:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     verified: true
     max-request: 2
     vendor: 10web

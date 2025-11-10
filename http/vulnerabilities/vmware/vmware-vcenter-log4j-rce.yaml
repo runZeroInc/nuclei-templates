@@ -19,6 +19,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:vmware:vcenter_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     vendor: vmware
   tags: cve,cve2021,rce,jndi,log4j,vcenter,vmware,oast,kev,vuln

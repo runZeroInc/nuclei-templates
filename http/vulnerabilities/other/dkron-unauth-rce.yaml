@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/distribworks/dkron/
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     verified: true
     fofa-query: title="Dkron"
     shodan-query: title:"Dkron"

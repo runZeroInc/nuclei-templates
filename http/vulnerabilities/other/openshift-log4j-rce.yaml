@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:redhat:openshift_origin:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     vendor: redhat
   tags: cve,cve2021,rce,jndi,log4j,openshift,oast,kev,vuln

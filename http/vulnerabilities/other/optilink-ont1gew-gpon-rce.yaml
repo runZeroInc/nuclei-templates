@@ -13,6 +13,7 @@ info:
     cvss-score: 10
     cwe-id: CWE-77
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: optiLink,rce,oast,mirai,packetstorm,vuln
 

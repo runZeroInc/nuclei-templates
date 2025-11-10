@@ -9,6 +9,7 @@ info:
     - https://github.com/dorkerdevil/rpckiller
     - https://the-bilal-rizwan.medium.com/wordpress-xmlrpc-php-common-vulnerabilites-how-to-exploit-them-d8d3c8600b32
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 2
   tags: wordpress,ssrf,oast,xmlrpc,vuln
 

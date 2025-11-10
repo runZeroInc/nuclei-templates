@@ -15,6 +15,7 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-79
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     verified: true
     max-request: 2
     fofa-query: body="/wp-content/plugins/capability-manager-enhanced"

@@ -12,6 +12,7 @@ info:
     cvss-score: 8.8
     cwe-id: CWE-434
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
   tags: rce,jsp,fileupload,intrusive,vuln
 

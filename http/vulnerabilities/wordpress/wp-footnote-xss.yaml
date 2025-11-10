@@ -16,6 +16,7 @@ info:
     cvss-score: 6.4
     cwe-id: CWE-79
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 4
     framework: wordpress
   tags: wpscan,xss,wp,wordpress,footnote,xss,authenticated,vuln

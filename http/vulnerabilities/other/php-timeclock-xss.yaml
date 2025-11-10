@@ -12,6 +12,7 @@ info:
     cvss-score: 7.2
     cwe-id: CWE-79
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 1
   tags: xss,php,timeclock,edb,intrusive,vuln
 

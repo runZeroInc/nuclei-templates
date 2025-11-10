@@ -12,6 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:o:flir:flir_ax8_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag authenticated
     verified: true
     max-request: 2
     vendor: flir

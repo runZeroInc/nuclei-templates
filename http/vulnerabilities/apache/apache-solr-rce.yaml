@@ -8,6 +8,7 @@ info:
   reference:
     - https://web.archive.org/web/20230414152023/https://noahblog.360.cn/apache-solr-rce/
   metadata:
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive, uses interactsh
     max-request: 2
   tags: solr,apache,rce,oast,intrusive,vuln
 

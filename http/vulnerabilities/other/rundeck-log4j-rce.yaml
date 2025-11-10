@@ -16,6 +16,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:pagerduty:rundeck:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-07/uses interactsh
     verified: true
     max-request: 1
     vendor: pagerduty
