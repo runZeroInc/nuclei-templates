@@ -23,11 +23,13 @@ http:
         dsl:
           - 'status_code == 200'
           - 'contains_all(body, "charging_controllers", "system")'
+          - is_vulnerable_version == true
         condition: and
 
     extractors:
       - type: json
         part: body
+        internal: true
         name: is_vulnerable_version
         json:
           - '.charging_controllers | .[].info._v_.firmware_version | capture("V(?<version>\\d+(?:\\.\\d+)*)"; "i") | .version | split(".") | map(tonumber) | if . < ("1.7.3" | split(".") | map(tonumber)) then true else false end'
