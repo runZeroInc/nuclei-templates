@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.monstaftp.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Monsta FTP"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Monsta FTP"
@@ -40,4 +41,3 @@ http:
         group: 1
         regex:
           - 'monsta-min-([0-9.]+)\.js'
-
