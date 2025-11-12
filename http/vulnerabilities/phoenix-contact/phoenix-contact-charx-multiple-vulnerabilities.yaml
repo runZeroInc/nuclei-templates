@@ -2,7 +2,7 @@ id: phoenix-contact-charx-multiple-vulnerabilities
 
 info:
   name: Phoenix Contact CHARX SEC-3XXX AC Controller < 1.7.3 - Multiple Vulnerabilities
-  author: inokii
+  author: inokii,n3integration
   severity: critical
   description: |
     Multiple vulnerabilities exist in Phoenix Contact CHARX SEC-3XXX AC Controller versions prior to 1.7.3. Successful exploitation may allow attackers to bypass authentication, disclose sensitive information, or execute arbitrary code.
@@ -23,7 +23,7 @@ http:
         dsl:
           - 'status_code == 200'
           - 'contains_all(body, "charging_controllers", "system")'
-          - is_vulnerable_version == true
+          - is_vulnerable_version == "true"
         condition: and
 
     extractors:
