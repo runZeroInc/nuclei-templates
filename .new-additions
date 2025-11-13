@@ -34,6 +34,7 @@ file/android/webview-universal-access-java.yaml
 http/cves/2018/CVE-2018-6882.yaml
 http/cves/2019/CVE-2019-11507.yaml
 http/cves/2021/CVE-2021-41419.yaml
+http/cves/2021/CVE-2021-4374.yaml
 http/cves/2021/CVE-2021-45467.yaml
 http/cves/2022/CVE-2022-26143.yaml
 http/cves/2023/CVE-2023-2437.yaml
@@ -99,6 +100,7 @@ http/vulnerabilities/smuggling/te-cl-http-smuggling.yaml
 http/vulnerabilities/unifi/unifi-create-user.yaml
 http/vulnerabilities/unifi/unifi-nfc-credentials.yaml
 javascript/cves/2019/CVE-2019-6443.yaml
+javascript/cves/2025/CVE-2025-12101.yaml
 javascript/detection/ntp-version-detect.yaml
 javascript/misconfiguration/mqtt-uauth-broker.yaml
 javascript/udp/misconfiguration/ntp-enum-variables-enabled.yaml
