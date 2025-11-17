@@ -9,6 +9,7 @@ info:
   reference:
     - https://xbow.com/blog/xbow-titiler-lfi/
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     verified: true
     max-request: 1
     shodan-query: html:"TiTiler"

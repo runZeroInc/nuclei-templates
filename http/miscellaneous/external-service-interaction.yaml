@@ -12,6 +12,7 @@ info:
   classification:
     cwe-id: CWE-918,CWE-406
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     max-request: 1
   tags: miscellaneous,http,misc,oast,vuln
 

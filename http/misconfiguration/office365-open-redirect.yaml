@@ -13,6 +13,7 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-601
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
   tags: redirect,office365,microsoft,misconfig,intrusive,vuln
 

@@ -12,6 +12,7 @@ info:
     cvss-score: 10
     cwe-id: CWE-288
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 3
   tags: plastic,misconfig,intrusive,vuln
 

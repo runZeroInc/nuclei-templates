@@ -7,6 +7,7 @@ info:
   description: |
     Detects unauthorized SCIM (System for Cross-domain Identity Management) operations in Casdoor versions ≤1.811.0, allowing unauthenticated access to user management functionalities.
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     max-request: 3
     shodan-query: html:"Casdoor"
