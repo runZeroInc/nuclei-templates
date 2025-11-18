@@ -41,3 +41,4 @@ http:
         group: 1
         regex:
           - 'monsta-min-([0-9.]+)\.js'
+
