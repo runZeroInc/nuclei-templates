@@ -10,6 +10,7 @@ info:
     - https://github.com/frappe/erpnext
     - https://github.com/frappe/erpnext/blob/develop/README.md
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Login to Frappe"
     verified: true
     max-request: 1
     vendor: frappe
@@ -40,4 +41,3 @@ http:
           - 'contains_all(body, "Logged In", "home_page", "Administrator")'
           - 'contains_all(set_cookie, "sid=", "system_user=yes")'
         condition: and
-
