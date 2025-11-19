@@ -8,6 +8,7 @@ info:
     - https://www.invicti.com/blog/web-security/ssrf-vulnerabilities-caused-by-sni-proxy-misconfigurations/
     - https://www.bamsoftware.com/computers/sniproxy/
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     max-request: 1
   tags: misconfig,ssrf,oast,tls,sni,proxy,vuln
 

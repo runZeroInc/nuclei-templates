@@ -13,6 +13,7 @@ info:
     cvss-score: 8.8
     cwe-id: CWE-434
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     max-request: 4
     google-query: intitle:"Roxy file manager"

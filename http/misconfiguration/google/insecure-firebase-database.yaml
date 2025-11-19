@@ -8,6 +8,7 @@ info:
   reference:
     - https://blog.securitybreached.org/2020/02/04/exploiting-insecure-firebase-database-bugbounty
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     max-request: 2
   tags: firebase,google,misconfig,intrusive,vuln

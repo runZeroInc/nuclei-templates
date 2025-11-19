@@ -9,6 +9,7 @@ info:
     - https://docs.web3.storage/
     - https://github.com/daffainfo/all-about-apikey/tree/main/web3-storage
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
   tags: token-spray,web3storage,intrusive
 

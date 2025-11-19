@@ -8,6 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
     vendor: grafana
     product: grafana

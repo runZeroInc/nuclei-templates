@@ -6,6 +6,7 @@ info:
   severity: medium
   description: Rails debug mode is enabled.
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
   tags: debug,rails,exposure,intrusive,vuln
 

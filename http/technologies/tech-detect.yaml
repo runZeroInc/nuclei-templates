@@ -5,6 +5,7 @@ info:
   author: hakluke,righettod
   severity: info
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     max-request: 1
   tags: tech,discovery
 

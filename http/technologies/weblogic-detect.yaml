@@ -5,6 +5,7 @@ info:
   author: pdteam
   severity: info
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
     shodan-query: product:"Oracle Weblogic"
   tags: tech,weblogic,intrusive,discovery

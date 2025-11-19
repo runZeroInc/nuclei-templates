@@ -9,6 +9,7 @@ info:
   reference:
     - https://docs.tolgee.io/api
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
     verified: true
     shodan-query: html:"tolgee"
