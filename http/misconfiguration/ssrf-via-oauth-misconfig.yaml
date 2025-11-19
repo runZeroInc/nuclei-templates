@@ -8,6 +8,7 @@ info:
   reference:
     - https://portswigger.net/research/hidden-oauth-attack-vectors
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive, uses interactsh
     max-request: 1
   tags: misconfig,oast,oauth,ssrf,intrusive,vuln
 

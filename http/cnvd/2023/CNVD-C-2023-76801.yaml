@@ -9,6 +9,7 @@ info:
   reference:
     - https://mp.weixin.qq.com/s/8ZRrmUCD2bfznd1MyDDU8A
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     max-request: 2
     fofa-query: app="用友-NC-Cloud"

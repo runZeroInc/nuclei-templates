@@ -6,6 +6,7 @@ info:
   severity: low
   description: Express Stack trace is exposed.
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     max-request: 1
     shodan-query: html:"Welcome to Express"

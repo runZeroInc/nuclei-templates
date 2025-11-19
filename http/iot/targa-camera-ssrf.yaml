@@ -8,6 +8,7 @@ info:
   reference:
     - https://www.zeroscience.mk/en/vulnerabilities/ZSL-2021-5617.php
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     max-request: 1
   tags: targa,ssrf,oast,iot,camera,selea,vuln
 

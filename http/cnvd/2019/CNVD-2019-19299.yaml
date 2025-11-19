@@ -13,6 +13,7 @@ info:
     cvss-score: 10
     cwe-id: CWE-77
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 2
   tags: cnvd2019,cnvd,zhiyuan,rce,intrusive,vuln
 

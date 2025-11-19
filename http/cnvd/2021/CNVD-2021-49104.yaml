@@ -14,6 +14,7 @@ info:
     cvss-score: 9.9
     cwe-id: CWE-434
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 2
   tags: cnvd2021,cnvd,pan,micro,fileupload,intrusive,vuln
 

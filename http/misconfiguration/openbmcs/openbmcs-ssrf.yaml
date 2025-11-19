@@ -13,6 +13,7 @@ info:
     cvss-score: 6.8
     cwe-id: CWE-918
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     max-request: 1
     shodan-query: http.favicon.hash:1550906681
   tags: ssrf,oast,openbmcs,edb,misconfig,vuln

@@ -7,6 +7,7 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:airflow:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     max-request: 1
     vendor: apache

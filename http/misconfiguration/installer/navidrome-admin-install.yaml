@@ -5,6 +5,7 @@ info:
   author: DhiyaneshDK
   severity: critical
   metadata:
+    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     max-request: 1
     shodan-query: html:"content="Navidrome""

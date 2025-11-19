@@ -8,6 +8,7 @@ info:
   reference:
     - https://twitter.com/nirvana_msu/status/1084144955034165248
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     max-request: 1
   tags: ssrf,linkerd,oast,misconfig,vuln
 

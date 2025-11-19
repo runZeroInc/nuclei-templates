@@ -9,6 +9,7 @@ info:
   reference:
     - https://owasp.org/www-community/attacks/Server_Side_Request_Forgery
   metadata:
+    runzero-review: REJECT/2025-11-17/uses interactsh
     verified: true
     max-request: 1
     fofa-query: body="/_proxy/api/v3/"
