@@ -41,3 +41,4 @@ http:
           - 'contains_all(body, "Logged In", "home_page", "Administrator")'
           - 'contains_all(set_cookie, "sid=", "system_user=yes")'
         condition: and
+
