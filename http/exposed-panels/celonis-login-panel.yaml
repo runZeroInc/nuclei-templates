@@ -8,7 +8,7 @@ info:
     Detects Celonis Process Intelligence login panels.
   reference: https://www.celonis.com
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Celonis"}) || service["http.body"] matches "(?i)Amazing insights\\. Better results\\."
+    runzero-match: service["http.body"] matches "(?i)Amazing insights\\. Better results\\." || any(each(service["html.titles"]), {# matches "(?i)Celonis"})
     max-request: 1
     vendor: celonis
     product: celonis
