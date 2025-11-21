@@ -10,6 +10,7 @@ info:
     - https://github.com/vtiger-crm/vtigercrm
     - https://code.vtiger.com/vtiger/vtigercrm
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Powered by vtiger CRM"
     verified: true
     max-request: 2
     shodan-query: html:"Powered by vtiger CRM"
@@ -41,4 +42,3 @@ http:
           - 'contains(header_1, "PHPSESSID=")'
           - 'contains_all(body_2, "home", "index.php?module=Emails&action=index")'
         condition: and
-
