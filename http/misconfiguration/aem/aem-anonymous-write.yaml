@@ -16,6 +16,7 @@ info:
   classification:
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-review: REJECT/2025-11-24/excluding tag intrusive
     verified: true
     vendor: adobe
     product: experience_manager
