@@ -49,4 +49,4 @@ http:
           - 'regex("(r[0-9a-zA-Z]{24,34})", body)'
           - 'status_code == 200'
         condition: and
-# digest: 4a0a00473045022100c9ef735826ba5ea3360666a7f5c205b841b98c8adf99058777b4a728a57f773402201d061fde3f161c13c02eeeb46bc895cbcea82f16c629a3e92f2ba8116c34a00e:922c64590222798bb761d5b6d8e72950
+
