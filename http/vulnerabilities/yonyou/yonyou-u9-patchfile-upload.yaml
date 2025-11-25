@@ -7,6 +7,7 @@ info:
   description: |
     An arbitrary file upload vulnerability in U9 PatchFile.asmx allows attackers to upload files to the server.This can lead to various security issues including remote code execution.
   metadata:
+    runzero-review: REJECT/2025-11-25/Creates random file uploads repeatedly
     verified: true
     fofa-query: title="U9-登录"
   tags: unauth,file-upload,yonyou,u9,rce
@@ -53,4 +54,3 @@ http:
           - status_code == 200
           - contains_all(body, "2468642","File deleted successfully")
         condition: and
-
