@@ -42,3 +42,4 @@ http:
           - 'contains(header_1, "PHPSESSID=")'
           - 'contains_all(body_2, "home", "index.php?module=Emails&action=index")'
         condition: and
+
