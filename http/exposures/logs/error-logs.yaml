@@ -53,20 +53,15 @@ http:
         words:
           - "Segmentation Fault"
           - "coredump"
-          - "script headers"
           - "Broken pipe"
-          - "Array"
-          - "Exception"
-          - "Fatal"
           - "FastCGI sent in stderr"
+          - "Fatal error:"
+          - "Stack trace:"
         condition: or
 
-      - type: word
-        condition: or
-        words:
-          - text/plain
-          - application/octet-stream
-        part: header
+      - type: dsl
+        dsl:
+          - "contains(tolower(header), 'content-type: text/plain') || contains(tolower(header), 'content-type: application/octet-stream') || !contains(tolower(header), 'content-type:')"
 
       - type: status
         status:
