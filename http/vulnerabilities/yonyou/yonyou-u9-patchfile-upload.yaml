@@ -54,3 +54,4 @@ http:
           - status_code == 200
           - contains_all(body, "2468642","File deleted successfully")
         condition: and
+
