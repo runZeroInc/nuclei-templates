@@ -10,6 +10,7 @@ info:
     - https://httpd.apache.org/
     - https://endoflife.date/apache
   metadata:
+    runzero-match: service["http.head.server"] matches "Apache/"
     verified: true
     max-request: 1
     shodan-query: "Server: Apache/"
@@ -36,4 +37,3 @@ http:
         group: 1
         regex:
           - 'Server: Apache/([0-9.]+)'
-
