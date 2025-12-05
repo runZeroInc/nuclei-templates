@@ -11,6 +11,7 @@ info:
   reference:
     - https://issues.jenkins.io/browse/JENKINS-18884
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "81586312"
     max-request: 1
     vendor: jenkins
     product: jenkins
@@ -33,4 +34,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "users", "fullName", "absoluteUrl")'
         condition: and
-
