@@ -9,6 +9,7 @@ info:
   reference:
     - https://munin-monitoring.org/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Munin"})
     verified: true
     max-request: 2
     shodan-query: http.title:"Munin"
@@ -30,4 +31,3 @@ http:
           - 'contains(tolower(body), "<title>Munin")'
           - 'contains_all(body, "Munin", "Overview", "munin-monitoring")'
         condition: and
-

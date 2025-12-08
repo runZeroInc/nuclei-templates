@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.metabase.com/docs/latest/installation-and-operation/installing-metabase
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Metabase"}) && service["http.body"] contains "setup"
     verified: true
     max-request: 1
     shodan-query: http.title:"Metabase" http.html:"setup"
@@ -29,4 +30,3 @@ http:
           - 'contains(to_lower(body), "<title>metabase</title>")'
           - 'contains_all(body, "\"has-user-setup\":false", "_metabaseBootstrap")'
         condition: and
-

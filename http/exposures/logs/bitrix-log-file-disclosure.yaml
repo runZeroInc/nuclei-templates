@@ -14,6 +14,7 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-532
   metadata:
+    runzero-match: service["http.body"] matches "(?i)bitrix"
     verified: true
     max-request: 2
     shodan-query: http.html:"bitrix"
@@ -48,4 +49,3 @@ http:
       - type: status
         status:
           - 200
-
