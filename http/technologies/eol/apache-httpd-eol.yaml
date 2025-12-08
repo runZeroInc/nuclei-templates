@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - 'Server: Apache/([0-9.]+)'
+
