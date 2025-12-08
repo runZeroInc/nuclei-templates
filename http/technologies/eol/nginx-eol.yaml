@@ -37,3 +37,4 @@ http:
         group: 1
         regex:
           - 'Server: nginx/([0-9.]+)'
+
