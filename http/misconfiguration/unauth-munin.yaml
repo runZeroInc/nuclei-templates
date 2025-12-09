@@ -31,3 +31,4 @@ http:
           - 'contains(tolower(body), "<title>Munin")'
           - 'contains_all(body, "Munin", "Overview", "munin-monitoring")'
         condition: and
+

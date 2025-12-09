@@ -30,3 +30,4 @@ http:
           - 'contains(to_lower(body), "<title>metabase</title>")'
           - 'contains_all(body, "\"has-user-setup\":false", "_metabaseBootstrap")'
         condition: and
+
