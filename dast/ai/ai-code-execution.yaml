@@ -7,6 +7,7 @@ info:
   description: |
     Detects attempts to make AI systems execute unauthorized code or create malicious containers.
   metadata:
+    runzero-review: REJECT/2025-12-09/uses interactsh
     max-request: 8
   tags: ai,rce,oast,dast
 
