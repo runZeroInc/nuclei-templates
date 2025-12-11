@@ -9,6 +9,7 @@ info:
   reference:
     - https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Jfrog"})
     verified: true
     max-request: 1
     shodan-query: title:"Jfrog"
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-

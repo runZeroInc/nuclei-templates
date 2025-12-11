@@ -14,6 +14,7 @@ info:
     cvss-score: 6.5
     cwe-id: CWE-276
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nexus Repository Manager"})
     max-request: 1
     verified: true
     shodan-query: title:"Nexus Repository Manager"
@@ -38,4 +39,3 @@ http:
         part: body
         json:
           - '.[].name'
-
