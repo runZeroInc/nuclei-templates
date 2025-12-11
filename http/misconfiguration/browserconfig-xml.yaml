@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.sygnal.com/lessons/browserconfig-xml
   metadata:
+    runzero-match: service["http.body"] matches "(?i)browserconfig\\.xml"
     verified: true
     max-request: 1
     shodan-query: html:"browserconfig.xml"
@@ -38,4 +39,3 @@ http:
       - type: status
         status:
           - 200
-
