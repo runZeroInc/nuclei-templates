@@ -46,3 +46,4 @@ http:
         group: 1
         regex:
           - '>PHP Version <\/td><td class="v">([0-9.]+)'
+
