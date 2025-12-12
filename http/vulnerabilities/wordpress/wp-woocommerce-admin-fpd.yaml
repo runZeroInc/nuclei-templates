@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/woocommerce-admin/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/woocommerce-admin"
     max-request: 1
     verified: false
     shodan-query: html:"/plugins/woocommerce-admin"
@@ -26,4 +27,3 @@ http:
           - 'contains(body, "/woocommerce-admin/src/")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-

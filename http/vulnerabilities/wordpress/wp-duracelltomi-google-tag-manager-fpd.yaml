@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/duracelltomi-google-tag-manager/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/duracelltomi-google-tag-manager/"
     max-request: 1
     verified: true
     shodan-query: html:"/plugins/duracelltomi-google-tag-manager/"
@@ -26,4 +27,3 @@ http:
           - 'contains(body, "plugins/duracelltomi-google-tag-manager")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-
