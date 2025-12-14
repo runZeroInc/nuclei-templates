@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/sg-cachepress/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/sg-cachepress/"
     max-request: 1
     verified: true
     shodan-query: html:"/plugins/sg-cachepress/"
@@ -26,4 +27,3 @@ http:
           - 'contains(body, "plugins/sg-cachepress")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-
