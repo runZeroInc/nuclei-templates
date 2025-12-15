@@ -27,3 +27,4 @@ http:
           - 'contains(body, "plugins/duracelltomi-google-tag-manager")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
+
