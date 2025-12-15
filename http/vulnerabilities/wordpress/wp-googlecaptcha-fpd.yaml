@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/google-captcha/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/google-captcha"
     max-request: 1
     verified: true
     shodan-query: html:"/plugins/google-captcha"
@@ -26,4 +27,3 @@ http:
           - 'contains(body, "/plugins/google-captcha")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-

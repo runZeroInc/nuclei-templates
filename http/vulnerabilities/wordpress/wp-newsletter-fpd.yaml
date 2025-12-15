@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/newsletter/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/newsletter/"
     max-request: 1
     verified: true
     shodan-query: html:"/plugins/newsletter/"
@@ -30,4 +31,3 @@ http:
           - 'contains(body, "/plugins/newsletter/")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-

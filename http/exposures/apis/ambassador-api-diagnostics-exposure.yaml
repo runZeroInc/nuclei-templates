@@ -10,6 +10,7 @@ info:
     - https://www.getambassador.io/docs/edge-stack/latest/
     - https://www.getambassador.io/docs/edge-stack/latest/topics/running/diagnostics/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Ambassador Diagnostic Overview"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Ambassador Diagnostic Overview"
@@ -28,4 +29,3 @@ http:
           - contains_all(body, "Ambassador Diagnostic Overview", "Ambassador version")
           - contains_any(body, "Cluster ID", "Ambassador Route Table", "Ambassador namespace")
         condition: and
-

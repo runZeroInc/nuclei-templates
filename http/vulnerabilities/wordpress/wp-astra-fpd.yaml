@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/themes/astra/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/themes/astra/"
     max-request: 1
     verified: true
     shodan-query: html:"/themes/astra/"
@@ -29,4 +30,3 @@ http:
           - 'contains(body, "/themes/astra/")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-
