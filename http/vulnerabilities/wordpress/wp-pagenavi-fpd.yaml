@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/wp-pagenavi/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/wp-pagenavi/"
     max-request: 1
     verified: false
     shodan-query: html:"/plugins/wp-pagenavi/"
@@ -29,4 +30,3 @@ http:
           - 'contains(body, "/plugins/wp-pagenavi/")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-

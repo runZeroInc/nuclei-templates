@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/worker/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/worker/"
     max-request: 1
     verified: true
     shodan-query: html:"/plugins/worker/"
@@ -26,4 +27,3 @@ http:
           - 'contains(body, "/plugins/worker/")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
-
