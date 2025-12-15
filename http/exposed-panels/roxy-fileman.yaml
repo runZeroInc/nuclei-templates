@@ -2,7 +2,7 @@ id: roxy-fileman
 
 info:
   name: Roxy File Manager - Panel Detect
-  author: liquidsec,DhiyaneshDk
+  author: liquidsec,DhiyaneshDk,ritikchaddha
   severity: info
   description: Roxy File Manager panel was detected.
   classification:
@@ -12,7 +12,7 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)roxy file manager"})
     verified: true
-    max-request: 4
+    max-request: 5
     vendor: roxyfileman
     product: roxy_fileman
     shodan-query: http.title:"roxy file manager"
@@ -22,6 +22,7 @@ info:
 http:
   - method: GET
     path:
+      - "{{BaseURL}}"
       - "{{BaseURL}}/index.html"
       - "{{BaseURL}}/fileman/index.html"
       - "{{BaseURL}}/fileman/php/fileslist.php"
@@ -37,10 +38,12 @@ http:
         part: body
         words:
           - 'Roxy file manager'
+          - 'RoxyFileman'
           - '[{"p":"'
         condition: or
+        case-insensitive: true
 
       - type: status
         status:
           - 200
-
+# digest: 4b0a00483046022100b1c1f6931a75bc9ad37373fde7434098a007532c0b1f6c6e1acb192528846b42022100afaaa799b29b2b329f8f1e545d30d37d71b805f85574ded012a241ddafb7ec58:922c64590222798bb761d5b6d8e72950
