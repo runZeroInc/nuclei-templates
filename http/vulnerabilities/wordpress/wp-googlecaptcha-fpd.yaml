@@ -27,3 +27,4 @@ http:
           - 'contains(body, "/plugins/google-captcha")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
+

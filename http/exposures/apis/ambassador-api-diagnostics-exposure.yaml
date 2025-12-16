@@ -29,3 +29,4 @@ http:
           - contains_all(body, "Ambassador Diagnostic Overview", "Ambassador version")
           - contains_any(body, "Cluster ID", "Ambassador Route Table", "Ambassador namespace")
         condition: and
+

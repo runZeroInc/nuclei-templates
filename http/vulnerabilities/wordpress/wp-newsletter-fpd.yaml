@@ -31,3 +31,4 @@ http:
           - 'contains(body, "/plugins/newsletter/")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
+

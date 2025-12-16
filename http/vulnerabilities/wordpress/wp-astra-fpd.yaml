@@ -30,3 +30,4 @@ http:
           - 'contains(body, "/themes/astra/")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:")'
         condition: and
+
