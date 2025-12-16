@@ -26,3 +26,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Fatal error", "Uncaught Error:", "/plugins/megamenu/")'
         condition: and
+
