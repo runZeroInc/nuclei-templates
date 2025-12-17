@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/cookie-law-info/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/cookie-law-info/"
     verified: true
     max-request: 3
     vendor: developer
@@ -33,4 +34,3 @@ http:
           - 'contains(body, "cookie-law-info")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:") || contains_all(body, "Warning:","failed to open stream")'
         condition: and
-
