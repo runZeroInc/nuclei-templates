@@ -9,7 +9,6 @@ info:
   reference:
     - https://wordpress.org/plugins/ssl-insecure-content-fixer/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/ssl-insecure-content-fixer/"
     max-request: 1
     verified: false
     fofa-query: body="/ssl-insecure-content-fixer/"
