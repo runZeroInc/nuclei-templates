@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/wordpress-seo/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/wordpress-seo/"
     verified: true
     max-request: 3
     vendor: yoast
@@ -39,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

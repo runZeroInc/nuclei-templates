@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/seo-by-rank-math/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/seo-by-rank-math/"
     verified: true
     max-request: 3
     vendor: developer
@@ -32,4 +33,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Fatal error", "seo-by-rank-math", "Uncaught Error:")'
         condition: and
-
