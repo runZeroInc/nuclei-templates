@@ -32,3 +32,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Glimpse - Configuration Page", "Turn Glimpse On", "getglimpse.com")'
         condition: and
+

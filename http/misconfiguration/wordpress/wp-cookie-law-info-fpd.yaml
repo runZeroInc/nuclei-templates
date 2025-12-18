@@ -34,3 +34,4 @@ http:
           - 'contains(body, "cookie-law-info")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:") || contains_all(body, "Warning:","failed to open stream")'
         condition: and
+
