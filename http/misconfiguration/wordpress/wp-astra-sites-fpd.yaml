@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/astra-sites/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/astra-sites/"
     verified: true
     max-request: 3
     vendor: developer
@@ -39,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

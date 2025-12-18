@@ -7,6 +7,7 @@ info:
   description: |
     FastCGI test page was discovered.
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "^FastCGI test page" })
     verified: true
     max-request: 1
     google-query: intitle:"FastCGI test page"

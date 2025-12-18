@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/themes/oceanwp/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/themes/oceanwp/"
     verified: true
     max-request: 3
     vendor: developer
@@ -32,4 +33,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Fatal error", "/themes/oceanwp", "Uncaught Error:")'
         condition: and
-
