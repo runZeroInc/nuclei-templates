@@ -30,3 +30,4 @@ http:
           - 'contains(body, "plugins/ssl-insecure-content-fixer")'
           - 'contains_all(body, "Fatal error", "Uncaught Error:") || contains_all(body, "Warning:","failed to open stream")'
         condition: and
+
