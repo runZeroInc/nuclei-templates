@@ -30,3 +30,4 @@ http:
           - 'contains_any(body, "require(",".exit","module.exports","let","process.","console.log(")'
           - 'contains(header, "application/octet-stream")'
         condition: and
+

@@ -33,3 +33,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Fatal error", "seo-by-rank-math", "Uncaught Error:")'
         condition: and
+
