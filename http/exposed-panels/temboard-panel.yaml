@@ -28,3 +28,4 @@ http:
           - 'contains_any(to_lower(body), "<title>temboard", "temboard-")'
           - 'contains(to_lower(body), "login")'
         condition: and
+
