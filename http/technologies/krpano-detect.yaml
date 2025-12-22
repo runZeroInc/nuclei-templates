@@ -9,6 +9,7 @@ info:
   reference:
     - https://krpano.com/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)embedpano"
     vendor: krpano
     product: panorama_viewer
     shodan-query: http.html:"embedpano"
@@ -33,4 +34,3 @@ http:
           - "passQueryParameters:true"
           - "swf"
         condition: and
-
