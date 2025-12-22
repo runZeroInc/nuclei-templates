@@ -2,7 +2,7 @@ id: mx-service-detector
 
 info:
   name: Email Service Detector
-  author: binaryfigments
+  author: binaryfigments,rxerium
   severity: info
   description: An email service was detected. Check the email service or spam filter that is used for a domain.
   classification:
@@ -81,4 +81,39 @@ dns:
         words:
           - "mx1-us1.ppe-hosted.com"
           - "mx2-us1.ppe-hosted.com"
+
+      - type: word
+        name: "Mimecast"
+        words:
+          - "mimecast.com"
+
+      - type: word
+        name: "Cisco IronPort"
+        words:
+          - "iphmx.com"
+
+      - type: word
+        name: "Trellix (FireEye)"
+        words:
+          - "fireeyecloud.com"
+
+      - type: word
+        name: "Symantec MessageLabs"
+        words:
+          - "messagelabs.com"
+
+      - type: word
+        name: "MailSpamProtection"
+        words:
+          - "mailspamprotection.com"
+
+      - type: word
+        name: "Retarus"
+        words:
+          - "retarus.com"
+
+      - type: word
+        name: "Rackspace Email"
+        words:
+          - "emailsrvr.com"
 
