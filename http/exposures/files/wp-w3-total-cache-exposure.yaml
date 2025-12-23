@@ -28,3 +28,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "wp-content/w3tc/dbcache", "Index of","Parent Directory")'
         condition: and
+
