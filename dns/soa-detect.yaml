@@ -82,3 +82,89 @@ dns:
         words:
           - "edgecastdns.net"
 
+      - type: word
+        name: "csc-corporate-domains"
+        words:
+          - "cscdns.net"
+
+      - type: word
+        name: "network-solutions"
+        words:
+          - "worldnic.com"
+
+      - type: word
+        name: "name-services"
+        words:
+          - "name-services.com"
+
+      - type: word
+        name: "ultradns"
+        words:
+          - "ultradns.com"
+
+      - type: word
+        name: "verisign"
+        words:
+          - "verisign-grs.com"
+
+      - type: word
+        name: "ovh"
+        words:
+          - "ovh.net"
+
+      - type: word
+        name: "comlaude"
+        words:
+          - "comlaude.com"
+          - "comlaude-dns.com"
+
+      - type: word
+        name: "one-dot-com"
+        words:
+          - "one.com"
+
+      - type: word
+        name: "netnames"
+        words:
+          - "netnames.net"
+
+      - type: word
+        name: "dnsmadeeasy"
+        words:
+          - "dnsmadeeasy.com"
+
+      - type: word
+        name: "bluehost"
+        words:
+          - "bluehost.com"
+
+      - type: word
+        name: "managed-ip"
+        words:
+          - "managed-ip.com"
+
+      - type: word
+        name: "gandi"
+        words:
+          - "gandi.net"
+
+      - type: word
+        name: "brandshelter"
+        words:
+          - "brandshelter.com"
+
+      - type: word
+        name: "hinet"
+        words:
+          - "hinet.net"
+
+      - type: word
+        name: "vultr"
+        words:
+          - "vultr.com"
+
+      - type: word
+        name: "switch-ch"
+        words:
+          - "switch.ch"
+
