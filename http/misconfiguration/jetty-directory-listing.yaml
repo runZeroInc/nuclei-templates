@@ -40,3 +40,4 @@ http:
           - 'contains_all(response, "Jetty", "jetty-dir.css")'
           - 'status_code == 200'
         condition: and
+
