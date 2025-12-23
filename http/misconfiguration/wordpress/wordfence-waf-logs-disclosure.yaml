@@ -14,6 +14,7 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-538
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/wordfence"
     max-request: 3
     verified: true
     fofa-query: body="/plugins/wordfence"
@@ -58,4 +59,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/accelerated-mobile-pages/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/accelerated-mobile-pages"
     max-request: 5
     vendor: wordpress
     product: accelerated-mobile-pages
@@ -33,4 +34,3 @@ http:
           - 'contains(body, "accelerated-mobile-pages")'
           - 'status_code == 200 || status_code == 500'
         condition: and
-

@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/wp-migrate-db/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/wp-migrate-db/"
     max-request: 1
     publicwww-query: "/wp-content/plugins/wp-migrate-db/"
     fofa-query: body="/wp-content/plugins/wp-migrate-db/"
@@ -26,4 +27,3 @@ http:
           - 'status_code == 200 || status_code == 500'
           - 'contains(body, "wp-migrate-db")'
         condition: and
-

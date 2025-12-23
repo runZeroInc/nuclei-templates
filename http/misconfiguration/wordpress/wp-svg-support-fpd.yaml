@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/svg-support/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/svg-support/"
     max-request: 8
     fofa-query: body="/wp-content/plugins/svg-support/"
   tags: wordpress,fpd,disclosure,wp,wp-plugin,svg-support
@@ -34,4 +35,3 @@ http:
           - 'status_code == 200 || status_code == 500'
           - 'contains(body, "svg-support")'
         condition: and
-
