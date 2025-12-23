@@ -10,6 +10,7 @@ info:
     - https://wordpress.org/themes/storefront/
     - https://woocommerce.com/products/storefront/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/themes/storefront/"
     max-request: 3
     vendor: wordpress
     product: storefront
@@ -32,4 +33,3 @@ http:
           - 'status_code == 200 || status_code == 500'
           - 'contains(body, "/storefront")'
         condition: and
-

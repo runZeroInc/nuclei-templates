@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/add-to-any/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/add-to-any/"
     max-request: 5
     vendor: wordpress
     product: add-to-any
@@ -33,4 +34,3 @@ http:
           - 'status_code == 200 || status_code == 500'
           - 'contains(body, "add-to-any")'
         condition: and
-
