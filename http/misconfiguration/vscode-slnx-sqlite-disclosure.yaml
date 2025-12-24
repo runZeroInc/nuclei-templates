@@ -28,3 +28,4 @@ http:
           - 'contains_all(body, "SQLite format", "TABLE", "UPDATE")'
           - 'status_code == 200'
         condition: and
+

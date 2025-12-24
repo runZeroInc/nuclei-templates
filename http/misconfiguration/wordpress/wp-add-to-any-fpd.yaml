@@ -34,3 +34,4 @@ http:
           - 'status_code == 200 || status_code == 500'
           - 'contains(body, "add-to-any")'
         condition: and
+

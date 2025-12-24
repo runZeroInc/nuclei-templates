@@ -2,7 +2,7 @@ id: n8n-panel
 
 info:
   name: n8n Panel - Detect
-  author: userdehghani
+  author: userdehghani,rxerium
   severity: info
   description: |
     The worlds most popular workflow automation platform for technical teams
@@ -35,4 +35,22 @@ http:
       - type: status
         status:
           - 200
+
+    extractors:
+      - type: regex
+        name: base64_content
+        group: 1
+        regex:
+          - '<meta name="n8n:config:sentry" content="([A-Za-z0-9+/=]+)"'
+        internal: true
+
+      - type: dsl
+        name: version
+        dsl:
+          - 'replace_regex(base64_decode(base64_content), ".*n8n@([0-9]+\\.[0-9]+\\.[0-9]+).*", "$1")'
+        internal: true
+
+      - type: dsl
+        dsl:
+          - '"n8n Version: " + version'
 
