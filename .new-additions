@@ -2,11 +2,13 @@ dast/ai/ai-code-execution.yaml
 dast/ai/ai-data-exfiltration.yaml
 dast/ai/ai-prompt-injection.yaml
 dast/ai/ai-safety-bypass.yaml
+headless/mozilla-pdfjs-content-spoofing.yaml
 http/cves/2015/CVE-2015-8350.yaml
 http/cves/2017/CVE-2017-17762.yaml
 http/cves/2017/CVE-2017-18580.yaml
 http/cves/2019/CVE-2019-4061.yaml
 http/cves/2019/CVE-2019-5591.yaml
+http/cves/2019/CVE-2019-9082.yaml
 http/cves/2020/CVE-2020-12832.yaml
 http/cves/2020/CVE-2020-20627.yaml
 http/cves/2020/CVE-2020-25200.yaml
@@ -21,6 +23,7 @@ http/cves/2021/CVE-2021-3007.yaml
 http/cves/2021/CVE-2021-33829.yaml
 http/cves/2021/CVE-2021-35042.yaml
 http/cves/2021/CVE-2021-37415.yaml
+http/cves/2022/CVE-2022-0765.yaml
 http/cves/2022/CVE-2022-0873.yaml
 http/cves/2022/CVE-2022-1029.yaml
 http/cves/2022/CVE-2022-34305.yaml
@@ -33,6 +36,8 @@ http/cves/2023/CVE-2023-38952.yaml
 http/cves/2023/CVE-2023-45038.yaml
 http/cves/2023/CVE-2023-6266.yaml
 http/cves/2023/CVE-2023-7164.yaml
+http/cves/2024/CVE-2024-25608.yaml
+http/cves/2024/CVE-2024-28200.yaml
 http/cves/2024/CVE-2024-28253.yaml
 http/cves/2024/CVE-2024-2862.yaml
 http/cves/2024/CVE-2024-2863.yaml
@@ -41,6 +46,7 @@ http/cves/2024/CVE-2024-35693.yaml
 http/cves/2024/CVE-2024-35694.yaml
 http/cves/2024/CVE-2024-39646.yaml
 http/cves/2024/CVE-2024-47374.yaml
+http/cves/2025/CVE-2025-12139.yaml
 http/cves/2025/CVE-2025-13486.yaml
 http/cves/2025/CVE-2025-14611.yaml
 http/cves/2025/CVE-2025-34299.yaml
@@ -75,6 +81,7 @@ http/exposures/logs/wp-importer-log-disclosure.yaml
 http/exposures/logs/wp-pretty-link-log-disclosure.yaml
 http/exposures/logs/wp-wps-hide-login-log.yaml
 http/global-matchers/secrets-patterns-pii.yaml
+http/misconfiguration/apache/apache-mod-negotiation-listing.yaml
 http/misconfiguration/browserconfig-xml.yaml
 http/misconfiguration/buildpath-file-disclosure.yaml
 http/misconfiguration/eslint-ignore-exposure.yaml
@@ -85,6 +92,7 @@ http/misconfiguration/jfrog-artifactory-exposure.yaml
 http/misconfiguration/joomla/joomla-registration-enabled.yaml
 http/misconfiguration/nexus-repository-anonymous-access.yaml
 http/misconfiguration/vscode-slnx-sqlite-disclosure.yaml
+http/misconfiguration/wordpress/nextgen-gallery-pro-error-log.yaml
 http/misconfiguration/wordpress/wordfence-rules-disclosure.yaml
 http/misconfiguration/wordpress/wordfence-waf-logs-disclosure.yaml
 http/misconfiguration/wordpress/wordpress-amp-fpd.yaml
@@ -118,6 +126,7 @@ http/misconfiguration/x-backend-server-header-detect.yaml
 http/technologies/fastcgi-test-page.yaml
 http/technologies/krpano-detect.yaml
 http/vulnerabilities/cross-site-tracing-xss.yaml
+http/vulnerabilities/jira/jira-https-mode-open-redirect.yaml
 http/vulnerabilities/wordpress/wordpress-meta-box-fpd.yaml
 http/vulnerabilities/wordpress/wp-acf-fpd.yaml
 http/vulnerabilities/wordpress/wp-admin-menu-editor-fpd.yaml
@@ -127,6 +136,7 @@ http/vulnerabilities/wordpress/wp-astra-fpd.yaml
 http/vulnerabilities/wordpress/wp-better-wp-security-login-disclosure.yaml
 http/vulnerabilities/wordpress/wp-buddypress-open-redirect.yaml
 http/vulnerabilities/wordpress/wp-caldera-forms-xss.yaml
+http/vulnerabilities/wordpress/wp-contact-form-7-fpd.yaml
 http/vulnerabilities/wordpress/wp-contact-form-fpd.yaml
 http/vulnerabilities/wordpress/wp-duplicate-post-fpd.yaml
 http/vulnerabilities/wordpress/wp-duracelltomi-google-tag-manager-fpd.yaml
