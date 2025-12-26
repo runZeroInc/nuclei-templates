@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.flocksafety.com/products/video-cameras
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Flock Admin"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Flock Admin"})
     verified: true
     max-request: 1
     shodan-query: http.html:"Flock Admin"
