@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.bitrix24.in/tools/crm/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/bitrix/"
     max-request: 9
     verified: true
     shodan-query: html:"/bitrix/"
@@ -36,4 +37,3 @@ http:
           - 'contains(body, "bitrix")'
           - 'contains_any(body, "Fatal error", "require_once", "Error")'
         condition: and
-
