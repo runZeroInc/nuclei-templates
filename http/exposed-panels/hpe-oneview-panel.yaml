@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.hpe.com/us/en/integrated-systems/software.html
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1569311459"
     verified: true
     max-request: 1
     vendor: hp
@@ -43,4 +44,3 @@ http:
       - type: kval
         kval:
           - version
-
