@@ -44,3 +44,4 @@ http:
           - 'regex("[[0-9]{2}-[a-zA-Z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2} [A-Z]{3}] PHP", body)'
           - 'contains_any(body, "PHP Warning:", "PHP Notice:", "Undefined array", "Undefined variable")'
         condition: and
+
