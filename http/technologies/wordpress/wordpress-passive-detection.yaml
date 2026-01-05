@@ -13,6 +13,7 @@ info:
   classification:
     cpe: cpe:2.3:a:wordpress:wordpress:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["product"] contains "WordPress:WordPress"
     verified: true
     max-request: 3
     vendor: wordpress

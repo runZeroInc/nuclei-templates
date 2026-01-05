@@ -10,6 +10,7 @@ info:
     - https://wpscan.com/vulnerability/5e63453f-4d95-4bc3-9338-2d77f95f9ee7/
     - https://wordpress.org/plugins/jetpack/
   metadata:
+    runzero-review: REJECT/2026-01-05/excluding tag authenticated
     verified: true
     max-request: 4
   tags: wordpress,wp-plugin,wpscan,jetpack,xss,authenticated,intrusive

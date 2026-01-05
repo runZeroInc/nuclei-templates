@@ -10,6 +10,7 @@ info:
     - https://woodpecker-ci.org/
     - https://github.com/woodpecker-ci/woodpecker
   metadata:
+    runzero-match: service["product"] contains "Woodpecker CI:Woodpecker"
     verified: true
     max-request: 1
     vendor: woodpecker-ci
@@ -33,4 +34,3 @@ http:
           - 'contains_all(body, "<title>Woodpecker</title>", "/web-config.js")'
           - 'status_code == 200'
         condition: and
-
