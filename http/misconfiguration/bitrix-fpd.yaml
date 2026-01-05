@@ -37,3 +37,4 @@ http:
           - 'contains(body, "bitrix")'
           - 'contains_any(body, "Fatal error", "require_once", "Error")'
         condition: and
+
