@@ -12,7 +12,7 @@ info:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)MCP Inspector"})
     verified: true
     fofa-query: title="MCP Inspector"
-  tags: tech,mcp,anthropic,discovery
+  tags: tech,mcp,anthropic,discovery,ai
 
 flow: http(1) && http(2)
 
