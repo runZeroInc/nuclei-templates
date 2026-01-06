@@ -10,6 +10,7 @@ info:
     - https://jfrog.com/help/r/jfrog-rest-apis/builds
     - https://jfrog.com/artifactory/
   metadata:
+    runzero-match: service["product"] contains "JFrog:Artifactory"
     verified: true
     max-request: 1
     shodan-query: 'http.title:"Artifactory"'
@@ -41,4 +42,3 @@ http:
       - type: status
         status:
           - 200
-

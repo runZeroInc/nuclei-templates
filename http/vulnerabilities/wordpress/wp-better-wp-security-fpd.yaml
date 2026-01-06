@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/better-wp-security/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/better-wp-security/"
     max-request: 1
     verified: true
     fofa-query: body="/plugins/better-wp-security/"
@@ -26,4 +27,3 @@ http:
           - 'contains(body, "better-wp-security")'
           - 'contains_any(body, "Fatal error", "Uncaught Error","Call to undefined") || contains_all(body, "Warning:","failed to open stream")'
         condition: and
-

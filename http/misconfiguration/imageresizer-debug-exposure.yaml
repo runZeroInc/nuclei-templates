@@ -8,6 +8,7 @@ info:
   reference:
     - https://world.optimizely.com/blogs/Eric-Pettersson/Dates/2016/4/hide-resizer-debug-ashx-from-your-website/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ImageResizer"})
     verified: true
     max-request: 2
     fofa-query: title="ImageResizer"
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-

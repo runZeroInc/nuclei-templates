@@ -14,6 +14,7 @@ info:
     - https://dumpco.re/blog/xss-instagram-feed
     - https://wordpress.org/plugins/instagram-feed
   metadata:
+    runzero-review: REJECT/2026-01-05/excluding tag authenticated
     verified: false
     max-requests: 2
     public-www: "/wp-content/plugins/instagram-feed/"

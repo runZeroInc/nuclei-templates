@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/danny-avila/LibreChat
   metadata:
+    runzero-match: service["product"] contains "LibreChat:LibreChat"
     fofa-query: app="LibreChat"
   tags: panel,librechat,discovery
 

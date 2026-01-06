@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.xspeeder.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)神行者路由"})
     verified: true
     max-request: 1
     vendor: Changsha Tongxun Computer Technology Co., Ltd
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-
