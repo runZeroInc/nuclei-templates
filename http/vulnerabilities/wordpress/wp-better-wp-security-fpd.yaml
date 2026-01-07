@@ -27,3 +27,4 @@ http:
           - 'contains(body, "better-wp-security")'
           - 'contains_any(body, "Fatal error", "Uncaught Error","Call to undefined") || contains_all(body, "Warning:","failed to open stream")'
         condition: and
+

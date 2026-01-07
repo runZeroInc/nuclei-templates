@@ -49,3 +49,4 @@ http:
           - "image/"
           - "Response xmlns"
         negative: true
+
