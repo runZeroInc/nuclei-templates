@@ -34,3 +34,4 @@ http:
           - 'contains_all(body, "<title>Woodpecker</title>", "/web-config.js")'
           - 'status_code == 200'
         condition: and
+

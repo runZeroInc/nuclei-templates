@@ -29,3 +29,4 @@ http:
           - 'contains(body, "phpmyadmin")'
           - 'contains_any(body, "Fatal error", "require_once", "Error")'
         condition: and
+
