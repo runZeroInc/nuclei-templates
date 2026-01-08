@@ -39,3 +39,4 @@ http:
           - 'contains_any(body, "com.atlassian.bitbucket.server", "/download/contextbatch/css/bitbucket.page", "/download/contextbatch/js/bitbucket", "bitbucket-webpack-INTERNAL", "bitbucket-header-logo", "bitbucket-theme")'
           - 'status_code == 200 || status_code == 302'
         condition: and
+
