@@ -7,6 +7,7 @@ info:
   description: |
     The Jetpack WordPress plugin exposes an endpoint that fetches external URLs provided via the 'urls' parameter to retrieve Twitter (X) card descriptions/metadata. This allows unauthenticated SSRF, enabling attackers to force the server to request attacker-controlled URLs
   metadata:
+    runzero-review: REJECT/2026-01-09/uses interactsh
     verified: false
     max-request: 2
     fofa-query: body= "/wp-content/plugins/jetpack/"
