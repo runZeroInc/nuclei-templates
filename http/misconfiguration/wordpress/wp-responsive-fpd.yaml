@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/responsive-coming-soon/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/responsive-coming-soon"
     max-request: 1
     verified: true
     shodan-query: "/responsive-coming-soon/"

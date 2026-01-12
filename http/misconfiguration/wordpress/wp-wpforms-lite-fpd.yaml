@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/wpforms-lite/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/wpforms-lite"
     verified: true
     max-request: 1
     fofa-query: body="/wp-content/plugins/wpforms-lite"
@@ -26,4 +27,3 @@ http:
           - 'status_code == 200 || status_code == 500'
           - 'contains(body, "wpforms-lite")'
         condition: and
-

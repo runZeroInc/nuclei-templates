@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/updraftplus/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/updraftplus"
     verified: true
     max-request: 1
     fofa-query: body="/wp-content/plugins/updraftplus"
@@ -32,4 +33,3 @@ http:
           - 'status_code == 200 || status_code == 500'
           - 'contains(body, "updraftplus")'
         condition: and
-

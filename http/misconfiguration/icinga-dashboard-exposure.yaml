@@ -9,6 +9,7 @@ info:
   reference:
     - https://icinga.com/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)icinga\" html:\"Statistics"
     verified: true
     max-request: 1
     shodan-query: html:"icinga" html:"Statistics"
@@ -25,4 +26,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Statistics", "Icinga")'
         condition: and
-

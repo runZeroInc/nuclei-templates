@@ -7,6 +7,7 @@ info:
   description: |
     Fork CMS installer page was detected.
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Install Fork CMS"
     verified: true
     max-request: 1
     fofa-query: body="Install Fork CMS"
@@ -29,4 +30,3 @@ http:
       - type: status
         status:
           - 200
-
