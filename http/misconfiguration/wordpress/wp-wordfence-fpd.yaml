@@ -2,7 +2,7 @@ id: wp-wordfence-fpd
 
 info:
   name: Wordfence - Full Path Disclosure
-  author: theamanrawat
+  author: theamanrawat,DhiyaneshDK
   severity: low
   description: |
     Wordfence WordPress plugin contains a full path disclosure vulnerability due to improper access restrictions in its source files, allowing unauthenticated attackers to retrieve full server paths and aiding exploitation.
@@ -20,11 +20,16 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}/wp-content/plugins/wordfence/wordfence.php"
+      - "{{BaseURL}}/wp-content/plugins/wordfence/lib/wfAPI.php"
+      - "{{BaseURL}}/wp-content/plugins/wordfence/waf/bootstrap.php"
+
+    stop-at-first-match: true
 
     matchers:
       - type: dsl
         dsl:
-          - 'status_code == 200'
-          - 'contains_all(body, "Fatal error", "undefined function", "wordfence.php")'
+          - 'contains_all(body, "Fatal error", "Uncaught Error") || contains_all(body, "Warning:", "failed to open stream")'
+          - 'status_code == 200 || status_code == 500'
+          - 'contains(body, "wordfence")'
         condition: and
 
