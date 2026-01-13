@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.sanity.io/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sanity Studio"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Sanity Studio"
@@ -27,4 +28,3 @@ http:
           - 'contains_any(body, "<title>Sanity Studio", "window.__sanityErrorChannel", "__sanityError")'
           - 'status_code == 200 || status_code == 302'
         condition: and
-

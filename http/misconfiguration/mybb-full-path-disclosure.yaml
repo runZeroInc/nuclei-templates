@@ -9,6 +9,7 @@ info:
   reference:
     - https://mybb.com/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)MyBB"
     verified: true
     max-request: 1
     shodan-query: http.html:"MyBB"
@@ -26,4 +27,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Fatal error", "Uncaught Error")'
         condition: and
-
