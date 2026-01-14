@@ -29,6 +29,11 @@ http:
         words:
           - "Warning, your Odoo database manager is not protected."
 
+      - type: word
+        words:
+          - "The database manager has been disabled by the administrator"
+        negative: true
+
       - type: status
         status:
           - 200
