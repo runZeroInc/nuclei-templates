@@ -10,7 +10,6 @@ info:
     - https://doc.orbeon.com/
     - https://github.com/orbeon/orbeon-forms
   metadata:
-    runzero-review: REJECT/2026-01-15/not sure why this is here...
     max-request: 2
     vendor: orbeon
     product: orbeon-forms
