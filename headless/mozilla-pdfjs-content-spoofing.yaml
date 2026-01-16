@@ -2,7 +2,7 @@ id: pdfjs-content-spoofing
 
 info:
   name: Mozilla PDF.js - Content Spoofing
-  author: 0x_Akoko
+  author: 0x_Akoko,s4e-io
   severity: medium
   description: |
     Detected PDF.js viewer loads and renders external PDF files without proper origin validation. Versions < v1.3.91 are vulnerable to content spoofing attacks.
@@ -44,7 +44,9 @@ headless:
       - type: word
         part: body
         words:
-          - "pdf.js"
+          - "viewerContainer"
+          - "pdfViewer"
+        condition: and
 
       - type: word
         part: body
