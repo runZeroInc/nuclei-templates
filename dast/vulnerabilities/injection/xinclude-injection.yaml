@@ -35,7 +35,7 @@ http:
         name: linux
         part: body
         regex:
-          - 'root:.*?:[0-9]*:[0-9]*:'
+          - 'root:[^:]*:\d+:\d+:'
 
       - type: word
         name: windows
