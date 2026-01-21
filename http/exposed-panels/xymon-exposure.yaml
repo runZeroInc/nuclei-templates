@@ -9,6 +9,7 @@ info:
   reference:
     - https://xymon.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Xymon"})
     shodan-query: http.title:"Xymon"
   tags: xymon,exposure,monitoring,panel
 
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-
