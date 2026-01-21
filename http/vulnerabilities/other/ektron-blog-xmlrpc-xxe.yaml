@@ -11,6 +11,7 @@ info:
     - https://packetstormsecurity.com/files/116259/Ektron-CMS-8.5.0-File-Upload-XXE-Injection.html
     - https://www.acunetix.com/vulnerabilities/web/ektron-cms-multiple-vulnerabilities
   metadata:
+    runzero-review: REJECT/2026-01-21/uses interactsh
     verified: false
     max-request: 2
     shodan-query: http.html:"EktronClientManager"
