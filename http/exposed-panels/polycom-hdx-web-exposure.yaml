@@ -14,6 +14,7 @@ info:
     cvss-score: 6.5
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Polycom HDX"})
     verified: true
     max-request: 1
     shodan-query: http.title:"Polycom HDX"
@@ -31,4 +32,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Polycom", "u_keepalive.htm", "u_status.xml", "contentFrame")'
         condition: and
-
