@@ -2,19 +2,34 @@ id: detect-sentry
 
 info:
   name: Detect Sentry Instance
-  author: Sicksec
+  author: Sicksec,Shivam Kamboj
   severity: info
   reference:
     - https://hackerone.com/reports/374737
     - https://twitter.com/itsecurityguard/status/1127893545619218432?lang=en
   metadata:
     max-request: 1
-  tags: ssrf,sentry,tech,hackerone,discovery
+    shodan-query: html:"Sentry.init"
+  tags: ssrf,sentry,tech,discovery
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
+
+    redirects: true
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Sentry.init"
+        case-insensitive: true
+
+      - type: status
+        status:
+          - 200
 
     extractors:
       - type: regex
