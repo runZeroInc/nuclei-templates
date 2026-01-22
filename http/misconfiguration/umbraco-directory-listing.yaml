@@ -13,6 +13,7 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-548
   metadata:
+    runzero-match: service["http.body"] matches "(?i)umbraco"
     max-request: 2
     verified: true
     shodan-query: http.html:"umbraco"
@@ -32,4 +33,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "/App_Plugins/", "[To Parent Directory]")'
         condition: and
-

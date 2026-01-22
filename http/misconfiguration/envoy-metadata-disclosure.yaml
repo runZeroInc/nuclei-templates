@@ -10,6 +10,7 @@ info:
     - https://www.acunetix.com/vulnerabilities/web/envoy-metadata-disclosure/
     - https://www.envoyproxy.io/docs/envoy/latest/configuration/configuration
   metadata:
+    runzero-match: service["http.head.xEnvoyPeerMetadata"] != ""
     max-request: 1
     shodan-query: "x-envoy-peer-metadata"
   tags: envoy,exposure,misconfig,disclosure

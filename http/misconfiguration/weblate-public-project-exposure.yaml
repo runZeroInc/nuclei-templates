@@ -10,6 +10,7 @@ info:
     - https://docs.weblate.org/en/latest/admin/security.html
     - https://github.com/WeblateOrg/weblate
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Weblate"})
     max-request: 1
     verified: true
     fofa-query: 'title="Weblate"'
@@ -39,4 +40,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -14,6 +14,7 @@ info:
     - https://cheatsheetseries.owasp.org/cheatsheets/Information_Leakage.html
     - https://symfony.com/doc/current/deployment.html
   metadata:
+    runzero-match: service["http.body"] matches "(?i)symfony\\.lock"
     verified: true
     max-request: 1
     vendor: symfony
@@ -34,4 +35,3 @@ http:
           - 'contains_any(body, "symfony/", "php\":")'
           - 'status_code == 200'
         condition: and
-

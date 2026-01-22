@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/header-footer-elementor/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)wp-content/plugins/header-footer-elementor/"
     verified: true
     max-request: 3
     vendor: brainstormforce
@@ -35,4 +36,3 @@ http:
           - 'contains(body, "header-footer-elementor")'
           - 'status_code == 200 || status_code == 500'
         condition: and
-

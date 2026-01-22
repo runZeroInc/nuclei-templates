@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/henrygd/beszel
   metadata:
+    runzero-match: service["http.body"] matches "(?i)globalThis\\.BESZEL"
     verified: true
     max-request: 1
     shodan-query: html:"globalThis.BESZEL"
@@ -27,4 +28,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains(body, "\"firstRun\":true")'
         condition: and
-
