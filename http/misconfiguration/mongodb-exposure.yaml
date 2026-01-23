@@ -7,7 +7,7 @@ info:
   description: |
     Detected MongoDB instances exposed over HTTP using the native driver port.
   metadata:
-    runzero-match: service["http.body"] matches "(?i)access MongoDB"
+    runzero-review: REJECT/2026-01-23/potentially noisy
     verified: true
     max-request: 1
     shodan-query: html:"access MongoDB"
