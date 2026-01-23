@@ -9,6 +9,7 @@ info:
   reference:
     - https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/P4IGNORE.html
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Perforce"
     max-request: 1
     verified: true
     shodan-query: html:"Perforce"
@@ -40,4 +41,3 @@ http:
       - type: status
         status:
           - 200
-

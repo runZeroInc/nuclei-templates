@@ -10,6 +10,7 @@ info:
     - https://miniprofiler.com/
     - https://umbraco.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Umbraco"})
     shodan-query: http.title:"Umbraco"
     fofa-query: title="Umbraco"
   tags: umbraco,miniprofiler,exposure,debug,misconfig
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-

@@ -13,6 +13,7 @@ info:
     - https://hackerone.com/reports/819146
     - https://medium.com/@jonathanbouman/how-s3cmd-discloses-your-linux-username-to-the-world-b9e4d79cb9e3
   metadata:
+    runzero-match: service["http.head.xAmzMetaS3cmdAttrs"] != ""
     max-request: 1
     shodan-query: 'x-amz-meta-s3cmd-attrs'
   tags: s3,aws,exposure,misconfig,header

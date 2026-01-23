@@ -9,6 +9,7 @@ info:
   reference:
     - https://freshrss.github.io/FreshRSS/en/developers/06_GoogleReader_API.html
   metadata:
+    runzero-match: service["http.body"] matches "(?i)FreshRSS"
     max-request: 1
     verified: true
     shodan-query: http.html:"FreshRSS"
@@ -31,4 +32,3 @@ http:
       - type: status
         status:
           - 200
-
