@@ -32,3 +32,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Polycom", "u_keepalive.htm", "u_status.xml", "contentFrame")'
         condition: and
+
