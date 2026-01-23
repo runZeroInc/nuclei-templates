@@ -14,7 +14,7 @@ info:
     - https://github.com/lucent-sea/Remotely
     - https://github.com/lucent-sea/Remotely/blob/master/README.md
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Remotely"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Remotely$"})
     verified: true
     max-request: 2
     vendor: lucent-sea
