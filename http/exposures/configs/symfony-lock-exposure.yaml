@@ -35,3 +35,4 @@ http:
           - 'contains_any(body, "symfony/", "php\":")'
           - 'status_code == 200'
         condition: and
+

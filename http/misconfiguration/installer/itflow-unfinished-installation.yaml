@@ -28,3 +28,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "<title>ITFlow Setup</title>", "for choosing to try ITFlow", "Begin Setup", "Database")'
         condition: and
+

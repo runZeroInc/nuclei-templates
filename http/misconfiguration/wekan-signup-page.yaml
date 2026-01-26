@@ -33,3 +33,4 @@ http:
         part: body
         regex:
           - "<link rel=\"stylesheet\".*meteor_css_resource=true"
+
