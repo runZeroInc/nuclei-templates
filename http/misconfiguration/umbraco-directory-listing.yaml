@@ -33,3 +33,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "/App_Plugins/", "[To Parent Directory]")'
         condition: and
+

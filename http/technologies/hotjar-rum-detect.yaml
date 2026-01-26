@@ -34,16 +34,10 @@ http:
         part: body
         regex:
           - "h\\._hjSettings\\s*=\\s*\\{\\s*hjid\\s*:"
-          - "_hjSettings\\s*=\\s*\\{"
-          - "hjid\\s*:\\s*[0-9]+"
-          - "hjsv\\s*:\\s*[0-9]+"
-          - "static\\.hotjar\\.com"
-          - "script\\.hotjar\\.com"
-          - "window\\.hj\\s*=\\s*window\\.hj"
-          - "hj\\s*\\(\\s*['\"]identify['\"]"
-          - "hj\\s*\\(\\s*['\"]tagRecording['\"]"
-          - "hj\\s*\\(\\s*['\"]stateChange['\"]"
-          - "connect-src[^;]*hotjar\\.com"
-          - "script-src[^;]*hotjar\\.com"
+          - "_hjSettings\\s*=\\s*\\{\\s*hjid\\s*:"
+          - "<script[^>]*src=['\"][^'\"]*static\\.hotjar\\.com[^'\"]*['\"]"
+          - "<script[^>]*src=['\"][^'\"]*script\\.hotjar\\.com[^'\"]*['\"]"
+          - "window\\.hj\\s*=\\s*window\\.hj\\s*\\|\\|"
+          - "\\(function\\s*\\([^)]*\\)\\s*\\{[^}]*hotjar[^}]*hjid"
         condition: or
 

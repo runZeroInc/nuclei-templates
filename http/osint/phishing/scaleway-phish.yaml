@@ -1,16 +1,16 @@
-id: pinterest-phish
+id: scaleway-phish
 
 info:
-  name: pinterest phishing Detection
+  name: Scaleway phishing Detection
   author: rxerium
   severity: info
   description: |
-    A pinterest phishing website was detected
+    A Scaleway phishing website was detected
   reference:
-    - https://pinterest.com
+    - https://scaleway.com
   metadata:
     max-request: 1
-  tags: phishing,pinterest,osint,discovery
+  tags: phishing,scaleway,cloud,hosting,osint,discovery
 http:
   - method: GET
     path:
@@ -23,11 +23,7 @@ http:
     matchers:
       - type: word
         words:
-          - 'Discover recipes, home ideas, style inspiration and other ideas to try'
-
-      - type: word
-        words:
-          - 'Pinterest'
+          - '<title>European. Cloud. AI. | Scaleway'
 
       - type: status
         status:
@@ -35,5 +31,5 @@ http:
 
       - type: dsl
         dsl:
-          - '!contains(host,"pinterest.com")'
+          - '!contains(host,"scaleway.com")'
 
