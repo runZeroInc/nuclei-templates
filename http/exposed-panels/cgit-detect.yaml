@@ -10,6 +10,7 @@ info:
     - https://git.zx2c4.com/cgit/about/
     - https://wiki.archlinux.org/title/Cgit
   metadata:
+    runzero-review: REJECT/2026-01-26/this is "designed to be publicly accessible"
     max-request: 1
     verified: true
     product: cgit
@@ -48,4 +49,3 @@ http:
       - type: status
         status:
           - 200
-

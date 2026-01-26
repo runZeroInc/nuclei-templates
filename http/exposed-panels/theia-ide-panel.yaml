@@ -10,6 +10,7 @@ info:
     - https://github.com/eclipse-theia/theia
     - https://theia-ide.org/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Theia IDE"})
     verified: true
     max-request: 1
     shodan-query: title:"Theia IDE"
@@ -28,4 +29,3 @@ http:
           - 'contains_any(body, "<title>Theia IDE</title>", "<title>Eclipse Theia</title>")'
           - 'contains(body, "theia-preload")'
         condition: and
-
