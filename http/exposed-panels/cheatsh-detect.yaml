@@ -10,6 +10,7 @@ info:
     - https://github.com/chubin/cheat.sh
     - https://cheat.sh/
   metadata:
+    runzero-review: REJECT/2026-01-26/this is "designed to be public"
     verified: true
     max-request: 1
     product: cheat.sh
@@ -43,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-

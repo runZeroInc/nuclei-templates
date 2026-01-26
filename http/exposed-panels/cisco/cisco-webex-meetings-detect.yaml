@@ -8,6 +8,7 @@ info:
   reference:
     - https://www.webex.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco Webex Meetings"})
     verified: true
     max-request: 1
     vendor: cisco
@@ -37,4 +38,3 @@ http:
       - type: status
         status:
           - 200
-

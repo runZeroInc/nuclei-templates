@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.digitalocean.com/community/tutorials/how-to-install-the-openlitespeed-web-server-on-ubuntu-18-04
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenLiteSpeed WebAdmin"})
     verified: true
     max-request: 1
     fofa-query: title="OpenLiteSpeed WebAdmin"
@@ -33,4 +34,3 @@ http:
           - 'status_code == 302'
           - 'contains_all(header, "LSID", "LSPA", "Location: /index.php")'
         condition: and
-
