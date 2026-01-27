@@ -29,3 +29,4 @@ http:
           - 'contains_any(body, "<title>Theia IDE</title>", "<title>Eclipse Theia</title>")'
           - 'contains(body, "theia-preload")'
         condition: and
+

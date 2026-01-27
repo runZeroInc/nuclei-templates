@@ -34,3 +34,4 @@ http:
           - 'status_code == 302'
           - 'contains_all(header, "LSID", "LSPA", "Location: /index.php")'
         condition: and
+
