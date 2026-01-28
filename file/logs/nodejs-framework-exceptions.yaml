@@ -30,4 +30,4 @@ file:
           - 'BadRequestError'
           - 'MongoError'
           - 'SequelizeDatabaseError'
-
+# digest: 4a0a0047304502210091d7140e32fcc4a85f49c4ceb829625b18e04bfeb4f6f26de31cbb2126c9f35602201401f8e925a83bd10f56a52a0f4bfddc99c71d82c10109e6c6881131af2940a0:922c64590222798bb761d5b6d8e72950
