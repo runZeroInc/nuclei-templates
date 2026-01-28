@@ -11,6 +11,7 @@ info:
     - https://docs.datadoghq.com/real_user_monitoring/browser/setup/
     - https://www.npmjs.com/package/@datadog/browser-rum
   metadata:
+    runzero-match: service["http.body"] matches "(?i)DD_RUM\\.init"
     verified: true
     max-request: 1
     vendor: datadog
@@ -32,4 +33,3 @@ http:
           - "DD_RUM.init"
           - "DD_RUM.onReady"
         condition: and
-

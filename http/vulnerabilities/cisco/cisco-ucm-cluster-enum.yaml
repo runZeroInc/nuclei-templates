@@ -9,6 +9,7 @@ info:
   reference:
     - https://developer.cisco.com/site/user-data-services/develop-and-test/api-reference/#servers
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Unified Communications Self Care Portal"})
     verified: true
     product: unified_communications_manager
     vendor: cisco
@@ -49,4 +50,3 @@ http:
         name: cluster_nodes
         xpath:
           - "/servers/server"
-
