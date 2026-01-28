@@ -52,4 +52,4 @@ http:
         group: 1
         regex:
           - '(?i)Apache Tomcat.*\D([1-9]*[0-9]\.[0-9]+\.[0-9]+)'
-# digest: 490a0046304402207eb06afb4b8487ed04b065e7b7e51b1bacd7de44a167ac21cb66576add536b860220545a30c9648d8c1d94b62a05be3c97318a662703dd8c372364fda10c86dd5b10:922c64590222798bb761d5b6d8e72950
+
