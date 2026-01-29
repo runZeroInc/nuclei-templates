@@ -29,6 +29,7 @@ http:
       - "{{BaseURL}}"
       - "{{BaseURL}}/{{randstr}}"
       - "{{BaseURL}}/docs/introduction.html"
+      - "{{BaseURL}}/\\"
 
     stop-at-first-match: true
 
