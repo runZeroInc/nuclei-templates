@@ -9,6 +9,7 @@ info:
   reference:
     - https://livewire.laravel.com/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)wire:id"
     verified: true
     max-request: 1
     product: livewire
@@ -34,4 +35,3 @@ http:
           - "livewire.js"
           - "livewire.min.js"
         condition: or
-

@@ -10,6 +10,7 @@ info:
     - https://mixpanel.com/
     - https://developer.mixpanel.com/docs/javascript-quickstart
   metadata:
+    runzero-match: service["http.body"] matches "(?i)cdn\\.mxpnl\\.com"
     verified: true
     max-request: 1
     shodan-query: html:"cdn.mxpnl.com"
@@ -35,4 +36,3 @@ http:
       - type: status
         status:
           - 200
-
