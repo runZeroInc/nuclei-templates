@@ -10,6 +10,7 @@ info:
     - https://craftcms.com/docs/5.x/system/config.html#devmode
     - https://www.acunetix.com/vulnerabilities/web/craft-cms-development-mode-enabled/
   metadata:
+    runzero-match: service["product"] contains "CraftCMS:Craft CMS"
     max-request: 3
     verified: true
     shodan-query: http.component:"Craft CMS"

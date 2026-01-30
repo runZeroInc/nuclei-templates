@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/railsadminteam/rails_admin
   metadata:
+    runzero-match: service["http.body"] matches "(?i)RailsAdmin"
     max-request: 2
     verified: true
     shodan-query: http.html:"RailsAdmin"
@@ -30,4 +31,3 @@ http:
           - 'contains_all(body, "Settings</a>", "rails_admin_sidebar", "rails_admin_content")'
           - '!contains_any(body, "Sign in", "Log in", "login_form", "devise")'
         condition: and
-

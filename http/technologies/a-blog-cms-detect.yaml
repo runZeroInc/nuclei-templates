@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.a-blogcms.jp/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)a-blog cms"
     verified: true
     max-request: 1
     shodan-query: html:"a-blog cms"
@@ -35,4 +36,3 @@ http:
         group: 1
         regex:
           - '(?i)content="a-blog cms (?:Ver\.|v)?([0-9.]+)'
-

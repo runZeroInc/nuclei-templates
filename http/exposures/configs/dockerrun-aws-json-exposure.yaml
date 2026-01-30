@@ -13,6 +13,7 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)AWSEBDockerrunVersion"
     verified: true
     max-request: 2
     shodan-query: html:"AWSEBDockerrunVersion"
@@ -34,4 +35,3 @@ http:
           - 'contains_any(content_type, "application/json", "text/plain")'
           - 'contains_all(body, "AWSEBDockerrunVersion", "containerDefinitions", "image")'
         condition: and
-

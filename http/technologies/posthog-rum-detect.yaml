@@ -11,6 +11,7 @@ info:
     - https://github.com/PostHog/posthog-js
     - https://www.npmjs.com/package/posthog-js
   metadata:
+    runzero-match: service["http.body"] matches "(?i)posthog\\.init"
     max-request: 1
     verified: true
     shodan-query: html:"posthog.init"
@@ -31,4 +32,3 @@ http:
           - "api_host[\"']?\\s*:\\s*[\"'][^\"']*posthog"
           - "posthog\\.init\\s*\\("
         condition: or
-
