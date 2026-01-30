@@ -50,3 +50,4 @@ http:
         name: cluster_nodes
         xpath:
           - "/servers/server"
+

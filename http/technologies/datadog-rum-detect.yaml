@@ -33,3 +33,4 @@ http:
           - "DD_RUM.init"
           - "DD_RUM.onReady"
         condition: and
+

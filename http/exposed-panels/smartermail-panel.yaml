@@ -44,3 +44,4 @@ http:
         group: 1
         regex:
           - 'SmarterMail\s+(?:Enterprise|Professional)\s+([0-9.]+)'
+
