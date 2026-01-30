@@ -14,6 +14,7 @@ info:
     cve-id: CVE-2024-29415
     cwe-id: CWE-918
   metadata:
+    runzero-review: REJECT/2026-01-30/uses interactsh
     verified: true
     max-request: 2
     vendor: atlassian
