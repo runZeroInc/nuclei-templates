@@ -43,3 +43,4 @@ http:
         name: version
         xpath:
           - "/versionInformation/version"
+
