@@ -35,3 +35,4 @@ http:
           - 'contains_any(content_type, "application/json", "text/plain")'
           - 'contains_all(body, "AWSEBDockerrunVersion", "containerDefinitions", "image")'
         condition: and
+
