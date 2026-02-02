@@ -32,3 +32,4 @@ http:
           - "api_host[\"']?\\s*:\\s*[\"'][^\"']*posthog"
           - "posthog\\.init\\s*\\("
         condition: or
+

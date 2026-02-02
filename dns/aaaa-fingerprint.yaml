@@ -30,3 +30,4 @@ dns:
         group: 1
         regex:
           - "IN\tAAAA\t([0-9a-fA-F:]+)"
+

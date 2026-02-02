@@ -36,3 +36,4 @@ http:
         group: 1
         regex:
           - '(?i)content="a-blog cms (?:Ver\.|v)?([0-9.]+)'
+

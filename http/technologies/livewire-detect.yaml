@@ -35,3 +35,4 @@ http:
           - "livewire.js"
           - "livewire.min.js"
         condition: or
+
