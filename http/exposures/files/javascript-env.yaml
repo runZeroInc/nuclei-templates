@@ -2,11 +2,11 @@ id: javascript-env
 
 info:
   name: JavaScript Environment Configuration - Detect
-  author: pdp,geeknik,hetyh
+  author: pdp,geeknik,hetyh,s4e-io
   severity: low
   description: Multiple common JavaScript environment configuration files were detected.
   metadata:
-    max-request: 7
+    max-request: 8
   tags: javascript,config,exposure,vuln
 
 http:
@@ -19,6 +19,7 @@ http:
       - "{{BaseURL}}/env.dev.js"
       - "{{BaseURL}}/env.prod.js"
       - "{{BaseURL}}/__ENV.js"
+      - "{{BaseURL}}/env-config.js"
 
     stop-at-first-match: true
 
