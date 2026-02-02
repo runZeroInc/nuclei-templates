@@ -32,3 +32,4 @@ http:
           - 'contains(body, "Control Panel")'
           - 'status_code == 200'
         condition: and
+
