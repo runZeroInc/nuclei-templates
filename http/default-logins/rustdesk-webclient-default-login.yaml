@@ -10,6 +10,7 @@ info:
     - https://rustdesk.com/docs/en/self-host/rustdesk-server-pro/console/
     - https://github.com/rustdesk/rustdesk-server-pro
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)RustDesk API Admin"})
     verified: true
     max-request: 2
     shodan-query: title:"RustDesk API Admin"
@@ -39,4 +40,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "\"code\":0", "\"message\":\"success\"", "\"token\":", "\"username\":\"admin\"")'
         condition: and
-
