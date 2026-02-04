@@ -11,12 +11,13 @@ info:
     shodan-query: product:"Java Message Service"
   tags: network,tcp,jms,openmq,unauth
 
-network:
+tcp:
   - inputs:
       - data: "\n"
 
     host:
-      - "{{Host}}:7676"
+      - "{{Hostname}}"
+    port: 7676
 
     matchers:
       - type: word
