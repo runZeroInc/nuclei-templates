@@ -7,7 +7,6 @@ info:
   description: |
     Detects instances of Apache CouchDB server.
   metadata:
-    runzero-match: service["http.body"] matches "(?i)couchdb\":"
     verified: true
     max-request: 1
     shodan-query: html:""couchdb":"

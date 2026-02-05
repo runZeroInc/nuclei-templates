@@ -9,7 +9,6 @@ info:
   reference:
     - https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/working-with-lists-and-list-items-with-rest
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)SharePoint"})
     verified: true
     max-request: 1
     vendor: microsoft

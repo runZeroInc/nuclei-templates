@@ -9,7 +9,6 @@ info:
   reference:
     - https://semantic-ui.com/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)semantic\\.min\\.css"
     verified: true
     max-request: 1
     shodan-query: html:"semantic.min.css"
