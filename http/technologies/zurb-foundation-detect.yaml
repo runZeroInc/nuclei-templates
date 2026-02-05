@@ -9,6 +9,7 @@ info:
   reference:
     - https://get.foundation/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)foundation\\.min\\.css"
     verified: true
     max-request: 1
     shodan-query: html:"foundation.min.css"
@@ -24,4 +25,3 @@ http:
         part: body
         regex:
           - '(?i)foundation(?:\.min)?\.(?:css|js)'
-
