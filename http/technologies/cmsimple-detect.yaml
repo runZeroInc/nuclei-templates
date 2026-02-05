@@ -9,7 +9,6 @@ info:
   reference:
     - https://www.cmsimple.org/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)CMSimple"
     verified: true
     max-request: 1
     shodan-query: html:"CMSimple"
