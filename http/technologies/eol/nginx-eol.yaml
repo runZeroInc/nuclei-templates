@@ -10,7 +10,6 @@ info:
     - https://endoflife.date/nginx
     - https://nginx.org/en/download.html
   metadata:
-    runzero-match: service["http.head.server"] matches "nginx/"
     verified: true
     max-request: 1
     shodan-query: "Server: nginx/"

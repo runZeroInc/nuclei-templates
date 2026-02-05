@@ -9,7 +9,6 @@ info:
   reference:
     - https://developer.cisco.com/site/user-data-services/develop-and-test/api-reference/#version
   metadata:
-    runzero-match: service["product"] contains "Cisco:Unified Communications Manager"
     verified: true
     product: unified_communications_manager
     vendor: cisco
