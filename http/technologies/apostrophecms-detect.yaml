@@ -9,6 +9,7 @@ info:
   reference:
     - https://apostrophecms.com/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)window\\.apos"
     verified: true
     max-request: 1
     shodan-query: html:"window.apos"
@@ -28,4 +29,3 @@ http:
           - '(?i)window\.apos\s*='
           - '(?i)/modules/apostrophe-'
         condition: and
-
