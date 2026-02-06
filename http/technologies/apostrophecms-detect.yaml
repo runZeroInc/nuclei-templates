@@ -28,3 +28,4 @@ http:
           - '(?i)window\.apos\s*='
           - '(?i)/modules/apostrophe-'
         condition: and
+
