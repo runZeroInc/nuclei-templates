@@ -10,6 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:progress:sitefinity_cms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["product"] contains "Progress:Sitefinity"
     max-request: 1
     vendor: progress
     product: sitefinity_cms
