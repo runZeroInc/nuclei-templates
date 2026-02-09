@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/events-manager/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/plugins/events-manager/"
     verified: true
     max-request: 1
     publicwww-query: "/plugins/events-manager/"
