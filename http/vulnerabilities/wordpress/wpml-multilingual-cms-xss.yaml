@@ -13,6 +13,7 @@ info:
     cvss-score: 7.1
     cwe-id: CWE-79
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/sitepress-multilingual-cms/"
     verified: true
     max-request: 1
     shodan-query: html:"/wp-content/plugins/sitepress-multilingual-cms"
@@ -31,4 +32,3 @@ http:
           - 'contains(content_type, "text/html")'
           - 'status_code == 200'
         condition: and
-
