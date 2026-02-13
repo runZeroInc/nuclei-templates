@@ -7,7 +7,7 @@ info:
   description: |
     An Authentik search engine was detected.
   reference:
-    - https://github.com/searxng/searxng
+    - https://github.com/goauthentik/authentik
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-178113786"
     verified: true
