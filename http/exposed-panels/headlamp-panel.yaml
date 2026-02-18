@@ -14,6 +14,7 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)headlampBaseUrl"
     verified: true
     max-request: 2
     product: headlamp
@@ -37,4 +38,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "Headlamp: Kubernetes Web UI", "headlampBaseUrl")'
         condition: and
-
