@@ -30,4 +30,4 @@ tcp:
       - type: regex
         regex:
           - "imqbroker ([0-9.]+)"
-# digest: 4a0a00473045022100f7b555ca6e1fcb0c255f97a7d18fa67f9f54971dac448e36c05d49dbc0fa1a2002203427af7e2eb592bdf7391f3f72b1c5ef89ba9332e145f36a0b6450f0e8fa3dda:922c64590222798bb761d5b6d8e72950
+
