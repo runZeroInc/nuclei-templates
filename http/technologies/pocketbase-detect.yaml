@@ -1,0 +1,37 @@
+id: pocketbase-detect
+
+info:
+  name: PocketBase Detection
+  author: aykutgokbulut
+  severity: info
+  description: |
+    Detected the presence of the PocketBase backend.
+  reference:
+    - https://pocketbase.io/
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: pocketbase
+    product: pocketbase
+    shodan-query: http.favicon.hash:981081715
+  tags: tech,pocketbase,detect,discovery
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    host-redirects: true
+    max-redirects: 3
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '<title>PocketBase'
+
+      - type: status
+        status:
+          - 200
+
