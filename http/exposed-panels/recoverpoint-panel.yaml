@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.delltechnologies.com/en-us/data-protection/recoverpoint-for-virtual-machines.htm
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-742276344"
     verified: true
     max-request: 1
     vendor: dell
@@ -34,4 +35,3 @@ http:
       - type: status
         status:
           - 200
-
