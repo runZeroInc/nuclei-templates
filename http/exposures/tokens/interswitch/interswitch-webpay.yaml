@@ -1,0 +1,35 @@
+id: interswitch-webpay
+
+info:
+  name: Interswitch Webpay - Credentials Exposure
+  author: Lloydcoder
+  severity: info
+  description: |
+    Exposure of Interswitch Webpay product IDs, MAC keys and access tokens.
+  reference:
+    - https://docs.interswitchgroup.com/reference/how-to-use-the-reference
+  tags: exposure,interswitch,webpay,token
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    redirects: true
+
+    matchers-condition: and
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - "macKey[\"']?\\s*[:=]\\s*[\"']?[0-9A-Fa-f]{64}[\"']?"
+          - "payItemId[\"']?\\s*[:=]\\s*[\"']?\\d+[\"']?"
+
+      - type: word
+        words:
+          - "interswitch"
+          - "webpay"
+          - "macKey"
+        condition: or
+        case-insensitive: true
+
