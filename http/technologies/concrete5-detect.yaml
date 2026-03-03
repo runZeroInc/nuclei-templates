@@ -52,4 +52,4 @@ http:
         regex:
           - 'concrete5-site-id=([a-z0-9]+)'
           - 'concrete5\.org/([^/]+)'
-# digest: 490a004630440220565366eb5c8a49c9dad3c85c27774556c3fed1ddc6316f465d7ed2371acd7ae502205a11f08feb1d707513bd83cbc77bcbc976f17fbc23ae18c19e7ce40be11ecc3e:922c64590222798bb761d5b6d8e72950
+

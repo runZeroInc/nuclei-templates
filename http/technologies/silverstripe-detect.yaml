@@ -54,4 +54,4 @@ http:
         regex:
           - 'silverstripe-site-id=([a-z0-9]+)'
           - 'silverstripe\.org/([^/]+)'
-# digest: 4b0a00483046022100854466c44d7fb6ee420c42fcc7b13848e8c09d99e3cf3ac80e598d1ddc194e67022100fd5785dbbc154d8562ebe410bbea39e2fe38a62309a9eb0579321904c937cad7:922c64590222798bb761d5b6d8e72950
+
