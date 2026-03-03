@@ -9,6 +9,7 @@ info:
   reference:
     - https://docs.gitness.com/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gitness"})
     max-request: 2
     verified: true
     shodan-query: title:"Gitness"
@@ -35,4 +36,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'status_code == 200'
         condition: and
-
