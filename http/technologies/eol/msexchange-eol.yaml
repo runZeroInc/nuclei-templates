@@ -10,6 +10,7 @@ info:
     - https://endoflife.date/msexchange
     - https://learn.microsoft.com/en-us/exchange/new-features/build-numbers-and-release-dates
   metadata:
+	runzero-match: service["product"] contains "Microsoft:Outlook Web Access"
     verified: true
     max-request: 2
     shodan-query: "X-OWA-Version"
