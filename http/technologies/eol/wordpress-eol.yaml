@@ -10,6 +10,7 @@ info:
     - https://endoflife.date/wordpress
     - https://wordpress.org/documentation/article/wordpress-versions/
   metadata:
+    runzero-match: service["product"] contains "WordPress:WordPress"
     verified: true
     max-request: 1
     shodan-query: "WordPress"

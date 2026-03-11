@@ -9,6 +9,7 @@ info:
   reference:
     - https://circutor.com/en/products/line-tcprs1/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Line-TCPRS1"
     verified: true
     max-request: 1
     vendor: circutor
@@ -56,4 +57,3 @@ http:
         group: 1
         regex:
           - '"Token"\s*:\s*"(eyJ[a-zA-Z0-9]{10,}\.eyJ[a-zA-Z0-9]{10,}\.[a-zA-Z0-9_\-]{10,})"'
-
