@@ -2,7 +2,7 @@ id: checkmk-info-disclosure
 
 info:
   name: Checkmk Agent Info Disclosure
-  author: ivaldivieso
+  author: ivaldivieso,s4e-io
   severity: medium
   description: |
     The Checkmk agent had exposed sensitive system information on TCP port 6556 without requiring authentication.
@@ -27,6 +27,9 @@ tcp:
       - type: word
         words:
           - "<<<check_mk>>>"
+
+      - type: word
+        words:
           - "AgentOS:"
           - "Version:"
         condition: or
