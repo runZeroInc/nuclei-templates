@@ -10,6 +10,7 @@ info:
     - https://endoflife.date/squid
     - https://www.squid-cache.org/Versions/
   metadata:
+    runzero-match: service["product"] contains "Squid Cache:Squid"
     verified: true
     max-request: 1
     shodan-query: "Server: squid/"
@@ -34,4 +35,3 @@ http:
           - compare_versions(version, '<=6.14')
           - contains(tolower(header), 'squid')
         condition: and
-

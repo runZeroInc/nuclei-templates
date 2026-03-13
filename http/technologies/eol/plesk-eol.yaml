@@ -10,6 +10,7 @@ info:
     - https://endoflife.date/plesk
     - https://docs.plesk.com/release-notes/obsidian/change-log/
   metadata:
+    runzero-match: service["http.head.xPoweredByPlesk"] != ""
     verified: true
     max-request: 2
     shodan-query: "Plesk"

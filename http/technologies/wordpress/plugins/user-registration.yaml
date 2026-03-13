@@ -9,6 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/user-registration/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/user-registration/"
     max-request: 1
     verified: true
     shodan-query: "/wp-content/plugins/user-registration/"
