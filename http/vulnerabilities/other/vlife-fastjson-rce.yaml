@@ -13,6 +13,7 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-502
   metadata:
+    runzero-review: REJECT/2026-03-13/uses interactsh
     verified: true
     max-request: 2
     vendor: vlife

@@ -10,6 +10,7 @@ info:
     - https://www.ypareo.com/legacy
     - https://www.ymag.fr/
   metadata:
+    runzero-match: service["http.body"] matches "(?i)ypareo"
     verified: true
     max-request: 4
     shodan-query: http.html:"ypareo"
@@ -38,4 +39,3 @@ http:
         group: 1
         regex:
           - 'script.js\?v=([0-9.]+)'
-
