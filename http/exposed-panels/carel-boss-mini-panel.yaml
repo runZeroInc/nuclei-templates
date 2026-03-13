@@ -28,3 +28,4 @@ http:
           - 'contains_all(body, "boss_logo", "System administration", "Login")'
           - 'status_code == 200'
         condition: and
+
