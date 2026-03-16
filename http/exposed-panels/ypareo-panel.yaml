@@ -39,3 +39,4 @@ http:
         group: 1
         regex:
           - 'script.js\?v=([0-9.]+)'
+
