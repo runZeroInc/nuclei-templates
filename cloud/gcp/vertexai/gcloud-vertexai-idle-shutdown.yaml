@@ -53,4 +53,4 @@ code:
       - type: dsl
         dsl:
           - '"Project " + projectId + " has Vertex AI notebook instances without idle shutdown enabled"'
-# digest: 4a0a004730450220374d01f50a9d157a2d5fec68762d8051b89f6b1ed0376e88635e1511d68abe8a022100b34c712dc5baed678090996d90a412ddb40c480cec972fbef83ba807c150fc36:922c64590222798bb761d5b6d8e72950
+

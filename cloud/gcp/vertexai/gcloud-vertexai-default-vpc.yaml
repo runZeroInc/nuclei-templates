@@ -53,4 +53,4 @@ code:
       - type: dsl
         dsl:
           - '"Project " + projectId + " has Vertex AI notebook instances using the default VPC network"'
-# digest: 4b0a00483046022100a628bcce3d1a7dcc53a56f40f8f4865f54dd43d343da23897a0ece18ebf75961022100a96b22e32f581a4f14a406d6f58ded7288f7cfdd39d3152d635786ac71f02c42:922c64590222798bb761d5b6d8e72950
+

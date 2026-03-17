@@ -53,4 +53,4 @@ code:
       - type: dsl
         dsl:
           - '"Project " + projectId + " has Vertex AI notebook instances with root access enabled"'
-# digest: 4b0a00483046022100f207075f7fb72babf0c77967aa1a0aecaecb83b2432bf71477b57a0c810f30a4022100f861b48c21882fec2e8b153fc922515644690029a3cfcc6200cb6b3bc34658bc:922c64590222798bb761d5b6d8e72950
+
