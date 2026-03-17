@@ -53,4 +53,4 @@ http:
         regex:
           - 'blogger-id=([a-z0-9]+)'
           - 'blogspot\.com/([^/]+)'
-
+# digest: 4b0a00483046022100fc1ecf35df24df55b133c8b60a36aef74a463d03bce8f7fb18358baf7e5a9757022100a8d98606ae2784ac79a90aa11eb75fcba30bd006d47acdfa3cd279a187d6bc70:922c64590222798bb761d5b6d8e72950

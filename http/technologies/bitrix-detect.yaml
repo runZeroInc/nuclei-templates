@@ -54,4 +54,4 @@ http:
         regex:
           - 'bitrix-site-id=([a-z0-9]+)'
           - 'bitrix\.com/([^/]+)'
-
+# digest: 4a0a0047304502200d465f1c2ac6b9060039928e0e2de45da06c60f67e825fc37702636aafa7dd03022100e07736d0244424800ed543cc05f8860b88cf94fe08f67e35c5d2f6091237b391:922c64590222798bb761d5b6d8e72950
