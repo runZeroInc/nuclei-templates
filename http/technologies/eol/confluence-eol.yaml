@@ -10,6 +10,7 @@ info:
     - https://endoflife.date/confluence
     - https://confluence.atlassian.com/support/atlassian-support-end-of-life-policy-201851003.html
   metadata:
+    runzero-match: service["product"] contains "Atlassian:Confluence"
     verified: true
     max-request: 2
     shodan-query: http.component:"Atlassian Confluence"

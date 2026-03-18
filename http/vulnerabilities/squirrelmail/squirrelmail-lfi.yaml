@@ -12,6 +12,7 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-22
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1511806001" || any([service["http.body"], service["last.http.body"]], {# matches "(?i)squirrelmail"})
     max-request: 2
   tags: lfi,squirrelmail,edb,vuln
 

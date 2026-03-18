@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/graphql/graphiql
   metadata:
+    runzero-match: service["http.body"] matches "(?i)GraphiQL"
     verified: true
     max-request: 6
     shodan-query: html:"GraphiQL"
@@ -43,4 +44,3 @@ http:
       - type: status
         status:
           - 200
-
