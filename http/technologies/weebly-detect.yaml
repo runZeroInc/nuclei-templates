@@ -53,4 +53,4 @@ http:
         regex:
           - 'weebly-site-id=([a-z0-9]+)'
           - 'weebly\.com/([^/]+)'
-# digest: 490a0046304402201b0267bc01cf0326b92104704fc8ce19b6a3e66e081cd55564a783f07239b7ff02200cfd975d111e97b502740cdcaf0cbc7af8a810428e8e01656c7733ca08397e7a:922c64590222798bb761d5b6d8e72950
+
