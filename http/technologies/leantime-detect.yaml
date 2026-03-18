@@ -43,3 +43,4 @@ http:
         group: 1
         regex:
           - '<meta name="leantime-version" content="(?<leantime_version>\d+\.\d+\.\d+)">'
+
