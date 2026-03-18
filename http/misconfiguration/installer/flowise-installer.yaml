@@ -10,7 +10,7 @@ info:
     runzero-review: REJECT/2025-11-17/excluding tag intrusive
     verified: true
     shodan-query: http.title:"Flowise - Build AI Agents, Visually"
-  tags: misconfig,exposure,install,flowise,intrusive,vuln
+  tags: misconfig,exposure,install,flowise,intrusive,vuln,ai
 
 variables:
   name: "{{to_lower(rand_text_alpha(5))}}"
