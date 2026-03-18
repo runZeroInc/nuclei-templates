@@ -10,6 +10,7 @@ info:
     - https://www.brickcom.com/support/faq_contents.php?id=48
     - https://cxsecurity.com/issue/WLB-2026020031
   metadata:
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="Brickcom'})
     verified: true
     max-request: 1
     shodan-query: 'realm="Brickcom"'
@@ -37,4 +38,3 @@ http:
           - "var viewer='admin'"
           - "Brickcom Corporation"
           - "wledctl.cgi"
-

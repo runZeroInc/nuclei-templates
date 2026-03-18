@@ -12,6 +12,7 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
+    runzero-match: service["http.body"] matches "(?i)SparkView"
     verified: true
     max-request: 1
     shodan-query: http.html:"SparkView"
@@ -37,4 +38,3 @@ http:
           - 'status_code == 200'
           - '!contains_all(tolower(body), "<html", "<body")'
         condition: and
-
