@@ -38,3 +38,4 @@ http:
           - 'status_code == 200'
           - '!contains_all(tolower(body), "<html", "<body")'
         condition: and
+
