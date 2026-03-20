@@ -9,6 +9,7 @@ info:
   reference:
     - https://cxsecurity.com/issue/WLB-2026020031
   metadata:
+    runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="Brickcom'})
     verified: true
     max-request: 2
     shodan-query: 'realm="Brickcom"'
@@ -31,4 +32,3 @@ http:
         part: header
         words:
           - "image/jpeg"
-
