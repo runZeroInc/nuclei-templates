@@ -57,4 +57,4 @@ http:
         regex:
           - 'shop_id=([0-9]+)'
           - 'shopify://([0-9a-zA-Z]+)'
-
+# digest: 4a0a00473045022071a41858c48f4d275781dfc82dbf5962ec7862173073b97c9162775af5c427a6022100bd9177fcfdceb01d29b1bf0c17b0e35cd1f7e52046b5718c677ce05ee448e4fd:922c64590222798bb761d5b6d8e72950
