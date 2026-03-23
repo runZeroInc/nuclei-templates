@@ -53,4 +53,4 @@ http:
         regex:
           - 'flask-site-id=([a-z0-9]+)'
           - 'flask\.palletsprojects\.com/([^/]+)'
-# digest: 4a0a00473045022019fe7159c6b18b6f971e3a9f5e113c4cfaae1246a4717cd2ec34fa3c026044040221008d2e375b5e749b9a694ec27865d0fed1868be47aebe5f05c054a6ff2e2d3fc5b:922c64590222798bb761d5b6d8e72950
+
