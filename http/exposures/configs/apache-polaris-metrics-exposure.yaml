@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:polaris:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "(?i)org\\.apache\\.polaris"
     vendor: apache
     product: polaris
     shodan-query: http.html:"org.apache.polaris"
@@ -32,4 +33,3 @@ http:
       - type: status
         status:
           - 200
-
