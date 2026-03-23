@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.synology.com/en-us/dsm
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Synology&nbsp;DiskStation"
+    runzero-match: asset["hw_vendor"] == "Synology" && asset["type"] == "NAS"
     verified: true
     max-request: 1
     shodan-query: html:"Synology&nbsp;DiskStation"
