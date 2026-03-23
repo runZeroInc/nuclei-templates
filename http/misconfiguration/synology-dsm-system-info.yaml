@@ -9,6 +9,7 @@ info:
   reference:
     - https://www.synology.com/en-us/dsm
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Synology&nbsp;DiskStation"
     verified: true
     max-request: 1
     shodan-query: html:"Synology&nbsp;DiskStation"
@@ -30,4 +31,3 @@ http:
           - 'contains(body, "success\":true")'
           - 'status_code == 200'
         condition: and
-

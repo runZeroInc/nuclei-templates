@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:polaris:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Apache Polaris"})
     max-request: 1
     vendor: apache
     product: polaris
@@ -46,4 +47,3 @@ http:
         name: accessToken
         json:
           - '.access_token'
-

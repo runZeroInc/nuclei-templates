@@ -12,6 +12,7 @@ info:
     - https://ghost.org/docs/config/
     - https://github.com/TryGhost/Ghost
   metadata:
+    runzero-match: service["product"] contains "Ghost:Ghost"
     max-request: 1
     verified: true
     fofa-query: app="Ghost-CMS"
