@@ -47,3 +47,4 @@ http:
         name: accessToken
         json:
           - '.access_token'
+
