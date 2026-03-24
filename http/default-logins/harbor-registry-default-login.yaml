@@ -10,6 +10,7 @@ info:
     - https://goharbor.io/docs/1.10/install-config/run-installer-script/
     - https://goharbor.io/docs/latest/administration/managing-users/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Harbor"})
     verified: true
     max-request: 2
     vendor: goharbor
@@ -54,4 +55,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "\"username\"", "\"admin\"", "\"sysadmin_flag\"")'
         condition: and
-

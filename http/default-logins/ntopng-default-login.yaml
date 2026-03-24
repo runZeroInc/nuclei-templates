@@ -10,6 +10,7 @@ info:
     - https://www.ntop.org/guides/ntopng/faq.html
     - https://www.ntop.org/guides/ntopng/api/rest/api_v2.html
   metadata:
+    runzero-match: service["product"] contains "ntop:ntopng"
     verified: true
     max-request: 3
     vendor: ntop
@@ -67,4 +68,3 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "loggedUser = \"admin\"", "isAdministrator = true")'
         condition: and
-

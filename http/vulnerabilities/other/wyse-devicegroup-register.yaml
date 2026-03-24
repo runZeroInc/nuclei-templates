@@ -9,6 +9,7 @@ info:
   reference:
     - https://swarm.ptsecurity.com/business-logic-and-chains-unauthenticated-rce-in-dell-wyse-management-suite/
   metadata:
+    runzero-review: REJECT/2026-03-24/leaves behind artifacts
     verified: true
     max-request: 1
     shodan-query: html:"/ccm-web/"
@@ -59,4 +60,3 @@ http:
           - '"authenticationCode":'
           - '"wyseIdentifier"'
         condition: and
-
