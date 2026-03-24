@@ -10,6 +10,7 @@ info:
     - https://github.com/BerriAI/litellm
     - https://docs.litellm.ai/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LiteLLM API - Swagger UI"})
     verified: true
     max-request: 1
     shodan-query: http.title:"LiteLLM API - Swagger UI"
@@ -30,4 +31,3 @@ http:
       - type: status
         status:
           - 200
-

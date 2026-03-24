@@ -11,6 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:rustfs:rustfs:*:*:*:*:*:rust:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)RustFS"})
     vendor: rustfs
     product: rustfs
     shodan-query: title:"RustFS"
@@ -33,4 +34,3 @@ http:
       - type: status
         status:
           - 200
-

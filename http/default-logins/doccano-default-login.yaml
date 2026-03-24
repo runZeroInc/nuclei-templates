@@ -10,6 +10,7 @@ info:
     - https://github.com/doccano/doccano
     - https://doccano.github.io/doccano/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)doccano"})
     verified: true
     max-request: 3
     vendor: doccano
@@ -74,4 +75,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "\"username\"", "\"is_superuser\"", "admin")'
         condition: and
-
