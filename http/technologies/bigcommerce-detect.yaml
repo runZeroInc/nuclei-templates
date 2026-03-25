@@ -54,4 +54,4 @@ http:
           - 'bigcommerce-site-id=([a-z0-9]+)'
           - 'bc-site-id="([a-zA-Z0-9]+)"'
           - 'bigcommerce\.com/([^/]+)'
-# digest: 4b0a00483046022100deee2e71a52c4daef8fa5ee71b4722def70b223150c90d103007584bd3927fae022100d0764e5092788581ad3dd88be801cc78c41e07afe684992d42f5a737c59e8cc9:922c64590222798bb761d5b6d8e72950
+

@@ -42,4 +42,4 @@ http:
         regex:
           - "(?i)mezzanine\\s+(v[0-9.]+)"
           - "(?i)<title>Mezzanine CMS"
-# digest: 4a0a00473045022051fe3db265498db9f4bb94edd894a17f310e5962c347c010cf37485596f3c828022100c2183cd5e426c2c71136d8c12f46be05ae454946aa3994de67c853a699c877cc:922c64590222798bb761d5b6d8e72950
+
