@@ -55,3 +55,4 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "\"username\"", "\"admin\"", "\"sysadmin_flag\"")'
         condition: and
+

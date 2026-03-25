@@ -75,3 +75,4 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "\"username\"", "\"is_superuser\"", "admin")'
         condition: and
+
