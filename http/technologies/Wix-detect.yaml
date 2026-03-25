@@ -58,4 +58,4 @@ http:
         regex:
           - 'wix-id=([a-z0-9]+)'
           - 'siteid="([a-zA-Z0-9]+)"'
-
+# digest: 490a0046304402205a5d1afb984bdbd73baaf671a9a679591f05dc9f42b779e36fbb14f41d42c1380220051fc81ac91440c242f68e0a027d649ed1a0669e1a6b34b455a9568511602cbb:922c64590222798bb761d5b6d8e72950

@@ -53,4 +53,4 @@ http:
         regex:
           - 'opencart-store-id=([a-z0-9]+)'
           - 'oc-admin/([^/]+)'
-
+# digest: 4a0a00473045022100ba297232395838ae039f147cc9de196d166986b2837c2a90f70f43faa3f1af5702205d5fe061e703c12fef09db2a669fa82b1935624fb0efe50acf639cd47e41863a:922c64590222798bb761d5b6d8e72950
