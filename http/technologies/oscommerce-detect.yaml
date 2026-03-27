@@ -53,4 +53,4 @@ http:
         regex:
           - 'oscommerce-site-id=([a-z0-9]+)'
           - 'oscommerce\.com/([^/]+)'
-
+# digest: 4b0a00483046022100e44af6f0e490f0452089deb7014f4cffbdb2358913705079eb66629d5dbe59ce022100f083d2bf369cd545c29a03b47cd997e0c3b669e28cbf8200b34ef4afa4a727e3:922c64590222798bb761d5b6d8e72950
