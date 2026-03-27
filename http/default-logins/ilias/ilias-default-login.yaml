@@ -64,3 +64,4 @@ http:
           - '!contains(to_lower(header), "login.php")'
           - 'contains(to_lower(header), "ilias.php")'
         condition: and
+
