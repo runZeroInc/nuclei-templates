@@ -2,7 +2,7 @@ id: mercurial-hgignore
 
 info:
   name: Mercurial Ignore - File Disclosure
-  author: DhiyaneshDK
+  author: DhiyaneshDK,s4e-io
   severity: info
   description: Mercurial Ignore file disclosure was detected.
   reference:
@@ -44,6 +44,8 @@ http:
           - "<meta"
           - "image/"
           - "Response xmlns="
+          - "text/xml"
+          - "<?xml"
         part: response
         negative: true
         condition: or
