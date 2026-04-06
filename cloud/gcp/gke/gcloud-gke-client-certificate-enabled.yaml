@@ -1,5 +1,4 @@
 id: gcloud-gke-client-certificate-enabled
-
 info:
   name: GKE Clusters With Client Certificate Authentication Enabled
   author: princechaddha
@@ -14,8 +13,44 @@ info:
   reference:
     - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/GKE/disable-client-certificate.html
-  tags: cloud,devops,gcp,gcloud,gke,kubernetes,security,authentication,gcp-cloud-config
-
+  tags: authentication,cloud,devops,gcloud,gcp,gcp-cloud-config,gke,kubernetes,security
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud projects list --format="json(projectId)"
+    extractors:
+      - type: json
+        name: projectIds
+        internal: true
+        json:
+          - '.[].projectId'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud container clusters list --project $projectId --format="json(name,location)"
+    extractors:
+      - type: json
+        name: clusters
+        internal: true
+        json:
+          - '.[]'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud container clusters describe $clusterName --location $location --project $projectId --format="value(masterAuth.clientCertificateConfig.issueClientCertificate)"
+    matchers:
+      - type: word
+        words:
+          - "True"
+    extractors:
+      - type: dsl
+        dsl:
+          - '"GKE cluster " + clusterName + " in " + location + " of project " + projectId + " has client certificate authentication enabled"'
+        # digest: 4b0a0048304602210087636d212af56d9476c7ea4969014543270225810903357de90d5bae207d3f43022100ef99ebca6eaf626a5d1661e3025aafa173f5e2a2fe1c44e78f53de49afce8987:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -28,49 +63,4 @@ flow: |
       code(3)
     }
   }
-
 self-contained: true
-
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud projects list --format="json(projectId)"
-
-    extractors:
-      - type: json
-        name: projectIds
-        internal: true
-        json:
-          - '.[].projectId'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud container clusters list --project $projectId --format="json(name,location)"
-
-    extractors:
-      - type: json
-        name: clusters
-        internal: true
-        json:
-          - '.[]'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud container clusters describe $clusterName --location $location --project $projectId --format="value(masterAuth.clientCertificateConfig.issueClientCertificate)"
-
-    matchers:
-      - type: word
-        words:
-          - "True"
-
-    extractors:
-      - type: dsl
-        dsl:
-          - '"GKE cluster " + clusterName + " in " + location + " of project " + projectId + " has client certificate authentication enabled"'
-

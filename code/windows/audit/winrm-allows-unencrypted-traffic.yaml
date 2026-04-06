@@ -1,5 +1,4 @@
 id: winrm-allows-unencrypted-traffic
-
 info:
   name: WinRM Allows Unencrypted Traffic
   author: princechaddha
@@ -9,10 +8,7 @@ info:
     Allowing unencrypted traffic in WinRM can expose sensitive information to attackers.
   remediation: |
     Configure WinRM to require encrypted traffic by setting `AllowUnencrypted` to `False`.
-  tags: winrm,unencrypted,traffic,code,windows-audit
-
-self-contained: true
-
+  tags: code,traffic,unencrypted,windows-audit,winrm
 code:
   - pre-condition: |
       IsWindows();
@@ -25,9 +21,9 @@ code:
     pattern: "*.ps1"
     source: |
       (Get-Item WSMan:\localhost\Service).AllowUnencrypted
-
     matchers:
       - type: word
         words:
           - "True"
-
+        # digest: 4a0a00473045022100feb80bd5b415c4356da922755674bb947368f9fb4fde47193bf031f4a04ac85f0220424e360d75059ab517b3bee14a5b7105adf5e6a4c1d7c437134a9aff12414f56:922c64590222798bb761d5b6d8e72950
+self-contained: true

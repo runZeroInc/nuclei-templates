@@ -1,5 +1,4 @@
 id: smtp-open-relay
-
 info:
   name: Linux SMTP Open Relay Misconfigured
   author: songyaeji
@@ -8,10 +7,7 @@ info:
     Sendmail and Postfix were checked for proper restrictions against unauthorized relay attempts. Improper configurations allowed attackers to abuse the server for spam or denial-of-service (DoS) attacks.
   reference:
     - https://isms.kisa.or.kr
-  tags: linux,local,kisa,audit,compliance
-
-self-contained: true
-
+  tags: audit,compliance,kisa,linux,local
 code:
   - engine:
       - bash
@@ -26,7 +22,6 @@ code:
       else
         echo "[INFO] Sendmail is not active."
       fi
-
   - engine:
       - bash
     source: |
@@ -43,17 +38,16 @@ code:
       else
         echo "[INFO] Postfix is not active."
       fi
-
     matchers:
       - type: word
         name: sendmail
         part: code_1_response
         words:
           - "[VULNERABLE]"
-
       - type: word
         name: postfix
         part: code_2_response
         words:
           - "[VULNERABLE]"
-
+        # digest: 490a00463044022007bbf2c607700ae13d4c405a692792e71588ae5ba345fdaf3607a3857d7407c6022078e9830186951fe00d87c820cb91bd2cde6a00a10675cdf22267e85a4a5ccf60:922c64590222798bb761d5b6d8e72950
+self-contained: true

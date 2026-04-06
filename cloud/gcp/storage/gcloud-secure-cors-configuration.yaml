@@ -1,5 +1,4 @@
 id: gcloud-secure-cors-configuration
-
 info:
   name: Secure CORS Configuration for Cloud Storage Buckets
   author: princechaddha
@@ -12,8 +11,44 @@ info:
     Update the CORS configuration for your Cloud Storage buckets to only allow trusted origins defined by your organization’s policy.
   reference:
     - https://cloud.google.com/storage/docs/configuring-cors
-  tags: cloud,devops,gcp,gcloud,google-cloud-storage,cors,security,gcp-cloud-config
-
+  tags: cloud,cors,devops,gcloud,gcp,gcp-cloud-config,google-cloud-storage,security
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud projects list --format="json(projectId)"
+    extractors:
+      - type: json
+        name: projectIds
+        internal: true
+        json:
+          - '.[].projectId'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud storage buckets list --project $projectId --format="json(name)"
+    extractors:
+      - type: json
+        name: buckets
+        internal: true
+        json:
+          - '.[].name'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud storage buckets describe gs://$bucketName --format="json(cors_config[].origin)" | jq -r '.[]? // "null"'
+    matchers:
+      - type: word
+        words:
+          - 'null'
+    extractors:
+      - type: dsl
+        dsl:
+          - '"The CORS configuration for the bucket " + bucketName + " in project " + projectId + " is either not set or includes unauthorized origins."'
+        # digest: 490a00463044022050e65bff1ef6759a0b3755b753e29f72a4574d974eee26a043ac0136ba47bc2402204210b2bbdca4898db2eb053ba84de7f4c084d0ffbc04f8d1b2c85f98afc5408d:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -24,49 +59,4 @@ flow: |
       code(3)
     }
   }
-
 self-contained: true
-
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud projects list --format="json(projectId)"
-
-    extractors:
-      - type: json
-        name: projectIds
-        internal: true
-        json:
-          - '.[].projectId'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud storage buckets list --project $projectId --format="json(name)"
-
-    extractors:
-      - type: json
-        name: buckets
-        internal: true
-        json:
-          - '.[].name'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud storage buckets describe gs://$bucketName --format="json(cors_config[].origin)" | jq -r '.[]? // "null"'
-
-    matchers:
-      - type: word
-        words:
-          - 'null'
-
-    extractors:
-      - type: dsl
-        dsl:
-          - '"The CORS configuration for the bucket " + bucketName + " in project " + projectId + " is either not set or includes unauthorized origins."'
-

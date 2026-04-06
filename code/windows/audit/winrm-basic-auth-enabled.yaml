@@ -1,5 +1,4 @@
 id: winrm-basic-auth-enabled
-
 info:
   name: WinRM Basic Authentication Enabled
   author: princechaddha
@@ -9,10 +8,7 @@ info:
     Basic authentication can expose credentials in plaintext, allowing attackers to intercept and exploit sensitive information.
   remediation: |
     Disable Basic authentication and configure secure authentication mechanisms like Kerberos or certificate-based authentication.
-  tags: windows,winrm,code,windows-audit
-
-self-contained: true
-
+  tags: code,windows,windows-audit,winrm
 code:
   - pre-condition: |
       IsWindows();
@@ -25,9 +21,9 @@ code:
     pattern: "*.ps1"
     source: |
       (Get-Item WSMan:\localhost\Service\Auth).Basic
-
     matchers:
       - type: word
         words:
           - "True"
-
+        # digest: 4b0a00483046022100f3185ab678a6dff3ee5c08b99d3534d6b7ad0bf7dbf2a0365e5f8c91a068fa52022100afd466435dea03d41aa09289f0700ad342dc7b3b21570c6fbfc735bbc6771c41:922c64590222798bb761d5b6d8e72950
+self-contained: true

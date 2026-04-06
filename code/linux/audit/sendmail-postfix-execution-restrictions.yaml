@@ -1,5 +1,4 @@
 id: sendmail-postfix-execution-restrictions
-
 info:
   name: Sendmail/Postfix Execution Restrictions Misconfigured
   author: songyaeji
@@ -8,10 +7,7 @@ info:
     General users were not restricted from executing Sendmail with the q option, and the Postfix binary lacked proper permission controls.This misconfiguration allowed unauthorized users to manipulate the mail queue or disrupt mail delivery.
   reference:
     - https://isms.kisa.or.kr
-  tags: local,linux,audit,sendmail,postfix,compliance
-
-self-contained: true
-
+  tags: audit,compliance,linux,local,postfix,sendmail
 code:
   - engine:
       - bash
@@ -21,7 +17,6 @@ code:
       else
         echo "[SAFE] restrictqrun option is set in sendmail.cf"
       fi
-
   - engine:
       - bash
     source: |
@@ -33,7 +28,6 @@ code:
           echo "[SAFE] postfix binary permission is correct"
         fi
       fi
-
   - engine:
       - bash
     source: |
@@ -41,23 +35,21 @@ code:
         MEMBERS="$(getent group postfix | awk -F ':' '{print $4}')"
         echo "$MEMBERS" | grep -qw root || echo "[VULNERABLE] 'root' not in 'postfix' group"
       fi
-
     matchers:
       - type: word
         name: restrictqrun
         part: code_1_response
         words:
           - "[VULNERABLE]"
-
       - type: word
         name: postfix-permission
         part: code_2_response
         words:
           - "[VULNERABLE]"
-
       - type: word
         name: postfix-group
         part: code_3_response
         words:
           - "[VULNERABLE]"
-
+        # digest: 4a0a004730450220532eeadc9b326aedf00c342a793b477a85a927a91a2fb1ae9caf341d4f41aa32022100cad5d3ff5d3bc482a80979d50961d98d11788235a82926fcff701b4028fff58c:922c64590222798bb761d5b6d8e72950
+self-contained: true

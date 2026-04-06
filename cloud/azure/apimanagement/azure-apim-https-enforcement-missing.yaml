@@ -11,8 +11,52 @@ info:
     Configure all Azure API Management APIs to enforce HTTPS by setting the URL scheme to "https" only in the API settings.
   reference:
     - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-secure-backend
-  tags: cloud,devops,azure,microsoft,apim,azure-cloud-config
-
+  tags: apim,azure,azure-cloud-config,cloud,devops,microsoft
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      az apim list --output json --query '[*].{name:name, resourceGroup:resourceGroup}'
+    extractors:
+      - type: json
+        name: serviceList
+        internal: true
+        json:
+          - '.[]'
+  - engine:
+      - sh
+      - bash
+    source: |
+      az apim api list -g $resourcegroup -n $servicename  --query '[].name'
+    extractors:
+      - type: json
+        name: apiList
+        internal: true
+        json:
+          - '.[]'
+  - engine:
+      - sh
+      - bash
+    source: |
+      az apim api show --api-id "$apiid" --service-name $servicename --resource-group $resourcegroup --query 'protocols'
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "https"
+      - type: word
+        words:
+          - "http"
+        negative: true
+    extractors:
+      - type: dsl
+        dsl:
+          - '"Service: " + service-name + " API: " + api-id + " does not enforce HTTPS exclusively"'
+      - type: dsl
+        dsl:
+          - stderr
+        # digest: 4a0a00473045022100ecd14044f77810e641f5b4aa6a0a522e34cd8baa64795b617790ab11d14b657502203a2e97c1b014ee18c5c0456a99edb46a0769507b5c03a61857e99082d85fb547:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1);
   for (let Service of iterate(template.serviceList)) {
@@ -25,58 +69,4 @@ flow: |
       code(3);
     }
   }
-
 self-contained: true
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      az apim list --output json --query '[*].{name:name, resourceGroup:resourceGroup}'
-
-    extractors:
-      - type: json
-        name: serviceList
-        internal: true
-        json:
-          - '.[]'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      az apim api list -g $resourcegroup -n $servicename  --query '[].name'
-
-    extractors:
-      - type: json
-        name: apiList
-        internal: true
-        json:
-          - '.[]'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      az apim api show --api-id "$apiid" --service-name $servicename --resource-group $resourcegroup --query 'protocols'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "https"
-
-      - type: word
-        words:
-          - "http"
-        negative: true
-
-    extractors:
-      - type: dsl
-        dsl:
-          - '"Service: " + service-name + " API: " + api-id + " does not enforce HTTPS exclusively"'
-
-      - type: dsl
-        dsl:
-          - stderr
-

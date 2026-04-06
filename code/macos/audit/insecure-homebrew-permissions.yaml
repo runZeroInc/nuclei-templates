@@ -1,5 +1,4 @@
 id: insecure-homebrew-permissions
-
 info:
   name: macOS World-Writable Homebrew Files
   author: geeknik
@@ -10,10 +9,7 @@ info:
     World-writable files in the Homebrew directory can be modified by any user on the system, potentially leading to privilege escalation or execution of malicious code.
   remediation: |
     Review and correct the permissions of world-writable files in the Homebrew directory.
-  tags: macos,audit,local,security,homebrew
-
-self-contained: true
-
+  tags: audit,homebrew,local,macos,security
 code:
   - engine:
       - sh
@@ -24,4 +20,5 @@ code:
       - type: regex
         regex:
           - "\\d+\\s+-[rwx-]*w[rwx-]*w[rwx-]*\\s+"
-
+        # digest: 4a0a0047304502201b6cc3d198cfe7d9f9285a73a3b9fcc416e015ee4418aa7dd46510903c057e68022100800ba72c60fd91ae271f6c627f2c147ff7082f01cde9ef3725453ceb802c1219:922c64590222798bb761d5b6d8e72950
+self-contained: true

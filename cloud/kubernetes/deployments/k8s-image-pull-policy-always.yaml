@@ -1,5 +1,4 @@
 id: k8s-image-pull-policy-always
-
 info:
   name: Image Pull Policy set to Always
   author: princechaddha
@@ -10,17 +9,7 @@ info:
   remediation: Update the image pull policy in Kubernetes Deployments to 'Always' to ensure that the latest container images are always used.
   reference:
     - https://kubernetes.io/docs/concepts/containers/images/#updating-images
-  tags: cloud,devops,kubernetes,k8s,devsecops,deployments,images,docker,k8s-cluster-security
-
-flow: |
-  code(1);
-  for (let deployment of template.items) {
-    set("deployment",deployment)
-    javascript(1);
-  }
-
-self-contained: true
-
+  tags: cloud,deployments,devops,devsecops,docker,images,k8s,k8s-cluster-security,kubernetes
 code:
   - engine:
       - sh
@@ -32,17 +21,22 @@ code:
         internal: true
         json:
           - '.items[]'
-
 javascript:
   - code: |
-        deployment = JSON.parse(template.deployment);
-        if (!deployment.spec.template.spec.containers.every(container => container.imagePullPolicy === 'Always')) {
-          let result = (`Deployment '${deployment.metadata.name}' in namespace '${deployment.metadata.namespace}' does not have image pull policy set to Always.`);
-          Export(result);
-        }
-
+      deployment = JSON.parse(template.deployment);
+      if (!deployment.spec.template.spec.containers.every(container => container.imagePullPolicy === 'Always')) {
+        let result = (`Deployment '${deployment.metadata.name}' in namespace '${deployment.metadata.namespace}' does not have image pull policy set to Always.`);
+        Export(result);
+      }
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 490a0046304402206b99c38b3c7a728baebe728ad16916a649d1322ef1140913ac8a43488309469302202a8458215efee01be4f2529788717cc7d34fd874acf2b990e5fc46bf99cf79d4:922c64590222798bb761d5b6d8e72950
+flow: |
+  code(1);
+  for (let deployment of template.items) {
+    set("deployment",deployment)
+    javascript(1);
+  }
+self-contained: true

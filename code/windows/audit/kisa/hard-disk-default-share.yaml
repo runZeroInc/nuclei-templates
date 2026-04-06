@@ -1,5 +1,4 @@
 id: hard-disk-default-share
-
 info:
   name: Hard Disk Default Share Removal Check
   author: nukunga[SungHyunJeon]
@@ -8,17 +7,14 @@ info:
     Ensure default administrative shares (e.g., C$, D$, Admin$) are disabled by verifying that the AutoShareServer registry value is set to 0.
     Leaving these shares enabled can expose system resources to unauthorized access.
   impact: |
-   If the AutoShareServer registry value is set to 1 or default administrative shares (excluding IPC$) are present, attackers may exploit them to gain unauthorized access to system resources.
+    If the AutoShareServer registry value is set to 1 or default administrative shares (excluding IPC$) are present, attackers may exploit them to gain unauthorized access to system resources.
   remediation: |
     Permanently disable default administrative shares by setting the AutoShareServer registry value to 0 at:
     - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lanmanserver\parameters
     - Additionally, remove any non-essential default shares using the appropriate system management tools.
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: ftp,iis,code,windows-audit,kisa,share-permissions
-
-self-contained: true
-
+  tags: code,ftp,iis,kisa,share-permissions,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -67,9 +63,9 @@ code:
       } else {
           "DEFAULT_SHARE_COMPLIANT"
       }
-
     matchers:
       - type: word
         words:
           - "DEFAULT_SHARE_VULNERABLE"
-
+        # digest: 4a0a004730450221009ebdc7c1aef05392bad7dfec19455d19a49841b9c5450289066663f12f7cf7b702205fc2205ef3699f0479d05c18f6ba580269db8bfb3265cd700a7084fbe01794e2:922c64590222798bb761d5b6d8e72950
+self-contained: true
