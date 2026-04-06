@@ -1,5 +1,4 @@
 id: squirrelmail-login
-
 info:
   name: SquirrelMail Login Panel - Detect
   author: dhiyaneshDk,ritikchaddha
@@ -13,36 +12,32 @@ info:
     cpe: cpe:2.3:a:squirrelmail:squirrelmail:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1511806001" || any([service["http.body"], service["last.http.body"]], {# matches "(?i)squirrelmail"})
-    max-request: 4
-    vendor: squirrelmail
-    product: squirrelmail
-    shodan-query:
-      - http.title:"squirrelmail"
-      - cpe:"cpe:2.3:a:squirrelmail:squirrelmail"
     fofa-query: title="squirrelmail"
     google-query: intitle:"squirrelmail"
-  tags: squirrelmail,edb,panel,discovery
-
+    max-request: 4
+    product: squirrelmail
+    shodan-query:
+      - title:"SquirrelMail"
+      - http.title:"squirrelmail"
+      - cpe:"cpe:2.3:a:squirrelmail:squirrelmail"
+    vendor: squirrelmail
+  tags: discovery,edb,panel,squirrelmail
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/src/login.php"
-      - "{{BaseURL}}/webmail/src/login.php"
-      - "{{BaseURL}}/squirrelmail/src/login.php"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "SquirrelMail"
-
-      - type: status
-        status:
+          - SquirrelMail
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/src/login.php'
+      - '{{BaseURL}}/webmail/src/login.php'
+      - '{{BaseURL}}/squirrelmail/src/login.php'
+    stop-at-first-match: true

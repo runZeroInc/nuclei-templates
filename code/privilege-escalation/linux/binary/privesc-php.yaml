@@ -1,5 +1,4 @@
 id: privesc-php
-
 info:
   name: PHP - Privilege Escalation
   author: daffainfo
@@ -9,36 +8,30 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/php/
   metadata:
-    verified: true
     max-request: 4
-  tags: code,linux,php,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,php,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       php -r 'system("whoami");'
-
   - engine:
       - sh
       - bash
     source: |
       sudo php -r 'system("whoami");'
-
   - engine:
       - sh
       - bash
     source: |
       php -r "posix_setuid(0); system("whoami");"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -46,11 +39,11 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
           - 'contains(code_4_response, "root")'
         condition: or
-
+        # digest: 490a004630440220718e9daab27236b0aa107e0c48df0aa520b324de599ddee266f9f3512c33c8e302205621f323fa251586f6e7db2c10ff0fa7b851274ab799829a2901213824c26e04:922c64590222798bb761d5b6d8e72950
+self-contained: true

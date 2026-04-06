@@ -1,5 +1,4 @@
 id: echo-detect
-
 info:
   name: Echo Protocol  Detect
   author: pussycat0x
@@ -9,11 +8,10 @@ info:
   reference:
     - https://en.wikipedia.org/wiki/Echo_Protocol
   metadata:
-    verified: true
     max-request: 1
     shodan-query: "port:7"
-  tags: echo,network,js,udp,discovery
-
+    verified: true
+  tags: discovery,echo,js,network,udp
 javascript:
   - pre-condition: |
       isUDPPortOpen(Host,Port);
@@ -26,16 +24,14 @@ javascript:
       conn.SendHex(packet.Hex());
       const result = conn.RecvString()
       result
-
     args:
       Host: "{{Host}}"
       Port: 7
       Payload: "{{randstr}}"
-
     matchers:
       - type: dsl
         dsl:
           - "success == true"
           - contains(response, "{{randstr}}")
         condition: and
-
+        # digest: 4a0a0047304502203771c51a251d59f73e6e25144d452cef20342ddfd3d1a8e6fcba17992431be9e022100d2b74c387f449e3e7a0161de1462282ab4f60ce2e9412265e661bd5cfe874e8e:922c64590222798bb761d5b6d8e72950

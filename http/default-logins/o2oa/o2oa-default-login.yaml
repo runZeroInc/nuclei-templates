@@ -1,24 +1,43 @@
 id: o2oa-default-login
-
 info:
   name: O2OA - Default Login
   author: SleepingBag945
   severity: high
   description: |
-    O2OA default login credentials were discovered.
+    O2OA is an open source and free enterprise and team office platform. It provides four major platforms portal management, process management, information management, and data management. It integrates many functions such as work reporting, project collaboration, mobile OA, document sharing, process approval, and data collaboration. Meet various management and collaboration needs of enterprises.
   classification:
     cpe: cpe:2.3:a:zoneland:o2oa:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "O2OA"})
-    verified: true
     max-request: 1
-    vendor: zoneland
     product: o2oa
     shodan-query: title=="O2OA"
-  tags: o2oa,default-login,vuln
-
+    vendor: zoneland
+    verified: true
+  tags: default-login,o2oa,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"type": "success"'
+          - distinguishedName
+      - part: header
+        type: word
+        words:
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - o2
+      username:
+        - xadmin
+    raw:
       - |
         POST /x_organization_assemble_authentication/jaxrs/authentication/captcha HTTP/1.1
         Host: {{Hostname}}
@@ -28,29 +47,3 @@ http:
         Content-Type: application/json; charset=UTF-8
 
         {"credential":"{{username}}","password":"{{password}}"}
-
-    payloads:
-      username:
-        - 'xadmin'
-      password:
-        - 'o2'
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "\"type\": \"success\""
-          - "distinguishedName"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-
-      - type: status
-        status:
-          - 200
-

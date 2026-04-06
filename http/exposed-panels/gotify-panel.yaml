@@ -1,5 +1,4 @@
 id: gotify-panel
-
 info:
   name: Gotify Login Panel - Detect
   author: righettod
@@ -11,31 +10,29 @@ info:
     cpe: cpe:2.3:a:gotify:server:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)gotify"})
-    verified: true
-    max-request: 1
-    vendor: gotify
-    product: server
-    shodan-query: http.title:"gotify"
     fofa-query: title="gotify"
     google-query: intitle:"gotify"
-  tags: panel,gotify,login,detect,discovery
-
+    max-request: 1
+    product: server
+    shodan-query:
+      - http.title:"Gotify"
+      - http.title:"gotify"
+    vendor: gotify
+    verified: true
+  tags: detect,discovery,gotify,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains_any(body, "<title>Gotify", "content=\"Gotify")'
-        condition: and
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
           - '"version":"([0-9.]+)"'
-
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains_any(body, "<title>Gotify", "content=\"Gotify")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}'

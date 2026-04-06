@@ -1,11 +1,9 @@
 id: magnolia-default-login
-
 info:
   name: Magnolia CMS Default Login - Detect
   author: pussycat0x
   severity: high
-  description: |
-    Magnolia CMS default login credentials were discovered.
+  description: Magnolia CMS default login credentials were detected.
   reference:
     - https://www.magnolia-cms.com/
   classification:
@@ -15,13 +13,48 @@ info:
     cpe: cpe:2.3:a:magnolia-cms:magnolia_cms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "Magnolia is a registered trademark"
-    verified: true
     max-request: 3
+    product: magnolia_cms
+    shodan-query: html:"Magnolia is a registered trademark"
     vendor: magnolia-cms
-  tags: magnolia,default-login,vuln
-
+    verified: true
+  tags: default-login,magnolia,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - internal: true
+        kval:
+          - csrf
+        name: csrf
+        part: header
+        type: kval
+      - internal: true
+        kval:
+          - JSESSIONID
+        name: session
+        part: header
+        type: kval
+    matchers:
+      - condition: and
+        part: body_3
+        type: word
+        words:
+          - '"changes":'
+          - '"resources":'
+      - part: header_3
+        type: word
+        words:
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - superuser
+      username:
+        - superuser
+    raw:
       - |
         GET /.magnolia/admincentral HTTP/1.1
         Host: {{Hostname}}
@@ -38,44 +71,3 @@ http:
         GET /.magnolia/admincentral/PUSH?v-uiId=1 HTTP/1.1
         Host: {{Hostname}}
         Cookie: csrf={{csrf}}; JSESSIONID={{session}}
-
-    payloads:
-      username:
-        - superuser
-      password:
-        - superuser
-    attack: pitchfork
-
-    extractors:
-      - type: kval
-        name: csrf
-        part: header
-        internal: true
-        kval:
-          - csrf
-
-      - type: kval
-        name: session
-        internal: true
-        part: header
-        kval:
-          - JSESSIONID
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_3
-        words:
-          - '"changes":'
-          - '"resources":'
-        condition: and
-
-      - type: word
-        part: header_3
-        words:
-          - 'application/json'
-
-      - type: status
-        status:
-          - 200
-

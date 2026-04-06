@@ -1,5 +1,4 @@
 id: insecure-sudoers-permissions
-
 info:
   name: macOS Insecure /etc/sudoers Permissions
   author: geeknik
@@ -10,10 +9,7 @@ info:
     Insecure permissions on /etc/sudoers could allow unauthorized users to modify the file and grant themselves root privileges.
   remediation: |
     Ensure that the /etc/sudoers file is owned by root with a system group (wheel, admin, etc.) and has permissions of 0440 or more restrictive.
-  tags: macos,audit,local,security,sudo
-
-self-contained: true
-
+  tags: audit,local,macos,security,sudo
 code:
   - engine:
       - sh
@@ -29,4 +25,5 @@ code:
         regex:
           - "^-r--r-----\\s+\\d+\\s+root\\s+\\w+"
         negative: true
-
+        # digest: 4b0a0048304602210097a287244d9ed09ffb331116f32802392d11aaa8fb0213fc39c35c24166d8beb022100bd0f5ae8e37b1081db8f56616615959457283c1558406ddcb720f041b2aaa582:922c64590222798bb761d5b6d8e72950
+self-contained: true

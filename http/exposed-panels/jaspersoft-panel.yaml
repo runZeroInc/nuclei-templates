@@ -1,5 +1,4 @@
 id: jaspersoft-panel
-
 info:
   name: TIBCO Jaspersoft Login Panel - Detect
   author: koti2,daffainfo
@@ -11,32 +10,29 @@ info:
     cpe: cpe:2.3:a:tibco:jaspersoft:*:*:*:*:aws_with_multi-tenancy:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)jaspersoft"})
-    max-request: 2
-    vendor: tibco
-    product: jaspersoft
-    shodan-query: http.title:"jaspersoft"
     fofa-query: title="jaspersoft"
     google-query: intitle:"jaspersoft"
-  tags: panel,jaspersoft,tibco,discovery
-
+    max-request: 2
+    product: jaspersoft
+    shodan-query:
+      - http.title:"Jaspersoft"
+      - http.title:"jaspersoft"
+    vendor: tibco
+  tags: discovery,jaspersoft,panel,tibco
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/jasperserver/login.html?error=1"
-      - "{{BaseURL}}/jasperserver-pro/login.html?error=1"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - "TIBCO Jaspersoft: Login"
-          - "Could not login to JasperReports Server"
-          - "About TIBCO JasperReports Server"
-        condition: or
-
-      - type: status
-        status:
+          - 'TIBCO Jaspersoft: Login'
+          - Could not login to JasperReports Server
+          - About TIBCO JasperReports Server
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/jasperserver/login.html?error=1'
+      - '{{BaseURL}}/jasperserver-pro/login.html?error=1'
+    stop-at-first-match: true

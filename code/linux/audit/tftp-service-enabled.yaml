@@ -1,5 +1,4 @@
 id: tftp-service-enabled
-
 info:
   name: TFTP Service Should Be Disabled
   author: songyaeji
@@ -8,10 +7,7 @@ info:
     The tftp service was rarely needed and contained known vulnerabilities that could have been targeted by attackers.It was checked to confirm that the tftp service was properly disabled in the xinetd configuration.
   reference:
     - https://isms.kisa.or.kr
-  tags: linux,local,code,audit,compliance,kisas
-
-self-contained: true
-
+  tags: audit,code,compliance,kisas,linux,local
 code:
   - engine:
       - sh
@@ -31,4 +27,5 @@ code:
       - type: word
         words:
           - "[VULNERABLE]"
-
+        # digest: 490a0046304402207ca25deb7789e6bf0355d2057e97eb454211d418bc137f3d92febb0ec1f8863b02204a9bca89b9b27e6c9987aa23836df6dc1fdd1e7c35c09be66be3b5ed121805ea:922c64590222798bb761d5b6d8e72950
+self-contained: true

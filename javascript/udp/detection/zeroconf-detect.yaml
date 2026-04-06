@@ -1,5 +1,4 @@
 id: zeroconf-detect
-
 info:
   name: Zeroconf - Detect
   author: pussycat0x
@@ -11,13 +10,10 @@ info:
   metadata:
     verified: true
     zoomeye-query: service="zeroconf"
-  tags: zeroconf,network,js,udp,discovery
-
+  tags: discovery,js,network,udp,zeroconf
 javascript:
-
   - pre-condition: |
       isUDPPortOpen(Host,Port);
-
     code: |
       let packet = bytes.NewBuffer();
       const c = require("nuclei/net");
@@ -27,15 +23,13 @@ javascript:
       conn.SendHex(packet);
       const result = conn.RecvFullHex();
       result
-
     args:
       Host: "{{Host}}"
       Port: 5353
-
     matchers:
       - type: dsl
         dsl:
           - 'success == true'
           - 'contains_all(response, "udp.local","rvices._dns-sd") || contains(response, "-servers.net")'
         condition: and
-
+        # digest: 4a0a004730450220524ac9b56a8c8a563a9896a7095526b463784d795c1976724301cd464a249ff3022100a202d0477cdfc336b3501bc911e3e3c04d4174d844d17ba7c65e6466ae44c993:922c64590222798bb761d5b6d8e72950

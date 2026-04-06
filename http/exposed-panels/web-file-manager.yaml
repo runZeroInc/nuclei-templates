@@ -1,5 +1,4 @@
 id: web-file-manager
-
 info:
   name: Web File Manager Login Panel - Detect
   author: DhiyaneshDK
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:a:webdesi9:file_manager:*:*:*:*:wordpress:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Web File Manager"})
-    verified: true
     max-request: 1
+    product: file_manager
+    shodan-query: title:"Web File Manager"
     vendor: webdesi9
-  tags: panel,filemanager,discovery
-
+    verified: true
+  tags: discovery,filemanager,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Web File Manager
+          - Login
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/Login'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Web File Manager'
-          - 'Login'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

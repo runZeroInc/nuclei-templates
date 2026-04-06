@@ -1,5 +1,4 @@
 id: steve-login-panel
-
 info:
   name: SteVe Login Panel - Detect
   author: clem9669
@@ -14,29 +13,27 @@ info:
     cpe: cpe:2.3:a:steve-community:steve:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)SteVe - Steckdosenverwaltung"})
-    verified: true
+    google-query: intitle:"SteVe - Steckdosenverwaltung"
     max-request: 2
+    product: steve
+    shodan-query: http.title:"SteVe - Steckdosenverwaltung"
     vendor: steve-community
-  tags: panel,steve,discovery
-
+    verified: true
+  tags: discovery,panel,steve
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/manager/signin"
-      - "{{BaseURL}}/steve/manager/signin"
-
-    stop-at-first-match: true
-    redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - 'SteVe - Steckdosenverwaltung'
-
-      - type: status
-        status:
+          - SteVe - Steckdosenverwaltung
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/manager/signin'
+      - '{{BaseURL}}/steve/manager/signin'
+    redirects: true
+    stop-at-first-match: true

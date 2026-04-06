@@ -1,5 +1,4 @@
 id: leostream-default-login
-
 info:
   name: Leostream Default Login
   author: bhutch
@@ -13,42 +12,38 @@ info:
     cpe: cpe:2.3:a:leostream:connection_broker:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Leostream"})
-    verified: true
     max-request: 1
+    product: connection_broker
+    shodan-query: http.title:"Leostream"
     vendor: leostream
-  tags: leostream,default-login,vuln
-
+    verified: true
+  tags: default-login,leostream,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - part: header
+        type: word
+        words:
+          - 'Set-Cookie: lld=%21'
+      - condition: or
+        part: header
+        type: word
+        words:
+          - index.pl
+          - server.pl
+          - status.pl
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - leo
+      username:
+        - admin
+    raw:
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
 
         login_type=0&user={{username}}&password={{password}}&submit=SIGN+IN
-
-    payloads:
-      username:
-        - admin
-      password:
-        - leo
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "Set-Cookie: lld=%21"
-
-      - type: word
-        part: header
-        words:
-          - 'index.pl'
-          - 'server.pl'
-          - 'status.pl'
-        condition: or
-
-      - type: status
-        status:
-          - 302
-

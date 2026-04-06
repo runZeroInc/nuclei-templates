@@ -1,5 +1,4 @@
 id: goanywhere-mft-login
-
 info:
   name: GoAnywhere Managed File Transfer Login Panel - Detect
   author: ritikchaddha,righettod
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:fortra:goanywhere_managed_file_transfer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)GoAnywhere Managed File Transfer"
-    verified: true
     max-request: 2
+    product: goanywhere_managed_file_transfer
+    shodan-query: http.html:"GoAnywhere Managed File Transfer"
     vendor: fortra
-  tags: panel,goanywhere,login,filetransfer,discovery
-
+    verified: true
+  tags: discovery,filetransfer,goanywhere,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/goanywhere/auth/Login.xhtml"
-      - "{{BaseURL}}/webclient/Login.xhtml"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
+        type: word
         words:
-          - "GoAnywhere Managed File Transfer"
-          - "GoAnywhere Web Client"
-        condition: or
-
-      - type: status
-        status:
+          - GoAnywhere Managed File Transfer
+          - GoAnywhere Web Client
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/goanywhere/auth/Login.xhtml'
+      - '{{BaseURL}}/webclient/Login.xhtml'

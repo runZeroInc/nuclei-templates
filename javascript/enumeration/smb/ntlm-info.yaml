@@ -1,5 +1,4 @@
 id: ntlm-info
-
 info:
   name: NTLM Information - Detection
   author: pussycat0x
@@ -11,24 +10,20 @@ info:
   metadata:
     shodan-query: "port:445"
     verified: true
-  tags: js,network,smb,enum,discovery
-
+  tags: discovery,enum,js,network,smb
 javascript:
   - code: |
       var m = require("nuclei/smb");
       var c = m.SMBClient();
       var response = c.ConnectSMBInfoMode(Host, Port);
       to_json(response);
-
     args:
       Host: "{{Host}}"
       Port: "445"
-
     matchers:
       - type: dsl
         dsl:
           - "len(ntlm) != 0"
-
     extractors:
       - type: json
         internal: true
@@ -36,8 +31,7 @@ javascript:
         name: ntlm
         json:
           - '.NTLM'
-
       - type: json
         json:
           - '"NTLM: "+ .NTLM'
-
+        # digest: 4a0a0047304502206aad7c1f81a1263b5a61a5f32e558f4376c9f3457de3361e23cbfafa326b0fdc022100927490914f9e68aad7136b64a489c9c67f37abbbc9a817965b2181cb8e231339:922c64590222798bb761d5b6d8e72950

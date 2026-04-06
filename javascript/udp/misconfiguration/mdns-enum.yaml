@@ -1,5 +1,4 @@
 id: mDNS-enum
-
 info:
   name: mDNS Enumeration
   author: matejsmycka
@@ -7,14 +6,12 @@ info:
   description: |
     mDNS may disclose details about services running on a local network. When mDNS traffic is accessible from the public Internet, attackers can exploit it to map internal services. If exposure is suspected, perform enumeration with tools such as dig to collect additional information.
   metadata:
-    verified: true
     shodan-query: port:5353
-  tags: dns,udp,mdns,enum,js,enum
-
+    verified: true
+  tags: dns,enum,enum,js,mdns,udp
 javascript:
   - pre-condition: |
       isUDPPortOpen(Host,Port);
-
     code: |
       let c = require("nuclei/net");
       let conn = c.Open('udp', `${Host}:${Port}`);
@@ -23,16 +20,13 @@ javascript:
       conn.SendHex(packet);
       let resp = conn.Recv(512);
       resp;
-
     args:
       Host: "{{Host}}"
       Port: 5353
-
     matchers:
       - type: dsl
         dsl:
           - "success == true"
-
     extractors:
       - type: regex
         regex:
@@ -54,4 +48,4 @@ javascript:
           - "googlecast"
           - "printer"
           - "occam"
-
+        # digest: 4b0a00483046022100e5549b8c050e75530c058f5ebca15ac24c21135dda65f2f8a998185208f19223022100dde4a9a4fb4caef734a7747820fbe3220086871a055861b6779c3fc428bf748c:922c64590222798bb761d5b6d8e72950

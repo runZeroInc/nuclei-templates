@@ -1,5 +1,4 @@
 id: qdpm-login-panel
-
 info:
   name: qdPM Login Panel
   author: theamanrawat
@@ -8,37 +7,31 @@ info:
     cpe: cpe:2.3:a:qdpm:qdpm:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "762074255"
-    verified: "true"
-    max-request: 2
-    vendor: qdpm
-    product: qdpm
-    shodan-query: http.favicon.hash:"762074255"
     fofa-query: icon_hash=762074255
-  tags: panel,qdpm,login,discovery
-
+    max-request: 2
+    product: qdpm
+    shodan-query: http.favicon.hash:762074255
+    vendor: qdpm
+    verified: "true"
+  tags: discovery,login,panel,qdpm
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - qdPM
+          - /index.php/login/restorePassword
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/index.php/login'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'qdPM'
-          - '/index.php/login/restorePassword'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: status
-        status:
-          - 200
-

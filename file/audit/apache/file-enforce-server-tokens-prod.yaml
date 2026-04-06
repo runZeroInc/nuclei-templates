@@ -1,5 +1,4 @@
 id: file-enforce-server-tokens-prod
-
 info:
   name: Enforce Apache2 ServerTokens Prod
   author: pussycat0x
@@ -12,12 +11,10 @@ info:
     - https://httpd.apache.org/docs/2.4/mod/core.html#servertokens
   metadata:
     verified: true
-  tags: audit,config,file,apache,hardening
-
+  tags: apache,audit,config,file,hardening
 file:
   - extensions:
       - conf
-
     matchers-condition: and
     matchers:
       - type: word
@@ -25,9 +22,8 @@ file:
           - "<Directory"
           - "<FilesMatch"
         condition: and
-
       - type: word
         words:
           - "ServerTokens Prod"
         negative: true
-
+        # digest: 4a0a0047304502203e2c006ed53c2e090511e51e530a99cc72cf7fbcaba4c13b3075e2ded3bd4e81022100b2daccea27a12d56eb104781903fadfb001e031c5c7aee4b9f6e06233b12f75c:922c64590222798bb761d5b6d8e72950

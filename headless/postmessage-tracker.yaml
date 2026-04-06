@@ -1,13 +1,11 @@
 id: postmessage-tracker
-
 info:
   name: Postmessage Tracker
   author: pdteam
   severity: info
   reference:
     - https://github.com/vinothsparrow/iframe-broker/blob/main/static/script.js
-  tags: headless,postmessage,discovery
-
+  tags: discovery,headless,postmessage
 headless:
   - steps:
       - action: setheader
@@ -15,7 +13,6 @@ headless:
           part: response
           key: Content-Security-Policy
           value: "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"
-
       - action: script
         args:
           hook: true
@@ -46,27 +43,23 @@ headless:
                 return oldListener.apply(this, arguments);
               };
             }
-
       - args:
           url: "{{BaseURL}}"
         action: navigate
       - action: waitload
-
       - action: script
         name: alerts
         args:
           code: |
             () => { window.alerts }
-
     matchers:
       - type: word
         part: alerts
         words:
           - "at Window.addEventListener"
-
     extractors:
       - type: kval
         part: alerts
         kval:
           - alerts
-
+        # digest: 490a0046304402205bdcfd850c2338ab4eb322306b9f6feae16fe6907c1b2826685552f61433098e02206ca893e0450f6f8cbe9432854bae73fb2ce1203bb2199a214d7b1e85a6652ef6:922c64590222798bb761d5b6d8e72950

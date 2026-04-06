@@ -1,5 +1,4 @@
 id: sqs-encryption-disabled
-
 info:
   name: Queue Server Side Encryption - Disabled
   author: DhiyaneshDK
@@ -11,49 +10,41 @@ info:
   remediation: |
     Enable Server-Side Encryption (SSE) on the queue to protect sensitive data by encrypting it at rest using AWS KMS.
   reference:
-    - https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/SQS/server-side-encryption.html
     - http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html
-  tags: cloud,devops,aws,amazon,sqs,aws-cloud-config
-
+    - https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/SQS/server-side-encryption.html
+  tags: amazon,aws,aws-cloud-config,cloud,devops,sqs
 variables:
   region: "us-west-2"
-
-flow: |
-  code(1)
-  for(let QueueUrls of iterate(template.queueurls)){
-    set("queueurl", QueueUrls)
-    code(2)
-  }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       aws sqs list-queues --region $region --query 'QueueUrls[*]' --output json
-
     extractors:
       - type: json
         name: queueurls
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
-        aws sqs get-queue-attributes --region $region --queue-url $queueurl --attribute-names "SqsManagedSseEnabled" "KmsMasterKeyId" --query 'Attributes' --output json
-
+      aws sqs get-queue-attributes --region $region --queue-url $queueurl --attribute-names "SqsManagedSseEnabled" "KmsMasterKeyId" --query 'Attributes' --output json
     matchers:
       - type: word
         words:
           - '"SqsManagedSseEnabled": "false"'
-
     extractors:
       - type: dsl
         dsl:
           - '"Queue Server Side Encryption " + queueurl + " is Disabled"'
-
+        # digest: 4a0a00473045022100add4bb0534387a1392f03de5f86fd268077efd76a14fa1705978154aa6ac94a10220565f20399af089acb9efda991637166107fafe0c095b8f45b3bf651c620c096c:922c64590222798bb761d5b6d8e72950
+flow: |
+  code(1)
+  for(let QueueUrls of iterate(template.queueurls)){
+    set("queueurl", QueueUrls)
+    code(2)
+  }
+self-contained: true

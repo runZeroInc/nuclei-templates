@@ -1,5 +1,4 @@
 id: fusionauth-admin-panel
-
 info:
   name: FusionAuth Admin Panel - Detect
   author: ritikchaddha
@@ -8,43 +7,38 @@ info:
     cpe: cpe:2.3:a:fusionauth:fusionauth:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)fusionauth"})
-    verified: true
-    max-request: 2
-    vendor: fusionauth
-    product: fusionauth
-    shodan-query:
-      - http.title:"fusionauth"
     fofa-query: title="fusionauth"
     google-query: intitle:"fusionauth"
-  tags: panel,fusionauth,detect,login,discovery
-
+    max-request: 2
+    product: fusionauth
+    shodan-query:
+      - title:"FusionAuth"
+      - http.title:"fusionauth"
+    vendor: fusionauth
+    verified: true
+  tags: detect,discovery,fusionauth,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/oauth2/authorize"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>Login | FusionAuth'
-          - 'FusionAuth.OAuth2'
-          - 'content="FusionAuth'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
-          - 'FusionAuth\.Version = "([0-9.]+)";'
-
+          - FusionAuth\.Version = "([0-9.]+)";
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>Login | FusionAuth
+          - FusionAuth.OAuth2
+          - content="FusionAuth
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/oauth2/authorize'
+    stop-at-first-match: true

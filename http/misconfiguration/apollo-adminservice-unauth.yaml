@@ -1,5 +1,4 @@
 id: apollo-adminservice-unauth
-
 info:
   name: Apollo Admin Service - Unauthenticated Access
   author: j4vaovo
@@ -14,33 +13,30 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:ctrip:apollo:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: apollo
+    shodan-query: http.html:"apollo-adminservice"
     vendor: ctrip
-  tags: misconfig,unauth,apollo,apolloadminservice,vuln
-
+    verified: true
+  tags: apollo,apolloadminservice,misconfig,unauth,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/apps"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'appId'
-          - 'orgName'
-          - 'ownerName'
-          - 'dataChangeCreatedBy'
-        condition: and
-
-      - type: word
-        part: header
+          - appId
+          - orgName
+          - ownerName
+          - dataChangeCreatedBy
+      - part: header
+        type: word
         words:
-          - 'application/json'
-
-      - type: status
-        status:
+          - application/json
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/apps'

@@ -1,5 +1,4 @@
 id: minio-browser
-
 info:
   name: MinIO Browser Login Panel - Detect
   author: pikpikcu
@@ -11,36 +10,31 @@ info:
     cpe: cpe:2.3:a:minio:minio:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)minio browser"}) || any(each(service["html.titles"]), {# matches "(?i)minio console"})
-    max-request: 1
-    vendor: minio
-    product: minio
-    shodan-query:
-      - http.title:"minio browser"
-      - cpe:"cpe:2.3:a:minio:minio"
-      - http.title:"minio console"
-      - http.html:"symfony profiler"
     fofa-query:
       - app="minio"
       - title="minio browser"
       - title="minio console"
-      - body="symfony profiler"
     google-query:
       - intitle:"minio browser"
       - intitle:"minio console"
-  tags: panel,minio,discovery
-
+    max-request: 1
+    product: minio
+    shodan-query:
+      - title:"MinIO Browser"
+      - http.title:"minio browser"
+      - cpe:"cpe:2.3:a:minio:minio"
+      - http.title:"minio console"
+    vendor: minio
+  tags: discovery,minio,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/minio/login"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - "contains(tolower(body), '<title>minio browser</title>')"
-
-      - type: status
-        status:
+  - matchers:
+      - dsl:
+          - contains(tolower(body), '<title>minio browser</title>')
+        type: dsl
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/minio/login'

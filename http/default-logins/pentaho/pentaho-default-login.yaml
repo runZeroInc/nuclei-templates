@@ -1,11 +1,9 @@
 id: pentaho-default-login
-
 info:
   name: Pentaho Default Login
   author: pussycat0x
   severity: high
-  description: |
-    Pentaho default admin credentials were discovered.
+  description: Pentaho default admin credentials were discovered.
   reference:
     - https://www.hitachivantara.com/en-us/pdfd/training/pentaho-lesson-1-user-console-overview.pdf
   classification:
@@ -15,35 +13,32 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "^Pentaho User Console"})
     max-request: 1
+    product: vantara_pentaho
+    shodan-query: pentaho
     vendor: hitachi
-  tags: pentaho,default-login,vuln
-
+  tags: default-login,pentaho,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - pentaho/Home
+          - JSESSIONID=
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - password
+      user:
+        - admin
+    raw:
       - |
         POST /pentaho/j_spring_security_check HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
         j_username={{user}}&j_password={{pass}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - password
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - 'pentaho/Home'
-          - 'JSESSIONID='
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

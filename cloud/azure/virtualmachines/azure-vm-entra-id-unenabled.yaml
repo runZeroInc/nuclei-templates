@@ -11,8 +11,35 @@ info:
     Ensure the Microsoft Entra ID authentication extensions, "AADLoginForWindows" or "AADLoginForLinux", are installed and enabled on your Azure VMs for secure access management.
   reference:
     - https://docs.microsoft.com/en-us/azure/active-directory/develop/
-  tags: cloud,devops,azure,microsoft,entra-id,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,entra-id,microsoft
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      az vm list --output json --query '[*].{"name":name,"resourceGroup":resourceGroup}'
+    extractors:
+      - type: json
+        name: vmList
+        internal: true
+        json:
+          - '.[]'
+  - engine:
+      - sh
+      - bash
+    source: |
+      az vm extension list --vm-name "$name" --resource-group "$resourceGroup" --query '[*].name'
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'AADLoginForWindows'
+          - 'AADLoginForLinux'
+    extractors:
+      - type: dsl
+        dsl:
+          - 'name + " in " + resourceGroup + " does not have Microsoft Entra ID authentication enabled"'
+        # digest: 4b0a00483046022100e9377e4b50b0268d777d0f9f30a71dc2467b19530d1bcd818979243b111104fc022100fb443e02de8089109c30278e5c1684866aee8d9307f4d91e694864069c38e9e0:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1);
   for (let VmData of iterate(template.vmList)) {
@@ -21,37 +48,4 @@ flow: |
     set("resourceGroup", VmData.resourceGroup);
     code(2);
   }
-
 self-contained: true
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      az vm list --output json --query '[*].{"name":name,"resourceGroup":resourceGroup}'
-
-    extractors:
-      - type: json
-        name: vmList
-        internal: true
-        json:
-          - '.[]'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      az vm extension list --vm-name "$name" --resource-group "$resourceGroup" --query '[*].name'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'AADLoginForWindows'
-          - 'AADLoginForLinux'
-
-    extractors:
-      - type: dsl
-        dsl:
-          - 'name + " in " + resourceGroup + " does not have Microsoft Entra ID authentication enabled"'
-

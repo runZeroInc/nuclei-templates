@@ -12,12 +12,9 @@ info:
   reference:
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html
     - https://www.mongodb.com/docs/manual/security/
-  tags: cloud,devops,aws,amazon,ec2,mongodb,aws-cloud-config
-
+  tags: amazon,aws,aws-cloud-config,cloud,devops,ec2,mongodb
 variables:
   region: "us-east-1"
-
-self-contained: true
 code:
   - engine:
       - sh
@@ -25,15 +22,14 @@ code:
     source: |
       aws ec2 describe-security-groups --region $region --filters Name=ip-permission.from-port,Values=27017 Name=ip-permission.to-port,Values=27017 Name=ip-permission.cidr,Values='0.0.0.0/0' --query 'SecurityGroups[*].GroupId' --output json
       aws ec2 describe-security-groups --region $region --filters Name=ip-permission.from-port,Values=27017 Name=ip-permission.to-port,Values=27017 Name=ip-permission.ipv6-cidr,Values='::/0' --query 'SecurityGroups[*].GroupId' --output json
-
     extractors:
       - type: json
         name: securitygroup
         internal: true
         json:
           - '.[]'
-
       - type: dsl
         dsl:
           - 'securitygroup + " security group(s) alows unrestricted mongodb access (0.0.0.0/0 or ::/0) on port 27017"'
-
+        # digest: 4a0a0047304502203a465249f028257d171c49320ac105363f845610d742358a5202ed495dfcf5d7022100af5268b013aca1dac33f4317fac268c5414f3003238986333b575c5a46deb398:922c64590222798bb761d5b6d8e72950
+self-contained: true

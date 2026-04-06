@@ -1,11 +1,9 @@
 id: panos-default-login
-
 info:
   name: Palo Alto Networks PAN-OS Default Login
   author: Techryptic (@Tech)
   severity: high
-  description: |
-    Palo Alto Networks PAN-OS default admin credentials were discovered.
+  description: Palo Alto Networks PAN-OS application default admin credentials were discovered.
   reference:
     - https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/getting-started/integrate-the-firewall-into-your-management-network/perform-initial-configuration.html#:~:text=By%20default%2C%20the%20firewall%20has,with%20other%20firewall%20configuration%20tasks.
   classification:
@@ -15,36 +13,30 @@ info:
   metadata:
     runzero-match: any(each(service["html.bodies"]), {# contains "window.Pan = window.Pan || {}"})
     max-request: 1
-  tags: panos,default-login,vuln
-
+  tags: default-login,panos,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - part: header
+        type: word
+        words:
+          - 'Set-Cookie: PHPSESSID'
+      - type: word
+        words:
+          - 'Warning: Your device is still configured with the default admin'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /php/login.php HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         user={{username}}&passwd={{password}}&challengePwd=&ok=Login
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "Set-Cookie: PHPSESSID"
-
-      - type: word
-        words:
-          - "Warning: Your device is still configured with the default admin"
-
-      - type: status
-        status:
-          - 200
-

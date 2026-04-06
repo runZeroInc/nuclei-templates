@@ -1,5 +1,4 @@
 id: hivemanager-login-panel
-
 info:
   name: HiveManager Login Panel - Detect
   author: binaryfigments,daffainfo
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:a:aerohive:hivemanager_classic:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1604363273"
-    verified: true
     max-request: 1
+    product: hivemanager_classic
+    shodan-query: http.favicon.hash:1604363273
     vendor: aerohive
-  tags: panel,hivemanager,aerohive,discovery
-
+    verified: true
+  tags: aerohive,discovery,hivemanager,panel
 http:
-  - method: GET
+  - matchers:
+      - part: header
+        type: word
+        words:
+          - HiveManager
+      - condition: and
+        part: body
+        type: word
+        words:
+          - HiveManager
+          - alt="Aerohive
+    matchers-condition: or
+    method: GET
     path:
       - '{{BaseURL}}/hm/login.action'
-
-    matchers-condition: or
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "HiveManager"
-
-      - type: word
-        part: body
-        words:
-          - "HiveManager"
-          - 'alt="Aerohive'
-        condition: and
-

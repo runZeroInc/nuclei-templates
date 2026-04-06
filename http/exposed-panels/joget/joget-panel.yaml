@@ -1,5 +1,4 @@
 id: joget-panel
-
 info:
   name: Joget Panel - Detect
   author: Podalirius
@@ -12,28 +11,25 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1343712810"
     max-request: 1
+    product: joget_dx
+    shodan-query: http.favicon.hash:-1343712810
     vendor: joget
-  tags: panel,joget,discovery
-
+  tags: discovery,joget,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/jw/web/;'
-
-    matchers-condition: and
+  - extractors:
+      - group: 2
+        part: body
+        regex:
+          - <li>(Version:[ \n\t]*([^<]+)[ \n\t]*)</li>
+        type: regex
     matchers:
       - type: word
         words:
-          - 'System Error'
-
-      - type: status
-        status:
+          - System Error
+      - status:
           - 500
-
-    extractors:
-      - type: regex
-        part: body
-        group: 2
-        regex:
-          - '<li>(Version:[ \n\t]*([^<]+)[ \n\t]*)</li>'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/jw/web/;'

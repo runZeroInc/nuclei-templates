@@ -1,5 +1,4 @@
 id: xibocms-login
-
 info:
   name: Xibo CMS Login Panel - Detect
   author: ritikchaddha,daffainfo
@@ -11,33 +10,30 @@ info:
     cpe: cpe:2.3:a:springsignage:xibo:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)/xibosignage/xibo-cms"
-    verified: true
     max-request: 1
+    product: xibo
+    shodan-query: http.html:"/xibosignage/xibo-cms"
     vendor: springsignage
-  tags: panel,xibocms,discovery
-
+    verified: true
+  tags: discovery,panel,xibocms
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - 'xibo-cms'
-          - 'class="XiboFormButton'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '([0-9.]+)            | <a id="source-link"'
-
+          - ([0-9.]+)            | <a id="source-link"
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - xibo-cms
+          - class="XiboFormButton
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

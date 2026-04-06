@@ -1,10 +1,9 @@
 id: audiocodes-default-login
-
 info:
-  name: AudioCodes 310HD, 320HD, 420HD, 430HD & 440HD Default Credentials
+  name: AudioCodes 310HD, 320HD, 420HD, 430HD & 440HD - Default Login
   author: d4vy
   severity: high
-  description: AudioCodes 310HD, 320HD, 420HD, 430HD & 440HD default login credentials were discovered.
+  description: AudioCodes devices 310HD, 320HD, 420HD, 430HD & 440HD contain a default login vulnerability. Default login credentials were discovered. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://wiki.freepbx.org/display/FPG/Supported+Devices-Audio+Codes#:~:text=Reset%20to%20Factory%20Defaults,-Press%20the%20Menu&text=Then%2C%20enter%20the%20Admin%20password,is%20%221234%22%20by%20default
   classification:
@@ -12,38 +11,32 @@ info:
   metadata:
     runzero-match: service["http.head.server"] contains "AudioCodes Web Server"
     max-request: 1
-  tags: iot,audiocodes,default-login,vuln
-
+  tags: audiocodes,default-login,iot,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - type: word
+        words:
+          - redirect('/mainform.cgi?go=mainframe.htm')
+      - negative: true
+        part: body
+        type: word
+        words:
+          - Login failed. Check username and password
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - "1234"
+      username:
+        - admin
+    raw:
       - |
         POST /login.cgi HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         user={{username}}&psw={{url_encode(base64("{{password}}"))}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - '1234'
     unsafe: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - redirect('/mainform.cgi?go=mainframe.htm')
-
-      - type: word
-        part: body
-        negative: true
-        words:
-          - Login failed. Check username and password
-
-      - type: status
-        status:
-          - 200
-

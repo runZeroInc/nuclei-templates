@@ -1,5 +1,4 @@
 id: qmail-admin-login
-
 info:
   name: QmailAdmin Login Panel - Detect
   author: ritikchaddha
@@ -11,35 +10,32 @@ info:
     cpe: cpe:2.3:a:qmail_project:qmail:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)qmailadmin"})
-    verified: true
-    max-request: 5
-    vendor: qmail_project
-    product: qmail
-    shodan-query: http.title:"qmailadmin"
     fofa-query: title="qmailadmin"
     google-query: intitle:"qmailadmin"
-  tags: qmail,panel,qmail_project,discovery
-
+    max-request: 5
+    product: qmail
+    shodan-query:
+      - title:"QmailAdmin"
+      - http.title:"qmailadmin"
+    vendor: qmail_project
+    verified: true
+  tags: discovery,panel,qmail,qmail_project
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/qmailadmin/qmailadmin.cgi"
-      - "{{BaseURL}}/cgi-bin/qmailadmin/qmailadmin"
-      - "{{BaseURL}}/cgi-bin/qmailadmin"
-      - "{{BaseURL}}/cgi-ssl/qmailadmin/qmailadmin"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
       - type: word
         words:
-          - "QmailAdmin"
-
-      - type: status
-        status:
+          - QmailAdmin
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/qmailadmin/qmailadmin.cgi'
+      - '{{BaseURL}}/cgi-bin/qmailadmin/qmailadmin'
+      - '{{BaseURL}}/cgi-bin/qmailadmin'
+      - '{{BaseURL}}/cgi-ssl/qmailadmin/qmailadmin'
+    stop-at-first-match: true

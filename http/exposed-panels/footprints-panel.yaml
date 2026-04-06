@@ -1,5 +1,4 @@
 id: footprints-panel
-
 info:
   name: FootPrints Service Core Login Panel - Detect
   author: tess
@@ -11,27 +10,24 @@ info:
     cpe: cpe:2.3:a:bmc:footprints_service_core:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)FootPrints Service Core Login"})
-    verified: true
     max-request: 2
+    product: footprints_service_core
+    shodan-query: title:"FootPrints Service Core Login"
     vendor: bmc
-  tags: tech,panel,footprints,discovery
-
+    verified: true
+  tags: discovery,footprints,panel,tech
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - FootPrints Service Core Login
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/MRcgi/MRlogin.pl'
       - '{{BaseURL}}/MRcgi/MRentrancePage.pl'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'FootPrints Service Core Login'
-
-      - type: status
-        status:
-          - 200
-

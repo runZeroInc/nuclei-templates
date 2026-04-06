@@ -1,5 +1,4 @@
 id: privesc-fish
-
 info:
   name: fish - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/fish/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,fish,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,fish,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       fish -c 'whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo fish -c 'whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a0047304502205022eaaf352eb396f94084afb5f447ec41826e7546ee1768f0ccddd95a7f463e022100e9298ebeac5866aa6c3157ca4a363f35917b7f0be12078031245c5d87a38f4e2:922c64590222798bb761d5b6d8e72950
+self-contained: true

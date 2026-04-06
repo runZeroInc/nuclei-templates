@@ -1,5 +1,4 @@
 id: manageengine-apex-helpdesk
-
 info:
   name: ZOHO ManageEngine APEX IT Help-Desk Panel - Detect
   author: dhiyaneshDK
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_analytics_plus:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)apex it help desk"})
-    max-request: 1
-    vendor: zohocorp
-    product: manageengine_analytics_plus
-    shodan-query: http.title:"apex it help desk"
     fofa-query:
       - app="zoho-流量管理"
       - title="apex it help desk"
     google-query: intitle:"apex it help desk"
-  tags: panel,zoho,manageengine,zohocorp,discovery
-
+    max-request: 1
+    product: manageengine_analytics_plus
+    shodan-query:
+      - http.title:"APEX IT Help Desk"
+      - http.title:"apex it help desk"
+    vendor: zohocorp
+  tags: discovery,manageengine,panel,zoho,zohocorp
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/jsp/index.jsp'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>APEX IT Help Desk</title>'
-
-      - type: status
-        status:
+          - <title>APEX IT Help Desk</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/jsp/index.jsp'

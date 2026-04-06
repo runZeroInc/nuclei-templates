@@ -1,5 +1,4 @@
 id: kubernetes-mirantis
-
 info:
   name: Mirantis Kubernetes Engine Panel - Detect
   author: pussycat0x
@@ -11,24 +10,23 @@ info:
     cpe: cpe:2.3:a:mirantis:kubernetes_engine:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)Mirantis Kubernetes Engine"
-    verified: true
+    fofa-query: app="Mirantis-Kubernetes-Engine"
     max-request: 1
+    product: kubernetes_engine
+    shodan-query: http.html:"Mirantis Kubernetes Engine"
     vendor: mirantis
-  tags: tech,kubernetes,devops,kube,k8s,panel,discovery
-
+    verified: true
+  tags: devops,discovery,k8s,kube,kubernetes,panel,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "Mirantis Kubernetes Engine"
-
-      - type: status
-        status:
+          - Mirantis Kubernetes Engine
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

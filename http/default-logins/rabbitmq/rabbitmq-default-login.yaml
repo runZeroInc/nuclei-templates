@@ -1,11 +1,9 @@
 id: rabbitmq-default-login
-
 info:
   name: RabbitMQ Default Login
   author: fyoorer,dwisiswant0
   severity: high
-  description: |
-    RabbitMQ default admin credentials were discovered.
+  description: RabbitMQ default admin credentials were discovered.
   reference:
     - https://onlinehelp.coveo.com/en/ces/7.0/administrator/changing_the_rabbitmq_administrator_password.htm
   classification:
@@ -15,36 +13,30 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "RabbitMQ Management"})
     max-request: 1
-  tags: rabbitmq,default-login,vuln
-
+  tags: default-login,rabbitmq,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - part: header
+        type: word
+        words:
+          - application/json
+      - part: body
+        type: word
+        words:
+          - '{"name":"guest"'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - guest
+      username:
+        - guest
+    raw:
       - |
         GET /api/whoami HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
         Authorization: Basic {{base64(username + ':' + password)}}
-
-    payloads:
-      username:
-        - guest
-      password:
-        - guest
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "application/json"
-        part: header
-
-      - type: word
-        words:
-          - "{\"name\":\"guest\""
-        part: body
-
-      - type: status
-        status:
-          - 200
-

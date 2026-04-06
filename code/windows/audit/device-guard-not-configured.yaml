@@ -1,5 +1,4 @@
 id: device-guard-not-configured
-
 info:
   name: Device Guard Not Configured
   author: princechaddha
@@ -9,10 +8,7 @@ info:
     Not configuring Device Guard reduces the system's ability to block unauthorized code execution.
   remediation: |
     Configure Device Guard to enhance system protection.
-  tags: device-guard,code,windows-audit
-
-self-contained: true
-
+  tags: code,device-guard,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -25,7 +21,6 @@ code:
     pattern: "*.ps1"
     source: |
       Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\Microsoft\Windows\DeviceGuard
-
     matchers:
       - type: regex
         regex:
@@ -33,4 +28,5 @@ code:
           - 'SecurityServicesRunning\s+:\s+\{0\}'
           - 'VirtualizationBasedSecurityStatus\s+:\s+0'
         condition: or
-
+        # digest: 4a0a00473045022100ce2db0f0342d94e4784b41a5c81e21121440c87f0292b41699ec54094613f6fb022027574b68b277e0595b502a48ffe6ca767ade5c59acb77c0b3f941d5eb6c83f2e:922c64590222798bb761d5b6d8e72950
+self-contained: true

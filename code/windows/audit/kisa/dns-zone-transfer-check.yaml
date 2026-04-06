@@ -1,5 +1,4 @@
 id: dns-zone-transfer-check
-
 info:
   name: DNS Zone Transfer Check
   author: nukunga[SungHyunJeon]
@@ -15,10 +14,7 @@ info:
     - Restricting transfers to designated servers by setting the SecureSecondaries registry value to 2.
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: code,windows-audit,kisa,dns,zone-transfer
-
-self-contained: true
-
+  tags: code,dns,kisa,windows-audit,zone-transfer
 code:
   - pre-condition: |
       IsWindows();
@@ -49,9 +45,9 @@ code:
       } else {
           "DNS_ZONE_TRANSFER_COMPLIANT"
       }
-
     matchers:
       - type: word
         words:
           - "DNS_ZONE_TRANSFER_VULNERABLE"
-
+        # digest: 4b0a00483046022100be81b405c5b43fdf1fb9aee817558e543a42f9c049d3df45c13ec227f7b0db900221009822d46e216e816a520a0bc614186cf3b157a4dd8adcfc092e035485822bd400:922c64590222798bb761d5b6d8e72950
+self-contained: true

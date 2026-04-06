@@ -1,5 +1,4 @@
 id: carrental-xss
-
 info:
   name: Car Rental Management System 1.0 - Cross-Site Scripting
   author: arafatansari
@@ -16,13 +15,29 @@ info:
     cpe: cpe:2.3:a:car_rental_management_system_project:car_rental_management_system:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag authenticated
-    verified: true
     max-request: 3
+    product: car_rental_management_system
+    shodan-query: http.html:"Car Rental Management System"
     vendor: car_rental_management_system_project
-  tags: xss,cms,authenticated,edb,intrusive,vuln
-
+    verified: true
+  tags: authenticated,cms,edb,intrusive,vuln,xss
 http:
-  - raw:
+  - host-redirects: true
+    matchers:
+      - part: body
+        type: word
+        words:
+          - '<p>Name: <b></script><script>alert(document.domain)</script></b>'
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    raw:
       - |
         POST /admin/ajax.php?action=login HTTP/1.1
         Host: {{Hostname}}
@@ -49,23 +64,3 @@ http:
       - |
         GET /admin/index.php?page=categories HTTP/1.1
         Host: {{Hostname}}
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<p>Name: <b></script><script>alert(document.domain)</script></b>'
-
-      - type: word
-        part: header
-        words:
-          - text/html
-
-      - type: status
-        status:
-          - 200
-

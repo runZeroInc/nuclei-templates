@@ -1,5 +1,4 @@
 id: checkpoint-firewall-enum
-
 info:
   name: Check Point Firewall - Detect
   author: pussycat0x
@@ -7,11 +6,10 @@ info:
   reference:
     - https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/gather/checkpoint_hostname.rb
   metadata:
-    verfied: true
-    shodan-query: "product:\"Check Point Firewall\""
     max-request: 1
-  tags: js,network,firewall,checkpoint,enum,discovery
-
+    shodan-query: "product:\"Check Point Firewall\""
+    verfied: true
+  tags: checkpoint,discovery,enum,firewall,js,network
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -29,13 +27,11 @@ javascript:
       let sc_hostname = match[2];
       let result = (`Firewall Host: ${fw_hostname}, SmartCenter Host: ${sc_hostname}`);
       result
-
     args:
       Host: "{{Host}}"
       Port: 264
-
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 4a0a0047304502210087a31fdbe5c31a88b456780f5c5110950ec519ba7a9d8fae0498e0d165310e8e02204f246c85e732a030586d4e5c0502610fc19e75614ef665fc554fd33b2fe06a73:922c64590222798bb761d5b6d8e72950

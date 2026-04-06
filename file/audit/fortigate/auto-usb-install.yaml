@@ -1,5 +1,4 @@
 id: auto-usb-install
-
 info:
   name: Fortinet Auto USB Installation Enabled - Detect
   author: pussycat0x
@@ -12,11 +11,9 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   tags: audit,config,file,firewall,fortigate
-
 file:
   - extensions:
       - conf
-
     matchers-condition: and
     matchers:
       - type: word
@@ -24,11 +21,10 @@ file:
           - "set auto-install-config disable"
           - "set auto-install-image disable"
         negative: true
-
       - type: word
         words:
           - "config system"
           - "config router"
           - "config firewall"
         condition: or
-
+        # digest: 4b0a00483046022100a69e2680bdc8737910b287769f6340e8f3e1b40d1c73613afb89412d9452827402210082303f090f62f66011c53285b047ad39d384d13fea7601a4edbfa35c6e737833:922c64590222798bb761d5b6d8e72950

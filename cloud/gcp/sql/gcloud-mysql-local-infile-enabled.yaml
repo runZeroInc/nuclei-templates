@@ -1,5 +1,4 @@
 id: gcloud-mysql-local-infile-enabled
-
 info:
   name: Local Infile Enabled in MySQL Database Instances
   author: princechaddha
@@ -12,8 +11,44 @@ info:
     Disable the local_infile flag in your MySQL database instance configuration to enhance security and prevent potential misuse of the feature.
   reference:
     - https://cloud.google.com/sql/docs/mysql/flags
-  tags: cloud,devops,gcp,gcloud,google-cloud-sql,mysql,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,google-cloud-sql,mysql
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud projects list --format="json(projectId)"
+    extractors:
+      - type: json
+        name: projectIds
+        internal: true
+        json:
+          - '.[].projectId'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud sql instances list --project $projectId --filter='DATABASE_VERSION:MYSQL*' --format="json(name)"
+    extractors:
+      - type: json
+        name: sqlInstances
+        internal: true
+        json:
+          - '.[].name'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud sql instances describe asass --project gcp-templates-442409 --format=json | jq '.settings.databaseFlags // [] | map(select(.name=="local_infile")) | .[].value'
+    matchers:
+      - type: word
+        words:
+          - 'on'
+    extractors:
+      - type: dsl
+        dsl:
+          - '"The local_infile flag is enabled for MySQL instance " + sqlInstance + " in project " + projectId'
+        # digest: 490a00463044022051b9bfb75603d2af1c69627d3c591e30557d46292d12c39ef9fef62d958b7a7f02205af1a83963fca683cd0c376702709492311e3ff99c8e05a7aeaa18c31f389a01:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -24,49 +59,4 @@ flow: |
       code(3)
     }
   }
-
 self-contained: true
-
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud projects list --format="json(projectId)"
-
-    extractors:
-      - type: json
-        name: projectIds
-        internal: true
-        json:
-          - '.[].projectId'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud sql instances list --project $projectId --filter='DATABASE_VERSION:MYSQL*' --format="json(name)"
-
-    extractors:
-      - type: json
-        name: sqlInstances
-        internal: true
-        json:
-          - '.[].name'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud sql instances describe asass --project gcp-templates-442409 --format=json | jq '.settings.databaseFlags // [] | map(select(.name=="local_infile")) | .[].value'
-
-    matchers:
-      - type: word
-        words:
-          - 'on'
-
-    extractors:
-      - type: dsl
-        dsl:
-          - '"The local_infile flag is enabled for MySQL instance " + sqlInstance + " in project " + projectId'
-

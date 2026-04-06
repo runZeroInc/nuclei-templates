@@ -1,5 +1,4 @@
 id: kerio-connect-client
-
 info:
   name: Kerio Connect Login Panel - Detect
   author: dhiyaneshDk
@@ -12,22 +11,20 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kerio Connect Client"})
     max-request: 1
+    product: kerio_connect
+    shodan-query: http.title:"Kerio Connect Client"
     vendor: gfi
-  tags: panel,kerio,discovery
-
+  tags: discovery,kerio,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/webmail/login/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Kerio Connect Client</title>"
-
-      - type: status
-        status:
+          - <title>Kerio Connect Client</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/webmail/login/'

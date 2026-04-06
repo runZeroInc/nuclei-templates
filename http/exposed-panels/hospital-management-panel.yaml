@@ -1,5 +1,4 @@
 id: hospital-management-panel
-
 info:
   name: Hospital Management System Login Panel - Detect
   author: arafatansari
@@ -11,30 +10,28 @@ info:
     cpe: cpe:2.3:a:hospital_management_system_project:hospital_management_system:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)hospital management system"
-    verified: true
-    max-request: 1
-    vendor: hospital_management_system_project
-    product: hospital_management_system
-    shodan-query: http.html:"hospital management system"
     fofa-query: body="hospital management system"
-  tags: panel,hms,cms,hospital_management_system_project,discovery
-
+    max-request: 1
+    product: hospital_management_system
+    shodan-query:
+      - http.html:"Hospital Management System"
+      - http.html:"hospital management system"
+    vendor: hospital_management_system_project
+    verified: true
+  tags: cms,discovery,hms,hospital_management_system_project,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'Hospital Management System'
-          - 'Doctors Login'
-          - 'Admin Login'
-        condition: and
-
-      - type: status
-        status:
+          - Hospital Management System
+          - Doctors Login
+          - Admin Login
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.html'

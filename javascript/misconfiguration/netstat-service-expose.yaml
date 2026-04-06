@@ -1,5 +1,4 @@
 id: netstat-service-expose
-
 info:
   name: Netstat Service - Expose
   author: pussycat0x
@@ -9,11 +8,10 @@ info:
   impact: |
     This exposure increased the risk of information gathering and potential exploitation by attackers.
   metadata:
-    verified: true
     max-request: 1
+    verified: true
     zoomeye-query: port="15" && "netstat"
-  tags: netsat,network,js,tcp,vuln
-
+  tags: js,netsat,network,tcp,vuln
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -26,20 +24,17 @@ javascript:
       conn.SendHex(packet.Hex());
       const result = conn.RecvString();
       result;
-
     args:
       Host: "{{Host}}"
       Port: 15
-
     matchers:
       - type: dsl
         dsl:
           - "success == true"
           - contains(response, "Active Internet connections")
         condition: and
-
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 4a0a004730450220617db7763b1a47534cbddab3996a2240df6a56489da59b87237ec8a237b94add022100a57654ead4016baaa3a314bab0cb6d87d9f57e96ceba331e4bc2e1cf2f33da7e:922c64590222798bb761d5b6d8e72950

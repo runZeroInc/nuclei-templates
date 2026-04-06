@@ -1,5 +1,4 @@
 id: privesc-lftp
-
 info:
   name: lftp - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/lftp/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,lftp,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,lftp,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       lftp -c '!whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo lftp -c '!whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 490a0046304402201810370fbdbb3958a0c2e5ee9d7d28d1109cfc1173f09156ab1cd51d34b1ae1c02201ee746ac8849197f3309e3200fd0ceaa344c2aec04366f38c6cf064b0da085f0:922c64590222798bb761d5b6d8e72950
+self-contained: true

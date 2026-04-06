@@ -1,5 +1,4 @@
 id: mattermost-panel
-
 info:
   name: Mattermost Login - Panel
   author: darses
@@ -8,34 +7,30 @@ info:
     Mattermost Login Panel was discovered.
   metadata:
     runzero-match: service["http.body"] matches "(?i)'content=\"Mattermost\"'"
-    verified: true
+    fofa-query: content="Mattermost"
+    max-requests: 1
     shodan-query: html:'content="Mattermost"'
-    fofa-query: 'content="Mattermost"'
     vendor: mattermost
-  tags: login,mattermost,panel,discovery
-
+    verified: true
+  tags: discovery,login,mattermost,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - content="Mattermost"
-        case-insensitive: true
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         name: version
         part: header
-        group: 1
         regex:
           - 'X-Version-Id: (\d+\.\d+\.\d+)'
-
+        type: regex
+    matchers:
+      - case-insensitive: true
+        part: body
+        type: word
+        words:
+          - content="Mattermost"
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

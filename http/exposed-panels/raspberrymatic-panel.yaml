@@ -1,5 +1,4 @@
 id: raspberrymatic-panel
-
 info:
   name: RaspberryMatic Login Panel - Detect
   author: princechaddha
@@ -12,25 +11,22 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-578216669"
     max-request: 1
+    product: raspberrymatic
+    shodan-query: http.favicon.hash:-578216669
     vendor: raspberrymatic
-  tags: panel,raspberrymatic,iot,discovery
-
+  tags: discovery,iot,panel,raspberrymatic
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login.htm"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "<title>RaspberryMatic WebUI</title>"
-
-      - type: status
-        status:
+          - <title>RaspberryMatic WebUI</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/login.htm'

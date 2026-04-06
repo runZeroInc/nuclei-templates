@@ -1,5 +1,4 @@
 id: audiobookshelf-panel
-
 info:
   name: Audiobookshelf Login Panel - Detect
   author: ritikchaddha
@@ -10,31 +9,28 @@ info:
     cpe: cpe:2.3:a:audiobookshelf:audiobookshelf:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Audiobookshelf"})
-    verified: true
     max-request: 2
+    product: audiobookshelf
+    shodan-query: title:"Audiobookshelf"
     vendor: audiobookshelf
-  tags: panel,audiobookshelf,detect,discovery
-
+    verified: true
+  tags: audiobookshelf,detect,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - '<title>Audiobookshelf'
-          - 'content="Audiobookshelf'
-        condition: or
-
-      - type: status
-        status:
+          - <title>Audiobookshelf
+          - content="Audiobookshelf
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login'
+    stop-at-first-match: true

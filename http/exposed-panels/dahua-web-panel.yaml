@@ -1,5 +1,4 @@
 id: dahua-web-panel
-
 info:
   name: Dahua Web Service Panel - Detect
   author: dhiyaneshDK,rxerium
@@ -13,23 +12,21 @@ info:
     cpe: cpe:2.3:h:dahuasecurity:sd22204db-gny-w:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1653394551"
-    verified: true
     max-request: 1
+    product: sd22204db-gny-w
+    shodan-query: http.favicon.hash:1653394551
     vendor: dahuasecurity
-  tags: edb,panel,dahua,detect,discovery
-
+    verified: true
+  tags: dahua,detect,discovery,edb,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>WEB SERVICE</title>'
-
-      - type: status
-        status:
+          - <title>WEB SERVICE</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

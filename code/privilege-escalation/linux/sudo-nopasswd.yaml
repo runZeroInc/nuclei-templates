@@ -1,5 +1,4 @@
 id: sudo-nopasswd
-
 info:
   name: Sudo NOPASSWD - Privilege Escalation
   author: daffainfo
@@ -9,19 +8,17 @@ info:
     - https://book.hacktricks.wiki/en/linux-hardening/privilege-escalation/index.html#nopasswd
   metadata:
     verified: true
-  tags: code,linux,sudo,privesc,local
-
-self-contained: true
+  tags: code,linux,local,privesc,sudo
 code:
   - engine:
       - sh
       - bash
     source: |
-        sudo -l
-
+      sudo -l
     matchers:
       - type: word
         part: code_1_response
         words:
           - "(root) NOPASSWD:"
-
+        # digest: 4b0a00483046022100fc332830334e18132f3b3ba33a57c0d646f7b4ec9fb6a83849c70aa877efffe2022100c780fc0fccad8542da4cca4eaa21c354115cb95d6c3fa910fb5ce6c55821d829:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,5 +1,4 @@
 id: nagios-xi-panel
-
 info:
   name: Nagios XI Login Panel - Detect
   author: ritikchaddha
@@ -11,40 +10,34 @@ info:
     cpe: cpe:2.3:a:nagios:nagios_xi:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)nagios xi"})
-    verified: true
-    max-request: 2
-    vendor: nagios
-    product: nagios_xi
-    shodan-query:
-      - http.title:"nagios xi"
-      - http.favicon.hash:"1460499495"
     fofa-query:
       - title="nagios xi"
       - app="nagios-xi"
-      - icon_hash="1460499495"
     google-query: intitle:"nagios xi"
-  tags: panel,nagios,nagios-xi,discovery
-
+    max-request: 2
+    product: nagios_xi
+    shodan-query:
+      - http.title:"Nagios XI"
+      - http.title:"nagios xi"
+    vendor: nagios
+    verified: true
+  tags: discovery,nagios,nagios-xi,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/nagiosxi/login.php"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'alt="Nagios XI'
-          - '/nagiosxi/includes'
-        condition: or
-
-      - type: status
-        status:
+          - alt="Nagios XI
+          - /nagiosxi/includes
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/nagiosxi/login.php'
+    stop-at-first-match: true

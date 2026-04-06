@@ -1,5 +1,4 @@
 id: gcloud-mig-single-zone
-
 info:
   name: Managed Instance Group Not Configured for Multiple Zones
   author: princechaddha
@@ -11,10 +10,46 @@ info:
   remediation: |
     Re-create your Managed Instance Groups with multiple zones configuration. Select "Multiple zones" for location, choose a region and desired zones, and set "Target distribution shape" to "Even" for balanced instance distribution.
   reference:
-    - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ComputeEngine/mig-multiple-zones.html
     - https://cloud.google.com/compute/docs/instance-groups/distributing-instances-with-regional-instance-groups
-  tags: cloud,devops,gcp,gcloud,compute,reliability,mig,zones,gcp-cloud-config
-
+    - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ComputeEngine/mig-multiple-zones.html
+  tags: cloud,compute,devops,gcloud,gcp,gcp-cloud-config,mig,reliability,zones
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud projects list --format="json(projectId)"
+    extractors:
+      - type: json
+        name: projectIds
+        internal: true
+        json:
+          - '.[].projectId'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud compute instance-groups list --project $projectId --only-managed --format="json(name)"
+    extractors:
+      - type: json
+        name: instanceGroups
+        internal: true
+        json:
+          - '.[]'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud compute instance-groups managed describe $instanceGroupName --format="json(distributionPolicy.zones)"
+    matchers:
+      - type: word
+        words:
+          - "null"
+    extractors:
+      - type: dsl
+        dsl:
+          - '"Managed Instance Group " + instanceGroupName + " in project " + projectId + " is not configured to run instances across multiple zones"'
+        # digest: 4b0a00483046022100f6f5fbd63b6c07b669913549144ae2eb2e9b0680673ccd2da7daf953ddde4fc2022100af56920ce185b9ae06857c9fef77d37a9278cb0b67518f7eb2633b13f0bc80e5:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -25,49 +60,4 @@ flow: |
       code(3)
     }
   }
-
 self-contained: true
-
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud projects list --format="json(projectId)"
-
-    extractors:
-      - type: json
-        name: projectIds
-        internal: true
-        json:
-          - '.[].projectId'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud compute instance-groups list --project $projectId --only-managed --format="json(name)"
-
-    extractors:
-      - type: json
-        name: instanceGroups
-        internal: true
-        json:
-          - '.[]'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud compute instance-groups managed describe $instanceGroupName --format="json(distributionPolicy.zones)"
-
-    matchers:
-      - type: word
-        words:
-          - "null"
-
-    extractors:
-      - type: dsl
-        dsl:
-          - '"Managed Instance Group " + instanceGroupName + " in project " + projectId + " is not configured to run instances across multiple zones"'
-

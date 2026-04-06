@@ -1,5 +1,4 @@
 id: ssh-weak-mac-algo
-
 info:
   name: SSH Weak MAC Algorithms Enabled
   author: pussycat0x
@@ -9,11 +8,10 @@ info:
   reference:
     - https://www.tenable.com/plugins/nessus/71049
   metadata:
-    verified: true
     max-request: 2
     shodan-query: product:"OpenSSH"
-  tags: js,enum,ssh,misconfig,network,vuln
-
+    verified: true
+  tags: enum,js,misconfig,network,ssh,vuln
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -25,7 +23,6 @@ javascript:
     args:
       Host: "{{Host}}"
       Port: "22"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,7 +30,6 @@ javascript:
           - "server_to_client_macs"
           - "client_to_server_macs"
         condition: and
-
       - type: word
         words:
           - "hmac-md5"
@@ -43,4 +39,4 @@ javascript:
           - "hmac-md5-96"
           - "hmac-sha1-96"
         condition: or
-
+        # digest: 490a00463044022072eb125dda208274d62dfdc67c6f432bb316e90ad168bfe8ebff4e08dd510079022044278e8d49df4e4dae6038b599da14aaa279dae789c9a64ad6cc6112ffcab451:922c64590222798bb761d5b6d8e72950

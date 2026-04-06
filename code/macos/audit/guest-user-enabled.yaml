@@ -1,5 +1,4 @@
 id: guest-user-enabled
-
 info:
   name: macOS Guest User Enabled
   author: geeknik
@@ -10,10 +9,7 @@ info:
     Enabling the guest user account can allow unauthorized users to access the system with limited, but potentially risky, privileges.
   remediation: |
     Disable the guest user account to reduce the risk of unauthorized access.
-  tags: macos,audit,local,security
-
-self-contained: true
-
+  tags: audit,local,macos,security
 code:
   - engine:
       - sh
@@ -28,4 +24,5 @@ code:
       - type: regex
         regex:
           - "^1$"
-
+        # digest: 4a0a00473045022100b56ce36c9516138969ae1baa1b6472abc91525849b6ebf9b1fcfed3a5921a45c0220475f29d019df5ace5aca8e06548449de2807ecdf682073423a0e4c7f4763db8d:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,42 +1,43 @@
 id: 3cx-phone-webclient-management-panel
-
 info:
   name: 3CX Phone System Web Client Management Console - Panel Detect
   author: idealphase
   severity: info
   description: 3CX Phone System Web Client Management Console panel was detected.
   reference:
-    - https://www.3cx.com/phone-system/
-    - https://www.3cx.com/blog/unified-communications/client-apps/
     - https://medium.com/@frycos/pwning-3cx-phone-management-backends-from-the-internet-d0096339dd88
+    - https://www.3cx.com/blog/unified-communications/client-apps/
+    - https://www.3cx.com/phone-system/
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
     cpe: cpe:2.3:a:3cx:3cx:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)3cx webclient"}) || any(each(service["html.titles"]), {# matches "(?i)3cx phone system management console"}) || service["favicon.ico.image.mmh3"] == "970132176"
-    max-request: 1
-    vendor: 3cx
-    product: 3cx
-    shodan-query:
-      - http.title:"3cx webclient"
-      - http.title:"3cx phone system management console"
-      - http.favicon.hash:"970132176"
     fofa-query:
       - icon_hash=970132176
       - title="3cx phone system management console"
       - title="3cx webclient"
-  tags: panel,3cx,discovery
-
+    google-query:
+      - intitle:"3CX Webclient"
+      - intitle:"3cx phone system management console"
+      - intitle:"3cx webclient"
+    max-request: 1
+    product: 3cx
+    shodan-query:
+      - http.title:"3CX Webclient"
+      - http.title:"3cx webclient"
+      - http.title:"3cx phone system management console"
+      - http.favicon.hash:970132176
+    vendor: 3cx
+  tags: 3cx,discovery,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - ' <title>3CX Webclient</title>'
+          - <meta name="description" content="3CX">
+    method: GET
     path:
       - '{{BaseURL}}/webclient/'
-
-    matchers:
-      - type: word
-        words:
-          - " <title>3CX Webclient</title>"
-          - '<meta name="description" content="3CX">'
-        condition: or
-

@@ -11,44 +11,38 @@ info:
     Disable public (anonymous) access to all blob containers in Azure storage accounts to protect your data against unauthorized access.
   reference:
     - https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent
-  tags: cloud,devops,azure,microsoft,azure-storage,azure-cloud-config
-
-flow: |
-  code(1);
-  for (let StorageAccount of iterate(template.storageAccountIds)) {
-    set("ids", StorageAccount);
-    code(2);
-  }
-
-self-contained: true
+  tags: azure,azure-cloud-config,azure-storage,cloud,devops,microsoft
 code:
   - engine:
       - sh
       - bash
     source: |
       az storage account list --query '[*].id'
-
     extractors:
       - type: json
         name: storageAccountIds
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az storage account show --ids "$ids" --query allowBlobPublicAccess
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - 'true'
-
     extractors:
       - type: dsl
         dsl:
           - 'ids + " is not disabling anonymous blob access"'
-
+        # digest: 4a0a004730450220568a8b05de8baf2554dd90fd84e356675359e794782f456e6f58ad4b5801af02022100a2f52ca38bc9f1a0cca7c7f5ca1cebfa18b63a5123d15eed4d5c19f75597b561:922c64590222798bb761d5b6d8e72950
+flow: |
+  code(1);
+  for (let StorageAccount of iterate(template.storageAccountIds)) {
+    set("ids", StorageAccount);
+    code(2);
+  }
+self-contained: true

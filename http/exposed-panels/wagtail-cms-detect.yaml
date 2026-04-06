@@ -1,5 +1,4 @@
 id: wagtail-login
-
 info:
   name: Wagtail Login - Detect
   author: kishore-hariram
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:a:torchbox:wagtail:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)wagtail - sign in"})
-    verified: true
-    max-request: 2
-    vendor: torchbox
-    product: wagtail
-    shodan-query: http.title:"wagtail - sign in"
     fofa-query: title="wagtail - sign in"
     google-query: intitle:"wagtail - sign in"
-  tags: panel,wagtail,torchbox,discovery
-
+    max-request: 2
+    product: wagtail
+    shodan-query:
+      - title:"Wagtail - Sign in"
+      - http.title:"wagtail - sign in"
+    vendor: torchbox
+    verified: true
+  tags: discovery,panel,torchbox,wagtail
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - Wagtail - Sign in
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login/?next=/'
       - '{{BaseURL}}/admin/login/?next=/admin/'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Wagtail - Sign in'
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: ibm-websphere-admin-panel
-
 info:
   name: IBM WebSphere Application Server Community Edition Admin Login Panel - Detect
   author: ritikchaddha
@@ -13,32 +12,27 @@ info:
     cpe: cpe:2.3:a:ibm:websphere_application_server:*:*:*:*:z\/os:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1337147129"
-    verified: true
-    max-request: 1
-    vendor: ibm
-    product: websphere_application_server
-    shodan-query: http.favicon.hash:"1337147129"
     fofa-query: icon_hash=1337147129
-  tags: websphere,panel,ibm,discovery
-
+    max-request: 1
+    product: websphere_application_server
+    shodan-query: http.favicon.hash:1337147129
+    vendor: ibm
+    verified: true
+  tags: discovery,ibm,panel,websphere
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/console"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: and
         part: body
+        type: word
         words:
-          - "Administrative Console Login"
-          - "Log in to the Administrative Console"
-        condition: and
-
-      - type: status
-        status:
+          - Administrative Console Login
+          - Log in to the Administrative Console
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/console'

@@ -1,5 +1,4 @@
 id: tooljet-panel
-
 info:
   name: ToolJet Login Panel - Detect
   author: DhiyaneshDk
@@ -11,28 +10,25 @@ info:
     cpe: cpe:2.3:a:tooljet:tooljet:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)ToolJet - Dashboard"})
-    verified: true
     max-request: 2
+    product: tooljet
+    shodan-query: title:"ToolJet - Dashboard"
     vendor: tooljet
-  tags: panel,tooljet,discovery
-
+    verified: true
+  tags: discovery,panel,tooljet
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login?redirectTo=/"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
       - type: word
         words:
-          - "ToolJet - Dashboard"
-
-      - type: status
-        status:
+          - ToolJet - Dashboard
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login?redirectTo=/'
+    stop-at-first-match: true

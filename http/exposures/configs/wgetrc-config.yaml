@@ -1,5 +1,4 @@
 id: wgetrc-config
-
 info:
   name: Wgetrc Configuration File - Detect
   author: DhiyaneshDK
@@ -13,32 +12,28 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gnu:wget:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: wget
+    shodan-query: html:".wgetrc"
     vendor: gnu
+    verified: true
   tags: devops,exposure,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wgetrc"
-      - "{{BaseURL}}/.wgetrc"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '/etc/wgetrc'
-          - 'wget.info'
-
-      - type: word
-        part: header
+          - /etc/wgetrc
+          - wget.info
+      - part: header
+        type: word
         words:
-          - 'application/octet-stream'
-
-      - type: status
-        status:
+          - application/octet-stream
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/wgetrc'
+      - '{{BaseURL}}/.wgetrc'
+    stop-at-first-match: true

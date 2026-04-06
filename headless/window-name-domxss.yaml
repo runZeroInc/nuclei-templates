@@ -1,5 +1,4 @@
 id: window-name-domxss
-
 info:
   name: window.name - DOM Cross-Site Scripting
   author: pdteam
@@ -11,8 +10,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
     cwe-id: CWE-79
-  tags: headless,xss,domxss,vuln
-
+  tags: domxss,headless,vuln,xss
 headless:
   - steps:
       - action: setheader
@@ -20,7 +18,6 @@ headless:
           part: response
           key: Content-Security-Policy
           value: "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"
-
       - action: script
         args:
           hook: true
@@ -69,27 +66,23 @@ headless:
                 return oldEval.apply(this, arguments);
               };
             }
-
       - args:
           url: "{{BaseURL}}"
         action: navigate
       - action: waitload
-
       - action: script
         name: alerts
         args:
           code: |
             () => { window.alerts }
-
     matchers:
       - type: word
         part: alerts
         words:
           - "sink:"
-
     extractors:
       - type: kval
         part: alerts
         kval:
           - alerts
-
+        # digest: 4a0a0047304502202ed3f1d67affb1908c739330507cc53e5e36832cf99b1d58a298b0916c7daad7022100f39116f653e632f36d24b0666bdd98d3dbbf0c1dc0ebe509898cd36bdde99422:922c64590222798bb761d5b6d8e72950

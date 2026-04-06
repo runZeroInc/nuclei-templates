@@ -1,5 +1,4 @@
 id: jamf-panel
-
 info:
   name: Jamf MDM Login Panel - Detect
   author: pdteam,idealphase
@@ -12,30 +11,27 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1262005940"
     max-request: 1
+    product: jamf
+    shodan-query: http.favicon.hash:1262005940
     vendor: jamf
-  tags: jamf,panel,mdm,discovery
-
+  tags: discovery,jamf,mdm,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: response
-        words:
-          - "Jamf Pro Login"
-          - "Jamf Cloud Node"
-        condition: or
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
-          - '<meta name=\"version\" content=\"(.*)\">'
-
+          - <meta name=\"version\" content=\"(.*)\">
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        part: response
+        type: word
+        words:
+          - Jamf Pro Login
+          - Jamf Cloud Node
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

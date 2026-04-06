@@ -1,10 +1,9 @@
 id: apisix-default-login
-
 info:
-  name: Apache Apisix Admin Default Credentials
+  name: Apache Apisix Admin - Default Login
   author: pdteam
   severity: high
-  description: Apache Apisix Admin default login credentials were discovered.
+  description: An Apache Apisix default admin login was discovered.
   reference:
     - https://apisix.apache.org/
   classification:
@@ -13,14 +12,35 @@ info:
     cwe-id: CWE-522
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Apache APISIX Dashboard"})
+    fofa-query: title="Apache APISIX Dashboard"
     max-request: 1
     product: https://apisix.apache.org
     shodan-query: title:"Apache APISIX Dashboard"
-    fofa-query: title="Apache APISIX Dashboard"
-  tags: apisix,apache,default-login,vuln
-
+  tags: apache,apisix,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"data":'
+          - '"token":'
+          - '{"code":0'
+      - part: header
+        type: word
+        words:
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - admin
+      user:
+        - admin
+    raw:
       - |
         POST /apisix/admin/user/login HTTP/1.1
         Host: {{Hostname}}
@@ -29,30 +49,3 @@ http:
         Content-Type: application/json;charset=UTF-8
 
         {"username":"{{user}}","password":"{{pass}}"}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - admin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"data":'
-          - '"token":'
-          - '{"code":0'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - application/json
-
-      - type: status
-        status:
-          - 200
-

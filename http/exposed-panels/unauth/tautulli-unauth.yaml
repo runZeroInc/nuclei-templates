@@ -1,5 +1,4 @@
 id: tautulli-unauth
-
 info:
   name: Tautulli Panel - Unauthenticated Access
   author: ritikchaddha
@@ -8,38 +7,33 @@ info:
     cpe: cpe:2.3:a:tautulli:tautulli:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)tautulli - home"}) || any(each(service["html.titles"]), {# matches "(?i)tautulli"})
-    verified: true
-    max-request: 1
-    vendor: tautulli
-    product: tautulli
-    shodan-query:
-      - http.title:"tautulli - home"
-      - http.title:"tautulli"
-      - http.title:"tautulli - welcome"
     fofa-query:
       - title="tautulli - home"
       - title="tautulli"
-      - title="tautulli - welcome"
     google-query:
       - intitle:"tautulli"
       - intitle:"tautulli - home"
-  tags: panel,misconfig,tautulli,unauth,exposure,discovery
-
+    max-request: 1
+    product: tautulli
+    shodan-query:
+      - title:"Tautulli - Home"
+      - http.title:"tautulli"
+      - http.title:"tautulli - home"
+    vendor: tautulli
+    verified: true
+  tags: discovery,exposure,misconfig,panel,tautulli,unauth
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/home"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'Tautulli - Home'
-          - 'Libraries</a>'
-        condition: and
-
-      - type: status
-        status:
+          - Tautulli - Home
+          - Libraries</a>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/home'

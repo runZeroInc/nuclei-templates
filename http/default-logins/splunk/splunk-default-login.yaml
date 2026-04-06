@@ -1,24 +1,51 @@
 id: splunk-default-login
-
 info:
-  name: Splunk - Default Login
+  name: Splunk - Default Password
   author: pussycat0x
   severity: high
   description: |
-    Splunk default login credentials were discovered.
+    Splunk Default Password Vulnerability exposes systems to unauthorized access, compromising data integrity and security.
   classification:
     cpe: cpe:2.3:a:splunk:splunk:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Splunk"})
-    verified: true
     max-request: 9
-    vendor: splunk
     product: splunk
     shodan-query: http.title:"Splunk"
+    vendor: splunk
+    verified: true
   tags: default-login,splunk,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - internal: true
+        name: cval
+        part: header
+        regex:
+          - cval=([0-9]+)
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: and
+        part: body_3
+        type: word
+        words:
+          - splunkd
+          - updated
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+        - splunk
+        - toor
+      username:
+        - admin
+        - splunk
+        - root
+    raw:
       - |
         GET /en-US/account/login?return_to=%2Fen-US%2Faccount%2F HTTP/1.1
         Host: {{Hostname}}
@@ -37,38 +64,4 @@ http:
         Host: {{Hostname}}
         Accept-Encoding: gzip, deflate, br
         Referer: {{BaseURL}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - "admin"
-        - "splunk"
-        - "root"
-      password:
-        - "admin"
-        - "splunk"
-        - "toor"
     stop-at-first-match: true
-    host-redirects: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_3
-        words:
-          - "splunkd"
-          - "updated"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        internal: true
-        name: cval
-        part: header
-        regex:
-          - 'cval=([0-9]+)'
-

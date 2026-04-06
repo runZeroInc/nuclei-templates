@@ -1,5 +1,4 @@
 id: ilch-admin-panel
-
 info:
   name: Ilch CMS Admin Login Panel - Detect
   author: ritikchaddha
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:a:ilch:cms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)ilch"})
-    verified: true
-    max-request: 1
-    vendor: ilch
-    product: cms
-    shodan-query: http.title:"ilch"
     fofa-query: title="ilch"
     google-query: intitle:"ilch"
-  tags: panel,ilch,cms,discovery
-
+    max-request: 1
+    product: cms
+    shodan-query:
+      - http.title:"Ilch"
+      - http.title:"ilch"
+    vendor: ilch
+    verified: true
+  tags: cms,discovery,ilch,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.php/admin/admin/login/index/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - 'ilch_token'
-
-      - type: status
-        status:
+          - ilch_token
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.php/admin/admin/login/index/'

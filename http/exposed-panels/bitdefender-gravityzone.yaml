@@ -1,5 +1,4 @@
 id: bitdefender-gravityzone
-
 info:
   name: Bitdefender GravityZone Panel - Detect
   author: DhiyaneshDK
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:a:bitdefender:gravityzone:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)bitdefender gravityzone"})
-    verified: true
-    max-request: 1
-    vendor: bitdefender
-    product: gravityzone
-    shodan-query: http.title:"bitdefender gravityzone"
     fofa-query: title="bitdefender gravityzone"
     google-query: intitle:"bitdefender gravityzone"
-  tags: panel,bitdefender,discovery
-
+    max-request: 1
+    product: gravityzone
+    shodan-query:
+      - title:"Bitdefender GravityZone"
+      - http.title:"bitdefender gravityzone"
+    vendor: bitdefender
+    verified: true
+  tags: bitdefender,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>Bitdefender GravityZone</title>'
-
-      - type: status
-        status:
+          - <title>Bitdefender GravityZone</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

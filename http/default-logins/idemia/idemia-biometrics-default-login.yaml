@@ -1,11 +1,10 @@
 id: idemia-biometrics-default-login
-
 info:
   name: IDEMIA BIOMetrics - Default Login
   author: Techryptic (@Tech)
   severity: medium
   description: |
-    IDEMIA BIOMetrics default login credentials were discovered.
+    IDEMIA BIOMetrics application  default login credentials were discovered.
   reference:
     - https://www.google.com/search?q=idemia+password%3D+"12345"
   classification:
@@ -15,39 +14,35 @@ info:
     cpe: cpe:2.3:h:idemia:sigma_wide:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "IDEMIA"})
-    verified: true
     max-request: 1
+    product: sigma_wide
+    shodan-query: title:"IDEMIA"
     vendor: idemia
-  tags: idemia,biometrics,default-login,vuln
-
+    verified: true
+  tags: biometrics,default-login,idemia,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - document.cookie ="session_id
+          - MA5G_general_configurations.htm
+      - negative: true
+        part: body
+        type: word
+        words:
+          - Invalid Password
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - "12345"
+    raw:
       - |
         POST /cgi-bin/login.cgi HTTP/1.1
         Host: {{Hostname}}
 
         password={{password}}
-
-    payloads:
-      password:
-        - "12345"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'document.cookie ="session_id'
-          - 'MA5G_general_configurations.htm'
-        condition: and
-
-      - type: word
-        part: body
-        words:
-          - "Invalid Password"
-        negative: true
-
-      - type: status
-        status:
-          - 200
-

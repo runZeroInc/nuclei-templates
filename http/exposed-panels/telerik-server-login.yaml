@@ -1,5 +1,4 @@
 id: telerik-server-login
-
 info:
   name: Telerik Report Server Login Panel - Detect
   author: ritikchaddha
@@ -11,26 +10,23 @@ info:
     cpe: cpe:2.3:a:progress:telerik_report_server:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)Telerik Report Server"
-    verified: true
     max-request: 1
+    product: telerik_report_server
+    shodan-query: http.html:"Telerik Report Server"
     vendor: progress
-  tags: telerik,panel,discovery
-
+    verified: true
+  tags: discovery,panel,telerik
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Account/Login"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
       - type: word
         words:
-          - "Telerik Report Server"
-
-      - type: status
-        status:
+          - Telerik Report Server
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/Account/Login'

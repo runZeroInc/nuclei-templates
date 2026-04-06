@@ -1,5 +1,4 @@
 id: openvpn-admin
-
 info:
   name: OpenVPN Admin Login Panel - Detect
   author: ritikchaddha
@@ -11,39 +10,35 @@ info:
     cpe: cpe:2.3:a:openvpn:openvpn:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)openvpn-admin"}) || service["http.body"] matches "(?i)router management - server openvpn"
-    verified: true
-    max-request: 3
-    vendor: openvpn
-    product: openvpn
-    shodan-query:
-      - http.title:"openvpn-admin"
-      - http.html:"router management - server openvpn"
-      - cpe:"cpe:2.3:a:openvpn:openvpn"
     fofa-query:
       - body="router management - server openvpn"
       - title="openvpn-admin"
     google-query: intitle:"openvpn-admin"
-  tags: panel,openvpn,admin,config,discovery
-
+    max-request: 3
+    product: openvpn
+    shodan-query:
+      - http.title:"OpenVPN-Admin"
+      - http.html:"router management - server openvpn"
+      - http.title:"openvpn-admin"
+      - cpe:"cpe:2.3:a:openvpn:openvpn"
+    vendor: openvpn
+    verified: true
+  tags: admin,config,discovery,openvpn,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>OpenVPN-Admin
+          - <title>OpenVPN Admin
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/login'
       - '{{BaseURL}}/index.php'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>OpenVPN-Admin'
-          - '<title>OpenVPN Admin'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: privesc-yash
-
 info:
   name: Yash - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/yash/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,yash,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,yash
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       yash -c 'whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo yash -c 'whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 490a004630440220152cf11f4d2983024489e58652d409f9a1a1c991a1fc7fe392781b344484da500220035c87d2463b4d07290c7894772892ab7af93fba57f873c1e76490beebeef770:922c64590222798bb761d5b6d8e72950
+self-contained: true

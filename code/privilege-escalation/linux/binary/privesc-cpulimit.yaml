@@ -1,5 +1,4 @@
 id: privesc-cpulimit
-
 info:
   name: CPUlimit - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/cpulimit/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,cpulimit,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,cpulimit,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       cpulimit -l 100 -f whoami
-
   - engine:
       - sh
       - bash
     source: |
       sudo cpulimit -l 100 -f whoami
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 490a004630440220095479093c4dc43bb70847536cd9c2faf374ad4a15dbf5a9ea082f5a27c951bb022000dc85c893feca78be2b1d3d470be602ea152b4a21e160e4696de681c188c4b5:922c64590222798bb761d5b6d8e72950
+self-contained: true

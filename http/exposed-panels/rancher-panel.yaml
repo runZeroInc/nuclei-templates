@@ -1,5 +1,4 @@
 id: rancher-panel
-
 info:
   name: Rancher Login Panel - Detect
   author: princechaddha,idealphase,ritikchaddha
@@ -14,36 +13,31 @@ info:
     cpe: cpe:2.3:a:suse:rancher:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "464587962"
-    verified: true
-    max-request: 1
-    vendor: suse
-    product: rancher
-    shodan-query: http.favicon.hash:"464587962"
     fofa-query: icon_hash=464587962
-  tags: panel,rancher,kubernetes,devops,cloud,login,suse,discovery
-
+    max-request: 1
+    product: rancher
+    shodan-query: http.favicon.hash:464587962
+    vendor: suse
+    verified: true
+  tags: cloud,devops,discovery,kubernetes,login,panel,rancher,suse
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "<title>Loading"
-          - "ember-basic-dropdown-wormhole"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '<!\-\- ([0-9. ]+)\-\->'
-
+          - <!\-\- ([0-9. ]+)\-\->
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <title>Loading
+          - ember-basic-dropdown-wormhole
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

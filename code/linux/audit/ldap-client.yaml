@@ -1,5 +1,4 @@
 id: ldap-client
-
 info:
   name: Ensure LDAP Client is Not Installed
   author: Th3l0newolf
@@ -13,14 +12,10 @@ info:
     - https://www.cisecurity.org/benchmark/ubuntu_linux
   metadata:
     verified: true
-  tags: cis,local,cisecurity,audit,linux,ubuntu,ldap
-
-self-contained: true
-
+  tags: audit,cis,cisecurity,ldap,linux,local,ubuntu
 code:
   - engine:
       - bash
-
     args:
       - "-c"
       - |
@@ -30,15 +25,14 @@ code:
         else
           echo "[cis-ldap-client-check:Policy-Pass] [ldap-utils is not installed] [CIS_PASS]"
         fi
-
     matchers:
       - type: word
         name: policy-pass
         words:
           - "Policy-Pass"
-
       - type: word
         name: policy-fail
         words:
           - "Policy-Fail"
-
+        # digest: 4b0a00483046022100ff8778e0ae1fc773a1a46f288bcfb1d5e232d50fe42361d05d96bca924ecae6e0221009d492ae0f7a531cea826f1e264d8b8418a9656c6f5fa3d0ce75fb7ff9ba9b54b:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,5 +1,4 @@
 id: aircube-login
-
 info:
   name: airCube Login - Detect
   author: DhiyaneshDk
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:h:ui:aircube:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1249285083"
-    verified: true
     max-request: 1
+    product: aircube
+    shodan-query: http.favicon.hash:1249285083
     vendor: ui
-  tags: panel,aircube,ubiquiti,discovery
-
+    verified: true
+  tags: aircube,discovery,panel,ubiquiti
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>airCube</title>'
-
-      - type: status
-        status:
+          - <title>airCube</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: netflix-conductor-ui
-
 info:
   name: Netflix Conductor UI Panel - Detect
   author: c-sh0
@@ -11,32 +10,29 @@ info:
     cpe: cpe:2.3:a:netflix:conductor:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)conductor ui"})
-    max-request: 1
-    vendor: netflix
-    product: conductor
-    shodan-query: http.title:"conductor ui", http.title:"workflow ui"
     fofa-query: title="conductor ui", http.title:"workflow ui"
     google-query: intitle:"conductor ui", http.title:"workflow ui"
-  tags: webserver,netflix,conductor,panel,discovery
-
+    max-request: 1
+    product: conductor
+    shodan-query:
+      - http.title:"Conductor UI", http.title:"Workflow UI"
+      - http.title:"conductor ui", http.title:"workflow ui"
+    vendor: netflix
+  tags: conductor,discovery,netflix,panel,webserver
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: status
-        status:
+      - status:
           - 200
-
-      - type: word
+        type: status
+      - condition: or
         part: body
+        type: word
         words:
-          - '<title>Conductor UI</title>'
-          - '<title>Workflow UI</title>'
-        condition: or
-
+          - <title>Conductor UI</title>
+          - <title>Workflow UI</title>
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

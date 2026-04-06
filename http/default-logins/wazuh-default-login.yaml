@@ -1,41 +1,62 @@
 id: wazuh-default-login
-
 info:
   name: Wazuh - Default Login
   author: theamanrawat,denandz,PulseSecurity.co.nz
   severity: high
   description: |
-    Wazuh default login credentials were discovered.
+    Wazuh contains default credentials. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
+    - https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html#single-node-deployment
     - https://documentation.wazuh.com/current/user-manual/user-administration/password-management.html
     - https://wazuh.com
-    - https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html#single-node-deployment
   classification:
     cpe: cpe:2.3:a:wazuh:wazuh:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Wazuh"})
-    verified: true
     max-request: 7
-    vendor: wazuh
     product: wazuh
-    shodan-query: "title:\"Wazuh\""
-  tags: wazuh,default-login,vuln
-
+    shodan-query: title:"Wazuh"
+    vendor: wazuh
+    verified: true
+  tags: default-login,vuln,wazuh
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/app/login"
-
-    extractors:
-      - type: regex
-        part: body
-        name: osd
-        group: 1
+  - extractors:
+      - group: 1
         internal: true
+        name: osd
+        part: body
         regex:
           - '&quot;version&quot;:&quot;([0-9.]+)&quot;'
-
-  - raw:
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}/app/login'
+  - attack: clusterbomb
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"username":'
+          - '"roles":'
+      - condition: and
+        part: header
+        type: word
+        words:
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+        - wazuh
+        - SecretPassword
+      username:
+        - admin
+        - wazuh
+    raw:
       - |
         POST /auth/login HTTP/1.1
         Host: {{Hostname}}
@@ -44,34 +65,4 @@ http:
         Content-Type: application/json
 
         {"username":"{{username}}","password":"{{password}}"}
-
-    attack: clusterbomb
-    payloads:
-      username:
-        - "admin"
-        - "wazuh"
-      password:
-        - "admin"
-        - "wazuh"
-        - "SecretPassword"
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"username":'
-          - '"roles":'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'application/json'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
