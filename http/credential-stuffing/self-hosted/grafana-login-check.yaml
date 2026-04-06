@@ -15,7 +15,7 @@ info:
     product: grafana
     shodan-query: title:"Grafana"
     vendor: grafana
-  tags: self-hosted,creds-stuffing,login-check,grafana,vuln
+  tags: creds-stuffing,grafana,login-check,self-hosted,vuln
 variables:
   username: "{{username}}"
   password: "{{password}}"

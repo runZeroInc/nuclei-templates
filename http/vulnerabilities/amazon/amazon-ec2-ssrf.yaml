@@ -13,7 +13,7 @@ info:
     max-request: 2
     shodan-query: "Server: EC2ws"
     verified: true
-  tags: aws,ec2,ssrf,amazon,vuln
+  tags: amazon,aws,ec2,ssrf,vuln
 http:
   - raw:
       - |+

@@ -16,7 +16,7 @@ info:
     max-request: 1
     shodan-query: http.html:"ZTE Corporation"
     verified: true
-  tags: edb,network,zte,telnet,backdoor,router,tcp,vuln
+  tags: backdoor,edb,network,router,tcp,telnet,vuln,zte
 tcp:
   - host:
       - "{{Hostname}}"
