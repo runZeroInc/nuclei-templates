@@ -23,11 +23,9 @@ info:
   tags: discovery,jenkins,panel
 http:
   - matchers:
-      - condition: or
-        type: word
+      - type: word
         words:
           - Sign in [Jenkins]
-          - Sign in to Jenkins
       - status:
           - 200
         type: status

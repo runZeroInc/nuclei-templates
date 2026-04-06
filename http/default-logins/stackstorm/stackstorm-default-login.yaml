@@ -1,10 +1,9 @@
 id: stackstorm-default-login
-
 info:
-  name: StackStorm - Default Login
+  name: StackStorm Default Login
   author: PaperPen
   severity: high
-  description: StackStorm default login credentials were discovered.
+  description: A StackStorm default admin login was discovered.
   reference:
     - https://github.com/StackStorm/st2-docker
   classification:
@@ -13,35 +12,32 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:stackstorm:stackstorm:*:*:*:*:*:*:*:*
   metadata:
+    fofa-query: app="stackstorm"
     max-request: 1
+    product: stackstorm
     vendor: stackstorm
-  tags: stackstorm,default-login,vuln
-
+  tags: default-login,stackstorm,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"user":'
+          - '"token":'
+          - '"expiry":'
+      - status:
+          - 201
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - Ch@ngeMe
+      username:
+        - st2admin
+    raw:
       - |
         POST /auth/tokens HTTP/1.1
         Host: {{BaseURL}}
         Content-Type: application/json
         Authorization: Basic {{base64(username + ':' + password)}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - st2admin
-      password:
-        - Ch@ngeMe
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"user":'
-          - '"token":'
-          - '"expiry":'
-        condition: and
-
-      - type: status
-        status:
-          - 201
-
