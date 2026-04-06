@@ -1,5 +1,4 @@
 id: secui-waf-detect
-
 info:
   name: SECUI WAF Panel - Detect
   author: gy741
@@ -12,18 +11,16 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-1101206929
-  tags: tech,panel,secui,discovery
-
+    verified: true
+  tags: discovery,panel,secui,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}/static/login/favicon.ico"
-
     matchers:
       - type: dsl
         dsl:
           - "status_code==200 && (\"-1101206929\" == mmh3(base64_py(body)))"
-
+        # digest: 490a0046304402205a72844f6b1cf2075ed69222490d1b35778fa8f40066191479ff7762838117a902203696ef7977ba35489d3aed852abe94b38232cb7137d2326e4c107af78ec52884:922c64590222798bb761d5b6d8e72950

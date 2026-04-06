@@ -1,5 +1,4 @@
 id: proftpd-config
-
 info:
   name: ProFTPD Configuration File - Detect
   author: sheikhrishad
@@ -14,12 +13,10 @@ info:
   metadata:
     max-request: 1
   tags: config,exposure,proftpd,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}/proftpd.conf"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -27,8 +24,7 @@ http:
           - "ProFTPD"
           - "ServerName"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100bee0b4abac19b3cc69f16053aa49adf017bfbf7cbec64fbcb654f60582f1df29022028e8cf173edaf18db073ea00ec295461f83a7da4d18f5db1c5465449afe722b5:922c64590222798bb761d5b6d8e72950

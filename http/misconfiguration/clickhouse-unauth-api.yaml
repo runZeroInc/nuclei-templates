@@ -1,5 +1,4 @@
 id: clickhouse-unauth-api
-
 info:
   name: ClickHouse API Database Interface - Improper Authorization
   author: DhiyaneshDk
@@ -11,19 +10,17 @@ info:
   classification:
     cpe: cpe:2.3:a:clickhouse:clickhouse:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: "X-ClickHouse-Summary"
     max-request: 1
-    vendor: clickhouse
     product: clickhouse
     shodan-query: "X-ClickHouse-Summary"
-    fofa-query: "X-ClickHouse-Summary"
-  tags: misconfig,clickhouse,unauth,disclosure,vuln
-
+    vendor: clickhouse
+    verified: true
+  tags: clickhouse,disclosure,misconfig,unauth,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/?query=SHOW%20DATABASES"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -32,13 +29,11 @@ http:
           - 'default'
           - 'system'
         condition: and
-
       - type: word
         part: header
         words:
           - 'text/tab-separated-values'
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a004730450220207ff6325cd9603cd52f9a025d70be35c63e0e28096f3b9a069eead345e36c9902210089b4176a0b22c49a3f4910186dc8f41549944cdba5a423afcf130998f62fe77f:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: springboot-startup
-
 info:
   name: Springboot Actuator startup
   author: ELSFA7110
@@ -8,18 +7,15 @@ info:
   reference:
     - https://docs.spring.io/spring-boot/docs/current/actuator-api/htmlsingle/
   metadata:
-    verified: true
     max-request: 2
-  tags: misconfig,springboot,exposure,vuln
-
+    verified: true
+  tags: exposure,misconfig,springboot,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/startup"
       - "{{BaseURL}}/actuator/startup"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -28,7 +24,6 @@ http:
           - "springBootVersion"
           - "startTime"
         condition: and
-
       - type: word
         part: header
         words:
@@ -38,8 +33,7 @@ http:
           - "application/vnd.spring-boot.actuator.v2+json"
           - "application/vnd.spring-boot.actuator.v3+json"
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502205822f610902c7442f0346b163e54893089cdb3f212f593e26271181e9d1b261c022100e60c7494bd55d7d47b081a1027be734a79a940d6cc6a651966d4ad7206859cfb:922c64590222798bb761d5b6d8e72950

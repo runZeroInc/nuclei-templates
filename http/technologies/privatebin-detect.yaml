@@ -1,5 +1,4 @@
 id: privatebin-detect
-
 info:
   name: PrivateBin - Detect
   author: righettod
@@ -11,23 +10,21 @@ info:
   classification:
     cpe: cpe:2.3:a:privatebin:privatebin:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query:
+      - title="PrivateBin"
+      - icon_hash="1358855492"
     max-request: 1
-    vendor: privatebin
     product: privatebin
     shodan-query:
       - title:"PrivateBin"
       - http.favicon.hash:1358855492
-    fofa-query:
-      - title="PrivateBin"
-      - icon_hash="1358855492"
-  tags: tech,privatebin,detect,discovery
-
+    vendor: privatebin
+    verified: true
+  tags: detect,discovery,privatebin,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     redirects: true
     max-redirects: 2
     matchers:
@@ -36,11 +33,10 @@ http:
           - 'status_code == 200'
           - 'contains_any(to_lower(body), "privatebin.js", "privatebin</title>", "content=\"privatebin")'
         condition: and
-
     extractors:
       - type: regex
         part: body
         group: 1
         regex:
           - 'privatebin\.[a-z]{2,3}\?([0-9.]+)'
-
+        # digest: 490a00463044022018ec511518037b483edef0b39495c3dbca38aa510d8e97cd2791c775ce823de402201d3fd1342dbe7914a795552d3f0748fc805d7cb3fb2a5cac4141b548b87d5f3b:922c64590222798bb761d5b6d8e72950

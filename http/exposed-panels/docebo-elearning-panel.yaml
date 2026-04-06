@@ -1,5 +1,4 @@
 id: docebo-elearning-panel
-
 info:
   name: Docebo eLearning Login Panel - Detect
   author: pikpikcu
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:a:docebo:docebo:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Docebo E-learning"})
-    verified: true
+    fofa-query: title="Docebo E-learning"
     max-request: 1
+    product: docebo
     vendor: docebo
-  tags: panel,docebo,discovery
-
+    verified: true
+  tags: discovery,docebo,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "Docebo E-learning"
-
-      - type: status
-        status:
+          - Docebo E-learning
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

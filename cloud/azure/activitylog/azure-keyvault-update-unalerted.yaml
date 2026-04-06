@@ -11,49 +11,42 @@ info:
     Configure alert rules to monitor and notify of "Update Key Vault" events by setting the alert condition to "Microsoft.KeyVault/vaults/write" and ensuring that an action group is attached for managing notifications.
   reference:
     - https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log
-  tags: cloud,devops,azure,microsoft,keyvault,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,keyvault,microsoft
 flow: |
   code(1);
   for (let AlertData of iterate(template.alertList)) {
     set("id", AlertData);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert list --output json --query '[?(enabled==`true`)].id'
-
     extractors:
       - type: json
         name: alertList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert show --ids "$id" --query 'condition'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"field": "operationName"'
-
       - type: word
         words:
           - "Microsoft.KeyVault/vaults/write"
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - 'id + " does not have the correct alert configuration for Update Key Vault events"'
-
+        # digest: 4a0a00473045022100ffcc0dc874891949204b8d35c1cae0c96f9aa01a1444042ed76514c151c53a1202207d6c2a217f40549779ef486608bea055eb5d1b533909b5ee22026eac4b8cacc1:922c64590222798bb761d5b6d8e72950
+self-contained: true

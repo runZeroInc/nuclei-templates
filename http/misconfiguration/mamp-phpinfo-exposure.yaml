@@ -1,5 +1,4 @@
 id: mamp-phpinfo-exposure
-
 info:
   name: MAMP - PHP Info Exposure
   author: 0x_Akoko
@@ -14,16 +13,14 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
-    verified: true
-    max-request: 1
     fofa-query: title="MAMP"
-  tags: mamp,phpinfo,exposure,misconfig
-
+    max-request: 1
+    verified: true
+  tags: exposure,mamp,misconfig,phpinfo
 http:
   - method: GET
     path:
       - "{{BaseURL}}/MAMP/phpinfo.php"
-
     matchers:
       - type: dsl
         dsl:
@@ -31,4 +28,4 @@ http:
           - 'contains_all(body, "phpinfo()", "PHP Version")'
           - 'contains_any(body, "MAMP", "/Applications/MAMP", "C:\\MAMP")'
         condition: and
-
+        # digest: 4a0a00473045022001cdb347fedd8dcc1e1277d053e3fc4c9344920b95d05e4f65fce7d2d6508d7c022100942a45896e03ef3cd0699c82a867f850a3bbff3da937a8c767fd6e409fe6ec52:922c64590222798bb761d5b6d8e72950

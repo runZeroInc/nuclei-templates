@@ -1,5 +1,4 @@
 id: codeigniter-env
-
 info:
   name: Codeigniter - .env File Discovery
   author: emenalf
@@ -7,13 +6,11 @@ info:
   description: Codeigniter .env file was discovered.
   metadata:
     max-request: 12
-  tags: config,exposure,codeigniter,vuln
-
+  tags: codeigniter,config,exposure,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - "/.env"
@@ -28,7 +25,6 @@ http:
         - "/.env_1"
         - "/.env.old"
         - "/.env_sample"
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -36,8 +32,7 @@ http:
           - "(?m)^APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)"
           - "(?m)^DB_(HOST|PASSWORD|DATABASE)"
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100f3281b7d674311800e95e741a9b28ef0312b2508fc911658cf5871b79101ba14022056fcd26ee7d32c2aff458904aa3d40a4212bd4fa95f2d8e833ce2b0e1ca829ee:922c64590222798bb761d5b6d8e72950

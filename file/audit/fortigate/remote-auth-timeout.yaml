@@ -1,5 +1,4 @@
 id: remote-auth-timeout
-
 info:
   name: Fortinet Remote Authentication Timeout Not Set - Detect
   author: pussycat0x
@@ -12,22 +11,19 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   tags: audit,config,file,firewall,fortigate
-
 file:
   - extensions:
       - conf
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "set remoteauthtimeout"
         negative: true
-
       - type: word
         words:
           - "config system"
           - "config router"
           - "config firewall"
         condition: or
-
+        # digest: 4a0a0047304502200a614d0ea75c1f9ae3cedc537a6bc16d427a768ff22f2c938643749dc4a8c51c02210094f2a8a915d24d99bf6f9d0dc682726561735daeb252c1c9d3276e0d2f0cc77c:922c64590222798bb761d5b6d8e72950

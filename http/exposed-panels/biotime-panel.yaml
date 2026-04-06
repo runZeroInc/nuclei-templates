@@ -1,5 +1,4 @@
 id: biotime-panel
-
 info:
   name: BioTime Web Login Panel - Detect
   author: robotshell
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:zkteco:biotime:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)BioTime"})
-    verified: true
     max-request: 2
+    product: biotime
+    shodan-query: http.title:"BioTime"
     vendor: zkteco
-  tags: panel,biotime,discovery
-
+    verified: true
+  tags: biotime,discovery,panel
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - part: body
+        regex:
+          - <title>BioTime(.*)</title>
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/login/'
-
     stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: body
-        regex:
-          - '<title>BioTime(.*)</title>'
-
-      - type: status
-        status:
-          - 200
-

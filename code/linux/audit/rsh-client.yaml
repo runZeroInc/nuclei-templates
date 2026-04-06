@@ -1,5 +1,4 @@
 id: rsh-client
-
 info:
   name: Ensure rsh Client is Not Installed
   author: Th3l0newolf
@@ -12,14 +11,10 @@ info:
     - https://www.cisecurity.org/benchmark/ubuntu_linux
   metadata:
     verified: true
-  tags: cis,local,cisecurity,audit,linux,ubuntu,rsh
-
-self-contained: true
-
+  tags: audit,cis,cisecurity,linux,local,rsh,ubuntu
 code:
   - engine:
       - bash
-
     args:
       - "-c"
       - |
@@ -29,15 +24,14 @@ code:
         else
           echo "[cis-rsh-client-check:Policy-Pass] [rsh-client is not installed] [CIS_PASS]"
         fi
-
     matchers:
       - type: word
         name: policy-pass
         words:
           - "Policy-Pass"
-
       - type: word
         name: policy-fail
         words:
           - "Policy-Fail"
-
+        # digest: 4a0a00473045022100f533077d301c1f42c4d08231ece267cb23ed7b5c19ba1d044c4b1a84dcc14b7f02207cd04519969a2f4f6d584e3b3d04aec08b4eb4f85c07337d2692f13c1ca23791:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,10 +1,9 @@
 id: hybris-default-login
-
 info:
   name: Hybris - Default Login
   author: princechaddha
   severity: high
-  description: Hybris default login credentials were discovered.
+  description: Hybris contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -12,13 +11,44 @@ info:
     cpe: cpe:2.3:a:sap:hybris:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Hybris"})
-    verified: true
     max-request: 3
+    product: hybris
+    shodan-query: title:"Hybris"
     vendor: sap
+    verified: true
   tags: default-login,hybris,vuln
-
 http:
-  - raw:
+  - attack: clusterbomb
+    extractors:
+      - group: 1
+        internal: true
+        name: csrftoken
+        part: body
+        regex:
+          - <meta name="_csrf" content="([a-z0-9-]+)" \/>
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - hybris administration console
+          - You're Administrator
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      password:
+        - nimda
+      path:
+        - /
+        - /hac/
+        - /hmc/
+      username:
+        - admin
+    raw:
       - |
         GET {{path}}login HTTP/1.1
         Host: {{Hostname}}
@@ -33,41 +63,5 @@ http:
       - |
         GET {{path}} HTTP/1.1
         Host: {{Hostname}}
-
-    attack: clusterbomb
-    payloads:
-      username:
-        - admin
-      password:
-        - nimda
-      path:
-        - /
-        - /hac/
-        - /hmc/
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
     skip-variables-check: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "hybris administration console"
-          - "You're Administrator"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        name: csrftoken
-        internal: true
-        part: body
-        group: 1
-        regex:
-          - '<meta name="_csrf" content="([a-z0-9-]+)" \/>'
-
+    stop-at-first-match: true

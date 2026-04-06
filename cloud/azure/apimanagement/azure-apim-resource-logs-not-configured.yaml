@@ -11,8 +11,7 @@ info:
     Ensure that resource logs are enabled by setting up diagnostic settings for each Azure API Management service instance. This should include capturing all logs related to API operations and errors.
   reference:
     - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-diagnostic-logs
-  tags: cloud,devops,azure,microsoft,api-management,azure-cloud-config
-
+  tags: api-management,azure,azure-cloud-config,cloud,devops,microsoft
 flow: |
   code(1);
   for (let Resource of iterate(template.resourceList)) {
@@ -21,36 +20,31 @@ flow: |
     set("resourceGroup", Resource.resourceGroup);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az apim list --output json --query '[*].{name:name, resourceGroup:resourceGroup}'
-
     extractors:
       - type: json
         name: resourceList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az monitor diagnostic-settings list --resource $resource --resource-group $resourceGroup --resource-type "Microsoft.ApiManagement/service" --query '[*].name'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "[]"
-
     extractors:
       - type: dsl
         dsl:
           - 'resource + " in " + resourceGroup + " does not have resource logs configured for Azure API Management services"'
-
+        # digest: 490a00463044022064587c1db5646ff447c93cec44664b91f4fcf69052d429106bff5551686ccee002201087b7689aca0bc8edc129d9dc019199dd09d7554de773a8fb6e0b8ff80063e1:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,5 +1,4 @@
 id: wordpress-amp-fpd
-
 info:
   name: WordPress AMP - Full Path Disclosure
   author: pussycat0x
@@ -9,13 +8,11 @@ info:
   reference:
     - https://wordpress.org/plugins/accelerated-mobile-pages/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/accelerated-mobile-pages"
-    max-request: 5
-    vendor: wordpress
-    product: accelerated-mobile-pages
     fofa-query: body="/wp-content/plugins/accelerated-mobile-pages"
-  tags: wordpress,wp,wp-plugin,accelerated-mobile-pages,fpd
-
+    max-request: 5
+    product: accelerated-mobile-pages
+    vendor: wordpress
+  tags: accelerated-mobile-pages,fpd,wordpress,wp,wp-plugin
 http:
   - method: GET
     path:
@@ -24,9 +21,7 @@ http:
       - "{{BaseURL}}/wp-content/plugins/accelerated-mobile-pages/includes/thirdparty-compatibility.php"
       - "{{BaseURL}}/wp-content/plugins/accelerated-mobile-pages/templates/starter-flavor.php"
       - "{{BaseURL}}/wp-content/plugins/accelerated-mobile-pages/classes/class-flavor.php"
-
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:
@@ -34,4 +29,4 @@ http:
           - 'contains(body, "accelerated-mobile-pages")'
           - 'status_code == 200 || status_code == 500'
         condition: and
-
+        # digest: 4b0a00483046022100bfc5c8c0918b809ff1de25aa44e76896d7cc2066428492e50d71fc3e9b66097b022100adba1c0841593f12621d9d5e6b8e139eaa76e435ca421a83b7339e365a4c994d:922c64590222798bb761d5b6d8e72950

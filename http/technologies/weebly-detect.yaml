@@ -1,5 +1,4 @@
 id: weebly-detect
-
 info:
   name: Weebly Detection
   author: Chirag Mistry
@@ -9,8 +8,7 @@ info:
   metadata:
     max-request: 7
     shodan-query: product:"Weebly"
-  tags: weebly, detect, tech
-
+  tags: detect,tech,weebly
 http:
   - method: GET
     path:
@@ -21,7 +19,6 @@ http:
       - "{{BaseURL}}/index.php"
       - "{{BaseURL}}/weebly/"
       - "{{BaseURL}}/site/"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -33,12 +30,10 @@ http:
           - "X-Powered-By-Weebly"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
           - 403
-
     extractors:
       - type: regex
         part: body
@@ -46,11 +41,10 @@ http:
         regex:
           - 'Weebly ([0-9.]+)'
           - 'Powered by Weebly ([0-9.]+)'
-
       - type: regex
         part: body
         name: weebly_id
         regex:
           - 'weebly-site-id=([a-z0-9]+)'
           - 'weebly\.com/([^/]+)'
-
+        # digest: 490a00463044022011d7ac74dcbcce1aa787c98ca88f537fc00d60ad40084717e9ae98a169fa4376022051f729d2a5d027ca76b9480e90a042e9d14723948d363f8b7e8750c64a74a9a3:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: privesc-sqlite3
-
 info:
   name: sqlite3 - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/sqlite3/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,sqlite3,privesc,local,sqli
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,sqli,sqlite3
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       sqlite3 /dev/null '.shell whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo sqlite3 /dev/null '.shell whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 490a0046304402200f0afeed1739cd99e8c9d01aa53dc8693eb6d09928501858d15168b504648d390220020ace7ca6bc9f86893909493966dbda02df6945518d9ba3c02e35d170d728a0:922c64590222798bb761d5b6d8e72950
+self-contained: true

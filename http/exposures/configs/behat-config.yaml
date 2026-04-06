@@ -1,5 +1,4 @@
 id: behat-config
-
 info:
   name: Behat Configuration File - Detect
   author: DhiyaneshDK
@@ -12,19 +11,16 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 2
     shodan-query: html:"behat.yml"
-  tags: exposure,behat,devops,cicd,vuln
-
+    verified: true
+  tags: behat,cicd,devops,exposure,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/behat.yml"
       - "{{BaseURL}}/behat.yml.dist"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -34,8 +30,7 @@ http:
           - 'paths:'
           - 'suites:'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100a3a0fdcbfc550b0cf51a8d575b8e13099923f650b94c2117942bb829454da5850220199243138f6e1fd010c89487398cf98fbe56b5c94f020a7a3fcc7627c9ab0756:922c64590222798bb761d5b6d8e72950

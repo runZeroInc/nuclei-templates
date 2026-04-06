@@ -1,5 +1,4 @@
 id: ldap-account-manager-panel
-
 info:
   name: LDAP Account Manager Login Panel - Detect
   author: DhiyaneshDk
@@ -14,27 +13,25 @@ info:
     cpe: cpe:2.3:a:ldap-account-manager:ldap_account_manager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)LDAP Account Manager"})
-    verified: true
     max-request: 2
+    product: ldap_account_manager
+    shodan-query: title:"LDAP Account Manager"
     vendor: ldap-account-manager
-  tags: panel,ldap,discovery
-
+    verified: true
+  tags: discovery,ldap,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/templates/login.php"
-      - "{{BaseURL}}/lam/templates/login.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "LDAP Account Manager"
-          - "LAM configuration"
-        condition: and
-
-      - type: status
-        status:
+          - LDAP Account Manager
+          - LAM configuration
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/templates/login.php'
+      - '{{BaseURL}}/lam/templates/login.php'

@@ -1,5 +1,4 @@
 id: seeddms-panel
-
 info:
   name: SeedDMS Login Panel - Detect
   author: pussycat0x,daffainfo
@@ -11,34 +10,31 @@ info:
     cpe: cpe:2.3:a:seeddms:seeddms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)seeddms"})
-    max-request: 2
-    vendor: seeddms
-    product: seeddms
-    shodan-query: http.title:"seeddms"
     fofa-query: title="seeddms"
     google-query: intitle:"seeddms"
-  tags: panel,seeddms,login,discovery
-
+    max-request: 2
+    product: seeddms
+    shodan-query:
+      - http.title:"SeedDMS"
+      - http.title:"seeddms"
+    vendor: seeddms
+  tags: discovery,login,panel,seeddms
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/out/out.Login.php?referuri=%2Fout%2Fout.ViewFolder.php"
-      - "{{BaseURL}}/dms/out/out.Login.php?referuri=%2Fout%2Fout.ViewFolder.php"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'href="/out/out.ViewFolder.php">SeedDMS</a>'
-          - 'href="../out/out.ViewFolder.php?folderid=1">SeedDMS</a>'
-        condition: or
-
-      - type: status
-        status:
+          - href="/out/out.ViewFolder.php">SeedDMS</a>
+          - href="../out/out.ViewFolder.php?folderid=1">SeedDMS</a>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/out/out.Login.php?referuri=%2Fout%2Fout.ViewFolder.php'
+      - '{{BaseURL}}/dms/out/out.Login.php?referuri=%2Fout%2Fout.ViewFolder.php'
+    stop-at-first-match: true

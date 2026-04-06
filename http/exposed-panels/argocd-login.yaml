@@ -1,5 +1,4 @@
 id: argocd-login
-
 info:
   name: Argo CD Login Panel
   author: Adam Crosser,daffainfo,aringo
@@ -13,33 +12,29 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Argo CD"})
     max-request: 2
+    product: argo_cd
+    shodan-query: http.title:"Argo CD"
     vendor: argoproj
-  tags: panel,argocd,login,kubernetes,discovery
-
+  tags: argocd,discovery,kubernetes,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/api/version"
-      - "{{BaseURL}}/api/v1/settings"
-
-    stop-at-first-match: true
-
-    matchers-condition: or
+  - extractors:
+      - json:
+          - .Version
+        type: json
     matchers:
-      - type: dsl
+      - condition: and
         dsl:
           - contains(to_lower(header_1), 'grpc-metadata-content-type')
           - status_code_1 == 200
-        condition: and
-
-      - type: dsl
+        type: dsl
+      - condition: and
         dsl:
           - contains(body_2, 'appLabelKey')
           - contains(body_2, 'resourceOverrides')
-        condition: and
-
-    extractors:
-      - type: json
-        json:
-          - .Version
-
+        type: dsl
+    matchers-condition: or
+    method: GET
+    path:
+      - '{{BaseURL}}/api/version'
+      - '{{BaseURL}}/api/v1/settings'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: intellian-aptus-panel
-
 info:
   name: Intellian Aptus Web Login Panel - Detect
   author: princechaddha
@@ -11,36 +10,32 @@ info:
     cpe: cpe:2.3:a:intelliantech:aptus_web:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)intellian aptus web"})
-    max-request: 1
-    vendor: intelliantech
-    product: aptus_web
-    shodan-query: http.title:"intellian aptus web"
     fofa-query: title="intellian aptus web"
     google-query: intitle:"intellian aptus web"
-  tags: panel,intellian,aptus,intelliantech,discovery
-
+    max-request: 1
+    product: aptus_web
+    shodan-query:
+      - http.title:"Intellian Aptus Web"
+      - http.title:"intellian aptus web"
+    vendor: intelliantech
+  tags: aptus,discovery,intellian,intelliantech,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cgi-bin/getagent.cgi?type=s&xxxx"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - '<title>Intellian Aptus Web (.*)</title>'
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
-          - '<title>Intellian Aptus Web (.*)</title>'
-
+          - <title>Intellian Aptus Web (.*)</title>
+        type: regex
+    host-redirects: true
+    matchers:
+      - regex:
+          - <title>Intellian Aptus Web (.*)</title>
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/cgi-bin/getagent.cgi?type=s&xxxx'

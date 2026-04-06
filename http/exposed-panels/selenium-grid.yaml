@@ -1,5 +1,4 @@
 id: selenium-grid
-
 info:
   name: Selenium Grid Panel - Detect
   author: pussycat0x
@@ -12,22 +11,20 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Selenium Grid"})
     max-request: 1
+    product: selenium_grid
+    shodan-query: http.title:"Selenium Grid"
     vendor: selenium
-  tags: panel,unauth,selenium,discovery
-
+  tags: discovery,panel,selenium,unauth
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/ui/index.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Selenium Grid</title>"
-
-      - type: status
-        status:
+          - <title>Selenium Grid</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/ui/index.html'

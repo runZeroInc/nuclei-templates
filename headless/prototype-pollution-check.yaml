@@ -1,5 +1,4 @@
 id: prototype-pollution-check
-
 info:
   name: Prototype Pollution Check
   author: pdteam
@@ -8,15 +7,12 @@ info:
     max-request: 8
     verified: true
   tags: headless,vuln
-
 headless:
   - steps:
       - args:
           url: "{{BaseURL}}?constructor[prototype][vulnerableprop]=polluted#constructor[prototype][vulnerableprop]=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract1
         args:
@@ -29,14 +25,11 @@ headless:
         part: extract1
         words:
           - "polluted"
-
   - steps:
       - args:
           url: "{{BaseURL}}?constructor.prototype.vulnerableprop=polluted#constructor.prototype.vulnerableprop=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract2
         args:
@@ -49,14 +42,11 @@ headless:
         part: extract2
         words:
           - "polluted"
-
   - steps:
       - args:
           url: "{{BaseURL}}?__proto__[vulnerableprop]=polluted#__proto__.vulnerableprop=polluted&__proto__[vulnerableprop]=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract3
         args:
@@ -69,14 +59,11 @@ headless:
         part: extract3
         words:
           - "polluted"
-
   - steps:
       - args:
           url: "{{BaseURL}}?__proto__.vulnerableprop=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract4
         args:
@@ -89,14 +76,11 @@ headless:
         part: extract4
         words:
           - "polluted"
-
   - steps:
       - args:
           url: "{{BaseURL}}?__pro__proto__to__[vulnerableprop]=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract5
         args:
@@ -109,14 +93,11 @@ headless:
         part: extract5
         words:
           - "polluted"
-
   - steps:
       - args:
           url: "{{BaseURL}}?__pro__proto__to__.vulnerableprop=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract6
         args:
@@ -129,14 +110,11 @@ headless:
         part: extract6
         words:
           - "polluted"
-
   - steps:
       - args:
           url: "{{BaseURL}}?constconstructorructor[protoprototypetype][vulnerableprop]=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract7
         args:
@@ -149,14 +127,11 @@ headless:
         part: extract7
         words:
           - "polluted"
-
   - steps:
       - args:
           url: "{{BaseURL}}?constconstructorructor.protoprototypetype.vulnerableprop=polluted"
         action: navigate
-
       - action: waitload
-
       - action: script
         name: extract8
         args:
@@ -164,10 +139,9 @@ headless:
             () => {
              return window.vulnerableprop
             }
-
     matchers:
       - type: word
         part: extract8
         words:
           - "polluted"
-
+        # digest: 490a00463044022019a45f47ab82b37c73a40d6116a659fc7fee313d6385b758458cb99d62a6ba5f022037f136146fdc0b51edd200db9ce11a0936a5f3b48e2442562c5037a57cd0987b:922c64590222798bb761d5b6d8e72950

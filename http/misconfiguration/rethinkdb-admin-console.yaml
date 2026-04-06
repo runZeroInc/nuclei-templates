@@ -1,5 +1,4 @@
 id: rethinkdb-admin-console
-
 info:
   name: RethinkDB Administration Console - Detect
   author: tess
@@ -12,24 +11,21 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 1
     shodan-query: http.favicon.hash:969374472
-  tags: misconfig,rethinkdb,console,dashboard,vuln
-
+    verified: true
+  tags: console,dashboard,misconfig,rethinkdb,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/#dashboard'
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - 'RethinkDB Administration Console'
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022008bee8257de471c86c12cfd8340f16d07c510ff2503b59b96de7816db1463d0c0220763644e436821f2f652108613ff1e889ff301ed6cc739bea2a93958d0bfa34cf:922c64590222798bb761d5b6d8e72950

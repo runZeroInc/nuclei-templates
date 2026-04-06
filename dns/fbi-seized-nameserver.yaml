@@ -1,5 +1,4 @@
 id: fbi-seized-nameserver
-
 info:
   name: FBI Seized Nameserver - Detect
   author: rxerium
@@ -9,15 +8,13 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    fofa-query: title="THIS WEBSITE HAS BEEN SEIZED"
     max-request: 1
     shodan-query: title:"THIS WEBSITE HAS BEEN SEIZED"
-    fofa-query: title="THIS WEBSITE HAS BEEN SEIZED"
-  tags: dns,ns,darkweb,fbi,seized,discovery
-
+  tags: darkweb,discovery,dns,fbi,ns,seized
 dns:
   - name: "{{FQDN}}"
     type: NS
-
     matchers:
       - type: word
         words:
@@ -29,10 +26,9 @@ dns:
           - "ns1.usssdomainseizure.com"
           - "ns2.usssdomainseizure.com"
         condition: or
-
     extractors:
       - type: regex
         group: 1
         regex:
           - "IN\\tNS\\t(.+)"
-
+        # digest: 4a0a0047304502203bfa4b127b9dd0676f2bef2f6a98437e138110c4fcd0fab7228b198c02b1455602210083c31901265fb5f043de7f01685f35fa46b7f0a5eb0abaa6ed031744dab24df3:922c64590222798bb761d5b6d8e72950

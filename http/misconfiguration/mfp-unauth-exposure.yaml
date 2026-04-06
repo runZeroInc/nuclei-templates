@@ -1,5 +1,4 @@
 id: mfp-unauth-exposure
-
 info:
   name: Multi-function Printer - Unauthorized Access
   author: matejsmycka
@@ -14,13 +13,11 @@ info:
   metadata:
     max-request: 1
     verified: true
-  tags: network,iot,printer,misconfig,escl,vuln
-
+  tags: escl,iot,misconfig,network,printer,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/eSCL/ScannerCapabilities"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -28,18 +25,15 @@ http:
           - "xmlns:pwg="
           - "<scan:ScannerCapabilities"
         condition: and
-
       - type: word
         part: header
         words:
           - "application/xml"
           - "text/xml"
         condition: or
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         group: 1
@@ -47,4 +41,4 @@ http:
           - '<(?:pwg:)?SerialNumber>([^<]+)</(?:pwg:)?SerialNumber>'
           - '<(?:pwg:)?Model>([^<]+)</(?:pwg:)?Model>'
           - '<(?:pwg:)?MakeAndModel>([^<]+)</(?:pwg:)?MakeAndModel>'
-
+        # digest: 4b0a00483046022100f6798c80fcb058cae61ead76e0c647380af9ed31a918952732e075b2c32179aa022100f8b9372feffbdb530507473814ef619a323735b20c39f1f927b7a61474573895:922c64590222798bb761d5b6d8e72950

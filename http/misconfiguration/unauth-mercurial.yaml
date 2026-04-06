@@ -1,5 +1,4 @@
 id: unauth-mercurial
-
 info:
   name: Unauthenticated Mercurial Detect
   author: pussycat0x
@@ -8,18 +7,16 @@ info:
   classification:
     cpe: cpe:2.3:a:mercurial:mercurial:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: mercurial
     product: mercurial
     shodan-query: html:"Mercurial repositories index"
-  tags: misconfig,unauth,mercurial,vuln
-
+    vendor: mercurial
+    verified: true
+  tags: mercurial,misconfig,unauth,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -28,8 +25,7 @@ http:
           - "Mercurial Repositories"
           - "Last modified"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402205fd926b334836e80e1137ec6eee009ab32477adf493c6c48debb68e698f572ab022069f3c8771e5e92b327d5099ea767601034d2b291a411469578597805eff32ca8:922c64590222798bb761d5b6d8e72950

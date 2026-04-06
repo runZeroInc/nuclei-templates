@@ -11,8 +11,7 @@ info:
     Ensure that the Azure storage containers storing activity log files are configured to deny public access. Review and modify the public access settings of your storage accounts to protect sensitive data.
   reference:
     - https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview
-  tags: cloud,devops,azure,microsoft,storage,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,storage
 flow: |
   code(1);
   for (let subName of iterate(template.subscriptionNames)) {
@@ -23,48 +22,41 @@ flow: |
       code(3);
     }
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az monitor diagnostic-settings subscription list --query 'value[*].name'
-
     extractors:
       - type: json
         name: subscriptionNames
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az monitor diagnostic-settings subscription show --name "$subName" --query 'storageAccountId'
-
     extractors:
       - type: json
         name: containerDetails
         internal: true
         json:
           - '.'
-
   - engine:
       - sh
       - bash
     source: |
       az storage container show --account-name $containerDetails --name insights-operational-logs --query 'properties.publicAccess'
-
     matchers:
       - type: word
         words:
           - 'container'
-
     extractors:
       - type: dsl
         dsl:
           - 'subName + " storage container insights-operational-logs is publicly accessible"'
-
+        # digest: 4a0a00473045022100b3f568a23f1ad0b86badce71051ebc1098405921346e0d7972df8ad1d8b31395022062b246e7e0341958e4bd97250a7aef17d07ff7021792783ef95c1ef5f458cff3:922c64590222798bb761d5b6d8e72950
+self-contained: true

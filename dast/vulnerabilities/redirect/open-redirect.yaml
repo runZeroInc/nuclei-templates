@@ -1,23 +1,19 @@
 id: open-redirect
-
 info:
   name: Open Redirect Detection
   author: princechaddha,AmirHossein Raeisi
   severity: medium
   metadata:
     max-request: 1
-  tags: redirect,dast,vuln
-
+  tags: dast,redirect,vuln
 http:
   - pre-condition:
       - type: dsl
         dsl:
           - 'method == "GET"'
-
     payloads:
       redirect:
         - "oast.me"
-
     fuzzing:
       - part: query
         mode: single
@@ -157,17 +153,14 @@ http:
           - validate_url
           - DirectTo
           - relay
-
         fuzz:
           - "https://{{redirect}}"
-
       - part: query
         mode: single
         values:
           - "https?://" # Replace HTTP URLs with alternatives
         fuzz:
           - "https://{{redirect}}"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -175,10 +168,9 @@ http:
         part: header
         regex:
           - '(?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)(?:[a-zA-Z0-9\-_\.@]*)oast\.me\/?(\/|[^.].*)?$' # https://regex101.com/r/idfD2e/1
-
       - type: status
         status:
           - 301
           - 302
           - 307
-
+        # digest: 4b0a00483046022100a79bb24814ebb6fce46310bc6ca43f0a735205eccf07838a37f372e8956cfdbf022100f2fa25d75d359997833b4406ac5acadce14328707f8b2e1896024e3c7cc7bb2a:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: privesc-view
-
 info:
   name: View - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/view/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,view,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,view
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       view -c ':!whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo view -c ':!whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a00473045022100abd512b65ea9f643e21ac38c37cc255850a34bcebb616ea24b9c4457c5b37aff022008a00fee816b1d34deba5d2a865978315093adea5f7829a0c8aeb00c837a3f75:922c64590222798bb761d5b6d8e72950
+self-contained: true

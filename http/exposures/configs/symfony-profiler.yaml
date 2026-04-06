@@ -1,5 +1,4 @@
 id: symfony-profiler
-
 info:
   name: Symfony Profiler - Detect
   author: pdteam
@@ -13,11 +12,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sensiolabs:symfony:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: symfony
+    shodan-query: http.html:"symfony Profiler"
     vendor: sensiolabs
+    verified: true
   tags: config,exposure,symfony,vuln
-
 http:
   - method: GET
     path:
@@ -40,7 +40,6 @@ http:
       - "{{BaseURL}}/debug/_profiler/empty/search/results?limit=10"
       - "{{BaseURL}}/dev/_profiler/empty/search/results?limit=10"
       - "{{BaseURL}}/profiler/empty/search/results?limit=10"
-
     stop-at-first-match: true
     matchers:
       - type: word
@@ -49,4 +48,4 @@ http:
           - "Symfony Profiler"
           - "<title>Profiler</title>"
           - "Symfony-Debug-Toolbar"
-
+        # digest: 4a0a0047304502201c7d3ddc97ea3783e7657486adcc8a622cfc19cd57c0f1b5f98e88b28d473d21022100e0773cfaf928db4faf222ca70d68102a7a8dee94b203a58efe096a7ba19ff2d2:922c64590222798bb761d5b6d8e72950

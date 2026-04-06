@@ -1,5 +1,4 @@
 id: kkfileview-panel
-
 info:
   name: kkFileView Panel - Detect
   author: arafatansari
@@ -11,23 +10,21 @@ info:
     cpe: cpe:2.3:a:keking:kkfileview:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kkFileView"})
-    verified: true
     max-request: 1
+    product: kkfileview
+    shodan-query: http.title:"kkFileView"
     vendor: keking
-  tags: panel,kkfileview,discovery
-
+    verified: true
+  tags: discovery,kkfileview,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>kkFileView演示首页</title>'
-
-      - type: status
-        status:
+          - <title>kkFileView演示首页</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index'

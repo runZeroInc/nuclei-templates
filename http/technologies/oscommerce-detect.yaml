@@ -1,5 +1,4 @@
 id: oscommerce-detect
-
 info:
   name: osCommerce Detection
   author: Chirag Mistry
@@ -9,8 +8,7 @@ info:
   metadata:
     max-request: 8
     shodan-query: http.component:"osCommerce"
-  tags: oscommerce,detect,tech
-
+  tags: detect,oscommerce,tech
 http:
   - method: GET
     path:
@@ -22,7 +20,6 @@ http:
       - "{{BaseURL}}/includes/modules/"
       - "{{BaseURL}}/catalog/includes/javascript/oscommerce.js"
       - "{{BaseURL}}/checkout_payment.php"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -34,11 +31,9 @@ http:
           - "X-Powered-By-osCommerce"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -46,11 +41,10 @@ http:
         regex:
           - 'osCommerce ([0-9.]+)'
           - 'Powered by osCommerce ([0-9.]+)'
-
       - type: regex
         part: body
         name: oscommerce_id
         regex:
           - 'oscommerce-site-id=([a-z0-9]+)'
           - 'oscommerce\.com/([^/]+)'
-
+        # digest: 4a0a0047304502202fa240af91fca1f5405124af87bb73486d8b994a4258e4ea07d2a499cd226ca2022100cebf1a47b4e9124ae4ebf6dec31cea08b7e51daf883be46e7872ec206cfd84d4:922c64590222798bb761d5b6d8e72950

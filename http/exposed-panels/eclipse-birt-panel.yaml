@@ -1,5 +1,4 @@
 id: eclipse-birt-panel
-
 info:
   name: Eclipse BIRT Panel - Detect
   author: Shiva (Strobes Security)
@@ -13,40 +12,37 @@ info:
     cpe: cpe:2.3:a:eclipse:business_intelligence_and_reporting_tools:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Eclipse BIRT Home"})
-    verified: true
+    google-query: intitle:"Eclipse BIRT Home"
     max-request: 2
+    product: business_intelligence_and_reporting_tools
+    shodan-query: title:"Eclipse BIRT Home"
     vendor: eclipse
-  tags: panel,eclipsebirt,detect,discovery
-
+    verified: true
+  tags: detect,discovery,eclipsebirt,panel
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - 'Viewer Version : ([0-9.-]+)'
+        type: regex
+    host-redirects: true
+    matchers:
+      - case-insensitive: true
+        condition: or
+        type: word
+        words:
+          - alt="Eclipse Logo
+          - Eclipse BIRT Home
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/reportviewer/'
       - '{{BaseURL}}/birt/'
       - '{{BaseURL}}/birt-viewer/'
-
-    host-redirects: true
-    max-redirects: 2
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'alt="Eclipse Logo'
-          - 'Eclipse BIRT Home'
-        condition: or
-        case-insensitive: true
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - 'Viewer Version : ([0-9.-]+)'
-

@@ -1,5 +1,4 @@
 id: gcloud-vm-disk-csek-not-enabled
-
 info:
   name: Virtual Machine Disk Encryption with Customer-Supplied Keys Not Enabled
   author: princechaddha
@@ -13,8 +12,7 @@ info:
   reference:
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ComputeEngine/enable-encryption-with-csek.html
     - https://cloud.google.com/compute/docs/disks/customer-supplied-encryption
-  tags: cloud,devops,gcp,gcloud,compute,encryption,csek,security,gcp-cloud-config
-
+  tags: cloud,compute,csek,devops,encryption,gcloud,gcp,gcp-cloud-config,security
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -31,62 +29,52 @@ flow: |
       }
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud compute instances list --project $projectId --format="json(name,zone.basename())"
-
     extractors:
       - type: json
         name: instances
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud compute instances describe $instanceName --zone $zone --project $projectId --format="json(disks[].deviceName)"
-
     extractors:
       - type: json
         name: disks
         internal: true
         json:
           - '.disks[].deviceName'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud compute disks describe $diskName --zone $zone --project $projectId --format="json(diskEncryptionKey.sha256)" | jq '. // "null"'
-
     matchers:
       - type: word
         words:
           - "null"
-
     extractors:
       - type: dsl
         dsl:
           - '"Disk " + diskName + " attached to instance " + instanceName + " in zone " + zone + " of project " + projectId + " is not encrypted with a Customer-Supplied Encryption Key (CSEK)"'
-
+        # digest: 4b0a00483046022100c2ddf98deb81b73823578ad0f0b7a5cdcb19b78a9b724b0a8fda299bff5a09b2022100aa01c142410c386168a489b065a27d1e0b089bde93147ac022b6bbb88de194a5:922c64590222798bb761d5b6d8e72950
+self-contained: true

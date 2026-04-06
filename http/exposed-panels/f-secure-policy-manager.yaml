@@ -1,5 +1,4 @@
 id: f-secure-policy-manager
-
 info:
   name: F-Secure Policy Manager Server Login Panel - Detect
   author: dhiyaneshDK
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:a:withsecure:f-secure_policy_manager:*:*:*:*:windows:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)f-secure policy manager server"})
-    max-request: 1
-    vendor: withsecure
-    product: f-secure_policy_manager
-    shodan-query: http.title:"f-secure policy manager server"
     fofa-query: title="f-secure policy manager server"
     google-query: intitle:"f-secure policy manager server"
-  tags: login,panel,withsecure,discovery
-
+    max-request: 1
+    product: f-secure_policy_manager
+    shodan-query:
+      - http.title:"F-Secure Policy Manager Server"
+      - http.title:"f-secure policy manager server"
+    vendor: withsecure
+  tags: discovery,login,panel,withsecure
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>F-Secure Policy Manager Server</title>'
-
-      - type: status
-        status:
+          - <title>F-Secure Policy Manager Server</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

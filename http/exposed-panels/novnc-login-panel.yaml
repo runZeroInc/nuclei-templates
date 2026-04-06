@@ -1,5 +1,4 @@
 id: novnc-login-panel
-
 info:
   name: noVNC Login Panel - Detect
   author: tess
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:novnc:novnc:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)noVNC"})
-    verified: true
     max-request: 2
+    product: novnc
+    shodan-query: http.title:"noVNC"
     vendor: novnc
-  tags: panel,novnc,discovery
-
+    verified: true
+  tags: discovery,novnc,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/vnc.html"
-      - "{{BaseURL}}:6080/vnc.html"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - '<title>noVNC</title>'
-
-      - type: status
-        status:
+          - <title>noVNC</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/vnc.html'
+      - '{{BaseURL}}:6080/vnc.html'
+    stop-at-first-match: true

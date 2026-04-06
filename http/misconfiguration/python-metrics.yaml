@@ -1,5 +1,4 @@
 id: python-metrics
-
 info:
   name: Detect Python Exposed Metrics
   author: dhiyaneshDK
@@ -11,16 +10,14 @@ info:
     cpe: cpe:2.3:a:python:python:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    vendor: python
     product: python
     shodan-query: html:"python_gc_objects_collected_total"
-  tags: exposure,devops,python,misconfig,vuln
-
+    vendor: python
+  tags: devops,exposure,misconfig,python,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/metrics"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -29,8 +26,7 @@ http:
           - "python_gc_objects_collected_total"
           - "python_info"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022065a4c4ee1705da2ed4a71515f64b89adb57bb1f3c2fb685110f227c14b6a671602202b39b5ea1cb1edb2b08407d89e54c16dd7ddd067fac7d77478daa7ae7a7fcf54:922c64590222798bb761d5b6d8e72950

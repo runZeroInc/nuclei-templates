@@ -1,11 +1,9 @@
 id: mobotix-default-credentials
-
 info:
   name: Mobotix - Default Login
   author: robotshell
   severity: high
-  description: |
-    Mobotix default admin credentials were discovered.
+  description: Mobotix contains a default admin login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://www.mobotix.com/sites/default/files/2020-01/mx_RM_CameraSoftwareManual_en_200131.pdf
   classification:
@@ -14,11 +12,26 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Mobotix"})
     max-request: 2
+    product: s14
+    shodan-query: title:"Mobotix"
     vendor: mobotix
-  tags: mobotix,default-login,webcam,iot,vuln
-
+  tags: default-login,iot,mobotix,vuln,webcam
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - '!contains(body_1, ''Admin Menu'')'
+          - contains(body_2, 'Admin Menu') || contains(body_2, 'Setup Menu') || contains(body_2, 'Audio on')
+        type: dsl
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         GET /control/userimage.html HTTP/1.1
         Host: {{Hostname}}
@@ -26,21 +39,3 @@ http:
         GET /control/userimage.html HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic YWRtaW46bWVpbnNt
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - "!contains(body_1, 'Admin Menu')"
-          - "contains(body_2, 'Admin Menu') || contains(body_2, 'Setup Menu') || contains(body_2, 'Audio on')"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: status
-        status:
-          - 200
-

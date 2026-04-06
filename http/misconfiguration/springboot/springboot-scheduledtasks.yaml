@@ -1,5 +1,4 @@
 id: springboot-scheduledtasks
-
 info:
   name: Spring Boot Scheduledtasks Actuator Panel - Detect
   author: ELSFA7110
@@ -12,18 +11,15 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 2
-  tags: misconfig,springboot,exposure,vuln
-
+    verified: true
+  tags: exposure,misconfig,springboot,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/scheduledtasks"
       - "{{BaseURL}}/actuator/scheduledtasks"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -32,7 +28,6 @@ http:
           - "cron"
           - "fixedDelay"
         condition: and
-
       - type: word
         part: header
         words:
@@ -41,8 +36,7 @@ http:
           - "application/vnd.spring-boot.actuator.v1+json"
           - "application/vnd.spring-boot.actuator.v2+json"
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100d02bcce4fee0346320fcbe59d87250c3e963157bf887ad49d1e2796308b36c310221009bd4c9f58c0f4f0a11e7994eeb358521dfdbd5fb6fd23ad1090582b1641b1929:922c64590222798bb761d5b6d8e72950

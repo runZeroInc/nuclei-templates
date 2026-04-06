@@ -1,5 +1,4 @@
 id: kubernetes-kustomization-disclosure
-
 info:
   name: Kubernetes Kustomize Configuration - Detect
   author: dhiyaneshDk
@@ -13,13 +12,11 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: exposure,config,kubernetes,vuln
-
+  tags: config,exposure,kubernetes,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/kustomization.yml"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,12 +28,10 @@ http:
           - "namespace:"
           - "commonLabels:"
           - "Kustomization"
-
       - type: dsl
         dsl:
           - "contains(tolower(header), 'application/yaml')"
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402201fa920539d972b712775ef58b9c15c8e5c598ade0159a1f522717cc8a03776e602206dde06d8fa49c635921bc3ccfa31b9368d1c856e7b44d6e9229a93aa447602cd:922c64590222798bb761d5b6d8e72950

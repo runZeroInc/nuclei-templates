@@ -1,5 +1,4 @@
 id: privesc-ionice
-
 info:
   name: ionice - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/ionice/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,ionice,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,ionice,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       ionice whoami
-
   - engine:
       - sh
       - bash
     source: |
       sudo ionice whoami
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a00473045022100f63099618a33a6755740bd112d953eb59b420e929f0a29058df772aaca63cbb1022020ac0156520f2204525e680385f4b4109824df12aa37ea9060b9b72447b63662:922c64590222798bb761d5b6d8e72950
+self-contained: true

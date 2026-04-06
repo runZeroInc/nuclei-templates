@@ -1,5 +1,4 @@
 id: geth-server-detect
-
 info:
   name: Go Ethereum JSON-RPC HTTP Server - Detect
   author: Nullfuzz
@@ -10,11 +9,10 @@ info:
     - https://geth.ethereum.org/docs
     - https://github.com/ethereum/go-ethereum
   metadata:
-    verified: true
     max-request: 1
     shodan-query: product:"Geth"
-  tags: tech,geth,ethereum,web3,blockchain,discovery
-
+    verified: true
+  tags: blockchain,discovery,ethereum,geth,tech,web3
 http:
   - raw:
       - |
@@ -23,7 +21,6 @@ http:
         Content-Type: application/json
 
         {"method":"web3_clientVersion","params":[],"id":1,"jsonrpc":"2.0"}
-
     matchers:
       - type: dsl
         dsl:
@@ -31,11 +28,10 @@ http:
           - 'contains(header, "application/json")'
           - 'contains(body, "Geth")'
         condition: and
-
     extractors:
       - type: regex
         part: body
         group: 1
         regex:
           - '(v[0-9a-z-_.]+)'
-
+        # digest: 4b0a00483046022100e8be33d56f52d9817da0794a1fa35380156824d4929441d64b03c4c20329cacb022100b15fd470d4715d21a41b710a8e009093f4b14321dfd52a3e1d452503e6e0d85d:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: nocodb-public-registration-enabled
-
 info:
   name: NocoDB Public Registration Enabled
   author: pussycat0x
@@ -10,18 +9,16 @@ info:
     - https://docs.nocodb.com/getting-started/self-hosted/environment-variables/
     - https://nocodb.com/docs/product-docs/account-settings/oss-specific-details
   metadata:
-    max-request: 1
-    verified: true
-    shodan-query: http.title:"NocoDB"
     fofa-query: title="NocoDB"
+    max-request: 1
     product: nocodb
+    shodan-query: http.title:"NocoDB"
     vendor: nocodb
-  tags: nocodb,misconfig,exposure,intrusive
-
+    verified: true
+  tags: exposure,intrusive,misconfig,nocodb
 variables:
   email: "{{randstr}}@{{rand_base(5)}}.com"
   password: "{{rand_base(8)}}"
-
 http:
   - raw:
       - |
@@ -30,7 +27,6 @@ http:
         Content-Type: application/json
 
         {"email":"{{email}}","password":"{{password}}"}
-
     matchers:
       - type: dsl
         dsl:
@@ -38,9 +34,8 @@ http:
           - contains(header, 'application/json')
           - "status_code == 200"
         condition: and
-
     extractors:
       - type: dsl
         dsl:
           - '"Email: " + email + ". Password: "+ password'
-
+        # digest: 4a0a004730450221008601489d1ac1495f9d72cf05aa9f98837a5eafd591f83bae680d2ce1bf5f82ca02206c34fc5e88c3783632c77d336eda7895175ab61b3bd98f16375ff70a84dbb9e7:922c64590222798bb761d5b6d8e72950

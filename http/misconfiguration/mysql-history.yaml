@@ -1,5 +1,4 @@
 id: mysql-history
-
 info:
   name: Mysql History - File Disclosure
   author: kazet
@@ -11,18 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: oracle
     product: mysql
     shodan-query: html:"mysql_history"
-  tags: misconfig,disclosure,config,vuln
-
+    vendor: oracle
+    verified: true
+  tags: config,disclosure,misconfig,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/.mysql_history"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -30,14 +27,12 @@ http:
           - "_HiStOrY_V2_"
           - "show databases;"
         condition: or
-
       - type: word
         part: header
         words:
           - "application/octet-stream"
           - "text/plain"
           - "filename=\".mysql_"
-
       - type: word
         part: response
         words:
@@ -50,8 +45,7 @@ http:
           - "text/html"
           - "image/"
         negative: true
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a004730450220455631d0e4f4fa855557879902cdcde19ca063d34b081df43230c0ef36caed86022100ab4e0d2c9e8740c58aaf0625c897a9f540dd2c913c78efa738000d1b16ca39bc:922c64590222798bb761d5b6d8e72950

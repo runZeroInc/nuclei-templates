@@ -1,5 +1,4 @@
 id: asp-webshell
-
 info:
   name: ASP/ASP.NET Webshell - Detect
   author: lu4nx
@@ -19,7 +18,6 @@ file:
       - ashx
       - asmx
       - asax
-
     extractors:
       - type: regex
         regex:
@@ -30,4 +28,4 @@ file:
           - '(?i)cmd.exe'
           - '(?i)mmshell'
           - '(?i)GetCmd'
-
+        # digest: 4b0a00483046022100c2546fdb688243d1cf7b3f15599e3490494a736dcf365fbed785660e197ad399022100dcb829f608adfb1e699588a6984a293fa4c2acb596ca0b90b92bda2fa6150ac8:922c64590222798bb761d5b6d8e72950

@@ -11,49 +11,42 @@ info:
     Configure alert rules to fire when events with the operation name "Microsoft.DBforPostgreSQL/servers/databases/delete" occur, ensuring these critical events are monitored effectively.
   reference:
     - https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log
-  tags: cloud,devops,azure,microsoft,postgresql,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,postgresql
 flow: |
   code(1);
   for (let AlertData of iterate(template.alertList)) {
     set("id", AlertData);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert list --output json --query '[?(enabled==`true`)].id'
-
     extractors:
       - type: json
         name: alertList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert show --ids "$id" --query 'condition'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"field": "operationName"'
-
       - type: word
         words:
           - "Microsoft.DBforPostgreSQL/servers/databases/delete"
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - 'id + " does not have the correct alert configuration for Delete PostgreSQL Database events"'
-
+        # digest: 490a004630440220791db0b169ceb46728d4e63b79fc654d21c8a9d2493779da69ff6fbacfe4c98f02202e1b82a0313b8c74ce96c4ed48ae170f6f3899b96688fd3b5c00e7c1555f0fd3:922c64590222798bb761d5b6d8e72950
+self-contained: true

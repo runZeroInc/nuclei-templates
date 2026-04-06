@@ -1,5 +1,4 @@
 id: jboss-web-console
-
 info:
   name: JBoss Management Console Server Information Page - Detect
   author: dhiyaneshDK
@@ -14,16 +13,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:jboss_enterprise_application_platform:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    google-query: inurl:/web-console/ServerInfo.jsp | inurl:/status?full=true
     max-request: 1
+    product: jboss_enterprise_application_platform
     vendor: redhat
-  tags: jboss,unauth,edb,misconfig,vuln
-
+    verified: true
+  tags: edb,jboss,misconfig,unauth,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/web-console/ServerInfo.jsp"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,8 +30,7 @@ http:
           - "Application Server"
           - "Management Console"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022005479a72043130f21ab5b2ec89f314e00afc3e79edb31393edc2e6ea80c4b400022100912d17fa7d310f469867447590c750c182097b9797e401a9d09d19b058f14d65:922c64590222798bb761d5b6d8e72950

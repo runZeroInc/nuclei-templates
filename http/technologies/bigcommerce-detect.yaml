@@ -1,5 +1,4 @@
 id: bigcommerce-detect
-
 info:
   name: BigCommerce Detection
   author: Chirag Mistry
@@ -7,10 +6,9 @@ info:
   description: |
     An instance running BigCommerce is detected by looking for specific HTTP headers, HTML tags, and known endpoints.
   metadata:
-    verified: true
     max-request: 8
+    verified: true
   tags: bigcommerce,detect,tech
-
 http:
   - method: GET
     path:
@@ -22,7 +20,6 @@ http:
       - "{{BaseURL}}/stores"
       - "{{BaseURL}}/cart"
       - "{{BaseURL}}/admin"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -34,11 +31,9 @@ http:
           - "bigcommerce.com"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -46,7 +41,6 @@ http:
         regex:
           - 'BigCommerce ([0-9.]+)'
           - 'Powered by BigCommerce ([0-9.]+)'
-
       - type: regex
         part: body
         name: bigcommerce_id
@@ -54,4 +48,4 @@ http:
           - 'bigcommerce-site-id=([a-z0-9]+)'
           - 'bc-site-id="([a-zA-Z0-9]+)"'
           - 'bigcommerce\.com/([^/]+)'
-
+        # digest: 4a0a00473045022100eda6829371f57872c3803cd711eccb7545f2a62751e59b4f5e6923c87dc983a4022060cad9a976704e4ec419300d200def9c4bc0b8892cb9edc9446c1afab60111fc:922c64590222798bb761d5b6d8e72950

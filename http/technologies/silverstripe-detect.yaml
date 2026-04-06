@@ -1,5 +1,4 @@
 id: silverstripe-detect
-
 info:
   name: SilverStripe Detection
   author: Chirag Mistry
@@ -9,8 +8,7 @@ info:
   metadata:
     max-request: 9
     shodan-query: http.component:"SilverStripe"
-  tags: silverstripe,detect,tech
-
+  tags: detect,silverstripe,tech
 http:
   - method: GET
     path:
@@ -23,7 +21,6 @@ http:
       - "{{BaseURL}}/cms/"
       - "{{BaseURL}}/admin/"
       - "{{BaseURL}}/themes/"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -34,12 +31,10 @@ http:
           - "X-Powered-By-SilverStripe"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
           - 403
-
     extractors:
       - type: regex
         part: body
@@ -47,11 +42,10 @@ http:
         regex:
           - 'SilverStripe ([0-9.]+)'
           - 'Powered by SilverStripe ([0-9.]+)'
-
       - type: regex
         part: body
         name: silverstripe_id
         regex:
           - 'silverstripe-site-id=([a-z0-9]+)'
           - 'silverstripe\.org/([^/]+)'
-
+        # digest: 4b0a00483046022100981f64bb28ae890a51d89c3380ce8475448e730028d1373440289aee575e7dc7022100e9f463146d815519c8b4997b7332f0909f322ee151a4d139f137940de356d52a:922c64590222798bb761d5b6d8e72950

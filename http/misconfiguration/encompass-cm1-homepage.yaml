@@ -1,5 +1,4 @@
 id: encompass-cm1-homepage
-
 info:
   name: Encompass CM1 Home Page - Detect
   author: tess
@@ -10,16 +9,14 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 1
     shodan-query: title:"Encompass CM1 Home Page"
-  tags: misconfig,encompass,exposure,vuln
-
+    verified: true
+  tags: encompass,exposure,misconfig,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -28,13 +25,11 @@ http:
           - "Encompass CM1 Home Page"
           - "DIAGNOSTIC LINKS:"
         condition: and
-
       - type: word
         part: header
         words:
           - "text/html"
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100b26119c6e62cd66b9fed69849b2e8f15174a1f5ec1c09d9fe052aeb92a64b6da022100e861a4872581c099d179d7226860f3395cf201fbeec8b217fbf5773e01aed14e:922c64590222798bb761d5b6d8e72950

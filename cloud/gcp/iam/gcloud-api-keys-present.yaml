@@ -1,5 +1,4 @@
 id: gcloud-api-keys-present
-
 info:
   name: Delete Google Cloud API Keys
   author: princechaddha
@@ -12,8 +11,7 @@ info:
     Remove all API keys and replace them with standard authentication methods to secure your applications.
   reference:
     - https://cloud.google.com/docs/authentication/api-keys
-  tags: cloud,devops,gcp,gcloud,google-cloud-api,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,google-cloud-api
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -23,9 +21,6 @@ flow: |
       javascript(1)
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
@@ -38,7 +33,6 @@ code:
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
@@ -50,7 +44,6 @@ code:
         internal: true
         json:
           - '.[].keyId'
-
 javascript:
   - code: |
       let apiKey = template.apiKey;
@@ -58,9 +51,9 @@ javascript:
       if (apiKey) {
         Export("API key " + apiKey + " found in Project " + projectId);
       }
-
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 490a0046304402206810feba886ae7701bf4868be1fd8cca8c47317a75ddfa752b8a70fc02f36271022052ae9669645bccbd9d98e6bf6d11820ffcc29a3182fa0506a2a2a91b93ded722:922c64590222798bb761d5b6d8e72950
+self-contained: true

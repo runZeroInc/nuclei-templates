@@ -1,5 +1,4 @@
 id: tomcat-detect
-
 info:
   name: Tomcat Detection
   author: philippedelteil,dhiyaneshDk,AdamCrosser
@@ -8,21 +7,19 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
+    fofa-query:
+      - body="apache tomcat"
+      - title="apache tomcat"
+    google-query: intitle:"apache tomcat"
     max-request: 3
-    vendor: apache
     product: tomcat
     shodan-query:
       - title:"Apache Tomcat"
       - http.title:"apache tomcat"
       - http.html:"apache tomcat"
       - cpe:"cpe:2.3:a:apache:tomcat"
-    fofa-query:
-      - body="apache tomcat"
-      - title="apache tomcat"
-    google-query: intitle:"apache tomcat"
-  tags: tech,tomcat,apache,intrusive,discovery
-
+    vendor: apache
+  tags: apache,discovery,intrusive,tech,tomcat
 http:
   - method: GET
     path:
@@ -30,26 +27,22 @@ http:
       - "{{BaseURL}}/{{randstr}}"
       - "{{BaseURL}}/docs/introduction.html"
       - "{{BaseURL}}/\\"
-
     stop-at-first-match: true
-
     matchers-condition: or
     matchers:
       - type: dsl
         dsl:
           - 'contains(tolower(header), "tomcat")'
-
       - type: dsl
         dsl:
           - 'contains(tolower(body), "apache tomcat")'
           - 'contains(tolower(body), "/manager/html")'
           - 'contains(tolower(body), "/manager/status")'
         condition: or
-
     extractors:
       - type: regex
         name: version
         group: 1
         regex:
           - '(?i)Apache Tomcat.*\D([1-9]*[0-9]\.[0-9]+\.[0-9]+)'
-
+        # digest: 490a0046304402207eb06afb4b8487ed04b065e7b7e51b1bacd7de44a167ac21cb66576add536b860220545a30c9648d8c1d94b62a05be3c97318a662703dd8c372364fda10c86dd5b10:922c64590222798bb761d5b6d8e72950

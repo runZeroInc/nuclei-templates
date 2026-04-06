@@ -1,5 +1,4 @@
 id: microfocus-vibe-panel
-
 info:
   name: Micro Focus Vibe Login Panel - Detect
   author: ritikchaddha,righettod
@@ -11,39 +10,35 @@ info:
     cpe: cpe:2.3:a:microfocus:vibe:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)micro focus vibe"
-    verified: true
-    max-request: 1
-    vendor: microfocus
-    product: vibe
-    shodan-query: http.html:"micro focus vibe"
     fofa-query: body="micro focus vibe"
-  tags: panel,microfocus,vibe,discovery
-
+    max-request: 1
+    product: vibe
+    shodan-query:
+      - http.html:"Micro Focus Vibe"
+      - http.html:"micro focus vibe"
+    vendor: microfocus
+    verified: true
+  tags: discovery,microfocus,panel,vibe
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/ssf/s/portalLogin"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "Micro Focus Vibe"
-          - "baseVibeUrl"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '(?i)Copyright\s+([0-9-]+)\s+Micro\s+Focus'
-
+          - (?i)Copyright\s+([0-9-]+)\s+Micro\s+Focus
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Micro Focus Vibe
+          - baseVibeUrl
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/ssf/s/portalLogin'

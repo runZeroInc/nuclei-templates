@@ -11,23 +11,20 @@ info:
     Regularly review and monitor guest users in Microsoft Entra ID to ensure each is associated with a business owner or process. Remove any unnecessary guest user accounts.
   reference:
     - https://docs.microsoft.com/en-us/azure/active-directory/external-identities/
-  tags: cloud,devops,azure,microsoft,entra-id,azure-cloud-config
-
-self-contained: true
+  tags: azure,azure-cloud-config,cloud,devops,entra-id,microsoft
 code:
   - engine:
       - sh
       - bash
     source: |
       az ad user list --query "[?userType=='Guest']" --output json
-
     matchers:
       - type: word
         words:
           - '"userType": "Guest"'
-
     extractors:
       - type: dsl
         dsl:
           - '"Azure Account han an Entra ID guest user Microsoft Entra ID"'
-
+        # digest: 490a0046304402201deaeaf272ddbd2c7c056f375dcdd2059e8af91f678849051caa58dc9f46dd9102204007bf0d7302173e6b864e8fe89cf834e2a53d6d640d1fab3af5c154cd7bee5a:922c64590222798bb761d5b6d8e72950
+self-contained: true

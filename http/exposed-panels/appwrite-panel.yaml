@@ -1,5 +1,4 @@
 id: appwrite-panel
-
 info:
   name: Appwrite Login Panel - Detect
   author: ritikchaddha
@@ -11,28 +10,25 @@ info:
     cpe: cpe:2.3:a:appwrite:appwrite:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sign in - appwrite"}) || service["favicon.ico.image.mmh3"] == "-633108100"
-    verified: true
-    max-request: 2
-    vendor: appwrite
-    product: appwrite
-    shodan-query:
-      - http.favicon.hash:"-633108100"
-      - http.title:"sign in - appwrite"
     fofa-query:
       - icon_hash=-633108100
       - title="sign in - appwrite"
     google-query: intitle:"sign in - appwrite"
-  tags: panel,appwrite,detect,discovery
-
+    max-request: 2
+    product: appwrite
+    shodan-query:
+      - http.favicon.hash:-633108100
+      - http.title:"sign in - appwrite"
+    vendor: appwrite
+    verified: true
+  tags: appwrite,detect,discovery,panel
 http:
-  - method: GET
+  - matchers:
+      - dsl:
+          - status_code==200 && ("-633108100" == mmh3(base64_py(body)))
+        type: dsl
+    method: GET
     path:
       - '{{BaseURL}}/images/favicon.png'
       - '{{BaseURL}}/favicon.png'
-
     stop-at-first-match: true
-    matchers:
-      - type: dsl
-        dsl:
-          - "status_code==200 && (\"-633108100\" == mmh3(base64_py(body)))"
-

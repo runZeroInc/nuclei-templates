@@ -1,5 +1,4 @@
 id: aem-crx-bypass
-
 info:
   name: AEM Package Manager - Authentication Bypass
   author: dhiyaneshDK
@@ -12,11 +11,10 @@ info:
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    vendor: adobe
     product: experience_manager
     shodan-query: http.component:"Adobe Experience Manager"
-  tags: aem,adobe,misconfig,vuln
-
+    vendor: adobe
+  tags: adobe,aem,misconfig,vuln
 http:
   - raw:
       - |
@@ -29,7 +27,6 @@ http:
         Host: {{Hostname}}
         Referer: {{BaseURL}}
         Accept-Encoding: gzip, deflate
-
     matchers-condition: and
     matchers:
       - type: word
@@ -39,13 +36,11 @@ http:
           - 'downloadName'
           - 'acHandling'
         condition: and
-
       - type: word
         part: header
         words:
           - 'application/json'
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100b58981cb573aa1e89d54d7fbc0e605271711f4eff65cef465aee34a3231440be0221008aa78cc7a8f4ed58a94d1612527533733590f27df31b8f713c240d0f5992df3a:922c64590222798bb761d5b6d8e72950

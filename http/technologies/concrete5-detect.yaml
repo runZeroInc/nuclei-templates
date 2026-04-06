@@ -1,5 +1,4 @@
 id: concrete5-detect
-
 info:
   name: Concrete5 Detection
   author: Chirag Mistry
@@ -7,10 +6,9 @@ info:
   description: |
     An instance running Concrete5 is detected by looking for specific HTTP headers, HTML tags, and known endpoints.
   metadata:
-    verified: true
     max-request: 8
+    verified: true
   tags: concrete5,detect,tech
-
 http:
   - method: GET
     path:
@@ -22,7 +20,6 @@ http:
       - "{{BaseURL}}/concrete/js/build/"
       - "{{BaseURL}}/concrete/block/"
       - "{{BaseURL}}/dashboard/"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -33,11 +30,9 @@ http:
           - "X-Powered-By-Concrete5"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -45,11 +40,10 @@ http:
         regex:
           - 'Concrete5 ([0-9.]+)'
           - 'Powered by Concrete5 ([0-9.]+)'
-
       - type: regex
         part: body
         name: concrete5_id
         regex:
           - 'concrete5-site-id=([a-z0-9]+)'
           - 'concrete5\.org/([^/]+)'
-
+        # digest: 4b0a00483046022100b6c1dbc77ca2fbbdc5e43a042a77a0784760a8ea85cab904efea6a1477d8d9b1022100d234365a5023f8eab6d011c622cd5f1c266cc8eaee9ca69282037a9a1731f730:922c64590222798bb761d5b6d8e72950

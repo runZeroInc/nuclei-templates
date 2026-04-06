@@ -1,5 +1,4 @@
 id: mylittleadmin-panel
-
 info:
   name: myLittleAdmin Login Panel - Detect
   author: nullfuzz
@@ -14,24 +13,23 @@ info:
     cpe: cpe:2.3:a:mylittletools:mylittleadmin:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)myLittleAdmin"
-    verified: true
     max-request: 2
+    product: mylittleadmin
+    shodan-query: http.html:"myLittleAdmin"
     vendor: mylittletools
-  tags: panel,mylittleadmin,login,discovery
-
+    verified: true
+  tags: discovery,login,mylittleadmin,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/mylittleadmin/"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
+  - host-redirects: true
     matchers:
-      - type: dsl
+      - condition: and
         dsl:
-          - "status_code == 200"
-          - "contains(body, '<title>myLittleAdmin for SQL Server')"
-        condition: and
-
+          - status_code == 200
+          - contains(body, '<title>myLittleAdmin for SQL Server')
+        type: dsl
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/mylittleadmin/'
+    stop-at-first-match: true

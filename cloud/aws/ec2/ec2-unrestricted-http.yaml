@@ -11,27 +11,23 @@ info:
     Restrict inbound traffic on TCP port 80 to only necessary IP addresses, adhering to the principle of least privilege.
   reference:
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html
-  tags: cloud,devops,aws,amazon,ec2,aws-cloud-config
-
+  tags: amazon,aws,aws-cloud-config,cloud,devops,ec2
 variables:
   region: "us-east-1"
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       aws ec2 describe-security-groups --region $region --filters Name=ip-permission.from-port,Values=80 Name=ip-permission.to-port,Values=80 Name=ip-permission.cidr,Values='0.0.0.0/0' --query 'SecurityGroups[*].GroupId' --output json
-
     extractors:
       - type: json
         name: securitygroup
         internal: true
         json:
           - '.[]'
-
       - type: dsl
         dsl:
           - 'securitygroup + " security group(s) alows unrestricted access (0.0.0.0/0 or ::/0) on TCP port 80"'
-
+        # digest: 4a0a004730450221009f14fce67c7ed1c87516a472bd9ff6c86384a90af8fd5fef53ba4705ae402c3802205278dc94d1553c98e35dbf3f51b6eac6b8036c1379d6d6bcdeb2702b7e195c82:922c64590222798bb761d5b6d8e72950
+self-contained: true

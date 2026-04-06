@@ -1,5 +1,4 @@
 id: php-fpm-config
-
 info:
   name: PHP-FPM Configuration Page - Detect
   author: sheikhrishad
@@ -14,12 +13,10 @@ info:
   metadata:
     max-request: 1
   tags: config,exposure,php,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}/php-fpm.conf"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -27,8 +24,7 @@ http:
           - "FPM Configuration"
           - "Pool Definitions"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022055354ad3f17ca7db34912c1b6d3979e6f08409a6c5e07c9027fad6224a0b61f80220666f75b47b36d1610dbd11fd617f8ca90e962d62cb13e986db7a01d4cf04c238:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: linux-anonymous-ftp-enabled
-
 info:
   name: Linux Anonymous FTP Access Enabled
   author: songyaeji
@@ -10,10 +9,7 @@ info:
     - https://isms.kisa.or.kr
   metadata:
     verified: true
-  tags: linux,local,kisa,audit,ftp,anonymous,local
-
-self-contained: true
-
+  tags: anonymous,audit,ftp,kisa,linux,local,local
 code:
   - engine:
       - bash
@@ -37,10 +33,10 @@ code:
       else
           echo "[SAFE] Anonymous login disabled in proftpd.conf"
       fi
-
     matchers:
       - type: word
         part: response
         words:
           - "[VULNERABLE]"
-
+        # digest: 4a0a00473045022055559b14fc854e4092076348e8112d3c5de9cc61c672ae22a6c3c0338bb8297d022100b710a746d9e1137f08fe0e7a9598b87866051c238f885376e2c0ab28d57fe15a:922c64590222798bb761d5b6d8e72950
+self-contained: true

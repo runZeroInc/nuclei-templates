@@ -1,5 +1,4 @@
 id: untrusted-root-certificate
-
 info:
   name: Untrusted Root Certificate - Detect
   author: pussycat0x
@@ -10,8 +9,8 @@ info:
     - https://www.sslmarket.com/ssl/trusted-and-untrusted-certificate
     - https://www.invicti.com/web-vulnerability-scanner/vulnerabilities/ssl-untrusted-root-certificate/
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: ssl,tls,untrusted,vuln
 ssl:
   - address: "{{Host}}:{{Port}}"
@@ -19,4 +18,4 @@ ssl:
       - type: dsl
         dsl:
           - "untrusted == true"
-
+        # digest: 490a0046304402201421bea4f80bb55cb5ab634dc7709d225226a1e5f296a25b16fc3b63940bc10b022027cc35c34b34453267019284199b94da7460e3dfa508454c6ba7d44cf17f2869:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: fortiauthenticator-detect
-
 info:
   name: FortiAuthenticator - Detect
   author: johnk3r
@@ -11,38 +10,32 @@ info:
     cpe: cpe:2.3:a:fortinet:fortiauthenticator:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1653412201"
-    verified: true
-    max-request: 1
-    vendor: fortinet
-    product: fortiauthenticator
-    shodan-query: http.favicon.hash:"-1653412201"
     fofa-query: icon_hash=-1653412201
-  tags: panel,fortinet,fortiauthenticator,detect,discovery
-
+    max-request: 1
+    product: fortiauthenticator
+    shodan-query: http.favicon.hash:-1653412201
+    vendor: fortinet
+    verified: true
+  tags: detect,discovery,fortiauthenticator,fortinet,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/api/v1"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: and
         part: body
+        type: word
         words:
-          - 'list_endpoint'
-          - 'schema'
-          - 'faccloudhost'
-        condition: and
-
-      - type: word
-        part: header
+          - list_endpoint
+          - schema
+          - faccloudhost
+      - part: header
+        type: word
         words:
-          - 'application/json'
-
-      - type: status
-        status:
+          - application/json
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/api/v1'

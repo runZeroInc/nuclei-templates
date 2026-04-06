@@ -1,5 +1,4 @@
 id: qBittorrent-panel
-
 info:
   name: qBittorrent Web UI Panel - Detect
   author: ritikchaddha
@@ -10,33 +9,30 @@ info:
     cpe: cpe:2.3:a:qbittorrent:qbittorrent:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)qbittorrent"})
-    verified: true
-    max-request: 1
-    vendor: qbittorrent
-    product: qbittorrent
-    shodan-query: http.title:"qbittorrent"
     fofa-query: title="qbittorrent"
     google-query: intitle:"qbittorrent"
-  tags: panel,qbittorrent,detect,discovery
-
+    max-request: 1
+    product: qbittorrent
+    shodan-query:
+      - title:"qbittorrent"
+      - http.title:"qbittorrent"
+    vendor: qbittorrent
+    verified: true
+  tags: detect,discovery,panel,qbittorrent
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'qBittorrent Web UI'
-          - 'alt="qBittorrent'
-        condition: or
-
-      - type: status
-        status:
+          - qBittorrent Web UI
+          - alt="qBittorrent
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

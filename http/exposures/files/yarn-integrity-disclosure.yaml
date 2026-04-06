@@ -1,5 +1,4 @@
 id: yarn-integrity-disclosure
-
 info:
   name: Yarn Integrity File Disclosure
   author: pussycat0x
@@ -11,16 +10,13 @@ info:
     - https://github.com/yarnpkg/yarn/blob/master/src/integrity-checker.js
   metadata:
     verified: true
-  tags: exposure,yarn,node,npm,misconfig
-
+  tags: exposure,misconfig,node,npm,yarn
 http:
   - method: GET
     path:
       - "{{BaseURL}}/node_modules/.yarn-integrity"
       - "{{BaseURL}}/.yarn-integrity"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: dsl
@@ -29,10 +25,9 @@ http:
           - 'contains_all(body, "systemParams", "lockfileEntries")'
           - 'contains_any(body, "topLevelPatterns","linkedModules","modulesFolders")'
         condition: and
-
     extractors:
       - type: json
         name: system-params
         json:
           - '.systemParams'
-
+        # digest: 4a0a00473045022033f609fb87c66b1a4b0876f0cbc20040688263d813edb9e3aef42a7941403a71022100aad97086eaaeef8976e4833ecfa662e217692111c4934be25fc700b443922068:922c64590222798bb761d5b6d8e72950

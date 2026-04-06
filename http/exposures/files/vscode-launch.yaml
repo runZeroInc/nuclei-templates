@@ -1,5 +1,4 @@
 id: vscode-launch
-
 info:
   name: Visual Studio Code launch.json Exposure
   author: DhiyaneshDK
@@ -9,16 +8,14 @@ info:
   reference:
     - https://code.visualstudio.com/docs/editor/debugging
   metadata:
-    verified: true
     max-request: 1
     shodan-query: title:"index" html:".vscode"
-  tags: vscode,files,debug,exposure,vuln
-
+    verified: true
+  tags: debug,exposure,files,vscode,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/.vscode/launch.json"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -27,13 +24,11 @@ http:
           - '"version":'
           - '"configurations":'
         condition: and
-
       - type: word
         part: content_type
         words:
           - 'application/json'
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100f049a6326098e27abe32606abf6b0bda16519b908588864e328bb9968fd0586002204e77327e18f8b11bcb1acaa7a05fedb663ea4a298410337f116f3b8b8f0bc784:922c64590222798bb761d5b6d8e72950

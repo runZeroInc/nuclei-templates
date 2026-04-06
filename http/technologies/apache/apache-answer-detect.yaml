@@ -1,5 +1,4 @@
 id: apache-answer-detect
-
 info:
   name: Apache Answer - Detection
   author: omranisecurity
@@ -11,39 +10,34 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:answer:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: icon_hash="523757057"
     max-request: 1
-    vendor: apache
     product: answer
     shodan-query: http.favicon.hash:523757057
-    fofa-query: icon_hash="523757057"
-  tags: detect,tech,apache,discovery
-
+    vendor: apache
+    verified: true
+  tags: apache,detect,discovery,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}/answer/api/v1/siteinfo"
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - '"code":'
-
       - type: word
         part: header
         words:
           - application/json
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
         name: version
         regex:
           - '"version":"([^"]+)"'
-
+        # digest: 4b0a00483046022100bdbc00cc65d771026c7c2df2dc88f882ba71b712356dac8f1dbc3ff8a4e154100221008e3756e34f99cfbd24301d10a6e4ba0a195121bc3068f28195601568bdc31822:922c64590222798bb761d5b6d8e72950

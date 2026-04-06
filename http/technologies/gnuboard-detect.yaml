@@ -1,5 +1,4 @@
 id: gnuboard-detect
-
 info:
   name: Gnuboard CMS - Detect
   author: gy741
@@ -13,13 +12,11 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: tech,gnuboard,discovery
-
+  tags: discovery,gnuboard,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}/LICENSE.txt"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -28,16 +25,14 @@ http:
           - 'GNU Board'
           - 'http://sir.kr'
         condition: and
-
       - type: word
         part: header
         words:
           - 'text/plain'
-
     extractors:
       - type: regex
         part: body
         group: 1
         regex:
           - '\( GNU Board (.*) \)'
-
+        # digest: 4b0a00483046022100df32c5c562a8fcd761e12f57efc45c11cdd8232ddc883cba91015deebe0dd4cf022100da626912421e3d38a6e012b6d6370cbfc049e673a6b71fe51a4c2d9da4a211f3:922c64590222798bb761d5b6d8e72950

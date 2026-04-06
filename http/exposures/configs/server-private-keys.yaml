@@ -1,5 +1,4 @@
 id: server-private-keys
-
 info:
   name: SSL/SSH/TLS/JWT Keys - Detect
   author: geeknik,R12W4N,j4vaovo,VulnSCOUT
@@ -12,12 +11,10 @@ info:
   metadata:
     max-request: 47
   tags: config,exposure,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - "/localhost.key"
@@ -68,7 +65,6 @@ http:
         - "/private/{{Host}}.key"
         - "/keys/{{Host}}.pem"
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -81,14 +77,12 @@ http:
           - "BEGIN PGP PRIVATE KEY BLOCK"
           - "BEGIN ENCRYPTED PRIVATE KEY"
         condition: or
-
       - type: status
         status:
           - 200
-
       - type: dsl
         dsl:
           - '!contains(body, "<html")'
           - '!contains(body, "<HTML")'
         condition: and
-
+        # digest: 490a00463044022035c6383cb8bac76b612497265a3b972db5401ee41d15172768536381f626bce8022002bac525815c3c79abbb6fa5b19e81ca1d49dbcdace486f87c2fa59e3df79854:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: sap-osexecute-rce
-
 info:
   name: SAPControl OSExecute - Remote Code Execution (RCE)
   author: LRVT,l4rm4nd
@@ -14,8 +13,7 @@ info:
     - https://www.slideshare.net/slideshow/sap-insecurity-scrubbing-sap-clean-with-soap/9951290
   metadata:
     max-request: 1
-  tags: misconfig,sap,sapcontrol,soap,rce,osexecute
-
+  tags: misconfig,osexecute,rce,sap,sapcontrol,soap
 http:
   - raw:
       - |
@@ -38,7 +36,6 @@ http:
             </ns1:OSExecute>
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
-
     matchers-condition: and
     matchers:
       - type: word
@@ -47,13 +44,11 @@ http:
           - "OSExecuteResponse"
           - "<output>"
         condition: and
-
       - type: regex
         part: body
         regex:
           - "uid=[0-9]+\\("
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100fdd55365de147610fb1f5bf7533cb30db2503c8249acddd78252a3a408ce8463022100d74d198c04760c503a757f43315763b9dbb01247b35e93f65a429e68194e0ab4:922c64590222798bb761d5b6d8e72950

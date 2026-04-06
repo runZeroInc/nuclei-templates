@@ -1,5 +1,4 @@
 id: untangle-admin-login
-
 info:
   name: Untangle Administrator Login Panel - Detect
   author: irshad ahamed
@@ -14,34 +13,30 @@ info:
     cpe: cpe:2.3:a:untangle:ng_firewall:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)untangle administrator login"})
-    verified: true
-    max-request: 2
-    vendor: untangle
-    product: ng_firewall
-    shodan-query:
-      - http.title:"untangle administrator login"
     fofa-query: title="untangle administrator login"
     google-query: intitle:"untangle administrator login"
-  tags: panel,untangle,admin,login,discovery
-
+    max-request: 2
+    product: ng_firewall
+    shodan-query:
+      - title:"Untangle Administrator Login"
+      - http.title:"untangle administrator login"
+    vendor: untangle
+    verified: true
+  tags: admin,discovery,login,panel,untangle
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - part: body
+        type: word
+        words:
+          - Untangle Administrator Login
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/auth/login'
-
     stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Untangle Administrator Login"
-
-      - type: status
-        status:
-          - 200
-

@@ -11,27 +11,23 @@ info:
     Restrict the inbound rules for TCP/UDP port 53 in EC2 security groups to known, trusted IPs only. Ensure security group rules are tightly controlled and monitored.
   reference:
     - https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules
-  tags: cloud,devops,aws,amazon,ec2,aws-cloud-config
-
+  tags: amazon,aws,aws-cloud-config,cloud,devops,ec2
 variables:
   region: "us-east-1"
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       aws ec2 describe-security-groups --region $region --filters Name=ip-permission.from-port,Values=53 Name=ip-permission.to-port,Values=53 Name=ip-permission.cidr,Values='0.0.0.0/0' --output json --query 'SecurityGroups[*].GroupId'
-
     extractors:
       - type: json
         name: securitygroup
         internal: true
         json:
           - '.[]'
-
       - type: dsl
         dsl:
           - 'securitygroup + " security group(s) alows unrestricted access (0.0.0.0/0 or ::/0) on TCP port 53"'
-
+        # digest: 4b0a004830460221008233370a72ac39d30f1ee1f45b7463c5c185e4dc358c70084bab7c8666bc7c9f022100bb44c563dde300e18db8520fe30bc8e0b61b66002a09f78c3d8dee78042eaf81:922c64590222798bb761d5b6d8e72950
+self-contained: true

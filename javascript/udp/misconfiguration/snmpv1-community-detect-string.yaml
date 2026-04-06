@@ -1,5 +1,4 @@
 id: snmpv1-community-detect-string
-
 info:
   name: SNMPv1 Public Community String - Detect
   author: matejsmycka
@@ -12,15 +11,13 @@ info:
     - https://www.tenable.com/plugins/nnm/1344
     - https://linux.die.net/man/1/snmpwalk
   metadata:
-    verified: true
     max-request: 1
     shodan-query: product:"SNMP"
-  tags: js,udp,network,snmp,vuln
-
+    verified: true
+  tags: js,network,snmp,udp,vuln
 javascript:
   - pre-condition: |
       isUDPPortOpen(Host, Port);
-
     code: |
       const c = require("nuclei/net");
       const conn = c.Open('udp', `${Host}:${Port}`, `${Timeout}`);
@@ -33,27 +30,22 @@ javascript:
       conn.SendHex(payload);
       let resp = conn.RecvFull(64);
       resp;
-
     args:
       Host: "{{Host}}"
       Port: 161
       Timeout: 2
       Community: "{{community_string}}"
-
     attack: clusterbomb
-
     payloads:
       community_string:
         - public
-
     matchers:
       - type: binary
         binary:
           - "0201010406"
-
     extractors:
       - type: regex
         group: 1
         regex:
-          - "public.*\x00\x04.(.*)"
-
+          - "public.*\0\x04.(.*)"
+        # digest: 4a0a00473045022025ba13e97437a09d2aa612adf6a95225bf1cb7792fa9f06254ec7fd1d4c7b1100221009c30846f7c8928da30c7ac65aa232b3fe4c445fca490d368c1a99cb45cb06ac2:922c64590222798bb761d5b6d8e72950

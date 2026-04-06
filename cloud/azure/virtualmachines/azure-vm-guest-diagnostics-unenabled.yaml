@@ -11,8 +11,7 @@ info:
     Enable Guest-Level Diagnostics on your Azure virtual machines to ensure comprehensive data collection and enhance monitoring capabilities.
   reference:
     - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/diagnostics
-  tags: cloud,devops,azure,microsoft,virtual-machines,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,virtual-machines
 flow: |
   code(1);
   for (let VMData of iterate(template.vmList)) {
@@ -20,36 +19,31 @@ flow: |
     set("ids", VMData.id);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az vm list --query '[*].{"id":id}'
-
     extractors:
       - type: json
         name: vmList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az vm show --ids "$ids" --query '{"GuestLevelDiagnosticsConfig": resources[*].settings.ladCfg.diagnosticMonitorConfiguration}'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"GuestLevelDiagnosticsConfig": null'
-
     extractors:
       - type: dsl
         dsl:
           - 'ids + " does not have Guest-Level Diagnostics enabled"'
-
+        # digest: 4b0a00483046022100ca69e08c39a946404a3a75bcde2d557da1c5fc985b6b0c2674e53ba5a31236e1022100d4022772779470dccad5c30a8179007b05d446114887b8d9388859d5164f4976:922c64590222798bb761d5b6d8e72950
+self-contained: true

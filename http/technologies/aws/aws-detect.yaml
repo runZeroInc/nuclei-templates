@@ -1,5 +1,4 @@
 id: aws-detect
-
 info:
   name: AWS Service - Detect
   author: 6mile
@@ -11,16 +10,13 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: tech,aws,amazon,alb,cloudfront,codebuild,gateway,xray,captcha,dynamodb,kms,discovery
-
+  tags: alb,amazon,aws,captcha,cloudfront,codebuild,discovery,dynamodb,gateway,kms,tech,xray
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     host-redirects: true
     max-redirects: 3
-
     matchers-condition: or
     matchers:
       - type: word
@@ -34,7 +30,6 @@ http:
           - 'X-Amz-Delete-Marker:'
         condition: or
         case-insensitive: true
-
       - type: word
         name: aws-alb
         part: header
@@ -44,7 +39,6 @@ http:
           - 'Set-Cookie: AWSALBCORS='
         condition: or
         case-insensitive: true
-
       - type: word
         name: aws-cloudfront
         part: header
@@ -53,7 +47,6 @@ http:
           - 'X-Amz-Cf-Pop:'
         condition: or
         case-insensitive: true
-
       - type: dsl
         name: aws-cloudfront
         dsl:
@@ -62,7 +55,6 @@ http:
           - "contains(tolower(header), 'x-cache: miss from cloudfront')"
           - "contains(tolower(header), 'x-cache: error from cloudfront')"
         condition: or
-
       - type: word
         name: aws-codebuild
         part: header
@@ -73,7 +65,6 @@ http:
           - 'X-Amz-Meta-Codebuild-Content-Md5:'
         condition: or
         case-insensitive: true
-
       - type: word
         name: aws-api-gateway
         part: header
@@ -86,7 +77,6 @@ http:
           - 'X-Amzn-Remapped-Date:'
         condition: or
         case-insensitive: true
-
       - type: word
         name: aws-kms
         part: header
@@ -94,7 +84,6 @@ http:
           - 'X-Amz-Server-Side-Encryption:'
         condition: or
         case-insensitive: true
-
       - type: word
         name: aws-xray
         part: header
@@ -102,7 +91,6 @@ http:
           - 'X-Amzn-Trace-Id:'
         condition: or
         case-insensitive: true
-
       - type: word
         name: aws-waf-captcha
         part: header
@@ -110,7 +98,6 @@ http:
           - 'X-Amzn-Waf-Action:'
         condition: or
         case-insensitive: true
-
       - type: word
         name: aws-dynamodb
         part: header
@@ -119,4 +106,4 @@ http:
           - 'X-Amz-Target:'
         condition: or
         case-insensitive: true
-
+        # digest: 4b0a00483046022100aba65b71de0d37c6fce25a3047c04c5fc39c305193cfa1adf7901f154944acae022100dbd257ab75cb90a02c3027d399f9bc75c874baa3e547cfa5f374bc4ab68cf59d:922c64590222798bb761d5b6d8e72950

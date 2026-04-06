@@ -1,5 +1,4 @@
 id: phpci-yml
-
 info:
   name: PHPCI Configuration Exposure "phpci.yml" Exposure
   author: DhiyaneshDk
@@ -9,18 +8,15 @@ info:
   reference:
     - https://github.com/dancryer/PHPCI/blob/master/.phpci.yml
   metadata:
-    runzero-match: service["http.body"] matches "(?i)phpci\\.yml"
-    verified: true
-    max-request: 1
     fofa-query: body="phpci.yml"
-  tags: phpci,misconfig,vuln
-
+    max-request: 1
+    verified: true
+  tags: misconfig,phpci,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/phpci.yml"
       - "{{BaseURL}}/ci/phpci.yml"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -31,7 +27,6 @@ http:
           - 'setup:'
           - 'php_unit:'
         condition: and
-
       - type: word
         part: content_type
         words:
@@ -40,8 +35,7 @@ http:
           - "text/yaml"
           - "text/plain"
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100a3a11da8e5b4efea4b9df458b6fb02b9f1a434102e2144b518693b242ed34869022044eb3777907cd2cfd6059c27c2678387ca9c95345b7dd6e7f4f54cebbf473dd5:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: iceflow-vpn-disclosure
-
 info:
   name: ICEFlow VPN Disclosure
   author: pikpikcu
@@ -8,7 +7,6 @@ info:
   metadata:
     max-request: 8
   tags: exposure,files,iceflow,logs,vuln
-
 http:
   - method: GET
     path:
@@ -20,9 +18,7 @@ http:
       - "{{BaseURL}}/log/debug.log"
       - "{{BaseURL}}/log/mobile.log"
       - "{{BaseURL}}/log/firewall.log"
-
     max-size: 2048
-
     matchers-condition: and
     matchers:
       - type: word
@@ -32,15 +28,13 @@ http:
           - 'ICEFLOW'
         part: body
         condition: or
-
       - type: status
         status:
           - 200
-
       - type: word
         words:
           - "text/plain"
           - 'ICEFLOW'
         part: header
         condition: and
-
+        # digest: 4a0a00473045022100d9d40e170db27f67863d5654b88de60b27403873fa87dc22f416df12acf4501202205e3d0802c003fd890521c9aa7dd3a80970bd46d3dbfdda48b821ecb504cd3107:922c64590222798bb761d5b6d8e72950

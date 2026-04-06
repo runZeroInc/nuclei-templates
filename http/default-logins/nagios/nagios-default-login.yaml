@@ -1,11 +1,9 @@
 id: nagios-default-login
-
 info:
   name: Nagios Default Login
   author: iamthefrogy
   severity: high
-  description: |
-    Nagios default admin credentials were discovered.
+  description: Nagios default admin credentials were discovered.
   reference:
     - https://www.nagios.org
   classification:
@@ -15,39 +13,33 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nagios Core"})
     max-request: 2
-  tags: nagios,default-login,vuln
-
+  tags: default-login,nagios,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - part: header
+        type: word
+        words:
+          - text/html
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Current Status
+          - Reports
+    matchers-condition: and
+    payloads:
+      password:
+        - nagiosadmin
+        - nagiosxi
+      username:
+        - nagiosadmin
+        - root
+    raw:
       - |
         GET /nagios/side.php HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ':' + password)}}
-
-    payloads:
-      username:
-        - nagiosadmin
-        - root
-      password:
-        - nagiosadmin
-        - nagiosxi
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: word
-        part: body
-        words:
-          - 'Current Status'
-          - 'Reports'
-        condition: and
-

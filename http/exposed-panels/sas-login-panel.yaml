@@ -1,5 +1,4 @@
 id: sas-login-panel
-
 info:
   name: SAS Login Panel - Detect
   author: ritikchaddha
@@ -11,26 +10,22 @@ info:
     cpe: cpe:2.3:a:sas:base_sas:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "957255151"
-    verified: true
-    max-request: 1
-    vendor: sas
-    product: base_sas
-    shodan-query: http.favicon.hash:"957255151"
     fofa-query: icon_hash=957255151
-  tags: sas,panel,discovery
-
+    max-request: 1
+    product: base_sas
+    shodan-query: http.favicon.hash:957255151
+    vendor: sas
+    verified: true
+  tags: discovery,panel,sas
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/SASLogon/login"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "SAS&reg; Logon Manager"
-
-      - type: status
-        status:
+          - SAS&reg; Logon Manager
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/SASLogon/login'

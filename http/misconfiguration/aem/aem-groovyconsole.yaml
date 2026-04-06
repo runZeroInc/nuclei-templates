@@ -1,5 +1,4 @@
 id: aem-groovyconsole
-
 info:
   name: AEM Groovy Console Discovery
   author: Dheerajmadhukar
@@ -12,22 +11,19 @@ info:
     cpe: cpe:2.3:a:adobe:experience_manager_cloud_service:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    vendor: adobe
     product: experience_manager_cloud_service
     shodan-query: http.component:"Adobe Experience Manager"
-  tags: aem,adobe,hackerone,misconfig,vuln
-
+    vendor: adobe
+  tags: adobe,aem,hackerone,misconfig,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/groovyconsole"
       - "{{BaseURL}}/etc/groovyconsole.html"
-
     headers:
       Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
       Accept-Language: en-US,en;q=0.9,hi;q=0.8
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -37,8 +33,7 @@ http:
           - "Groovy Web Console"
         part: body
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502205fe10cb80e5c9060c89739509147b69a02a0bccf6a6e1876c99b7c21e9b0e72e022100c6f2e8d435d928fcc1fab8589a45286368ffead120d745fb19f9e15c1b0316a5:922c64590222798bb761d5b6d8e72950

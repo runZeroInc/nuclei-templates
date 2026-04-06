@@ -1,5 +1,4 @@
 id: mdb-database-file
-
 info:
   name: Microsoft Access Database File - Detect
   author: pdteam
@@ -13,8 +12,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 341
-  tags: fuzz,mdb,asp,fuzzing,vuln
-
+  tags: asp,fuzz,fuzzing,mdb,vuln
 http:
   - raw:
       - |
@@ -22,26 +20,22 @@ http:
         Host: {{Hostname}}
         Origin: {{BaseURL}}
         Accept-Language: en-US,en;q=0.9
-
     payloads:
       mdbPaths: helpers/wordlists/mdb-paths.txt
     threads: 50
     max-size: 500 # Size in bytes - Max Size to read from server response
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: binary
         binary:
           - "000100005374616E64617264204A657420444200" # mdb
         part: body
-
       - type: word
         words:
           - "application/x-msaccess"
         part: header
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022001394f6ca49d994ca2a65d9fa95ae684467ae10073c57b53d81ec624a2ba2a6f02203f57d8d426b0e5e8b06d5dc7d4506a81bca5636cf77e8e17df30af5019eddda0:922c64590222798bb761d5b6d8e72950

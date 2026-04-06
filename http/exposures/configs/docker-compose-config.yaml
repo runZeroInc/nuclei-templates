@@ -1,5 +1,4 @@
 id: docker-compose-config
-
 info:
   name: Docker Compose - Detect
   author: meme-lord,blckraven,geeknik
@@ -11,8 +10,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 7
-  tags: config,exposure,devops,vuln
-
+  tags: config,devops,exposure,vuln
 http:
   - method: GET
     host-redirects: true
@@ -25,16 +23,13 @@ http:
       - "{{BaseURL}}/docker-compose.dev.yml"
       - "{{BaseURL}}/docker-compose-dev.yml"
       - "{{BaseURL}}/docker-compose.override.yml"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: dsl
         dsl:
           - 'regex("^version: ", body) && contains(body, "services:")'
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402204eca9a276bd21dbcfa497a66fd256e5ab587dd679885b685dcb1e10c74d94c1602201ab20179b059adf6f3cbe3525f95d75503f4a765a437496d90d4bdf136469523:922c64590222798bb761d5b6d8e72950

@@ -11,49 +11,42 @@ info:
     Configure alert rules to monitor and notify whenever "Delete Key Vault" events occur by setting the alert condition to "Microsoft.KeyVault/vaults/delete" and attaching an action group to manage notifications.
   reference:
     - https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log
-  tags: cloud,devops,azure,microsoft,key-vault,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,key-vault,microsoft
 flow: |
   code(1);
   for (let AlertData of iterate(template.alertList)) {
     set("id", AlertData);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert list --output json --query '[?(enabled==`true`)].id'
-
     extractors:
       - type: json
         name: alertList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert show --ids "$id" --query 'condition'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"field": "operationName"'
-
       - type: word
         words:
           - "Microsoft.KeyVault/vaults/delete"
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - 'id + " does not have the correct alert configuration for Delete Key Vault events"'
-
+        # digest: 490a00463044022069abd9c1f38c3414a06f1da8aaca68079e4e853366046220557c17ed8f9d638702202fca92caea6a7f6cc147cba3a0a53f11ebd8430bd8c2c45234e1b6c01202db93:922c64590222798bb761d5b6d8e72950
+self-contained: true

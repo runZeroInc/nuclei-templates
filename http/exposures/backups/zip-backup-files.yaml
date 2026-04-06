@@ -1,5 +1,4 @@
 id: zip-backup-files
-
 info:
   name: Compressed Backup File - Detect
   author: toufik-airane,dwisiswant0,ffffffff0x,pwnhxl,mastercho
@@ -11,13 +10,11 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1305
-  tags: exposure,backup,vuln
-
+  tags: backup,exposure,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/{{FILENAME}}.{{EXT}}"
-
     attack: clusterbomb
     payloads:
       FILENAME:
@@ -97,7 +94,6 @@ http:
         - "sql.tar.z"
         - "war"
     max-size: 500 # Size in bytes - Max Size to read from server response
-
     matchers-condition: and
     matchers:
       - type: binary
@@ -117,13 +113,11 @@ http:
           - "504B0304" # zip
         condition: or
         part: body
-
       - type: regex
         regex:
           - "application/[-\\w.]+"
         part: header
-
       - type: status
         status:
           - 200
-
+        # digest: 490a004630440220282f2337bf193971f75703fcef230a54161419e65d37ebe2999dd85494bd5cb902207b4a40c251dda6eb65bef62271ef2d3cf31a427d2fdac57f538f4b5db1759f0d:922c64590222798bb761d5b6d8e72950

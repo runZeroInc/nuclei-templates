@@ -1,5 +1,4 @@
 id: retool-login
-
 info:
   name: Retool Login Panel - Detect
   author: DhiyaneshDk
@@ -11,23 +10,21 @@ info:
     cpe: cpe:2.3:a:retool:retool:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Retool"})
-    verified: true
     max-request: 1
+    product: retool
+    shodan-query: title:"Retool"
     vendor: retool
-  tags: login,panel,retool,discovery
-
+    verified: true
+  tags: discovery,login,panel,retool
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/auth/login"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Retool</title>'
-
-      - type: status
-        status:
+          - <title>Retool</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/auth/login'

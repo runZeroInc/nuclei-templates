@@ -1,5 +1,4 @@
 id: python-setup-config
-
 info:
   name: Python Setup Configuration - Exposure
   author: DhiyaneshDk
@@ -9,17 +8,14 @@ info:
   reference:
     - https://www.geeksforgeeks.org/python/what-is-setup-py-in-python/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)setup\\.py"
-    verified: true
     max-request: 1
     shodan-query: html:"setup.py"
-  tags: python,py,misconfig,vuln
-
+    verified: true
+  tags: misconfig,py,python,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/setup.py"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -29,14 +25,12 @@ http:
           - 'find_packages'
           - 'setup('
         condition: or
-
       - type: word
         part: content_type
         words:
           - 'application/octet-stream'
           - 'text/x-python'
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502206d1c2796452bc09a3328416f4bb96c0d9eed0d2b84e7c6125425e487a9180fd9022100f481445aacce22b9ef7d95ddb874b8c032bf00fd2bf83fd6ebb2429807385ec2:922c64590222798bb761d5b6d8e72950

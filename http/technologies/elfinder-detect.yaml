@@ -1,5 +1,4 @@
 id: elfinder-detect
-
 info:
   name: elFinder - Install Detection
   author: pikpikcu
@@ -11,24 +10,20 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 2
-  tags: tech,elfinder,discovery
-
+  tags: discovery,elfinder,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
       - "{{BaseURL}}/elfinder.html"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - "<!-- Element where elFinder will be created (REQUIRED) -->"
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100bbd095db579d7d29d293ea2eae2deaffbcbd9d2bcaecf127b12c4519f78a7c08022100845ba64d6fcb3d61c76cbf9c4dcf041190aafdfef0afe8fe200d28d7b419811e:922c64590222798bb761d5b6d8e72950

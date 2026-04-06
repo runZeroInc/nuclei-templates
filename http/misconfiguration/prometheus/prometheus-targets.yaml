@@ -1,5 +1,4 @@
 id: prometheus-targets
-
 info:
   name: Prometheus targets API endpoint
   author: geeknik
@@ -9,19 +8,16 @@ info:
     - https://jfrog.com/blog/dont-let-prometheus-steal-your-fire/
   metadata:
     max-request: 1
-  tags: prometheus,misconfig,vuln
-
+  tags: misconfig,prometheus,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/api/v1/targets"
-
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
-
       - type: word
         part: body
         words:
@@ -29,9 +25,8 @@ http:
           - '"data":'
           - '"labels":'
         condition: and
-
       - type: word
         part: header
         words:
           - 'application/json'
-
+        # digest: 4a0a0047304502207c83db92fbc7ab7cb44cad0545e5e51faf39a8f4b9824be1c86706c33d0a4911022100e5d3321c7ad28f14fd435a97fc87b1923cf519accc86becf77edce3a9d234692:922c64590222798bb761d5b6d8e72950

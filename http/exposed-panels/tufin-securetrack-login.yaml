@@ -1,5 +1,4 @@
 id: tufin-securetrack-login
-
 info:
   name: Tufin SecureTrack Login Panel - Detect
   author: idealphase
@@ -13,31 +12,31 @@ info:
     cpe: cpe:2.3:a:tufin:securetrack:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)securetrack - tufin technologies"})
-    max-request: 1
-    vendor: tufin
-    product: securetrack
-    shodan-query: http.title:"securetrack - tufin technologies"
     fofa-query: title="securetrack - tufin technologies"
-  tags: panel,tufin,discovery
-
+    google-query:
+      - intitle:"SecureTrack - Tufin Technologies"
+      - intitle:"securetrack - tufin technologies"
+    max-request: 1
+    product: securetrack
+    shodan-query:
+      - http.title:"SecureTrack - Tufin Technologies"
+      - http.title:"securetrack - tufin technologies"
+    vendor: tufin
+  tags: discovery,panel,tufin
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - "<title>SecureTrack - Tufin Technologies</title>"
-          - "document.title = 'SecureTrack - Tufin Technologies';"
-        condition: or
-
-      - type: status
-        status:
+          - <title>SecureTrack - Tufin Technologies</title>
+          - document.title = 'SecureTrack - Tufin Technologies';
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

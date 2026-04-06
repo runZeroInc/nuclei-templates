@@ -1,5 +1,4 @@
 id: gcloud-org-load-balancer-types
-
 info:
   name: Load Balancer Creation Not Restricted by Type
   author: princechaddha
@@ -13,44 +12,37 @@ info:
   reference:
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ResourceManager/restrict-load-balancer-creation-based-on-type.html
     - https://cloud.google.com/load-balancing/docs/load-balancer-types
-  tags: cloud,devops,gcp,gcloud,resourcemanager,security,load-balancer,networking,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,load-balancer,networking,resourcemanager,security
 flow: |
   code(1)
   for(let orgId of iterate(template.orgIds)){
     set("orgId", orgId)
     code(2)
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud organizations list --format="json(name)"
-
     extractors:
       - type: json
         name: orgIds
         internal: true
         json:
           - '.[].name'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud alpha resource-manager org-policies describe compute.restrictLoadBalancerCreationForTypes --organization=$orgId --effective --format="json(listPolicy.allValues)"
-
     matchers:
       - type: word
         words:
           - "ALLOW"
-
     extractors:
       - type: dsl
         dsl:
           - '"Organization " + orgId + " has not restricted load balancer creation by type, allowing all load balancer types to be created"'
-
+        # digest: 4a0a00473045022100c744a781d9477502bcd8d351b530d5b85f5731193189946b08cd93966f819e2102200653db9f3af7d5dc2ae3a2a114c63524e54626e45609aa6902100289cb327c04:922c64590222798bb761d5b6d8e72950
+self-contained: true

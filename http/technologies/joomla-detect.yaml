@@ -1,5 +1,4 @@
 id: joomla-detect
-
 info:
   name: Joomla! Detect
   author: ricardomaia
@@ -14,13 +13,12 @@ info:
   classification:
     cpe: cpe:2.3:a:joomla:joomla\\!:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 5
-    vendor: joomla
-    product: joomla\\!
     google-query: Joomla! Administration Login inurl:"/index.php" || intitle:"Joomla Web Installer"
-  tags: tech,joomla,cms,oss,discovery
-
+    max-request: 5
+    product: joomla\\!
+    vendor: joomla
+    verified: true
+  tags: cms,discovery,joomla,oss,tech
 http:
   - method: GET
     path:
@@ -29,11 +27,9 @@ http:
       - "{{BaseURL}}/README.txt"
       - "{{BaseURL}}/modules/custom.xml" # < 1.5.0
       - "{{BaseURL}}" # >= 1.5.0 and <= 1.5.26
-
     stop-at-first-match: true
     host-redirects: true
     max-redirects: 2
-
     matchers-condition: or
     matchers:
       - type: word
@@ -43,7 +39,6 @@ http:
           - "<creationDate>"
           - "</metafile>"
         condition: and
-
       - type: regex
         part: body
         regex:
@@ -52,7 +47,6 @@ http:
           - "(?i)Joomla_([\\d.|\\d]+)_version_history"
           - "FILES_JOOMLA_XML_DESCRIPTION"
         condition: or
-
     extractors:
       - type: regex
         name: version
@@ -61,4 +55,4 @@ http:
           - '<version>(.*?)</version>'
           - '(?i)Joomla_([\d.|\d]+)_version_history'
         part: body
-
+        # digest: 4b0a00483046022100a0567b0029a6185e93e9879635dd83afe4375d55057aba7879221a0724c332b4022100bc1e3e1c30837073892ecee9e56b2680418ef5b59b9ca326e501d978d1764b86:922c64590222798bb761d5b6d8e72950

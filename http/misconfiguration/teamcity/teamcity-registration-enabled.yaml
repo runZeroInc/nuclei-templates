@@ -1,5 +1,4 @@
 id: teamcity-registration-enabled
-
 info:
   name: JetBrains TeamCity - Registration Enabled
   author: Ph33r
@@ -14,22 +13,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jetbrains:teamcity:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
-    verified: true
     max-request: 1
+    product: teamcity
+    shodan-query: http.component:"TeamCity"
     vendor: jetbrains
-  tags: misconfig,auth-bypass,teamcity,jetbrains,intrusive,vuln
-
+    verified: true
+  tags: auth-bypass,intrusive,jetbrains,misconfig,teamcity,vuln
 http:
   - raw:
       - |
         GET /registerUser.html?init=1 HTTP/1.1
         Host: {{Hostname}}
-
     host-redirects: true
     max-redirects: 2
     matchers:
       - type: word
         words:
           - '<title>Register a New User Account ? TeamCity</title>'
-
+        # digest: 4a0a00473045022100faf78d897fc0ebda9a38d0a67245c6740663acf3718731f82887f5c2357424d602200e5a0e70c378ad38fd0f6725fae325827447a4deb7191689dafaf3e84234a883:922c64590222798bb761d5b6d8e72950

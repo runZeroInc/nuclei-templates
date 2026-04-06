@@ -1,5 +1,4 @@
 id: opennms-dashboard-exposure
-
 info:
   name: OpenNMS Dashboard - Exposure Detection
   author: ritikchaddha
@@ -16,24 +15,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:opennms:opennms:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 3
-    vendor: opennms
-    product: opennms
-    shodan-query: title:"OpenNMS Web Console"
     fofa-query: title="OpenNMS Web Console"
     google-dork: intitle:"OpenNMS Web Console"
-  tags: panel,opennms,exposure,dashboard,network-monitoring,misconfig
-
+    max-request: 3
+    product: opennms
+    shodan-query: title:"OpenNMS Web Console"
+    vendor: opennms
+  tags: dashboard,exposure,misconfig,network-monitoring,opennms,panel
 http:
   - method: GET
     path:
       - "{{BaseURL}}/opennms/index.jsp"
       - "{{BaseURL}}/opennms/dashboard.jsp"
       - "{{BaseURL}}/opennms/"
-
     stop-at-first-match: true
     redirects: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -42,7 +38,6 @@ http:
           - "OpenNMS Web Console"
           - "OpenNMS"
         condition: or
-
       - type: word
         part: body
         words:
@@ -51,8 +46,7 @@ http:
           - "Home"
           - "Maps"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022045aa14dda00a76112ced53259f59e5909c04002aa815271885702b0c75db207e0221009cf75b4d5940a048d99a0d2a94923eabbae918fd48ebdb2fcd607220230d0e82:922c64590222798bb761d5b6d8e72950

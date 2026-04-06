@@ -1,5 +1,4 @@
 id: graphql-voyager
-
 info:
   name: GraphQL Voyager - Exposed
   author: Hamza Sahin
@@ -7,11 +6,10 @@ info:
   description: |
     GraphQL Voyager UI exposed (often a dev tool) which visualizes the GraphQL schema in production.
   metadata:
-    verified: true
     max-request: 4
     shodan-query: html:"voyager.min.js"
-  tags: misconfig,graphql,voyager,vuln
-
+    verified: true
+  tags: graphql,misconfig,voyager,vuln
 http:
   - method: GET
     path:
@@ -19,9 +17,7 @@ http:
       - "{{BaseURL}}/voyager/"
       - "{{BaseURL}}/ui/voyager"
       - "{{BaseURL}}/graphql/voyager"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -29,10 +25,9 @@ http:
         words:
           - "GraphQL Voyager"
           - "Voyager helps represent any GraphQL API"
-
       - type: regex
         part: body
         regex:
           - "(?i)voyager\\.min\\.js"
           - "(?i)/voyager[-_/]static/"
-
+        # digest: 4a0a00473045022100f0de1eb3f52d266de37961e95a6d76883af9307416454286ae62554bc52d15ed02207d03dec9df979e3d84c394673c591bc3796a9cf0be4db1499da9e6d630356738:922c64590222798bb761d5b6d8e72950

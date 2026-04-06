@@ -1,5 +1,4 @@
 id: swagger-api
-
 info:
   name: Public Swagger API - Detect
   author: pdteam,c-sh0,AmirHossein Raeisi,Eduardo Quintanilha
@@ -12,16 +11,14 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 59
     shodan-query: "http.title:\"swagger\""
-  tags: exposure,api,swagger,discovery
-
+    verified: true
+  tags: api,discovery,exposure,swagger
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - "/v2/api-docs"
@@ -88,11 +85,9 @@ http:
         - "/webjars/swagger-ui/swagger-ui-bundle.js"
         - "/webjars/swagger-ui/index.html"
         - "/developers/documentation"
-
     headers:
       Accept: text/html, application/json
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -105,15 +100,13 @@ http:
           - "**token**:"
           - "id=\"swagger-ui"
         condition: or
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
         group: 1
         regex:
           - " @version (v[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})"
-
+        # digest: 4a0a00473045022100cdddfbbb6a0f8d39667bedc8093a92c0e2b9029d33983e23ff3aceb3d32d74bf0220578b647e1a77c888aed30d3fb3c297f576c073d0a18061f9904b551ebddfdf26:922c64590222798bb761d5b6d8e72950

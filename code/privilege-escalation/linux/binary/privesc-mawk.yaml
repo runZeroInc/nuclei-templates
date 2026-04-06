@@ -1,5 +1,4 @@
 id: privesc-mawk
-
 info:
   name: mawk - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/mawk/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,mawk,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,mawk,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       mawk 'BEGIN {system("whoami")}'
-
   - engine:
       - sh
       - bash
     source: |
       sudo mawk 'BEGIN {system("whoami")}'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a0047304502203f783ca6763496591d9cf18dbe228213ac61e5a09e4dc0496e74f77f2fca085e022100f5dee73274c1e09c4f6b92bda070459bfdd5bb87eaf2ee1207af09e9432005e5:922c64590222798bb761d5b6d8e72950
+self-contained: true

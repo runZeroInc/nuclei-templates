@@ -1,5 +1,4 @@
 id: ssh-cbc-mode-ciphers
-
 info:
   name: SSH Server CBC Mode Ciphers Enabled
   author: pussycat0x
@@ -9,11 +8,10 @@ info:
   reference:
     - https://www.tenable.com/plugins/nessus/70658
   metadata:
-    verified: true
     max-request: 2
     shodan-query: product:"OpenSSH"
-  tags: js,enum,ssh,misconfig,network,vuln
-
+    verified: true
+  tags: enum,js,misconfig,network,ssh,vuln
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port)
@@ -25,7 +23,6 @@ javascript:
     args:
       Host: "{{Host}}"
       Port: "22"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,7 +30,6 @@ javascript:
           - "client_to_server_ciphers"
           - "server_to_client_ciphers"
         condition: and
-
       - type: word
         words:
           - "aes128-cbc"
@@ -43,4 +39,4 @@ javascript:
           - "blowfish-cbc"
           - "cast128-cbc"
         condition: or
-
+        # digest: 4a0a00473045022100a8342def03fd29787107123a3c017eb357073728a7dedc784b94b2a1d5170587022025ebb5270e5fe0b6e5a7881f81b84dd0d2dc5aaed51a385f3c52f104deb0e08b:922c64590222798bb761d5b6d8e72950

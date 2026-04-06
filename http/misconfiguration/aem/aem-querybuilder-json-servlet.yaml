@@ -1,5 +1,4 @@
 id: aem-querybuilder-json-servlet
-
 info:
   name: AEM QueryBuilder Json Servlet
   author: DhiyaneshDk
@@ -12,11 +11,10 @@ info:
     cpe: cpe:2.3:a:adobe:acs_aem_commons:*:*:*:*:*:*:*:*
   metadata:
     max-request: 8
-    vendor: adobe
     product: acs_aem_commons
     shodan-query: http.component:"Adobe Experience Manager"
-  tags: aem,adobe,misconfig,vuln
-
+    vendor: adobe
+  tags: adobe,aem,misconfig,vuln
 http:
   - method: GET
     path:
@@ -28,23 +26,19 @@ http:
       - '{{BaseURL}}/bin/querybuilder.feed.servlet'
       - '{{BaseURL}}///bin///querybuilder.feed'
       - ' {{BaseURL}}///bin///querybuilder.feed.servlet'
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
-
       - type: word
         words:
           - "application/json"
         part: header
-
       - type: word
         words:
           - 'success'
           - 'results'
         condition: and
-
+        # digest: 4a0a00473045022100c3588743775f14ccbbc3ecda7817eb228dab202310cf545cabc415b38dacddba022026e103fadbbbc2e8ab8db356455ae99f9afc026f4b7d0ce83d980e860f0ee9aa:922c64590222798bb761d5b6d8e72950

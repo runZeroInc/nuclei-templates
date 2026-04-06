@@ -1,56 +1,50 @@
 id: azkaban-default-login
-
 info:
-  name: Azkaban Web Client Default Credentials
+  name: Azkaban Web Client Default Credential
   author: pussycat0x
   severity: high
-  description: Azkaban web client default login credentials were discovered.
+  description: Azkaban is a batch workflow job scheduler created at LinkedIn to run Hadoop jobs.  Default web client credentials were discovered.
   classification:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:azkaban_project:azkaban:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Azkaban Web Client"})
     max-request: 1
+    product: azkaban
+    shodan-query: http.title:"Azkaban Web Client"
     vendor: azkaban_project
-  tags: default-login,azkaban,vuln
-
+  tags: azkaban,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - kval:
+          - azkaban.browser.session.id
+        type: kval
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"session.id"'
+          - '"success"'
+      - condition: and
+        part: header
+        type: word
+        words:
+          - azkaban.browser.session.id
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
         action=login&username={{username}}&password={{password}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"session.id"'
-          - '"success"'
-        condition: and
-
-      - type: word
-        words:
-          - 'azkaban.browser.session.id'
-          - 'application/json'
-        condition: and
-        part: header
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: kval
-        kval:
-          - azkaban.browser.session.id
-

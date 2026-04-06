@@ -1,5 +1,4 @@
 id: iot-vdme-simulator
-
 info:
   name: IoT vDME Simulator Panel - Detect
   author: tess
@@ -11,18 +10,15 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 2
     shodan-query: http.title:"IoT vDME Simulator"
+    verified: true
   tags: exposure,misconfig,panel,vuln
-
 http:
   - method: GET
     path:
       - '{{BaseURL}}'
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -32,13 +28,11 @@ http:
           - 'Configuration Repository'
           - 'Current configuration'
         condition: and
-
       - type: word
         part: header
         words:
           - "text/html"
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402200101d2d3cb00a4f61528ded594e41034579a9d6bac0ea11ec145e20afa67ffb202203ac61bfbc145cf10dd71d108a7ef9ac9262231956d293b16118938f653ae549c:922c64590222798bb761d5b6d8e72950

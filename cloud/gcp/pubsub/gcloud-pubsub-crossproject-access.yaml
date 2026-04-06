@@ -1,5 +1,4 @@
 id: gcloud-pubsub-crossproject-access
-
 info:
   name: Pub/Sub Subscription Cross-Project Access
   author: princechaddha
@@ -13,8 +12,7 @@ info:
   reference:
     - https://cloud.google.com/pubsub/docs/access-control
     - https://cloudone.trendmicro.com/docs/conformity
-  tags: cloud,devops,gcp,gcloud,google-cloud-pubsub,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,google-cloud-pubsub
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -25,49 +23,41 @@ flow: |
       code(3)
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud pubsub subscriptions list --project $projectId --format="json(name)"
-
     extractors:
       - type: json
         name: subscriptions
         internal: true
         json:
           - '.[].name'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud pubsub subscriptions get-iam-policy $subscriptionName --format=json | jq '.bindings[]'
-
     matchers:
       - type: word
         words:
           - '@'
-
     extractors:
       - type: dsl
         dsl:
           - '"Pub/Sub subscription " + subscriptionName + " in project " + projectId + " has cross-project access configured with one or more untrusted members."'
-
+        # digest: 4a0a00473045022100cf5daef669d70a8709759d4df7a2cf30496f9f83e0c47c4c04ff56351037ef40022057077361e1e73dd4aed5ca8f9a26a61abb15729f1b6b7df3394b5df852cdf74e:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,5 +1,4 @@
 id: hadoop-unauth-rce
-
 info:
   name: Apache Hadoop YARN ResourceManager - Remote Code Execution
   author: pdteam,Couskito
@@ -17,20 +16,17 @@ info:
     cwe-id: CWE-306
   metadata:
     max-request: 1
-  tags: vulhub,apache,hadoop,unauth,rce,msf,misconfig,vuln
-
+  tags: apache,hadoop,misconfig,msf,rce,unauth,vulhub,vuln
 http:
   - method: POST
     path:
       - "{{BaseURL}}/ws/v1/cluster/apps/new-application"
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"application-id"'
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022069069341408d15589a860bc8087f275db76637b090a02717f3ad0c9ef4479025022066f53828a314263eb23dc1dbbe9b592e242d184693e135f3dd53ff9fbcf764e1:922c64590222798bb761d5b6d8e72950

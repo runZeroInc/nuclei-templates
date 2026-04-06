@@ -1,5 +1,4 @@
 id: missing-sri
-
 info:
   name: Missing Subresource Integrity
   author: lucky0x0d,PulseSecurity.co.nz,sullo amarsct
@@ -11,8 +10,7 @@ info:
     - https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
   metadata:
     max-request: 1
-  tags: compliance,js,css,sri,misconfig,vuln
-
+  tags: compliance,css,js,misconfig,sri,vuln
 http:
   - method: GET
     path:
@@ -26,20 +24,17 @@ http:
           - "//script[contains(@src,'//') and not(matches(translate(@integrity,'ABCDEFGHIJKLMNOPQRSTUVWXYZ+/-=','abcdefghijklmnopqrstuvwxyz+/-='), '^sha(256|384|512)-'))]"
           - "//script[contains(@src, '//') and (not(@integrity) or not(matches(translate(@integrity, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ+/-=', 'abcdefghijklmnopqrstuvwxyz+/-='), '^sha(256|384|512)-')))]"
           - "//link[@rel='stylesheet' and contains(@href, '//') and (not(@integrity) or not(matches(translate(@integrity, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ+/-=', 'abcdefghijklmnopqrstuvwxyz+/-='), '^sha(256|384|512)-')))]"
-
     extractors:
       - type: xpath
         attribute: src
         xpath:
           - "//script[contains(@src,'//') and not(matches(translate(@integrity,'ABCDEFGHIJKLMNOPQRSTUVWXYZ+/-=','abcdefghijklmnopqrstuvwxyz+/-='), '^sha(256|384|512)-'))]"
-
       - type: xpath
         attribute: src
         xpath:
           - "//script[contains(@src, '//') and (not(@integrity) or not(matches(translate(@integrity, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ+/-=', 'abcdefghijklmnopqrstuvwxyz+/-='), '^sha(256|384|512)-')))]"
-
       - type: xpath
         attribute: href
         xpath:
           - "//link[@rel='stylesheet' and contains(@href, '//') and (not(@integrity) or not(matches(translate(@integrity, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ+/-=', 'abcdefghijklmnopqrstuvwxyz+/-='), '^sha(256|384|512)-')))]"
-
+        # digest: 4a0a00473045022057a93e2411c4a93fb7a1eaf36db6392083fdc0f5cc18eb71efcfeae451fb6faa022100fba741ad74ca26262a4846e07be5e7b4050f708dba4870e449144e33e5fb4c15:922c64590222798bb761d5b6d8e72950

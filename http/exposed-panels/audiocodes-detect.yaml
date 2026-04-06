@@ -1,5 +1,4 @@
 id: audiocodes-detect
-
 info:
   name: AudioCodes Login - Panel Detect
   author: princechaddha
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:o:audiocodes:420hd_ip_phone_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)Audiocodes"
-    verified: true
     max-request: 1
+    product: 420hd_ip_phone_firmware
+    shodan-query: http.html:"Audiocodes"
     vendor: audiocodes
-  tags: panel,audiocodes,discovery
-
+    verified: true
+  tags: audiocodes,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "AudioCodes"
-          - "login"
-        condition: and
-
-      - type: status
-        status:
+          - AudioCodes
+          - login
+      - status:
           - 203
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

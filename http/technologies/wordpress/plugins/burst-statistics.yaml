@@ -1,5 +1,4 @@
 id: wordpress-burst-statistics
-
 info:
   name: Burst Statistics – Privacy-Friendly Analytics for WordPress Detection
   author: ricardomaia
@@ -9,16 +8,13 @@ info:
   metadata:
     plugin_namespace: burst-statistics
     wpscan: https://wpscan.com/plugin/burst-statistics
-  tags: tech,wordpress,wp-plugin,top-200,discovery
-
+  tags: discovery,tech,top-200,wordpress,wp-plugin
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/wp-content/plugins/burst-statistics/readme.txt'
-
+      - "{{BaseURL}}/wp-content/plugins/burst-statistics/readme.txt"
     payloads:
       last_version: helpers/wordpress/plugins/burst-statistics.txt
-
     extractors:
       - type: regex
         part: body
@@ -27,23 +23,20 @@ http:
         group: 1
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-
       - type: regex
         part: body
         name: detected_version
         group: 1
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-
     matchers-condition: or
     matchers:
       - type: dsl
-        name: 'outdated_version'
+        name: "outdated_version"
         dsl:
           - compare_versions(internal_detected_version, concat("< ", last_version))
-
       - type: regex
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-
+        # digest: 490a0046304402201c7e6ac132e96dc81290539e6d5dfbf82d68ab04d2f4a59a3f1bdb7807503cf6022006fbd046fabadfbce98d8a5ad4409dcd0c0ecf1154cf99a697225b7921f214d6:922c64590222798bb761d5b6d8e72950

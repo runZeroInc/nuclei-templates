@@ -1,5 +1,4 @@
 id: metadata-service-openstack
-
 # This attack abuses a misconfigured proxy that allows access to the metadata
 # IP or a name which resolves to the IP. A standard proxy request is made to
 # the proxy using the full metadata URL, which the proxy will fulfill to its
@@ -22,8 +21,7 @@ info:
     cwe-id: CWE-441
   metadata:
     max-request: 2
-  tags: exposure,config,openstack,proxy,misconfig,metadata,vuln
-
+  tags: config,exposure,metadata,misconfig,openstack,proxy,vuln
 http:
   - raw:
       - |+
@@ -40,4 +38,4 @@ http:
         part: body
         words:
           - "vendor_data.json"
-
+        # digest: 4b0a00483046022100a226bf7cf04e0980bfd7934476246fe72f473f89279ba37fe616016f28314aec0221008dff02ddb8aafedba267480948e8ebc26b395f8030c52563eec3c910ad443ff9:922c64590222798bb761d5b6d8e72950

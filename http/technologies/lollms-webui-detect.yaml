@@ -1,5 +1,4 @@
 id: lollms-webui-detect
-
 info:
   name: LoLLMS WebUI - Detect
   author: s4e-io
@@ -10,16 +9,14 @@ info:
     - https://github.com/ParisNeo/lollms-webui
     - https://lollms.com
   metadata:
-    verified: true
-    max-request: 1
     fofa-query: "LoLLMS WebUI - Welcome"
-  tags: lollms-webui,tech,detect,discovery,ai
-
+    max-request: 1
+    verified: true
+  tags: ai,detect,discovery,lollms-webui,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     host-redirects: true
     matchers:
       - type: dsl
@@ -27,4 +24,4 @@ http:
           - 'contains(body, "LoLLMS WebUI - Welcome")'
           - 'status_code == 200'
         condition: and
-
+        # digest: 4b0a00483046022100f689b9832dbbe17c9ece0cf53078da274b50e6e1f2770db6aa5cec5db789a1b7022100e583192ea7e809c6b649b4e61554a92fe44c0e0316f2fe09abd6896e65131285:922c64590222798bb761d5b6d8e72950

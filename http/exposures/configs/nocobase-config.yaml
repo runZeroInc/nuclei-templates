@@ -1,5 +1,4 @@
 id: nocobase-config
-
 info:
   name: Nocobase - Config
   author: icarot
@@ -11,17 +10,15 @@ info:
     - https://www.nocobase.com/
   metadata:
     max-request: 1
-    vendor: nocobase
     product: nocobase
-  tags: nocobase,config,exposed,vuln
-
+    vendor: nocobase
+  tags: config,exposed,nocobase,vuln
 http:
   - raw:
       - |
         GET /api/v1/db/meta/nocodb/info HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,16 +30,13 @@ http:
           - '"ncSiteUrl":'
           - '"mainSubDomain":'
         condition: and
-
       - type: word
         part: content_type
         words:
           - 'application/json'
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: json
         json:
@@ -51,4 +45,4 @@ http:
           - '"version: " + .version'
           - '"ncSiteUrl: " + .ncSiteUrl'
           - '"mainSubDomain: " + .mainSubDomain'
-
+        # digest: 4b0a0048304602210081298239c5423347a8f589dabd27da684d11653fb05253a040acd4d3e0a8bd64022100b94acd4199acaea84e1a6c24c898c0b323efab8e2cd02fbc10c23b9ca695f746:922c64590222798bb761d5b6d8e72950

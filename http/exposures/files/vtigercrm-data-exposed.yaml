@@ -9,19 +9,16 @@ info:
     - https://github.com/vtiger-crm/vtigercrm
     - https://code.vtiger.com/vtiger/vtigercrm
   metadata:
-    verified: true
     max-request: 3
     shodan-query: html:"Powered by vtiger CRM"
-  tags: vtiger,exposure,vtiger-crm,vuln
-
+    verified: true
+  tags: exposure,vtiger,vtiger-crm,vuln
 flow: http(1) && http(2)
-
 http:
   - raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
-
     matchers:
       - type: dsl
         dsl:
@@ -29,20 +26,17 @@ http:
           - 'status_code == 200'
         condition: and
         internal: true
-
   - raw:
       - |
         GET {{exposed_path}} HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
-
     attack: pitchfork
     payloads:
       exposed_path:
         - /logs/
         - /data/
         - /storage/
-
     matchers-condition: and
     matchers:
       - type: dsl
@@ -50,4 +44,4 @@ http:
           - 'contains(body, "<title>Index of")'
           - 'status_code == 200'
         condition: and
-
+        # digest: 4b0a00483046022100e511253a17a39b536ab9c013a7c5d709042b61bfb338bedc26785c75279b895a022100912efe4f2aa5709ea90e4abb398e8f790c2c662410f79efb91196fa169115e5a:922c64590222798bb761d5b6d8e72950

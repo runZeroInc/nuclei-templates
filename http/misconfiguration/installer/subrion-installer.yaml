@@ -1,5 +1,4 @@
 id: subrion-installer
-
 info:
   name: Subrion CMS Web Installer - Exposure
   author: ritikchaddha
@@ -11,18 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:intelliants:subrion:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 1
-    vendor: intelliants
-    product: subrion
     fofa-query: title="Subrion CMS Web Installer"
-  tags: subrion,cms,install,misconfig,vuln
-
+    max-request: 1
+    product: subrion
+    vendor: intelliants
+    verified: true
+  tags: cms,install,misconfig,subrion,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/install/"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,8 +28,7 @@ http:
           - "Subrion CMS Web Installer"
           - "Installation wizard"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402207add11ca53d010b258382b7fbe703f43cfe44590e93838422db316786daa34c4022055a0c9863365d191824a98b8a53e9c1ea08c74a5934ab56f8b534c7a95d71db3:922c64590222798bb761d5b6d8e72950

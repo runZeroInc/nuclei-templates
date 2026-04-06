@@ -1,5 +1,4 @@
 id: atlassian-connect-descriptor
-
 info:
   name: Atlassian Connect Descriptor - Detect
   author: pussycat0x
@@ -9,16 +8,14 @@ info:
   reference:
     - https://developer.atlassian.com/cloud/jira/platform/connect-app-descriptor/
   metadata:
-    verified: true
     max-request: 1
     shodan-query: html:"atlassian-connect.json"
-  tags: atlassian,tech,jira,discovery
-
+    verified: true
+  tags: atlassian,discovery,jira,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}/atlassian-connect.json"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -30,13 +27,11 @@ http:
           - '"baseUrl":'
           - '"authentication":'
         condition: and
-
       - type: word
         part: header
         words:
           - application/json
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402201b625509adb2e68e001c66067b5f7f0a16359338cf080b73feb1b577513e53d10220463c5858d0ae25aba140ef73ae1650619c31b2953f7c835c4a16239ec8cc224e:922c64590222798bb761d5b6d8e72950

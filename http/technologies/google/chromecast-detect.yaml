@@ -1,5 +1,4 @@
 id: chromecast-detect
-
 info:
   name: Google Chromecast - Detect
   author: LucianNitescu
@@ -12,19 +11,17 @@ info:
   classification:
     cpe: cpe:2.3:h:google:chromecast:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: google
     product: chromecast
     shodan-query: Chromecast
-  tags: google,chromecast,detect,discovery
-
+    vendor: google
+    verified: true
+  tags: chromecast,detect,discovery,google
 http:
   - raw:
       - |
         GET /setup/eureka_info HTTP/1.1
         Host: {{Hostname}}
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,8 +30,7 @@ http:
           - '"cast_build_revision":'
           - '"ssdp_udn":'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100904a30dc8a1feaa2a94b15e3f64cb902a5f8877c86b12b517c0a2bce14082e35022029f029a76166ed5fc51c0d3edb41b5fcce5a0bf7e7549ed16904845fc94e5c71:922c64590222798bb761d5b6d8e72950

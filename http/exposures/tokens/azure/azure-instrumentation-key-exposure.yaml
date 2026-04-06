@@ -1,5 +1,4 @@
 id: azure-instrumentation-key-exposure
-
 info:
   name: Azure Instrumentation Key - Exposure
   author: pussycat0x
@@ -12,14 +11,12 @@ info:
   metadata:
     max-request: 2
     verified: true
-  tags: exposure,azure,instrumentation,appinsights,token
-
+  tags: appinsights,azure,exposure,instrumentation,token
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
       - "{{BaseURL}}/appsettings.json"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -31,7 +28,6 @@ http:
           - 'APPINSIGHTS_INSTRUMENTATIONKEY'
           - '<InstrumentationKey>'
         condition: or
-
       - type: regex
         part: body
         regex:
@@ -40,11 +36,9 @@ http:
           - 'APPINSIGHTS_INSTRUMENTATIONKEY=([a-z0-9-]+)'
           - 'InstrumentationKey": "([0-9a-z-]+)"'
         condition: or
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -54,4 +48,4 @@ http:
           - '<InstrumentationKey>(.*)</InstrumentationKey>'
           - 'APPINSIGHTS_INSTRUMENTATIONKEY=([a-z0-9-]+)'
           - 'InstrumentationKey": "([0-9a-z-]+)"'
-
+        # digest: 490a004630440220615388ecbedf0cc4fc0d83d9874fec8e703822346086ccf6aec286a98c58606502205f7bd52929b8f50831db42d7f80e4fe35d758ae40337d8f6f16d1ba89fe52194:922c64590222798bb761d5b6d8e72950

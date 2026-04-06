@@ -1,5 +1,4 @@
 id: gcloud-vm-serial-console-enabled
-
 info:
   name: Interactive Serial Console Support Not Disabled
   author: princechaddha
@@ -13,8 +12,7 @@ info:
   reference:
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ComputeEngine/disable-interactive-serial-console-support.html
     - https://cloud.google.com/compute/docs/instances/interacting-with-serial-console
-  tags: cloud,devops,gcp,gcloud,compute,security,serial-console,gcp-cloud-config
-
+  tags: cloud,compute,devops,gcloud,gcp,gcp-cloud-config,security,serial-console
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -27,51 +25,43 @@ flow: |
       code(3)
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud compute instances list --project $projectId --format="json(name,zone.basename())"
-
     extractors:
       - type: json
         name: instances
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud compute instances describe $instanceName --zone $zone --project $projectId --format="json(metadata.items)"
-
     matchers:
       - type: word
         words:
           - '"key": "serial-port-enable"'
           - '"value": "true"'
         condition: and
-
     extractors:
       - type: dsl
         dsl:
           - '"VM instance " + instanceName + " in zone " + zone + " of project " + projectId + " has interactive serial console support enabled"'
-
+        # digest: 4b0a00483046022100e9419a3b3eb34b0993182ba41d9f102dc5dc71deac6da1ca0fbacb8452f36d76022100a1ba187dfcc9ee232c5449dc426408f947d4f4c6413d9aa429dd990a2df65649:922c64590222798bb761d5b6d8e72950
+self-contained: true

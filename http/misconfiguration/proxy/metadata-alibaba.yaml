@@ -1,5 +1,4 @@
 id: metadata-service-alibaba
-
 # This attack abuses a misconfigured proxy that allows access to the metadata
 # IP or a name which resolves to the IP. A standard proxy request is made to
 # the proxy using the full metadata URL, which the proxy will fulfill to its
@@ -23,8 +22,7 @@ info:
     cwe-id: CWE-441
   metadata:
     max-request: 4
-  tags: exposure,config,alibaba,proxy,misconfig,metadata,vuln
-
+  tags: alibaba,config,exposure,metadata,misconfig,proxy,vuln
 http:
   - raw:
       - |+
@@ -38,7 +36,6 @@ http:
       path:
         - latest/dynamic/instance-identity/document
         - 2016-01-01/dynamic/instance-identity/document
-
     attack: clusterbomb
     unsafe: true
     matchers:
@@ -48,4 +45,4 @@ http:
           - '"serial-number"'
           - '"zone-id":"'
         condition: and
-
+        # digest: 4b0a00483046022100f6184adaee9902df1db62cc17e9dab23188d8343aca3417a81f0b97f7d0d734f022100cd0831decfe511d8c6eb357929cbadd2356df54bc6b6afbea155ea1e5c39d903:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: tasmota-config-webui
-
 info:
   name: Tasmota Configuration Exposure
   author: ritikchaddha
@@ -10,18 +9,16 @@ info:
   classification:
     cpe: cpe:2.3:o:tasmota_project:tasmota:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: tasmota_project
     product: tasmota
     shodan-query: title:"Tasmota"
-  tags: misconfig,tasmota,exposure,config,vuln
-
+    vendor: tasmota_project
+    verified: true
+  tags: config,exposure,misconfig,tasmota,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: or
     matchers:
       - type: word
@@ -31,7 +28,6 @@ http:
           - "Tasmota"
         condition: and
         case-insensitive: true
-
       - type: word
         part: body
         words:
@@ -39,11 +35,10 @@ http:
           - "<h2>Tasmota</h2>"
         condition: and
         case-insensitive: true
-
     extractors:
       - type: regex
         part: body
         group: 1
         regex:
           - "Tasmota ([0-9.]+) "
-
+        # digest: 4a0a00473045022100c95c0c5968426dc5a8ab147185d05ec82d3bf848307e7e6c0535ed0b0649fd35022078194650483830dd3ddefd5b068cbe242d10e72925beb4d691c9c81873cdc9c4:922c64590222798bb761d5b6d8e72950

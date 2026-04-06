@@ -1,5 +1,4 @@
 id: slack-user-token
-
 info:
   name: Slack User token disclosure
   author: Ice3man,DhiyaneshDK
@@ -11,16 +10,14 @@ info:
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/slack-user-token.yaml
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/slack-user-token.txt
   metadata:
+    max-request: 1
     verified: true
-  tags: exposure,token,slack,vuln
-
+  tags: exposure,slack,token,vuln
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers:
       - type: regex
         part: body
@@ -29,7 +26,6 @@ http:
           - 'xoxp-[0-9A-Za-z\\-]{74}'
           - '(xox[pe](?:-[0-9]{10,13}){3}-[a-zA-Z0-9-]{28,34})'
         internal: true
-
   - raw:
       - |
         @Host: https://slack.com:443
@@ -47,7 +43,6 @@ http:
 
         {{token}}
         ------WebKitFormBoundaryDL3VHEC7cFaxeAhK--
-
     matchers:
       - type: dsl
         dsl:
@@ -55,9 +50,8 @@ http:
           - contains_all(body, "is_admin", "is_app_user", "is_email_confirmed")
           - contains(content_type, "application/json")
         condition: and
-
     extractors:
       - type: dsl
         dsl:
           - token
-
+        # digest: 4b0a004830460221009f621f36363e8e164862c9d74c0fad658f7d3bb17097a66017b72b85c87b0efa022100dea63c6babcc7fb5850acf66106e8de1622279ab8068fc3381bf5c92557f2562:922c64590222798bb761d5b6d8e72950

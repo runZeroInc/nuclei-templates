@@ -1,5 +1,4 @@
 id: apache-kyuubi-config
-
 info:
   name: Apache Kyuubi - Configuration Exposure
   author: icarot
@@ -10,15 +9,13 @@ info:
     cpe: cpe:2.3:a:apache:kyuubi:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    vendor: apache
     product: kyuubi
-  tags: config,exposure,kyuubi,apache,vuln
-
+    vendor: apache
+  tags: apache,config,exposure,kyuubi,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/engine-ui/0.0.0.0:4040/environment/"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -26,8 +23,7 @@ http:
           - 'Environment</title>'
           - 'kyuubi'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502204cabcb87d613bc0fa2b56de93f096ab8b5df10176d623ae5f1e60027718160f4022100eaca61b30204cfd63549052b5158cb0ad656b1acbf95a360d0aced694d683815:922c64590222798bb761d5b6d8e72950

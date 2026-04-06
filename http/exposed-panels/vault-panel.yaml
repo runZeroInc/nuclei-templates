@@ -1,5 +1,4 @@
 id: vault-panel
-
 info:
   name: Vault Login Panel - Detect
   author: DhiyaneshDK,righettod
@@ -15,34 +14,30 @@ info:
     cpe: cpe:2.3:a:hashicorp:vault:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-919788577"
-    verified: true
-    max-request: 4
-    vendor: hashicorp
-    product: vault
-    shodan-query: http.favicon.hash:"-919788577"
     fofa-query: icon_hash=-919788577
-  tags: panel,vault,detect,hashicorp,discovery
-
+    max-request: 4
+    product: vault
+    shodan-query: http.favicon.hash:-919788577
+    vendor: hashicorp
+    verified: true
+  tags: detect,discovery,hashicorp,panel,vault
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/v1/sys/health"
-      - "{{BaseURL}}/ui/vault/auth"
-      - "{{BaseURL}}/ui/auth"
-      - "{{BaseURL}}/v1/sys/health?help=1"
-
-    stop-at-first-match: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200 || status_code == 429'
-          - 'contains_any(to_lower(body), "vault-cluster", "vault/config/environment", "<title>vault</title>", "hashicorp vault api")'
-        condition: and
-
-    extractors:
-      - type: json
-        part: body_1
+  - extractors:
+      - json:
+          - .version
         name: version
-        json:
-          - ".version"
-
+        part: body_1
+        type: json
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200 || status_code == 429
+          - contains_any(to_lower(body), "vault-cluster", "vault/config/environment", "<title>vault</title>", "hashicorp vault api")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/v1/sys/health'
+      - '{{BaseURL}}/ui/vault/auth'
+      - '{{BaseURL}}/ui/auth'
+      - '{{BaseURL}}/v1/sys/health?help=1'
+    stop-at-first-match: true

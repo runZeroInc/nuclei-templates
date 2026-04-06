@@ -1,5 +1,4 @@
 id: fortimail-login
-
 info:
   name: Fortinet FortiMail Login Panel - Detect
   author: johnk3r
@@ -11,29 +10,28 @@ info:
     cpe: cpe:2.3:a:fortinet:fortimail:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortimail"})
-    max-request: 1
-    vendor: fortinet
-    product: fortimail
-    shodan-query: http.title:"fortimail"
     fofa-query:
+      - Fortimail && port=443
       - fortimail && port=443
       - title="fortimail"
     google-query: intitle:"fortimail"
-  tags: panel,fortinet,fortimail,login,discovery
-
+    max-request: 1
+    product: fortimail
+    shodan-query:
+      - title:"Fortimail"
+      - http.title:"fortimail"
+    vendor: fortinet
+  tags: discovery,fortimail,fortinet,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/m/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>FortiMail</title>'
-
-      - type: status
-        status:
+          - <title>FortiMail</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/m/'

@@ -1,5 +1,4 @@
 id: mcloud-installer
-
 info:
   name: mCloud Panel - Installer
   author: ritikchaddha
@@ -12,24 +11,21 @@ info:
     cvss-score: 9.4
     cwe-id: CWE-284
   metadata:
-    verified: true
     max-request: 1
     shodan-query: http.title:"mcloud-installer-web"
-  tags: panel,mcloud,exposure,misconfig,vuln
-
+    verified: true
+  tags: exposure,mcloud,misconfig,panel,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/clusterList'
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - '<title>mcloud-installer-web'
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a004830460221008aecf54c4958fbd65dd714ebb93ac554e78e629a06c50928325c997eb807e914022100b20df1ebaaefe62ba2c719e86834939aba46b6aec47d0255795c83bd499ec12d:922c64590222798bb761d5b6d8e72950

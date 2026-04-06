@@ -1,5 +1,4 @@
 id: opcache-status-exposure
-
 info:
   name: OPcache Status Page - Detect
   author: pdteam
@@ -14,14 +13,12 @@ info:
   metadata:
     max-request: 3
   tags: config,exposure,status,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}/opcache-status/"
       - "{{BaseURL}}/php-opcache-status/"
       - "{{BaseURL}}/opcache-status/opcache.php"
-
     matchers:
       - type: word
         words:
@@ -29,4 +26,4 @@ http:
           - "<th>opcache_hit_rate</th>"
         condition: and
         part: body
-
+        # digest: 4a0a00473045022100e5e34bf302b2f81d22be93c50dd94efa0bfb7faa36288c45426fecb021f8ee4c02207f44a0770b2e5419a58225b71d3bb53affde1545a0d2c98a29ad7b0962f9c2df:922c64590222798bb761d5b6d8e72950

@@ -1,48 +1,42 @@
 id: netman-default-login
-
 info:
   name: Riello UPS NetMan 204 Network Card - Default Login
   author: mabdullah22
   severity: high
   description: |
-    Riello UPS NetMan 204 default login credentials were discovered.
+    Default logins on Riello UPS NetMan 204 is used. Attacker can access to UPS and attacker can manipulate the UPS settings to disrupt the onsite systems.
   reference:
     - https://www.riello-ups.com/
   classification:
     cpe: cpe:2.3:o:riello-ups:netman_204_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Netman"})
-    verified: "true"
+    censys-query: services.http.response.body:"Netman204"
     max-request: 1
-    vendor: riello-ups
     product: netman_204_firmware
     shodan-query: title:"Netman"
-    censys-query: services.http.response.body:"Netman204"
+    vendor: riello-ups
+    verified: "true"
   tags: default-login,netman,vuln
-
 http:
-  - raw:
-      - |
-        GET /cgi-bin/login.cgi?username={{username}}&password={{password}} HTTP/1.1
-        Host: {{Hostname}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-
-    matchers-condition: and
+  - attack: pitchfork
     matchers:
-      - type: word
+      - condition: and
         part: body
+        type: word
         words:
           - '"response": "ok",'
           - '"message": "Welcome."'
-        condition: and
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
+      - |
+        GET /cgi-bin/login.cgi?username={{username}}&password={{password}} HTTP/1.1
+        Host: {{Hostname}}

@@ -1,5 +1,4 @@
 id: churchcrm-installer
-
 info:
   name: ChurchCRM - Setup Exposure
   author: Kazgangap
@@ -9,24 +8,21 @@ info:
   reference:
     - https://github.com/ChurchCRM/CRM
   metadata:
-    vendor: churchcrm
+    fofa-query: app="churchcrm"
     product: churchcrm
     shodan-query: http.title:"churchcrm"
-    fofa-query: app="churchcrm"
-  tags: misconfig,setup,churchcrm,exposure,vuln
-
+    vendor: churchcrm
+  tags: churchcrm,exposure,misconfig,setup,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/setup"
-
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:
           - 'contains(body, "ChurchCRM setup wizard")'
           - "status_code == 200"
         condition: and
-
+        # digest: 4a0a00473045022100d459f75d3237e42a6310578921a93def258fb96fe65755fcfc1b943a2425538402207370e3bb3f3d4e899ede265e5070876d3ba24c0e6dfc17501d7b9764dcad9153:922c64590222798bb761d5b6d8e72950

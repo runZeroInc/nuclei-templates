@@ -1,5 +1,4 @@
 id: joomla-fpd
-
 info:
   name: Joomla! - Full Path Disclosure
   author: pussycat0x
@@ -9,12 +8,10 @@ info:
   reference:
     - https://developer.joomla.org/security-centre/884-20220801-core-multiple-full-path-disclosures-because-of-missing-jexec-or-die-check.html
   metadata:
-    verified: true
     shodan-query: http.component:"joomla"
-  tags: joomla,misconfiguration,fpd,disclosure
-
+    verified: true
+  tags: disclosure,fpd,joomla,misconfiguration
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
@@ -23,11 +20,9 @@ http:
       - "{{BaseURL}}/README.txt"
       - "{{BaseURL}}/modules/custom.xml" # < 1.5.0
       - "{{BaseURL}}" # >= 1.5.0 and <= 1.5.26
-
     stop-at-first-match: true
     host-redirects: true
     max-redirects: 2
-
     matchers-condition: or
     matchers:
       - type: word
@@ -38,7 +33,6 @@ http:
           - "</metafile>"
         condition: and
         internal: true
-
       - type: regex
         part: body
         regex:
@@ -48,7 +42,6 @@ http:
           - "FILES_JOOMLA_XML_DESCRIPTION"
         condition: or
         internal: true
-
   - method: GET
     path:
       - "{{BaseURL}}/libraries/phputf8/utils/bad.php"
@@ -59,9 +52,7 @@ http:
       - "{{BaseURL}}/libraries/joomla/filesystem/archive/zip.php"
       - "{{BaseURL}}/libraries/phpmailer/phpmailer.php"
       - "{{BaseURL}}/libraries/phputf8/utils/unicode.php"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -72,14 +63,12 @@ http:
           - "(?i)warning"
           - "(?i)notice"
         condition: or
-
       - type: status
         status:
           - 200
-
       - type: regex
         part: body
         regex:
           - "(/[^\\s:]+/joomla[^\\s:]*)"
           - "(/[^\\s:]+/libraries[^\\s:]*)"
-
+        # digest: 4a0a0047304502202c25c7d22b153a9a70f16c78d021a9d11727f84e2e72568e4f6b96e73fc4df88022100cf73155d2decc017ecba6b97e9fe337d935729c1868dc0a4b7401f10bdb20e27:922c64590222798bb761d5b6d8e72950

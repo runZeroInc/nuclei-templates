@@ -1,5 +1,4 @@
 id: sap-getversion-info
-
 info:
   name: SAPControl GetVersionInfo - Detect
   author: LRVT,l4rm4nd
@@ -13,7 +12,6 @@ info:
   metadata:
     max-request: 1
   tags: misconfig,sap,sapcontrol,soap,version
-
 http:
   - raw:
       - |
@@ -33,22 +31,19 @@ http:
             <ns1:GetVersionInfo xmlns:ns1="urn:SAPControl"></ns1:GetVersionInfo>
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - "GetVersionInfoResponse"
-
       - type: word
         part: body
         words:
           - "<VersionInfo>"
           - "<Filename>"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502200234ef6bdf8d9dfaa0329b8c7f67b7a444364537eed6e8bc3dd68c57ddadb1dd022100bcf76fe6388b4bbebb7295286d42148695bdfb2f7a5de9082421f8ad75afe2d6:922c64590222798bb761d5b6d8e72950

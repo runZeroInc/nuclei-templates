@@ -1,5 +1,4 @@
 id: mapbox-token-disclosure
-
 info:
   name: Mapbox Token Disclosure
   author: Devang-Solanki
@@ -11,17 +10,14 @@ info:
     - https://docs.mapbox.com/api/accounts/tokens/#token-format
     - https://docs.mapbox.com/help/getting-started/access-tokens/
   metadata:
-    verified: true
     max-request: 2
-  tags: token,exposure,mapbox,vuln
-
+    verified: true
+  tags: exposure,mapbox,token,vuln
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers:
       - type: regex
         part: body
@@ -29,13 +25,11 @@ http:
         regex:
           - 'sk\.eyJ1Ijoi\w+\.[\w-]*'
         internal: true
-
   - raw:
       - |
         @Host: https://api.mapbox.com:443
         GET /geocoding/v5/mapbox.places/Los%20Angeles.json?access_token={{token}} HTTP/1.1
         Host: api.mapbox.com
-
     disable-path-automerge: true
     matchers:
       - type: dsl
@@ -43,9 +37,8 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "type","query","features")'
         condition: and
-
     extractors:
       - type: dsl
         dsl:
           - token
-
+        # digest: 490a00463044022025230a7aaa2e300b0d78fe708b24246a75a7ca4d70baa4393b8bf7eec667cb2502202ed324e362dae65b8adbb1f0a55b5906c0c021a053d0bf736f21764840b2aaf7:922c64590222798bb761d5b6d8e72950

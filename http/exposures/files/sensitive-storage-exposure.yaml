@@ -1,5 +1,4 @@
 id: sensitive-storage-data-expose
-
 info:
   name: Sensitive Storage Data - Detect
   author: pussycat0x
@@ -13,8 +12,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 6
-  tags: expose,listing,config,logs,storage,edb,files,exposure,vuln
-
+  tags: config,edb,expose,exposure,files,listing,logs,storage,vuln
 http:
   - method: GET
     path:
@@ -24,9 +22,7 @@ http:
       - "{{BaseURL}}/server/storage/"
       - "{{BaseURL}}/intikal/storage/"
       - "{{BaseURL}}/elocker_old/storage/"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -35,8 +31,7 @@ http:
           - "oauth-private.key"
           - "oauth-private.key"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100aaaf0580a47c061115e5ea083e115e1dd131c484ef01155276a32a9ad2c2b410022100b7d103471a06e8c7364e2fbcee40b458d8ebb959b09ba62309de43d6e029206d:922c64590222798bb761d5b6d8e72950

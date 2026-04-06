@@ -1,5 +1,4 @@
 id: crash-on-audit-fail
-
 info:
   name: Shutdown on Audit Failure Check
   author: nukunga[SungHyunJeon]
@@ -16,10 +15,7 @@ info:
     - Through Local Security Policy: Set "Audit: Shut down system immediately if unable to log security audits" to Disabled.
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: account-management,code,windows-audit,kisa,policy
-
-self-contained: true
-
+  tags: account-management,code,kisa,policy,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -44,9 +40,9 @@ code:
       } else {
           "CRASH_ON_AUDIT_FAIL_NOT_FOUND"
       }
-
     matchers:
       - type: word
         words:
           - "CRASH_ON_AUDIT_FAIL_ENABLED"
-
+        # digest: 490a00463044022007c2aca38559cd01cd500c5c6fd79aac025e09e5b81eb704d263ee7cd549e55102202518accc1cc2c845dbd42938cdf9c81fe5088c29fcd839627c5a5531c184c6db:922c64590222798bb761d5b6d8e72950
+self-contained: true

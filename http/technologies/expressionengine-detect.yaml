@@ -1,5 +1,4 @@
 id: expressionengine-detect
-
 info:
   name: ExpressionEngine Detection
   author: Chirag Mistry
@@ -8,8 +7,7 @@ info:
     An instance running ExpressionEngine is detected by looking for specific HTTP headers, HTML tags, and known endpoints.
   metadata:
     max-request: 9
-  tags: expressionengine,detect,tech
-
+  tags: detect,expressionengine,tech
 http:
   - method: GET
     path:
@@ -22,7 +20,6 @@ http:
       - "{{BaseURL}}/index.php"
       - "{{BaseURL}}/admin.php"
       - "{{BaseURL}}/cp/"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -35,11 +32,9 @@ http:
           - "X-Powered-By-ExpressionEngine"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -47,11 +42,10 @@ http:
         regex:
           - 'ExpressionEngine ([0-9.]+)'
           - 'Powered by ExpressionEngine ([0-9.]+)'
-
       - type: regex
         part: body
         name: expressionengine_id
         regex:
           - 'expressionengine-site-id=([a-z0-9]+)'
           - 'expressionengine\.com/([^/]+)'
-
+        # digest: 4a0a00473045022100f8c510074d65a721a049f141ccc986d4d0459d1f979a53f19045812e39856e7f0220456ce66b811ce69976bf525ec4d24806af3fc1ce5fdb54cdf2f5e477099db00b:922c64590222798bb761d5b6d8e72950

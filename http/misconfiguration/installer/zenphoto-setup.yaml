@@ -1,5 +1,4 @@
 id: zenphoto-setup
-
 info:
   name: Zenphoto <1.5 Installer - Detect
   author: pdteam
@@ -11,11 +10,12 @@ info:
     cwe-id: CWE-284
     cpe: cpe:2.3:a:zenphoto:zenphoto:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 4
+    product: zenphoto
+    shodan-query: title:"Zenphoto install"
     vendor: zenphoto
-  tags: misconfig,panel,zenphoto,setup,installer,vuln
-
+    verified: true
+  tags: installer,misconfig,panel,setup,vuln,zenphoto
 http:
   - method: GET
     path:
@@ -23,11 +23,10 @@ http:
       - '{{BaseURL}}/zp/zp-core/setup/index.php'
       - '{{BaseURL}}/gallery/zp-core/setup/index.php'
       - '{{BaseURL}}/zenphoto/zp-core/setup/index.php'
-
     stop-at-first-match: true
     matchers:
       - type: word
         part: body
         words:
           - Welcome to Zenphoto! This page will set up Zenphoto
-
+        # digest: 4a0a00473045022100ddb65d5a5d7e4b2ee255ddf766a6c45f97d636816fb6925b6c0dc087c471d3de02203fbe92c461dc2a18d3d435b780d9a66ad14c2658e43d0b16dccd247fb687e0da:922c64590222798bb761d5b6d8e72950

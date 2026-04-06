@@ -1,5 +1,4 @@
 id: raygun-rum-detect
-
 info:
   name: Raygun RUM - Detect
   author: Shivam Kamboj
@@ -9,35 +8,30 @@ info:
   reference:
     - https://raygun.com/
   metadata:
+    fofa-query: body="cdn.raygun.io/raygun4js" || body="RaygunObject"
     max-request: 1
-    verified: true
-    vendor: raygun
     product: raygun4js
     shodan-query: http.html:"cdn.raygun.io"
-    fofa-query: body="cdn.raygun.io/raygun4js" || body="RaygunObject"
-  tags: tech,discovery,rum,raygun
-
+    vendor: raygun
+    verified: true
+  tags: discovery,raygun,rum,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     host-redirects: true
     max-redirects: 3
-
     matchers-condition: and
     matchers:
       - type: word
         part: header
         words:
           - "text/html"
-
       - type: dsl
         dsl:
           - "!contains(body, 'markdown-body')"
           - "!contains(body, 'blob-code')"
         condition: and
-
       - type: regex
         part: body
         regex:
@@ -45,4 +39,4 @@ http:
           - "(?m)^[^/\\n]*rg4js\\s*\\(\\s*['\"]enableCrashReporting['\"]\\s*,\\s*(?:true|!)"
           - "(?m)^[^/\\n]*rg4js\\s*\\(\\s*['\"]enableRealUserMonitoring['\"]\\s*,\\s*true"
         condition: or
-
+        # digest: 4a0a00473045022100a5749ed77978bf7be24811011ccdb7c0c999e5d7dfd3003e195b75cdcff32d330220799bec14460d3558449617bb131cf85686f2a9472db37f41a89883040ef2ef80:922c64590222798bb761d5b6d8e72950

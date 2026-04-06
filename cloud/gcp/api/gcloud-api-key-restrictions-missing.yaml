@@ -1,5 +1,4 @@
 id: gcloud-api-key-restrictions-missing
-
 info:
   name: Missing API Key API Restrictions
   author: princechaddha
@@ -12,8 +11,7 @@ info:
     Apply API restrictions to each Google Cloud API key to limit their usage to specific APIs. This can be managed through the Google Cloud Console or using the gcloud command-line tool.
   reference:
     - https://cloud.google.com/api-keys/docs/restricting-api-keys
-  tags: cloud,devops,gcp,gcloud,api-keys,gcp-cloud-config
-
+  tags: api-keys,cloud,devops,gcloud,gcp,gcp-cloud-config
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -24,50 +22,42 @@ flow: |
       code(3)
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud alpha services api-keys list --project=$projectId --format="json(uid)"
-
     extractors:
       - type: json
         name: apiKeys
         internal: true
         json:
           - '.[].uid'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud alpha services api-keys describe $apiKeyUid --format="json(restrictions)"
-
     matchers:
       - type: word
         part: body
         words:
           - 'null'
-
     extractors:
       - type: dsl
         dsl:
           - '"Unrestricted API Key: " + apiKeyUid + " in Project: " + projectId'
-
+        # digest: 4b0a00483046022100b6b2f16aaed30fbe7cf6f76b17cd99ebb5394c3f78c791dd66de6d10bdbab3ab022100858dcb4e5f0139b7c9e1431d7318a4ddf89998fb7cc475285f14c0c5fb3819a0:922c64590222798bb761d5b6d8e72950
+self-contained: true

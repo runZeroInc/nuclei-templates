@@ -1,5 +1,4 @@
 id: anonymous-distribution-point-sccm
-
 info:
   name: Microsoft SCCM - Anonymous Distribution Point Access
   author: matejsmycka
@@ -10,22 +9,19 @@ info:
     - https://www.synacktiv.com/en/publications/sccmsecretspy-exploiting-sccm-policies-distribution-for-credentials-harvesting-initial
     - https://github.com/badsectorlabs/sccm-http-looter
     - https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/install-and-configure-distribution-points
-  tags: misconfig,microsoft,sccm,anonymous,distribution-point,vuln
-
+  tags: anonymous,distribution-point,microsoft,misconfig,sccm,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/SMS_DP_SMSPKG$/Datalib"
       - "{{BaseURL}}:80/SMS_DP_SMSPKG$/Datalib"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
       - type: regex
         regex:
           - '/SMS_DP_SMSPKG\$\/Datalib/([0-9a-z-]+)\.INI'
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402207339034bad349c30ea89d79c0876db322f6dad37a1cf79e74f646999ddfeaca70220014ae4065ecb8f96624240a55c92bbbfd1546f78849743cf72b20677d7e341a3:922c64590222798bb761d5b6d8e72950

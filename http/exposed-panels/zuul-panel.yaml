@@ -1,5 +1,4 @@
 id: zuul-panel
-
 info:
   name: Zuul Panel - Detect
   author: Yuzhe-zhang-0
@@ -14,30 +13,27 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1127895693"
     max-request: 2
+    product: zuul
+    shodan-query: http.favicon.hash:-1127895693
     vendor: zuul-ci
-  tags: panel,zuul,cicd,oss,discovery
-
+  tags: cicd,discovery,oss,panel,zuul
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/api/tenants'
-      - '{{BaseURL}}/api/status'
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: or
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: and
         part: body
+        type: word
         words:
           - '"name":'
           - '"projects":'
           - '"queue":'
-        condition: and
-
       - type: word
         words:
-          - 'zuul_version'
-
+          - zuul_version
+    matchers-condition: or
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/api/tenants'
+      - '{{BaseURL}}/api/status'
+    stop-at-first-match: true

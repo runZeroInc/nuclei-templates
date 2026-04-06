@@ -1,5 +1,4 @@
 id: ncentral-panel
-
 info:
   name: N-central Login Panel - Detect
   author: theabhinavgaur
@@ -11,40 +10,36 @@ info:
     cpe: cpe:2.3:a:n-able:n-central:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)N-central Login"})
-    verified: true
-    max-request: 1
-    shodan-query:
-      - http.title:"N-central Login"
-      - http.favicon.hash:1519363246
-      - http.favicon.hash:1937353549
-      - "Set-Cookie: ncentral_version="
     fofa-query:
       - title="N-central Login"
       - icon_hash="1519363246"
       - icon_hash="1937353549"
-      - "Set-Cookie: ncentral_version="
+      - 'Set-Cookie: ncentral_version='
+    max-request: 1
+    product: n-central
+    shodan-query:
+      - http.title:"N-central Login"
+      - http.favicon.hash:1519363246
+      - http.favicon.hash:1937353549
+      - 'Set-Cookie: ncentral_version='
     vendor: n-able
-  tags: panel,n-central,discovery
-
+    verified: true
+  tags: discovery,n-central,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'class="ncentral"'
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        group: 1
+  - extractors:
+      - group: 1
         regex:
-          - "ncentralVersion:\\s+\"([\\d\\.]+)\","
-
+          - ncentralVersion:\s+"([\d\.]+)",
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - class="ncentral"
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

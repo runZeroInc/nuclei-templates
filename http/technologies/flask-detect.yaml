@@ -1,5 +1,4 @@
 id: flask-detect
-
 info:
   name: Flask Detection
   author: Chirag Mistry
@@ -9,8 +8,7 @@ info:
   metadata:
     max-request: 8
     shodan-query: http.component:"Flask"
-  tags: flask,detect,tech
-
+  tags: detect,flask,tech
 http:
   - method: GET
     path:
@@ -22,7 +20,6 @@ http:
       - "{{BaseURL}}/static/"
       - "{{BaseURL}}/flask/"
       - "{{BaseURL}}/health/"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -34,11 +31,9 @@ http:
           - "X-Powered-By-Flask"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -46,11 +41,10 @@ http:
         regex:
           - 'Flask ([0-9.]+)'
           - 'Powered by Flask ([0-9.]+)'
-
       - type: regex
         part: body
         name: flask_id
         regex:
           - 'flask-site-id=([a-z0-9]+)'
           - 'flask\.palletsprojects\.com/([^/]+)'
-
+        # digest: 4a0a00473045022100b9aeea8307f96976d8fefff861260fd814f823b2c74464d0ab6d40affe7c00f10220221cd6c6eb573f3d31b208dca5115e8f55f2e2b04da17fe9599f7a7539d1d591:922c64590222798bb761d5b6d8e72950

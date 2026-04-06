@@ -1,5 +1,4 @@
 id: gitbook-detect
-
 info:
   name: GitBook Detect
   author: ffffffff0x,daffainfo
@@ -10,19 +9,17 @@ info:
   classification:
     cpe: cpe:2.3:a:gitbook:gitbook:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="Introduction-GitBook"
     max-request: 1
-    vendor: gitbook
     product: gitbook
     shodan-query: http.title:"gitbook"
-    fofa-query: app="Introduction-GitBook"
-  tags: tech,gitbook,discovery
-
+    vendor: gitbook
+    verified: true
+  tags: discovery,gitbook,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: or
     matchers:
       - type: word
@@ -31,18 +28,16 @@ http:
           - 'gitbook.page.hasChanged'
           - '<meta name="generator" content="GitBook'
         condition: and
-
       - type: regex
         part: body
         regex:
           - "<title>.*[Gg]it[bB]ook</title>"
           - "<title>.*· [Gg]it[bB]ook.*</title>"
         condition: or
-
     extractors:
       - type: regex
         group: 1
         regex:
           - '<meta name="generator" content="GitBook ([0-9.]+)">'
           - '(?m)<meta name=generator content="GitBook ([0-9.]+)">'
-
+        # digest: 4a0a00473045022100bbc64ac3303a1acda32967c5912856db1b85aa403571572eb706d7c0158443ae02202b51c995881476087a7780893442d3dac23fb556a39d2a95ae6c648b332cb400:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: bitbucket-oauth-exposure
-
 info:
   name: Bitbucket OAuth Credentials Exposure
   author: TheZakMan
@@ -9,8 +8,7 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
     cwe-id: CWE-200
-  tags: exposure,bitbucket,oauth,credentials,misconfig,vuln
-
+  tags: bitbucket,credentials,exposure,misconfig,oauth,vuln
 http:
   - method: GET
     path:
@@ -71,7 +69,6 @@ http:
       - "{{BaseURL}}/keys/auth.json"
       - "{{BaseURL}}/credentials/auth.json"
       - "{{BaseURL}}/creds/auth.json"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -80,16 +77,13 @@ http:
           - "bitbucket"
         condition: or
         case-insensitive: true
-
       - type: regex
         regex:
           - "(?i)consumer[-_]*secret"
           - "(?i)consumer[-_]*key"
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         name: bitbucket_credentials
@@ -99,10 +93,9 @@ http:
           - '"consumer-secret":\s*"([^"]+)"'
           - '"consumer_key":\s*"([^"]+)"'
           - '"consumer_secret":\s*"([^"]+)"'
-
       - type: regex
         name: bitbucket_oauth_block
         regex:
           - '"bitbucket-oauth":\s*\{[^}]+\}'
           - '"bitbucket":\s*\{[^}]+\}'
-
+        # digest: 4b0a00483046022100daf5c379d7425d219ed3884b4eb3d15d0f5f3dc75c9ed56bb5ea417f20f18ec5022100d76e4051a013522ab33c1ccd4a481fe649ec1c9919cc3735286b158810ef6387:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: ovhcloud-backup-config
-
 info:
   name: OVHcloud Backup Configuration - Exposure
   author: pussycat0x
@@ -12,8 +11,7 @@ info:
   metadata:
     max-request: 4
     verified: true
-  tags: ovh,ovhcloud,backup,config,exposure,cloud,openstack
-
+  tags: backup,cloud,config,exposure,openstack,ovh,ovhcloud
 http:
   - method: GET
     path:
@@ -21,9 +19,7 @@ http:
       - "{{BaseURL}}/config/ovh-backups.json"
       - "{{BaseURL}}/backup/ovh-backups.json"
       - "{{BaseURL}}/storage/ovh-backups.json"
-
     stop-at-first-match: true
-
     matchers:
       - type: dsl
         dsl:
@@ -31,7 +27,6 @@ http:
           - "contains_all(body,'accessKey','secretKey')"
           - "contains(content_type,'application/json')"
         condition: and
-
     extractors:
       - type: regex
         name: accesskey
@@ -40,7 +35,6 @@ http:
         regex:
           - 'accessKey":"([0-9a-z ]+)'
         internal: true
-
       - type: regex
         name: secretkey
         part: body
@@ -48,8 +42,7 @@ http:
         regex:
           - 'secretKey":"([a-z0-9]+)'
         internal: true
-
       - type: dsl
         dsl:
           - '"accessKey: " + accesskey + " secretKey: "+ secretkey'
-
+        # digest: 4b0a00483046022100e994864f97cb68a84359616bc8a653cbb4d7d34e578fa95917dd6f405b4a4b7b022100ba247b00cd5578643a1e52c468e1e94ad194b582200b613e5abf627b81a7cc12:922c64590222798bb761d5b6d8e72950

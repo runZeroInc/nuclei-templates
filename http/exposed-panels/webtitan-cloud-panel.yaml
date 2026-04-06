@@ -1,5 +1,4 @@
 id: webtitan-cloud-panel
-
 info:
   name: WebTitan Cloud Panel - Detect
   author: ritikchaddha
@@ -10,32 +9,29 @@ info:
     cpe: cpe:2.3:a:titanhq:webtitan:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1090061843"
-    verified: true
-    max-request: 1
-    vendor: titanhq
-    product: webtitan
-    shodan-query: http.favicon.hash:"1090061843"
     fofa-query:
+      - title="WebTitan"
       - title="webtitan"
       - icon_hash=1090061843
-  tags: panel,webtitan,cloud,detect,titanhq,discovery
-
+    max-request: 1
+    product: webtitan
+    shodan-query: http.favicon.hash:1090061843
+    vendor: titanhq
+    verified: true
+  tags: cloud,detect,discovery,panel,titanhq,webtitan
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - '<title>WebTitan Cloud'
-          - 'alt="WebTitan Cloud Logo'
-          - 'title="WebTitan'
-        condition: or
-
-      - type: status
-        status:
+          - <title>WebTitan Cloud
+          - alt="WebTitan Cloud Logo
+          - title="WebTitan
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.php'

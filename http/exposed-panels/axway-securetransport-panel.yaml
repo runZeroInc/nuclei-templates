@@ -1,5 +1,4 @@
 id: axway-securetransport-panel
-
 info:
   name: Axway SecureTransport Login Panel - Detect
   author: righettod
@@ -14,45 +13,43 @@ info:
     cpe: cpe:2.3:a:axway:securetransport:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)securetransport"}) || any(each(service["html.titles"]), {# matches "(?i)st web client"})
-    verified: true
-    max-request: 1
-    vendor: axway
-    product: securetransport
-    shodan-query:
-      - http.title:"securetransport" || http.favicon.hash:1330269434
-      - http.title:"st web client"
     fofa-query:
       - title="securetransport" || http.favicon.hash:1330269434
       - title="st web client"
-  tags: panel,axway,securetransport,discovery
-
+    google-query:
+      - intitle:"st web client"
+      - intitle:"securetransport" || http.favicon.hash:1330269434
+    max-request: 1
+    product: securetransport
+    shodan-query:
+      - http.title:"SecureTransport" || http.favicon.hash:1330269434
+      - http.title:"st web client"
+      - http.title:"securetransport" || http.favicon.hash:1330269434
+    vendor: axway
+    verified: true
+  tags: axway,discovery,panel,securetransport
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - '<title>Axway SecureTransport'
-          - 'alt="Axway SecureTransport"'
-          - 'Welcome to SecureTransport'
-          - 'PrintServerInfo("SecureTransport'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
           - '"SecureTransport", "([0-9.]+)",'
-
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>Axway SecureTransport
+          - alt="Axway SecureTransport"
+          - Welcome to SecureTransport
+          - PrintServerInfo("SecureTransport
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

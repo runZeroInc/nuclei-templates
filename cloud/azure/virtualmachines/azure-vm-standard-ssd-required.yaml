@@ -11,8 +11,7 @@ info:
     Convert any Premium SSD volumes to Standard SSD unless the workload requires high performance disk specifications. This can be achieved through Azure's portal or via CLI commands.
   reference:
     - https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types
-  tags: cloud,devops,azure,microsoft,virtual-machine,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,virtual-machine
 flow: |
   code(1);
   for (let VMData of iterate(template.vmList)) {
@@ -20,36 +19,31 @@ flow: |
     set("ids", VMData.id);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az vm list --query '[*].{"id":id}'
-
     extractors:
       - type: json
         name: vmList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az vm show --ids "$ids" --query 'storageProfile.{"osDiskStorageType":osDisk.managedDisk.storageAccountType,"dataDiskStorageType":dataDisks[*].managedDisk.storageAccountType}'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - 'Premium_LRS'
-
     extractors:
       - type: dsl
         dsl:
           - 'ids + " is using Premium SSD volumes for OS or data disks which is not recommended for its current workload"'
-
+        # digest: 4a0a00473045022100a267e05b108644f86e5809eb87bcbb5e56220c677ea2732e09f0e0c3e78d5f56022071f46b4a1ac194ba49865e371e1f947b3c9d746db29562758f4a3a9167e7822e:922c64590222798bb761d5b6d8e72950
+self-contained: true

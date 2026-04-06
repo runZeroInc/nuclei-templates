@@ -1,5 +1,4 @@
 id: CNVD-2021-49104
-
 info:
   name: Pan Micro E-office File Uploads
   author: pikpikcu
@@ -14,13 +13,10 @@ info:
     cvss-score: 9.9
     cwe-id: CWE-434
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 2
-  tags: cnvd2021,cnvd,pan,micro,fileupload,intrusive,vuln
-
+  tags: cnvd,cnvd2021,fileupload,intrusive,micro,pan,vuln
 variables:
   string: "{{randstr}}"
-
 http:
   - raw:
       - |
@@ -38,20 +34,17 @@ http:
       - |
         GET /images/logo/logo-eoffice.php HTTP/1.1
         Host: {{Hostname}}
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - '{{md5(string)}}'
-
       - type: word
         part: body
         words:
           - "94d01a2324ce38a2e29a629c54190f67"
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402203465153101703fca8c5db4323925029c5d78cc5d2d70d8b71530b910c67cbcf802204100f7a85902eae8f1564a72fba281d583381e8cf27a8bed82714de87c84cd90:922c64590222798bb761d5b6d8e72950

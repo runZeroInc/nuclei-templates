@@ -1,11 +1,9 @@
 id: octobercms-default-login
-
 info:
   name: OctoberCMS - Default Admin Discovery
   author: princechaddha
   severity: high
-  description: |
-    OctoberCMS default admin credentials were discovered.
+  description: OctoberCMS default admin credentials were discovered.
   reference:
     - https://github.com/octobercms/october
     - https://octobercms.com/
@@ -16,13 +14,40 @@ info:
     cpe: cpe:2.3:a:octobercms:october:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "3823102"
-    verified: true
     max-request: 4
+    product: october
+    shodan-query: http.component:"October CMS"
     vendor: octobercms
-  tags: octobercms,default-login,oss,vuln
-
+    verified: true
+  tags: default-login,octobercms,oss,vuln
 http:
-  - raw:
+  - attack: clusterbomb
+    extractors:
+      - group: 1
+        internal: true
+        name: token
+        part: body
+        regex:
+          - meta name="csrf\-token" content="([A-Za-z0-9]+)">
+        type: regex
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - october_session=
+          - admin_auth=
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+        - ""
+      username:
+        - admin
+    raw:
       - |
         GET /backend/backend/auth/signin HTTP/1.1
         Host: {{Hostname}}
@@ -34,34 +59,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         _token={{token}}&postback=1&login={{username}}&password={{password}}
-
-    attack: clusterbomb
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-        - ""
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "october_session="
-          - "admin_auth="
-        condition: and
-
-      - type: status
-        status:
-          - 302
-
-    extractors:
-      - type: regex
-        part: body
-        name: token
-        internal: true
-        group: 1
-        regex:
-          - 'meta name="csrf\-token" content="([A-Za-z0-9]+)">'
-

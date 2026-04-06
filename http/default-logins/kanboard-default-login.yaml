@@ -1,10 +1,9 @@
 id: kanboard-default-login
-
 info:
   name: Kanboard - Default Login
   author: shelled
   severity: high
-  description: Kanboard default login credentials were discovered.
+  description: Kanboard contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://twitter.com/0x_rood/status/1607068644634157059
     - https://github.com/kanboard/kanboard
@@ -16,13 +15,34 @@ info:
     cpe: cpe:2.3:a:kanboard:kanboard:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body.mmh3"] == "1605834045"
-    verified: true
+    fofa-query: app="Kanboard"
     max-request: 2
+    product: kanboard
     vendor: kanboard
+    verified: true
   tags: default-login,kanboard,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - group: 1
+        internal: true
+        name: csrf_token
+        part: body
+        regex:
+          - hidden" name="csrf_token" value="([0-9a-z]+)"
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - contains(location, 'controller=DashboardController&action=show')
+          - status_code == 302
+        type: dsl
+    payloads:
+      pass:
+        - admin
+      user:
+        - admin
+    raw:
       - |
         GET /?controller=AuthController&action=login HTTP/1.1
         Host: {{Hostname}}
@@ -32,26 +52,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         username={{user}}&password={{pass}}&csrf_token={{csrf_token}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - admin
-
-    extractors:
-      - type: regex
-        name: csrf_token
-        part: body
-        group: 1
-        regex:
-          - "hidden\" name=\"csrf_token\" value=\"([0-9a-z]+)\""
-        internal: true
-    matchers:
-      - type: dsl
-        dsl:
-          - contains(location, 'controller=DashboardController&action=show')
-          - status_code == 302
-        condition: and
-

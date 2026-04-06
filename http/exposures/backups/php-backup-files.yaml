@@ -1,5 +1,4 @@
 id: php-backup-files
-
 info:
   name: PHP Source - Backup File Information Disclosure
   author: StreetOfHackerR007,pwnhxl,mastercho,0xpugal
@@ -7,13 +6,11 @@ info:
   description: PHP Source File is disclosed to external users.
   metadata:
     max-request: 1512
-  tags: exposure,backup,php,disclosure,fuzz,vuln
-
+  tags: backup,disclosure,exposure,fuzz,php,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{filepath}}{{bakext}}"
-
     attack: clusterbomb
     payloads:
       filepath:
@@ -90,7 +87,7 @@ http:
         - ".orig"
         - ".rej"
         - ".dist"
-        - ".eski"  # Turkish word for .bak its common on file backups
+        - ".eski" # Turkish word for .bak its common on file backups
         - ".txt"
         - ".disabled"
         - ".original"
@@ -103,20 +100,17 @@ http:
         - ".1"
         - ".2"
         - ".3"
-
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
-
       - type: word
         part: body
         words:
           - "<?php"
           - "<?="
         condition: or
-
       - type: word
         part: body
         words:
@@ -135,11 +129,10 @@ http:
           - "define('DB"
           - "environments:"
         condition: or
-
       - type: word
         part: header
         words:
           - "text/plain"
           - "bytes"
         condition: or
-
+        # digest: 4a0a00473045022100e6805b377674e29befb9797324039427a8de1ab886ea30fc90a78d3a49569cd8022027be33580dffe7f3587b816fe4babd4674c26538d3c132a5c482fe6d7497efcc:922c64590222798bb761d5b6d8e72950

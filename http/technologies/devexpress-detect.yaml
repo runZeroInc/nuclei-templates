@@ -1,5 +1,4 @@
 id: devexpress-detect
-
 info:
   name: DevExpress - Detect
   author: CravateRouge
@@ -13,16 +12,14 @@ info:
     cpe: cpe:2.3:a:devexpress:devexpress_components:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    vendor: devexpress
     product: devexpress_components
     shodan-query: html:"DXR.axd"
-  tags: devexpress,iis,microsoft,asp,tech,discovery
-
+    vendor: devexpress
+  tags: asp,devexpress,discovery,iis,microsoft,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     redirects: true
     max-redirects: 2
     matchers:
@@ -30,4 +27,4 @@ http:
         part: body
         words:
           - "DXR.axd"
-
+        # digest: 4a0a00473045022100847fb3edb95f340f067feb9c3f99e9ad2e7954d3d32c26d2dbdbb334dafe80bd022004d5c08ed13787c633226ec0c57770d1a855e7272f3e9c427774291467b0bca0:922c64590222798bb761d5b6d8e72950

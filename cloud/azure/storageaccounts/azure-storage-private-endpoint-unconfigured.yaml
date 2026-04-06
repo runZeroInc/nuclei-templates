@@ -11,8 +11,7 @@ info:
     Configure private endpoints for your Azure Storage accounts to ensure secure access via Private Link.
   reference:
     - https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints
-  tags: cloud,devops,azure,microsoft,azure-storage,azure-cloud-config
-
+  tags: azure,azure-cloud-config,azure-storage,cloud,devops,microsoft
 flow: |
   code(1);
   for (let StorageAccount of iterate(template.storageAccounts)) {
@@ -20,36 +19,31 @@ flow: |
     set("name", StorageAccount.Name);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az storage account list --query '[*].{"Name":name}'
-
     extractors:
       - type: json
         name: storageAccounts
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az storage account show --name "$name" --query 'privateEndpointConnections' --output json
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '[]'
-
     extractors:
       - type: dsl
         dsl:
           - 'name + " does not have any configured private endpoints."'
-
+        # digest: 490a00463044022019d3cb02a2ff0c90b9e27e712ef3d14df944021c648146c42b15255bded981c002205222331c4b2027f4b15f24400cb180ae29f8e388a9b71cd17dbd8254bfe455a2:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,5 +1,4 @@
 id: phpmyadmin-setup
-
 info:
   name: PhpMyAdmin Setup File - Detect
   author: sheikhrishad,thevillagehacker,Kr1shna4garwal,ArjunChandarana,0xpugal
@@ -11,16 +10,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:phpmyadmin:phpmyadmin:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 16
+    product: phpmyadmin
+    shodan-query: http.html:"phpMyAdmin"
     vendor: phpmyadmin
-  tags: phpmyadmin,misconfig,vuln
-
+    verified: true
+  tags: misconfig,phpmyadmin,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - "/phpmyadmin/scripts/setup.php"
@@ -41,7 +40,6 @@ http:
         - "/admin/"
         - "/phpMyAdminOLD/setup/index.php"
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -50,8 +48,7 @@ http:
           - "You want to configure phpMyAdmin using web interface"
           - "<title>phpMyAdmin setup</title>"
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402202eb8c90ba1362448e6cf255cb28f7ed363fc63ea2738f57f765accbebf672327022065da87876ecb8cdd8b9831f910faae565c9bb14a7d23024381da0637268060de:922c64590222798bb761d5b6d8e72950

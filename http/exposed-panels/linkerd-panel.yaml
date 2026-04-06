@@ -1,5 +1,4 @@
 id: linkerd-panel
-
 info:
   name: Linkerd Panel - Detect
   author: tess
@@ -12,34 +11,31 @@ info:
     cpe: cpe:2.3:a:linkerd:linkerd:*:*:*:*:kubernetes:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)data-controller-namespace"
-    verified: true
-    max-request: 1
-    vendor: linkerd
-    product: linkerd
-    shodan-query: http.html:"data-controller-namespace"
     fofa-query: body="data-controller-namespace"
-  tags: panel,misconfig,linkerd,exposure,discovery
-
+    max-request: 1
+    product: linkerd
+    shodan-query:
+      - html:"data-controller-namespace"
+      - http.html:"data-controller-namespace"
+    vendor: linkerd
+    verified: true
+  tags: discovery,exposure,linkerd,misconfig,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <title>Linkerd</title>
+          - data-controller-namespace="linkerd
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/namespaces'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Linkerd</title>'
-          - 'data-controller-namespace="linkerd'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

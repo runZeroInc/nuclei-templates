@@ -1,5 +1,4 @@
 id: versa-director-login
-
 info:
   name: Versa Director Login Panel - Detect
   author: c-sh0,darses
@@ -13,25 +12,28 @@ info:
     cpe: cpe:2.3:a:versa-networks:versa_director:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Versa Director"})
-    verified: true
+    fofa-query:
+      - title="Versa Director"
+      - 'Set-Cookie: VD-CSRF-TOKEN'
     max-request: 1
+    product: versa_director
+    shodan-query:
+      - http.title:"Versa Director"
+      - 'Set-Cookie: VD-CSRF-TOKEN'
     vendor: versa-networks
-  tags: panel,versa,director,discovery
-
+    verified: true
+  tags: director,discovery,panel,versa
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/versa/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - "versa-login-logo"
-          - "VERSA DIRECTOR"
-        condition: or
-
-      - type: status
-        status:
+          - versa-login-logo
+          - VERSA DIRECTOR
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/versa/login'

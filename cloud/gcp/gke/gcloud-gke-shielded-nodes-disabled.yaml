@@ -1,5 +1,4 @@
 id: gcloud-gke-shielded-nodes-disabled
-
 info:
   name: GKE Cluster Not Using Shielded Nodes
   author: princechaddha
@@ -13,8 +12,7 @@ info:
   reference:
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/GKE/use-shielded-cluster-nodes.html
     - https://cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes
-  tags: cloud,devops,gcp,gcloud,gke,kubernetes,security,shielded-nodes,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,gke,kubernetes,security,shielded-nodes
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -27,55 +25,46 @@ flow: |
       code(3)
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container clusters list --project $projectId --format="json(name,location)"
-
     extractors:
       - type: json
         name: clusters
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container clusters describe $clusterName --location $location --project $projectId --format="json(shieldedNodes.enabled)"
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "shieldedNodes"
-
       - type: word
         words:
           - '"enabled": true'
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - '"GKE cluster " + clusterName + " in " + location + " of project " + projectId + " does not have Shielded Nodes enabled"'
-
+        # digest: 4b0a00483046022100b416836a56fbba80089a75e0f43936078213377af87fda46e14361eac9a15de002210090d4be65c1cdc8775a7688cfee11f71506396b1087ff9acb3a714d5aa74866ed:922c64590222798bb761d5b6d8e72950
+self-contained: true
