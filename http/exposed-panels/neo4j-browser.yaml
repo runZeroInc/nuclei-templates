@@ -1,5 +1,4 @@
 id: neo4j-browser
-
 info:
   name: Neo4j Browser - Detect
   author: DhiyaneshDK
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:a:neo4j:neo4j:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)neo4j browser"})
-    max-request: 1
-    vendor: neo4j
-    product: neo4j
-    shodan-query: http.title:"neo4j browser"
     fofa-query: title="neo4j browser"
     google-query: intitle:"neo4j browser"
-  tags: neo4j,exposure,unauth,panel,discovery
-
+    max-request: 1
+    product: neo4j
+    shodan-query:
+      - http.title:"Neo4j Browser"
+      - http.title:"neo4j browser"
+    vendor: neo4j
+  tags: discovery,exposure,neo4j,panel,unauth
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Neo4j Browser</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/browser/'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Neo4j Browser</title>'
-
-      - type: status
-        status:
-          - 200
-

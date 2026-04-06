@@ -1,5 +1,4 @@
 id: pop3-capabilities-enum
-
 info:
   name: POP3 Capabilities - Enumeration
   author: pussycat0x,daffainfo
@@ -9,11 +8,10 @@ info:
   reference:
     - https://nmap.org/nsedoc/scripts/pop3-capabilities.html
   metadata:
-    verified: true
     max-request: 1
     shodan-query: "port:110"
-  tags: js,network,pop3,enum,discovery
-
+    verified: true
+  tags: discovery,enum,js,network,pop3
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -24,28 +22,23 @@ javascript:
       conn.Send(data);
       let result = conn.RecvString();
       Export(result);
-
     args:
       Host: "{{Host}}"
       Port: 110
-
     matchers-condition: and
     matchers:
       - type: dsl
         dsl:
           - "success == true"
-
       - type: regex
         regex:
           - '\+OK.*'
-
       - type: word
         words:
           - "HTTP/1.1"
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - replace_regex(replace_regex(response, "\\+OK.*\\r\\n\\+OK.*\\r\\n", ""), "\\r\\n", " ")
-
+        # digest: 4b0a0048304602210097cdf0882b08c85536dba6f3e47e8bfda7df92a9ce7b26f9967d2bd0640bc406022100a195a218f0c4116cfc7db0c4bdc381d4e3b5e18718ce28724438f6216fd3c6f3:922c64590222798bb761d5b6d8e72950

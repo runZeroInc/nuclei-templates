@@ -1,5 +1,4 @@
 id: aviatrix-panel
-
 info:
   name: Aviatrix Cloud Controller Panel
   author: pikpikcu,philippedelteil,daffainfo
@@ -12,30 +11,27 @@ info:
     cpe: cpe:2.3:a:aviatrix:controller:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)aviatrix cloud controller"})
-    max-request: 1
-    vendor: aviatrix
-    product: controller
-    shodan-query:
-      - http.title:"aviatrix cloud controller"
     fofa-query: title="aviatrix cloud controller"
     google-query: intitle:"aviatrix cloud controller"
-  tags: panel,aviatrix,discovery
-
+    max-request: 1
+    product: controller
+    shodan-query:
+      - http.title:"Aviatrix Cloud Controller"
+      - http.title:"aviatrix cloud controller"
+    vendor: aviatrix
+  tags: aviatrix,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - '<title>Aviatrix'
-          - 'Controller</title>'
-        condition: and
-
-      - type: status
-        status:
+          - <title>Aviatrix
+          - Controller</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

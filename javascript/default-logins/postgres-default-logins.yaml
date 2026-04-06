@@ -1,5 +1,4 @@
 id: postgres-default-logins
-
 info:
   name: Postgres - Default Logins
   author: Ice3man
@@ -9,8 +8,7 @@ info:
   metadata:
     max-request: 9
     shodan-query: port:5432
-  tags: js,postgresql,default-login,network,vuln
-
+  tags: default-login,js,network,postgresql,vuln
 javascript:
   - pre-condition: |
       var m = require("nuclei/postgres");
@@ -42,4 +40,4 @@ javascript:
           - "response == true"
           - "success == true"
         condition: and
-
+        # digest: 490a0046304402202cb0b8f05802fb49e6e7c08dd8e5b05872ca291e07ad4c869f8b03b0dd190ef70220570c1e6b77882f5a01fdae30ad4bc4c579fca5d67f057a02bc3f1f45b6263649:922c64590222798bb761d5b6d8e72950

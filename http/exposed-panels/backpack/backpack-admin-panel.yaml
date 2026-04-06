@@ -1,5 +1,4 @@
 id: backpack-admin-panel
-
 info:
   name: Laravel Backpack Admin Login Panel - Detect
   author: shine
@@ -12,21 +11,20 @@ info:
     cpe: cpe:2.3:a:backpackforlaravel:backpack\\\\crud:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Backpack Admin"})
-    verified: true
     max-request: 1
+    product: backpack\\\\crud
+    shodan-query: title:"Backpack Admin"
     vendor: backpackforlaravel
-  tags: panel,backpack,admin,discovery
-
+    verified: true
+  tags: admin,backpack,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/admin/login"
-
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - 'Backpack Admin'
-          - 'backpack_alerts'
-        condition: or
-
+          - Backpack Admin
+          - backpack_alerts
+    method: GET
+    path:
+      - '{{BaseURL}}/admin/login'

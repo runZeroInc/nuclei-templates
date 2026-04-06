@@ -1,5 +1,4 @@
 id: azure-vm-cloud-enum
-
 info:
   name: Azure Virtual Machines - Cloud Enumeration
   author: initstring
@@ -7,12 +6,9 @@ info:
   description: |
     Searches for Azure virtual machines via their registered DNS names.
   metadata:
-    verified: true
     max-request: 1
-  tags: cloud,cloud-enum,azure,fuzz,enum,dns,discovery
-
-self-contained: true
-
+    verified: true
+  tags: azure,cloud,cloud-enum,discovery,dns,enum,fuzz
 variables:
   BaseDNS: "cloudapp.azure.com"
   regionname:
@@ -48,19 +44,16 @@ variables:
     - australiacentral2
     - southafricanorth
     - southafricawest
-
 dns:
   - name: "{{wordlist}}.{{regionname}}.{{BaseDNS}}"
     type: A
     class: inet
-
     recursion: true
-
     attack: batteringram
-
     matchers:
       - type: word
         part: answer
         words:
           - "IN\tA"
-
+        # digest: 490a00463044022032a541f5ba8267dc858da6b4bfedc88f03d5f99bd2b94c008e12123d0b532461022058bc8dfa894c8904f459774f9516ba5feacc00d91d50d39659e73a3bb0680a09:922c64590222798bb761d5b6d8e72950
+self-contained: true

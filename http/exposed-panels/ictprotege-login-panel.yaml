@@ -1,5 +1,4 @@
 id: ictprotege-login-panel
-
 info:
   name: ICT Protege WX Login Panel - Detect
   author: ritikchaddha
@@ -10,28 +9,26 @@ info:
     cpe: cpe:2.3:o:ict:protege_wx_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)ict protege wx&reg;"})
-    verified: true
-    max-request: 1
-    vendor: ict
-    product: protege_wx_firmware
-    shodan-query: http.title:"ict protege wx&reg;"
     fofa-query: title="ict protege wx&reg;"
     google-query: intitle:"ict protege wx&reg;"
-  tags: panel,ictprotege,ict,discovery
-
+    max-request: 1
+    product: protege_wx_firmware
+    shodan-query:
+      - title:"ICT Protege WX&reg;"
+      - http.title:"ict protege wx&reg;"
+    vendor: ict
+    verified: true
+  tags: discovery,ict,ictprotege,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login.htm"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>ICT Protege WX&reg;</title>"
-
-      - type: status
-        status:
+          - <title>ICT Protege WX&reg;</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.htm'

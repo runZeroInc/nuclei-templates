@@ -1,5 +1,4 @@
 id: telnet-client
-
 info:
   name: Ensure Telnet Client is Not Installed
   author: Th3l0newolf
@@ -12,15 +11,11 @@ info:
     - https://www.cisecurity.org/benchmark/ubuntu_linux
   metadata:
     verified: true
-  tags: cis,local,cisecurity,audit,linux,ubuntu,telnet
-
-self-contained: true
-
+  tags: audit,cis,cisecurity,linux,local,telnet,ubuntu
 code:
   - engine:
       - sh
       - bash
-
     args:
       - "-c"
       - |
@@ -30,15 +25,14 @@ code:
         else
           echo "[cis-telnet-client-check:Policy-Pass] [Telnet client is not installed] [CIS_PASS]"
         fi
-
     matchers:
       - type: word
         name: policy-pass
         words:
           - "Policy-Pass"
-
       - type: word
         name: policy-fail
         words:
           - "Policy-Fail"
-
+        # digest: 4b0a00483046022100b01ae626cf301187f1100bc702af3f84281c84e01327ced2a652005464591dbc02210086c8454cbea9e2c67672a569489079b1a7bd0612571c8b43f7f51ed5f4fc5ebb:922c64590222798bb761d5b6d8e72950
+self-contained: true

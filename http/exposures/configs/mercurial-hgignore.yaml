@@ -1,8 +1,7 @@
 id: mercurial-hgignore
-
 info:
   name: Mercurial Ignore - File Disclosure
-  author: DhiyaneshDK
+  author: DhiyaneshDK,s4e-io
   severity: info
   description: Mercurial Ignore file disclosure was detected.
   reference:
@@ -13,38 +12,38 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:mercurial:mercurial:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: mercurial
+    shodan-query: html:"hgignore"
     vendor: mercurial
-  tags: exposure,hgignore,config,mercurial,vuln
-
+    verified: true
+  tags: config,exposure,hgignore,mercurial,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.hgignore"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'len(body) > 50'
-          - 'status_code == 200'
-        condition: and
-
-      - type: word
-        words:
-          - "MongoDB over HTTP on the native"
-          - "application/javascript"
-          - "application/x-javascript"
-          - "application/json"
-          - "application/xml"
-          - "html"
-          - "<!doctype"
-          - "<script"
-          - "<meta"
-          - "image/"
-          - "Response xmlns="
-        part: response
+          - len(body) > 50
+          - status_code == 200
+        type: dsl
+      - condition: or
         negative: true
-        condition: or
-
+        part: response
+        type: word
+        words:
+          - MongoDB over HTTP on the native
+          - application/javascript
+          - application/x-javascript
+          - application/json
+          - application/xml
+          - html
+          - <!doctype
+          - <script
+          - <meta
+          - image/
+          - Response xmlns=
+          - text/xml
+          - <?xml
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/.hgignore'

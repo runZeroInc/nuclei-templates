@@ -1,5 +1,4 @@
 id: openam-panel
-
 info:
   name: OpenAM Login Panel - Detect
   author: philippedelteil
@@ -11,65 +10,61 @@ info:
     cpe: cpe:2.3:a:forgerock:openam:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)openam"})
-    max-request: 20
-    vendor: forgerock
-    product: openam
-    shodan-query: http.title:"openam"
     fofa-query: title="openam"
     google-query: intitle:"openam"
-  tags: panel,openam,opensso,login,forgerock,discovery
-
+    max-request: 20
+    product: openam
+    shodan-query:
+      - http.title:"OpenAM"
+      - http.title:"openam"
+    vendor: forgerock
+  tags: discovery,forgerock,login,openam,opensso,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}{{paths}}"
-
-    payloads:
-      paths:
-        - "/openam/XUI"
-        - "/XUI"
-        - "/XUI/#login"
-        - "/UI"
-        - "/sso/XUI"
-        - "/sso/UI"
-        - "/sso/UI/#login"
-        - "/opensso/UI/Login"
-        - "/openam/UI/login"
-        - "/openam/UI/#loginlogin"
-        - "/openam/UI/Login"
-        - "/openam/XUI/Login"
-        - "/openam/XUI/login"
-        - "/openam/XUI/#login"
-        - "/am/UI/Login"
-        - "/am/UI/#login"
-        - "/am/XUI/"
-        - "/am/XUI/Login"
-        - "/am/json/serverinfo/*"
-        - "/openam/json/serverinfo/*"
-    host-redirects: true
-    stop-at-first-match: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'urlArgs: "v='
-          - 'Sign in to OpenAM'
-          - 'ForgeRock'
-          - 'forgerock'
-          - 'FRForgotUsername'
-          - 'successfulUserRegistrationDestination'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
           - 'urlArgs: "v=([0-9.abcd]+)'
-
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        type: word
+        words:
+          - 'urlArgs: "v='
+          - Sign in to OpenAM
+          - ForgeRock
+          - forgerock
+          - FRForgotUsername
+          - successfulUserRegistrationDestination
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}{{paths}}'
+    payloads:
+      paths:
+        - /openam/XUI
+        - /XUI
+        - /XUI/#login
+        - /UI
+        - /sso/XUI
+        - /sso/UI
+        - /sso/UI/#login
+        - /opensso/UI/Login
+        - /openam/UI/login
+        - /openam/UI/#loginlogin
+        - /openam/UI/Login
+        - /openam/XUI/Login
+        - /openam/XUI/login
+        - /openam/XUI/#login
+        - /am/UI/Login
+        - /am/UI/#login
+        - /am/XUI/
+        - /am/XUI/Login
+        - /am/json/serverinfo/*
+        - /openam/json/serverinfo/*
+    stop-at-first-match: true

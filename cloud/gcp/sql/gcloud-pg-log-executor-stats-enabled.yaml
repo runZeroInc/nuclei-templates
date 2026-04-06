@@ -1,5 +1,4 @@
 id: gcloud-pg-log-executor-stats-enabled
-
 info:
   name: Log Executor Stats Enabled in PostgreSQL Database Instances
   author: princechaddha
@@ -12,8 +11,44 @@ info:
     Disable the log_executor_stats flag in your PostgreSQL database instance configuration to prevent performance issues caused by excessive logging.
   reference:
     - https://cloud.google.com/sql/docs/postgres/flags
-  tags: cloud,devops,gcp,gcloud,google-cloud-sql,postgresql,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,google-cloud-sql,postgresql
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud projects list --format="json(projectId)"
+    extractors:
+      - type: json
+        name: projectIds
+        internal: true
+        json:
+          - '.[].projectId'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud sql instances list --project $projectId --filter='DATABASE_VERSION:POSTGRES*' --format="json(name)"
+    extractors:
+      - type: json
+        name: sqlInstances
+        internal: true
+        json:
+          - '.[].name'
+  - engine:
+      - sh
+      - bash
+    source: |
+      gcloud sql instances describe $sqlInstance --project $projectId --format=json | jq '.settings.databaseFlags // [] | map(select(.name == "log_executor_stats")) | .[].value'
+    matchers:
+      - type: word
+        words:
+          - 'on'
+    extractors:
+      - type: dsl
+        dsl:
+          - '"The log_executor_stats flag is enabled for PostgreSQL instance " + sqlInstance + " in project " + projectId'
+        # digest: 4b0a00483046022100becc6e11eec3e0e824c7b4c976175dc77190b74ed4c8e32304824e2aeb7622a0022100c3aefc5a60ad501d867f2e2521553ba89979805322ff8f820108ff2a9581c76c:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -24,49 +59,4 @@ flow: |
       code(3)
     }
   }
-
 self-contained: true
-
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud projects list --format="json(projectId)"
-
-    extractors:
-      - type: json
-        name: projectIds
-        internal: true
-        json:
-          - '.[].projectId'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud sql instances list --project $projectId --filter='DATABASE_VERSION:POSTGRES*' --format="json(name)"
-
-    extractors:
-      - type: json
-        name: sqlInstances
-        internal: true
-        json:
-          - '.[].name'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      gcloud sql instances describe $sqlInstance --project $projectId --format=json | jq '.settings.databaseFlags // [] | map(select(.name == "log_executor_stats")) | .[].value'
-
-    matchers:
-      - type: word
-        words:
-          - 'on'
-
-    extractors:
-      - type: dsl
-        dsl:
-          - '"The log_executor_stats flag is enabled for PostgreSQL instance " + sqlInstance + " in project " + projectId'
-

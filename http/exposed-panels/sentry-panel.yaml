@@ -1,5 +1,4 @@
 id: sentry-panel
-
 info:
   name: Sentry Login Panel
   author: righettod
@@ -12,33 +11,31 @@ info:
     cpe: cpe:2.3:a:sentry:sentry:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login \\| sentry"})
-    verified: true
-    max-request: 1
-    vendor: sentry
-    product: sentry
-    shodan-query: http.title:"login | sentry"
     fofa-query: title="login | sentry"
     google-query: intitle:"login | sentry"
-  tags: panel,sentry,login,discovery
-
+    max-request: 1
+    product: sentry
+    shodan-query:
+      - http.title:"Login | Sentry"
+      - http.title:"login | sentry"
+    vendor: sentry
+    verified: true
+  tags: discovery,login,panel,sentry
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    redirects: true
-    max-redirects: 3
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains(body, "/sentry/") && contains(body, "Login")'
-        condition: and
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
-          - '(?i)"current":\s*"([0-9a-z.-]+)"'
-
+          - (?i)"current":\s*"([0-9a-z.-]+)"
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains(body, "/sentry/") && contains(body, "Login")
+        type: dsl
+    max-redirects: 3
+    method: GET
+    path:
+      - '{{BaseURL}}'
+    redirects: true

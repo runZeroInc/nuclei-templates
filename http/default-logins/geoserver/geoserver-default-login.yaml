@@ -1,10 +1,9 @@
 id: geoserver-default-login
-
 info:
   name: Geoserver Admin - Default Login
   author: For3stCo1d,professorabhay,ritikchaddha
   severity: high
-  description: Geoserver default credentials were discovered.
+  description: Geoserver default admin credentials were discovered.
   reference:
     - http://geoserver.org/
   classification:
@@ -14,13 +13,29 @@ info:
     cpe: cpe:2.3:a:geoserver:geoserver:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: 'any(each(service["html.titles"]), {# matches "GeoServer: Welcome"})'
-    verified: true
+    fofa-query: app="GeoServer"
     max-request: 2
+    product: geoserver
     vendor: geoserver
-  tags: geoserver,default-login,vuln
-
+    verified: true
+  tags: default-login,geoserver,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: and
+        dsl:
+          - contains(tolower(location_1), '/geoserver/web') && contains(body_2, '<span>admin</span>')
+          - '!contains(tolower(location_1), ''error=true'')'
+          - status_code_1 == 302
+        type: dsl
+    max-redirects: 2
+    payloads:
+      pass:
+        - geoserver
+      user:
+        - admin
+    raw:
       - |
         POST /geoserver/j_spring_security_check HTTP/1.1
         Host: {{Hostname}}
@@ -30,20 +45,3 @@ http:
       - |
         GET /geoserver/web/ HTTP/1.1
         Host: {{Hostname}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - geoserver
-    host-redirects: true
-    max-redirects: 2
-    matchers:
-      - type: dsl
-        dsl:
-          - "contains(tolower(location_1), '/geoserver/web') && contains(body_2, '<span>admin</span>')"
-          - "!contains(tolower(location_1), 'error=true')"
-          - 'status_code_1 == 302'
-        condition: and
-

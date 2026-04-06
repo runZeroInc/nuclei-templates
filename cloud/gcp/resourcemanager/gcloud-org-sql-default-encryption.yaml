@@ -1,5 +1,4 @@
 id: gcloud-org-sql-default-encryption
-
 info:
   name: Default Google-Managed Encryption for Cloud SQL Not Restricted
   author: princechaddha
@@ -11,46 +10,39 @@ info:
   remediation: |
     Enable the "Restrict Default Google-Managed Encryption for Cloud SQL Instances" policy at the organization level using the 'gcloud alpha resource-manager org-policies enable-enforce' command with the sql.disableDefaultEncryptionCreation constraint.
   reference:
-    - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ResourceManager/restrict-default-encryption-for-sql-instances.html
     - https://cloud.google.com/sql/docs/mysql/customer-managed-encryption-keys
-  tags: cloud,devops,gcp,gcloud,resourcemanager,security,sql,encryption,cmk,gcp-cloud-config
-
-flow: |
-  code(1)
-  for(let orgId of iterate(template.orgIds)){
-    set("orgId", orgId)
-    code(2)
-  }
-
-self-contained: true
-
+    - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ResourceManager/restrict-default-encryption-for-sql-instances.html
+  tags: cloud,cmk,devops,encryption,gcloud,gcp,gcp-cloud-config,resourcemanager,security,sql
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud organizations list --format="json(name)"
-
     extractors:
       - type: json
         name: orgIds
         internal: true
         json:
           - '.[].name'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud alpha resource-manager org-policies describe sql.disableDefaultEncryptionCreation --organization=$orgId --effective --format="json(booleanPolicy)"
-
     matchers:
       - type: word
         words:
           - "{}"
-
     extractors:
       - type: dsl
         dsl:
           - '"Organization " + orgId + " has not disabled default Google-managed encryption for Cloud SQL instances"'
-
+        # digest: 490a004630440220760e07a25881e95d2eb87587533b0006f50a3852c3f5931147ccebc88903316d02200148c895cf90b515d22e6e9371ab75c1e71c3202615ed1c6b8b1589b175696d1:922c64590222798bb761d5b6d8e72950
+flow: |
+  code(1)
+  for(let orgId of iterate(template.orgIds)){
+    set("orgId", orgId)
+    code(2)
+  }
+self-contained: true

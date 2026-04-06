@@ -1,5 +1,4 @@
 id: webroot-login
-
 info:
   name: Webroot Login Panel - Detect
   author: DhiyaneshDK
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:a:webroot:secureanywhere:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Webroot - Login"})
-    verified: true
     max-request: 1
+    product: secureanywhere
+    shodan-query: title:"Webroot - Login"
     vendor: webroot
-  tags: panel,webroot,discovery
-
+    verified: true
+  tags: discovery,panel,webroot
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>Webroot - Login</title>'
-
-      - type: status
-        status:
+          - <title>Webroot - Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/Login'

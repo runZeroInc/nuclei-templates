@@ -1,45 +1,42 @@
 id: bloofoxcms-default-login
-
 info:
-  name: bloofoxCMS Default Credentials
+  name: bloofoxCMS - Default Login
   author: theamanrawat
   severity: high
-  description: bloofoxCMS default login credentials were discovered.
+  description: |
+    bloofoxCMS contains default credentials. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
-    - https://www.bloofox.com/automated_setup.113.html
     - https://www.bloofox.com
+    - https://www.bloofox.com/automated_setup.113.html
   classification:
     cpe: cpe:2.3:a:bloofox:bloofoxcms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)Powered by bloofoxCMS"
-    verified: 'true'
+    fofa-query: Powered by bloofoxCMS
     max-request: 1
-    vendor: bloofox
     product: bloofoxcms
-    fofa-query: "Powered by bloofoxCMS"
+    vendor: bloofox
+    verified: "true"
   tags: bloofox,cms,default-login,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        dsl:
+          - contains(body, 'bloofoxCMS Admincenter')
+          - status_code == 200
+        type: dsl
+    max-redirects: 2
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /admin/index.php HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         username={{username}}&password={{password}}&action=login
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
     redirects: true
-    max-redirects: 2
-    matchers:
-      - type: dsl
-        dsl:
-          - contains(body, 'bloofoxCMS Admincenter')
-          - status_code == 200
-        condition: and
-

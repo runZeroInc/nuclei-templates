@@ -1,5 +1,4 @@
 id: graphql-alias-batching
-
 info:
   name: GraphQL Alias-based Batching
   author: Dolev Farhi
@@ -10,22 +9,34 @@ info:
   remediation: |
     Limit queries aliasing in your GraphQL Engine to ensure mitigation of aliasing-based attacks.
   reference:
-    - https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
     - https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html
+    - https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
     - https://graphql.security/
     - https://stackoverflow.com/questions/62421352/graphql-difference-between-using-alias-versus-multiple-query-objects-when-doin
   classification:
     cpe: cpe:2.3:a:graphql:playground:*:*:*:*:node.js:*:*:*
   metadata:
     max-request: 2
+    product: playground
     vendor: graphql
   tags: graphql,misconfig,vuln
-
 variables:
-  str: "{{to_lower(rand_text_alpha(5))}}"
-
+  str: '{{to_lower(rand_text_alpha(5))}}'
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"data":'
+          - '"{{str}}1":'
+          - '"{{str}}6":'
+      - part: header
+        type: word
+        words:
+          - application/json
+    matchers-condition: and
+    raw:
       - |
         POST /graphql HTTP/1.1
         Host: {{Hostname}}
@@ -38,21 +49,4 @@ http:
         Content-Type: application/json
 
         {"query":"query {\n {{str}}1:__typename \n {{str}}2:__typename \n {{str}}3:__typename \n {{str}}4:__typename \n {{str}}5:__typename \n {{str}}6:__typename \n }"}
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"data":'
-          - '"{{str}}1":'
-          - '"{{str}}6":'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-

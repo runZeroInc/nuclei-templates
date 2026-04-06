@@ -1,5 +1,4 @@
 id: osticket-panel
-
 info:
   name: osTicket Login Panel - Detect
   author: ritikchaddha
@@ -11,14 +10,6 @@ info:
     cpe: cpe:2.3:a:osticket:osticket:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)powered by osticket" || any(each(service["html.titles"]), {# matches "(?i)osticket"}) || any(each(service["html.titles"]), {# matches "(?i)osticket installer"})
-    verified: true
-    max-request: 2
-    vendor: osticket
-    product: osticket
-    shodan-query:
-      - http.html:"powered by osticket"
-      - http.title:"osticket"
-      - http.title:"osticket installer"
     fofa-query:
       - body="powered by osticket"
       - title="osticket"
@@ -26,28 +17,32 @@ info:
     google-query:
       - intitle:"osticket"
       - intitle:"osticket installer"
-  tags: panel,osticket,discovery
-
+    max-request: 2
+    product: osticket
+    shodan-query:
+      - http.html:"powered by osTicket"
+      - http.title:"osticket"
+      - http.html:"powered by osticket"
+      - http.title:"osticket installer"
+    vendor: osticket
+    verified: true
+  tags: discovery,osticket,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login.php"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'powered by osTicket'
-          - 'content="osTicket'
-        condition: or
-
-      - type: status
-        status:
+          - powered by osTicket
+          - content="osTicket
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login.php'
+    stop-at-first-match: true

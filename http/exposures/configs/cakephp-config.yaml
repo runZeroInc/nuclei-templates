@@ -1,5 +1,4 @@
 id: cakephp-config
-
 info:
   name: CakePHP Configuration File - Detect
   author: DhiyaneshDk
@@ -13,31 +12,28 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cakephp:cakephp:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: cakephp
+    shodan-query: html:"phinx.yml"
     vendor: cakephp
-  tags: files,exposure,config,vuln
-
+    verified: true
+  tags: config,exposure,files,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/phinx.yml"
-      - "{{BaseURL}}/phinx.yaml"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "host:"
-          - "name:"
-          - "pass:"
-          - "adapter:"
-        condition: and
-
-      - type: status
-        status:
+          - 'host:'
+          - 'name:'
+          - 'pass:'
+          - 'adapter:'
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/phinx.yml'
+      - '{{BaseURL}}/phinx.yaml'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: service-pack-check
-
 info:
   name: Latest Service Pack Check
   author: nukunga[SungHyunJeon]
@@ -15,22 +14,16 @@ info:
       - Windows Server 2019: Refer to https://support.microsoft.com/ko-kr/help/4581839
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: code,windows-audit,kisa,service-pack,security,patch-management
-
-self-contained: true
-
+  tags: code,kisa,patch-management,security,service-pack,windows-audit
 code:
   - pre-condition: |
       IsWindows();
-
     engine:
       - powershell
       - powershell.exe
-
     args:
       - -ExecutionPolicy
       - Bypass
-
     pattern: "*.ps1"
     source: |
       # Retrieve operating system details.
@@ -57,9 +50,9 @@ code:
               "SERVICE_PACK_VULNERABLE"
           }
       }
-
     matchers:
       - type: word
         words:
           - "SERVICE_PACK_VULNERABLE"
-
+        # digest: 4b0a00483046022100e9936511acbd6aa8d53493ae304f9720cfa57633ba6f5445fe28f0f73ef15771022100c72324f300f46d3125f554310e950c43b8db81b69cc2df67c0f2c8caf05fa698:922c64590222798bb761d5b6d8e72950
+self-contained: true

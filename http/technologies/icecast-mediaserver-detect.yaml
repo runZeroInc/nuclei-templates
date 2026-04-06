@@ -1,5 +1,4 @@
 id: icecast-mediaserver-detect
-
 info:
   name: Icecast Streaming Media Server Information Panel - Detect
   author: pussycat0x
@@ -11,30 +10,27 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:xiph:icecast:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: icecast
+    shodan-query: title:"Icecast Streaming Media Server"
     vendor: xiph
-  tags: tech,icecast,media-server,detect,discovery
-
+    verified: true
+  tags: detect,discovery,icecast,media-server,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/server_version.xsl"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Icecast Streaming Media Server"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - "Icecast ([0-9.]+)"
-
+          - Icecast ([0-9.]+)
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - Icecast Streaming Media Server
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/server_version.xsl'

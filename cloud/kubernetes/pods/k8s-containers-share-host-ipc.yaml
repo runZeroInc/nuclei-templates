@@ -1,5 +1,4 @@
 id: k8s-containers-share-host-ipc
-
 info:
   name: Containers sharing host IPC namespace
   author: princechaddha
@@ -10,16 +9,7 @@ info:
   remediation: Ensure that no container in Kubernetes Pods is set to share the host IPC namespace. Configure 'spec.hostIPC' to 'false' for all pods to isolate IPC namespaces.
   reference:
     - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-  tags: cloud,devops,kubernetes,k8s,devsecops,pods,k8s-cluster-security
-
-flow: |
-  code(1);
-  for (let pod of template.items) {
-    set("pod",pod)
-    javascript(1);
-  }
-
-self-contained: true
+  tags: cloud,devops,devsecops,k8s,k8s-cluster-security,kubernetes,pods
 code:
   - engine:
       - sh
@@ -31,17 +21,22 @@ code:
         internal: true
         json:
           - '.items[]'
-
 javascript:
   - code: |
-        pod = JSON.parse(template.pod);
-        if (pod.spec.hostIPC) {
-          let result = (`Pod '${pod.metadata.name}' in namespace '${pod.metadata.namespace}' is configured to share the host IPC namespace.`);
-          Export(result);
-        }
-
+      pod = JSON.parse(template.pod);
+      if (pod.spec.hostIPC) {
+        let result = (`Pod '${pod.metadata.name}' in namespace '${pod.metadata.namespace}' is configured to share the host IPC namespace.`);
+        Export(result);
+      }
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 490a004630440220361ccd360a68d3f8093e01da417aebc5fa2be00cf4c7d0599440de3e1586dd070220604934ea743e4ebcff16171fec6abdf192eb57ebca62df944676ef1a1fa6bd71:922c64590222798bb761d5b6d8e72950
+flow: |
+  code(1);
+  for (let pod of template.items) {
+    set("pod",pod)
+    javascript(1);
+  }
+self-contained: true

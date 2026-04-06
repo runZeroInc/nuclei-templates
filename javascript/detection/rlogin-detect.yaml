@@ -1,5 +1,4 @@
 id: rlogin-detect
-
 info:
   name: Rlogin Detect
   author: pussycat0x
@@ -9,11 +8,10 @@ info:
   reference:
     - https://www.ibm.com/docs/en/aix/7.1.0?topic=r-rlogin-command
   metadata:
+    max-request: 1
     shodan-query: "rlogin"
     verified: true
-    max-request: 1
-  tags: rlogin,network,js,tcp,discovery
-
+  tags: discovery,js,network,rlogin,tcp
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -26,15 +24,13 @@ javascript:
       conn.SendHex(packet.Hex());
       const result = conn.RecvFullString()
       result
-
     args:
       Host: "{{Host}}"
       Port: 513
-
     matchers:
       - type: dsl
         dsl:
           - "success == true"
           - contains(response, "rlogin")
         condition: and
-
+        # digest: 4a0a0047304502206da157df0767d7c44129a39db7e5dd834bfb473fa31813e05139d1976b591d4f022100ed92af1ad65c9529f40479c25946c3284677883abaca33395995cdd98125f53a:922c64590222798bb761d5b6d8e72950

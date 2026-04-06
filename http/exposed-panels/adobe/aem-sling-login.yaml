@@ -1,5 +1,4 @@
 id: aem-sling-login
-
 info:
   name: Adobe Experience Manager Sling User Login - Detect
   author: dhiyaneshDk
@@ -13,37 +12,34 @@ info:
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)aem sign in"})
-    max-request: 1
-    vendor: adobe
-    product: experience_manager
-    shodan-query:
-      - http.title:"aem sign in"
-      - http.component:"adobe experience manager"
-      - cpe:"cpe:2.3:a:adobe:experience_manager"
     fofa-query: title="aem sign in"
     google-query: intitle:"aem sign in"
-  tags: panel,aem,adobe,sling,discovery
-
+    max-request: 1
+    product: experience_manager
+    shodan-query:
+      - http.title:"AEM Sign In"
+      - http.component:"Adobe Experience Manager"
+      - http.component:"adobe experience manager"
+      - http.title:"aem sign in"
+      - cpe:"cpe:2.3:a:adobe:experience_manager"
+    vendor: adobe
+  tags: adobe,aem,discovery,panel,sling
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/system/sling/cqform/defaultlogin.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
-          - '<title>Login</title>'
-          - 'j_username'
-          - 'j_password'
-        condition: and
-
-      - type: word
-        part: header
+          - <title>Login</title>
+          - j_username
+          - j_password
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/system/sling/cqform/defaultlogin.html'

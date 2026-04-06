@@ -1,5 +1,4 @@
 id: osnexus-panel
-
 info:
   name: OSNEXUS QuantaStor Manager Panel - Detect
   author: Charles D.
@@ -13,21 +12,19 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)OSNEXUS QuantaStor Manager"})
     max-request: 1
+    product: quantastor
+    shodan-query: http.title:"OSNEXUS QuantaStor Manager"
     vendor: osnexus
-  tags: panel,osnexus,login,discovery
-
+  tags: discovery,login,osnexus,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>OSNEXUS QuantaStor Manager</title>'
-
-      - type: status
-        status:
+          - <title>OSNEXUS QuantaStor Manager</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

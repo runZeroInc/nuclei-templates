@@ -1,5 +1,4 @@
 id: privesc-timeout
-
 info:
   name: Timeout - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/timeout/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,timeout,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,timeout
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       timeout 7d whoami
-
   - engine:
       - sh
       - bash
     source: |
       sudo timeout 7d whoami
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4b0a00483046022100c042743d058a22bfcb91fdd4b81699d0cbf639618c1c41eba3018ecaac009311022100c1a34333b4042ff424645190eeb4c5c29c76ae7332731b2cc8a8cbea2128e587:922c64590222798bb761d5b6d8e72950
+self-contained: true

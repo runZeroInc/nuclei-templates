@@ -1,11 +1,9 @@
 id: nexus-default-login
-
 info:
   name: Nexus Default Login
   author: pikpikcu
   severity: high
-  description: |
-    Nexus default admin credentials were discovered.
+  description: Nexus default admin credentials were discovered.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -13,10 +11,26 @@ info:
   metadata:
     runzero-match: service["http.head.setCookie"] contains "NXSESSIONID"
     max-request: 1
-  tags: nexus,default-login,vuln
-
+  tags: default-login,nexus,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 204
+        type: status
+      - condition: and
+        part: header
+        type: word
+        words:
+          - 'Server: Nexus'
+          - NXSESSIONID
+    matchers-condition: and
+    payloads:
+      password:
+        - admin123
+      username:
+        - admin
+    raw:
       - |
         POST /service/rapture/session HTTP/1.1
         Host: {{Hostname}}
@@ -24,24 +38,3 @@ http:
         Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
         username={{base64(username)}}&password={{base64(password)}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin123
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 204
-
-      - type: word
-        words:
-          - "Server: Nexus"
-          - "NXSESSIONID"
-        part: header
-        condition: and
-

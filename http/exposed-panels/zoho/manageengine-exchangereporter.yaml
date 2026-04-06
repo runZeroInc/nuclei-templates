@@ -1,5 +1,4 @@
 id: manageengine-exchangereporter
-
 info:
   name: ZOHO ManageEngine Exchange Reporter Plus Panel - Detect
   author: darses
@@ -12,39 +11,34 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_exchange_reporter_plus:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)ManageEngine - Exchange Reporter Plus"}) || service["favicon.ico.image.mmh3"] == "230963457"
-    verified: true
+    fofa-query:
+      - title="ManageEngine - Exchange Reporter Plus"
+      - icon_hash="230963457"
     max-request: 1
-    vendor: zohocorp
     product: manageengine_exchange_reporter_plus
     shodan-query:
-      - http.title:"manageengine - exchange reporter plus"
-      - http.favicon.hash:"230963457"
-    fofa-query:
-      - title="manageengine - exchange reporter plus"
-      - icon_hash="230963457"
-  tags: panel,zoho,manageengine,zohocorp,login,discovery
-
+      - title:"ManageEngine - Exchange Reporter Plus"
+      - http.favicon.hash:230963457
+    vendor: zohocorp
+    verified: true
+  tags: discovery,login,manageengine,panel,zoho,zohocorp
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/exchange/index.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Exchange Reporter Plus"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
+  - extractors:
+      - group: 1
         name: version
+        part: body
         regex:
           - src="js/div-util.js\?v=(\d+)"
-
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - Exchange Reporter Plus
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/exchange/index.html'

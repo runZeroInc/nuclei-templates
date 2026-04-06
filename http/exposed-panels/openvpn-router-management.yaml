@@ -1,5 +1,4 @@
 id: openvpn-router-management
-
 info:
   name: OpenVPN Server Router Management Panel - Detect
   author: ritikchaddha
@@ -11,33 +10,30 @@ info:
     cpe: cpe:2.3:a:openvpn:openvpn:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)router management - server openvpn" || any(each(service["html.titles"]), {# matches "(?i)openvpn-admin"})
-    verified: true
-    max-request: 1
-    vendor: openvpn
-    product: openvpn
-    shodan-query:
-      - http.html:"router management - server openvpn"
-      - http.title:"openvpn-admin"
-      - cpe:"cpe:2.3:a:openvpn:openvpn"
     fofa-query:
       - body="router management - server openvpn"
       - title="openvpn-admin"
     google-query: intitle:"openvpn-admin"
-  tags: panel,openvpn,router,discovery
-
+    max-request: 1
+    product: openvpn
+    shodan-query:
+      - http.html:"Router Management - Server OpenVPN"
+      - http.html:"router management - server openvpn"
+      - http.title:"openvpn-admin"
+      - cpe:"cpe:2.3:a:openvpn:openvpn"
+    vendor: openvpn
+    verified: true
+  tags: discovery,openvpn,panel,router
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - Router Management - Server OpenVPN
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Router Management - Server OpenVPN"
-
-      - type: status
-        status:
-          - 200
-

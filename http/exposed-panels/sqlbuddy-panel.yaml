@@ -1,5 +1,4 @@
 id: sqlbuddy-panel
-
 info:
   name: SQL Buddy Login Panel - Detect
   author: nullfuzz
@@ -14,24 +13,23 @@ info:
     cpe: cpe:2.3:a:sqlbuddy:sql_buddy:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)SQL Buddy"})
-    verified: true
     max-request: 2
+    product: sql_buddy
+    shodan-query: http.title:"SQL Buddy"
     vendor: sqlbuddy
-  tags: panel,sqlbuddy,discovery
-
+    verified: true
+  tags: discovery,panel,sqlbuddy
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/sqlbuddy/"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
+  - host-redirects: true
     matchers:
-      - type: dsl
+      - condition: and
         dsl:
-          - "status_code == 200"
-          - "contains(body, '<title>SQL Buddy')"
-        condition: and
-
+          - status_code == 200
+          - contains(body, '<title>SQL Buddy')
+        type: dsl
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/sqlbuddy/'
+    stop-at-first-match: true

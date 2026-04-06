@@ -1,5 +1,4 @@
 id: rdp-ntlm-info
-
 info:
   name: RDP - NTLM Information Disclosure
   author: matejsmycka
@@ -10,20 +9,16 @@ info:
     - https://nmap.org/nsedoc/scripts/rdp-ntlm-info.html
     - https://svn.nmap.org/nmap/scripts/rdp-ntlm-info.nse
   metadata:
-    verified: true
     max-request: 1
-  tags: code,rdp,ntlm,info,enum,discovery
-
+    verified: true
+  tags: code,discovery,enum,info,ntlm,rdp
 variables:
   PORT: 3389
-
 code:
   - engine:
       - py
       - python3
-
-    source: |
-
+    source: |2
       import socket
       import ssl
       import struct
@@ -104,9 +99,8 @@ code:
 
       parsed = parse_ntlm_challenge(response)
       print(parsed)
-
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 4b0a00483046022100ec99f270e12c09f16ebd91325522989dfa0d42503ae2b3fa47b4decb5f9391d7022100c71480a8bfc8e3cbcd2c188d39111b1abaaad4ae91c1990449cb8c6570590691:922c64590222798bb761d5b6d8e72950

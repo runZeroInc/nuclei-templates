@@ -1,5 +1,4 @@
 id: ansible-tower-exposure
-
 info:
   name: Ansible Tower - Detect
   author: pdteam,idealphase
@@ -14,29 +13,30 @@ info:
     cpe: cpe:2.3:a:redhat:ansible_tower:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)ansible tower"})
-    max-request: 1
-    vendor: redhat
-    product: ansible_tower
-    shodan-query: http.title:"ansible tower"
     fofa-query: title="ansible tower"
-  tags: panel,ansible,redhat,discovery
-
+    google-query:
+      - intitle:"Ansible Tower"
+      - intitle:"ansible tower"
+    max-request: 1
+    product: ansible_tower
+    shodan-query:
+      - title:"Ansible Tower"
+      - http.title:"ansible tower"
+    vendor: redhat
+  tags: ansible,discovery,panel,redhat
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers:
-      - type: word
-        words:
-          - "<title>Ansible Tower</title>"
-          - "ansible-bootstrap"
-        condition: or
-
-    extractors:
-      - type: regex
-        group: 1
+  - extractors:
+      - group: 1
         part: body
         regex:
-          - 'href="\/static\/assets\/favicon\.ico\?v=(.+)" \/>'
-
+          - href="\/static\/assets\/favicon\.ico\?v=(.+)" \/>
+        type: regex
+    matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>Ansible Tower</title>
+          - ansible-bootstrap
+    method: GET
+    path:
+      - '{{BaseURL}}'

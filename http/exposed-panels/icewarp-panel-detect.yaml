@@ -1,5 +1,4 @@
 id: icewarp-panel-detect
-
 info:
   name: IceWarp Login Panel - Detect
   author: ritikchaddha
@@ -11,35 +10,32 @@ info:
     cpe: cpe:2.3:a:icewarp:icewarp_server:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)icewarp"})
-    verified: true
-    max-request: 1
-    vendor: icewarp
-    product: icewarp_server
-    shodan-query: http.title:"icewarp"
     fofa-query: title="icewarp"
     google-query: intitle:"icewarp"
-  tags: icewarp,panel,discovery
-
+    max-request: 1
+    product: icewarp_server
+    shodan-query:
+      - title:"icewarp"
+      - http.title:"icewarp"
+    vendor: icewarp
+    verified: true
+  tags: discovery,icewarp,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/webmail/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: header
-        words:
-          - 'IceWarp'
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: header
-        group: 1
         regex:
           - 'Server: (.{4,20})'
-
+        type: regex
+    matchers:
+      - part: header
+        type: word
+        words:
+          - IceWarp
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/webmail/'

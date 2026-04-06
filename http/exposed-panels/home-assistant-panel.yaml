@@ -1,5 +1,4 @@
 id: home-assistant-panel
-
 info:
   name: Home Assistant Panel
   author: fabaff,daffainfo,lum8rjack
@@ -12,24 +11,22 @@ info:
     cpe: cpe:2.3:a:home-assistant:home-assistant:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Home Assistant"})
-    verified: true
     max-request: 1
+    product: home-assistant
+    shodan-query: http.title:"Home Assistant"
     vendor: home-assistant
-  tags: panel,iot,homeassistant,discovery
-
+    verified: true
+  tags: discovery,homeassistant,iot,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>Home Assistant</title>'
-
-      - type: status
-        status:
+          - <title>Home Assistant</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

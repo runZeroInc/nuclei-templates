@@ -1,5 +1,4 @@
 id: ocomon-panel
-
 info:
   name: OcoMon Login Panel - Detect
   author: dogasantos
@@ -13,37 +12,33 @@ info:
     cpe: cpe:2.3:a:ocomon_project:ocomon:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)ocomon"
-    verified: true
-    max-request: 1
-    vendor: ocomon_project
-    product: ocomon
-    shodan-query: http.html:"ocomon"
     fofa-query: body="ocomon"
-  tags: panel,ocomon,oss,ocomon_project,discovery
-
+    max-request: 1
+    product: ocomon
+    shodan-query:
+      - http.html:"OcoMon"
+      - http.html:"ocomon"
+    vendor: ocomon_project
+    verified: true
+  tags: discovery,ocomon,ocomon_project,oss,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - '(?i)(OcoMon)'
-
-      - type: word
-        part: body
-        words:
-          - 'open_form/ticket_form_open.php'
-
-    extractors:
-      - type: regex
-        group: 1
+  - extractors:
+      - group: 1
         regex:
           - 'Versão: ([0-9.]+)'
-          - 'Versão:&nbsp;([0-9.]+)'
-
+          - Versão:&nbsp;([0-9.]+)
+        type: regex
+    host-redirects: true
+    matchers:
+      - regex:
+          - (?i)(OcoMon)
+        type: regex
+      - part: body
+        type: word
+        words:
+          - open_form/ticket_form_open.php
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

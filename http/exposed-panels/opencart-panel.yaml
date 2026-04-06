@@ -1,5 +1,4 @@
 id: opencart-panel
-
 info:
   name: OpenCart Login Panel - Detect
   author: ricardomaia
@@ -14,29 +13,27 @@ info:
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)opencart"
-    verified: true
+    fofa-query: body="opencart"
     max-request: 2
-    vendor: opencart
     product: opencart
     shodan-query:
+      - html:"OpenCart"
       - http.html:"opencart"
       - cpe:"cpe:2.3:a:opencart:opencart"
-    fofa-query: body="opencart"
-  tags: panel,opencart,discovery
-
+    vendor: opencart
+    verified: true
+  tags: discovery,opencart,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/admin"
-      - "{{BaseURL}}/index.php?route=account/login"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
+  - host-redirects: true
     matchers:
-      - type: regex
+      - condition: or
         regex:
-          - '(?i)footer\s.*OpenCart.*All.Rights.Reserved|img\s.*logo.*\salt=.*OpenCart'
-          - "(?i)Powered.By.*http.*OpenCart"
-        condition: or
-
+          - (?i)footer\s.*OpenCart.*All.Rights.Reserved|img\s.*logo.*\salt=.*OpenCart
+          - (?i)Powered.By.*http.*OpenCart
+        type: regex
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/admin'
+      - '{{BaseURL}}/index.php?route=account/login'
+    stop-at-first-match: true

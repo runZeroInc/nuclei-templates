@@ -1,10 +1,9 @@
 id: dataiku-default-login
-
 info:
-  name: Dataiku Default Credentials
+  name: Dataiku - Default Login
   author: random-robbie
   severity: high
-  description: Dataiku default login credentials were discovered.
+  description: Dataiku contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations. This vulnerability may also lead to server-side request forgery and/or remote code execution.
   reference:
     - https://www.dataiku.com
   classification:
@@ -14,28 +13,26 @@ info:
     cpe: cpe:2.3:a:dataiku:data_science_studio:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
-    verified: true
     max-request: 1
+    product: data_science_studio
+    shodan-query: title:"dataiku"
     vendor: dataiku
-  tags: default-login,dataiku,vuln
-
+    verified: true
+  tags: dataiku,default-login,vuln
 http:
-  - raw:
+  - matchers:
+      - part: header
+        type: word
+        words:
+          - dss_access_token
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /dip/api/login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded;charset=utf-8
 
         login=admin&password=admin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - dss_access_token
-
-      - type: status
-        status:
-          - 200
-

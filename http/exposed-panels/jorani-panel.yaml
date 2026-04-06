@@ -1,5 +1,4 @@
 id: jorani-panel
-
 info:
   name: Jorani Login Panel - Detect
   author: DhiyaneshDK
@@ -11,38 +10,34 @@ info:
     cpe: cpe:2.3:a:jorani:jorani:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)Login - Jorani"
-    verified: true
     max-request: 2
+    product: jorani
+    shodan-query: html:"Login - Jorani"
     vendor: jorani
-  tags: panel,jorani,login,discovery
-
+    verified: true
+  tags: discovery,jorani,login,panel
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - '&nbsp;v([0-9.]+)'
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - Login - Jorani
+          - name="csrf_test_jorani
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/index.php/session/login'
-
     stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Login - Jorani"
-          - "name=\"csrf_test_jorani"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '&nbsp;v([0-9.]+)'
-

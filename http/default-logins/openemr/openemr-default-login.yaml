@@ -1,11 +1,9 @@
 id: openemr-default-login
-
 info:
   name: OpenEMR - Default Admin Discovery
   author: Geekby
   severity: high
-  description: |
-    OpenEMR default admin credentials were discovered.
+  description: OpenEMR default admin credentials were discovered.
   reference:
     - https://github.com/openemr/openemr-devops/tree/master/docker/openemr/6.1.0/#openemr-official-docker-image
   classification:
@@ -15,36 +13,34 @@ info:
     cpe: cpe:2.3:a:open-emr:openemr:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "OpenEMR"
+    fofa-query: app="OpenEMR"
     max-request: 1
+    product: openemr
+    shodan-query: http.html:"OpenEMR"
     vendor: open-emr
-  tags: openemr,default-login,vuln
-
+  tags: default-login,openemr,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - main.php?token_main=
+          - OpenEMR
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - pass
+      user:
+        - admin
+    raw:
       - |
         POST /interface/main/main_screen.php?auth=login&site=default HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         new_login_session_management=1&languageChoice=1&authUser={{user}}&clearPass={{pass}}&languageChoice=10
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - pass
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "main.php?token_main="
-          - "OpenEMR"
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

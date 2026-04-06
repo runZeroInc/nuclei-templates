@@ -1,5 +1,4 @@
 id: project-insight-login
-
 info:
   name: Project Insight Login Panel - Detect
   author: dhiyaneshDk
@@ -13,27 +12,25 @@ info:
     cpe: cpe:2.3:a:helpproject:help:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)project insight - login"})
-    max-request: 1
-    vendor: helpproject
-    product: help
-    shodan-query: http.title:"project insight - login"
     fofa-query: title="project insight - login"
     google-query: intitle:"project insight - login"
-  tags: panel,edb,helpproject,discovery
-
+    max-request: 1
+    product: help
+    shodan-query:
+      - http.title:"Project Insight - Login"
+      - http.title:"project insight - login"
+    vendor: helpproject
+  tags: discovery,edb,helpproject,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/auth/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Project Insight - Login</title>"
-
-      - type: status
-        status:
+          - <title>Project Insight - Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/auth/login'

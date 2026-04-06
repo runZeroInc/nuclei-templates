@@ -1,5 +1,4 @@
 id: minio-console
-
 info:
   name: MinIO Console Login Panel - Detect
   author: pussycat0x
@@ -11,22 +10,21 @@ info:
     cpe: cpe:2.3:a:minio:console:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)MinIO Console"})
+    fofa-query: app="MinIO-Console"
     max-request: 1
+    product: console
+    shodan-query: title:"MinIO Console"
     vendor: minio
-  tags: panel,minio,discovery
-
+  tags: discovery,minio,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - "contains(tolower(body), '<title>minio console</title>')"
-
-      - type: status
-        status:
+  - matchers:
+      - dsl:
+          - contains(tolower(body), '<title>minio console</title>')
+        type: dsl
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

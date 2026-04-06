@@ -1,5 +1,4 @@
 id: privesc-vi
-
 info:
   name: Vi - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/vi/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,vi,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,privesc,vi
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       vi -c '!whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo vi -c '!whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 490a00463044022018ec3eaa4080dded9c71a4102c5c1f1222f405aa225caeb2c1253fc1baade7f502204c2d5b733f282bb9443430f8fa005cb797e08c5fcc60f9e784411f3bead79e31:922c64590222798bb761d5b6d8e72950
+self-contained: true

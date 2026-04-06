@@ -1,5 +1,4 @@
 id: buildbot-panel
-
 info:
   name: Buildbot Panel - Detect
   author: thardt-praetorian,daffainfo
@@ -13,39 +12,35 @@ info:
     cpe: cpe:2.3:a:buildbot:buildbot:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)buildbot"})
-    verified: true
-    max-request: 1
-    vendor: buildbot
-    product: buildbot
-    shodan-query: http.title:"buildbot"
     fofa-query: title="buildbot"
     google-query: intitle:"buildbot"
-  tags: panel,buildbot,cicd,discovery
-
+    max-request: 1
+    product: buildbot
+    shodan-query:
+      - http.title:"BuildBot"
+      - http.title:"buildbot"
+    vendor: buildbot
+    verified: true
+  tags: buildbot,cicd,discovery,panel
 http:
-  - method: GET
+  - extractors:
+      - part: body
+        regex:
+          - \[\"Buildbot\", \"([0-9.]+)\"\]
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        part: body
+        regex:
+          - <title(.*)>Buildbot</title>
+          - buildbot_config
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: body
-        regex:
-          - '<title(.*)>Buildbot</title>'
-          - 'buildbot_config'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        regex:
-          - '\[\"Buildbot\", \"([0-9.]+)\"\]'
-

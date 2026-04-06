@@ -1,5 +1,4 @@
 id: concrete5-install
-
 info:
   name: Concrete5 Install Panel
   author: osamahamad,princechaddha
@@ -11,45 +10,40 @@ info:
     cpe: cpe:2.3:a:concrete5:concrete5:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)install concrete5"}) || any(each(service["html.titles"]), {# matches "(?i)concrete5"})
-    verified: true
-    max-request: 2
-    vendor: concrete5
-    product: concrete5
-    shodan-query:
-      - http.title:"install concrete5"
-      - cpe:"cpe:2.3:a:concrete5:concrete5"
-      - http.title:"concrete5"
     fofa-query:
       - title="install concrete5"
       - title="concrete5"
     google-query:
       - intitle:"concrete5"
       - intitle:"install concrete5"
-  tags: panel,install,concrete,cms,concrete5,discovery
-
+    max-request: 2
+    product: concrete5
+    shodan-query:
+      - http.title:"Install concrete5"
+      - cpe:"cpe:2.3:a:concrete5:concrete5"
+      - http.title:"install concrete5"
+      - http.title:"concrete5"
+    vendor: concrete5
+    verified: true
+  tags: cms,concrete,concrete5,discovery,install,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.php/install"
-      - "{{BaseURL}}/concrete5/index.php/install"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - '<title>Install concrete5</title>'
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - 'Version ([0-9.]+)'
-
+          - Version ([0-9.]+)
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Install concrete5</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.php/install'
+      - '{{BaseURL}}/concrete5/index.php/install'
+    stop-at-first-match: true

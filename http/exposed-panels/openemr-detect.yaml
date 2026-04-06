@@ -1,5 +1,4 @@
 id: openemr-detect
-
 info:
   name: OpenEMR Product Registration Panel - Detect
   author: pussycat0x
@@ -11,35 +10,32 @@ info:
     cpe: cpe:2.3:a:open-emr:openemr:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)openemr" || any(each(service["html.titles"]), {# matches "(?i)openemr"}) || service["favicon.ico.image.mmh3"] == "1971268439"
-    max-request: 1
-    vendor: open-emr
-    product: openemr
-    shodan-query:
-      - http.html:"openemr"
-      - http.title:"openemr"
-      - http.favicon.hash:"1971268439"
-      - http.title:"openemr setup tool"
     fofa-query:
-      - app="openemr"
+      - app="OpenEMR"
       - body="openemr"
       - title="openemr"
+      - app="openemr"
       - icon_hash=1971268439
     google-query: intitle:"openemr"
-  tags: panel,openemr,open-emr,discovery
-
+    max-request: 1
+    product: openemr
+    shodan-query:
+      - http.html:"OpenEMR"
+      - http.html:"openemr"
+      - http.title:"openemr"
+      - http.favicon.hash:1971268439
+    vendor: open-emr
+  tags: discovery,open-emr,openemr,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/interface/login/login.php?site=default"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
           - '"title":"OpenEMR Product Registration"'
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/interface/login/login.php?site=default'

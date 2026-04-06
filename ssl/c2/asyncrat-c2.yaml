@@ -1,5 +1,4 @@
 id: asyncrat-c2
-
 info:
   name: AsyncRAT C2 - Detect
   author: johnk3r
@@ -9,11 +8,11 @@ info:
   reference:
     - https://malpedia.caad.fkie.fraunhofer.de/details/win.asyncrat
   metadata:
-    verified: "true"
+    censys-query: services.tls.certificates.leaf_data.issuer.common_name:AsyncRat
     max-request: 1
     shodan-query: ssl:"AsyncRAT Server"
-    censys-query: services.tls.certificates.leaf_data.issuer.common_name:AsyncRat
-  tags: c2,ssl,tls,ir,osint,malware,asyncrat,discovery
+    verified: "true"
+  tags: asyncrat,c2,discovery,ir,malware,osint,ssl,tls
 ssl:
   - address: "{{Host}}:{{Port}}"
     matchers:
@@ -21,9 +20,8 @@ ssl:
         part: issuer_cn
         words:
           - "AsyncRAT Server"
-
     extractors:
       - type: json
         json:
           - " .issuer_cn"
-
+        # digest: 4b0a00483046022100c237bd89deeab4efe3c10bf8bb2adc54af952b07295d1b3a8bcf8357a57bdcd3022100919833f1e63915eeeaec4d2510b557d184568c05b3ace597e6dece6aa8a43023:922c64590222798bb761d5b6d8e72950

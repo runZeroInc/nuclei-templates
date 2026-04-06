@@ -1,5 +1,4 @@
 id: ibm-websphere-panel
-
 info:
   name: IBM WebSphere Portal Login Panel - Detect
   author: pdteam
@@ -11,38 +10,33 @@ info:
     cpe: cpe:2.3:a:ibm:websphere_portal:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)ibm websphere portal"
+    fofa-query: body="ibm websphere portal"
     max-request: 1
-    vendor: ibm
     product: websphere_portal
     shodan-query:
+      - http.html:"IBM WebSphere Portal"
       - http.html:"ibm websphere portal"
       - cpe:"cpe:2.3:a:ibm:websphere_portal"
-    fofa-query: body="ibm websphere portal"
-  tags: ibm,websphere,panel,discovery
-
+    vendor: ibm
+  tags: discovery,ibm,panel,websphere
 http:
-  - method: GET
-    path:
-      - '{{RootURL}}/wps/portal'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: status
-        status:
+      - status:
           - 200
-
-      - type: word
+        type: status
+      - condition: or
+        type: word
         words:
-          - 'IBM WebSphere Portal'
-          - 'IBMPortalWeb'
-        condition: or
-
-      - type: regex
+          - IBM WebSphere Portal
+          - IBMPortalWeb
+      - negative: true
         part: header
         regex:
-          - "Content-Location: .+"
-        negative: true
-
+          - 'Content-Location: .+'
+        type: regex
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{RootURL}}/wps/portal'

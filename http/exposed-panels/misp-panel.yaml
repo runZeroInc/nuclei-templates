@@ -1,5 +1,4 @@
 id: misp-panel
-
 info:
   name: MISP Threat Intelligence Sharing Platform Panel - Detect
   author: johnk3r,darses
@@ -8,37 +7,35 @@ info:
     cpe: cpe:2.3:a:misp:misp:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-137577333" || any(each(service["html.titles"]), {# matches "(?i)users - misp"}) || any(each(service["html.titles"]), {# matches "(?i)errors - misp"})
-    verified: "true"
-    max-request: 1
-    vendor: misp
-    product: misp
-    shodan-query:
-      - http.title:"users - misp"
-      - http.title:"errors - misp"
-      - http.favicon.hash:"-137577333"
     fofa-query:
       - title="users - misp"
       - title="errors - misp"
       - icon_hash="-137577333"
     google-query: intitle:"users - misp"
-  tags: panel,misp,discovery
-
+    max-request: 1
+    product: misp
+    shodan-query:
+      - http.title:"Users - MISP"
+      - http.title:"users - misp"
+      - http.title:"Errors - MISP"
+      - http.title:"errors - misp"
+      - http.favicon.hash:-137577333
+    vendor: misp
+    verified: "true"
+  tags: discovery,misp,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/users/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - "https://github.com/MISP/MISP"
-          - "<title>Users - MISP</title>"
-        condition: or
-
-      - type: status
+          - https://github.com/MISP/MISP
+          - <title>Users - MISP</title>
+      - condition: or
         status:
           - 200
           - 500
-        condition: or
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/users/login'

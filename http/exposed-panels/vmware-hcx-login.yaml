@@ -1,5 +1,4 @@
 id: vmware-hcx-login
-
 info:
   name: VMware HCX Login Panel - Detect
   author: DhiyaneshDk
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:a:vmware:vmware_hcx:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware HCX"})
-    verified: true
     max-request: 1
+    product: vmware_hcx
+    shodan-query: title:"VMware HCX"
     vendor: vmware
-  tags: panel,vmware,discovery
-
+    verified: true
+  tags: discovery,panel,vmware
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>VMware HCX</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/hybridity/ui/hcx-client/index.html'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>VMware HCX</title>'
-
-      - type: status
-        status:
-          - 200
-

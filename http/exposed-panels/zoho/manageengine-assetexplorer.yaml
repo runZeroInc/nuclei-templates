@@ -1,5 +1,4 @@
 id: manageengine-assetexplorer
-
 info:
   name: ZOHO ManageEngine AssetExplorer Panel - Detect
   author: dhiyaneshDK
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_assetexplorer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)manageengine assetexplorer"})
-    max-request: 1
-    vendor: zohocorp
-    product: manageengine_assetexplorer
-    shodan-query: http.title:"manageengine assetexplorer"
     fofa-query: title="manageengine assetexplorer"
     google-query: intitle:"manageengine assetexplorer"
-  tags: panel,zoho,manageengine,zohocorp,discovery
-
+    max-request: 1
+    product: manageengine_assetexplorer
+    shodan-query:
+      - http.title:"ManageEngine AssetExplorer"
+      - http.title:"manageengine assetexplorer"
+    vendor: zohocorp
+  tags: discovery,manageengine,panel,zoho,zohocorp
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>ManageEngine AssetExplorer</title>'
-
-      - type: status
-        status:
+          - <title>ManageEngine AssetExplorer</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

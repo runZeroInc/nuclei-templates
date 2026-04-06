@@ -1,5 +1,4 @@
 id: firewall-disabled
-
 info:
   name: macOS Application Firewall Disabled
   author: geeknik
@@ -10,10 +9,7 @@ info:
     Disabling the firewall can allow malicious applications to make outbound connections and expose the system to network-based attacks.
   remediation: |
     Enable the macOS application firewall to control network access for applications.
-  tags: macos,audit,local,security
-
-self-contained: true
-
+  tags: audit,local,macos,security
 code:
   - engine:
       - sh
@@ -24,4 +20,5 @@ code:
       - type: word
         words:
           - "Firewall is disabled. (State = 0)"
-
+        # digest: 4b0a00483046022100fec597c208922cff8c5bf96d23a75c06d1192ecc31c5f257bd72cda4b05c3678022100b2899ee2431e105ca31f924e76bc446fa025a9c64b0f62c5268e06af0859be81:922c64590222798bb761d5b6d8e72950
+self-contained: true

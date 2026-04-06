@@ -1,5 +1,4 @@
 id: accueil-wampserver
-
 info:
   name: Accueil WAMPSERVER Configuration Page - Detect
   author: tess
@@ -14,26 +13,24 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:wampserver:wampserver:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: wampserver
+    shodan-query: http.title:"Accueil WAMPSERVER"
     vendor: wampserver
-  tags: exposure,accueil,wampserver,config,vuln
-
+    verified: true
+  tags: accueil,config,exposure,vuln,wampserver
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Accueil WAMPSERVER
+          - Configuration Serveur
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Accueil WAMPSERVER"
-          - "Configuration Serveur"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: codeception-config
-
 info:
   name: Codeception YAML Configuration File - Detect
   author: DhiyaneshDk
@@ -8,26 +7,24 @@ info:
   classification:
     cpe: cpe:2.3:a:codeception:codeception:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: codeception
+    shodan-query: html:"codeception.yml"
     vendor: codeception
-  tags: exposure,devops,codeception,config,cicd,vuln
-
+    verified: true
+  tags: cicd,codeception,config,devops,exposure,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/codeception.yml"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "paths:"
-          - "settings:"
-        condition: and
-
-      - type: status
-        status:
+          - 'paths:'
+          - 'settings:'
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/codeception.yml'

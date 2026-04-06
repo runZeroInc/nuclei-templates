@@ -1,42 +1,35 @@
 id: wildfly-default-login
-
 info:
-  name: Wildfly - Default Login
+  name: Wildfly - Default Admin Login
   author: s0obi
   severity: high
   description: |
-    Wildfly default login credentials were discovered.
+    Wildfly default admin login credentials were successful.
   reference:
     - https://docs.wildfly.org/26.1/#administrator-guides
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Welcome to WildFly"})
     max-request: 1
-  tags: wildfly,default-login,vuln
-
+  tags: default-login,vuln,wildfly
 http:
-  - raw:
+  - digest-password: admin
+    digest-username: admin
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - management-major-version
+          - product-version
+      - part: header
+        type: word
+        words:
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         GET /management HTTP/1.1
         Host: {{Hostname}}
-
-    digest-username: admin
-    digest-password: admin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "management-major-version"
-          - "product-version"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-
-      - type: status
-        status:
-          - 200
-

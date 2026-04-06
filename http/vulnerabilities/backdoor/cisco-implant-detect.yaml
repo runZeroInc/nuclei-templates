@@ -1,5 +1,4 @@
 id: cisco-implant-detect
-
 info:
   name: Cisco IOS XE - Impant Detection
   author: DhiyaneshDK,rxerium
@@ -9,19 +8,34 @@ info:
   remediation: |
     Disable the HTTP server feature on internet-facing systems by running one of the following commands in global configuration mode: 'no ip http server' or 'no ip http secure-server'.
   reference:
-    - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-iosxe-webui-privesc-j22SaA4z
-    - https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-ios-xe-zero-day-actively-exploited-in-attacks/
-    - https://socradar.io/cisco-warns-of-exploitation-of-a-maximum-severity-zero-day-vulnerability-in-ios-xe-cve-2023-20198
     - https://github.com/vulncheck-oss/cisco-ios-xe-implant-scanner/blob/main/implant-scanner.go
+    - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-iosxe-webui-privesc-j22SaA4z
+    - https://socradar.io/cisco-warns-of-exploitation-of-a-maximum-severity-zero-day-vulnerability-in-ios-xe-cve-2023-20198
+    - https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-ios-xe-zero-day-actively-exploited-in-attacks/
   metadata:
     runzero-match: service["http.body.mmh3"] == "1076109428"
-    verified: true
     max-request: 2
+    product: ios_xe
+    shodan-query: http.html_hash:1076109428
     vendor: cisco
+    verified: true
   tags: backdoor,cisco,ios,kev,vuln
-
 http:
-  - raw:
+  - matchers:
+      - part: body_1
+        regex:
+          - webui-centerpanel-title
+        type: regex
+      - part: body_2
+        regex:
+          - ^([a-f0-9]{18})\s*$
+        type: regex
+      - dsl:
+          - status_code_2 == 200
+        type: dsl
+    matchers-condition: and
+    max-redirects: 3
+    raw:
       - |
         GET /webui HTTP/1.1
         Host: {{Hostname}}
@@ -29,23 +43,4 @@ http:
         POST /webui/logoutconfirm.html?logon_hash=1 HTTP/1.1
         Host: {{Hostname}}
         Authorization: 0ff4fbf0ecffa77ce8d3852a29263e263838e9bb
-
     redirects: true
-    max-redirects: 3
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: body_1
-        regex:
-          - 'webui-centerpanel-title'
-
-      - type: regex
-        part: body_2
-        regex:
-          - '^([a-f0-9]{18})\s*$'
-
-      - type: dsl
-        dsl:
-          - status_code_2 == 200
-

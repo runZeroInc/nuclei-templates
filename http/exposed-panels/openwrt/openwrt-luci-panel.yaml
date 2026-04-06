@@ -1,5 +1,4 @@
 id: openwrt-luci-panel
-
 info:
   name: Opentwrt luCI - Admin Login Page
   author: For3stCo1d
@@ -11,24 +10,23 @@ info:
     cpe: cpe:2.3:a:x-wrt:luci:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
-    max-request: 1
-    vendor: x-wrt
-    product: luci
-    shodan-query: http.title:"openwrt - luci"
     fofa-query: title="openwrt - luci"
     google-query: intitle:"openwrt - luci"
-  tags: panel,default-login,openwrt,x-wrt,discovery
-
+    max-request: 1
+    product: luci
+    shodan-query:
+      - http.title:"OpenWrt - LuCI"
+      - http.title:"openwrt - luci"
+    vendor: x-wrt
+  tags: default-login,discovery,openwrt,panel,x-wrt
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cgi-bin/luci"
-
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
-          - 'OpenWrt'
-          - 'LuCI'
-          - 'login'
-        condition: and
-
+          - OpenWrt
+          - LuCI
+          - login
+    method: GET
+    path:
+      - '{{BaseURL}}/cgi-bin/luci'

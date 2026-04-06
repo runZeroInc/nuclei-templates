@@ -7,12 +7,11 @@ info:
     Detects DNS Rebinding attacks by checking if the DNS response contains a private IPv4 or IPv6 address.
   reference:
     - https://capec.mitre.org/data/definitions/275.html
-    - https://payatu.com/blog/dns-rebinding/
     - https://heimdalsecurity.com/blog/dns-rebinding/
+    - https://payatu.com/blog/dns-rebinding/
   metadata:
     max-request: 2
-  tags: redirect,dns,network,discovery
-
+  tags: discovery,dns,network,redirect
 dns:
   - name: "{{FQDN}}"
     type: A
@@ -22,7 +21,6 @@ dns:
         part: answer
         regex:
           - 'IN\s+A\s+(127\.0\.0\.1|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3})$'
-
     extractors:
       - type: regex
         part: answer
@@ -30,7 +28,6 @@ dns:
         group: 1
         regex:
           - 'IN\s+A\s+(127\.0\.0\.1|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3})'
-
   - name: "{{FQDN}}"
     type: AAAA
     matchers:
@@ -39,7 +36,6 @@ dns:
         part: answer
         regex:
           - "IN\\s+AAAA\\s+(fd[0-9a-fA-F]{2}(:[0-9a-fA-F]{0,4}){0,7})"
-
     extractors:
       - type: regex
         part: answer
@@ -47,4 +43,4 @@ dns:
         group: 1
         regex:
           - "IN\\s+AAAA\\s+(fd[0-9a-fA-F]{2}(:[0-9a-fA-F]{0,4}){0,7})"
-
+        # digest: 4a0a00473045022100ac451bbde4048889b3f7dc0bec3cbb9c9abb869124583b1cd69761fe53addaf00220510640413804275277c5a3671c53aed13cc418afc28837ae3994e644aa6fa904:922c64590222798bb761d5b6d8e72950

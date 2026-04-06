@@ -1,5 +1,4 @@
 id: privesc-perl
-
 info:
   name: Perl - Privilege Escalation
   author: daffainfo
@@ -9,36 +8,30 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/perl/
   metadata:
-    verified: true
     max-request: 4
-  tags: code,linux,perl,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,linux,local,perl,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       perl -e 'exec "whoami";'
-
   - engine:
       - sh
       - bash
     source: |
       sudo perl -e 'exec "whoami";'
-
   - engine:
       - sh
       - bash
     source: |
       perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "whoami";'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -46,11 +39,11 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
           - 'contains(code_4_response, "root")'
         condition: or
-
+        # digest: 4a0a00473045022024a9a58b297aaab3fe3fa859fc3460822975c172e8ef3c94ed73254ccf5cc2c202210081d1198ace6df419451923f3307228fac89dafb9c29d251234597a53ed4d4202:922c64590222798bb761d5b6d8e72950
+self-contained: true

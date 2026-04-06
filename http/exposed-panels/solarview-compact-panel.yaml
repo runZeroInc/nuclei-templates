@@ -1,5 +1,4 @@
 id: solarview-compact-panel
-
 info:
   name: SolarView Compact Panel - Detect
   author: princechaddha
@@ -11,33 +10,30 @@ info:
     cpe: cpe:2.3:o:contec:solarview_compact_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)solarview compact" || service["favicon.ico.image.mmh3"] == "-244067125"
-    verified: true
-    max-request: 1
-    vendor: contec
-    product: solarview_compact_firmware
-    shodan-query:
-      - http.html:"solarview compact"
-      - http.favicon.hash:"-244067125"
-      - cpe:"cpe:2.3:o:contec:solarview_compact_firmware"
     fofa-query:
       - body="solarview compact" && title="top"
       - icon_hash="-244067125"
       - body="solarview compact"
-  tags: panel,solarview,iot,contec,discovery
-
+    max-request: 1
+    product: solarview_compact_firmware
+    shodan-query:
+      - http.html:"SolarView Compact"
+      - http.favicon.hash:"-244067125"
+      - http.html:"solarview compact"
+      - cpe:"cpe:2.3:o:contec:solarview_compact_firmware"
+    vendor: contec
+    verified: true
+  tags: contec,discovery,iot,panel,solarview
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Solar_Menu.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "SolarViewCompact"
-
-      - type: status
-        status:
+          - SolarViewCompact
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/Solar_Menu.php'

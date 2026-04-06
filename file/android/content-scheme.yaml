@@ -1,5 +1,4 @@
 id: content-scheme
-
 info:
   name: Android Content Scheme - Detect
   author: gaurang
@@ -10,7 +9,6 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   tags: android,file
-
 file:
   - extensions:
       - xml
@@ -18,4 +16,4 @@ file:
       - type: word
         words:
           - "android:scheme=\"content\""
-
+        # digest: 490a004630440220024969d745e24011a0317f218f188bb52dd98791fee366406c8b32120306c44502201a5594ea0237b46b7d8008814bdb9f8a62d234feb7b734edaec05bc7cad3ec7f:922c64590222798bb761d5b6d8e72950

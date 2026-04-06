@@ -11,44 +11,38 @@ info:
     Configure Transparent Data Encryption to use Customer-Managed Keys by setting the TDE protector to use a key from your Azure key vault for your SQL managed instances.
   reference:
     - https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview
-  tags: cloud,devops,azure,microsoft,sql-managed-instance,azure-cloud-config
-
-flow: |
-  code(1);
-  for (let SQLMI of iterate(template.sqlManagedInstanceList)) {
-    set("ids", SQLMI);
-    code(2);
-  }
-
-self-contained: true
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,sql-managed-instance
 code:
   - engine:
       - sh
       - bash
     source: |
       az sql mi list --query '[*].{"id":id}'
-
     extractors:
       - type: json
         name: sqlManagedInstanceList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az sql mi tde-key show --ids "$ids" --query 'serverKeyType'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"ServiceManaged"'
-
     extractors:
       - type: dsl
         dsl:
           - 'ids + " is using a service-managed key for TDE, not a CMK"'
-
+        # digest: 490a00463044022038d91d0a95fa1355a1c032c403dae82aad4c38de8f7949e96be2840be0b479f202206988d3179e518607544a93433cd0606580437539ca57593318edb506b505cc0c:922c64590222798bb761d5b6d8e72950
+flow: |
+  code(1);
+  for (let SQLMI of iterate(template.sqlManagedInstanceList)) {
+    set("ids", SQLMI);
+    code(2);
+  }
+self-contained: true

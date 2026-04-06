@@ -1,5 +1,4 @@
 id: mikrotik-routeros-old
-
 info:
   name: MikroTik RouterOS Admin Login Panel - Detect
   author: its0x08,DhiyaneshDk
@@ -11,31 +10,29 @@ info:
     cpe: cpe:2.3:o:mikrotik:routeros:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)mikrotik routeros > administration"})
-    verified: true
-    max-request: 1
-    vendor: mikrotik
-    product: routeros
-    shodan-query: http.title:"mikrotik routeros > administration"
     fofa-query: title="mikrotik routeros > administration"
     google-query: intitle:"mikrotik routeros > administration"
-  tags: panel,login,mikrotik,discovery
-
+    max-request: 1
+    product: routeros
+    shodan-query:
+      - title:"mikrotik routeros > administration"
+      - http.title:"mikrotik routeros > administration"
+    vendor: mikrotik
+    verified: true
+  tags: discovery,login,mikrotik,panel
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        regex:
+          - <div class="top">mikrotik routeros (.[0-9.]+) configuration page</div>
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - mikrotik routeros > administration
+          - configuration page
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'mikrotik routeros > administration'
-          - 'configuration page'
-        condition: and
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - '<div class="top">mikrotik routeros (.[0-9.]+) configuration page</div>'
-

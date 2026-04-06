@@ -1,5 +1,4 @@
 id: bedita-panel
-
 info:
   name: BEdita Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -13,34 +12,31 @@ info:
     cpe: cpe:2.3:a:bedita:bedita:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)bedita"})
-    max-request: 1
-    vendor: bedita
-    product: bedita
-    shodan-query: http.title:"bedita"
     fofa-query: title="bedita"
     google-query: intitle:"bedita"
-  tags: panel,bedita,discovery
-
+    max-request: 1
+    product: bedita
+    shodan-query:
+      - http.title:"BEdita"
+      - http.title:"bedita"
+    vendor: bedita
+  tags: bedita,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - target="besite">(.*)</a><br>
+        type: regex
     matchers:
-      - type: regex
-        part: body
+      - part: body
         regex:
-          - 'BEdita(.*)</a><br>'
-
-      - type: status
-        status:
+          - BEdita(.*)</a><br>
+        type: regex
+      - status:
           - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - 'target="besite">(.*)</a><br>'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

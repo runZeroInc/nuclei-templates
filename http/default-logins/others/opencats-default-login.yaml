@@ -1,11 +1,9 @@
 id: opencats-default-login
-
 info:
   name: OpenCATS - Default Login
   author: arafatansari
   severity: high
-  description: |
-    OpenCATS default login credentials were discovered.
+  description: OpenCATS contains a default admin login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -13,45 +11,42 @@ info:
     cpe: cpe:2.3:a:opencats:opencats:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)opencats"})
-    verified: true
     max-request: 4
+    product: opencats
+    shodan-query: title:"opencats"
     vendor: opencats
+    verified: true
   tags: default-login,opencats,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - <title>OpenCATS - Home</title>
+          - CATS Administrator
+          - Dashboard
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      password:
+        - admin
+        - cats
+        - password
+        - john99
+      username:
+        - admin
+        - cats@rootadmin
+        - john@mycompany.net
+        - username
+    raw:
       - |
         POST /index.php?m=login&a=attemptLogin HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         username={{username}}&password={{password}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-        - cats@rootadmin
-        - john@mycompany.net
-        - username
-      password:
-        - admin
-        - cats
-        - password
-        - john99
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>OpenCATS - Home</title>'
-          - 'CATS Administrator'
-          - 'Dashboard'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

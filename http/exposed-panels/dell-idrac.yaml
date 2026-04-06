@@ -1,5 +1,4 @@
 id: dell-idrac
-
 info:
   name: Dell IDRAC Panel - Detect
   author: kazet
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:dell:emc_idrac_service_module:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)thisIDRACText"
-    verified: true
     max-request: 2
+    product: emc_idrac_service_module
+    shodan-query: html:"thisIDRACText"
     vendor: dell
-  tags: panel,idrac,dell,detect,discovery
-
+    verified: true
+  tags: dell,detect,discovery,idrac,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <idrac-start-screen
+          - thisIDRACText
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/restgui/start.html'
       - '{{BaseURL}}/login.html'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<idrac-start-screen'
-          - 'thisIDRACText'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

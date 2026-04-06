@@ -1,5 +1,4 @@
 id: file-enable-ssh-privilege-separation
-
 info:
   name: Enable Privilege Separation in SSH
   author: pussycat0x
@@ -14,19 +13,16 @@ info:
   metadata:
     verified: true
   tags: audit,config,file,ssh
-
 file:
   - extensions:
       - all
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "# This is the sshd server system-wide configuration file"
-
       - type: word
         words:
           - "UsePrivilegeSeparation yes"
         negative: true
-
+        # digest: 4a0a0047304502204138a392da7e1ca0ae7950b517d190c3578c7fdf8c122ba6e13854cc5bb07100022100904df0df0b65201e4173587731e1bd58ab68465ad4bac022d488c7e945cce4ab:922c64590222798bb761d5b6d8e72950

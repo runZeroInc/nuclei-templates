@@ -1,5 +1,4 @@
 id: ocs-inventory-login
-
 info:
   name: OCS Inventory Login Panel - Detect
   author: pikpikcu,ritikchaddha
@@ -11,29 +10,27 @@ info:
     cpe: cpe:2.3:a:factorfx:ocs_inventory:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)OCS Inventory"})
-    verified: true
+    fofa-query: title="OCS Inventory"
     max-request: 2
+    product: ocs_inventory
+    shodan-query: title:"OCS Inventory"
     vendor: factorfx
-  tags: ocs-inventory,panel,discovery
-
+    verified: true
+  tags: discovery,ocs-inventory,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/ocsreports"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - '<title>OCS Inventory'
-
-      - type: status
-        status:
+          - <title>OCS Inventory
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/ocsreports'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: rancher-dashboard
-
 info:
   name: Rancher Dashboard Panel - Detect
   author: ritikchaddha,righettod
@@ -13,37 +12,32 @@ info:
     cpe: cpe:2.3:a:rancher:rancher:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1324930554" || service["favicon.ico.image.mmh3"] == "464587962"
-    verified: "true"
+    fofa-query: icon_hash=464587962
     max-request: 2
-    vendor: rancher
     product: rancher
     shodan-query:
-      - http.favicon.hash:"-1324930554"
-      - http.favicon.hash:"464587962"
-    fofa-query: icon_hash=464587962
-  tags: panel,rancher,dashboard,login,discovery
-
+      - http.favicon.hash:-1324930554
+      - http.favicon.hash:464587962
+    vendor: rancher
+    verified: "true"
+  tags: dashboard,discovery,login,panel,rancher
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/dashboard/auth/login"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'content="Rancher Dashboard'
+          - content="Rancher Dashboard
           - 'rancherEnv:'
-          - '<title>Rancher'
-        condition: or
-
-      - type: status
-        status:
+          - <title>Rancher
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/dashboard/auth/login'
+    stop-at-first-match: true

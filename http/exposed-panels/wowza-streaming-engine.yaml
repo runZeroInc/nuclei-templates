@@ -1,5 +1,4 @@
 id: wowza-streaming-engine
-
 info:
   name: Wowza Streaming Engine Manager Panel - Detect
   author: dhiyaneshDK
@@ -9,28 +8,25 @@ info:
     cpe: cpe:2.3:a:wowza:streaming_engine:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)manager"})
-    max-request: 1
-    vendor: wowza
-    product: streaming_engine
-    shodan-query:
-      - http.title:"manager" product:"wowza streaming engine"
-      - cpe:"cpe:2.3:a:wowza:streaming_engine"
     fofa-query: title="manager" product:"wowza streaming engine"
     google-query: intitle:"manager" product:"wowza streaming engine"
-  tags: panel,wowza,discovery
-
+    max-request: 1
+    product: streaming_engine
+    shodan-query:
+      - http.title:"Manager" product:"Wowza Streaming Engine"
+      - http.title:"manager" product:"wowza streaming engine"
+      - cpe:"cpe:2.3:a:wowza:streaming_engine"
+    vendor: wowza
+  tags: discovery,panel,wowza
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/enginemanager/ftu/welcome.htm'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Wowza Streaming Engine Manager</title>'
-
-      - type: status
-        status:
+          - <title>Wowza Streaming Engine Manager</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/enginemanager/ftu/welcome.htm'

@@ -1,5 +1,4 @@
 id: office-webapps-panel
-
 info:
   name: Office Web Apps Server Panel - Detect
   author: DhiyaneshDK
@@ -13,35 +12,32 @@ info:
     cpe: cpe:2.3:a:microsoft:office_web_apps_server:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)provide a link that opens word"
-    verified: true
-    max-request: 2
-    vendor: microsoft
-    product: office_web_apps_server
-    shodan-query: http.html:"provide a link that opens word"
     fofa-query: body="provide a link that opens word"
-  tags: panel,office-webapps,login,microsoft,discovery
-
+    max-request: 2
+    product: office_web_apps_server
+    shodan-query:
+      - html:"Provide a link that opens Word"
+      - http.html:"provide a link that opens word"
+    vendor: microsoft
+    verified: true
+  tags: discovery,login,microsoft,office-webapps,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/op/generate.aspx"
-      - "{{BaseURL}}/op/wrongfiletype.htm"
-
-    stop-at-first-match: true
-
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Provide a link that opens Word
+          - PowerPoint files in a web browser
+      - condition: and
+        part: body
+        type: word
+        words:
+          - _OFUError
+          - Wrong file type
     matchers-condition: or
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Provide a link that opens Word"
-          - "PowerPoint files in a web browser"
-        condition: and
-
-      - type: word
-        part: body
-        words:
-          - "_OFUError"
-          - "Wrong file type"
-        condition: and
-
+    method: GET
+    path:
+      - '{{BaseURL}}/op/generate.aspx'
+      - '{{BaseURL}}/op/wrongfiletype.htm'
+    stop-at-first-match: true

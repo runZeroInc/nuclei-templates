@@ -1,5 +1,4 @@
 id: puppetdb-dashboard
-
 info:
   name: PuppetDB Dashboard - Detect
   author: DhiyaneshDk
@@ -11,24 +10,22 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:puppet:puppetdb:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: puppetdb
+    shodan-query: 'title:"PuppetDB: Dashboard"'
     vendor: puppet
-  tags: misconfig,exposure,puppetdb,discovery
-
+    verified: true
+  tags: discovery,exposure,misconfig,puppetdb
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/pdb/dashboard/index.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "PuppetDB: Dashboard"
-
-      - type: status
-        status:
+          - 'PuppetDB: Dashboard'
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/pdb/dashboard/index.html'

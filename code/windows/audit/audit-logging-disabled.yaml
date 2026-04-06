@@ -1,5 +1,4 @@
 id: audit-logging-disabled
-
 info:
   name: Audit Logging Disabled
   author: princechaddha
@@ -9,10 +8,7 @@ info:
     Disabling audit logging can lead to a lack of traceability for security incidents and breaches.
   remediation: |
     Enable audit logging for all critical security events to maintain a proper audit trail.
-  tags: windows,audit-logging,security,code,windows-audit
-
-self-contained: true
-
+  tags: audit-logging,code,security,windows,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -26,7 +22,6 @@ code:
     source: |
       AuditPol /get /category:"Account Logon"
       AuditPol /get /category:"Account Management"
-
     matchers:
       - type: word
         words:
@@ -35,4 +30,5 @@ code:
           - "Security Group Management               No Auditing"
           - "Credential Validation                   No Auditing"
           - "Kerberos Authentication Service         No Auditing"
-
+        # digest: 4b0a00483046022100fe71dabfda7137e13789668bc1e7d21da174b4afffc49f8f543d3935bf723ce40221008dfd322fd276de6bde6bf54d432b1932995c35715d0b50f6d3ebf27b9fb8ba5f:922c64590222798bb761d5b6d8e72950
+self-contained: true

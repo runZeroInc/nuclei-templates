@@ -1,5 +1,4 @@
 id: rpc-enabled
-
 info:
   name: Unnecessary RPC Service (rstatd) Enabled
   author: songyaeji
@@ -8,10 +7,7 @@ info:
     Unnecessary RPC services like rstatd were enabled, allowing attackers to exploit buffer overflow, DoS, or remote execution vulnerabilities to gain root privileges and compromise the system.These services were expected to be disabled unless explicitly required.
   reference:
     - https://isms.kisa.or.kr
-  tags: linux,local,audit,compliance,kisas
-
-self-contained: true
-
+  tags: audit,compliance,kisas,linux,local
 code:
   - engine:
       - bash
@@ -27,10 +23,10 @@ code:
       else
         echo "[SAFE] rstatd service not found"
       fi
-
     matchers:
       - type: word
         part: response
         words:
           - "[VULNERABLE]"
-
+        # digest: 4b0a00483046022100f6750e913cde576eb96f1c12fb0f90474840d40783c1e161429833ad56d220b4022100930976aea7d528355a4292f446f0d04e47a668ee56c75baaadea94fb96d2441d:922c64590222798bb761d5b6d8e72950
+self-contained: true

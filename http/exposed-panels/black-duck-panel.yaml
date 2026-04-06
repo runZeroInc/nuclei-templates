@@ -1,5 +1,4 @@
 id: black-duck-panel
-
 info:
   name: Black Duck Login Panel - Detect
   author: idealphase,ritikchaddha
@@ -15,34 +14,30 @@ info:
     cpe: cpe:2.3:a:synopsys:black_duck_hub:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Black Duck"})
-    verified: true
     max-request: 1
+    product: black_duck_hub
+    shodan-query: http.title:"Black Duck"
     vendor: synopsys
-  tags: panel,blackduck,synopsys,discovery
-
+    verified: true
+  tags: blackduck,discovery,panel,synopsys
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: regex
-        part: body
+      - part: body
         regex:
-          - '(?m)<title>Black Duck(.*)<\/title>'
-
-      - type: word
+          - (?m)<title>Black Duck(.*)<\/title>
+        type: regex
+      - condition: or
         part: body
+        type: word
         words:
-          - 'ProtexLoginPage'
-          - 'CCLoginPage'
-        condition: or
-
-      - type: status
-        status:
+          - ProtexLoginPage
+          - CCLoginPage
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

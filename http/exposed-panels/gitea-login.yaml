@@ -1,5 +1,4 @@
 id: gitea-login
-
 info:
   name: Gitea Login Panel - Detect
   author: dhiyaneshDK
@@ -11,33 +10,28 @@ info:
     cpe: cpe:2.3:a:gitea:gitea:*:*:*:*:jenkins:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)powered by gitea version" || any(each(service["html.titles"]), {# matches "(?i)gitea"})
-    max-request: 1
-    vendor: gitea
-    product: gitea
-    shodan-query:
-      - http.html:"powered by gitea version"
-      - http.title:"gitea"
-      - cpe:"cpe:2.3:a:gitea:gitea"
-      - http.html:"powered by gitea"
-      - 'http.title:"installation -  gitea: git with a cup of tea"'
     fofa-query:
       - title="gitea"
       - body="powered by gitea version"
     google-query: intitle:"gitea"
-  tags: gitea,panel,discovery
-
+    max-request: 1
+    product: gitea
+    shodan-query:
+      - html:"Powered by Gitea Version"
+      - http.html:"powered by gitea version"
+      - http.title:"gitea"
+      - cpe:"cpe:2.3:a:gitea:gitea"
+    vendor: gitea
+  tags: discovery,gitea,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/user/login'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - 'Powered by Gitea'
-
-      - type: status
-        status:
+          - Powered by Gitea
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/user/login'

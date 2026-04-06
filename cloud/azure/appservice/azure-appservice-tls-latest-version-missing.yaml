@@ -11,8 +11,34 @@ info:
     Configure the minimum TLS version to "1.2" in the Azure App Service settings to ensure data is encrypted with the latest security standards.
   reference:
     - https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-bindings#enforce-https
-  tags: cloud,devops,azure,microsoft,appservice,azure-cloud-config
-
+  tags: appservice,azure,azure-cloud-config,cloud,devops,microsoft
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      az webapp list --output json --query '[*].{id:id}'
+    extractors:
+      - type: json
+        name: appList
+        internal: true
+        json:
+          - '.[]'
+  - engine:
+      - sh
+      - bash
+    source: |
+      az webapp config show --ids $id --query 'minTlsVersion' --output json
+    matchers:
+      - type: word
+        words:
+          - "1.2"
+        negative: true
+    extractors:
+      - type: dsl
+        dsl:
+          - 'id + " does not have the latest TLS version configured"'
+        # digest: 4a0a0047304502206a8f7d5ace61664435da4a71433913e520f5ad3007b68bb248d425e8f5c2d7ee022100ba22fba1b1d3c62be7fa3adb962ec8ca9752350d5005b3d9a59375ccef6e2c3d:922c64590222798bb761d5b6d8e72950
 flow: |
   code(1);
   for (let appData of iterate(template.appList)) {
@@ -20,36 +46,4 @@ flow: |
     set("id", appData.id);
     code(2);
   }
-
 self-contained: true
-code:
-  - engine:
-      - sh
-      - bash
-    source: |
-      az webapp list --output json --query '[*].{id:id}'
-
-    extractors:
-      - type: json
-        name: appList
-        internal: true
-        json:
-          - '.[]'
-
-  - engine:
-      - sh
-      - bash
-    source: |
-      az webapp config show --ids $id --query 'minTlsVersion' --output json
-
-    matchers:
-      - type: word
-        words:
-          - "1.2"
-        negative: true
-
-    extractors:
-      - type: dsl
-        dsl:
-          - 'id + " does not have the latest TLS version configured"'
-

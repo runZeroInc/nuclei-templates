@@ -1,5 +1,4 @@
 id: omniampx-panel
-
 info:
   name: Omnia MPX Node Login Panel - Detect
   author: arafatansari
@@ -11,23 +10,21 @@ info:
     cpe: cpe:2.3:h:telosalliance:omnia_mpx_node:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)Omnia MPX"
-    verified: true
     max-request: 1
+    product: omnia_mpx_node
+    shodan-query: http.html:"Omnia MPX"
     vendor: telosalliance
-  tags: panel,omnia,omniampx,discovery
-
+    verified: true
+  tags: discovery,omnia,omniampx,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/login'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "Omnia MPX Node | Login"
-
-      - type: status
-        status:
+          - Omnia MPX Node | Login
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

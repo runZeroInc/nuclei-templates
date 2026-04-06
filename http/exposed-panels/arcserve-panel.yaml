@@ -1,39 +1,36 @@
 id: arcserve-panel
-
 info:
   name: ArcServe Panel - Detect
   author: DhiyaneshDk
   severity: info
   reference:
-    - https://twitter.com/HunterMapping/status/1674267368359444480
     - https://github.com/mdsecactivebreach/CVE-2023-26258-ArcServe
+    - https://twitter.com/HunterMapping/status/1674267368359444480
   classification:
     cpe: cpe:2.3:a:arcserve:udp:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1889244460"
-    verified: true
-    max-request: 1
-    vendor: arcserve
-    product: udp
-    shodan-query: http.favicon.hash:"-1889244460"
     fofa-query: icon_hash="-1889244460"
-  tags: panel,login,arcserve,detect,discovery
-
+    max-request: 1
+    product: udp
+    shodan-query:
+      - http.favicon.hash:-1889244460
+      - http.favicon.hash:"-1889244460"
+    vendor: arcserve
+    verified: true
+  tags: arcserve,detect,discovery,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "Arcserve UDP"
-          - "/arcserve.js"
-        condition: or
-
-      - type: status
-        status:
+          - Arcserve UDP
+          - /arcserve.js
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: zeroshell-login
-
 info:
   name: ZeroShell Panel - Detect
   author: dhiyaneshDK
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:o:zeroshell:zeroshell:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)zeroshell"})
-    max-request: 1
-    vendor: zeroshell
-    product: zeroshell
-    shodan-query: http.title:"zeroshell"
     fofa-query: title="zeroshell"
     google-query: intitle:"zeroshell"
-  tags: panel,zeroshell,discovery
-
+    max-request: 1
+    product: zeroshell
+    shodan-query:
+      - http.title:"ZeroShell"
+      - http.title:"zeroshell"
+    vendor: zeroshell
+  tags: discovery,panel,zeroshell
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>ZeroShell</title>'
-
-      - type: status
-        status:
+          - <title>ZeroShell</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

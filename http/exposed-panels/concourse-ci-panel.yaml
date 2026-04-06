@@ -1,13 +1,12 @@
 id: concourse-ci-panel
-
 info:
   name: Concourse CI Login Panel - Detect
   author: praetorian-thendrickson
   severity: info
   description: Concourse CI login panel was detected.
   reference:
-    - https://github.com/concourse/concourse
     - https://concourse-ci.org
+    - https://github.com/concourse/concourse
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
@@ -15,18 +14,17 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
     max-request: 1
+    product: concourse
+    shodan-query: title:"Concourse"
     vendor: pivotal_software
-  tags: panel,concourse,oss,discovery
-
+  tags: concourse,discovery,oss,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>Concourse</title>
+          - login to Concourse
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers:
-      - type: word
-        words:
-          - '<title>Concourse</title>'
-          - 'login to Concourse'
-        condition: or
-

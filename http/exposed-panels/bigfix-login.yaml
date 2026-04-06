@@ -1,5 +1,4 @@
 id: bigfix-login
-
 info:
   name: HCL BigFix Login Panel - Detect
   author: idealphase
@@ -13,25 +12,24 @@ info:
     cpe: cpe:2.3:a:hcltech:bigfix_mobile:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)BigFix"})
+    google-query: intitle:"BigFix"
     max-request: 1
+    product: bigfix_mobile
+    shodan-query: http.title:"BigFix"
     vendor: hcltech
-  tags: panel,bigfix,discovery
-
+  tags: bigfix,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "<title> BigFix </title>"
-          - '<div class="bigfix-logo">'
-        condition: or
-
-      - type: status
-        status:
+          - <title> BigFix </title>
+          - <div class="bigfix-logo">
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

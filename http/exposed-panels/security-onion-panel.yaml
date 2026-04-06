@@ -1,5 +1,4 @@
 id: security-onion-panel
-
 info:
   name: Security Onion Panel - Detect
   author: rxerium
@@ -7,39 +6,36 @@ info:
   description: |
     Security Onion is a free and open source Linux distribution for intrusion detection, security monitoring, and log management. It includes CyberChef, NetworkMiner, and many other security tools.
   reference:
-    - https://securityonionsolutions.com/
     - https://github.com/Security-Onion-Solutions/securityonion
+    - https://securityonionsolutions.com/
   classification:
     cpe: cpe:2.3:a:securityonionsolutions:security_onion:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)security onion"})
-    verified: true
-    max-request: 2
-    vendor: securityonionsolutions
-    product: security_onion
-    shodan-query: http.title:"security onion"
     fofa-query: title="security onion"
     google-query: intitle:"security onion"
-  tags: panel,security,onion,detect,securityonionsolutions,discovery
-
+    max-request: 2
+    product: security_onion
+    shodan-query:
+      - title:"Security Onion"
+      - http.title:"security onion"
+    vendor: securityonionsolutions
+    verified: true
+  tags: detect,discovery,onion,panel,security,securityonionsolutions
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login/"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - '<title>Security Onion'
-          - 'Login to Security Onion'
-          - 'Security Onion Solutions'
-        condition: or
-
-      - type: status
-        status:
+          - <title>Security Onion
+          - Login to Security Onion
+          - Security Onion Solutions
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login/'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: php-mailer
-
 info:
   name: PHPMailer Panel - Detect
   author: ritikchaddha
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:a:phpmailer_project:phpmailer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)PHP Mailer"})
-    verified: true
     max-request: 1
+    product: phpmailer
+    shodan-query: http.title:"PHP Mailer"
     vendor: phpmailer_project
-  tags: panel,php,mailer,discovery
-
+    verified: true
+  tags: discovery,mailer,panel,php
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>PHP Mailer</title>'
-
-      - type: status
-        status:
+          - <title>PHP Mailer</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

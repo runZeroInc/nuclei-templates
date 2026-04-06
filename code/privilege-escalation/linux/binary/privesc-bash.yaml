@@ -1,5 +1,4 @@
 id: privesc-bash
-
 info:
   name: Bash - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/bash/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,bash,privesc,local
-
-self-contained: true
+    verified: true
+  tags: bash,code,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       bash -c 'whoami'
-
   - engine:
       - sh
       - bash
     source: |
       sudo bash -c 'whoami'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 490a0046304402203a44708a03e25f2e08a676db45844be884224bf30910c57e1e236ad0bb93469202200eaf50837ac2d6dc23bc15b505fdfb7009286edabf66067d95e8865dfaa06a08:922c64590222798bb761d5b6d8e72950
+self-contained: true

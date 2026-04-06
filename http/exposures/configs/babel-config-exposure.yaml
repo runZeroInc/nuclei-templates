@@ -1,5 +1,4 @@
 id: babel-config-exposure
-
 info:
   name: Babel Configuration - Detect
   author: DhiyaneshDK
@@ -13,26 +12,24 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:pocoo:babel:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: babel
+    shodan-query: html:"babel.config.js"
     vendor: pocoo
-  tags: exposure,config,file,vuln
-
+    verified: true
+  tags: config,exposure,file,vuln
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - module.exports = {
+          - 'presets: ['
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/babel.config.js'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'module.exports = {'
-          - 'presets: ['
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: remkon-manager-panel
-
 info:
   name: RemKon Device Manager Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -12,22 +11,20 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Remkon Device Manager"})
     max-request: 1
+    product: remkon_device_manager
+    shodan-query: http.title:"Remkon Device Manager"
     vendor: nascent
-  tags: panel,remkon,login,discovery
-
+  tags: discovery,login,panel,remkon
 http:
-  - method: GET
+  - matchers:
+      - status:
+          - 200
+        type: status
+      - part: body
+        type: word
+        words:
+          - <title>Remkon Device Manager</title>
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login.php'
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: body
-        words:
-          - "<title>Remkon Device Manager</title>"
-

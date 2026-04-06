@@ -1,5 +1,4 @@
 id: rocketmq-console-exposure
-
 info:
   name: Apache RocketMQ Console Panel - Detect
   author: pdteam
@@ -11,13 +10,6 @@ info:
     cpe: cpe:2.3:a:apache:rocketmq:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)rocketmq"}) || any(each(service["html.titles"]), {# matches "(?i)rocketmq-console-ng"})
-    verified: true
-    max-request: 1
-    vendor: apache
-    product: rocketmq
-    shodan-query:
-      - http.title:"rocketmq-console-ng"
-      - http.title:"rocketmq"
     fofa-query:
       - title="rocketmq-console-ng"
       - protocol="rocketmq"
@@ -25,15 +17,20 @@ info:
     google-query:
       - intitle:"rocketmq"
       - intitle:"rocketmq-console-ng"
-  tags: panel,apache,discovery
-
+    max-request: 1
+    product: rocketmq
+    shodan-query:
+      - http.title:"RocketMq-console-ng"
+      - http.title:"rocketmq-console-ng"
+      - http.title:"rocketmq"
+    vendor: apache
+    verified: true
+  tags: apache,discovery,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "<title>RocketMq-console-ng</title>"
-
+          - <title>RocketMq-console-ng</title>
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: yzmcms-panel
-
 info:
   name: YzmCMS Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -11,29 +10,27 @@ info:
     cpe: cpe:2.3:a:yzmcms:yzmcms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)yzmcms"})
-    max-request: 1
-    vendor: yzmcms
-    product: yzmcms
-    shodan-query: http.title:"yzmcms"
     fofa-query: title="yzmcms"
     google-query: intitle:"yzmcms"
-  tags: panel,yzmcms,login,discovery
-
+    max-request: 1
+    product: yzmcms
+    shodan-query:
+      - http.title:"YzmCMS"
+      - http.title:"yzmcms"
+    vendor: yzmcms
+  tags: discovery,login,panel,yzmcms
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - Powered By <a href="http://www.yzmcms.com"
+          - Powered By YzmCMS
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/admin/index/login.html'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Powered By <a href="http://www.yzmcms.com"'
-          - 'Powered By YzmCMS'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

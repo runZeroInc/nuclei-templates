@@ -1,5 +1,4 @@
 id: pandora-fms-console
-
 info:
   name: Pandora FMS Mobile Console Login Panel - Detect
   author: dhiyaneshDk
@@ -13,31 +12,23 @@ info:
     cpe: cpe:2.3:a:pandorafms:pandora_fms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)pandora fms"})
-    max-request: 1
-    vendor: pandorafms
-    product: pandora_fms
-    shodan-query:
-      - http.title:"pandora fms"
-      - http.html:"pandora fms - installation wizard"
-    fofa-query:
-      - title="pandora fms"
-      - body="pandora fms - installation wizard"
+    fofa-query: title="pandora fms"
     google-query: intitle:"pandora fms"
-  tags: panel,edb,pandorafms,discovery
-
+    max-request: 1
+    product: pandora_fms
+    shodan-query: http.title:"pandora fms"
+    vendor: pandorafms
+  tags: discovery,edb,pandorafms,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/pandora_console/mobile/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>Pandora FMS mobile</title>'
-        part: body
-
-      - type: status
-        status:
+          - <title>Pandora FMS mobile</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/pandora_console/mobile/'

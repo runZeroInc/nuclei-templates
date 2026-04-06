@@ -1,5 +1,4 @@
 id: tlr-2005ksh-login
-
 info:
   name: Telesquare TLR-2005KSH Login Panel - Detect
   author: princechaddha
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:o:telesquare:tlr-2005ksh_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)tlr-2005ksh"
-    verified: true
-    max-request: 1
-    vendor: telesquare
-    product: tlr-2005ksh_firmware
-    shodan-query: http.html:"tlr-2005ksh"
     fofa-query: body="tlr-2005ksh"
-  tags: panel,router,telesquare,discovery
-
+    max-request: 1
+    product: tlr-2005ksh_firmware
+    shodan-query:
+      - http.html:"TLR-2005KSH"
+      - http.html:"tlr-2005ksh"
+    vendor: telesquare
+    verified: true
+  tags: discovery,panel,router,telesquare
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Login to TLR-2005KSH</title>"
-
-      - type: status
-        status:
+          - <title>Login to TLR-2005KSH</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
