@@ -1,5 +1,4 @@
 id: halo-tism-sqli
-
 info:
   name: Halo ITSM - Pre-Authentication SQL Injection
   author: rootxharsh,iamnoooob,pdresearch
@@ -9,14 +8,13 @@ info:
   reference:
     - https://slcyber.io/assetnote-security-research-center/loose-types-sink-ships-pre-authentication-sql-injection-in-halo-itsm/
   metadata:
-    verified: true
+    runzero-match: service["favicon.ico.image.mmh3"] == "489905671"
     max-request: 1
     shodan-query: http.favicon.hash:489905671
+    verified: true
   tags: halo,itsm,sqli,time-based-sqli,vuln
-
 variables:
   string: "{{rand_text_numeric(10)}}"
-
 http:
   - raw:
       - |
@@ -33,7 +31,6 @@ http:
           "lastactiontime": "2025-03-03T10:00:00",
           "chatlog": "{{randstr}}"
         }
-
     matchers:
       - type: dsl
         dsl:
@@ -42,4 +39,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains(body, "ok")'
         condition: and
-

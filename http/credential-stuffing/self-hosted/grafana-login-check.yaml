@@ -1,5 +1,4 @@
 id: grafana-login-check
-
 info:
   name: Grafana Login Check
   author: parthmalhotra,pdresearch
@@ -10,16 +9,16 @@ info:
   classification:
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Grafana"})
+    fofa-query: title="Grafana"
     max-request: 1
-    vendor: grafana
     product: grafana
     shodan-query: title:"Grafana"
-    fofa-query: title="Grafana"
-  tags: self-hosted,creds-stuffing,login-check,grafana,vuln
+    vendor: grafana
+  tags: creds-stuffing,grafana,login-check,self-hosted,vuln
 variables:
   username: "{{username}}"
   password: "{{password}}"
-
 http:
   - raw:
       - |
@@ -33,26 +32,21 @@ http:
         Cookie: redirect_to=%2F
 
         {"user":"{{username}}","password":"{{password}}"}
-
     extractors:
       - type: dsl
         dsl:
           - username
           - password
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - 'Logged in'
-
       - type: word
         part: header
         words:
           - 'grafana_session'
-
       - type: status
         status:
           - 200
-

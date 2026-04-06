@@ -1,5 +1,4 @@
 id: amazon-ec2-ssrf
-
 info:
   name: Amazon EC2 - Server-side request forgery (SSRF)
   author: DhiyaneshDk
@@ -10,11 +9,11 @@ info:
     cvss-score: 9.3
     cwe-id: CWE-441
   metadata:
-    verified: true
+    runzero-match: service["http.head.server"] matches "EC2ws"
     max-request: 2
     shodan-query: "Server: EC2ws"
-  tags: aws,ec2,ssrf,amazon,vuln
-
+    verified: true
+  tags: amazon,aws,ec2,ssrf,vuln
 http:
   - raw:
       - |+
@@ -28,7 +27,6 @@ http:
 
     stop-at-first-match: true
     unsafe: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -37,8 +35,6 @@ http:
           - "AccessKeyId"
           - "SecretAccessKey"
         condition: and
-
       - type: status
         status:
           - 200
-

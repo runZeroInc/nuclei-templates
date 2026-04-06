@@ -1,5 +1,4 @@
 id: thinkphp6-arbitrary-write
-
 info:
   name: ThinkPHP 6.0.0~6.0.1 - Arbitrary File Write
   author: arliya
@@ -13,16 +12,16 @@ info:
   classification:
     cpe: cpe:2.3:a:thinkphp:thinkphp:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    runzero-review: REJECT/2026-04-06/creates a file on the remote system
     max-request: 2
-    vendor: thinkphp
     product: thinkphp
     shodan-query: title:"ThinkPHP"
+    vendor: thinkphp
+    verified: true
     zoomeye-query: app="ThinkPHP"
-  tags: thinkphp,file-upload,rce,vuln
+  tags: file-upload,rce,thinkphp,vuln
 variables:
   random_filename: "{{to_lower(rand_base(11))}}"
-
 http:
   - raw:
       - |
@@ -33,15 +32,12 @@ http:
       - |
         GET /{{random_filename}}.php HTTP/1.1
         Host: {{Hostname}}
-
     matchers-condition: and
     matchers:
       - type: word
         part: header_1
         words:
           - "Set-Cookie: PHPSESSID=%2F..%2F..%2F..%2Fpublic%2F{{random_filename}}.php"
-
       - type: dsl
         dsl:
           - "status_2 == 200"
-

@@ -1,5 +1,4 @@
 id: backdoored-zte
-
 info:
   name: ZTE Router Panel - Detect
   author: its0x08
@@ -13,10 +12,11 @@ info:
     cvss-score: 10
     cwe-id: CWE-912
   metadata:
-    verified: true
+    runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
     max-request: 1
     shodan-query: http.html:"ZTE Corporation"
-  tags: edb,network,zte,telnet,backdoor,router,tcp,vuln
+    verified: true
+  tags: backdoor,edb,network,router,tcp,telnet,vuln,zte
 tcp:
   - host:
       - "{{Hostname}}"
@@ -25,14 +25,11 @@ tcp:
       - data: "root\r\n"
       - data: "Zte521\r\n\r\n"
         read: 1024
-
     matchers:
       - type: word
         words:
           - "BusyBox"
-
     extractors:
       - type: regex
         regex:
           - '[A-Z]{1,}[0-9]{3,4}'
-
