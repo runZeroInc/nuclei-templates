@@ -1,7 +1,6 @@
 id: exacqvision-default-login
-
 info:
-  name: ExacqVision - Default Login
+  name: ExacqVision Default Login
   author: ELSFA7110
   severity: high
   description: ExacqVision Web Service default login credentials (admin/admin256) were discovered.
@@ -11,10 +10,30 @@ info:
     cwe-id: cwe-798
   metadata:
     max-request: 1
-  tags: exacqvision,default-login,vuln
-
+  tags: default-login,exacqvision,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - part: header
+        type: word
+        words:
+          - application/json
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"auth":'
+          - '"success": true'
+    matchers-condition: and
+    payloads:
+      password:
+        - admin256
+      username:
+        - admin
+    raw:
       - |
         POST /service.web HTTP/1.1
         Host: {{Hostname}}
@@ -22,29 +41,3 @@ http:
         Connection: close
 
         action=login&u={{username}}&p={{password}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin256
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-
-      - type: word
-        part: body
-        condition: and
-        words:
-          - '"auth":'
-          - '"success": true'
-

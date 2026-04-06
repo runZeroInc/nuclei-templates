@@ -1,21 +1,43 @@
 id: yealink-default-login
-
 info:
   name: Yealink CTP18 - Default Login
   author: parzival,arbenn@pretera.com
   severity: high
   description: |
-    Yealink CTP18 default login credentials were discovered.
+    Yealink CTP18 Default Administrator Credentials Discovered.
   reference:
     - https://support.yealink.com
   metadata:
-    verified: true
-    max-request: 1
     fofa-query: Yealink CTP18
-  tags: default-login,yealink,vuln
-
+    max-request: 1
+    verified: true
+  tags: default-login,vuln,yealink
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - '{"ret":"ok","data":true}'
+          - '{"ret":"ok","data":"ok"}'
+      - part: content_type
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - "0000"
+        - user
+      username:
+        - admin
+        - user
+    raw:
       - |
         POST /api/auth/login?p=Login&t=1 HTTP/1.1
         Host: {{Hostname}}
@@ -23,32 +45,3 @@ http:
         Accept: application/json, text/plain, */*
 
         username={{username}}&pwd={{password}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-        - user
-      password:
-        - '0000'
-        - user
-    host-redirects: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '{"ret":"ok","data":true}'
-          - '{"ret":"ok","data":"ok"}'
-        condition: or
-
-      - type: word
-        part: content_type
-        words:
-          - text/html
-
-      - type: status
-        status:
-          - 200
-

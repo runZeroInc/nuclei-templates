@@ -1,7 +1,6 @@
 id: weblogic-weak-login
-
 info:
-  name: WebLogic - Default Login
+  name: WebLogic Default Login
   author: pdteam
   severity: high
   description: WebLogic default login credentials were discovered.
@@ -14,31 +13,21 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 16
-  tags: default-login,weblogic,vulhub,vuln
-
+  tags: default-login,vulhub,vuln,weblogic
 http:
-  - raw:
-      - |
-        GET /console/ HTTP/1.1
-        Host: {{Hostname}}
-      - |
-        POST /console/j_security_check HTTP/1.1
-        Host: {{Hostname}}
-        Content-Type: application/x-www-form-urlencoded
-
-        j_username={{ username }}&j_password={{ password }}&j_character_encoding=UTF-8
-
-    attack: pitchfork
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - /console/index.jsp
+          - ADMINCONSOLESESSION
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
     payloads:
-      username:
-        - weblogic
-        - weblogic
-        - weblogic
-        - weblogic
-        - weblogic
-        - admin
-        - admin
-        - system
       password:
         - weblogic
         - weblogic1
@@ -48,18 +37,23 @@ http:
         - 12345678
         - security
         - password
+      username:
+        - weblogic
+        - weblogic
+        - weblogic
+        - weblogic
+        - weblogic
+        - admin
+        - admin
+        - system
+    raw:
+      - |
+        GET /console/ HTTP/1.1
+        Host: {{Hostname}}
+      - |
+        POST /console/j_security_check HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/x-www-form-urlencoded
+
+        j_username={{ username }}&j_password={{ password }}&j_character_encoding=UTF-8
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "/console/index.jsp"
-          - "ADMINCONSOLESESSION"
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

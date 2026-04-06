@@ -1,10 +1,9 @@
 id: trilithic-viewpoint-default
-
 info:
-  name: Trilithic Viewpoint - Default Login
+  name: Trilithic Viewpoint Default Login
   author: davidmckennirey
   severity: high
-  description: Trilithic Viewpoint default login credentials were discovered.
+  description: Trilithic Viewpoint application default admin credentials were discovered. Note this product has been discontinued.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -12,9 +11,25 @@ info:
   metadata:
     max-request: 1
   tags: default-login,trilithic,viewpoint,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"authorized":true'
+          - redirectUrl
+    matchers-condition: and
+    payloads:
+      password:
+        - trilithic
+      username:
+        - admin
+    raw:
       - |
         POST /ViewPoint/admin/Site/ViewPointLogin HTTP/1.1
         Host: {{Hostname}}
@@ -22,24 +37,3 @@ http:
         Cookie: trilithic_win_auth=false
 
         {u:"{{username}}", t:"undefined", p:"{{password}}", d:"", r:false, w:false}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - trilithic
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - '"authorized":true'
-          - 'redirectUrl'
-        part: body
-        condition: and
-

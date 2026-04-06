@@ -1,5 +1,4 @@
 id: atvise-login
-
 info:
   name: Atvise Login Panel
   author: idealphase
@@ -12,23 +11,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bachmann:atvise:*:*:*:*:*:*:*:*
   metadata:
+    google-query: intitle:"atvise - next generation"
     max-request: 1
+    product: atvise
     vendor: bachmann
-  tags: panel,atvise,edb,discovery
-
+  tags: atvise,discovery,edb,panel
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>atvise - next generation</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>atvise - next generation</title>'
-
-      - type: status
-        status:
-          - 200
-
