@@ -1,5 +1,4 @@
 id: mantisbt-panel
-
 info:
   name: MantisBT Login Panel - Detect
   author: makyotox,daffainfo
@@ -13,31 +12,27 @@ info:
     cpe: cpe:2.3:a:mantisbt:mantisbt:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "662709064"
-    verified: true
+    fofa-query: icon_hash=662709064
     max-request: 1
-    vendor: mantisbt
     product: mantisbt
     shodan-query:
-      - http.favicon.hash:"662709064"
+      - http.favicon.hash:662709064
       - cpe:"cpe:2.3:a:mantisbt:mantisbt"
-    fofa-query: icon_hash=662709064
-  tags: panel,mantisbt,discovery
-
+    vendor: mantisbt
+    verified: true
+  tags: discovery,mantisbt,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login_page.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
           - 'title="MantisBT: Text Search"'
           - 'title="MantisBT: Issue Id"'
-        condition: or
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login_page.php'

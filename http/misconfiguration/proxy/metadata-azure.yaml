@@ -1,5 +1,4 @@
 id: metadata-service-azure
-
 # This attack abuses a misconfigured proxy that allows access to the metadata
 # IP or a name which resolves to the IP. A standard proxy request is made to
 # the proxy using the full metadata URL, which the proxy will fulfill to its
@@ -23,8 +22,7 @@ info:
     cwe-id: CWE-441
   metadata:
     max-request: 2
-  tags: exposure,config,azure,microsoft,proxy,misconfig,metadata,vuln
-
+  tags: azure,config,exposure,metadata,microsoft,misconfig,proxy,vuln
 http:
   - raw:
       - |+
@@ -44,4 +42,4 @@ http:
           - "osType"
           - "ipAddress"
         condition: and
-
+        # digest: 4a0a00473045022100efd4e36d47e73a9acea4341c1852f4e45590a4cc1bdd8c02668ee1de3c4a70090220366f8841a2421abc5bee134cf7a5aecf3302cbba3944c1f1a633d4cff4abb981:922c64590222798bb761d5b6d8e72950

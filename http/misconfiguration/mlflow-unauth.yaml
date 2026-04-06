@@ -1,5 +1,4 @@
 id: mlflow-unauth
-
 info:
   name: Mlflow - Unauthenticated Access
   author: pussycat0x
@@ -8,22 +7,20 @@ info:
     Unauthenticated Access to MLflow dashboard.
   remediation: Add User Authentication
   metadata:
-    verified: true
-    max-request: 1
-    vendor: lfprojects
-    product: mlflow
-    shodan-query: http.title:"mlflow"
     fofa-query:
       - app="mlflow"
       - title="mlflow"
     google-query: intitle:"mlflow"
-  tags: unauth,mlflow,oss,misconfig,vuln
-
+    max-request: 1
+    product: mlflow
+    shodan-query: http.title:"mlflow"
+    vendor: lfprojects
+    verified: true
+  tags: misconfig,mlflow,oss,unauth,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/ajax-api/2.0/preview/mlflow/experiments/get?experiment_id=0"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,8 +30,7 @@ http:
           - "name"
           - "artifact_location"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100f9cbd8148ac5c30731b4f218ce58121671e59b60c954cff5b94b8af80949175e022100a257a13519d7fe862c3c8c0e710faefa6c76d41b938cdf8ae2b63b0f219c1cdb:922c64590222798bb761d5b6d8e72950

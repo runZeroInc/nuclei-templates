@@ -1,5 +1,4 @@
 id: hestia-panel
-
 info:
   name: Hestia Control Panel Login - Detect
   author: JustaAcat
@@ -13,34 +12,31 @@ info:
     cpe: cpe:2.3:a:hestiacp:control_panel:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)hestia control panel"}) || service["favicon.ico.image.mmh3"] == "-476299640"
-    verified: true
-    max-request: 1
-    vendor: hestiacp
-    product: control_panel
-    shodan-query:
-      - http.title:"hestia control panel"
-      - http.favicon.hash:"-476299640"
     fofa-query:
       - icon_hash=-476299640
       - title="hestia control panel"
     google-query: intitle:"hestia control panel"
-  tags: panel,hestia,detect,hestiacp,discovery
-
+    max-request: 1
+    product: control_panel
+    shodan-query:
+      - title:"Hestia Control Panel"
+      - http.favicon.hash:-476299640
+      - http.title:"hestia control panel"
+    vendor: hestiacp
+    verified: true
+  tags: detect,discovery,hestia,hestiacp,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - Hestia Control Panel
+          - Welcome to Hestia Control
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login/'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Hestia Control Panel"
-          - "Welcome to Hestia Control"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

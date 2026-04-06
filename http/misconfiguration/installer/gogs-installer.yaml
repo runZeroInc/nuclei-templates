@@ -1,5 +1,4 @@
 id: gogs-installer
-
 info:
   name: Gogs (Go Git Service) - Installer
   author: dhiyaneshDk
@@ -11,16 +10,16 @@ info:
     cwe-id: CWE-284
     cpe: cpe:2.3:a:gogs:gogs:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: gogs
+    shodan-query: http.title:"Installation - Gogs"
     vendor: gogs
-  tags: misconfig,exposure,gogs,install,vuln
-
+    verified: true
+  tags: exposure,gogs,install,misconfig,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/install'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -29,8 +28,7 @@ http:
           - "General Settings"
           - "Database Settings"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a004730450220119eb63653450dee54ad863f460babe4616f9dccb640e760c0ab5b2be528488a022100fc78ac70f97a2036aa67684f20ff2b9817e44ce31e0a167b15aaec427e00fbb2:922c64590222798bb761d5b6d8e72950

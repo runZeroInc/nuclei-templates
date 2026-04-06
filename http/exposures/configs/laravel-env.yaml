@@ -1,5 +1,4 @@
 id: laravel-env
-
 info:
   name: Laravel - Sensitive Information Disclosure
   author: pxmme1337,dwisiswant0,geeknik,emenalf,adrianmf
@@ -16,12 +15,10 @@ info:
   metadata:
     max-request: 22
   tags: config,exposure,laravel,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - "/.env"
@@ -46,7 +43,6 @@ http:
         - "/.env.{{DN}}"
         - "/.env.{{SD}}"
         - "/api/.env"
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -55,12 +51,10 @@ http:
           - "(?mi)^APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)="
           - "(?mi)^DB_(HOST|PASSWORD|DATABASE)="
         condition: or
-
       - type: dsl
         dsl:
           - "!contains(tolower(content_type), 'text/html')"
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502201fe182bc5b716fb15cc168d7ca597178c6dd0bba60f826aae4f3490d6b566044022100f50021648bb38e51bdaff1a5d18e5f18edf95d280604b77da04d368e08fa9579:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: servicenow-panel
-
 info:
   name: ServiceNow Login Panel - Detect
   author: righettod
@@ -12,44 +11,38 @@ info:
     cpe: cpe:2.3:a:servicenow:servicenow:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1701804003" || any(each(service["html.titles"]), {# matches "(?i)servicenow"})
-    verified: true
-    max-request: 1
-    vendor: servicenow
-    product: servicenow
-    shodan-query:
-      - http.favicon.hash:"1701804003"
-      - http.title:"servicenow"
     fofa-query:
       - icon_hash=1701804003
       - title="servicenow"
-      - icon_hash="1701804003"
     google-query: intitle:"servicenow"
-  tags: panel,servicenow,login,detect,discovery
-
+    max-request: 1
+    product: servicenow
+    shodan-query:
+      - http.favicon.hash:1701804003
+      - http.title:"servicenow"
+    vendor: servicenow
+    verified: true
+  tags: detect,discovery,login,panel,servicenow
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - (?i)g_builddate\s+=\s+"([0-9._-]+)"
+        type: regex
+    matchers:
+      - case-insensitive: true
+        condition: and
+        part: body
+        type: word
+        words:
+          - ServiceNow
+          - window.NOW.
+          - NOW.user.userID
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login.do'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'ServiceNow'
-          - 'window.NOW.'
-          - 'NOW.user.userID'
-        condition: and
-        case-insensitive: true
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '(?i)g_builddate\s+=\s+"([0-9._-]+)"'
-

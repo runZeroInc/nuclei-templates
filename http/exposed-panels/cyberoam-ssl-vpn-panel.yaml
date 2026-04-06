@@ -1,5 +1,4 @@
 id: cyberoam-ssl-vpn-panel
-
 info:
   name: Cyberoam SSL VPN Panel - Detect
   author: idealphase
@@ -13,31 +12,31 @@ info:
     cpe: cpe:2.3:h:sophos:cyberoam:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)cyberoam ssl vpn portal"})
-    max-request: 1
-    vendor: sophos
-    product: cyberoam
-    shodan-query: http.title:"cyberoam ssl vpn portal"
     fofa-query: title="cyberoam ssl vpn portal"
-  tags: panel,cyberoam,vpn,sophos,discovery
-
+    google-query:
+      - intitle:"Cyberoam SSL VPN Portal"
+      - intitle:"cyberoam ssl vpn portal"
+    max-request: 1
+    product: cyberoam
+    shodan-query:
+      - title:"Cyberoam SSL VPN Portal"
+      - http.title:"cyberoam ssl vpn portal"
+    vendor: sophos
+  tags: cyberoam,discovery,panel,sophos,vpn
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
+  - extractors:
+      - group: 1
+        regex:
+          - src="\/javascript\/validation\/sslvpnlogin\.js\?version=(.+)" ><\/script>
+        type: regex
     matchers:
       - type: word
         words:
-          - "<title>Cyberoam SSL VPN Portal</title>"
-
-      - type: status
-        status:
+          - <title>Cyberoam SSL VPN Portal</title>
+      - status:
           - 200
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - 'src="\/javascript\/validation\/sslvpnlogin\.js\?version=(.+)" ><\/script>'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

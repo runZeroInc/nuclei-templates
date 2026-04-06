@@ -1,5 +1,4 @@
 id: flarum-installer
-
 info:
   name: Flarum Installation Page - Exposure
   author: DhiyaneshDK
@@ -11,18 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:flarum:flarum:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: flarum
     product: flarum
     shodan-query: html:"Install Flarum"
-  tags: misconfig,install,exposure,flarum,vuln
-
+    vendor: flarum
+    verified: true
+  tags: exposure,flarum,install,misconfig,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,8 +28,7 @@ http:
           - "<title>Install Flarum</title>"
           - "Admin Password"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402205a09f2f9ab14a012dae02937d9c0612ab274f20d703cc9ea5118c88935243b250220606e34495c77585f8cefe6fff918e0265e23c1dba1a50744a600400df6deaad0:922c64590222798bb761d5b6d8e72950

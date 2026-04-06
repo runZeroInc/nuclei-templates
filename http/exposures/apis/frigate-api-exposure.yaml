@@ -1,5 +1,4 @@
 id: frigate-api-exposure
-
 info:
   name: Frigate NVR - API Exposure
   author: 0x_Akoko
@@ -10,17 +9,15 @@ info:
     - https://frigate.video/
     - https://github.com/blakeblackshear/frigate
   metadata:
-    verified: true
+    fofa-query: title="Frigate"
     max-request: 1
     shodan-query: http.title:"Frigate"
-    fofa-query: title="Frigate"
-  tags: frigate,nvr,iot,exposure,camera,config
-
+    verified: true
+  tags: camera,config,exposure,frigate,iot,nvr
 http:
   - method: GET
     path:
       - "{{BaseURL}}/api/config"
-
     matchers:
       - type: dsl
         dsl:
@@ -29,4 +26,4 @@ http:
           - 'contains_all(body, "\"cameras\"", "\"version\"", "\"detectors\"")'
           - 'contains_any(body, "\"mqtt\"", "\"frigate\"", "\"birdseye\"", "\"record\"")'
         condition: and
-
+        # digest: 490a004630440220212b952cced6696c071e65b64d12a8550a558b9924515e4c9171f4579ca685ff022040ab3dd80e3bcf7cc430e32b95664b93d94f10805193accb52e1e8e7b2fa73bd:922c64590222798bb761d5b6d8e72950

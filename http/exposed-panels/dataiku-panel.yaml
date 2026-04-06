@@ -1,5 +1,4 @@
 id: dataiku-panel
-
 info:
   name: Dataiku Panel - Detect
   author: DhiyaneshDk
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:a:dataiku:data_science_studio:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)dataiku"})
-    verified: true
     max-request: 1
+    product: data_science_studio
+    shodan-query: title:"dataiku"
     vendor: dataiku
-  tags: panel,dataiku,discovery
-
+    verified: true
+  tags: dataiku,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
+  - matchers:
+      - type: word
+        words:
+          - <title>Dataiku</title>
+      - part: header
+        type: word
+        words:
+          - text/html
     matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>Dataiku</title>"
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
+    method: GET
+    path:
+      - '{{BaseURL}}'

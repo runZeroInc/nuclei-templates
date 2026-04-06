@@ -1,5 +1,4 @@
 id: nis-client
-
 info:
   name: Ensure NIS Client is Not Installed
   author: Th3l0newolf
@@ -13,14 +12,10 @@ info:
     - https://www.cisecurity.org/benchmark/ubuntu_linux
   metadata:
     verified: true
-  tags: cis,local,cisecurity,audit,linux,ubuntu,nis
-
-self-contained: true
-
+  tags: audit,cis,cisecurity,linux,local,nis,ubuntu
 code:
   - engine:
       - bash
-
     args:
       - "-c"
       - |
@@ -30,15 +25,14 @@ code:
         else
           echo "[cis-nis-client-check:Policy-Pass] [NIS is not installed] [CIS_PASS]"
         fi
-
     matchers:
       - type: word
         name: policy-pass
         words:
           - "Policy-Pass"
-
       - type: word
         name: policy-fail
         words:
           - "Policy-Fail"
-
+        # digest: 4a0a00473045022100cfc6bf15d445dff51f2fba3848fa1387d14074791850f1f0c91293107f5149be022068f71166dae4ec578d4ca2b043f92349a31fc68dc0e945644c2831490c3665e2:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,5 +1,4 @@
 id: arcgis-api-service
-
 info:
   name: ArcGIS REST Services Directory - Detect
   author: HeeresS
@@ -11,36 +10,33 @@ info:
     cpe: cpe:2.3:a:esri:arcgis_server:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)arcgis"})
-    verified: true
-    max-request: 1
-    vendor: esri
-    product: arcgis_server
-    shodan-query: http.title:"arcgis"
     fofa-query: title="arcgis"
     google-query: intitle:"arcgis"
-  tags: panel,arcgis,rest,api,detect,esri,discovery
-
+    max-request: 1
+    product: arcgis_server
+    shodan-query:
+      - title:"ArcGIS"
+      - http.title:"arcgis"
+    vendor: esri
+    verified: true
+  tags: api,arcgis,detect,discovery,esri,panel,rest
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - Current Version:\s*<\/b>\s*([0-9.]+)
+        type: regex
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - REST Services Directory
+          - ArcGIS
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/arcgis/rest/services'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'REST Services Directory'
-          - 'ArcGIS'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - 'Current Version:\s*<\/b>\s*([0-9.]+)'
-

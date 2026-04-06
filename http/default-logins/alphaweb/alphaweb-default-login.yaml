@@ -1,10 +1,9 @@
 id: alphaweb-default-login
-
 info:
-  name: AlphaWeb XE Default Credentials
+  name: AlphaWeb XE Default Login
   author: Lark Lab
   severity: medium
-  description: AlphaWeb XE default login credentials were discovered.
+  description: An AlphaWeb XE default login was discovered.
   reference:
     - https://wiki.zenitel.com/wiki/AlphaWeb
   classification:
@@ -14,32 +13,27 @@ info:
   metadata:
     runzero-match: service["http.body"] contains ">AlphaWeb XE<"
     max-request: 1
-  tags: default-login,AlphaWeb,vuln
-
+  tags: AlphaWeb,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - HW Configuration
+          - SW Configuration
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - alphaadmin
+      username:
+        - admin
+    raw:
       - |
         GET /php/node_info.php HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ':' + password)}}
         Referer: {{BaseURL}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - alphaadmin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - HW Configuration
-          - SW Configuration
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

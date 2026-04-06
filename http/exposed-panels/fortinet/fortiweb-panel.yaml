@@ -1,5 +1,4 @@
 id: fortiweb-login
-
 info:
   name: Fortinet FortiWeb Login Panel - Detect
   author: PR3R00T,daffainfo
@@ -11,29 +10,27 @@ info:
     cpe: cpe:2.3:a:fortinet:fortiweb:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiweb - "})
-    max-request: 1
-    vendor: fortinet
-    product: fortiweb
-    shodan-query: http.title:"fortiweb - "
     fofa-query: title="fortiweb - "
     google-query: intitle:"fortiweb - "
-  tags: panel,fortinet,fortiweb,login,discovery
-
+    max-request: 1
+    product: fortiweb
+    shodan-query:
+      - http.title:"FortiWeb - "
+      - http.title:"fortiweb - "
+    vendor: fortinet
+  tags: discovery,fortinet,fortiweb,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "Please login"
-          - "ftnt-fortinet-grid"
-        condition: and
-
-      - type: status
-        status:
+          - Please login
+          - ftnt-fortinet-grid
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

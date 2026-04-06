@@ -1,5 +1,4 @@
 id: gcloud-gke-cos-containerd-disabled
-
 info:
   name: GKE Clusters Not Using Container-Optimized OS
   author: princechaddha
@@ -14,8 +13,7 @@ info:
   reference:
     - https://cloud.google.com/kubernetes-engine/docs/concepts/node-images
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/GKE/use-cos-containerd.html
-  tags: cloud,devops,gcp,gcloud,gke,kubernetes,security,containers,gcp-cloud-config
-
+  tags: cloud,containers,devops,gcloud,gcp,gcp-cloud-config,gke,kubernetes,security
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -33,68 +31,57 @@ flow: |
       }
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container clusters list --project $projectId --format="json(name,location)"
-
     extractors:
       - type: json
         name: clusters
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container node-pools list --cluster $clusterName --location $location --project $projectId --format="json(name)"
-
     extractors:
       - type: json
         name: nodePools
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container node-pools describe $nodePoolName --cluster $clusterName --location $location --project $projectId --format="json(config.imageType)"
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "COS_CONTAINERD"
         negative: true
-
       - type: regex
         regex:
           - '(?m)^.*$'
-
     extractors:
       - type: dsl
         dsl:
           - '"Node pool " + nodePoolName + " in GKE cluster " + clusterName + " (" + location + ") of project " + projectId + " is not using Container-Optimized OS with containerd"'
-
+        # digest: 490a004630440220384831859cdde26777efea3694796ead3e70bcc77f3747cf9f912d33d823e06d022054ebbfa9e21bec19af80d2159e99b1d38b24a1d8c8679ff621572b4dc117e569:922c64590222798bb761d5b6d8e72950
+self-contained: true

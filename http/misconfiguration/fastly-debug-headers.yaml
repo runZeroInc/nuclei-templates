@@ -1,5 +1,4 @@
 id: fastly-debug-headers
-
 info:
   name: Fastly CDN Debug Headers Exposure
   author: pussycat0x
@@ -10,18 +9,15 @@ info:
     - https://www.fastly.com/documentation/reference/http/http-headers/Fastly-Debug/
   metadata:
     max-request: 1
-    verified: true
     shodan-query: 'X-Served-By: cache'
-  tags: fastly,cdn,exposure,misconfig
-
+    verified: true
+  tags: cdn,exposure,fastly,misconfig
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     headers:
       Fastly-Debug: "1"
-
     matchers-condition: or
     matchers:
       - type: regex
@@ -29,16 +25,14 @@ http:
         part: header
         regex:
           - '(?i)fastly-debug-path:\s*.+'
-
       - type: regex
         name: fastly-debug-ttl
         part: header
         regex:
           - '(?i)fastly-debug-ttl:\s*.+'
-
       - type: regex
         name: fastly-debug-digest
         part: header
         regex:
           - '(?i)fastly-debug-digest:\s*.+'
-
+        # digest: 4a0a00473045022100a27fc35b36475f6380b6351c9e36ee0bfcda1987b3dfaafad8c852c2f29f960202204112b3adac131b3d7f343cb99b091eb1af77f5e04884cf0546f397a519185c4d:922c64590222798bb761d5b6d8e72950

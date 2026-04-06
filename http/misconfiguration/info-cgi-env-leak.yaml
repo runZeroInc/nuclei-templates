@@ -1,5 +1,4 @@
 id: info-cgi-env-leak
-
 info:
   name: info.cgi  Environment Variable - Disclosure
   author: pussycat0x
@@ -10,10 +9,9 @@ info:
     - https://www.acunetix.com/vulnerabilities/web/test-cgi-script-leaking-environment-variables/
     - https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/cgi
   metadata:
-    verified: true
     max-request: 5
-  tags: cgi,exposure,info,env,disclosure,generic
-
+    verified: true
+  tags: cgi,disclosure,env,exposure,generic,info
 http:
   - method: GET
     path:
@@ -22,14 +20,12 @@ http:
       - "{{BaseURL}}/cgi-sys/info.cgi"
       - "{{BaseURL}}/scripts/info.cgi"
       - "{{BaseURL}}/lite-scripts/info.cgi"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
-
       - type: word
         part: body
         words:
@@ -42,7 +38,6 @@ http:
           - "REMOTE_ADDR"
           - "HTTP_USER_AGENT"
         condition: or
-
       - type: word
         part: body
         words:
@@ -55,4 +50,4 @@ http:
           - "DOCUMENT_ROOT"
           - "SCRIPT_FILENAME"
         condition: or
-
+        # digest: 4b0a00483046022100d837dd9036e39cbddbb806bf549210324d1870824ce6e0f479c745bbcedee3c9022100d0bef558687fe393dcefd514e1fe6db1c8bcbe796dfdc226c7c4ca640217b10c:922c64590222798bb761d5b6d8e72950

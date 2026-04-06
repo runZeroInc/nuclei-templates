@@ -1,5 +1,4 @@
 id: docker-cloud
-
 info:
   name: Docker Cloud Yaml - File Disclosure
   author: DhiyaneshDK
@@ -8,16 +7,14 @@ info:
   reference:
     - https://www.exploit-db.com/ghdb/7959
   metadata:
-    verified: true
-    max-request: 1
     google-query: intitle:"index of" "docker-cloud.yml"
-  tags: exposure,cloud,devops,docker,files,vuln
-
+    max-request: 1
+    verified: true
+  tags: cloud,devops,docker,exposure,files,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/docker-cloud.yml"
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -25,7 +22,6 @@ http:
           - '(?m)^  image:'
           - '(?m)^  ports:'
         condition: and
-
       - type: word
         part: header
         words:
@@ -33,8 +29,7 @@ http:
           - "text/html"
         negative: true
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100d9f72cba2e08a2db1cd2809086de9bcb21559f9199f97868db5704c6ad342bd80220066ef1aa815b3dd79fa7ac88b54c3587696c7b8b2e06845e7d1e5590bfabb930:922c64590222798bb761d5b6d8e72950

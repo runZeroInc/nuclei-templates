@@ -1,5 +1,4 @@
 id: workspace-one-uem
-
 info:
   name: VMware Workspace ONE UEM Airwatch Login Panel - Detect
   author: gevakun,hanlaomo
@@ -13,26 +12,24 @@ info:
     cpe: cpe:2.3:a:vmware:workspace_one_uem:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)airwatch"
-    verified: true
+    fofa-query: body="airwatch"
     max-request: 1
-    vendor: vmware
     product: workspace_one_uem
     shodan-query:
+      - http.html:"Airwatch"
       - http.html:"airwatch"
-    fofa-query: body="airwatch"
-  tags: panel,workspaceone,vmware,discovery
-
+    vendor: vmware
+    verified: true
+  tags: discovery,panel,vmware,workspaceone
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/AirWatch/Login"
-
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "About VMware AirWatch"
-          - 'content="AirWatch'
-          - "/AirWatch/Images"
-        condition: or
-
+          - About VMware AirWatch
+          - content="AirWatch
+          - /AirWatch/Images
+    method: GET
+    path:
+      - '{{BaseURL}}/AirWatch/Login'

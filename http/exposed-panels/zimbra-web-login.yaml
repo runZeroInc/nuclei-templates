@@ -1,5 +1,4 @@
 id: zimbra-web-login
-
 info:
   name: Zimbra Collaboration Suite Login Panel - Detect
   author: powerexploit
@@ -14,49 +13,42 @@ info:
     cpe: cpe:2.3:a:synacor:zimbra_collaboration_suite:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)zimbra collaboration suite"}) || any(each(service["html.titles"]), {# matches "(?i)zimbra web client sign in"})
-    verified: true
-    max-request: 1
-    vendor: synacor
-    product: zimbra_collaboration_suite
-    shodan-query:
-      - http.title:"zimbra collaboration suite"
-      - http.title:"zimbra web client sign in"
-      - http.favicon.hash:"1624375939"
     fofa-query:
       - title="zimbra web client sign in"
       - title="zimbra collaboration suite"
-      - icon_hash=1624375939
     google-query:
       - intitle:"zimbra collaboration suite"
       - intitle:"zimbra web client sign in"
-  tags: panel,zimbra,synacor,discovery
-
+    max-request: 1
+    product: zimbra_collaboration_suite
+    shodan-query:
+      - http.title:"Zimbra Collaboration Suite"
+      - http.title:"zimbra collaboration suite"
+      - http.title:"zimbra web client sign in"
+    vendor: synacor
+    verified: true
+  tags: discovery,panel,synacor,zimbra
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "Zimbra Collaboration Suite Log In"
-          - "Zimbra Web Client Sign In"
-          - "Zimbra Web Client Log In"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - 'v=([0-9]+)'
-
+          - v=([0-9]+)
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - Zimbra Collaboration Suite Log In
+          - Zimbra Web Client Sign In
+          - Zimbra Web Client Log In
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

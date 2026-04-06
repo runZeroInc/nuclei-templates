@@ -1,5 +1,4 @@
 id: redis-default-logins
-
 info:
   name: Redis - Default Logins
   author: tarunKoyalwar
@@ -7,13 +6,6 @@ info:
   description: |
     Redis service was accessed with easily guessed credentials.
   metadata:
-    max-request: 6
-    shodan-query:
-      - product:"redis"
-      - http.title:"airflow - dags" || http.html:"apache airflow"
-      - http.title:"sign in - airflow"
-    product: airflow
-    vendor: apache
     fofa-query:
       - apache airflow
       - title="airflow - dags" || http.html:"apache airflow"
@@ -21,8 +13,14 @@ info:
     google-query:
       - intitle:"airflow - dags" || http.html:"apache airflow"
       - intitle:"sign in - airflow"
-  tags: js,redis,default-login,network,vuln
-
+    max-request: 6
+    product: airflow
+    shodan-query:
+      - product:"redis"
+      - http.title:"airflow - dags" || http.html:"apache airflow"
+      - http.title:"sign in - airflow"
+    vendor: apache
+  tags: default-login,js,network,redis,vuln
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port)
@@ -41,15 +39,13 @@ javascript:
         - admin
         - iamadmin
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "redis_version"
-
       - type: word
         negative: true
         words:
           - "redis_mode:sentinel"
-
+        # digest: 490a004630440220674c74cc156555baa6c4490cb661ea5f4e9d6c89d11be7e59a32a11f7ec810e9022038fe799b537b92337796fb1e5a4d0647573121d7a5507ad2a3d9ec6a2bc18a82:922c64590222798bb761d5b6d8e72950

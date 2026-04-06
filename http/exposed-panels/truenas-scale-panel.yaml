@@ -1,5 +1,4 @@
 id: truenas-panel
-
 info:
   name: TrueNAS Panel - Detect
   author: rxerium
@@ -12,29 +11,27 @@ info:
     cpe: cpe:2.3:h:ixsystems:truenas:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)truenas"
-    verified: true
-    max-request: 1
-    vendor: ixsystems
-    product: truenas
-    shodan-query: http.html:"truenas"
     fofa-query: body="truenas"
-  tags: login,panel,truenas,ixsystems,discovery
-
+    max-request: 1
+    product: truenas
+    shodan-query:
+      - html:"TrueNAS"
+      - http.html:"truenas"
+    vendor: ixsystems
+    verified: true
+  tags: discovery,ixsystems,login,panel,truenas
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/ui/sessions/signin"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "'TrueNAS'"
-          - "assets/images/TrueNAS"
-        condition: and
-
-      - type: status
-        status:
+          - '''TrueNAS'''
+          - assets/images/TrueNAS
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/ui/sessions/signin'

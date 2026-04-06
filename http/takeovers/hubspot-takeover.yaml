@@ -1,5 +1,4 @@
 id: hubspot-takeover
-
 info:
   name: hubspot takeover detection
   author: pdteam
@@ -10,27 +9,40 @@ info:
     - https://hackerone.com/reports/335330
   metadata:
     max-request: 1
-  tags: takeover,hubspot,hackerone,vuln
-
+  tags: hackerone,hubspot,takeover,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
-      - type: word
-        words:
-          - "Domain not found"
-          - "does not exist in our system"
-        condition: and
-
-    extractors:
-      - type: dsl
-        dsl:
+  - extractors:
+      - dsl:
           - cname
-
+        type: dsl
+    matchers:
+      - dsl:
+          - Host != ip
+        type: dsl
+      - condition: and
+        type: word
+        words:
+          - Domain not found
+          - does not exist in our system
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+  - extractors:
+      - kval:
+          - x_hs_reason
+        name: hubspot-reason
+        type: kval
+    host-redirects: true
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 404
+          - contains(to_lower(header), "x-hubspot-notfound")
+          - contains_all(to_lower(header), "x-hs-cfworker-meta", "{\"resolver\":\"notfoundresolver\"}")
+        type: dsl
+    matchers-condition: and
+    max-redirects: 3
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: ftp-access-control-check
-
 info:
   name: FTP Access Control Check
   author: nukunga[SungHyunJeon]
@@ -15,10 +14,7 @@ info:
     - Add the allowed IP addresses and configure suitable deny rules.
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: ftp,iis,security,windows,code,windows-audit,kisa
-
-self-contained: true
-
+  tags: code,ftp,iis,kisa,security,windows,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -46,9 +42,9 @@ code:
       } else {
           "FTP_IP_ACCESS_CONTROL_CONFIGURED"
       }
-
     matchers:
       - type: word
         words:
           - "FTP_IP_ACCESS_CONTROL_NOT_CONFIGURED"
-
+        # digest: 4a0a00473045022030582b216f012703bf8b3f624b5598a65b9b606276db85587b50c76d7bb649dd022100e2745e62838e7c1fe2fc03a3dc6a49bbb82af10d7bf262198b6ae175f7f4308d:922c64590222798bb761d5b6d8e72950
+self-contained: true

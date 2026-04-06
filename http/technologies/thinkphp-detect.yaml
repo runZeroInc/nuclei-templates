@@ -1,5 +1,4 @@
 id: thinkphp-detect
-
 info:
   name: ThinkPHP - Detect
   author: pwnhxl
@@ -11,23 +10,19 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:thinkphp:thinkphp:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
-    verified: true
+    fofa-query: app="ThinkPHP"
     max-request: 2
-    vendor: thinkphp
     product: thinkphp
     shodan-query: title:"ThinkPHP"
-    fofa-query: app="ThinkPHP"
-  tags: thinkphp,tech,detect,intrusive,discovery
-
+    vendor: thinkphp
+    verified: true
+  tags: detect,discovery,intrusive,tech,thinkphp
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
       - "{{BaseURL}}/?s={{randstr}}&c={{randstr}}&a={{randstr}}&m={{randstr}}"
-
     stop-at-first-match: true
-
     matchers-condition: or
     matchers:
       - type: word
@@ -37,9 +32,8 @@ http:
           - '{ Fast & Simple OOP PHP Framework } -- [ WE CAN DO IT JUST THINK ]'
           - '/thinkphp/library/think/'
         condition: or
-
       - type: word
         part: header
         words:
           - 'X-Powered-By: ThinkPHP'
-
+        # digest: 4a0a00473045022100c7c0b29941c26ce0d20e7459de2408f420990fa020fa2aef3bd2d777ff949f490220415e76c8019b79b0530ec8de0c513fce44814a5f2a15748435cc2822ae0fdce7:922c64590222798bb761d5b6d8e72950

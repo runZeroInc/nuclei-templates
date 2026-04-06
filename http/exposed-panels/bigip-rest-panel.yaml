@@ -1,5 +1,4 @@
 id: bigip-icontrol-rest
-
 info:
   name: F5 BIG-IP iControl REST Panel - Detect
   author: MrCl0wnLab
@@ -16,31 +15,25 @@ info:
     cpe: cpe:2.3:a:f5:big-ip_access_policy_manager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)big-ip&reg;-\\+redirect"})
+    fofa-query: title="big-ip&reg;-+redirect" +"server"
+    google-query: intitle:"big-ip&reg;-+redirect" +"server"
     max-request: 1
-    vendor: f5
     product: big-ip_access_policy_manager
     shodan-query:
+      - http.title:"BIG-IP&reg;-+Redirect" +"Server"
       - http.title:"big-ip&reg;-+redirect" +"server"
-      - http.html:"big-ip apm"
-    fofa-query:
-      - title="big-ip&reg;-+redirect" +"server"
-      - body="big-ip apm"
-    google-query: intitle:"big-ip&reg;-+redirect" +"server"
-  tags: panel,bigip,f5,discovery
-
+    vendor: f5
+  tags: bigip,discovery,f5,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/mgmt/shared/authn/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "resterrorresponse"
-
-      - type: status
-        status:
+          - resterrorresponse
+      - status:
           - 401
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/mgmt/shared/authn/login'

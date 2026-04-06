@@ -1,5 +1,4 @@
 id: shellscripts
-
 info:
   name: Public shellscripts
   author: panch0r3d
@@ -8,12 +7,10 @@ info:
   metadata:
     max-request: 27
   tags: bash,exposure,files,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - "/.build.sh"
@@ -43,7 +40,6 @@ http:
         - "/rsync.sh"
         - "/sync.sh"
         - "/test.sh"
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -52,7 +48,6 @@ http:
           - ".*?bin.*?sh"
           - ".*?bin.*?bash"
         condition: or
-
       - type: word
         part: header
         words:
@@ -60,8 +55,7 @@ http:
           - "text/plain"
           - "text/x-sh"
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502206a3202db60253bd4e0599e1d8ceecda2a52ba3074c3489757e7c64a4561d6b26022100d0b6003a9c369b5e20070d6f183181b4c1413ccc304a606e409b9b1024c7dbee:922c64590222798bb761d5b6d8e72950

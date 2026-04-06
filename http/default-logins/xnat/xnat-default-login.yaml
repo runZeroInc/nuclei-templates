@@ -1,10 +1,9 @@
 id: xnat-default-login
-
 info:
   name: XNAT - Default Login
   author: 0x_Akoko
   severity: high
-  description: XNAT default login credentials were discovered.
+  description: XNAT contains an admin default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://wiki.xnat.org/documentation/xnat-administration/xnat-setup-first-time-configuration#:~:text=Log%20in%20with%20the%20username%20admin%20and%20password%20admin
   classification:
@@ -14,37 +13,34 @@ info:
     cpe: cpe:2.3:a:xnat:xnat:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "XNAT"})
-    verified: true
     max-request: 1
+    product: xnat
+    shodan-query: http.title:"XNAT"
     vendor: xnat
-  tags: default-login,xnat,vuln
-
+    verified: true
+  tags: default-login,vuln,xnat
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - app/template/Index.vm?login=true
+          - JSESSIONID
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         login_method=localdb&username={{username}}&password={{password}}&login=&XNAT_CSRF=
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "app/template/Index.vm?login=true"
-          - "JSESSIONID"
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

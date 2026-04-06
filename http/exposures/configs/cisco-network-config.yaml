@@ -1,5 +1,4 @@
 id: cisco-network-config
-
 info:
   name: Cisco System Network Configuration Page - Detect
   author: DhiyaneshDk
@@ -13,21 +12,18 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: exposure,cisco,edb,config,vuln
-
+  tags: cisco,config,edb,exposure,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/CGI/Java/Serviceability?adapter=device.statistics.configuration"
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "Network Configuration"
         part: body
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a004730450220481138e9a1bfd2ab18f2560a8247bb0c72558077c17ee8b3053ed4f74e054165022100c8b182a463b8f401760ca862031051cf4094de019b17bdeaf6262c7a811f1763:922c64590222798bb761d5b6d8e72950

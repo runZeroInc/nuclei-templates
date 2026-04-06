@@ -1,5 +1,4 @@
 id: browserless-debugger
-
 info:
   name: Exposed Browserless debugger
   author: ggranjus
@@ -11,16 +10,14 @@ info:
     cpe: cpe:2.3:a:browserless:chrome:*:*:*:*:node.js:*:*:*
   metadata:
     max-request: 1
-    vendor: browserless
     product: chrome
     shodan-query: http.title:"browserless debugger"
-  tags: browserless,unauth,debug,misconfig,vuln
-
+    vendor: browserless
+  tags: browserless,debug,misconfig,unauth,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -29,8 +26,7 @@ http:
           - "<title>browserless debugger</title>"
           - "<code>Click the ► button to run your code.</code>"
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a004730450220355ea6546f125195121a6d12bf275f86a3afc5dfbb50cbd506ed4b2d5e309e720221008e501da5d1d6a7c994ade9beca024cc3dc52e34a3b57f9b8f4f093fbe2033160:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: limesurvey-installer
-
 info:
   name: Limesurvey Installer Exposure
   author: DhiyaneshDk
@@ -8,15 +7,16 @@ info:
   classification:
     cpe: cpe:2.3:a:limesurvey:limesurvey:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: limesurvey
+    shodan-query: html:"Limesurvey Installer"
     vendor: limesurvey
-  tags: misconfig,limesurvey,install,vuln
+    verified: true
+  tags: install,limesurvey,misconfig,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/index.php?r=installer/welcome'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -26,13 +26,11 @@ http:
           - 'Progress'
           - 'Your preferred language will be used through out the installation process'
         condition: and
-
       - type: word
         part: header
         words:
           - "text/html"
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a004830460221009154e774d079a9b2ba130d3baec9517f3b663831d5e0e26cb64e151411532d34022100f4b10b34919ca37cc28e321c9b2d43745fa6d85449824ed24495288cc1925c70:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: gophish-login
-
 info:
   name: Gophish Login Panel - Detect
   author: dhiyaneshDK
@@ -12,21 +11,19 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gophish - Login"})
     max-request: 1
+    product: gophish
+    shodan-query: http.title:"Gophish - Login"
     vendor: getgophish
-  tags: panel,gophish,discovery
-
+  tags: discovery,gophish,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/login'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Gophish - Login</title>'
-
-      - type: status
-        status:
+          - <title>Gophish - Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

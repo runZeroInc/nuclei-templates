@@ -1,5 +1,4 @@
 id: configure-dns-server
-
 info:
   name: DNS Server Not Implemented - Detect
   author: pussycat0x
@@ -14,19 +13,16 @@ info:
     cwe-id: CWE-200
   metadata:
     verified: true
-  tags: firewall,config,audit,pfsense,file
-
+  tags: audit,config,file,firewall,pfsense
 file:
   - extensions:
       - xml
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "<dnsserver>"
         negative: true
-
       - type: word
         words:
           - "<pfsense>"
@@ -34,4 +30,4 @@ file:
         condition: and
 
 # Enhanced by md on 2023/05/04
-
+# digest: 4a0a00473045022100c12079ca9c548531828f3467d68eceecbecaf1652ea24db9fa5bddc9f1ade1a202200a03903398cfbacb91dcf17ff18423537687e7aeaf647076a9ee4a32f7c74c20:922c64590222798bb761d5b6d8e72950

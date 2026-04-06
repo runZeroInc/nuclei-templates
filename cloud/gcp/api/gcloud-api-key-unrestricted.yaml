@@ -1,5 +1,4 @@
 id: gcloud-api-key-unrestricted
-
 info:
   name: Unrestricted API Key Usage
   author: princechaddha
@@ -12,8 +11,7 @@ info:
     Apply restrictions to all production API keys to specify the allowed websites, IP addresses, or mobile applications that can use each key, to mitigate potential abuse.
   reference:
     - https://cloud.google.com/docs/authentication/api-keys#restricting_api_keys
-  tags: cloud,devops,gcp,gcloud,api-keys,gcp-cloud-config
-
+  tags: api-keys,cloud,devops,gcloud,gcp,gcp-cloud-config
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -24,49 +22,41 @@ flow: |
       code(3)
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud alpha services api-keys list --project $projectId --format="json(uid)"
-
     extractors:
       - type: json
         name: uids
         internal: true
         json:
           - '.[].uid'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud alpha services api-keys describe $uid --format="json(restrictions)"
-
     matchers:
       - type: word
         words:
           - 'null'
-
     extractors:
       - type: dsl
         dsl:
           - '"Unrestricted API Key: " + uid + " in Project: " + projectId'
-
+        # digest: 4a0a00473045022100d1751d133cbe1cb508355fb6acc6fb0d51094a8c42db864114772bfce2fd382a022022cb36fbfcf3f8b8ef22cd8a428104f85035cc421437b2e735f221396b39c224:922c64590222798bb761d5b6d8e72950
+self-contained: true

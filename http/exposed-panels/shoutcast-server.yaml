@@ -1,5 +1,4 @@
 id: shoutcast-server
-
 info:
   name: SHOUTcast Server Panel - Detect
   author: dhiyaneshDk
@@ -12,22 +11,20 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)SHOUTcast Server"})
     max-request: 1
+    product: dnas
+    shodan-query: http.title:"SHOUTcast Server"
     vendor: shoutcast
-  tags: panel,discovery
-
+  tags: discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>SHOUTcast Server</title>"
-
-      - type: status
-        status:
+          - <title>SHOUTcast Server</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.html'

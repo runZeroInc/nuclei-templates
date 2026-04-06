@@ -1,5 +1,4 @@
 id: grafana-unauth-access
-
 info:
   name: Grafana Unauthenticated Access
   author: ritikchaddha
@@ -11,12 +10,11 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-306
   metadata:
-    verified: true
+    fofa-query: title="Grafana"
     max-request: 7
     shodan-query: title:"Grafana"
-    fofa-query: title="Grafana"
-  tags: grafana,misconfig,unauth,exposure,dashboard
-
+    verified: true
+  tags: dashboard,exposure,grafana,misconfig,unauth
 http:
   - method: GET
     path:
@@ -27,7 +25,6 @@ http:
       - "{{BaseURL}}/api/users"
       - "{{BaseURL}}/api/datasources"
       - "{{BaseURL}}/api/frontend/settings"
-
     stop-at-first-match: true
     matchers-condition: or
     matchers:
@@ -37,7 +34,6 @@ http:
           - 'status_code == 200'
           - 'contains_all(body, "dashboards:read", "name\":\"Dashboard list")'
         condition: and
-
       - type: dsl
         name: dashboard-search-exposed
         dsl:
@@ -46,7 +42,6 @@ http:
           - 'contains_all(body, "\"uid\"", "\"title\"")'
           - 'contains_any(body, "\"type\":\"dash-db\"", "\"folderTitle\"")'
         condition: and
-
       - type: dsl
         name: home-dashboard-exposed
         dsl:
@@ -54,7 +49,6 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "\"dashboard\"", "\"meta\"")'
         condition: and
-
       - type: dsl
         name: organization-info-exposed
         dsl:
@@ -63,7 +57,6 @@ http:
           - 'contains_all(body, "\"id\"", "\"name\"")'
           - 'contains_any(body, "\"address\"", "\"orgId\"")'
         condition: and
-
       - type: dsl
         name: users-list-exposed
         dsl:
@@ -72,7 +65,6 @@ http:
           - 'contains_any(body, "\"login\"", "\"email\"")'
           - 'contains_any(body, "\"isAdmin\"", "\"authLabels\"")'
         condition: and
-
       - type: dsl
         name: datasources-exposed
         dsl:
@@ -81,7 +73,6 @@ http:
           - 'contains_all(body, "\"type\"", "\"url\"")'
           - 'contains_any(body, "\"database\"", "\"access\"")'
         condition: and
-
       - type: dsl
         name: frontend-settings-exposed
         dsl:
@@ -90,4 +81,4 @@ http:
           - 'contains_any(body, "\"allowOrgCreate\"", "\"authProxyEnabled\"")'
           - 'contains_any(body, "\"buildInfo\"", "\"datasources\"")'
         condition: and
-
+        # digest: 490a00463044022006d6ca522128b53cf4345cd48c4dfa033ed3817d11a09b1e5a07f98f2230f15b02207f2f10b39105b8a4a7950f65d004ebff484b6780cc7c5ffa787271c13899a6c5:922c64590222798bb761d5b6d8e72950

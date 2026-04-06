@@ -1,5 +1,4 @@
 id: gcloud-dns-dangling-records
-
 info:
   name: Dangling DNS Records Check
   author: princechaddha
@@ -12,8 +11,7 @@ info:
     Regularly audit your DNS records and associated IP addresses. Remove any DNS records that point to IP addresses no longer reserved under your Google Cloud account.
   reference:
     - https://cloud.google.com/dns/docs
-  tags: cloud,devops,gcp,gcloud,dns,gcp-cloud-config,discovery
-
+  tags: cloud,devops,discovery,dns,gcloud,gcp,gcp-cloud-config
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -30,62 +28,52 @@ flow: |
       }
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud dns managed-zones list --project $projectId --format="json(name,visibility)"
-
     extractors:
       - type: json
         name: managedZones
         internal: true
         json:
           - '.[].name'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud dns record-sets list --zone=$managedZone --format="json(type,rrdatas)"
-
     extractors:
       - type: json
         name: recordSets
         internal: true
         json:
           - '{type: .type, rrdatas: .rrdatas[]}'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud compute addresses list --filter "addressType~EXTERNAL" --format="json(name,status,address)"
-
     matchers:
       - type: word
         words:
           - 'RESERVED'
-
     extractors:
       - type: dsl
         dsl:
           - '"Dangling DNS Record: Type: " + recordType + " Data: " + recordData + " in Zone: " + managedZone + " of Project: " + projectId'
-
+        # digest: 4a0a0047304502204272ac41efa35729e016879c17d50d03f4b6ac55bfb4f8f44988453124e52510022100fa6369224c1eeb6551e2601a926be5495112c2ec965403dd2f0303907a37bfcd:922c64590222798bb761d5b6d8e72950
+self-contained: true

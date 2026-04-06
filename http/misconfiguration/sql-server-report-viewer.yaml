@@ -1,5 +1,4 @@
 id: sql-server-reportviewer
-
 info:
   name: SQL Server ReportViewer - Exposure
   author: kazet
@@ -10,13 +9,12 @@ info:
   classification:
     cpe: cpe:2.3:a:microsoft:sql_server:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 2
-    vendor: microsoft
-    product: sql_server
     google-query: inurl:"/Reports/Pages/Folder.aspx"
-  tags: misconfig,sql,report,exposure,vuln
-
+    max-request: 2
+    product: sql_server
+    vendor: microsoft
+    verified: true
+  tags: exposure,misconfig,report,sql,vuln
 http:
   - raw:
       - |
@@ -25,11 +23,10 @@ http:
       - |
         GET /ReportServer/Pages/Folder.aspx HTTP/1.1
         Host: {{Hostname}}
-
     matchers:
       - type: dsl
         dsl:
           - "status_code_1 == 200 && status_code_2 != 401"
           - "contains(body, 'Data Source') && contains(body, 'SQL Server Reporting Services')"
         condition: and
-
+        # digest: 4a0a00473045022068fbab3c4015eb549ff93a495a2dd475f2687b4298e6a32c04e7b4f595cd02a60221008f867764f22a3b45ebbe1f08b19e87d9153750f09aa12becd93086298c55187d:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: grafana-public-signup
-
 info:
   name: Grafana Public Signup
   author: pdteam
@@ -8,13 +7,11 @@ info:
   classification:
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
-    vendor: grafana
     product: grafana
     shodan-query: title:"Grafana"
+    vendor: grafana
   tags: grafana,intrusive,misconfig,vuln
-
 http:
   - raw:
       - |
@@ -25,21 +22,18 @@ http:
         Referer: {{BaseURL}}
 
         {"username":"{{randstr}}","password":"{{randstr_1}}"}
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "User sign up completed successfully"
-
       - type: word
         words:
           - "grafana_sess"
           - "grafana_user"
         condition: and
         part: header
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402207bdb050a0c68124bc27d87ff61e777eb137228c700cabddf7a572b7357b700480220756f3f49dfdb7472d59a2ab21b10530ad659a806b44dcfb913363e01a5a5cc86:922c64590222798bb761d5b6d8e72950

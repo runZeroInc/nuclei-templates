@@ -1,5 +1,4 @@
 id: gcloud-vertexai-integrity
-
 info:
   name: Integrity Monitoring Not Enabled for Vertex AI Notebooks
   author: princechaddha
@@ -13,46 +12,39 @@ info:
   reference:
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/VertexAI/enable-integrity-monitoring.html
     - https://cloud.google.com/vertex-ai/docs/workbench/user-managed/manage-instance
-  tags: cloud,devops,gcp,gcloud,vertexai,security,integrity,gcp-cloud-config,ai
-
+  tags: ai,cloud,devops,gcloud,gcp,gcp-cloud-config,integrity,security,vertexai
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
     set("projectId", projectId)
     code(2)
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud workbench instances describe tm-vertex-ai-notebook-instance --location=us-central1-a --project=$projectId --format="yaml(gceSetup.shieldedInstanceConfig.enableIntegrityMonitoring)"
-
     matchers:
       - type: word
         words:
           - "{}"
           - "null"
         condition: or
-
     extractors:
       - type: dsl
         dsl:
           - '"Project " + projectId + " has Vertex AI notebook instances without integrity monitoring enabled"'
-
+        # digest: 4a0a0047304502207db528887b8c3b4196abeece97c77bddd0a59322c0dca821358c99a93786708702210098618a9638dae1ff81fbe505882a575b4daa34ea2b3df20ce8f8662d92f5f8db:922c64590222798bb761d5b6d8e72950
+self-contained: true

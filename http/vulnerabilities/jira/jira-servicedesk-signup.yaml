@@ -1,5 +1,4 @@
 id: jira-servicedesk-signup
-
 info:
   name: Atlassian Jira Service Desk Signup
   author: TechbrunchFR
@@ -14,11 +13,18 @@ info:
     cpe: cpe:2.3:a:atlassian:jira_service_management:*:*:*:*:*:*:*:*
   metadata:
     max-request: 4
+    product: jira_service_management
+    shodan-query: http.component:"Atlassian Jira"
     vendor: atlassian
-  tags: atlassian,servicedesk,jira,confluence,vuln
-
+  tags: atlassian,confluence,jira,servicedesk,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - signup.validation.errors
+          - signup-username-error
+    raw:
       - |
         GET /servicedesk/customer/user/signup HTTP/1.1
         Host: {{Hostname}}
@@ -41,12 +47,4 @@ http:
         Referer: {{RootURL}}/secure/Signup.jspa
 
         email=&fullname={{randstr}}&username=&password=&Signup=Sign+up
-
     stop-at-first-match: true
-    matchers:
-      - type: word
-        words:
-          - 'signup.validation.errors'
-          - 'signup-username-error'
-        condition: or
-

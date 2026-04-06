@@ -1,5 +1,4 @@
 id: trendnet-tew827dru-login
-
 info:
   name: TRENDnet TEW-827DRU Login Panel - Detect
   author: princechaddha
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:o:trendnet:tew-827dru_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)tew-827dru"
-    max-request: 1
-    vendor: trendnet
-    product: tew-827dru_firmware
-    shodan-query: http.html:"tew-827dru"
     fofa-query: body="tew-827dru"
-  tags: panel,router,trendnet,discovery
-
+    max-request: 1
+    product: tew-827dru_firmware
+    shodan-query:
+      - http.html:"TEW-827DRU"
+      - http.html:"tew-827dru"
+    vendor: trendnet
+  tags: discovery,panel,router,trendnet
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - 'var model = "TEW-827DRU";'
-
-      - type: status
-        status:
+          - var model = "TEW-827DRU";
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

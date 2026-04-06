@@ -11,8 +11,7 @@ info:
     Upgrade your AKS clusters to the latest available Kubernetes version approved by Microsoft Azure to ensure enhanced features and security.
   reference:
     - https://docs.microsoft.com/en-us/azure/aks/kubernetes-service
-  tags: cloud,devops,azure,microsoft,kubernetes,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,kubernetes,microsoft
 flow: |
   code(1);
   for (let ClusterData of iterate(template.clusterList)) {
@@ -21,36 +20,31 @@ flow: |
     set("resourceGroup", ClusterData.ResourceGroup);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az aks list --query '[*].{"Name":name,"ResourceGroup":resourceGroup}'
-
     extractors:
       - type: json
         name: clusterList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az aks get-upgrades --name "$name" --resource-group "$resourceGroup" --output json
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"upgrades": ['
-
     extractors:
       - type: dsl
         dsl:
           - '"$name in $resourceGroup is not using the latest Kubernetes version"'
-
+        # digest: 490a00463044022057e99bbf31dcc5c0b1fd07a0fa880436c97571b57ada180da8f33fa1538315df02201e20f663b4c7c51e93b30e5c1763746d553571fcd66f2c117fa1d61f9927c91d:922c64590222798bb761d5b6d8e72950
+self-contained: true

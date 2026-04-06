@@ -1,5 +1,4 @@
 id: wd-mycloud-panel
-
 info:
   name: WD My Cloud Panel - Detect
   author: DhiyaneshDk
@@ -10,31 +9,27 @@ info:
     cpe: cpe:2.3:a:western_digital:mycloud_nas:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1074357885"
-    verified: true
-    max-request: 1
-    vendor: western_digital
-    product: mycloud_nas
-    shodan-query: http.favicon.hash:"-1074357885"
     fofa-query: icon_hash=-1074357885
-  tags: panel,login,mycloud,wd,detect,western_digital,discovery
-
+    max-request: 1
+    product: mycloud_nas
+    shodan-query: http.favicon.hash:-1074357885
+    vendor: western_digital
+    verified: true
+  tags: detect,discovery,login,mycloud,panel,wd,western_digital
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - 'WDMyCloud'
-          - 'Cloud_Connection_StatusID'
-          - 'my_cloud_os'
-          - 'WD Privacy Statement'
-        condition: or
-
-      - type: status
-        status:
+          - WDMyCloud
+          - Cloud_Connection_StatusID
+          - my_cloud_os
+          - WD Privacy Statement
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

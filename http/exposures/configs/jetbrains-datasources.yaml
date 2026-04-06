@@ -1,5 +1,4 @@
 id: jetbrains-datasource
-
 info:
   name: Jetbrains IDE DataSources Config - Detect
   author: FlorianMaak
@@ -14,20 +13,17 @@ info:
   metadata:
     max-request: 1
   tags: config,exposure,jetbrains,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}/.idea/dataSources.xml"
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "DataSourceManagerImpl"
         part: body
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502202c87c63ad2e1de85eda42534c61b730bf11fa04f307a60874c9ca0298b65c0ee022100a14cfe0da686e9e2c5829084eae297a226314ffc9a522843d961e215f59decb9:922c64590222798bb761d5b6d8e72950

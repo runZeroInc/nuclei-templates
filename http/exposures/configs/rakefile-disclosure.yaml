@@ -1,5 +1,4 @@
 id: rakefile-disclosure
-
 info:
   name: Rakefile - File Disclosure
   author: DhiyaneshDK
@@ -11,18 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:ruby-lang:ruby:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: ruby-lang
     product: ruby
     shodan-query: html:"Rakefile"
-  tags: devops,exposure,rakefile,config,ruby,rails,vuln
-
+    vendor: ruby-lang
+    verified: true
+  tags: config,devops,exposure,rails,rakefile,ruby,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/Rakefile"
-
     matchers-condition: or
     matchers:
       - type: word
@@ -32,7 +29,6 @@ http:
           - 'config/application'
         condition: and
         case-insensitive: true
-
       - type: word
         part: body
         words:
@@ -40,4 +36,4 @@ http:
           - 'desc'
           - 'task :'
         condition: and
-
+        # digest: 4a0a0047304502202787188c6fd2185e5adf61932bb691a039caaa3e3e00dd0f363e2f2c40018ad0022100fb4c95604c144d185b98fa5c6ae5fa878a9d9024013b8b7c12b796ee809b02a6:922c64590222798bb761d5b6d8e72950

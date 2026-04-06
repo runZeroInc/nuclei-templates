@@ -1,5 +1,4 @@
 id: nats-server-enum
-
 info:
   name: NATS Server - Detect
   author: pussycat0x
@@ -7,11 +6,10 @@ info:
   description: |
     Extracts key information from exposed NATS (Neural Autonomic Transport System) servers by connecting directly and retrieving configuration details such as server ID, version, cluster name, and authentication requirements. Useful for network enumeration and assessing the security posture of NATS messaging infrastructure.
   metadata:
-    verfied: true
     max-request: 1
     shodan-query: product:"NATS Server"
-  tags: js,network,nats,tcp,enum,discovery
-
+    verfied: true
+  tags: discovery,enum,js,nats,network,tcp
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -47,24 +45,20 @@ javascript:
       } catch (e) {
         resp; // Return original response if JSON parsing fails
       }
-
     args:
       Host: "{{Host}}"
       Port: 80
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "HTTP/1.1"
         negative: true
-
       - type: regex
         regex:
           - 'Server Name:\s*\S+\s+Version:\s*[0-9]+\.[0-9]+\.[0-9]+'
-
     extractors:
       - type: regex
         regex:
           - 'Server Name:\s*\S+\s+Version:\s*[0-9]+\.[0-9]+\.[0-9]+'
-
+        # digest: 4b0a00483046022100f4b2355abeb66fd444bfc52c05740495eef9d688c412254e7831ad67feb5d92b02210094e3c489d66705b385e3cc8a81eb77aa5151257a38e8874743074b7e273bb3c9:922c64590222798bb761d5b6d8e72950

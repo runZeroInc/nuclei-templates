@@ -1,5 +1,4 @@
 id: github-enterprise-detect
-
 info:
   name: Github Enterprise Login Panel - Detect
   author: ehsahil
@@ -11,24 +10,21 @@ info:
     cpe: cpe:2.3:a:github:enterprise_server:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Setup GitHub Enterprise"})
-    verified: true
     max-request: 1
-    vendor: github
     product: enterprise_server
     shodan-query:
-      - http.title:"setup github enterprise"
+      - title:"Setup GitHub Enterprise"
       - micro focus dsd
-  tags: panel,github,discovery
-
+    vendor: github
+    verified: true
+  tags: discovery,github,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    host-redirects: true
-    max-redirects: 2
+  - host-redirects: true
     matchers:
       - type: word
         words:
-          - "GitHub · Enterprise"
-
+          - GitHub · Enterprise
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

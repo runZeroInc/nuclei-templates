@@ -1,5 +1,4 @@
 id: nconf-panel
-
 info:
   name: NConf Login Panel - Detect
   author: ritikchaddha
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:a:nconf_project:nconf:*:*:*:*:node.js:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)nconf"})
-    verified: true
     max-request: 1
+    product: nconf
+    shodan-query: http.title:"nconf"
     vendor: nconf_project
-  tags: panel,nconf,discovery
-
+    verified: true
+  tags: discovery,nconf,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "nconf.js"
-          - "<title>NConf"
-        condition: or
-
-      - type: status
-        status:
+          - nconf.js
+          - <title>NConf
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: unauth-innovatrics-smartface-panel
-
 info:
   name: Unauthenticated SmartFace Panel - Detect
   author: matejsmycka
@@ -11,18 +10,14 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:-1410437493
-  tags: panel,smartface,login,detect,vuln
-
+  tags: detect,login,panel,smartface,vuln
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     host-redirects: true
     max-redirects: 2
-
     matchers:
       - type: dsl
         dsl:
@@ -30,7 +25,6 @@ http:
           - "contains(header, 'X-Powered-By: Express')"
           - "status_code == 200"
         condition: and
-
   - raw:
       - |
         POST /-/graphql HTTP/1.1
@@ -38,7 +32,6 @@ http:
         Content-Type: application/json
 
         {"query":"query getIsCollectingData {\n  isCollectingData\n}","operationName":"getIsCollectingData","variables":{}}
-
     matchers:
       - type: dsl
         dsl:
@@ -46,4 +39,4 @@ http:
           - "contains_all(body, 'version', 'isCollectingData')"
         condition: and
         internal: true
-
+        # digest: 490a0046304402202939a98ee9fed9c60553ed236082a71c89bac3b5643b4677a0cc1315b139f77d022063395bb95faa96b5d1f5fe901ec924fddfcc15ecdba09c5925175abba9300dfa:922c64590222798bb761d5b6d8e72950

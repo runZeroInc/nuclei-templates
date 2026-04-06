@@ -1,5 +1,4 @@
 id: jeedom-panel
-
 info:
   name: Jeedom Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -11,29 +10,27 @@ info:
     cpe: cpe:2.3:a:jeedom:jeedom:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)jeedom"})
-    max-request: 1
-    vendor: jeedom
-    product: jeedom
-    shodan-query: http.title:"jeedom"
     fofa-query: title="jeedom"
     google-query: intitle:"jeedom"
-  tags: panel,jeedom,login,discovery
-
+    max-request: 1
+    product: jeedom
+    shodan-query:
+      - http.title:"Jeedom"
+      - http.title:"jeedom"
+    vendor: jeedom
+  tags: discovery,jeedom,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.php?v=d"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "<title>Jeedom</title>"
-          - "JEEDOM_PRODUCT_NAME"
-        condition: and
-
-      - type: status
-        status:
+          - <title>Jeedom</title>
+          - JEEDOM_PRODUCT_NAME
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.php?v=d'

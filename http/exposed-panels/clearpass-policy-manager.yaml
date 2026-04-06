@@ -1,5 +1,4 @@
 id: clearpass-policy-manager
-
 info:
   name: ClearPass Policy Manager Login Panel - Detect
   author: dhiyaneshDK
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:a:arubanetworks:clearpass_policy_manager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)clearpass policy manager"})
-    max-request: 1
-    vendor: arubanetworks
-    product: clearpass_policy_manager
-    shodan-query: http.title:"clearpass policy manager"
     fofa-query: title="clearpass policy manager"
     google-query: intitle:"clearpass policy manager"
-  tags: panel,aruba,arubanetworks,discovery
-
+    max-request: 1
+    product: clearpass_policy_manager
+    shodan-query:
+      - http.title:"ClearPass Policy Manager"
+      - http.title:"clearpass policy manager"
+    vendor: arubanetworks
+  tags: aruba,arubanetworks,discovery,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/tips/tipsLogin.action'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>ClearPass Policy Manager - Aruba Networks</title>'
-
-      - type: status
-        status:
+          - <title>ClearPass Policy Manager - Aruba Networks</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/tips/tipsLogin.action'

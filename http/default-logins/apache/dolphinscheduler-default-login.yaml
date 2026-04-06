@@ -1,10 +1,9 @@
 id: dolphinscheduler-default-login
-
 info:
-  name: Apache DolphinScheduler Default Credentials
+  name: Apache DolphinScheduler Default Login
   author: For3stCo1d
   severity: high
-  description: Apache DolphinScheduler default login credentials were discovered.
+  description: Apache DolphinScheduler default admin credentials were discovered.
   reference:
     - https://github.com/apache/dolphinscheduler
   classification:
@@ -15,35 +14,32 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "DolphinScheduler"})
     max-request: 1
+    product: dolphinscheduler
+    shodan-query: http.title:"DolphinScheduler"
     vendor: apache
-  tags: apache,dolphinscheduler,default-login,oss,vuln
-
+  tags: apache,default-login,dolphinscheduler,oss,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"msg":"login success"'
+          - '"sessionId":'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - dolphinscheduler123
+      user:
+        - admin
+    raw:
       - |
         POST /dolphinscheduler/login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         userName={{user}}&userPassword={{pass}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - dolphinscheduler123
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"msg":"login success"'
-          - '"sessionId":'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

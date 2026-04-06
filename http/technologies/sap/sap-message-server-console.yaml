@@ -1,5 +1,4 @@
 id: sap-message-server-console
-
 info:
   name: SAP Message Server Console - Exposure
   author: LRVT,l4rm4nd
@@ -9,13 +8,11 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.html:SAP Message Server
-  tags: sap,console,exposure
-
+  tags: console,exposure,sap
 http:
   - method: GET
     path:
       - "{{RootURL}}/msgserver"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -24,13 +21,11 @@ http:
           - "<TITLE>List of commands</TITLE>"
           - "/msgserver/commands"
         condition: and
-
       - type: word
         part: header
         words:
           - "SAP Message Server"
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100e25b585b98e45c5b2a791ebb7d0344a81c29d006178e3565fe67ff2c96c50661022100f40687b2b8fd7b264f6db3bca4b945f668fc0e41077184cd521d0d4f037eb8cd:922c64590222798bb761d5b6d8e72950

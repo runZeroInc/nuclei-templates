@@ -1,5 +1,4 @@
 id: cookies-without-httponly
-
 info:
   name: Cookies without HttpOnly attribute - Detect
   author: RJ Coleman,Mr.Bobo HP
@@ -16,21 +15,18 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cvss-score: 0
   metadata:
-    verified: true
     max-request: 1
-  tags: misconfig,http,cookie,generic,vuln
-
+    verified: true
+  tags: cookie,generic,http,misconfig,vuln
 flow: |
-    http()
-    javascript()
-
+  http()
+  javascript()
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
     host-redirects: true
     max-redirects: 2
-
 javascript:
   - code: |
       content = template.http_all_headers
@@ -45,9 +41,8 @@ javascript:
         return match ? match[1] : null;
       }).filter(Boolean);
       cookieNames
-
     extractors:
       - type: regex
         regex:
           - '[a-zA-Z0-9_-]+'
-
+        # digest: 4b0a00483046022100ef7bfff8cab081bbf5cf7e2b9a2fefbdfd2f10988f7f977f7ee7e5c080d167ea022100f35eaceab4a7d086e9c1c94dd546c454d7c91bc91a01729f2d53c1b3291eba4f:922c64590222798bb761d5b6d8e72950

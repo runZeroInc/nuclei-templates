@@ -1,5 +1,4 @@
 id: cisco-edge-340
-
 info:
   name: Cisco Edge 340 Panel - Detect
   author: dhiyaneshDk
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:o:cisco:edge_340_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)cisco edge 340"})
-    max-request: 1
-    vendor: cisco
-    product: edge_340_firmware
-    shodan-query: http.title:"cisco edge 340"
     fofa-query: title="cisco edge 340"
     google-query: intitle:"cisco edge 340"
-  tags: panel,cisco,discovery
-
+    max-request: 1
+    product: edge_340_firmware
+    shodan-query:
+      - http.title:"Cisco Edge 340"
+      - http.title:"cisco edge 340"
+    vendor: cisco
+  tags: cisco,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/auth/?next=%2F"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Cisco Edge 340</title>"
-
-      - type: status
-        status:
+          - <title>Cisco Edge 340</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/auth/?next=%2F'

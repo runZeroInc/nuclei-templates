@@ -1,5 +1,4 @@
 id: opentsdb-status
-
 info:
   name: OpenTSDB - Detect
   author: pussycat0x
@@ -11,18 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:opentsdb:opentsdb:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: opentsdb
     product: opentsdb
     shodan-query: http.favicon.hash:407286339
-  tags: opentsdb,exposure,logs,vuln
-
+    vendor: opentsdb
+    verified: true
+  tags: exposure,logs,opentsdb,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/stats?json"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -32,13 +29,11 @@ http:
           - "tsd.http"
           - "host"
         condition: and
-
       - type: word
         part: header
         words:
           - "application/json"
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402206503691d88de37963c4f3779aeae8fe77c09da7b40a0c121b5ba2fa04c0f274002207ad3370f7202d4dead6b794d80f241ff1360d113a2bf805d7001ede406ef7cca:922c64590222798bb761d5b6d8e72950

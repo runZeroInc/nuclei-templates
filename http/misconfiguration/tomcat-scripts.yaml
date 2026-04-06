@@ -1,5 +1,4 @@
 id: tomcat-scripts
-
 info:
   name: Apache Tomcat Example Scripts - Detect
   author: Co0nan,Higor Melgaço
@@ -14,8 +13,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 8
-  tags: apache,tomcat,misconfig,vuln
-
+  tags: apache,misconfig,tomcat,vuln
 http:
   - method: GET
     path:
@@ -27,7 +25,6 @@ http:
       - "{{BaseURL}}/..;/examples/jsp/index.html"
       - "{{BaseURL}}/..;/examples/websocket/index.xhtml"
       - "{{BaseURL}}/..;/examples/servlets/servlet/SessionExample"
-
     matchers:
       - type: word
         words:
@@ -37,4 +34,4 @@ http:
           - "WebSocket Examples"
           - "GET based form"
         condition: or
-
+        # digest: 490a004630440220416ab8c5d236fc5abb21e7e7f1ee88d7ed0875a0ab32327e65907eec6b2c7bf802206f5a91e5b79ceb6057f54e280b54c1b3ded4e11addb5774c2546289e3d8d123d:922c64590222798bb761d5b6d8e72950

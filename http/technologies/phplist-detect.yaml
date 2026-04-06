@@ -1,5 +1,4 @@
 id: phplist-detect
-
 info:
   name: phpList - Detect
   author: ricardomaia
@@ -11,18 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:phplist:phplist:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: phplist
     product: phplist
     shodan-query: html:"phplist"
-  tags: tech,phplist,detect,discovery
-
+    vendor: phplist
+    verified: true
+  tags: detect,discovery,phplist,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     host-redirects: true
     max-redirects: 2
     matchers:
@@ -34,7 +31,6 @@ http:
           - 'phpList</a>'
         condition: or
         case-insensitive: true
-
     extractors:
       - type: regex
         name: version
@@ -42,4 +38,4 @@ http:
         group: 1
         regex:
           - '(?i)version.((\d\.?)+)'
-
+        # digest: 4a0a00473045022100950fa2a0f7778235486cf4c36396fba9546979bd8c5f3708501596ad50d13fe40220733f3634667daed9489388b3b795d5bfecf4181c8f0bafe5762b5063bb839de5:922c64590222798bb761d5b6d8e72950

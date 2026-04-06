@@ -1,5 +1,4 @@
 id: kubernetes-version
-
 info:
   name: Kubernetes Version Exposure
   author: raesene,idealphase
@@ -11,13 +10,11 @@ info:
   metadata:
     max-request: 1
     shodan-query: product:"Kubernetes" version:"1.21.5-eks-bc4871b"
-  tags: tech,k8s,kubernetes,devops,discovery
-
+  tags: devops,discovery,k8s,kubernetes,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}/version"
-
     matchers:
       - type: word
         words:
@@ -25,9 +22,8 @@ http:
           - "goVersion"
           - "platform"
         condition: and
-
     extractors:
       - type: json
         json:
           - '.gitVersion'
-
+        # digest: 4a0a0047304502203ab3c01aef875290a3ea06126277bcbdd62fcd99807b0fb72773a79458d526eb02210081ad34fe0916c6b4c2cabebd5059c319c73adc9792fc9652e1f0828d82b4835c:922c64590222798bb761d5b6d8e72950

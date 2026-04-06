@@ -11,49 +11,42 @@ info:
     Ensure alert rules are properly configured to monitor and notify on "Delete Load Balancer" events by setting the alert condition to "Microsoft.Network/loadBalancers/delete" and attaching an action group for notifications.
   reference:
     - https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log
-  tags: cloud,devops,azure,microsoft,load-balancer,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,load-balancer,microsoft
 flow: |
   code(1);
   for (let AlertData of iterate(template.alertList)) {
     set("id", AlertData);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert list --output json --query '[?(enabled==`true`)].id'
-
     extractors:
       - type: json
         name: alertList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert show --ids "$id" --query 'condition'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"field": "operationName"'
-
       - type: word
         words:
           - "Microsoft.Network/loadBalancers/delete"
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - 'id + " does not have the correct alert configuration for Delete Load Balancer events"'
-
+        # digest: 4a0a004730450221008dc7934eb307d2c6e5f77c0a6b2311262fa77eb35ade3435979d43bc5be914f8022079c5c77369dc308fd88932e623ac66f22cbca2983ac3f47a90c40f02f44c656f:922c64590222798bb761d5b6d8e72950
+self-contained: true

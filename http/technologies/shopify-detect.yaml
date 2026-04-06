@@ -1,5 +1,4 @@
 id: shopify-detect
-
 info:
   name: Shopify Detection
   author: Chirag Mistry
@@ -9,8 +8,7 @@ info:
   metadata:
     max-request: 7
     shodan-query: http.component:"Shopify"
-  tags: shopify,detect,tech
-
+  tags: detect,shopify,tech
 http:
   - method: GET
     path:
@@ -21,7 +19,6 @@ http:
       - "{{BaseURL}}/shopify_app"
       - "{{BaseURL}}/shopify_api"
       - "{{BaseURL}}/favicon.ico"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -35,12 +32,10 @@ http:
           - "Shopify Liquid"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
           - 403
-
     extractors:
       - type: regex
         part: body
@@ -50,11 +45,10 @@ http:
           - 'Shopify version ([0-9.]+)'
           - 'Coded by Shopify ([0-9.]+)'
           - 'Theme: ([A-Za-z0-9_-]+) Shopify'
-
       - type: regex
         part: body
         name: shopify_id
         regex:
           - 'shop_id=([0-9]+)'
           - 'shopify://([0-9a-zA-Z]+)'
-
+        # digest: 4b0a00483046022100d65749bb596fed6c9491058a051e6ff51caafca190bd897dc2a3ce6dd11b2e2702210085c29490ed9de1f107b58efdb7bf78681b7f58fbc9eea1fb6e257342bac593c9:922c64590222798bb761d5b6d8e72950

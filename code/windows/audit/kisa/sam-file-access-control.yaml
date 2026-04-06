@@ -1,5 +1,4 @@
 id: sam-file-access-control
-
 info:
   name: SAM File Access Control Check
   author: nukunga[SungHyunJeon]
@@ -14,10 +13,7 @@ info:
     - Or by adjusting the permissions through File Explorer.
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: sam,account-management,code,windows-audit,kisa
-
-self-contained: true
-
+  tags: account-management,code,kisa,sam,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -51,9 +47,9 @@ code:
       } else {
           "SAM_ACCESS_COMPLIANT"
       }
-
     matchers:
       - type: word
         words:
           - "SAM_ACCESS_VULNERABLE"
-
+        # digest: 490a00463044022040dec32d4771631e7b3d39511a48983e2fadad35eb9c1c0ddd873fbdf3d204ab02203870f2731378bab592f0218f083a88ca737324ef53a99f9a182488e58c645970:922c64590222798bb761d5b6d8e72950
+self-contained: true

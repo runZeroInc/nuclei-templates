@@ -1,5 +1,4 @@
 id: travis-ci-disclosure
-
 info:
   name: Travis CI Disclosure
   author: DhiyaneshDK,AmirHossein Raeisi
@@ -13,20 +12,17 @@ info:
     - https://arstechnica.com/information-technology/2021/09/travis-ci-flaw-exposed-secrets-for-thousands-of-open-source-projects/
     - https://www.tenable.com/plugins/was/113156
   metadata:
-    verified: true
     max-request: 2
     shodan-query: html:"travis.yml"
-  tags: exposure,file,config,tenable,vuln
-
+    verified: true
+  tags: config,exposure,file,tenable,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/.travis.yml'
       - '{{BaseURL}}/matomo/.travis.yml'
       - '{{BaseURL}}/ckeditor/.travis.yml'
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -36,13 +32,11 @@ http:
           - 'jobs:'
           - 'language:'
         condition: and
-
       - type: word
         part: header
         words:
           - "application/octet-stream"
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502207f69740f33c5496f4b7d76cebba08ca1768ed805382160fcb299dfdc02891c2c022100b758a1bf48018dccb182a0b007c56c86de4a9ae255d22bdbcf5bb43a70a40b56:922c64590222798bb761d5b6d8e72950

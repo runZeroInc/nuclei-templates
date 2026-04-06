@@ -1,5 +1,4 @@
 id: spark-panel
-
 info:
   name: Apache Spark Panel - Detect
   author: righettod
@@ -13,32 +12,29 @@ info:
     cpe: cpe:2.3:a:apache:spark:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)/apps/imt/html/" || any(each(service["html.titles"]), {# matches "(?i)spark master at"})
-    verified: true
-    max-request: 1
-    vendor: apache
-    product: spark
-    shodan-query:
-      - http.html:"/apps/imt/html/"
-      - http.title:"spark master at"
     fofa-query:
       - title="spark master at"
       - body="/apps/imt/html/"
     google-query: intitle:"spark master at"
-  tags: panel,spark,apache,discovery
-
+    max-request: 1
+    product: spark
+    shodan-query:
+      - html:"/apps/IMT/Html/"
+      - http.html:"/apps/imt/html/"
+      - http.title:"spark master at"
+    vendor: apache
+    verified: true
+  tags: apache,discovery,panel,spark
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "url=servlet/hype"
-
-      - type: status
-        status:
+          - url=servlet/hype
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

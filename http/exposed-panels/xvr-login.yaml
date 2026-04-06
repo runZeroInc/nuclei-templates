@@ -1,5 +1,4 @@
 id: xvr-login
-
 info:
   name: XVR Login Panel - Detect
   author: dhiyaneshDK
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:h:dahuasecurity:xvr5xxx:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)xvr login"})
-    max-request: 1
-    vendor: dahuasecurity
-    product: xvr5xxx
-    shodan-query: http.title:"xvr login"
     fofa-query: title="xvr login"
     google-query: intitle:"xvr login"
-  tags: panel,xvr,dahuasecurity,discovery
-
+    max-request: 1
+    product: xvr5xxx
+    shodan-query:
+      - http.title:"XVR LOGIN"
+      - http.title:"xvr login"
+    vendor: dahuasecurity
+  tags: dahuasecurity,discovery,panel,xvr
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/login.rsp'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>XVR LOGIN</title>'
-
-      - type: status
-        status:
+          - <title>XVR LOGIN</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.rsp'

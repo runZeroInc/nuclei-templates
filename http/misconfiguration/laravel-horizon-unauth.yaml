@@ -1,5 +1,4 @@
 id: laravel-horizon-unauth
-
 info:
   name: Laravel Horizon Dashboard - Unauthenticated
   author: vagnerd
@@ -16,17 +15,15 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 2
     shodan-query: http.favicon.hash:450899026
-  tags: laravel,unauth,dashboard,misconfig,vuln
-
+    verified: true
+  tags: dashboard,laravel,misconfig,unauth,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/api/stats"
       - "{{BaseURL}}/horizon/api/stats"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -36,13 +33,11 @@ http:
           - "recentJobs"
           - "status"
         condition: and
-
       - type: word
         part: header
         words:
           - "application/json"
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022024c21e30315296638d669c7ebf8f29f80bf56b0c3be8f6bed487b507afd4183d02210081842072386198c81713a9e349c8e6a9485f4dc761e3b338911644dd6b792386:922c64590222798bb761d5b6d8e72950

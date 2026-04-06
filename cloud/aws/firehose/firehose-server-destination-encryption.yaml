@@ -1,5 +1,4 @@
 id: firehose-server-destination-encryption
-
 info:
   name: Firehose Delivery Stream Destination Encryption - Disabled
   author: DhiyaneshDK
@@ -13,47 +12,39 @@ info:
   reference:
     - https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/Firehose/delivery-stream-destination-encryption.html
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html
-  tags: cloud,devops,aws,amazon,firehose,aws-cloud-config
-
+  tags: amazon,aws,aws-cloud-config,cloud,devops,firehose
 variables:
   region: "us-west-2"
-
 flow: |
   code(1)
   for(let DeliveryStreamNames of iterate(template.deliverys)){
     set("delivery", DeliveryStreamNames)
     code(2)
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       aws firehose list-delivery-streams --region $region --query 'DeliveryStreamNames' --output json
-
     extractors:
       - type: json
         name: deliverys
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
-        aws firehose describe-delivery-stream --region $region --delivery-stream-name $delivery --query 'DeliveryStreamDescription.Destinations[*].ExtendedS3DestinationDescription.EncryptionConfiguration' --output json
-
+      aws firehose describe-delivery-stream --region $region --delivery-stream-name $delivery --query 'DeliveryStreamDescription.Destinations[*].ExtendedS3DestinationDescription.EncryptionConfiguration' --output json
     matchers:
       - type: word
         words:
           - "NoEncryption"
-
     extractors:
       - type: dsl
         dsl:
           - '"Firehose Delivery Stream Destination " + delivery + " Encryption is Disabled"'
-
+        # digest: 4a0a00473045022100ffd599cc03999ee32dc74725353120df19ea1200318f380ede42d30cb410ddb6022017ea31b05fa2066146fa33cca3d6e4304f106dd0db9141381e0bb98c017b9c68:922c64590222798bb761d5b6d8e72950
+self-contained: true

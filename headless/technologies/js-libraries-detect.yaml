@@ -1,5 +1,4 @@
 id: js-libraries-detect
-
 info:
   name: Common JS Libraries - Detection
   author: adamparsons,cbadke,ChetGan,ErikOwen,jacalynli,geeknik
@@ -7,16 +6,13 @@ info:
   description: Checks a target web app for inclusion of common JavaScript libraries
   metadata:
     max-request: 1
-  tags: headless,tech,js,discovery
-
+  tags: discovery,headless,js,tech
 headless:
   - steps:
       - action: navigate
         args:
           url: "{{BaseURL}}"
-
       - action: waitload
-
       - action: script
         name: fingerprintAxios
         args:
@@ -35,7 +31,6 @@ headless:
 
               return "Version not found"
             }
-
       - action: script
         name: fingerprintBootstrap
         args:
@@ -53,7 +48,6 @@ headless:
 
               return ""
             }
-
       - action: script
         name: fingerprintJQuery
         args:
@@ -74,7 +68,6 @@ headless:
 
               return "";
             }
-
       - action: script
         name: fingerprintLodash
         args:
@@ -85,7 +78,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintMomentJs
         args:
@@ -96,7 +88,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintReact
         args:
@@ -107,7 +98,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintReactDOM
         args:
@@ -120,7 +110,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintAngular
         args:
@@ -139,7 +128,6 @@ headless:
 
               return ""
             }
-
       - action: script
         name: fingerprintBackboneJs
         args:
@@ -151,7 +139,6 @@ headless:
               } catch (e) {}
               return ""
             }
-
       - action: script
         name: fingerprintEmberJs
         args:
@@ -162,7 +149,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintVue
         args:
@@ -207,7 +193,6 @@ headless:
               } catch (e) {}
               return ""
             }
-
       - action: script
         name: fingerprintDojoJs
         args:
@@ -218,7 +203,6 @@ headless:
               } catch (e) {}
               return ""
             }
-
       - action: script
         name: fingerprintDomPurify
         args:
@@ -229,7 +213,6 @@ headless:
               } catch (e) {}
               return ""
             }
-
       - action: script
         name: fingerprintModernizr
         args:
@@ -240,7 +223,6 @@ headless:
               } catch (e) {}
               return ""
             }
-
       - action: script
         name: fingerprintD3
         args:
@@ -251,7 +233,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintThreeJs
         args:
@@ -262,7 +243,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintChartJs
         args:
@@ -273,7 +253,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintSlick
         args:
@@ -285,7 +264,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintSelect2
         args:
@@ -297,7 +275,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintHandlebars
         args:
@@ -308,7 +285,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintUnderscore
         args:
@@ -319,7 +295,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintYUI
         args:
@@ -330,7 +305,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintKnockout
         args:
@@ -342,7 +316,6 @@ headless:
                 return "";
               }
             }
-
       - action: script
         name: fingerprintLeaflet
         args:
@@ -353,7 +326,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintPaperJS
         args:
@@ -364,7 +336,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintFabricJS
         args:
@@ -376,7 +347,6 @@ headless:
                 return "";
               }
             }
-
       - action: script
         name: fingerprintP5JS
         args:
@@ -387,7 +357,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
       - action: script
         name: fingerprintNextJS
         args:
@@ -398,7 +367,6 @@ headless:
               } catch (e) {}
               return "";
             }
-
     matchers-condition: or
     matchers:
       - type: dsl
@@ -431,173 +399,145 @@ headless:
           - len(fingerprintFabricJS) > 0
           - len(fingerprintP5JS) > 0
           - len(fingerprintNextJS) > 0
-
     extractors:
       - name: axios
         type: regex
         part: fingerprintAxios
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: bootstrap
         type: regex
         part: fingerprintBootstrap
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: jquery
         type: regex
         part: fingerprintJQuery
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: lodash
         type: regex
         part: fingerprintLodash
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: moment
         type: regex
         part: fingerprintMomentJs
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: react
         type: regex
         part: fingerprintReact
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: reactdom
         type: regex
         part: fingerprintReactDOM
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: angular
         type: regex
         part: fingerprintAngular
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: backbone
         type: regex
         part: fingerprintBackboneJs
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: emberjs
         type: regex
         part: fingerprintEmberJs
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: vuejs
         type: regex
         part: fingerprintVue
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: dojo
         type: regex
         part: fingerprintDojoJs
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: dompurify
         type: regex
         part: fingerprintDomPurify
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: modernizr
         type: regex
         part: fingerprintModernizr
         regex:
           - ^(0|[1-9]\d*)(?:\.(0|[1-9]\d*))?(?:\.(0|[1-9]\d*))?(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: d3
         type: regex
         part: fingerprintD3
         regex:
           - "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
-
       - name: threejs
         type: regex
         part: fingerprintThreeJs
         regex:
           - "^(0|[1-9]\\d*)$"
-
       - name: chartjs
         type: regex
         part: fingerprintChartJs
         regex:
           - "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
-
       - name: slick
         type: regex
         part: fingerprintSlick
         regex:
           - "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
-
       - name: select2
         type: regex
         part: fingerprintSelect2
         regex:
           - "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
-
       - name: handlebars
         type: regex
         part: fingerprintHandlebars
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: underscore
         type: regex
         part: fingerprintUnderscore
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: yui
         type: regex
         part: fingerprintYUI
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: knockout
         type: regex
         part: fingerprintKnockout
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: leaflet
         type: regex
         part: fingerprintLeaflet
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: paperjs
         type: regex
         part: fingerprintPaperJS
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: fabricjs
         type: regex
         part: fingerprintFabricJS
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: p5js
         type: regex
         part: fingerprintP5JS
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
       - name: nextjs
         type: regex
         part: fingerprintNextJS
         regex:
           - ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
-
+        # digest: 4b0a00483046022100886c3605d3d7e8cb4a2d5e920683057633a86248365a75eed73494b0d48069f6022100e4a9d346cc616f66844f56110c0d9ce69684271de90e0b264caf7dfb036257ae:922c64590222798bb761d5b6d8e72950

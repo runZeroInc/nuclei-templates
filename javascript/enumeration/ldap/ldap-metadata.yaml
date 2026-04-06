@@ -1,5 +1,4 @@
 id: ldap-metadata
-
 info:
   name: LDAP Metadata - Enumeration
   author: pussycat0x
@@ -11,8 +10,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: ldap
-  tags: js,network,ldap,discovery
-
+  tags: discovery,js,ldap,network
 javascript:
   - code: |
       const ldap = require('nuclei/ldap');
@@ -21,11 +19,9 @@ javascript:
       const client = new ldap.Client(Host, Port);
       const metadata = client.CollectMetadata();
       Export((metadata))
-
     args:
       Host: "ldap://{{Host}}"
       Port: 389
-
     matchers:
       - type: dsl
         dsl:
@@ -36,44 +32,37 @@ javascript:
           - "len(ForestFunctionality) != 0"
           - "len(DomainControllerFunctionality) != 0"
           - "success == true"
-
     extractors:
       - type: json
         internal: true
         name: BaseDn
         json:
           - '.BaseDN'
-
       - type: json
         internal: true
         name: DnsHostName
         json:
           - '.DnsHostName'
-
       - type: json
         internal: true
         name: DefaultNamingContext
         json:
           - '.DefaultNamingContext'
-
       - type: json
         internal: true
         name: DomainFunctionality
         json:
           - '.DomainFunctionality'
-
       - type: json
         internal: true
         name: ForestFunctionality
         json:
           - '.ForestFunctionality'
-
       - type: json
         internal: true
         name: DomainControllerFunctionality
         json:
           - '.DomainControllerFunctionality'
-
       - type: json
         json:
           - '"BaseDN: " + .BaseDN'
@@ -82,4 +71,4 @@ javascript:
           - '"DomainFunctionality: "+ .DomainFunctionality'
           - '"ForestFunctionality: " + .ForestFunctionality'
           - '"DomainControllerFunctionality: "+ .DomainControllerFunctionality'
-
+        # digest: 4a0a00473045022100fb81418a17542cdde195df6a7197af11cedf7efad6c62b7b65acc235913fe17102206774462282af9d8f9c468498c13d6ab5bbc7eed49504bbfb459b1d0d789a0f22:922c64590222798bb761d5b6d8e72950

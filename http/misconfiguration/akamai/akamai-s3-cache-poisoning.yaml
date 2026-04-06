@@ -1,5 +1,4 @@
 id: akamai-s3-cache-poisoning
-
 info:
   name: Akamai/Amazon S3 - Cache Poisoning
   author: DhiyaneshDk
@@ -13,12 +12,11 @@ info:
     cvss-score: 7.1
     cwe-id: CWE-44
   metadata:
-    verified: true
     max-request: 204
-  tags: cache,poisoning,xss,akamai,s3,misconfig,vuln
+    verified: true
+  tags: akamai,cache,misconfig,poisoning,s3,vuln,xss
 variables:
   rand: "{{rand_base(5)}}"
-
 http:
   - raw:
       - |+
@@ -33,12 +31,12 @@ http:
     attack: clusterbomb
     payloads:
       escape:
-        - "\u000b"
+        - "\v"
         - "\f"
-        - "\u001c"
-        - "\u001d"
-        - "\u001e"
-        - "\u001f"
+        - "\x1C"
+        - "\x1D"
+        - "\x1E"
+        - "\x1F"
       bucket:
         - "nuclei-ap-northeast-1"
         - "nuclei-ap-northeast-2"
@@ -65,4 +63,4 @@ http:
           - 'contains(body_2, "alert(document.domain)")'
           - 'status_code_2 == 200'
         condition: and
-
+        # digest: 4a0a00473045022100aac77893e88ddd18fa4d35f6705e1c26d8bae5b910fd71e4573605d9a89128b202202c7a38d6c4a33b43f839a137c74af1f3d51616f8f18187ef6acec46b564fd3dc:922c64590222798bb761d5b6d8e72950

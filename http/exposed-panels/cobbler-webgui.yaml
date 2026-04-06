@@ -1,5 +1,4 @@
 id: cobbler-webgui
-
 info:
   name: Cobbler WebGUI Login Panel - Detect
   author: c-sh0
@@ -11,33 +10,30 @@ info:
     cpe: cpe:2.3:a:cobblerd:cobbler:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)cobbler web interface"})
-    max-request: 1
-    vendor: cobblerd
-    product: cobbler
-    shodan-query: http.title:"cobbler web interface"
     fofa-query: title="cobbler web interface"
     google-query: intitle:"cobbler web interface"
-  tags: cobbler,webserver,panel,cobblerd,discovery
-
+    max-request: 1
+    product: cobbler
+    shodan-query:
+      - http.title:"Cobbler Web Interface"
+      - http.title:"cobbler web interface"
+    vendor: cobblerd
+  tags: cobbler,cobblerd,discovery,panel,webserver
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cobbler_web"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: status
-        status:
+      - status:
           - 200
-
-      - type: word
+        type: status
+      - condition: or
         part: body
+        type: word
         words:
-          - "<title>Cobbler Web Interface</title>"
-          - "/cobbler_webui_content/"
-          - "/cobbler_web/do_login"
-        condition: or
-
+          - <title>Cobbler Web Interface</title>
+          - /cobbler_webui_content/
+          - /cobbler_web/do_login
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/cobbler_web'

@@ -1,5 +1,4 @@
 id: gcloud-func-inactive-svc-acc
-
 info:
   name: Inactive Service Accounts in Google Cloud Functions
   author: princechaddha
@@ -12,8 +11,7 @@ info:
     Verify and update the service accounts associated with your Google Cloud functions to ensure they are active and have the necessary permissions for function execution.
   reference:
     - https://cloud.google.com/functions/docs/securing/managing-access-iam
-  tags: cloud,devops,gcp,gcloud,google-cloud-functions,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,google-cloud-functions
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -28,55 +26,45 @@ flow: |
       }
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud functions list --project $projectId --format="json(name)"
-
     extractors:
       - type: json
         name: functions
         internal: true
         json:
           - '.[].name'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud functions describe $functionName --format="json(serviceConfig.serviceAccountEmail)"
-
     extractors:
       - type: json
         name: serviceAccountEmail
         internal: true
         json:
           - '.[].serviceAccountEmail'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud iam service-accounts describe $serviceAccountEmail --format="json(disabled)"
-
     matchers:
       - type: word
         words:
@@ -84,9 +72,9 @@ code:
           - 'ERROR:'
           - 'disabled'
         condition: or
-
     extractors:
       - type: dsl
         dsl:
           - '"Inactive Service Account: " + serviceAccountEmail + ", Function: " + functionName + " in " + projectId + " project"'
-
+        # digest: 4b0a00483046022100b3a88d907cebddde0a630870a7c5ca519f91bcc44458251a401c29d179f8d1a7022100a890c368897f632fea8e9340f73adde68fe56e87c3f8b55fdd7d8d5aa7a3d73d:922c64590222798bb761d5b6d8e72950
+self-contained: true

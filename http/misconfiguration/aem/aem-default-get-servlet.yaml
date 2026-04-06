@@ -1,5 +1,4 @@
 id: aem-default-get-servlet
-
 info:
   name: AEM DefaultGetServlet
   author: DhiyaneshDk
@@ -12,16 +11,14 @@ info:
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
     max-request: 64
-    vendor: adobe
     product: experience_manager
     shodan-query: http.component:"Adobe Experience Manager"
-  tags: aem,adobe,misconfig,vuln
-
+    vendor: adobe
+  tags: adobe,aem,misconfig,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - "/etc"
@@ -89,15 +86,13 @@ http:
         - "///etc.children.json/FNZ.png"
         - "///etc.children.json/FNZ.ico"
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
-
       - type: word
         words:
           - 'jcr:createdBy'
         condition: and
-
+        # digest: 4a0a00473045022100e5273e0c26aea46b61c2c741da70ae92bd5929568ba31d12eb9719325f91bf6202203f00a53dd09bee8eb3403cf692f7a88c22abd94113a4dda6e65a4d9ebdd21969:922c64590222798bb761d5b6d8e72950

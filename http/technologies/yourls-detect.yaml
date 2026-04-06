@@ -1,5 +1,4 @@
 id: yourls-detect
-
 info:
   name: YOURLS - Detection
   author: lstatro
@@ -11,22 +10,19 @@ info:
   classification:
     cpe: cpe:2.3:a:yourls:yourls:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: title="Your Own URL Shortener"
     max-request: 1
-    vendor: yourls
     product: yourls
     shodan-query: title:"Your Own URL Shortener"
-    fofa-query: title="Your Own URL Shortener"
-  tags: tech,yourls,discovery
-
+    vendor: yourls
+    verified: true
+  tags: discovery,tech,yourls
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     redirects: true
     max-redirects: 3
-
     matchers-condition: and
     matchers:
       - type: word
@@ -37,11 +33,9 @@ http:
           - 'alt="YOURLS'
           - '/yourls-logo'
         condition: or
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -49,4 +43,4 @@ http:
         regex:
           - 'YOURLS<\/a>([ a-z0-9.-]+)'
           - 'content="YOURLS([ 0-9.]+)"'
-
+        # digest: 4a0a00473045022100e0287541cdc4e7ff3f10a75b508cd8ea5ce60e233e6ac1f31ae31613eb436ab60220421e6bdf28212631f8f513b1b667b4098fb2b465f9acf45e090f64bb8cf369bf:922c64590222798bb761d5b6d8e72950

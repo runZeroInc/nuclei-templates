@@ -1,5 +1,4 @@
 id: nodejs-framework-exceptions
-
 info:
   name: Node.js Framework Exceptions
   author: Aayush Dhakal
@@ -9,11 +8,9 @@ info:
     - https://expressjs.com/en/guide/error-handling.html
     - https://nodejs.org/en/docs/guides
   tags: file,logs,nodejs
-
 file:
   - extensions:
       - all
-
     extractors:
       - type: regex
         name: exception
@@ -30,4 +27,4 @@ file:
           - 'BadRequestError'
           - 'MongoError'
           - 'SequelizeDatabaseError'
-
+        # digest: 4a0a00473045022100c0b831c67604d48d5d4eccc3aaff6225be0dcc27f5a04fb4c9ca1b261748a013022079c6912f9f8816f5ec547fe7bef168e8d7d8cc30e2762d54a305b938629c58d1:922c64590222798bb761d5b6d8e72950

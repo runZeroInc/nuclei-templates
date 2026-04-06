@@ -1,5 +1,4 @@
 id: node-red-detect
-
 info:
   name: Node-RED Dashboard - Detect
   author: pikpikcu
@@ -11,21 +10,18 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: tech,apache,node-red-dashboard,discovery
-
+  tags: apache,discovery,node-red-dashboard,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: and
     matchers:
       - type: word
         part: body
         words:
           - "<title>Node-RED</title>"
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022070e48a9e3a346b47d29833d670538f32fb558e797e1108486be147b406704237022058f69d015e0244f7d6352c1fa88df26947766b56fba9d03effd789b11a50575d:922c64590222798bb761d5b6d8e72950

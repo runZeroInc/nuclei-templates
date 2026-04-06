@@ -1,5 +1,4 @@
 id: cloudfoundry-detect
-
 info:
   name: Cloudfoundry Detect
   author: uomogrande
@@ -9,8 +8,7 @@ info:
     - https://docs.cloudfoundry.org/concepts/cf-routing-architecture.html
   metadata:
     max-request: 2
-  tags: cloudfoundry,tech,discovery
-
+  tags: cloudfoundry,discovery,tech
 http:
   - raw:
       - |
@@ -20,10 +18,9 @@ http:
       - |
         GET / HTTP/1.1
         Host: {{randstr}}.com
-
     stop-at-first-match: true
     matchers:
       - type: dsl
         dsl:
           - 'contains(header, "X-Vcap-Request-Id:") || contains(header, "X-Cf-Routererror:")'
-
+        # digest: 4b0a004830460221008fa7479d5d6e13620bc67253822023b152a55de85c7bbfd0a655b5ae681e139b0221008018f0e303153fee69311a23b842ef642b8b5f02bf841e24142555bf55f299d1:922c64590222798bb761d5b6d8e72950

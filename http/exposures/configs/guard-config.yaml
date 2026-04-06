@@ -1,5 +1,4 @@
 id: guard-config
-
 info:
   name: Guardfile Config - Detect
   author: DhiyaneshDK
@@ -13,16 +12,14 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 1
     shodan-query: html:"Guardfile"
-  tags: exposure,file,guard,config,vuln
-
+    verified: true
+  tags: config,exposure,file,guard,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/Guardfile'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,8 +28,7 @@ http:
           - 'guard :'
           - 'end'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a004630440220495ebc06cb8f89de598eb59b1e06be163274f66b8a0d7c83cd1664d5ffbb909b022049b12b8850425cb307ad6912024e30a1a2e5c43a17802e58e46f7bf80e63ae03:922c64590222798bb761d5b6d8e72950

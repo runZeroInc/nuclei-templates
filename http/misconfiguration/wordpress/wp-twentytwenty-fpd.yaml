@@ -1,5 +1,4 @@
 id: wp-twentytwenty-fpd
-
 info:
   name: WordPress Twenty Twenty Theme - Full Path Disclosure
   author: 0x_Akoko
@@ -11,13 +10,11 @@ info:
     - https://core.trac.wordpress.org/ticket/38317
   metadata:
     max-request: 1
-  tags: debug,wordpress,fpd,vuln,twentytwenty,wp-themes
-
+  tags: debug,fpd,twentytwenty,vuln,wordpress,wp-themes
 http:
   - method: GET
     path:
       - "{{BaseURL}}/wp-content/themes/twentytwenty/functions.php"
-
     matchers:
       - type: dsl
         dsl:
@@ -25,4 +22,4 @@ http:
           - 'contains(body, "Call to undefined function add_action()")'
           - 'contains(body, "/themes/twentytwenty/")'
         condition: and
-
+        # digest: 490a0046304402202280c51852d94d7fc4ab5b2846e49e2bdefd7a1e9afee53a5295487d1b3455bb02205f7733a47cfd3e4af172962eb04c7b9ff2ffbad4e202a2bc544a502f487c63f2:922c64590222798bb761d5b6d8e72950

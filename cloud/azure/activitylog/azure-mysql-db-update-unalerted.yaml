@@ -11,49 +11,42 @@ info:
     Ensure alert rules are properly configured to monitor and notify on "Create or Update MySQL Database" events by setting the alert condition to "Microsoft.DBforMySQL/servers/databases/write" and ensuring that an action group is attached to manage notifications.
   reference:
     - https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log
-  tags: cloud,devops,azure,microsoft,mysql,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,mysql
 flow: |
   code(1);
   for (let AlertData of iterate(template.alertList)) {
     set("id", AlertData);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert list --output json --query '[?(enabled==`true`)].id'
-
     extractors:
       - type: json
         name: alertList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az monitor activity-log alert show --ids "$id" --query 'condition'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"field": "operationName"'
-
       - type: word
         words:
           - "Microsoft.DBforMySQL/servers/databases/write"
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - 'id + " does not have the correct alert configuration for Create/Update MySQL Database events"'
-
+        # digest: 490a0046304402206e05d40c4618619e7345c4628451fce580df6df024887036e43808f5035a2b2002205b6693d8b3a9ec262786adf8677823b4bec2bb664313b11f5522a00fd5af8be1:922c64590222798bb761d5b6d8e72950
+self-contained: true

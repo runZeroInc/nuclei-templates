@@ -1,5 +1,4 @@
 id: directum-login
-
 info:
   name: Directum Login Panel - Detect
   author: pikpikcu
@@ -11,25 +10,23 @@ info:
     cpe: cpe:2.3:a:directum:directum:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Directum"})
+    fofa-query: title="Directum"
     max-request: 1
+    product: directum
     vendor: directum
-  tags: directum,panel,discovery
-
+  tags: directum,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Login.aspx"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "DIRECTUM Login"
-          - "Directum Login"
-        condition: or
-
-      - type: status
-        status:
+          - DIRECTUM Login
+          - Directum Login
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/Login.aspx'

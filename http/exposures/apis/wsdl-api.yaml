@@ -1,5 +1,4 @@
 id: wsdl-api
-
 info:
   name: WSDL API - Detect
   author: jarijaas
@@ -13,15 +12,13 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: exposure,api,discovery
-
+  tags: api,discovery,exposure
 http:
   - method: GET
     path:
       - "{{BaseURL}}/?wsdl"
-
     matchers:
       - type: word
         words:
           - "wsdl:definitions"
-
+        # digest: 4a0a004730450220776ea1fbf9a3237a6cabbb86e1ac403dfa768ff719fda2307d08541c432eb860022100dc1f38bc344f96d2ec082a11092af9dafa5cf04f7b1ac9c30423b2ff7b800ab8:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: apache-jmeter-dashboard
-
 info:
   name: Apache JMeter Dashboard Login Panel - Detect
   author: tess
@@ -11,30 +10,28 @@ info:
     cpe: cpe:2.3:a:apache:jmeter:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)apache jmeter dashboard"})
-    verified: true
-    max-request: 1
-    vendor: apache
-    product: jmeter
-    shodan-query: http.title:"apache jmeter dashboard"
     fofa-query: title="apache jmeter dashboard"
     google-query: intitle:"apache jmeter dashboard"
-  tags: apache,jmeter,panel,discovery
-
+    max-request: 1
+    product: jmeter
+    shodan-query:
+      - title:"Apache JMeter Dashboard"
+      - http.title:"apache jmeter dashboard"
+    vendor: apache
+    verified: true
+  tags: apache,discovery,jmeter,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Apache JMeter Dashboard
+          - Dashboard
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Apache JMeter Dashboard"
-          - "Dashboard"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

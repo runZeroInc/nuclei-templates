@@ -1,5 +1,4 @@
 id: privesc-gawk
-
 info:
   name: gawk - Privilege Escalation
   author: daffainfo
@@ -9,30 +8,25 @@ info:
   reference:
     - https://gtfobins.github.io/gtfobins/gawk/
   metadata:
-    verified: true
     max-request: 3
-  tags: code,linux,gawk,privesc,local
-
-self-contained: true
+    verified: true
+  tags: code,gawk,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
     source: |
       whoami
-
   - engine:
       - sh
       - bash
     source: |
       gawk 'BEGIN {system("whoami")}'
-
   - engine:
       - sh
       - bash
     source: |
       sudo gawk 'BEGIN {system("whoami")}'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -40,10 +34,10 @@ code:
         words:
           - "root"
         negative: true
-
       - type: dsl
         dsl:
           - 'contains(code_2_response, "root")'
           - 'contains(code_3_response, "root")'
         condition: or
-
+        # digest: 4a0a0047304502206b9e8fcc119a7ffc6dde1bc0be376e9ed77b45753332eaeabbc0c4a1cdf23f11022100babde41ad35d643b740249fcdb659919c266c55726566d53376eaeb98a2bf6a2:922c64590222798bb761d5b6d8e72950
+self-contained: true

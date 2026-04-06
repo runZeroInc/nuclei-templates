@@ -1,5 +1,4 @@
 id: laravel-debug-infoleak
-
 info:
   name: Laravel Debug Info Leak
   author: pwnhxl
@@ -14,20 +13,18 @@ info:
     cwe-id: CWE-215
     cpe: cpe:2.3:a:laravel:framework:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="Laravel-Framework"
     max-request: 1
-    vendor: laravel
     product: framework
     shodan-query: Laravel-Framework
-    fofa-query: app="Laravel-Framework"
-  tags: misconfig,laravel,debug,infoleak,vuln
-
+    vendor: laravel
+    verified: true
+  tags: debug,infoleak,laravel,misconfig,vuln
 http:
   - raw:
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
-
     matchers-condition: and
     matchers:
       - type: word
@@ -36,7 +33,6 @@ http:
           - 'vendor/laravel/framework/src/Illuminate/'
           - 'MethodNotAllowedHttpException'
         condition: and
-
       - type: word
         part: body
         words:
@@ -48,8 +44,7 @@ http:
           - 'SMS_AUTH_TOKEN'
           - 'APP_KEY'
         condition: or
-
       - type: status
         status:
           - 405
-
+        # digest: 490a0046304402202fb76b17102dfcaa5af85d514766aad419ea7df4cf704971ec7fefa98885a7e00220440c11d425166764622170a8a32ecea673430bb8966e27f72322fa7e68a27f17:922c64590222798bb761d5b6d8e72950

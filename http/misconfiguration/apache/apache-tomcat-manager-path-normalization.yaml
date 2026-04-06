@@ -1,5 +1,4 @@
 id: apache-tomcat-manager-path-normalization
-
 info:
   name: Apache Tomcat Manager Path Normalization Panel - Detect
   author: brenocss,organiccrap
@@ -12,10 +11,8 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 6
-  tags: panel,tomcat,apache,misconfig,intrusive,vuln
-
+  tags: apache,intrusive,misconfig,panel,tomcat,vuln
 http:
   - method: GET
     path:
@@ -25,7 +22,6 @@ http:
       - '{{BaseURL}}/..;/..;/host-manager/html;/'
       - '{{BaseURL}}/{{randstr}}/..;/manager/html'
       - '{{BaseURL}}/{{randstr}}/..;/host-manager/html'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,9 +29,8 @@ http:
           - 'username="tomcat" password="s3cret"'
           - 'manager-gui'
         condition: and
-
       - type: status
         negative: true
         status:
           - 403
-
+        # digest: 4b0a00483046022100cbd66616b3e31bd020f50456c2e4250c08f6810f6d282051daa33ba816ae8f40022100a69515a9b812e6d5ef770bafa38197a73f5a271f713ef912b13ebf930abf5ea4:922c64590222798bb761d5b6d8e72950

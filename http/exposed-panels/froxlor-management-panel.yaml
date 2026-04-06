@@ -1,5 +1,4 @@
 id: froxlor-management-panel
-
 info:
   name: Froxlor Server Management Login Panel - Detect
   author: DhiyaneshDK
@@ -11,34 +10,29 @@ info:
     cpe: cpe:2.3:a:froxlor:froxlor:*:*:*:*:gentoo:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)froxlor server management panel"})
-    verified: true
-    max-request: 1
-    vendor: froxlor
-    product: froxlor
-    shodan-query: http.title:"froxlor server management panel"
-    fofa-query:
-      - title="froxlor server management panel"
-      - title="froxlor server management panel - installation"
+    fofa-query: title="froxlor server management panel"
     google-query: intitle:"froxlor server management panel"
-  tags: panel,froxlor,discovery
-
+    max-request: 1
+    product: froxlor
+    shodan-query:
+      - title:"Froxlor Server Management Panel"
+      - http.title:"froxlor server management panel"
+    vendor: froxlor
+    verified: true
+  tags: discovery,froxlor,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "<title>Froxlor Server Management Panel</title>"
-
-      - type: word
-        part: header
+          - <title>Froxlor Server Management Panel</title>
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: roxyfileman-fileupload
-
 info:
   name: Roxy Fileman 1.4.4 - Arbitrary File Upload
   author: DhiyaneshDK
@@ -13,12 +12,10 @@ info:
     cvss-score: 8.8
     cwe-id: CWE-434
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
-    verified: true
-    max-request: 4
     google-query: intitle:"Roxy file manager"
-  tags: misconfig,edb,roxy,fileman,rce,fileupload,intrusive,vuln
-
+    max-request: 4
+    verified: true
+  tags: edb,fileman,fileupload,intrusive,misconfig,rce,roxy,vuln
 http:
   - raw:
       - |
@@ -64,23 +61,19 @@ http:
       - |
         GET /Uploads/{{randstr}}.php HTTP/1.1
         Host: {{Hostname}}
-
     host-redirects: true
     max-redirects: 2
-
     matchers-condition: and
     matchers:
       - type: regex
         part: body
         regex:
           - "99acb46eabd01958e22fae1792e83ca9"
-
       - type: word
         part: header
         words:
           - text/html
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502207b640ead7f5514570ebc9ab0131b4ca73f02127e615096c6865249e038d3d732022100ce20baed86c184f30d6a144bbc9563fa109cdc673a7b241e70c7baf6e6cdd260:922c64590222798bb761d5b6d8e72950

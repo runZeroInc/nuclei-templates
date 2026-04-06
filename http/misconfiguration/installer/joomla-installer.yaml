@@ -1,5 +1,4 @@
 id: joomla-installer
-
 info:
   name: Joomla! Installer Exposure
   author: DhiyaneshDk
@@ -8,18 +7,16 @@ info:
   classification:
     cpe: cpe:2.3:a:joomla:joomla\\!:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: joomla
     product: joomla\\!
     shodan-query: title:"Joomla Web Installer"
-  tags: misconfig,joomla,install,vuln
-
+    vendor: joomla
+    verified: true
+  tags: install,joomla,misconfig,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/installation/index.php'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -28,13 +25,11 @@ http:
           - 'Joomla! Web Installer'
           - 'Configuration'
         condition: and
-
       - type: word
         part: header
         words:
           - "text/html"
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a004730450220262913fe900fe8c99b87f80ac66c94ab3bddef40bba41be1f2751223666f7f9c022100ebd071469ac98c51cbe2dec30435d96d26432888cb0d9a6a401cf60493b97c3b:922c64590222798bb761d5b6d8e72950

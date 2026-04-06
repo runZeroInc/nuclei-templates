@@ -1,5 +1,4 @@
 id: ssh-hostbasedauth-disabled
-
 info:
   name: Ensure SSH HostbasedAuthentication - Disabled
   author: Th3l0newolf
@@ -13,14 +12,10 @@ info:
     - https://docs.datadoghq.com/security/default_rules/def-000-fqw/
   metadata:
     verified: true
-  tags: cis,local,ssh,linux,audit,ubuntu,benchmark
-
-self-contained: true
-
+  tags: audit,benchmark,cis,linux,local,ssh,ubuntu
 code:
   - engine:
       - bash
-
     args:
       - "-c"
       - |
@@ -32,15 +27,14 @@ code:
         else
           echo "[cis-ssh-hostbasedauth-disabled:Policy-Pass] [HostbasedAuthentication no or not set] [CIS_PASS] [medium]"
         fi
-
     matchers:
       - type: word
         name: policy-pass
         words:
           - "Policy-Pass"
-
       - type: word
         name: policy-fail
         words:
           - "Policy-Fail"
-
+        # digest: 490a004630440220143cf5a634bf8bfdd48a2dd1285e72edce7ba02474d4c4eb3e848c2f1790093102207c2cf4247a5fe9536dde6756ef936b79aeb786b9c7311dd0461daf36f54ea233:922c64590222798bb761d5b6d8e72950
+self-contained: true

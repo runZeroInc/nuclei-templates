@@ -1,5 +1,4 @@
 id: stestr-config
-
 info:
   name: Stestr Configuration File - Detect
   author: Hardik-Solanki
@@ -13,16 +12,14 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    verified: true
-    max-request: 1
     github-query: filename:stestr.conf
-  tags: exposure,stestr,config,files,vuln
-
+    max-request: 1
+    verified: true
+  tags: config,exposure,files,stestr,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/.stestr.conf"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,8 +28,7 @@ http:
           - '[DEFAULT]'
           - 'test_path='
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022100acf07d393d0cda53eb9e02ed227b867c504462b4fe07c59885232992606066e4022027a0b8d5272b0da79808e8985ebf0b531fcfebf4021c640f28c9b0c9a2f21979:922c64590222798bb761d5b6d8e72950

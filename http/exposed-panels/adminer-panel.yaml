@@ -1,5 +1,4 @@
 id: adminer-panel
-
 info:
   name: Adminer Login Panel - Detect
   author: random_robbie,meme-lord,ritikchaddha
@@ -12,21 +11,40 @@ info:
     cpe: cpe:2.3:a:adminer:adminer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
-    verified: true
-    max-request: 8
-    vendor: adminer
-    product: adminer
-    shodan-query:
-      - http.title:"login - adminer"
-      - cpe:"cpe:2.3:a:adminer:adminer"
     fofa-query:
       - title="login - adminer"
       - app="adminer" && body="4.7.8"
     google-query: intitle:"login - adminer"
-  tags: panel,adminer,discovery
-
+    hunter-query: app.name="adminer"&&web.body="4.7.8"
+    max-request: 8
+    product: adminer
+    shodan-query:
+      - title:"Login - Adminer"
+      - cpe:"cpe:2.3:a:adminer:adminer"
+      - http.title:"login - adminer"
+    vendor: adminer
+    verified: true
+  tags: adminer,discovery,panel
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - <span class="version">([0-9.]+)
+        type: regex
+    headers:
+      Accept-Language: en-US,en;q=0.5
+    matchers:
+      - condition: or
+        type: word
+        words:
+          - Adminer</title>
+          - Adminer</a>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/adminer.php'
       - '{{BaseURL}}/_adminer.php'
@@ -37,27 +55,4 @@ http:
       - '{{BaseURL}}/wp-content/plugins/adminer/adminer.php'
       - '{{BaseURL}}/admin.php'
       - '{{BaseURL}}/modules/sfkdbmanage/adminer.php'
-
-    headers:
-      Accept-Language: en-US,en;q=0.5
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Adminer</title>"
-          - "Adminer</a>"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '<span class="version">([0-9.]+)'
-

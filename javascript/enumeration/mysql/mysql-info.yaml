@@ -1,5 +1,4 @@
 id: mysql-info
-
 info:
   name: MySQL Info - Enumeration
   author: pussycat0x
@@ -11,8 +10,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: "port:3306"
-  tags: js,mysql,network,enum,discovery
-
+  tags: discovery,enum,js,mysql,network
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -21,20 +19,17 @@ javascript:
       var c = m.MySQLClient();
       var response = c.FingerprintMySQL(Host,Port);
       Export(response);
-
     args:
       Host: "{{Host}}"
       Port: "3306"
-
     matchers:
       - type: dsl
         dsl:
           - "success == true"
-
     extractors:
       - type: json
         json:
           - '"Version: "+ .Version '
           - '"TLS "+ .TLS'
           - '"Transport: "+ .Transport '
-
+        # digest: 4b0a0048304602210096c635469334c49e43d7a94ed0a4ed34f64e2048245ccf00788ab82ec2eaff9b022100af933816e55309378e1016f90efb96a16ece023842b9ca019c46ed3ff4705a79:922c64590222798bb761d5b6d8e72950

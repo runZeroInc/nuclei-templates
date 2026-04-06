@@ -1,5 +1,4 @@
 id: maintainer-account
-
 info:
   name: Fortinet Maintainer Account Not Implemented - Detect
   author: pussycat0x
@@ -12,22 +11,19 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   tags: audit,config,file,firewall,fortigate
-
 file:
   - extensions:
       - conf
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "set admin-maintainer"
         negative: true
-
       - type: word
         words:
           - "config system"
           - "config router"
           - "config firewall"
         condition: or
-
+        # digest: 490a0046304402202e5c82a769e14316acaafa797cd6b8b98860f4d667bdb78da66293d33bea37eb022001e0a30bdc64309fe218642b425919685b76ba7d73db16b4762826a1e226a3bf:922c64590222798bb761d5b6d8e72950

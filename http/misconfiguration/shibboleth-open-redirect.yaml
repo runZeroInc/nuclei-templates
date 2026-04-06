@@ -1,5 +1,4 @@
 id: shibboleth-open-redirect
-
 info:
   name: Shibboleth SSO - Open Redirect
   author: aushack
@@ -16,23 +15,20 @@ info:
     cwe-id: CWE-601
   metadata:
     max-request: 1
-    verified: true
     shodan-query: html:"Shibboleth"
-  tags: redirect,shibboleth,misconfig,vuln
-
+    verified: true
+  tags: misconfig,redirect,shibboleth,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/Shibboleth.sso/Logout?return=https://{{randstr}}.interact.sh"
-
     matchers-condition: and
     matchers:
       - type: regex
         part: header
         regex:
           - '(?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)(?:[a-zA-Z0-9\-_\.@]*)interact\.sh\/?(\/|[^.].*)?$' # https://regex101.com/r/L403F0/1
-
       - type: status
         status:
           - 302
-
+        # digest: 4a0a00473045022100d06495aca6005ef5dcb1b32804ab1fbfd051465530bf29f56812940542883cdf02204d098d2db16cd8083bd049349b6feac782758e754c4afb9db07b59a822bf2dff:922c64590222798bb761d5b6d8e72950

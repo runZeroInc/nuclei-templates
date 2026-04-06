@@ -1,5 +1,4 @@
 id: smb-os-detect
-
 info:
   name: SMB Operating System - Detect
   author: pussycat0x
@@ -10,11 +9,10 @@ info:
     - https://nmap.org/nsedoc/scripts/smb-os-discovery.html
   metadata:
     max-request: 1
-    shodan-query: "port:445"
     product: dionaea
+    shodan-query: "port:445"
     vendor: dionaea
-  tags: js,network,smb,enum,os,discovery
-
+  tags: discovery,enum,js,network,os,smb
 javascript:
   - pre-condition: |
       isPortOpen(Host,Port);
@@ -152,13 +150,11 @@ javascript:
       osInfo = response.OSVersion;
       }
       osInfo;
-
     args:
       Host: "{{Host}}"
       Port: "445"
-
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 4a0a00473045022068e3ed3876ab051339945719ce7f4d01423c12c47f324827fa9009f87bbbaebd022100ba5f3c8d3f95085e21e6b11b5d469db828f97ce8c8b02c9a0596b25eb561e3d4:922c64590222798bb761d5b6d8e72950

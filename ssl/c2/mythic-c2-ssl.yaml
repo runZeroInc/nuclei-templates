@@ -1,5 +1,4 @@
 id: mythic-c2-ssl
-
 info:
   name: Mythic C2 SSL - Detect
   author: johnk3r
@@ -10,11 +9,11 @@ info:
     - https://docs.mythic-c2.net
     - https://www.team-cymru.com/post/mythic-case-study-assessing-common-offensive-security-tools
   metadata:
-    verified: "true"
+    censys-query: services.tls.certificates.leaf_data.issuer.common_name:Mythic
     max-request: 1
     shodan-query: ssl:"Mythic"
-    censys-query: services.tls.certificates.leaf_data.issuer.common_name:Mythic
-  tags: c2,ssl,tls,ir,osint,malware,mythic,discovery
+    verified: "true"
+  tags: c2,discovery,ir,malware,mythic,osint,ssl,tls
 ssl:
   - address: "{{Host}}:{{Port}}"
     matchers:
@@ -22,9 +21,8 @@ ssl:
         part: issuer_dn
         words:
           - "O=Mythic"
-
     extractors:
       - type: json
         json:
           - " .issuer_dn"
-
+        # digest: 4a0a004730450221009a99b774decb558c58bd943f72344c997a1f6d58c2ca3856e17c224cafc5de6d0220270e6aeecdde856a67dab46e548a2445e08c258ed6c21ae5c93ba3c7902329d6:922c64590222798bb761d5b6d8e72950

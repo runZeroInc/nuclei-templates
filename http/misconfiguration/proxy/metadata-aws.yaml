@@ -1,5 +1,4 @@
 id: metadata-service-aws
-
 # This attack abuses a misconfigured proxy that allows access to the metadata
 # IP or a name which resolves to the IP. A standard proxy request is made to
 # the proxy using the full metadata URL, which the proxy will fulfill to its
@@ -25,8 +24,7 @@ info:
     cwe-id: CWE-441
   metadata:
     max-request: 4
-  tags: exposure,proxy,aws,amazon,misconfig,metadata,vuln
-
+  tags: amazon,aws,exposure,metadata,misconfig,proxy,vuln
 http:
   - raw:
       - |+
@@ -47,4 +45,4 @@ http:
           - "public-ipv4"
           - "privateIp"
         condition: or
-
+        # digest: 4b0a004830460221009b2b3b1dc1c6a98c9afa736677257771c67132f497187a5b1f1387493fc0554a022100db5ac0d5b99a3de287206c25348ae1ea6f9e4c0f12f37405cda923d4d482ef64:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: opencart-detect
-
 info:
   name: OpenCart Detection
   author: Chirag Mistry
@@ -9,8 +8,7 @@ info:
   metadata:
     max-request: 8
     shodan-query: http.component:"OpenCart"
-  tags: opencart,detect,tech
-
+  tags: detect,opencart,tech
 http:
   - method: GET
     path:
@@ -22,7 +20,6 @@ http:
       - "{{BaseURL}}/catalog/view/javascript/opencart.js"
       - "{{BaseURL}}/index.php?route=common/home"
       - "{{BaseURL}}/oc-admin"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -34,11 +31,9 @@ http:
           - "OpenCart Store"
         condition: or
         case-insensitive: true
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         part: body
@@ -46,11 +41,10 @@ http:
         regex:
           - 'OpenCart ([0-9.]+)'
           - 'Powered by OpenCart ([0-9.]+)'
-
       - type: regex
         part: body
         name: opencart_id
         regex:
           - 'opencart-store-id=([a-z0-9]+)'
           - 'oc-admin/([^/]+)'
-
+        # digest: 490a0046304402203a88528625a2936986cfa8b8ed15d93b0ba5a4d323940eb414c4b45c9706ecf702201d67a085c24c764f0259c40cdc96f18e12c927be0d0e59ec7ca7d0540e29bc3b:922c64590222798bb761d5b6d8e72950

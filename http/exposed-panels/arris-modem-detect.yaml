@@ -1,5 +1,4 @@
 id: arris-modem-detect
-
 info:
   name: ARRIS Touchstone Telephony Modem - Panel Detect
   author: gy741
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:h:commscope:dg3450:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)phy\\.htm"
-    verified: true
-    max-request: 1
-    vendor: commscope
-    product: dg3450
-    shodan-query: http.html:"phy.htm"
     fofa-query: body="phy.htm"
-  tags: panel,arris,commscope,discovery
-
+    max-request: 1
+    product: dg3450
+    shodan-query:
+      - html:"phy.htm"
+      - http.html:"phy.htm"
+    vendor: commscope
+    verified: true
+  tags: arris,commscope,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/phy.htm"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>Touchstone Status</title>'
-
-      - type: status
-        status:
+          - <title>Touchstone Status</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/phy.htm'

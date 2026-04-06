@@ -1,5 +1,4 @@
 id: ez-publish-panel
-
 info:
   name: eZ Publish Login Panel - Detect
   author: ritikchaddha
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:ez:ez_publish:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)eZ Publish"
-    verified: true
     max-request: 1
+    product: ez_publish
+    shodan-query: http.html:"eZ Publish"
     vendor: ez
-  tags: panel,ez,discovery
-
+    verified: true
+  tags: discovery,ez,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: or
+  - host-redirects: true
     matchers:
-      - type: word
+      - case-insensitive: true
         part: body
+        type: word
         words:
-          - 'content="eZ Publish'
-        case-insensitive: true
-
-      - type: word
-        part: header
+          - content="eZ Publish
+      - part: header
+        type: word
         words:
-          - 'eZ Publish'
-
+          - eZ Publish
+    matchers-condition: or
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

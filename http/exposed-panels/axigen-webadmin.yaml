@@ -1,5 +1,4 @@
 id: axigen-webadmin
-
 info:
   name: Axigen Web Admin Detection
   author: dhiyaneshDk
@@ -13,21 +12,19 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Axigen\u00a0WebAdmin"})
     max-request: 1
+    product: axigen_mail_server
+    shodan-query: http.title:"Axigen WebAdmin"
     vendor: axigen
-  tags: axigen,panel,discovery
-
+  tags: axigen,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Axigen WebAdmin</title>'
-
-      - type: status
-        status:
+          - <title>Axigen WebAdmin</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

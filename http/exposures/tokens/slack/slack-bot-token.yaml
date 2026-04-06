@@ -1,5 +1,4 @@
 id: slack-bot-token
-
 info:
   name: Slack Bot token
   author: nadino
@@ -7,16 +6,14 @@ info:
   reference:
     - https://api.slack.com/authentication/token-types
   metadata:
+    max-request: 1
     verified: true
-  tags: exposure,token,slack,vuln
-
+  tags: exposure,slack,token,vuln
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers:
       - type: regex
         part: body
@@ -25,7 +22,6 @@ http:
           - 'xoxb-[0-9A-Za-z\\-]{52}'
           - '(xoxb-[0-9]{10,13}\-[0-9]{10,13}[a-zA-Z0-9-]*)'
         internal: true
-
   - raw:
       - |
         @Host: https://slack.com:443
@@ -43,7 +39,6 @@ http:
 
         {{token}}
         ------WebKitFormBoundaryDL3VHEC7cFaxeAhK--
-
     disable-path-automerge: true
     matchers:
       - type: dsl
@@ -52,9 +47,8 @@ http:
           - contains_all(body, "team_id", "user_id", "bot_id")
           - contains(content_type, "application/json")
         condition: and
-
     extractors:
       - type: dsl
         dsl:
           - token
-
+        # digest: 490a0046304402205cdce695aa62aaeccc771756d2b0878d7d359cf2b440277cd0848d547a6eca2302202fe986cf30f15c64b10b6e796b9c2fb371a09c9a2b361198c0d11cd44703c8b2:922c64590222798bb761d5b6d8e72950

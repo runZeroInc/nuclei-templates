@@ -1,5 +1,4 @@
 id: pritunl-panel
-
 info:
   name: Pritunl - Panel
   author: irshad ahamed
@@ -13,21 +12,21 @@ info:
     cpe: cpe:2.3:a:pritunl:pritunl:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Pritunl"})
+    max-request: 1
+    product: pritunl
+    shodan-query: title:"Pritunl"
+    vendor: pritunl
     verified: true
-  tags: pritunl,panel,login,discovery
-
+  tags: discovery,login,panel,pritunl
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Pritunl</title>'
-
-      - type: status
-        status:
+          - <title>Pritunl</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

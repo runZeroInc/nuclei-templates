@@ -1,5 +1,4 @@
 id: dompdf-config
-
 info:
   name: DomPDF - Configuration Page
   author: kazet
@@ -10,11 +9,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dompdf_project:dompdf:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: title="dompdf - The PHP 5 HTML to PDF Converter"
     max-request: 6
+    product: dompdf
     vendor: dompdf_project
-  tags: config,exposure,dompdf,vuln
-
+    verified: true
+  tags: config,dompdf,exposure,vuln
 http:
   - method: GET
     path:
@@ -24,9 +24,7 @@ http:
       - "{{BaseURL}}/portal/application/libraries/dompdf/www/setup.php"
       - "{{BaseURL}}/sites/all/libraries/dompdf/www/setup.php"
       - "{{BaseURL}}/vendor/dompdf/dompdf/www/setup.php"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -35,8 +33,7 @@ http:
           - 'HTML to PDF Converter</title>'
           - '<td class="title">DOMPDF_PDF_BACKEND</td>'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 490a00463044022013a3e6473cee1de1146b920ee4930ce161fe2964a5bcca4b869726733df8e741022024670bd41976c73f14d77e4e07384629e03da87d4091edd1bb7c072be22b21a3:922c64590222798bb761d5b6d8e72950

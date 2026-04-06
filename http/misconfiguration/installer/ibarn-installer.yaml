@@ -1,5 +1,4 @@
 id: ibarn-installer
-
 info:
   name: iBarn Installer - Exposure
   author: ritikchaddha
@@ -7,18 +6,16 @@ info:
   description: |
     Detects the exposure of the iBarn installer page, which could allow unauthorized setup or reinstallation of the application.
   metadata:
-    verified: true
+    fofa-query: title="iBarn"
     max-request: 1
     product: ibarn
     shodan-query: title:"iBarn"
-    fofa-query: title="iBarn"
-  tags: ibarn,installer,exposure,misconfig,vuln
-
+    verified: true
+  tags: exposure,ibarn,installer,misconfig,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -27,8 +24,7 @@ http:
           - "iBarn"
           - "install()"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022006eadcafd4b908e1283263d2e538a4a9d3cc4a4997e1897088a13eae8e51fb4a022100ade58dea6e9ba3e189f37fdd3a3fd8302d87a247e5196b125f39132b50cda1b8:922c64590222798bb761d5b6d8e72950

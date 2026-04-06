@@ -1,5 +1,4 @@
 id: connectwise-panel
-
 info:
   name: ConnectWise Control Remote Support Software Panel - Detect
   author: johnk3r
@@ -9,42 +8,36 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:connectwise:screenconnect:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 1
-    vendor: connectwise
-    product: screenconnect
-    shodan-query: http.favicon.hash:"-82958153"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-82958153"
     fofa-query:
       - app="screenconnect-remote-support-software"
       - icon_hash=-82958153
-    runzero-match: service["favicon.ico.image.mmh3"] == "-82958153"
     hunter-query: app.name="connectwise screenconnect software"
+    max-request: 1
+    product: screenconnect
+    shodan-query: http.favicon.hash:-82958153
+    vendor: connectwise
+    verified: true
     zoomeye-query: app="screenconnect remote management software"
-  tags: screenconnect,panel,connectwise,detect,discovery
-
+  tags: connectwise,detect,discovery,panel,screenconnect
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Login"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - 'contains(header, "ScreenConnect")'
-          - 'contains(body, "ConnectWise Control Remote Support")'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: kval
-        part: header
-        kval:
+  - extractors:
+      - kval:
           - Server
-
+        part: header
+        type: kval
+    host-redirects: true
+    matchers:
+      - condition: or
+        dsl:
+          - contains(header, "ScreenConnect")
+          - contains(body, "ConnectWise Control Remote Support")
+        type: dsl
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/Login'

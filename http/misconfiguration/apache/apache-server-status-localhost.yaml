@@ -1,5 +1,4 @@
 id: apache-server-status-localhost
-
 info:
   name: Server Status Disclosure
   author: pdteam,geeknik,NaN-kl
@@ -9,14 +8,11 @@ info:
   metadata:
     max-request: 2
   tags: apache,debug,misconfig,vuln
-
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}/server-status"
-
     matchers:
       - type: status
         status:
@@ -25,11 +21,9 @@ http:
           - 401
         condition: or
         internal: true
-
   - method: GET
     path:
       - "{{BaseURL}}/server-status"
-
     headers:
       Forwarded: 127.0.0.1
       X-Client-IP: 127.0.0.1
@@ -48,4 +42,4 @@ http:
           - "Apache Server Status"
           - "Server Version"
         condition: and
-
+        # digest: 4a0a00473045022100a9f527e16363569985a535290a6696fb4c577e9e5160a424dd1abdc645fb41880220197c428da9ef4d89a9090c88db88e50a9c15ed61d5759ff037fd1addcf917d53:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: dkron-detect
-
 info:
   name: Dkron - Detect
   author: icarot
@@ -9,23 +8,20 @@ info:
   reference:
     - https://github.com/distribworks/dkron/
   metadata:
-    verified: true
     fofa-query: title="DKRON"
     shodan-query: title:"DKRON"
-  tags: tech,dkron,detect,discovery
-
+    verified: true
+  tags: detect,discovery,dkron,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}/ui/"
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '<title>Dkron</title>'
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100a15819294ce8585acd65db878a26603aa912a4c50546c5da8dd64ebd53d003cd022100e67637217fdf23219e4d9e5e58c5922d4340e589dca9c4e62eb4bbcbe8db39f6:922c64590222798bb761d5b6d8e72950

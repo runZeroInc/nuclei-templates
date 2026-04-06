@@ -1,5 +1,4 @@
 id: syncthing-dashboard
-
 info:
   name: Syncthing Dashboard Exposure
   author: fabaff
@@ -10,21 +9,18 @@ info:
   classification:
     cpe: cpe:2.3:a:syncthing:syncthing:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: syncthing
     product: syncthing
     shodan-query: http.html:'ng-app="syncthing"'
-  tags: misconfig,syncthing,exposure,discovery
-
+    vendor: syncthing
+    verified: true
+  tags: discovery,exposure,misconfig,syncthing
 http:
   - method: GET
     path:
       - '{{BaseURL}}'
-
     host-redirects: true
     max-redirects: 2
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,8 +29,7 @@ http:
           - 'The Syncthing Authors.'
           - 'Actions'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502206bc85759457ca6268788ecd16843107bbf07b35bfc0a583b81eac12d0fce4ee1022100abb80c4b19ab5dadec6a8b199a9abf7813b997f4810b401acf7fdcb6994b6f58:922c64590222798bb761d5b6d8e72950

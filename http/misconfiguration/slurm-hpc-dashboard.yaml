@@ -1,5 +1,4 @@
 id: slurm-hpc-dashboard
-
 info:
   name: Slurm HPC Dashboard - Detect
   author: ritikchaddha
@@ -14,16 +13,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:schedmd:slurm:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: slurm
+    shodan-query: title:"Slurm HPC Dashboard"
     vendor: schedmd
-  tags: misconfig,slurm,dashboard,discovery
-
+    verified: true
+  tags: dashboard,discovery,misconfig,slurm
 http:
   - method: GET
     path:
       - "{{BaseURL}}/slurm/"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,8 +30,7 @@ http:
           - '<title>Slurm HPC Dashboard</title>'
           - 'content="Slurm HPC dashboard'
         condition: or
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502205ec1199c7278140b1f4b7e782b7ec15c5c8fcf28ed5dc4f4a8ea7db9a7b67367022100ad4ca071091a4a7e4647ce16d55d20f648341cb6f205d872af8c5965e9b96512:922c64590222798bb761d5b6d8e72950

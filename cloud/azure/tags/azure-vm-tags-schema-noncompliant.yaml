@@ -11,8 +11,7 @@ info:
     Update the tagging schema of your Azure virtual machines to include the recommended tags: Name, Role, Environment, and Owner to ensure effective resource management and billing.
   reference:
     - https://docs.microsoft.com/en-us/azure/virtual-machines/tagging
-  tags: cloud,devops,azure,microsoft,azure-vm,azure-cloud-config
-
+  tags: azure,azure-cloud-config,azure-vm,cloud,devops,microsoft
 flow: |
   code(1);
   for (let VMData of iterate(template.vmList)) {
@@ -20,41 +19,35 @@ flow: |
     set("resourceId", VMData.id);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az vm list --query '[*].{"id":id}'
-
     extractors:
       - type: json
         name: vmList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az tag list --resource-id "$resourceId" --output json --query 'properties.tags'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - ''
-
       - type: word
         words:
           - "Name"
         negative: true
-
     extractors:
       - type: dsl
         dsl:
           - 'resourceId + " does not use the recommended tagging schema"'
-
+        # digest: 4b0a0048304602210094f218b17723a92855744f1f39f2a274210cd20d8a689b073196fc77d3095074022100f86132973c7efe501ae65424b2aa6828892bcaeef18072dd57efe1f448774adb:922c64590222798bb761d5b6d8e72950
+self-contained: true

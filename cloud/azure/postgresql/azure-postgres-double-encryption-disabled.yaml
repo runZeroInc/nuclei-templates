@@ -11,8 +11,7 @@ info:
     Enable infrastructure double encryption on all your Azure PostgreSQL Single Server databases to ensure an additional layer of security.
   reference:
     - https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-security-encryption
-  tags: cloud,devops,azure,microsoft,postgresql,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,postgresql
 flow: |
   code(1);
   for (let ServerData of iterate(template.serverList)) {
@@ -21,36 +20,31 @@ flow: |
     set("resourceGroup", ServerData.ResourceGroup);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az postgres server list --output json --query '[*].{"Name":name,"ResourceGroup":resourceGroup}'
-
     extractors:
       - type: json
         name: serverList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az postgres server show --name "$name" --resource-group "$resourceGroup" --query 'infrastructureEncryption'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"Disabled"'
-
     extractors:
       - type: dsl
         dsl:
           - 'name + " in " + resourceGroup + " does not have double encryption enabled"'
-
+        # digest: 4a0a0047304502202b31db846d675076611ec761ec07d4ac1dbbad3afe67ca6cbaa2a877d30f9b35022100b8c91575335d2e85e2f2d9800413eab6ca73ae96a13c6bdee2d655856a7b18f9:922c64590222798bb761d5b6d8e72950
+self-contained: true

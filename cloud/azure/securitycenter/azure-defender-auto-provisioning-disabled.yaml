@@ -11,23 +11,20 @@ info:
     Enable the automatic provisioning feature within Microsoft Defender for Cloud to ensure that all necessary security agents are automatically deployed across your Azure resources.
   reference:
     - https://docs.microsoft.com/en-us/azure/security-center/security-center-auto-provisioning
-  tags: cloud,devops,azure,microsoft,defender-for-cloud,azure-cloud-config
-
-self-contained: true
+  tags: azure,azure-cloud-config,cloud,defender-for-cloud,devops,microsoft
 code:
   - engine:
       - sh
       - bash
     source: |
       az security auto-provisioning-setting list
-
     matchers:
       - type: word
         words:
           - '"autoProvision": "Off"'
-
     extractors:
       - type: dsl
         dsl:
           - '"Automatic Provisioning for Microsoft Defender are not enabled"'
-
+        # digest: 4b0a00483046022100d03ce238fcbfd5d6e26cfaa77938fd9a3c1288824f07807cfd301e4645097793022100b15d697f6a5205dbbbabd1df68392c4c9d6c18c3464e166fe63b6b9a8062ce61:922c64590222798bb761d5b6d8e72950
+self-contained: true

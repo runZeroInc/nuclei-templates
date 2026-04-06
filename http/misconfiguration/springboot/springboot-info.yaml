@@ -1,5 +1,4 @@
 id: springboot-info
-
 info:
   name: Spring Boot Information Panel - Detect
   author: philippedelteil,tess,TheZakMan
@@ -12,8 +11,7 @@ info:
   metadata:
     max-request: 4
     verified: true
-  tags: springboot,misconfig,vuln
-
+  tags: misconfig,springboot,vuln
 http:
   - method: GET
     path:
@@ -21,9 +19,7 @@ http:
       - "{{BaseURL}}/actuator/info"
       - "{{BaseURL}}/management"
       - "{{BaseURL}}/management/info"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: dsl
@@ -32,7 +28,6 @@ http:
           - 'contains_all(body, "\"java\"", "\"version\"")'
           - 'status_code == 200'
         condition: and
-
       - type: word
         part: body
         words:
@@ -42,4 +37,4 @@ http:
           - '"build"'
           - '"vendor"'
         condition: or
-
+        # digest: 4b0a0048304602210098ad0c587bf3d33428315274a001382e0ccda5d589800fc496528a3ff34a628c022100bbfed7d9cd5c28f5d3abacf77e7f2182a8ba3dee28e62271bddaa5ea995b68fb:922c64590222798bb761d5b6d8e72950

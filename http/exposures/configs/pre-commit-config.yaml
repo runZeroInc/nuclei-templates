@@ -1,5 +1,4 @@
 id: pre-commit-config
-
 info:
   name: Pre-commit Configuration File - Detect
   author: DhiyaneshDk
@@ -12,18 +11,15 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 2
-  tags: exposure,devops,config,cicd,vuln
-
+    verified: true
+  tags: cicd,config,devops,exposure,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/.pre-commit-config.yaml"
       - "{{BaseURL}}/pre-commit-config.yaml"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,8 +29,7 @@ http:
           - "hooks:"
           - "rev:"
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100ae22857c03566e1f1692385905c4b119f756cae7dde6423dabdd5a687cfcd7ea0221008f792dd0ad494f740e1ecd10e8d6bc05337c4eb666da433bae5f67cbb1b34c29:922c64590222798bb761d5b6d8e72950

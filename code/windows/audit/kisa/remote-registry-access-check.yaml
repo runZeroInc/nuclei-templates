@@ -1,5 +1,4 @@
 id: remote-registry-access-check
-
 info:
   name: Remote Registry Service Disabled Check
   author: nukunga[SungHyunJeon]
@@ -15,10 +14,7 @@ info:
         - Services Console: Locate the Remote Registry service, set its startup type to "Disabled", and stop the service.
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: code,windows-audit,kisa,registry,remote-access
-
-self-contained: true
-
+  tags: code,kisa,registry,remote-access,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -36,9 +32,9 @@ code:
       } else {
           "REMOTE_REGISTRY_DISABLED"
       }
-
     matchers:
       - type: word
         words:
           - "REMOTE_REGISTRY_ENABLED"
-
+        # digest: 490a0046304402203fb235c6a7ca71c6858e31c863effedd845cf40e384b97b22051a206c0bbcc08022020ec6be858126ba85edc925c32e91882a68c38aadf86a1793bcd5670c54fde24:922c64590222798bb761d5b6d8e72950
+self-contained: true

@@ -1,20 +1,16 @@
 id: graphql-detect
-
 info:
   name: GraphQL API Detection
   author: nkxxkn,elsfa7110,ofjaaah,exceed
   severity: info
   metadata:
     max-request: 124
-  tags: tech,graphql,discovery
-
+  tags: discovery,graphql,tech
 http:
   - method: POST
     path:
       - "{{BaseURL}}{{paths}}"
-
     body: '{"query":"query IntrospectionQuery{__schema {queryType { name }}}"}'
-
     headers:
       Content-Type: application/json
     payloads:
@@ -144,22 +140,19 @@ http:
         - "/v4/playground"
         - "/v4/subscriptions"
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
-
       - type: word
         part: header
         words:
           - "application/json"
-
       - type: regex
         regex:
           - "__schema"
           - "(Introspection|INTROSPECTION|introspection).*?"
           - ".*?operation not found.*?"
         condition: or
-
+        # digest: 4a0a0047304502203d90a930654318d71a9c4360817fc8107d2a98db9f957e3d066a4930de5c79c5022100ffb5e1707f69dd95b724ba10d780129c61b219fa585639be34a7391edaa5d3f6:922c64590222798bb761d5b6d8e72950

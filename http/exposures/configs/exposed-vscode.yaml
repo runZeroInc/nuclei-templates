@@ -1,5 +1,4 @@
 id: exposed-vscode
-
 info:
   name: Visual Studio Code Directories - Detect
   author: aashiq
@@ -11,16 +10,14 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: vscode,exposure,vuln
-
+  tags: exposure,vscode,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/.vscode/"
-
     matchers:
       - type: word
         words:
           - "Index of /.vscode"
         part: body
-
+        # digest: 4a0a00473045022100b463e67ceb5ddeb047cb32d93f8ab2ae4ef36dbcd3a72631350e2686d5ed46a1022054212e6e1243b0081a60f218ec6a8e64fe9234efaeec567de664c06d1440a10d:922c64590222798bb761d5b6d8e72950

@@ -1,5 +1,4 @@
 id: verizon-router-panel
-
 info:
   name: Verizon Router Panel - Detect
   author: theamanrawat
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:o:verizon:fios_actiontec_mi424wr-gen31_router_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Verizon Router"})
-    verified: true
     max-request: 1
+    product: fios_actiontec_mi424wr-gen31_router_firmware
+    shodan-query: http.title:"Verizon Router"
     vendor: verizon
-  tags: panel,verizon,router,discovery
-
+    verified: true
+  tags: discovery,panel,router,verizon
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Verizon Router</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Verizon Router</title>'
-
-      - type: status
-        status:
-          - 200
-

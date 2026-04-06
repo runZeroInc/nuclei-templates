@@ -1,11 +1,9 @@
 id: panabit-default-login
-
 info:
   name: Panabit Gateway - Default Login
   author: pikpikcu,ritikchaddha
   severity: critical
-  description: |
-    Panabit Gateway default login credentials were discovered.
+  description: Panabit Gateway default credentials were discovered.
   reference:
     - https://max.book118.com/html/2017/0623/117514590.shtm
     - https://en.panabit.com/wp-content/uploads/Panabit-Intelligent-Application-Gateway-04072020.pdf
@@ -16,13 +14,33 @@ info:
     cwe-id: CWE-1391
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
-    max-request: 1
     fofa-query: app="Panabit-智能网关"
-  tags: panabit,default-login,intrusive,vuln
-
+    max-request: 1
+    verified: true
+  tags: default-login,intrusive,panabit,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <META HTTP-EQUIV=REFRESH CONTENT="0;URL=/index.htm">
+          - urn:schemas-microsoft-com:vml
+      - part: header
+        type: word
+        words:
+          - paonline_admin
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - panabit
+      username:
+        - admin
+    raw:
       - |
         POST /login/userverify.cgi HTTP/1.1
         Host: {{Hostname}}
@@ -41,29 +59,3 @@ http:
 
         {{password}}
         ------WebKitFormBoundaryAjZMsILtbrBp8VbC--
-
-    payloads:
-      username:
-        - admin
-      password:
-        - panabit
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<META HTTP-EQUIV=REFRESH CONTENT="0;URL=/index.htm">'
-          - 'urn:schemas-microsoft-com:vml'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "paonline_admin"
-
-      - type: status
-        status:
-          - 200
-

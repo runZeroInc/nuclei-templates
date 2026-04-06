@@ -1,5 +1,4 @@
 id: xiaomi-wireless-router-login
-
 info:
   name: Xiaomi Wireless Router Admin Panel - Detect
   author: lu4nx
@@ -15,24 +14,23 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)小米路由器"})
     max-request: 1
+    product: xiaomi_router_ax3200
+    shodan-query: http.title:"小米路由器"
     vendor: mi
-  tags: panel,xiaomi,discovery
-
+    zoomeye-query: app="小米路由器"
+  tags: discovery,panel,xiaomi
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cgi-bin/luci/web"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "<title>小米路由器</title>"
-          - "<title>Redmi路由器</title>"
-        condition: or
-
-      - type: status
-        status:
+          - <title>小米路由器</title>
+          - <title>Redmi路由器</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/cgi-bin/luci/web'

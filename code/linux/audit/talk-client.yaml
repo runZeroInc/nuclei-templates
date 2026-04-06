@@ -1,5 +1,4 @@
 id: talk-client
-
 info:
   name: Ensure Talk Client is Not Installed
   author: Th3l0newolf
@@ -12,14 +11,10 @@ info:
     - https://www.cisecurity.org/benchmark/ubuntu_linux
   metadata:
     verified: true
-  tags: cis,local,cisecurity,audit,linux,ubuntu,talk
-
-self-contained: true
-
+  tags: audit,cis,cisecurity,linux,local,talk,ubuntu
 code:
   - engine:
       - bash
-
     args:
       - "-c"
       - |
@@ -29,15 +24,14 @@ code:
         else
           echo "[cis-talk-client-check:Policy-Pass] [talk is not installed] [CIS_PASS]"
         fi
-
     matchers:
       - type: word
         name: policy-pass
         words:
           - "Policy-Pass"
-
       - type: word
         name: policy-fail
         words:
           - "Policy-Fail"
-
+        # digest: 490a0046304402201c824ba110feb30361f8e6b4084b712b8a4efcc1be7f11097fff3afd3a0018d102202224c841dd09c1e2eb771ab5a730dc6a9cc06e21a5fb5766591d0efd3ffd2475:922c64590222798bb761d5b6d8e72950
+self-contained: true

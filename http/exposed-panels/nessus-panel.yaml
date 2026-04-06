@@ -1,5 +1,4 @@
 id: nessus-panel
-
 info:
   name: Tenable Nessus Panel - Detect
   author: joanbono,tess
@@ -11,32 +10,30 @@ info:
     cpe: cpe:2.3:a:tenable:nessus:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)nessus"})
-    verified: true
-    max-request: 2
-    vendor: tenable
-    product: nessus
-    shodan-query: http.title:"nessus"
     fofa-query: title="nessus"
     google-query: intitle:"nessus"
-  tags: panel,nessus,tenable,discovery
-
+    max-request: 2
+    product: nessus
+    shodan-query:
+      - title:"Nessus"
+      - http.title:"nessus"
+    vendor: tenable
+    verified: true
+  tags: discovery,nessus,panel,tenable
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/server/status"
-
-    matchers-condition: or
-    matchers:
-      - type: word
-        part: header
+  - matchers:
+      - part: header
+        type: word
         words:
-          - 'NessusWWW'
-
-      - type: word
+          - NessusWWW
+      - condition: and
         part: body
+        type: word
         words:
-          - "<title>Nessus</title>"
-          - "window.location = '/unsupported6.html';"
-        condition: and
-
+          - <title>Nessus</title>
+          - window.location = '/unsupported6.html';
+    matchers-condition: or
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/server/status'

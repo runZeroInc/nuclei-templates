@@ -1,5 +1,4 @@
 id: metadata-service-oracle
-
 # This attack abuses a misconfigured proxy that allows access to the metadata
 # IP or a name which resolves to the IP. A standard proxy request is made to
 # the proxy using the full metadata URL, which the proxy will fulfill to its
@@ -23,8 +22,7 @@ info:
     cwe-id: CWE-441
   metadata:
     max-request: 2
-  tags: exposure,config,oracle,proxy,misconfig,metadata,vuln
-
+  tags: config,exposure,metadata,misconfig,oracle,proxy,vuln
 http:
   - raw:
       - |+
@@ -42,4 +40,4 @@ http:
         part: body
         words:
           - "availabilityDomain"
-
+        # digest: 4b0a004830460221009082a1fae56b01c5e6ab3f0b685bf6de7a6e424dc0b556b670d10256ce02032902210098fd181e019c54d86b711e8eb768393c23b21cc66bd66aab07eaaf8d457cf89f:922c64590222798bb761d5b6d8e72950

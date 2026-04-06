@@ -1,7 +1,6 @@
 id: jboss-jbpm-default-login
-
 info:
-  name: JBoss jBPM Administration Console - Default Login
+  name: JBoss jBPM Administration Console Default Login - Detect
   author: DhiyaneshDk
   severity: high
   description: JBoss jBPM Administration Console default login information was detected.
@@ -13,17 +12,40 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:redhat:jbpm:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: |-
-        service["http.body"] matches "JBossWS"
-    verified: true
+    runzero-match: service["http.body"] matches "JBossWS"
     max-request: 12
-    shodan-query: html:"JBossWS"
     product: jbpm
+    shodan-query: html:"JBossWS"
     vendor: redhat
-  tags: jboss,jbpm,default-login,vuln
-
+    verified: true
+  tags: default-login,jboss,jbpm,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - part: body_1
+        type: word
+        words:
+          - JBoss jBPM Administration Console
+      - part: body_3
+        type: word
+        words:
+          - </span>Tasks
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - manager
+        - user
+        - shipper
+        - admin
+      user:
+        - manager
+        - user
+        - shipper
+        - admin
+    raw:
       - |
         GET /jbpm-console/app/tasks.jsf HTTP/1.1
         Host: {{Hostname}}
@@ -36,34 +58,4 @@ http:
       - |
         GET /jbpm-console/app/tasks.jsf HTTP/1.1
         Host: {{Hostname}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - manager
-        - user
-        - shipper
-        - admin
-      pass:
-        - manager
-        - user
-        - shipper
-        - admin
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_1
-        words:
-          - "JBoss jBPM Administration Console"
-
-      - type: word
-        part: body_3
-        words:
-          - "</span>Tasks"
-
-      - type: status
-        status:
-          - 200
-

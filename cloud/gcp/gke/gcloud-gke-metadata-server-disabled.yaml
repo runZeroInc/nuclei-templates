@@ -1,5 +1,4 @@
 id: gcloud-gke-metadata-server-disabled
-
 info:
   name: GKE Clusters Without Metadata Server Enabled
   author: princechaddha
@@ -14,8 +13,7 @@ info:
   reference:
     - https://cloud.google.com/kubernetes-engine/docs/how-to/protecting-cluster-metadata
     - https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/GKE/enable-metadata-server.html
-  tags: cloud,devops,gcp,gcloud,gke,kubernetes,security,metadata,gcp-cloud-config
-
+  tags: cloud,devops,gcloud,gcp,gcp-cloud-config,gke,kubernetes,metadata,security
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
@@ -33,62 +31,52 @@ flow: |
       }
     }
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
       - bash
     source: |
       gcloud projects list --format="json(projectId)"
-
     extractors:
       - type: json
         name: projectIds
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container clusters list --project $projectId --format="json(name,location)"
-
     extractors:
       - type: json
         name: clusters
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container node-pools list --cluster $clusterName --location $location --project $projectId --format="json(name)"
-
     extractors:
       - type: json
         name: nodePools
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud container node-pools describe $nodePoolName --cluster $clusterName --location $location --project $projectId --format="value(config.workloadMetadataConfig)"
-
     matchers:
       - type: word
         words:
           - "GCE_METADATA"
-
     extractors:
       - type: dsl
         dsl:
           - '"Node pool " + nodePoolName + " in GKE cluster " + clusterName + " (" + location + ") of project " + projectId + " does not have GKE Metadata Server enabled"'
-
+        # digest: 4a0a004730450220032973e1d5cfb3eca87da458a87738a9748b47831c57c591fb6536e4fbd9ec2a022100ce340afdf94700b4d0ec9782cc9a4bb462793479ed15dee0bdc4b1e2027b5d32:922c64590222798bb761d5b6d8e72950
+self-contained: true

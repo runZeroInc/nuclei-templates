@@ -1,5 +1,4 @@
 id: nginx-proxy-manager
-
 info:
   name: Nginx Proxy Manager Login Panel - Detect
   author: dhiyaneshDK
@@ -12,28 +11,25 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Nginx Proxy Manager"})
     max-request: 1
+    product: nginx_proxy_manager
+    shodan-query: http.title:"Nginx Proxy Manager"
     vendor: nginxproxymanager
-  tags: panel,nginx,proxy,discovery
-
+  tags: discovery,nginx,panel,proxy
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/login'
-
-    matchers-condition: and
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - '"page" id="login" data\-version="([0-9.]+)">'
+        type: regex
     matchers:
       - type: word
         words:
-          - 'Nginx Proxy Manager</title>'
-
-      - type: status
-        status:
+          - Nginx Proxy Manager</title>
+      - status:
           - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '"page" id="login" data\-version="([0-9.]+)">'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

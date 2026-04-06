@@ -1,5 +1,4 @@
 id: sendmail-forward-exposure
-
 info:
   name: Sendmail .forward File - Exposure
   author: ritikchaddha
@@ -16,15 +15,12 @@ info:
   metadata:
     max-request: 4
     verified: true
-  tags: exposure,sendmail,config,mail,mta
-
+  tags: config,exposure,mail,mta,sendmail
 http:
   - method: GET
     path:
       - "{{BaseURL}}/.forward"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -35,16 +31,13 @@ http:
           - ":include:[\\s]*/[a-zA-Z0-9/_.-]+"
           - "^/[a-zA-Z0-9/_.-]+/[a-zA-Z0-9/_.-]+$"
         condition: or
-
       - type: word
         part: content_type
         words:
           - "text/plain"
-
       - type: status
         status:
           - 200
-
       - type: word
         part: body
         words:
@@ -52,4 +45,4 @@ http:
           - "<!DOCTYPE"
           - "<HTML"
         negative: true
-
+        # digest: 490a00463044022076081f3978e4a5fb68c4f3001105000fb712ea60323bca897e6a3e8db297290b02202eae9753b3cb507498fde13a8a6a1e1667f26ccb659c7c00a329652d202ecf97:922c64590222798bb761d5b6d8e72950

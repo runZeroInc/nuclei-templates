@@ -1,5 +1,4 @@
 id: rubygems-api-key
-
 info:
   name: RubyGems API Key
   author: DhiyaneshDK
@@ -9,17 +8,14 @@ info:
     - https://guides.rubygems.org/rubygems-org-api/
     - https://guides.rubygems.org/api-key-scopes/
   metadata:
-    verified: true
     max-request: 1
-  tags: rubygems,token,exposure,ruby,vuln
-
+    verified: true
+  tags: exposure,ruby,rubygems,token,vuln
 flow: http(1) && http(2)
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers:
       - type: regex
         part: body
@@ -27,14 +23,12 @@ http:
         regex:
           - "(rubygems_[a-f0-9]{48})"
         internal: true
-
   - raw:
       - |
         @Host: https://rubygems.org:443
         GET /api/v1/web_hooks.json HTTP/1.1
         Host: rubygems.org
         Authorization: {{token}}
-
     disable-path-automerge: true
     matchers:
       - type: dsl
@@ -43,9 +37,8 @@ http:
           - '!contains(body, "Access Denied")'
           - 'contains(content_type, "application/json")'
         condition: and
-
     extractors:
       - type: dsl
         dsl:
           - token
-
+        # digest: 4a0a00473045022100bbd8f821e0d12100c5bc3fffb629cca1830f1e6fce494c431dcd418ecf4b623902207cce11458320e036e91d0d04d465688324453777e5f1bb69e683572a8934e554:922c64590222798bb761d5b6d8e72950

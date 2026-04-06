@@ -1,5 +1,4 @@
 id: java-melody-exposed
-
 info:
   name: JavaMelody Monitoring Exposed
   author: dhiyaneshDK,thomas_from_offensity
@@ -11,20 +10,17 @@ info:
   metadata:
     max-request: 2
   tags: config,java,javamelody,misconfig,vuln
-
 http:
   - method: GET
     path:
       - '{{BaseURL}}/monitoring'
       - '{{BaseURL}}/..%3B/monitoring'
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - 'Monitoring JavaMelody on'
-
       - type: status
         status:
           - 200
-
+        # digest: 4a0a00473045022027051ca89a25a36852ac6a2075b7b44edd781a53126517942bbff69f77e6eb620221008e2e770448d0e3acf9806ff836bf9c2606a24a77e8882110d137e832acc84ae8:922c64590222798bb761d5b6d8e72950

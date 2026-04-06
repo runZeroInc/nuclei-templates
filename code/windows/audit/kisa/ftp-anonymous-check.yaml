@@ -1,5 +1,4 @@
 id: ftp-anonymous-check
-
 info:
   name: Anonymous FTP Disabled Check
   author: nukunga[SungHyunJeon]
@@ -15,10 +14,7 @@ info:
     - Set "Anonymous Authentication" to Disabled.
   reference:
     - https://isms.kisa.or.kr/main/csap/notice/?boardId=bbs_0000000000000004&mode=view&cntId=85
-  tags: ftp,iis,security,code,windows-audit,kisa
-
-self-contained: true
-
+  tags: code,ftp,iis,kisa,security,windows-audit
 code:
   - pre-condition: |
       IsWindows();
@@ -45,9 +41,9 @@ code:
       } else {
           "ANONYMOUS_FTP_DISABLED"
       }
-
     matchers:
       - type: word
         words:
           - "ANONYMOUS_FTP_ENABLED"
-
+        # digest: 4a0a00473045022100a7c487be6ab61661f88bb5bc891f8f13a6c552b7ccd2a368b5c39189358fe452022018c475e6e9d30bb1f170fb3eeac3fc47d562758aec1e44e887f744dfcd7140b0:922c64590222798bb761d5b6d8e72950
+self-contained: true

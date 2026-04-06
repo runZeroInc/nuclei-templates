@@ -1,5 +1,4 @@
 id: scrutinizer-config
-
 info:
   name: Scrutinizer Config - Detect
   author: DhiyaneshDK
@@ -13,16 +12,14 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 1
     shodan-query: html:"scrutinizer.yml"
-  tags: exposure,scrutinizer,config,vuln
-
+    verified: true
+  tags: config,exposure,scrutinizer,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/.scrutinizer.yml'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -32,8 +29,7 @@ http:
           - 'filter:'
           - 'tools:'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a0048304602210099de942daf45aa229394ecb9dfefd1e4577af10de61c495b70eb0c67125819840221008126901da3b290d8e995b1f6b4559b1cc42ff932411276bf53eaf85f533258e4:922c64590222798bb761d5b6d8e72950

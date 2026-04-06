@@ -1,5 +1,4 @@
 id: icewarp-open-redirect
-
 info:
   name: IceWarp - Open Redirect
   author: uomogrande
@@ -12,33 +11,30 @@ info:
     cwe-id: CWE-601
     cpe: cpe:2.3:a:icewarp:icewarp:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: icewarp
+    shodan-query: title:"icewarp"
     vendor: icewarp
+    verified: true
   tags: icewarp,redirect,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}///interact.sh/%2F.."
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - 'IceWarp'
-
-      - type: regex
-        part: header
-        regex:
-          - '(?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)(?:[a-zA-Z0-9\-_\.@]*)interact\.sh\/?(\/|[^.].*)?$' # https://regex101.com/r/L403F0/1
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         name: redirected
         part: header
-        group: 1
         regex:
           - 'Server: (.{4,20})'
-
+        type: regex
+    matchers:
+      - part: header
+        type: word
+        words:
+          - IceWarp
+      - part: header
+        regex:
+          - (?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)(?:[a-zA-Z0-9\-_\.@]*)interact\.sh\/?(\/|[^.].*)?$
+        type: regex
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}///interact.sh/%2F..'

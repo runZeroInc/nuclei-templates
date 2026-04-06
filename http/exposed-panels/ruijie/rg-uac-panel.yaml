@@ -1,5 +1,4 @@
 id: rg-uac-panel
-
 info:
   name: Ruijie RG-UAC Login Panel - Detect
   author: princechaddha
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:o:ruijie:rg-uac_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)get_verify_info"
-    max-request: 1
-    vendor: ruijie
-    product: rg-uac_firmware
-    shodan-query: http.html:"get_verify_info"
     fofa-query: body="get_verify_info"
-  tags: panel,ruijie,router,firewall,discovery
-
+    max-request: 1
+    product: rg-uac_firmware
+    shodan-query:
+      - http.html:"Get_Verify_Info"
+      - http.html:"get_verify_info"
+    vendor: ruijie
+  tags: discovery,firewall,panel,router,ruijie
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "dkey_check.php"
-          - "get_dkey_passwd"
-        condition: and
-
-      - type: status
-        status:
+          - dkey_check.php
+          - get_dkey_passwd
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: crlf-injection
-
 info:
   name: CRLF Injection
   author: pdteam
@@ -7,13 +6,11 @@ info:
   metadata:
     max-request: 41
   tags: crlf,dast,vuln
-
 http:
   - pre-condition:
       - type: dsl
         dsl:
           - 'method == "GET"'
-
     payloads:
       escape:
         low:
@@ -60,17 +57,15 @@ http:
           - "\r\n%20"
           - "\r\n\t"
           - "\r\t"
-
     fuzzing:
       - part: query
         type: postfix
         fuzz:
           - "{{escape}}Set-Cookie:crlfinjection=crlfinjection"
-
     stop-at-first-match: true
     matchers:
       - type: regex
         part: header
         regex:
           - '(?m)^(?:Set-Cookie\s*?:(?:\s*?|.*?;\s*?))(crlfinjection=crlfinjection)(?:\s*?)(?:$|;)'
-
+        # digest: 4a0a00473045022015c1830b995bcda913cc28864b15263881395c09ffeeb5dd5dad17d8f41378fd022100f157c7577fbeb68be85c3343f2c4ee02312f6e8fd577e55699f645a6a9fbd955:922c64590222798bb761d5b6d8e72950

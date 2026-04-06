@@ -1,5 +1,4 @@
 id: db2-discover
-
 info:
   name: Broadcast DB2 Discover
   author: pussycat0x
@@ -9,11 +8,10 @@ info:
   reference:
     - https://nmap.org/nsedoc/scripts/broadcast-db2-discover.html
   metadata:
+    max-request: 1
     shodan-query: port:523
     verified: true
-    max-request: 1
-  tags: ibm,network,js,udp,discovery
-
+  tags: discovery,ibm,js,network,udp
 javascript:
   - pre-condition: |
       isUDPPortOpen(Host,Port);
@@ -42,18 +40,15 @@ javascript:
       conn.Close();
       }
       combinedResult;
-
     args:
       Host: "{{Host}}"
       Port: 523
-
     matchers:
       - type: dsl
         dsl:
           - "success == true"
-
     extractors:
       - type: dsl
         dsl:
           - response
-
+        # digest: 4a0a004730450221008046539f192b04c8f03d177d7ede13dba01150b93182ca77c45ff3926b98b7a3022031ed341b1b37485a6ad51381e65a24bdc0bc0ec4463d18ee72f03a91ac3ae516:922c64590222798bb761d5b6d8e72950

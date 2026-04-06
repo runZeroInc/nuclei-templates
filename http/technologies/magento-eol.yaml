@@ -1,5 +1,4 @@
 id: eol-magento
-
 info:
   name: Magento End-of-life Detect
   author: dogancanbakir
@@ -13,16 +12,16 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:magento:magento:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: magento
+    shodan-query: http.component:"Magento"
     vendor: magento
-  tags: magento,tech,cms,discovery
-
+    verified: true
+  tags: cms,discovery,magento,tech
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     extractors:
       - type: regex
         part: body
@@ -35,9 +34,8 @@ http:
       - type: dsl
         dsl:
           - compare_versions(version, '<=2.4')
-
       - type: regex
         part: body
         regex:
           - 'Magento\/([0-9.]+) '
-
+        # digest: 4a0a00473045022100cb88e19a17150f4bf58f2d65908c371f072b308e9759d8f674b4245340e0fddf0220754b6e362dbfd897052976be5cbf2e06a31130aae5e4d9224f065b3af5419ef0:922c64590222798bb761d5b6d8e72950

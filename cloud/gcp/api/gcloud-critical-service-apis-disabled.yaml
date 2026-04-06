@@ -1,5 +1,4 @@
 id: gcloud-critical-service-apis-disabled
-
 info:
   name: Critical Service APIs Not Enabled
   author: princechaddha
@@ -12,17 +11,13 @@ info:
     Enable the necessary service APIs via the GCP Console or the gcloud command-line tool for each project where they are found to be disabled.
   reference:
     - https://cloud.google.com/service-usage/docs/enable-disable
-  tags: cloud,devops,gcp,gcloud,api-management,gcp-cloud-config
-
+  tags: api-management,cloud,devops,gcloud,gcp,gcp-cloud-config
 flow: |
   code(1)
   for(let projectId of iterate(template.projectIds)){
     set("projectId", projectId)
     code(2)
   }
-
-self-contained: true
-
 code:
   - engine:
       - sh
@@ -35,20 +30,18 @@ code:
         internal: true
         json:
           - '.[].projectId'
-
   - engine:
       - sh
       - bash
     source: |
       gcloud services list --project $projectId --enabled --filter=name:iam.googleapis.com --format="json" | jq '.'
-
     matchers:
       - type: word
         words:
           - '[]'
-
     extractors:
       - type: dsl
         dsl:
           - '"Critical API not enabled: IAM API in Project: " + projectId'
-
+        # digest: 4a0a004730450221008a33e85deb35cb7e682c6875bd120be993c3a552deaa4cd2831b5531d9efe550022013a2421e83defe9ea15eb71ffe62daaabb0dca6395e27b06449c3c81f7a43abe:922c64590222798bb761d5b6d8e72950
+self-contained: true

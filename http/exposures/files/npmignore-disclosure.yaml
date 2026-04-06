@@ -1,5 +1,4 @@
 id: npmignore-disclosure
-
 info:
   name: NPM .npmignore File Disclosure
   author: 0x_Akoko
@@ -10,12 +9,11 @@ info:
     - https://docs.npmjs.com/cli/v9/using-npm/developers#keeping-files-out-of-your-package
     - https://docs.npmjs.com/cli/v9/configuring-npm/npmignore
   metadata:
-    verified: true
+    fofa-query: body=".npmignore"
     max-request: 5
     shodan-query: http.html:".npmignore"
-    fofa-query: body=".npmignore"
-  tags: exposure,npm,config,node
-
+    verified: true
+  tags: config,exposure,node,npm
 http:
   - method: GET
     path:
@@ -24,21 +22,17 @@ http:
       - "{{BaseURL}}/src/.npmignore"
       - "{{BaseURL}}/api/.npmignore"
       - "{{BaseURL}}/backend/.npmignore"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
-
       - type: word
         part: body
         words:
           - "node_modules"
         condition: and
-
       - type: word
         part: body
         words:
@@ -49,7 +43,6 @@ http:
           - "*.md"
           - ".git"
         condition: or
-
       - type: word
         part: body
         negative: true
@@ -59,7 +52,6 @@ http:
           - "<!DOCTYPE"
           - "<script"
           - "<?php"
-
       - type: dsl
         dsl:
           - 'len(body) > 20 && len(body) < 5000'
@@ -68,4 +60,4 @@ http:
           - '!contains(tolower(body), "error")'
           - '!contains(tolower(body), "not found")'
         condition: and
-
+        # digest: 4a0a00473045022100c180d85bfa86b9085985c758bd5b97b696d806730b47d4a6c09cafbdce95843b02200a439a7357d1281bd4b603a850adaf944bdb8815d46c58cdcc033f157a220fd4:922c64590222798bb761d5b6d8e72950

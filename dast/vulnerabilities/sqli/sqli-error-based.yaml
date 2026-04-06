@@ -1,5 +1,4 @@
 id: sqli-error-based
-
 info:
   name: Error based SQL Injection
   author: geeknik,pdteam
@@ -10,27 +9,23 @@ info:
     This is accomplished by the application taking user input and combining it with static parameters to build an SQL query .
   metadata:
     max-request: 3
-  tags: sqli,error,dast,vuln
-
+  tags: dast,error,sqli,vuln
 http:
   - pre-condition:
       - type: dsl
         dsl:
           - 'method != "OPTIONS"'
-
     payloads:
       injection:
         - "'"
         - "\""
         - ";"
-
     fuzzing:
       - part: request
         type: postfix
         mode: single
         fuzz:
           - "{{injection}}"
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
@@ -40,7 +35,6 @@ http:
           - "Adminer"
         negative: true
         # False Positive
-
       - type: regex
         regex:
           # MySQL
@@ -225,7 +219,6 @@ http:
           - "Virtuoso S0002 Error"
           - "\\[(Virtuoso Driver|Virtuoso iODBC Driver)\\]\\[Virtuoso Server\\]"
         condition: or
-
     extractors:
       - type: regex
         name: mysql
@@ -242,24 +235,20 @@ http:
           - "Pdo[./_\\\\]Mysql"
           - "MySqlException"
           - "SQLSTATE[\\d+]: Syntax error or access violation"
-
       - type: regex
         name: mariadb
         regex:
           - "check the manual that (corresponds to|fits) your MariaDB server version"
-
       - type: regex
         name: drizzel
         regex:
           - "check the manual that (corresponds to|fits) your Drizzle server version"
-
       - type: regex
         name: memsql
         regex:
           - "MemSQL does not support this type of query"
           - "is not supported by MemSQL"
           - "unsupported nested scalar subselect"
-
       - type: regex
         name: postgresql
         regex:
@@ -275,7 +264,6 @@ http:
           - "org\\.postgresql\\.jdbc"
           - "Pdo[./_\\\\]Pgsql"
           - "PSQLException"
-
       - type: regex
         name: microsoftsqlserver
         regex:
@@ -298,7 +286,6 @@ http:
           - "Pdo[./_\\\\](Mssql|SqlSrv)"
           - "SQL(Srv|Server)Exception"
           - "Unclosed quotation mark after the character string"
-
       - type: regex
         name: microsoftaccess
         regex:
@@ -307,7 +294,6 @@ http:
           - "Access Database Engine"
           - "ODBC Microsoft Access"
           - "Syntax error \\(missing operator\\) in query expression"
-
       - type: regex
         name: oracle
         regex:
@@ -322,7 +308,6 @@ http:
           - "Zend_Db_(Adapter|Statement)_Oracle_Exception"
           - "Pdo[./_\\\\](Oracle|OCI)"
           - "OracleException"
-
       - type: regex
         name: ibmdb2
         regex:
@@ -335,7 +320,6 @@ http:
           - "Pdo[./_\\\\]Ibm"
           - "DB2Exception"
           - "ibm_db_dbi\\.ProgrammingError"
-
       - type: regex
         name: informix
         regex:
@@ -347,7 +331,6 @@ http:
           - "weblogic\\.jdbc\\.informix"
           - "Pdo[./_\\\\]Informix"
           - "IfxException"
-
       - type: regex
         name: firebird
         regex:
@@ -355,7 +338,6 @@ http:
           - "Warning.{0,500}?\\Wibase_"
           - "org\\.firebirdsql\\.jdbc"
           - "Pdo[./_\\\\]Firebird"
-
       - type: regex
         name: sqlite
         regex:
@@ -370,7 +352,6 @@ http:
           - "org\\.sqlite\\.JDBC"
           - "Pdo[./_\\\\]Sqlite"
           - "SQLiteException"
-
       - type: regex
         name: sapmaxdb
         regex:
@@ -380,7 +361,6 @@ http:
           - "-3014.{0,500}?Invalid end of SQL statement"
           - "com\\.sap\\.dbtech\\.jdbc"
           - "\\[-3008\\].{0,500}?: Invalid keyword or missing delimiter"
-
       - type: regex
         name: sybase
         regex:
@@ -390,7 +370,6 @@ http:
           - "SybSQLException"
           - "Sybase\\.Data\\.AseClient"
           - "com\\.sybase\\.jdbc"
-
       - type: regex
         name: ingres
         regex:
@@ -398,7 +377,6 @@ http:
           - "Ingres SQLSTATE"
           - "Ingres\\W.{0,500}?Driver"
           - "com\\.ingres\\.gcf\\.jdbc"
-
       - type: regex
         name: frontbase
         regex:
@@ -406,34 +384,29 @@ http:
           - "com\\.frontbase\\.jdbc"
           - "Syntax error 1. Missing"
           - "(Semantic|Syntax) error \\[1-4\\]\\d{2}\\."
-
       - type: regex
         name: hsqldb
         regex:
           - "Unexpected end of command in statement \\["
           - "Unexpected token.{0,500}?in statement \\["
           - "org\\.hsqldb\\.jdbc"
-
       - type: regex
         name: h2
         regex:
           - "org\\.h2\\.jdbc"
           - "\\[42000-192\\]"
-
       - type: regex
         name: monetdb
         regex:
           - "![0-9]{5}![^\\n]+(failed|unexpected|error|syntax|expected|violation|exception)"
           - "\\[MonetDB\\]\\[ODBC Driver"
           - "nl\\.cwi\\.monetdb\\.jdbc"
-
       - type: regex
         name: apachederby
         regex:
           - "Syntax error: Encountered"
           - "org\\.apache\\.derby"
           - "ERROR 42X01"
-
       - type: regex
         name: vertica
         regex:
@@ -442,14 +415,12 @@ http:
           - "com\\.vertica\\.jdbc"
           - "org\\.jkiss\\.dbeaver\\.ext\\.vertica"
           - "com\\.vertica\\.dsi\\.dataengine"
-
       - type: regex
         name: mckoi
         regex:
           - "com\\.mckoi\\.JDBCDriver"
           - "com\\.mckoi\\.database\\.jdbc"
           - "&lt;REGEX_LITERAL&gt;"
-
       - type: regex
         name: presto
         regex:
@@ -457,35 +428,29 @@ http:
           - "io\\.prestosql\\.jdbc"
           - "com\\.simba\\.presto\\.jdbc"
           - "UNION query has different number of fields: \\d+, \\d+"
-
       - type: regex
         name: altibase
         regex:
           - "Altibase\\.jdbc\\.driver"
-
       - type: regex
         name: mimersql
         regex:
           - "com\\.mimer\\.jdbc"
           - "Syntax error,[^\\n]+assumed to mean"
-
       - type: regex
         name: cratedb
         regex:
           - "io\\.crate\\.client\\.jdbc"
-
       - type: regex
         name: cache
         regex:
           - "encountered after end of query"
           - "A comparison operator is required here"
-
       - type: regex
         name: raimadatabasemanager
         regex:
           - "-10048: Syntax error"
           - "rdmStmtPrepare\\(.+?\\) returned"
-
       - type: regex
         name: virtuoso
         regex:
@@ -494,4 +459,4 @@ http:
           - "SQ200: No table "
           - "Virtuoso S0002 Error"
           - "\\[(Virtuoso Driver|Virtuoso iODBC Driver)\\]\\[Virtuoso Server\\]"
-
+        # digest: 4a0a00473045022100b3102693f70190b12ccb6f15140a61b65dd91c218b1e3ea99ea59e75ad8f03170220211591503e0603405ab968f481fb3f615c7c3deb8f5849ac281640b5011fcb30:922c64590222798bb761d5b6d8e72950

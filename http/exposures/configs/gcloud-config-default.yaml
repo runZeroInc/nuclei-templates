@@ -1,5 +1,4 @@
 id: gcloud-config-default
-
 info:
   name: Google Cloud Default Config - Detect
   author: DhiyaneshDK
@@ -13,19 +12,18 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:google:cloud_platform:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: cloud_platform
+    shodan-query: html:"access_tokens.db"
     vendor: google
-  tags: google,cloud,devops,exposure,vuln
-
+    verified: true
+  tags: cloud,devops,exposure,google,vuln
 http:
   - method: GET
     path:
       - "{{BaseURL}}/configurations/config_default"
       - "{{BaseURL}}/.config/gcloud/configurations/config_default"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -33,8 +31,7 @@ http:
           - '[core]'
           - 'account'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100bcfe2b7ebb902d6843ce609516d9cc1aa11cfa11220363b6cebca54d0b426875022100c84e250688d7629550127ddbde9893543c8b69e846aed91f038db55b9776e6c7:922c64590222798bb761d5b6d8e72950

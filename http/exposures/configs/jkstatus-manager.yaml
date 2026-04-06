@@ -1,5 +1,4 @@
 id: jkstatus-manager
-
 info:
   name: JK Status Manager - Detect
   author: pdteam,DhiyaneshDk
@@ -11,16 +10,14 @@ info:
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 8
-    vendor: apache
     product: tomcat
     shodan-query: html:"JK Status Manager"
-  tags: config,jk,status,exposure,vuln
-
+    vendor: apache
+    verified: true
+  tags: config,exposure,jk,status,vuln
 http:
   - method: GET
-
     headers:
       X-Forwarded-For: "127.0.0.1"
     path:
@@ -32,10 +29,9 @@ http:
       - "{{BaseURL}}/jkmanager"
       - "{{BaseURL}}/jkmanager-auth"
       - "{{BaseURL}}/jdkstatus"
-
     stop-at-first-match: true
     matchers:
       - type: word
         words:
           - "JK Status Manager"
-
+        # digest: 4a0a004730450220446c0bcb52f7decf946942a4daba74f019160c06416c084f87d945acc26146e20221009035e1744b5f6402cd7703f8aa578ae2ac03c1aeed31136831efc4dcfc98c23e:922c64590222798bb761d5b6d8e72950

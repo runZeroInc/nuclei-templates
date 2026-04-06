@@ -1,5 +1,4 @@
 id: parameters-config
-
 info:
   name: Parameters.yml - File Discovery
   author: DhiyaneshDK
@@ -8,11 +7,10 @@ info:
   reference:
     - https://www.exploit-db.com/ghdb/5986
   metadata:
-    verified: true
     max-request: 4
     shodan-query: html:"parameters.yml"
-  tags: exposure,cloud,devops,vuln
-
+    verified: true
+  tags: cloud,devops,exposure,vuln
 http:
   - method: GET
     path:
@@ -20,9 +18,7 @@ http:
       - "{{BaseURL}}/app/config/parameters.yml"
       - "{{BaseURL}}/parameters.yml.dist"
       - "{{BaseURL}}/app/config/parameters.yml.dist"
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -31,8 +27,7 @@ http:
           - 'database_user'
           - 'database_password'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a00483046022100aa580c5c6bb749a449210584d12c7a959a8625df30f232f228995f026033d45a022100e787080e7f62557ca1160d186f15e76eaef5e42de4958dfa42228ed1d23bcba0:922c64590222798bb761d5b6d8e72950

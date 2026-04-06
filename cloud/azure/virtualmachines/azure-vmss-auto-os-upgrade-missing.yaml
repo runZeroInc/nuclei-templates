@@ -11,8 +11,7 @@ info:
     Enable automatic OS upgrades in Azure VMSS settings to ensure all instances are updated automatically with the latest OS image version, thereby improving security and reducing manual maintenance overhead.
   reference:
     - https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade
-  tags: cloud,devops,azure,microsoft,vmss,azure-cloud-config
-
+  tags: azure,azure-cloud-config,cloud,devops,microsoft,vmss
 flow: |
   code(1);
   for (let VmssData of iterate(template.vmssList)) {
@@ -21,35 +20,30 @@ flow: |
     set("resourceGroup", VmssData.ResourceGroup);
     code(2);
   }
-
-self-contained: true
 code:
   - engine:
       - sh
       - bash
     source: |
       az vmss list --output json --query '[*].{"Name":name,"ResourceGroup":resourceGroup}'
-
     extractors:
       - type: json
         name: vmssList
         internal: true
         json:
           - '.[]'
-
   - engine:
       - sh
       - bash
     source: |
       az vmss show --name "$name" --resource-group "$resourceGroup" --query '{"AutomaticOsUpgrades": upgradePolicy.automaticOsUpgradePolicy.enableAutomaticOsUpgrade}'
-
     matchers:
       - type: word
         words:
           - '"AutomaticOsUpgrades": null'
-
     extractors:
       - type: dsl
         dsl:
           - 'name + " in " + resourceGroup + " does not have automatic OS upgrades enabled"'
-
+        # digest: 4a0a00473045022100c5c3a5b62f31ac5b09be77f90088d3291586a67222aa8a98013b4655ed846984022006f60b0eb15933eb244044ca998402089b60454ebbe0ebeb8b1fdd8800af6dd2:922c64590222798bb761d5b6d8e72950
+self-contained: true

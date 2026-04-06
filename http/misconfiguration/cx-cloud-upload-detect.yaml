@@ -1,5 +1,4 @@
 id: cx-cloud-upload-detect
-
 info:
   name: CX Cloud Unauthenticated Upload - Detect
   author: dhiyaneshDk
@@ -10,18 +9,15 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    runzero-review: REJECT/2025-11-17/excluding tag intrusive
     max-request: 1
-  tags: fileupload,misconfig,intrusive,vuln
-
+  tags: fileupload,intrusive,misconfig,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/upload.jsp'
-
     matchers:
       - type: word
         words:
           - "<HEAD><TITLE>Display file upload form to the user</TITLE></HEAD>"
         condition: and
-
+        # digest: 4a0a00473045022100a5c3a9c95140177779a430bfc6a8d2ba790f7751d0043282e9e9a258bb43608902200fa164e3c90779bacf365e820b91cdbd1074ce6048b558f112f7bfbc4cb6b94e:922c64590222798bb761d5b6d8e72950
