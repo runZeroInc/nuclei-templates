@@ -1,5 +1,4 @@
 id: jira-detect
-
 info:
   name: Jira Detect
   author: pdteam,philippedelteil,AdamCrosser
@@ -11,34 +10,31 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:atlassian:jira:*:*:*:*:*:*:*:*
   metadata:
+    category: productivity
     max-request: 3
-    vendor: atlassian
     product: jira
     shodan-query:
       - http.component:"atlassian jira"
       - http.component:"atlassian confluence"
       - cpe:"cpe:2.3:a:atlassian:jira"
-  tags: tech,panel,jira,atlassian,discovery
-
+    vendor: atlassian
+  tags: atlassian,discovery,jira,panel,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/secure/Dashboard.jspa"
-      - "{{BaseURL}}/jira/secure/Dashboard.jspa"
-      - "{{BaseURL}}/login.jsp"
-
-    stop-at-first-match: true
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - title="JiraVersion" value="([0-9.]+)
+        type: regex
     host-redirects: true
-    max-redirects: 2
     matchers:
       - type: word
         words:
-          - "Project Management Software"
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - 'title="JiraVersion" value="([0-9.]+)'
-
+          - Project Management Software
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/secure/Dashboard.jspa'
+      - '{{BaseURL}}/jira/secure/Dashboard.jspa'
+      - '{{BaseURL}}/login.jsp'
+    stop-at-first-match: true

@@ -1,10 +1,9 @@
 id: iptime-default-login
-
 info:
-  name: ipTIME - Default Login
+  name: ipTIME Default Login
   author: gy741
   severity: high
-  description: ipTIME default credentials were discovered.
+  description: ipTIME default admin credentials were discovered.
   reference:
     - https://www.freewebtools.com/IPTIME/
   classification:
@@ -13,35 +12,30 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: iptime,default-login,vuln
-
+  tags: default-login,iptime,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - condition: and
+        part: body
+        type: word
+        words:
+          - setCookie
+          - efm_session_id
+          - login.cgi
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /sess-bin/login_handler.cgi HTTP/1.1
         Host: {{Hostname}}
         Referer: {{BaseURL}}/sess-bin/login_session.cgi
 
         username={{username}}&passwd={{password}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "setCookie"
-          - "efm_session_id"
-          - "login.cgi"
-        part: body
-        condition: and
-

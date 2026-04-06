@@ -1,5 +1,4 @@
 id: qualcomm-voip-router
-
 info:
   name: Qualcomm 4G LTE WiFi VoIP Router Panel - Detect
   author: pussycat0x
@@ -10,23 +9,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:qualcomm:qca4531_firmware:*:*:*:*:*:*:*:*
   metadata:
+    fofa-query: app="Qualcomm-4G-LTE-WiFi-VoIP-Router"
     max-request: 1
+    product: qca4531_firmware
     vendor: qualcomm
-  tags: panel,qualcomm,iot,router,voip,discovery
-
+  tags: discovery,iot,panel,qualcomm,router,voip
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>4G LTE WiFi VoIP Router</title>'
-
-      - type: status
-        status:
+          - <title>4G LTE WiFi VoIP Router</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

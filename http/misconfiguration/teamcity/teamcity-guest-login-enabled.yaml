@@ -1,5 +1,4 @@
 id: teamcity-guest-login-enabled
-
 info:
   name: JetBrains TeamCity - Guest User Access Enabled
   author: Ph33r
@@ -15,27 +14,25 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jetbrains:teamcity:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: teamcity
+    shodan-query: http.component:"TeamCity"
     vendor: jetbrains
-  tags: misconfig,teamcity,jetbrains,vuln
-
+    verified: true
+  tags: jetbrains,misconfig,teamcity,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - 'Location: /overview.html'
+          - TCSESSIONID=
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    raw:
       - |
         GET /guestLogin.html?guest=1 HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - 'Location: /overview.html'
-          - 'TCSESSIONID='
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

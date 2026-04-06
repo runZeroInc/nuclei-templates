@@ -1,22 +1,46 @@
 id: cobbler-default-login
-
 info:
-  name: Cobbler Default Credentials
+  name: Cobbler Default Login
   author: c-sh0
   severity: high
-  description: Cobbler default login credentials were discovered.
+  description: Cobbler default login credentials for the testing module (testing/testing) were discovered.
   reference:
-    - https://seclists.org/oss-sec/2022/q1/146
     - https://github.com/cobbler/cobbler/issues/2307
     - https://github.com/cobbler/cobbler/issues/2909
+    - https://seclists.org/oss-sec/2022/q1/146
   classification:
     cwe-id: CWE-798
   metadata:
     max-request: 2
-  tags: cobbler,default-login,api,seclists,vuln
-
+  tags: api,cobbler,default-login,seclists,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - part: header
+        type: word
+        words:
+          - text/xml
+      - condition: or
+        dsl:
+          - '!contains(tolower(body), ''<name>faultCode</name>'')'
+          - '!contains(tolower(body), ''login failed'')'
+        type: dsl
+      - part: body
+        regex:
+          - (.*[a-zA-Z0-9].+==)</string></value>
+        type: regex
+    matchers-condition: and
+    payloads:
+      password:
+        - cobbler
+        - testing
+      username:
+        - cobbler
+        - testing
+    raw:
       - |
         POST {{BaseURL}}/cobbler_api HTTP/1.1
         Host: {{Hostname}}
@@ -39,35 +63,3 @@ http:
             </param>
           </params>
         </methodCall>
-
-    attack: pitchfork
-    payloads:
-      username:
-        - cobbler
-        - testing
-      password:
-        - cobbler
-        - testing
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: header
-        words:
-          - text/xml
-
-      - type: dsl
-        dsl:
-          - "!contains(tolower(body), '<name>faultCode</name>')"
-          - "!contains(tolower(body), 'login failed')"
-        condition: or
-
-      - type: regex
-        part: body
-        regex:
-          - "(.*[a-zA-Z0-9].+==)</string></value>"
-
