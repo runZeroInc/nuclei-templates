@@ -13,8 +13,7 @@ info:
   tags: charx,phoenix-contact,vuln
 http:
   - extractors:
-      - internal: true
-        json:
+      - json:
           - .charging_controllers | .[].info._v_.firmware_version | capture("V(?<version>\\d+(?:\\.\\d+)*)"; "i") | .version | split(".") | map(tonumber) | if . < ("1.7.3" | split(".") | map(tonumber)) then true else false end
         name: is_vulnerable_version
         part: body
@@ -24,7 +23,6 @@ http:
         dsl:
           - status_code == 200
           - contains_all(body, "charging_controllers", "system")
-          - is_vulnerable_version == "true"
         type: dsl
     method: GET
     path:

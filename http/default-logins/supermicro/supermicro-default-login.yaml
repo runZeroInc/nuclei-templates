@@ -27,7 +27,6 @@ http:
       pass:
         - ADMIN
         - admin
-        - ""
       user:
         - ADMIN
         - admin
