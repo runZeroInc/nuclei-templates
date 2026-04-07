@@ -1,11 +1,9 @@
 id: prtg-default-login
-
 info:
   name: PRTG Network Monitor - Hardcoded Credentials
   author: johnk3r
   severity: high
-  description: |
-    PRTG Network Monitor default login credentials were discovered.
+  description: PRTG Network Monitor contains a hardcoded credential vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://www.paessler.com/manuals/prtg/login
   classification:
@@ -14,35 +12,32 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-655683626"
     max-request: 1
+    product: prtg_network_monitor
+    shodan-query: http.favicon.hash:-655683626
     vendor: paessler
-  tags: prtg,default-login,vuln
-
+  tags: default-login,prtg,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - OCTOPUS
+          - /home
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - prtgadmin
+      username:
+        - prtgadmin
+    raw:
       - |
         POST /public/checklogin.htm HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         loginurl=&username={{username}}&password={{password}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - prtgadmin
-      password:
-        - prtgadmin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - "OCTOPUS"
-          - "/home"
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

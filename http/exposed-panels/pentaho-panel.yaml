@@ -1,5 +1,4 @@
 id: pentaho-panel
-
 info:
   name: Pentaho User Console Login Panel - Detect
   author: princechaddha,dhiyaneshDK
@@ -10,16 +9,15 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
+    product: vantara_pentaho
+    shodan-query: pentaho
     vendor: hitachi
-  tags: panel,pentaho,discovery
-
+  tags: discovery,panel,pentaho
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/pentaho/Login'
-
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Pentaho User Console - Login</title>'
-
+          - <title>Pentaho User Console - Login</title>
+    method: GET
+    path:
+      - '{{BaseURL}}/pentaho/Login'

@@ -1,5 +1,4 @@
 id: episerver-panel
-
 info:
   name: Episerver Login Panel
   author: William Söderberg @ WithSecure
@@ -13,24 +12,22 @@ info:
     cpe: cpe:2.3:a:episerver:episerver:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)epihash"
-    verified: true
     max-request: 1
+    product: episerver
+    shodan-query: html:"epihash"
     vendor: episerver
-  tags: panel,optimizely,episerver,discovery
-
+    verified: true
+  tags: discovery,episerver,optimizely,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/episerver/cms"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
+  - matchers:
+      - part: header
         regex:
-          - "Util.*%2(f|F)episerver%2(f|F)cms"
-        part: header
-
-      - type: status
-        status:
+          - Util.*%2(f|F)episerver%2(f|F)cms
+        type: regex
+      - status:
           - 302
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/episerver/cms'

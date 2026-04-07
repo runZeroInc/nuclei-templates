@@ -1,10 +1,10 @@
 id: camunda-default-login
-
 info:
-  name: Camunda Default Credentials
+  name: Camunda - Default Login
   author: bhutch
   severity: high
-  description: Camunda default login credentials were discovered.
+  description: |
+    Camunda login panel contains a default login vulnerability.
   reference:
     - https://github.com/camunda/camunda-docs-manual/blob/master/content/webapps/admin/user-management.md
   classification:
@@ -13,13 +13,37 @@ info:
     cwe-id: CWE-522
   metadata:
     runzero-match: service["http.body"] matches "Camunda Welcome"
-    verified: true
     max-request: 2
     shodan-query: http.html:"Camunda Welcome"
-  tags: default-login,camunda,vuln
-
+    verified: true
+  tags: camunda,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - group: 1
+        internal: true
+        name: xsrf_token
+        part: header
+        regex:
+          - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"userId"'
+          - '"authorizedApps"'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - demo
+      username:
+        - demo
+    raw:
       - |
         GET /camunda/app/welcome/default/ HTTP/1.1
         Host: {{Hostname}}
@@ -31,33 +55,3 @@ http:
         X-Xsrf-Token: {{xsrf_token}}
 
         username={{username}}&password={{password}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - demo
-      password:
-        - demo
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"userId"'
-          - '"authorizedApps"'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        name: xsrf_token
-        group: 1
-        internal: true
-        part: header
-        regex:
-          - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
-

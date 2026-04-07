@@ -1,5 +1,4 @@
 id: reportico-admin-panel
-
 info:
   name: Reportico Administration Page - Detect
   author: geeknik
@@ -13,32 +12,29 @@ info:
     cpe: cpe:2.3:a:reportico:reportico:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)reportico administration page"})
-    verified: true
-    max-request: 2
-    vendor: reportico
-    product: reportico
-    shodan-query: http.title:"reportico administration page"
     fofa-query: title="reportico administration page"
     google-query: intitle:"reportico administration page"
-  tags: panel,reportico,login,detect,discovery
-
+    max-request: 2
+    product: reportico
+    shodan-query:
+      - title:"Reportico Administration Page"
+      - http.title:"reportico administration page"
+    vendor: reportico
+    verified: true
+  tags: detect,discovery,login,panel,reportico
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/run.php?project=admin&execute_mode=ADMIN&clear_session=1"
-      - "{{BaseURL}}/reportico/run.php?project=admin&execute_mode=ADMIN&clear_session=1"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
-          - "Reportico Administration"
-          - "reportico_"
-        condition: and
-
-      - type: status
-        status:
+          - Reportico Administration
+          - reportico_
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/run.php?project=admin&execute_mode=ADMIN&clear_session=1'
+      - '{{BaseURL}}/reportico/run.php?project=admin&execute_mode=ADMIN&clear_session=1'
+    stop-at-first-match: true

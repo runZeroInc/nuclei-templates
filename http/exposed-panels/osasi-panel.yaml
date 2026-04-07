@@ -1,5 +1,4 @@
 id: osasi-panel
-
 info:
   name: OSASI Login - Panel
   author: biero-el-corridor
@@ -8,25 +7,22 @@ info:
     OSASI Login panel was discovered.
   metadata:
     runzero-match: service["http.body"] matches "(?i)/css/osasiasp\\.css"
-    verified: true
     max-request: 1
-  tags: osasi,panel,login,detect,discovery
-
+    shodan-query: html:"/css/osasiasp.css"
+    verified: true
+  tags: detect,discovery,login,osasi,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/users/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "/img/osasil_logo_f.png"
-          - "UserLoginid"
-        condition: and
-
-      - type: status
-        status:
+          - /img/osasil_logo_f.png
+          - UserLoginid
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/users/login'

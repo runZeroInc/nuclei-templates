@@ -1,5 +1,4 @@
 id: livehelperchat-admin-panel
-
 info:
   name: Live Helper Chat Admin Login Panel - Detect
   author: ritikchaddha
@@ -11,30 +10,30 @@ info:
     cpe: cpe:2.3:a:livehelperchat:live_helper_chat:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)live helper chat"})
-    verified: true
-    max-request: 1
-    vendor: livehelperchat
-    product: live_helper_chat
-    shodan-query: http.title:"live helper chat"
-    fofa-query: title="live helper chat"
+    fofa-query:
+      - title="Live Helper Chat"
+      - title="live helper chat"
     google-query: intitle:"live helper chat"
-  tags: livehelperchat,panel,discovery
-
+    max-request: 1
+    product: live_helper_chat
+    shodan-query:
+      - title:"Live Helper Chat"
+      - http.title:"live helper chat"
+    vendor: livehelperchat
+    verified: true
+  tags: discovery,livehelperchat,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/site_admin/user/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "Live Helper Chat"
-          - "Please login"
-        condition: and
-
-      - type: status
-        status:
+          - Live Helper Chat
+          - Please login
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/site_admin/user/login'

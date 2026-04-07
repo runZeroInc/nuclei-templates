@@ -1,5 +1,4 @@
 id: lenovo-fp-panel
-
 info:
   name: Lenovo Fan Power Controller Login Panel - Detect
   author: megamansec
@@ -11,34 +10,31 @@ info:
     cpe: cpe:2.3:a:lenovo:fan_power_controller:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)fan and power controller"
-    verified: true
-    max-request: 2
-    vendor: lenovo
-    product: fan_power_controller
-    shodan-query: http.html:"fan and power controller"
     fofa-query: body="fan and power controller"
-  tags: panel,lenovo,discovery
-
+    max-request: 2
+    product: fan_power_controller
+    shodan-query:
+      - http.html:"Fan and Power Controller"
+      - http.html:"fan and power controller"
+    vendor: lenovo
+    verified: true
+  tags: discovery,lenovo,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login.html"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "Avocent Corporation and its affiliates"
-          - "FPC Login"
-          - "Fan and Power Controller"
-
-      - type: status
-        status:
+          - Avocent Corporation and its affiliates
+          - FPC Login
+          - Fan and Power Controller
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login.html'
+    stop-at-first-match: true

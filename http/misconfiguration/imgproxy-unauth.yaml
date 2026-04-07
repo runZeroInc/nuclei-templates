@@ -1,5 +1,4 @@
 id: imgproxy-unauth
-
 info:
   name: Imgproxy Unauthorized Access
   author: userdehghani
@@ -14,23 +13,22 @@ info:
     cvss-score: 7.5
     cpe: cpe:2.3:a:evilmartians:imgproxy:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: imgproxy
+    shodan-query: html:"imgproxy"
     vendor: evilmartians
-  tags: imgproxy,unauth,misconfig,vuln
+    verified: true
+  tags: imgproxy,misconfig,unauth,vuln
 variables:
-  img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/375px-Google_2015_logo.svg.png'
-
+  img_url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/375px-Google_2015_logo.svg.png
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/_/resize:fill:10:10:0/gravity:sm/plain/{{img_url}}"
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'status_code==200'
-          - 'contains(content_type, "image/png")'
-          - '("386116288" == mmh3(base64_py(body)))'
-        condition: and
-
+          - status_code==200
+          - contains(content_type, "image/png")
+          - ("386116288" == mmh3(base64_py(body)))
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/_/resize:fill:10:10:0/gravity:sm/plain/{{img_url}}'

@@ -1,5 +1,4 @@
 id: leostream-panel
-
 info:
   name: Leostream Login Panel - Detect
   author: praetorian-thendrickson
@@ -14,21 +13,19 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Leostream"})
     max-request: 1
+    product: connection_broker
+    shodan-query: http.title:"Leostream"
     vendor: leostream
-  tags: panel,leostream,discovery
-
+  tags: discovery,leostream,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Leostream</title>'
-
-      - type: status
-        status:
+          - <title>Leostream</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: gnu-mailman
-
 info:
   name: GNU Mailman Panel - Detect
   author: Matt Galligan
@@ -12,36 +11,32 @@ info:
     cpe: cpe:2.3:a:gnu:mailman:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)mailing lists"})
-    verified: true
-    max-request: 2
-    vendor: gnu
-    product: mailman
-    shodan-query:
-      - http.title:"mailing lists"
-      - cpe:"cpe:2.3:a:gnu:mailman"
     fofa-query: title="mailing lists"
     google-query: intitle:"mailing lists"
-  tags: exposure,mailman,panel,gnu,discovery
-
+    max-request: 2
+    product: mailman
+    shodan-query:
+      - title:"Mailing Lists"
+      - http.title:"mailing lists"
+      - cpe:"cpe:2.3:a:gnu:mailman"
+    vendor: gnu
+    verified: true
+  tags: discovery,exposure,gnu,mailman,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/mailman/listinfo"
-      - "{{BaseURL}}/listinfo"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Mailing Lists"
-          - "Description"
-          - "list"
+  - matchers:
+      - case-insensitive: true
         condition: and
-        case-insensitive: true
-
-      - type: status
-        status:
+        type: word
+        words:
+          - Mailing Lists
+          - Description
+          - list
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/mailman/listinfo'
+      - '{{BaseURL}}/listinfo'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: casdoor-login
-
 info:
   name: Casdoor Login Panel - Detect
   author: princechaddha
@@ -13,27 +12,25 @@ info:
     cpe: cpe:2.3:a:casbin:casdoor:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)casdoor"})
-    max-request: 1
-    vendor: casbin
-    product: casdoor
-    shodan-query: http.title:"casdoor"
     fofa-query: title="casdoor"
     google-query: intitle:"casdoor"
-  tags: panel,casdoor,casbin,discovery
-
+    max-request: 1
+    product: casdoor
+    shodan-query:
+      - http.title:"Casdoor"
+      - http.title:"casdoor"
+    vendor: casbin
+  tags: casbin,casdoor,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Casdoor</title>"
-
-      - type: status
-        status:
+          - <title>Casdoor</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

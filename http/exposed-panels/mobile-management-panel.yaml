@@ -1,5 +1,4 @@
 id: mobile-management-panel
-
 info:
   name: Mobile Management Platform Panel - Detect
   author: ritikchaddha
@@ -11,33 +10,30 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_mobile_device_manager_plus:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)移动管理平台-企业管理"})
-    verified: true
+    fofa-query: title="移动管理平台-企业管理"
     max-request: 1
+    product: manageengine_mobile_device_manager_plus
     vendor: zohocorp
-  tags: panel,mobile,management,discovery
-
+    verified: true
+  tags: discovery,management,mobile,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "移动管理平台-企业管理"
-          - "Mobile management platform"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - 'version = "(.*)"'
-
+          - version = "(.*)"
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - 移动管理平台-企业管理
+          - Mobile management platform
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

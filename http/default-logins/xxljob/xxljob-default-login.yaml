@@ -1,10 +1,9 @@
 id: xxljob-default-login
-
 info:
-  name: XXL-JOB - Default Login
+  name: XXL-JOB Default Login
   author: pdteam,ritikchaddha
   severity: high
-  description: XXL-JOB default login credentials were discovered.
+  description: XXL-JOB default admin credentials were discovered.
   reference:
     - https://github.com/xuxueli/xxl-job
   classification:
@@ -13,14 +12,38 @@ info:
     cwe-id: CWE-522
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1691956220"
-    verified: true
-    max-request: 2
-    vendor: xuxueli
     fofa-query: icon_hash=1691956220
-  tags: default-login,xxljob,vuln
-
+    max-request: 2
+    product: xxl-job
+    shodan-query: http.favicon.hash:1691956220
+    vendor: xuxueli
+    verified: true
+  tags: default-login,vuln,xxljob
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"code":200'
+          - '"msg"'
+          - '"content"'
+      - condition: and
+        part: header
+        type: word
+        words:
+          - application/json
+          - XXL_JOB_LOGIN_IDENTITY
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - 123456
+      username:
+        - admin
+    raw:
       - |
         POST /xxl-job-admin/login HTTP/1.1
         Host:{{Hostname}}
@@ -33,32 +56,4 @@ http:
         Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
         userName={{username}}&password={{password}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - 123456
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"code":200'
-          - '"msg"'
-          - '"content"'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'application/json'
-          - 'XXL_JOB_LOGIN_IDENTITY'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

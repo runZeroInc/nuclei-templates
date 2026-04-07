@@ -1,5 +1,4 @@
 id: sophos-web-appliance
-
 info:
   name: Sophos Web Appliance
   author: DhiyaneshDk
@@ -10,32 +9,28 @@ info:
     cpe: cpe:2.3:a:sophos:web_appliance:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-893681401" || any(each(service["html.titles"]), {# matches "(?i)sophos web appliance"})
-    verified: true
-    max-request: 1
-    vendor: sophos
-    product: web_appliance
-    shodan-query:
-      - http.favicon.hash:"-893681401"
-      - http.title:"sophos web appliance"
     fofa-query:
       - title="sophos web appliance"
       - icon_hash=-893681401
     google-query: intitle:"sophos web appliance"
-  tags: panel,login,sophos,discovery
-
+    max-request: 1
+    product: web_appliance
+    shodan-query:
+      - http.favicon.hash:-893681401
+      - http.title:"sophos web appliance"
+    vendor: sophos
+    verified: true
+  tags: discovery,login,panel,sophos
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>Sophos Web Appliance</title>'
-
-      - type: status
-        status:
+          - <title>Sophos Web Appliance</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

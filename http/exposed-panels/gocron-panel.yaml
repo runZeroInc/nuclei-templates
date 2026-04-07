@@ -1,5 +1,4 @@
 id: gocron-panel
-
 info:
   name: Gocron Panel - Detect
   author: ffffffff0x
@@ -10,26 +9,23 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:gocron_project:gocron:*:*:*:*:*:*:*:*
   metadata:
+    fofa-query: app="gocron-定时任务系统"
     max-request: 1
+    product: gocron
     vendor: gocron_project
-  tags: gocron,panel,discovery
-
+  tags: discovery,gocron,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: regex
-        part: body
+      - part: body
         regex:
-          - '<title>gocron - (.*)</title>'
-
-      - type: status
-        status:
+          - <title>gocron - (.*)</title>
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,10 +1,9 @@
 id: versa-default-login
-
 info:
-  name: Versa Networks SD-WAN Application - Default Login
+  name: Versa Networks SD-WAN Application Default Login
   author: davidmckennirey
   severity: high
-  description: Versa Networks SD-WAN Application default login credentials were discovered.
+  description: Versa Networks SD-WAN application default admin credentials were discovered.
   reference:
     - https://versa-networks.com/products/sd-wan.php
   classification:
@@ -13,10 +12,28 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 2
-  tags: default-login,versa,sdwan,vuln
-
+  tags: default-login,sdwan,versa,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        dsl:
+          - status_code_2 == 302
+          - contains(tolower(header_2), 'jsessionid')
+          - 'contains(tolower(header_2), ''location: /versa/index.html'')'
+        type: dsl
+      - dsl:
+          - contains(tolower(header_2), '/login?error=true')
+          - contains(tolower(header_2), '/login?tokenmissingerror=true')
+        negative: true
+        type: dsl
+    matchers-condition: and
+    payloads:
+      pass:
+        - versa123
+      user:
+        - Administrator
+    raw:
       - |
         GET /versa/login.html HTTP/1.1
         Host: {{Hostname}}
@@ -27,26 +44,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         username={{user}}&password={{pass}}&sso=systemRadio
-
-    attack: pitchfork
-    payloads:
-      user:
-        - Administrator
-      pass:
-        - versa123
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code_2 == 302'
-          - "contains(tolower(header_2), 'jsessionid')"
-          - "contains(tolower(header_2), 'location: /versa/index.html')"
-        condition: and
-
-      - type: dsl
-        dsl:
-          - "contains(tolower(header_2), '/login?error=true')"
-          - "contains(tolower(header_2), '/login?tokenmissingerror=true')"
-        negative: true
-

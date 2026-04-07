@@ -1,5 +1,4 @@
 id: karma-config-js
-
 info:
   name: Karma Configuration File - Detect
   author: DhiyaneshDk
@@ -11,28 +10,25 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:karma_project:karma:*:*:*:*:node.js:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: karma
+    shodan-query: html:"karma.conf.js"
     vendor: karma_project
-  tags: config,exposure,devops,vuln
-
+    verified: true
+  tags: config,devops,exposure,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.config/karma.conf.js"
-      - "{{BaseURL}}/karma.conf.js"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
-          - "// Karma configuration"
-          - "module.exports"
-        condition: and
-
-      - type: status
-        status:
+          - // Karma configuration
+          - module.exports
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/.config/karma.conf.js'
+      - '{{BaseURL}}/karma.conf.js'
+    stop-at-first-match: true

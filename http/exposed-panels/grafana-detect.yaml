@@ -1,5 +1,4 @@
 id: grafana-detect
-
 info:
   name: Grafana Login Panel - Detect
   author: organiccrap,AdamCrosser,bhutch
@@ -11,40 +10,37 @@ info:
     cpe: cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)grafana"})
-    max-request: 2
-    vendor: grafana
-    product: grafana
-    shodan-query:
-      - http.title:"grafana"
-      - cpe:"cpe:2.3:a:grafana:grafana"
+    category: devops
     fofa-query:
       - title="grafana"
       - app="grafana"
     google-query: intitle:"grafana"
-  tags: panel,grafana,detect,discovery
-
+    max-request: 2
+    product: grafana
+    shodan-query:
+      - title:"Grafana"
+      - cpe:"cpe:2.3:a:grafana:grafana"
+      - http.title:"grafana"
+    vendor: grafana
+  tags: detect,discovery,grafana,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-      - "{{BaseURL}}/graph/login"
-
-    stop-at-first-match: true
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "<title>Grafana</title>"
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '\"version\"\:\"([0-9.]+)\"}'
-          - '\"subTitle\":\"Grafana v([0-9.]+)'
-
-      - type: kval
-        kval:
+          - \"version\"\:\"([0-9.]+)\"}
+          - \"subTitle\":\"Grafana v([0-9.]+)
+        type: regex
+      - kval:
           - version
-
+        type: kval
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Grafana</title>
+    method: GET
+    path:
+      - '{{BaseURL}}/login'
+      - '{{BaseURL}}/graph/login'
+    stop-at-first-match: true

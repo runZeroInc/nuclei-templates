@@ -1,5 +1,4 @@
 id: nagios-logserver-installer
-
 info:
   name: Nagios Log Server - Install
   author: ritikchaddha
@@ -7,26 +6,23 @@ info:
   description: |
     Detects the presence of a Nagios Log Server installation page, which can expose configuration setup information or initialization steps.
   metadata:
-    verified: true
+    fofa-query: title="Install &middot; Nagios Log Server"
     max-request: 1
     shodan-query: title:"Install &middot; Nagios Log Server"
-  tags: misconfig,install,nagios,nagios-logserver,vuln
-
+    verified: true
+  tags: install,misconfig,nagios,nagios-logserver,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/nagioslogserver/install"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "Nagios Log Server"
-          - "Install</a>"
-        condition: and
-
-      - type: status
-        status:
+          - Nagios Log Server
+          - Install</a>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/nagioslogserver/install'

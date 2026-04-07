@@ -1,5 +1,4 @@
 id: allied-telesis-login
-
 info:
   name: Allied Telesis Device GUI Login Panel - Detect
   author: prajiteshsingh
@@ -12,33 +11,30 @@ info:
     cwe-id: CWE-200
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)allied telesis device gui"})
-    verified: true
-    max-request: 1
-    vendor: allied_telesis
-    product: device_gui
-    shodan-query: http.title:"allied telesis device gui"
     fofa-query: title="allied telesis device gui"
     google-query: intitle:"allied telesis device gui"
-  tags: panel,allied,allied_telesis,discovery
-
+    max-request: 1
+    product: device_gui
+    shodan-query:
+      - title:"Allied Telesis Device GUI"
+      - http.title:"allied telesis device gui"
+    vendor: allied_telesis
+    verified: true
+  tags: allied,allied_telesis,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/public/login.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Allied Telesis Device GUI</title>"
-
-      - type: word
-        part: header
+          - <title>Allied Telesis Device GUI</title>
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/public/login.html'

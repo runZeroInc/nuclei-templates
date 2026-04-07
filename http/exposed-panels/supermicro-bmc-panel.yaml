@@ -1,5 +1,4 @@
 id: supermicro-bmc-panel
-
 info:
   name: Supermicro BMC Login Panel - Detect
   author: idealphase
@@ -15,23 +14,22 @@ info:
     cpe: cpe:2.3:h:supermicro:x11ssv-m4f:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Supermicro BMC Login"})
+    google-query: intitle:"Supermicro BMC Login"
     max-request: 1
+    product: x11ssv-m4f
+    shodan-query: http.title:"Supermicro BMC Login"
     vendor: supermicro
-  tags: panel,supermicro,bmc,discovery
-
+  tags: bmc,discovery,panel,supermicro
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Supermicro BMC Login</title>"
-
-      - type: status
-        status:
+          - <title>Supermicro BMC Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: svnserve-config
-
 info:
   name: Svnserve Configuration File - Detect
   author: sheikhrishad
@@ -13,23 +12,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:subversion:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    google-query: intext:"configuration of the svnserve daemon"
     max-request: 1
+    product: subversion
     vendor: apache
+    verified: true
   tags: config,exposure,svnserve,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/svnserve.conf"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "This file controls the configuration of the svnserve daemon"
-
-      - type: status
-        status:
+          - This file controls the configuration of the svnserve daemon
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/svnserve.conf'

@@ -1,5 +1,4 @@
 id: vbulletin-path-disclosure
-
 info:
   name: vBulletin - Full Path Disclosure
   author: MaStErChO
@@ -9,53 +8,48 @@ info:
   classification:
     cpe: cpe:2.3:a:vbulletin:vbulletin:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 11
+    product: vbulletin
+    shodan-query: title:"vBulletin"
     vendor: vbulletin
+    verified: true
   tags: config,exposure,fpd,vbulletin,vuln
 flow: http(1) && http(2)
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "vBulletin"
-
-  - method: GET
+          - vBulletin
+    method: GET
     path:
-      - "{{BaseURL}}/forumdisplay.php?do[]=[test.dll]"
-      - "{{BaseURL}}/calendar.php?do[]=[test.dll]"
-      - "{{BaseURL}}/search.php?do[]=[test.dll]"
-      - "{{BaseURL}}/forumrunner/include/album.php"
-      - "{{BaseURL}}/core/vb5/route/channel.php"
-      - "{{BaseURL}}/core/vb5/route/conversation.php"
-      - "{{BaseURL}}/includes/api/interface/noncollapsed.php"
-      - "{{BaseURL}}/includes/api/interface/collapsed.php"
-      - "{{BaseURL}}/vbseo_sitemap/addons/vbseo_sm_vba.php"
-      - "{{BaseURL}}/vbseo_sitemap/addons/vbseo_sm_vba_links.php"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+      - '{{BaseURL}}'
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "<strong>Warning</strong>:"
-          - "Cannot modify header information"
-          - "/strong> on line"
-          - "trim() expects parameter"
-          - "class_core.php"
-          - "header already sent"
-          - "Fatal error"
-        condition: or
-
-      - type: status
-        status:
+          - '<strong>Warning</strong>:'
+          - Cannot modify header information
+          - /strong> on line
+          - trim() expects parameter
+          - class_core.php
+          - header already sent
+          - Fatal error
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/forumdisplay.php?do[]=[test.dll]'
+      - '{{BaseURL}}/calendar.php?do[]=[test.dll]'
+      - '{{BaseURL}}/search.php?do[]=[test.dll]'
+      - '{{BaseURL}}/forumrunner/include/album.php'
+      - '{{BaseURL}}/core/vb5/route/channel.php'
+      - '{{BaseURL}}/core/vb5/route/conversation.php'
+      - '{{BaseURL}}/includes/api/interface/noncollapsed.php'
+      - '{{BaseURL}}/includes/api/interface/collapsed.php'
+      - '{{BaseURL}}/vbseo_sitemap/addons/vbseo_sm_vba.php'
+      - '{{BaseURL}}/vbseo_sitemap/addons/vbseo_sm_vba_links.php'
+    stop-at-first-match: true

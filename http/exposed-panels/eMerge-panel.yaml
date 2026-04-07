@@ -1,5 +1,4 @@
 id: eMerge-panel
-
 info:
   name: Nortek Linear eMerge Panel - Detect
   author: arafatansari
@@ -11,30 +10,28 @@ info:
     cpe: cpe:2.3:o:nortekcontrol:linear_emerge_essential_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)emerge"})
-    verified: true
-    max-request: 1
-    vendor: nortekcontrol
-    product: linear_emerge_essential_firmware
-    shodan-query: http.title:"emerge"
     fofa-query: title="emerge"
     google-query: intitle:"emerge"
-  tags: panel,emerge,nortek,nortekcontrol,discovery
-
+    max-request: 1
+    product: linear_emerge_essential_firmware
+    shodan-query:
+      - http.title:"eMerge"
+      - http.title:"emerge"
+    vendor: nortekcontrol
+    verified: true
+  tags: discovery,emerge,nortek,nortekcontrol,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
+  - matchers:
+      - condition: or
         part: body
         regex:
-          - '<title>(.*)Linear eMerge(.*)</title>'
-          - '/emerge.ico'
-        condition: or
-
-      - type: status
-        status:
+          - <title>(.*)Linear eMerge(.*)</title>
+          - /emerge.ico
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

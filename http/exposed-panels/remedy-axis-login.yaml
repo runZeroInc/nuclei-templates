@@ -1,5 +1,4 @@
 id: remedy-axis-login
-
 info:
   name: Remedy Axis Login Panel - Detect
   author: tess
@@ -10,28 +9,27 @@ info:
     cpe: cpe:2.3:a:bmc:remedy_action_request_system:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)BMC Remedy"
-    verified: true
     max-request: 3
+    product: remedy_action_request_system
+    shodan-query: http.html:"BMC Remedy"
     vendor: bmc
-  tags: panel,remedy,bmc,discovery
-
+    verified: true
+  tags: bmc,discovery,panel,remedy
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - BMC&nbsp;Remedy&nbsp;Mid&nbsp;Tier&nbsp;
+          - Remedy Login Page
+          - BMC Remedy
+          - BMC Smart Reporting
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/arsys/shared/login.jsp'
       - '{{BaseURL}}/rsso/admin/'
-
-    stop-at-first-match: true
     redirects: true
-    max-redirects: 2
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "BMC&nbsp;Remedy&nbsp;Mid&nbsp;Tier&nbsp;"
-          - "Remedy Login Page"
-          - "BMC Remedy"
-          - "BMC Smart Reporting"
-        condition: or
-
+    stop-at-first-match: true

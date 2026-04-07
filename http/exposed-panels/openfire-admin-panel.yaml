@@ -1,5 +1,4 @@
 id: openfire-admin-panel
-
 info:
   name: Openfire Admin Console Login Panel - Detect
   author: theamanrawat
@@ -11,41 +10,35 @@ info:
     cpe: cpe:2.3:a:igniterealtime:openfire:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)openfire admin console"}) || any(each(service["html.titles"]), {# matches "(?i)openfire"})
-    verified: true
-    max-request: 2
-    vendor: igniterealtime
-    product: openfire
-    shodan-query:
-      - http.title:"openfire admin console"
-      - http.title:"openfire"
-      - http.html:"welcome to openfire setup"
     fofa-query:
       - title="openfire"
       - title="openfire admin console"
-      - body="welcome to openfire setup"
     google-query:
       - intitle:"openfire admin console"
       - intitle:"openfire"
-  tags: panel,openfire,admin,console,igniterealtime,discovery
-
+    max-request: 2
+    product: openfire
+    shodan-query:
+      - http.title:"Openfire Admin Console"
+      - http.title:"openfire"
+      - http.title:"openfire admin console"
+    vendor: igniterealtime
+    verified: true
+  tags: admin,console,discovery,igniterealtime,openfire,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>Openfire Admin Console
+          - 'Openfire, Version:'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/login.jsp'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Openfire Admin Console'
-          - 'Openfire, Version:'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

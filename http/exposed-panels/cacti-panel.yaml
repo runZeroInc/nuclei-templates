@@ -1,5 +1,4 @@
 id: cacti-panel
-
 info:
   name: Cacti Login Panel - Detect
   author: geeknik,daffainfo
@@ -13,14 +12,6 @@ info:
     cpe: cpe:2.3:a:cacti:cacti:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1797138069" || any(each(service["html.titles"]), {# matches "(?i)login to cacti"}) || any(each(service["html.titles"]), {# matches "(?i)cacti"})
-    verified: true
-    max-request: 2
-    vendor: cacti
-    product: cacti
-    shodan-query:
-      - http.favicon.hash:"-1797138069"
-      - http.title:"login to cacti"
-      - http.title:"cacti"
     fofa-query:
       - icon_hash="-1797138069"
       - title="cacti"
@@ -28,34 +19,37 @@ info:
     google-query:
       - intitle:"login to cacti"
       - intitle:"cacti"
-  tags: cacti,login,panel,detect,discovery
-
+    max-request: 2
+    product: cacti
+    shodan-query:
+      - http.favicon.hash:-1797138069
+      - http.title:"login to cacti"
+      - http.title:"cacti"
+      - http.favicon.hash:"-1797138069"
+    vendor: cacti
+    verified: true
+  tags: cacti,detect,discovery,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/cacti/"
-
-    stop-at-first-match: true
-
-    matchers-condition: or
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
+        regex:
+          - <div class='versionInfo'>Version (.*) |
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
         words:
-          - "<title>Login to Cacti</title>"
-          - "The Cacti Group"
-        condition: or
-
-      - type: regex
-        part: header
+          - <title>Login to Cacti</title>
+          - The Cacti Group
+      - part: header
         regex:
           - Cacti+
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - "<div class='versionInfo'>Version (.*) |"
-
+        type: regex
+    matchers-condition: or
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/cacti/'
+    stop-at-first-match: true

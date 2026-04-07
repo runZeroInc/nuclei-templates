@@ -1,5 +1,4 @@
 id: symantec-dlp-login
-
 info:
   name: Symantec Data Loss Prevention Login Panel - Detect
   author: princechaddha
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:a:symantec:data_loss_prevention:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)symantec data loss prevention"})
-    max-request: 1
-    vendor: symantec
-    product: data_loss_prevention
-    shodan-query: http.title:"symantec data loss prevention"
     fofa-query: title="symantec data loss prevention"
     google-query: intitle:"symantec data loss prevention"
-  tags: symantec,panel,login,discovery
-
+    max-request: 1
+    product: data_loss_prevention
+    shodan-query:
+      - http.title:"Symantec Data Loss Prevention"
+      - http.title:"symantec data loss prevention"
+    vendor: symantec
+  tags: discovery,login,panel,symantec
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Symantec Data Loss Prevention</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/ProtectManager/Logon'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>Symantec Data Loss Prevention</title>"
-        part: body
-
-      - type: status
-        status:
-          - 200
-

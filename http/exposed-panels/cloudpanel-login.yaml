@@ -1,5 +1,4 @@
 id: cloudpanel-login
-
 info:
   name: CloudPanel Login - Detect
   author: DhiyaneshDk
@@ -8,34 +7,31 @@ info:
     cpe: cpe:2.3:a:mgt-commerce:cloudpanel:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "151132309" || any(each(service["html.titles"]), {# matches "(?i)cloudpanel"})
-    verified: true
-    max-request: 1
-    vendor: mgt-commerce
-    product: cloudpanel
-    shodan-query:
-      - http.favicon.hash:"151132309"
-      - http.title:"cloudpanel"
     fofa-query:
       - icon_hash="151132309"
       - title="cloudpanel"
     google-query: intitle:"cloudpanel"
-  tags: panel,login,cloudpanel,detect,mgt-commerce,discovery
-
+    max-request: 1
+    product: cloudpanel
+    shodan-query:
+      - http.favicon.hash:151132309
+      - http.title:"cloudpanel"
+      - http.favicon.hash:"151132309"
+    vendor: mgt-commerce
+    verified: true
+  tags: cloudpanel,detect,discovery,login,mgt-commerce,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "CloudPanel | Log In"
-          - "Forgot password"
-        condition: and
-
-      - type: status
-        status:
+          - CloudPanel | Log In
+          - Forgot password
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

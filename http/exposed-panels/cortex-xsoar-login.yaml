@@ -1,5 +1,4 @@
 id: cortex-xsoar-login
-
 info:
   name: Cortex XSOAR Login Panel - Detect
   author: dhiyaneshDK,r3dg33k
@@ -11,23 +10,20 @@ info:
     cpe: cpe:2.3:a:paloaltonetworks:cortex_xsoar:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)cortex xsoar"})
-    max-request: 1
-    vendor: paloaltonetworks
-    product: cortex_xsoar
-    shodan-query: http.title:"cortex xsoar"
     fofa-query: title="cortex xsoar"
     google-query: intitle:"cortex xsoar"
-  tags: panel,soar,login,paloaltonetworks,detect,discovery
-
+    max-request: 1
+    product: cortex_xsoar
+    shodan-query: http.title:"Cortex XSOAR"
+    vendor: paloaltonetworks
+  tags: detect,discovery,login,paloaltonetworks,panel,soar
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains_any(body, "<title>Cortex XSOAR</title>", "content=\"Cortex XSOAR\">")
+        type: dsl
+    method: GET
     path:
       - '{{BaseURL}}/#/login'
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains_any(body, "<title>Cortex XSOAR</title>", "content=\"Cortex XSOAR\">")'
-        condition: and
-

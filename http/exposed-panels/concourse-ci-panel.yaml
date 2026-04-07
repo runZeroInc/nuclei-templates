@@ -1,5 +1,4 @@
 id: concourse-ci-panel
-
 info:
   name: Concourse CI Login Panel - Detect
   author: praetorian-thendrickson
@@ -15,18 +14,17 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Concourse"})
     max-request: 1
+    product: concourse
+    shodan-query: title:"Concourse"
     vendor: pivotal_software
-  tags: panel,concourse,oss,discovery
-
+  tags: concourse,discovery,oss,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>Concourse</title>
+          - login to Concourse
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers:
-      - type: word
-        words:
-          - '<title>Concourse</title>'
-          - 'login to Concourse'
-        condition: or
-

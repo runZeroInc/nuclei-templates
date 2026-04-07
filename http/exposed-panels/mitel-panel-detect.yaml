@@ -1,5 +1,4 @@
 id: mitel-panel-detect
-
 info:
   name: Mitel Login Panel - Detect
   author: ritikchaddha
@@ -11,32 +10,29 @@ info:
     cpe: cpe:2.3:a:mitel:cmg_suite:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)mitel networks"
-    verified: true
-    max-request: 2
-    vendor: mitel
-    product: cmg_suite
-    shodan-query: http.html:"mitel networks"
     fofa-query: body="mitel networks"
-  tags: panel,mitel,discovery
-
+    max-request: 2
+    product: cmg_suite
+    shodan-query:
+      - http.html:"Mitel Networks"
+      - http.html:"mitel networks"
+    vendor: mitel
+    verified: true
+  tags: discovery,mitel,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/server-common/cgi-bin/login"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "Mitel Networks Corporation"
-
-      - type: status
-        status:
+          - Mitel Networks Corporation
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/server-common/cgi-bin/login'
+    stop-at-first-match: true

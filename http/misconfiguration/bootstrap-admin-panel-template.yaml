@@ -1,5 +1,4 @@
 id: bootstrap-admin-panel-template
-
 info:
   name: Bootstrap Admin Panel Template Panel - Detect
   author: tess
@@ -11,27 +10,25 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:teamworktec:responsive_bootstrap_admin_template:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: responsive_bootstrap_admin_template
+    shodan-query: title:"Dashboard - Bootstrap Admin Template"
     vendor: teamworktec
-  tags: bootstrap,panel,misconfig,exposure,vuln
-
+    verified: true
+  tags: bootstrap,exposure,misconfig,panel,vuln
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Dashboard - Bootstrap Admin Template
+          - Bootstrap Responsive Admin Template
+      - part: body
+        type: word
+        words:
+          - Bootstrap Admin Template
+    matchers-condition: or
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: or
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Dashboard - Bootstrap Admin Template"
-          - "Bootstrap Responsive Admin Template"
-        condition: and
-
-      - type: word
-        part: body
-        words:
-          - "Bootstrap Admin Template"
-

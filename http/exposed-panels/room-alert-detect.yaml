@@ -1,5 +1,4 @@
 id: room-alert-detect
-
 info:
   name: AVTECH Room Alert Login Panel - Detect
   author: gy741
@@ -13,35 +12,31 @@ info:
     cpe: cpe:2.3:h:avtech:room_alert_3e:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Room Alert"})
-    verified: true
     max-request: 2
+    product: room_alert_3e
+    shodan-query: title:"Room Alert"
     vendor: avtech
-  tags: panel,room-alert,avtech,discovery
-
+    verified: true
+  tags: avtech,discovery,panel,room-alert
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.html"
-      - "{{BaseURL}}/gateway"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - 'Room Alert - Account Log In'
-          - 'AVTECH Software, Inc. - Room Alert'
-          - 'alt="Room Alert"'
-        condition: or
-
-      - type: word
-        part: header
+          - Room Alert - Account Log In
+          - AVTECH Software, Inc. - Room Alert
+          - alt="Room Alert"
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.html'
+      - '{{BaseURL}}/gateway'
+    stop-at-first-match: true

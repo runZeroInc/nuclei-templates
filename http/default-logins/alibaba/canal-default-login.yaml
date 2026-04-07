@@ -1,10 +1,9 @@
 id: canal-default-login
-
 info:
-  name: Alibaba Canal Default Credentials
+  name: Alibaba Canal Default Login
   author: pdteam
   severity: high
-  description: Alibaba Canal default login credentials were discovered.
+  description: An Alibaba Canal default login was discovered.
   reference:
     - https://github.com/alibaba/canal/wiki/ClientAdapter
   classification:
@@ -13,33 +12,28 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: canal,alibaba,default-login,vuln
-
+  tags: alibaba,canal,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - condition: and
+        type: word
+        words:
+          - data":{"token"
+          - '"code":20000'
+    matchers-condition: and
+    payloads:
+      pass:
+        - 123456
+      user:
+        - admin
+    raw:
       - |
         POST /api/v1/user/login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
 
         {"username":"{{user}}","password":"{{pass}}"}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - 123456
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        condition: and
-        words:
-          - data":{"token"
-          - '"code":20000'
-

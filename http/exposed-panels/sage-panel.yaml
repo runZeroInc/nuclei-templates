@@ -1,5 +1,4 @@
 id: sage-panel
-
 info:
   name: Sage X3 Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -11,29 +10,27 @@ info:
     cpe: cpe:2.3:a:sage:x3:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sage x3"})
-    max-request: 1
-    vendor: sage
-    product: x3
-    shodan-query: http.title:"sage x3"
     fofa-query: title="sage x3"
     google-query: intitle:"sage x3"
-  tags: panel,sage,login,discovery
-
+    max-request: 1
+    product: x3
+    shodan-query:
+      - http.title:"Sage X3"
+      - http.title:"sage x3"
+    vendor: sage
+  tags: discovery,login,panel,sage
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/auth/login/page"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "<title>Sage  X3</title>"
-          - "'/auth/sage-id/registerStart'"
-        condition: and
-
-      - type: status
-        status:
+          - <title>Sage  X3</title>
+          - '''/auth/sage-id/registerStart'''
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/auth/login/page'

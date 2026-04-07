@@ -1,5 +1,4 @@
 id: esphome-panel
-
 info:
   name: ESPHome Login Panel - Detect
   author: fabaff
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:esphome:esphome:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - esphome"})
-    verified: true
-    max-request: 1
-    vendor: esphome
-    product: esphome
-    shodan-query:
-      - http.title:"login - esphome"
     fofa-query: title="login - esphome"
     google-query: intitle:"login - esphome"
-  tags: panel,esphome,iot,discovery
-
+    max-request: 1
+    product: esphome
+    shodan-query:
+      - title:"Login - ESPHome"
+      - http.title:"login - esphome"
+    vendor: esphome
+    verified: true
+  tags: discovery,esphome,iot,panel
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - class="esphome-header
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'class="esphome-header'
-
-      - type: status
-        status:
-          - 200
-

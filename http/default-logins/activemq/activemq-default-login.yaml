@@ -1,5 +1,4 @@
 id: activemq-default-login
-
 info:
   name: Apache ActiveMQ Default Login
   author: pdteam
@@ -10,28 +9,27 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# contains "Apache ActiveMQ"})
     max-request: 2
+    product: activemq
     shodan-query: title:"ActiveMQ Artemis Console"
-  tags: apache,activemq,default-login,vuln
-
+    vendor: apache
+  tags: activemq,apache,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - Welcome to the Apache ActiveMQ Console of <b>
+          - <h2>Broker</h2>
+    payloads:
+      password:
+        - user
+        - admin
+      username:
+        - user
+        - admin
+    raw:
       - |
         GET /admin/ HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ':' + password)}}
-
-    payloads:
-      username:
-        - user
-        - admin
-      password:
-        - user
-        - admin
-    attack: pitchfork
-    matchers:
-      - type: word
-        words:
-          - 'Welcome to the Apache ActiveMQ Console of <b>'
-          - '<h2>Broker</h2>'
-        condition: and
-

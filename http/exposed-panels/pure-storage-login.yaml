@@ -1,5 +1,4 @@
 id: pure-storage-login
-
 info:
   name: Pure Storage Login Panel - Detect
   author: dhiyaneshDK
@@ -11,26 +10,24 @@ info:
     cpe: cpe:2.3:a:purestorage:purity:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)pure storage login"})
-    max-request: 1
-    vendor: purestorage
-    product: purity
-    shodan-query: http.title:"pure storage login"
     fofa-query: title="pure storage login"
     google-query: intitle:"pure storage login"
-  tags: panel,purestorage,discovery
-
+    max-request: 1
+    product: purity
+    shodan-query:
+      - http.title:"Pure Storage Login"
+      - http.title:"pure storage login"
+    vendor: purestorage
+  tags: discovery,panel,purestorage
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Pure Storage Login</title>'
-
-      - type: status
-        status:
+          - <title>Pure Storage Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,38 +1,30 @@
 id: owncloud-status-page
-
 info:
-  name: ownCloud Server - Detection
+  name: Owncloud StatusPage detection
   author: myztique,invisiblethreat
   severity: info
-  description: |
-    ownCloud Server was detected.
   classification:
     cpe: cpe:2.3:a:owncloud:owncloud:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: owncloud
     product: owncloud
     shodan-query: http.html:"owncloud"
-  tags: tech,owncloud,status,discovery
-
+    vendor: owncloud
+    verified: true
+  tags: discovery,owncloud,status,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/status.php"
-
+  - extractors:
+      - json:
+          - .version
+        type: json
     matchers:
-      - type: word
+      - condition: and
         part: body
+        type: word
         words:
           - '"versionstring":'
           - '"installed":'
           - '"edition":'
-        condition: and
-
-    extractors:
-      - type: json
-        name: version
-        json:
-          - .version
-
+    method: GET
+    path:
+      - '{{BaseURL}}/status.php'

@@ -1,5 +1,4 @@
 id: jupyter-notebook
-
 info:
   name: Jupyter Notebook Login Panel - Detect
   author: hakimkt,arafatansari
@@ -15,33 +14,30 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "(?i)JupyterHub"
     max-request: 4
+    product: notebook
+    shodan-query: http.html:"JupyterHub"
     vendor: jupyter
-  tags: edb,panel,jupyter,notebook,exposure,discovery
-
+  tags: discovery,edb,exposure,jupyter,notebook,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/jupyter/login"
-      - "{{BaseURL}}/jupyter/lab"
-      - "{{BaseURL}}/jupyter/hub/lti/launch"
-      - "{{BaseURL}}/hub/login"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - '/jupyter/static/base/images/logo.png'
-          - '/jupyter/hub/logo'
-          - 'Select items to perform actions on them.'
-          - 'JupyterHub'
-        condition: or
-
-      - type: status
-        status:
+          - /jupyter/static/base/images/logo.png
+          - /jupyter/hub/logo
+          - Select items to perform actions on them.
+          - JupyterHub
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/jupyter/login'
+      - '{{BaseURL}}/jupyter/lab'
+      - '{{BaseURL}}/jupyter/hub/lti/launch'
+      - '{{BaseURL}}/hub/login'
+    stop-at-first-match: true

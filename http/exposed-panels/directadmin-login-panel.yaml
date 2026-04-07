@@ -1,5 +1,4 @@
 id: directadmin-login-panel
-
 info:
   name: DirectAdmin Login Panel - Detect
   author: idealphase
@@ -13,26 +12,24 @@ info:
     cpe: cpe:2.3:a:directadmin:directadmin:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)directadmin login"})
-    max-request: 1
-    vendor: directadmin
-    product: directadmin
-    shodan-query: http.title:"directadmin login"
     fofa-query: title="directadmin login"
     google-query: intitle:"directadmin login"
-  tags: panel,directadmin,discovery
-
+    max-request: 1
+    product: directadmin
+    shodan-query:
+      - title:"DirectAdmin Login"
+      - http.title:"directadmin login"
+    vendor: directadmin
+  tags: directadmin,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "<title>DirectAdmin Login</title>"
-
-      - type: status
-        status:
+          - <title>DirectAdmin Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

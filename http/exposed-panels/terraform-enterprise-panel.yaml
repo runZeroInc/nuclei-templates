@@ -1,5 +1,4 @@
 id: terraform-enterprise-panel
-
 info:
   name: Terraform Enterprise Panel - Detect
   author: Adam Crosser,idealphase
@@ -13,28 +12,29 @@ info:
     cpe: cpe:2.3:a:hashicorp:terraform:*:*:*:*:-:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)terraform enterprise"})
-    max-request: 1
-    vendor: hashicorp
-    product: terraform
-    shodan-query: http.title:"terraform enterprise"
     fofa-query: title="terraform enterprise"
-  tags: panel,terraform,hashicorp,discovery
-
+    google-query:
+      - intitle:"Terraform Enterprise"
+      - intitle:"terraform enterprise"
+    max-request: 1
+    product: terraform
+    shodan-query:
+      - title:"Terraform Enterprise"
+      - http.title:"terraform enterprise"
+    vendor: hashicorp
+  tags: discovery,hashicorp,panel,terraform
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/session'
-
+  - extractors:
+      - group: 1
+        regex:
+          - <span class="tag is-light is-lowercase">(.+)<\/span>
+        type: regex
     host-redirects: true
-    max-redirects: 2
     matchers:
       - type: word
         words:
-          - "Terraform Enterprise"
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - '<span class="tag is-light is-lowercase">(.+)<\/span>'
-
+          - Terraform Enterprise
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/session'

@@ -1,10 +1,9 @@
 id: showdoc-default-login
-
 info:
-  name: Showdoc - Default Login
+  name: Showdoc Default Login
   author: pikpikcu
   severity: medium
-  description: Showdoc default login credentials were discovered.
+  description: Showdoc default credentials were discovered.
   reference:
     - https://blog.star7th.com/2016/05/2007.html
   classification:
@@ -13,33 +12,28 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: showdoc,default-login,vuln
-
+  tags: default-login,showdoc,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"username":"showdoc"'
+          - '"user_token":'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - 123456
+      username:
+        - showdoc
+    raw:
       - |
         POST /server/index.php?s=/api/user/login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded;charset=UTF-8
 
         username={{username}}&password={{password}}&v_code=
-
-    payloads:
-      username:
-        - showdoc
-      password:
-        - 123456
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"username":"showdoc"'
-          - '"user_token":'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: default-movable-page
-
 info:
   name: Movable Default Page
   author: dhiyaneshDk
@@ -8,17 +7,16 @@ info:
     cpe: cpe:2.3:a:sixapart:movable_type:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    product: movable_type
+    shodan-query: title:"Welcome to Movable Type"
     vendor: sixapart
-  tags: tech,movable,discovery
-
+  tags: discovery,movable,tech
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Welcome to Movable Type</title>
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers:
-      - type: word
-        words:
-          - "<title>Welcome to Movable Type</title>"
-        part: body
-

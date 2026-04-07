@@ -1,5 +1,4 @@
 id: intelbras-panel
-
 info:
   name: Intelbras Router Panel - Detect
   author: pikpikcu
@@ -11,34 +10,33 @@ info:
     cpe: cpe:2.3:o:intelbras:cip_92200_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)intelbras"})
-    verified: true
-    max-request: 1
-    vendor: intelbras
-    product: cip_92200_firmware
-    shodan-query: http.title:"intelbras"
     fofa-query:
-      - app="intelbras"
+      - app="Intelbras"
       - title="intelbras"
+      - app="intelbras"
     google-query: intitle:"intelbras"
-  tags: panel,intelbras,discovery
-
+    max-request: 1
+    product: cip_92200_firmware
+    shodan-query:
+      - http.title:"Intelbras"
+      - http.title:"intelbras"
+    vendor: intelbras
+    verified: true
+  tags: discovery,intelbras,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-    matchers:
-      - type: word
-        words:
-          - "<title>Intelbras"
-        case-insensitive: true
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
-          - 'id="product">([A-Za-z 0-9]+)<\/p>'
-
+          - id="product">([A-Za-z 0-9]+)<\/p>
+        type: regex
+    host-redirects: true
+    matchers:
+      - case-insensitive: true
+        type: word
+        words:
+          - <title>Intelbras
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

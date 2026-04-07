@@ -1,5 +1,4 @@
 id: hangfire-dashboard
-
 info:
   name: Hangfire Dashboard Panel - Detect
   author: DhiyaneshDk,righettod
@@ -11,41 +10,37 @@ info:
     cpe: cpe:2.3:a:hangfire:hangfire:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)overview – hangfire dashboard"})
-    verified: true
-    max-request: 2
-    vendor: hangfire
-    product: hangfire
-    shodan-query: http.title:"overview – hangfire dashboard"
     fofa-query: title="overview – hangfire dashboard"
     google-query: intitle:"overview – hangfire dashboard"
-  tags: panel,hangfire,discovery
-
+    max-request: 2
+    product: hangfire
+    shodan-query:
+      - title:"Overview – Hangfire Dashboard"
+      - http.title:"overview – hangfire dashboard"
+    vendor: hangfire
+    verified: true
+  tags: discovery,hangfire,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/hangfire"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - 'Hangfire Dashboard'
-          - 'Realtime Graph'
-        condition: and
-        case-insensitive: true
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - 'Hangfire\s+([0-9.]+)'
-
+          - Hangfire\s+([0-9.]+)
+        type: regex
+    matchers:
+      - case-insensitive: true
+        condition: and
+        part: body
+        type: word
+        words:
+          - Hangfire Dashboard
+          - Realtime Graph
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/hangfire'
+    stop-at-first-match: true
