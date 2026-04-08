@@ -9,7 +9,7 @@ info:
     - https://www.freepbx.org/
     - https://community.freepbx.org/t/freepbx-default-admin-passwords/9221
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FreePBX"})
+    runzero-match: service["favicon.ico.image.mmh3"] == "1574423538" || any(each(service["html.titles"]), {# matches "(?i)FreePBX"}) || service["favicon.ico.image.mmh3"] == "-1908328911"
     fofa-query: title="FreePBX"
     max-request: 2
     product: freepbx
