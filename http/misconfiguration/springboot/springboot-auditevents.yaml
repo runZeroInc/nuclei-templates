@@ -1,5 +1,4 @@
 id: springboot-auditevents
-
 info:
   name: Spring Boot AuditEvents Actuator Panel - Detect
   author: DhiyaneshDK
@@ -13,35 +12,31 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:spring_boot:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: spring_boot
+    shodan-query: title:"Eureka"
     vendor: vmware
-  tags: misconfig,springboot,exposure,vuln
-
+    verified: true
+  tags: exposure,misconfig,springboot,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/auditevents"
-      - "{{BaseURL}}/actuator/auditevents"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
           - '{"events":'
-
-      - type: word
+      - condition: or
         part: header
+        type: word
         words:
-          - "application/json"
-          - "application/vnd.spring-boot.actuator"
-          - "application/vnd.spring-boot.actuator.v1+json"
-        condition: or
-
-      - type: status
-        status:
+          - application/json
+          - application/vnd.spring-boot.actuator
+          - application/vnd.spring-boot.actuator.v1+json
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/auditevents'
+      - '{{BaseURL}}/actuator/auditevents'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: homematic-panel
-
 info:
   name: Homematic Panel - Detect
   author: princechaddha
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:o:eq-3:homematic_ccu3_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)homematic"
-    max-request: 1
-    vendor: eq-3
-    product: homematic_ccu3_firmware
-    shodan-query: http.html:"homematic"
     fofa-query: body="homematic"
-  tags: panel,homematic,iot,eq-3,discovery
-
+    max-request: 1
+    product: homematic_ccu3_firmware
+    shodan-query:
+      - http.html:"Homematic"
+      - http.html:"homematic"
+    vendor: eq-3
+  tags: discovery,eq-3,homematic,iot,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - "HomeMatic Logo"
-          - "<title>HomeMatic WebUI</title>"
-        condition: or
-
-      - type: status
-        status:
+          - HomeMatic Logo
+          - <title>HomeMatic WebUI</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

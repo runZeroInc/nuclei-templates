@@ -1,5 +1,4 @@
 id: ampache-panel
-
 info:
   name: Ampache Login Panel - Detect
   author: ritikchaddha
@@ -11,42 +10,37 @@ info:
     cpe: cpe:2.3:a:ampache:ampache:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)for the love of music"})
-    verified: true
-    max-request: 3
-    vendor: ampache
-    product: ampache
-    shodan-query:
-      - http.title:"for the love of music"
     fofa-query: title="for the love of music"
     google-query: intitle:"for the love of music"
-  tags: panel,ampache,discovery
-
+    max-request: 3
+    product: ampache
+    shodan-query:
+      - http.title:"For the Love of Music"
+      - http.title:"for the love of music"
+    vendor: ampache
+    verified: true
+  tags: ampache,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login.php"
-      - "{{BaseURL}}/public/login.php"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - case-insensitive: true
         part: body
+        type: word
         words:
-          - "Ampache :: For the Love of Music"
-        case-insensitive: true
-
-      - type: word
+          - 'Ampache :: For the Love of Music'
+      - negative: true
         part: body
+        type: word
         words:
-          - "Music - Installation"
-        negative: true
-
-      - type: status
-        status:
+          - Music - Installation
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login.php'
+      - '{{BaseURL}}/public/login.php'
+    stop-at-first-match: true

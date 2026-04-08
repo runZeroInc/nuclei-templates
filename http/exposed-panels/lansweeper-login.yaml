@@ -1,5 +1,4 @@
 id: lansweeper-login
-
 info:
   name: Lansweeper Login Panel - Detect
   author: divya_mudgal
@@ -11,35 +10,32 @@ info:
     cpe: cpe:2.3:a:lansweeper:lansweeper:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)lansweeper - login"})
-    verified: true
-    max-request: 1
-    vendor: lansweeper
-    product: lansweeper
-    shodan-query: http.title:"lansweeper - login"
     fofa-query: title="lansweeper - login"
     google-query: intitle:"lansweeper - login"
-  tags: lansweeper,tech,panel,discovery
-
+    max-request: 1
+    product: lansweeper
+    shodan-query:
+      - title:"Lansweeper - Login"
+      - http.title:"lansweeper - login"
+    vendor: lansweeper
+    verified: true
+  tags: discovery,lansweeper,panel,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login.aspx"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        name: login
-        words:
-          - "Lansweeper - Login"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         part: body
-        group: 1
         regex:
           - '"\/js\/CustomControls\.js\?([0-9.]+)" type="text\/javascript"'
-
+        type: regex
+    matchers:
+      - name: login
+        type: word
+        words:
+          - Lansweeper - Login
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.aspx'

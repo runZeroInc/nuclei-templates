@@ -1,5 +1,4 @@
 id: sonicwall-analyzer-login
-
 info:
   name: SonicWall Analyzer Login Panel - Detect
   author: DhiyaneshDK
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:a:sonicwall:analyzer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sonicwall analyzer login"})
-    verified: true
-    max-request: 1
-    vendor: sonicwall
-    product: analyzer
-    shodan-query: http.title:"sonicwall analyzer login"
     fofa-query: title="sonicwall analyzer login"
     google-query: intitle:"sonicwall analyzer login"
-  tags: panel,sonicwall,discovery
-
+    max-request: 1
+    product: analyzer
+    shodan-query:
+      - title:"SonicWall Analyzer Login"
+      - http.title:"sonicwall analyzer login"
+    vendor: sonicwall
+    verified: true
+  tags: discovery,panel,sonicwall
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - SonicWall Analyzer Login
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/sgms/auth'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'SonicWall Analyzer Login'
-
-      - type: status
-        status:
-          - 200
-

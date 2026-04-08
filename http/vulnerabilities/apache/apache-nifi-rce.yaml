@@ -1,5 +1,4 @@
 id: apache-nifi-rce
-
 info:
   name: Apache NiFi - Remote Code Execution
   author: arliya
@@ -14,37 +13,33 @@ info:
     cpe: cpe:2.3:a:apache:nifi:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)NiFi"})
-    verified: true
     max-request: 1
+    product: nifi
+    shodan-query: title:"NiFi"
     vendor: apache
-  tags: packetstorm,apache,nifi,rce,vuln
-
+    verified: true
+  tags: apache,nifi,packetstorm,rce,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/nifi-api/process-groups/root"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "revision"
-          - "canRead"
-          - "permissions"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: json
-        json:
+  - extractors:
+      - json:
           - .id
-
+        type: json
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - revision
+          - canRead
+          - permissions
+      - part: header
+        type: word
+        words:
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/nifi-api/process-groups/root'

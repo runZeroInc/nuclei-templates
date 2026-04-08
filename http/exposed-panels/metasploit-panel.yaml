@@ -1,5 +1,4 @@
 id: metasploit-panel
-
 info:
   name: Metasploit Panel - Detect
   author: lu4nx
@@ -12,34 +11,31 @@ info:
     cpe: cpe:2.3:a:rapid7:metasploit:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)metasploit"}) || any(each(service["html.titles"]), {# matches "(?i)metasploit - setup and configuration"})
-    verified: true
-    max-request: 1
-    vendor: rapid7
-    product: metasploit
-    shodan-query:
-      - http.title:"metasploit"
-      - http.title:"metasploit - setup and configuration"
     fofa-query:
       - title="metasploit"
       - title="metasploit - setup and configuration"
     google-query:
       - intitle:"metasploit"
       - intitle:"metasploit - setup and configuration"
-  tags: panel,metasploit,login,rapid7,discovery
-
+    max-request: 1
+    product: metasploit
+    shodan-query:
+      - http.title:"metasploit"
+      - http.title:"metasploit - setup and configuration"
+    vendor: rapid7
+    verified: true
+    zoomeye-query: app="Metasploit"
+  tags: discovery,login,metasploit,panel,rapid7
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Metasploit</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Metasploit</title>'
-
-      - type: status
-        status:
-          - 200
-

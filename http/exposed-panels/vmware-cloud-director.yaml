@@ -1,5 +1,4 @@
 id: vmware-cloud-director
-
 info:
   name: VMware Cloud Director Login Panel - Detect
   author: DhiyaneshDK
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:vmware:cloud_director:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)welcome to vmware cloud director"})
-    verified: true
-    max-request: 1
-    vendor: vmware
-    product: cloud_director
-    shodan-query:
-      - http.title:"welcome to vmware cloud director"
     fofa-query: title="welcome to vmware cloud director"
     google-query: intitle:"welcome to vmware cloud director"
-  tags: panel,vmware,discovery
-
+    max-request: 1
+    product: cloud_director
+    shodan-query:
+      - title:"Welcome to VMware Cloud Director"
+      - http.title:"welcome to vmware cloud director"
+    vendor: vmware
+    verified: true
+  tags: discovery,panel,vmware
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Welcome to VMware Cloud Director</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login/'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Welcome to VMware Cloud Director</title>'
-
-      - type: status
-        status:
-          - 200
-

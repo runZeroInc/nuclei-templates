@@ -1,5 +1,4 @@
 id: manageengine-adaudit
-
 info:
   name: ZOHO ManageEngine ADAudit/ADManager Panel - Detect
   author: dhiyaneshDK,PR3R00T,idealphase
@@ -15,32 +14,29 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_adaudit_plus:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)adaudit plus"})
-    verified: true
-    max-request: 2
-    vendor: zohocorp
-    product: manageengine_adaudit_plus
-    shodan-query: http.title:"adaudit plus" || http.title:"manageengine - admanager plus"
     fofa-query: title="adaudit plus" || http.title:"manageengine - admanager plus"
     google-query: intitle:"adaudit plus" || http.title:"manageengine - admanager plus"
-  tags: panel,zoho,manageengine,zohocorp,discovery
-
+    max-request: 2
+    product: manageengine_adaudit_plus
+    shodan-query:
+      - http.title:"ADAudit Plus" || http.title:"ManageEngine - ADManager Plus"
+      - http.title:"adaudit plus" || http.title:"manageengine - admanager plus"
+    vendor: zohocorp
+    verified: true
+  tags: discovery,manageengine,panel,zoho,zohocorp
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - ManageEngine - ADManager Plus
+          - ADAudit Plus
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-      - "{{BaseURL}}/authorization.do"
-
+      - '{{BaseURL}}/authorization.do'
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'ManageEngine - ADManager Plus'
-          - 'ADAudit Plus'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: webpagetest-panel
-
 info:
   name: WebPageTest Login Panel - Detect
   author: pdteam
@@ -12,16 +11,15 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)WebPageTest"})
     max-request: 1
+    product: webpagetest
+    shodan-query: title:"WebPageTest"
     vendor: webpagetest
-  tags: panel,webpagetest,discovery
-
+  tags: discovery,panel,webpagetest
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers:
+  - matchers:
       - type: word
         words:
-          - 'WebPageTest - Website Performance and Optimization Test'
-
+          - WebPageTest - Website Performance and Optimization Test
+    method: GET
+    path:
+      - '{{BaseURL}}'

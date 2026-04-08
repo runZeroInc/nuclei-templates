@@ -1,5 +1,4 @@
 id: kafka-monitoring
-
 info:
   name: Apache Kafka Monitor Login Panel - Detect
   author: pdteam
@@ -11,30 +10,25 @@ info:
     cpe: cpe:2.3:a:apache:kafka:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kafka center"}) || any(each(service["html.titles"]), {# matches "(?i)kafka consumer offset monitor"})
+    fofa-query:
+      - title="kafka center"
+      - title="kafka consumer offset monitor"
+    google-query:
+      - intitle:"kafka center"
+      - intitle:"kafka consumer offset monitor"
     max-request: 1
-    vendor: apache
     product: kafka
     shodan-query:
       - http.title:"kafka center"
       - http.title:"kafka consumer offset monitor"
-      - http.title:"ui for apache kafka"
-    fofa-query:
-      - title="kafka center"
-      - title="kafka consumer offset monitor"
-      - title="ui for apache kafka"
-    google-query:
-      - intitle:"kafka center"
-      - intitle:"kafka consumer offset monitor"
-  tags: panel,kafka,apache,discovery
-
+    vendor: apache
+  tags: apache,discovery,kafka,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers:
+  - matchers:
       - type: word
         words:
           - '>KafkaMonitor</a>'
           - '>Kafka Monitor GUI</h1>'
-
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: ssl-network-extender
-
 info:
   name: CheckPoint SSL Network Extender Login Panel - Detect
   author: idealphase
@@ -14,30 +13,31 @@ info:
     cpe: cpe:2.3:a:checkpoint:ssl_network_extender:*:*:*:*:-:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)check point ssl network extender"}) || any(each(service["html.titles"]), {# matches "(?i)ssl network extender login"})
-    max-request: 1
-    vendor: checkpoint
-    product: ssl_network_extender
-    shodan-query:
-      - http.title:"check point ssl network extender"
-      - http.title:"ssl network extender login"
     fofa-query:
       - title="check point ssl network extender"
       - title="ssl network extender login"
-  tags: panel,checkpoint,router,discovery
-
+    google-query:
+      - intitle:"SSL Network Extender Login"
+      - intitle:"ssl network extender login"
+      - intitle:"check point ssl network extender"
+    max-request: 1
+    product: ssl_network_extender
+    shodan-query:
+      - http.title:"Check Point SSL Network Extender"
+      - http.title:"check point ssl network extender"
+      - http.title:"ssl network extender login"
+    vendor: checkpoint
+  tags: checkpoint,discovery,panel,router
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<TITLE>SSL Network Extender Login</TITLE>"
-
-      - type: status
-        status:
+          - <TITLE>SSL Network Extender Login</TITLE>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.html'

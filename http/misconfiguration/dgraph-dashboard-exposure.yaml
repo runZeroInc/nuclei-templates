@@ -1,5 +1,4 @@
 id: dgraph-dashboard-exposure
-
 info:
   name: Dgraph Ratel Dashboard Exposure Panel - Detect
   author: dhiyaneshDk
@@ -12,25 +11,23 @@ info:
     cpe: cpe:2.3:a:dgraph:dgraph:*:*:*:*:go:*:*:*
   metadata:
     max-request: 1
+    product: dgraph
+    shodan-query: http.title:"Dgraph Ratel Dashboard"
     vendor: dgraph
-  tags: exposure,unauth,panel,misconfig,vuln
-
+  tags: exposure,misconfig,panel,unauth,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/?dev"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'Choose a version of the Ratel interface'
-          - '<title>Dgraph Ratel Dashboard</title>'
-        condition: and
-
-      - type: word
-        part: header
+          - Choose a version of the Ratel interface
+          - <title>Dgraph Ratel Dashboard</title>
+      - part: header
+        type: word
         words:
-          - "text/html"
-
+          - text/html
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/?dev'

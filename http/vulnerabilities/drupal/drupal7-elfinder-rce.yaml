@@ -1,5 +1,4 @@
 id: drupal7-elfinder-rce
-
 info:
   name: Drupal 7 Elfinder - Remote Code Execution
   author: 1337kro
@@ -15,28 +14,25 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-434
   metadata:
-    verified: true
+    fofa-query: app="drupal"
+    product: Drupal
     vendor: Drupal
-  tags: drupal,elfinder,filemanager,exposure,vuln
-
+    verified: true
+  tags: drupal,elfinder,exposure,filemanager,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/sites/all/libraries/elfinder/connectors/php/connector.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
           - '{"cwd":'
-
-      - type: word
-        part: content_type
+      - part: content_type
+        type: word
         words:
-          - 'application/json'
-
-      - type: status
-        status:
+          - application/json
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/sites/all/libraries/elfinder/connectors/php/connector.php'

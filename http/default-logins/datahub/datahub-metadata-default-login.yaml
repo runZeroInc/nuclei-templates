@@ -1,10 +1,9 @@
 id: datahub-metadata-default-login
-
 info:
-  name: DataHub Metadata Default Credentials
+  name: DataHub Metadata - Default Login
   author: queencitycyber
   severity: high
-  description: DataHub Metadata default login credentials were discovered.
+  description: DataHub Metadata contains a default login vulnerability.  An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://github.com/datahub-project/datahub/blob/master/docs/rfc/active/access-control/access-control.md
   classification:
@@ -14,35 +13,32 @@ info:
     cpe: cpe:2.3:a:datahub_project:datahub:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "DataHub"})
-    verified: true
     max-request: 1
+    product: datahub
+    shodan-query: http.title:"DataHub"
     vendor: datahub_project
+    verified: true
   tags: datahub,default-login,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - part: header
+        type: word
+        words:
+          - 'Set-Cookie: actor=urn:li:corpuser:datahub;'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - datahub
+      username:
+        - datahub
+    raw:
       - |
         POST /logIn HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
 
         {"username":"{{username}}","password":"{{password}}"}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - datahub
-      password:
-        - datahub
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - 'Set-Cookie: actor=urn:li:corpuser:datahub;'
-
-      - type: status
-        status:
-          - 200
-

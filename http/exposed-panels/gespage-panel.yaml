@@ -1,5 +1,4 @@
 id: gespage-panel
-
 info:
   name: Gespage Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:a:gespage:gespage:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    product: gespage
+    shodan-query: Path=/gespage
     vendor: gespage
-  tags: panel,gespage,discovery
-
+  tags: discovery,gespage,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/gespage/webapp/login.xhtml"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - '<link rel="stylesheet" href="css/gespage.css" />'
-          - '<link rel="stylesheet" href="css/menugrey.css" />'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
           - '\(Ver: ([0-9._A-Z]+)\)'
-
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <link rel="stylesheet" href="css/gespage.css" />
+          - <link rel="stylesheet" href="css/menugrey.css" />
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/gespage/webapp/login.xhtml'

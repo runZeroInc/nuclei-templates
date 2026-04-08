@@ -1,7 +1,6 @@
 id: guacamole-default-login
-
 info:
-  name: Guacamole - Default Login
+  name: Guacamole Default Login
   author: r3dg33k
   severity: high
   description: Guacamole default admin login credentials were detected.
@@ -13,10 +12,30 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: guacamole,default-login,vuln
-
+  tags: default-login,guacamole,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"username"'
+          - '"authToken"'
+          - '"guacadmin"'
+      - part: header
+        type: word
+        words:
+          - application/json
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - guacadmin
+      username:
+        - guacadmin
+    raw:
       - |
         POST /api/tokens HTTP/1.1
         Host: {{Hostname}}
@@ -25,29 +44,3 @@ http:
         Referer: {{Hostname}}
 
         username={{username}}&password={{password}}
-
-    payloads:
-      username:
-        - guacadmin
-      password:
-        - guacadmin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"username"'
-          - '"authToken"'
-          - '"guacadmin"'
-        condition: and
-
-      - type: word
-        words:
-          - 'application/json'
-        part: header
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: influxdb-panel
-
 info:
   name: InfluxDB Admin Interface Panel - Detect
   author: pikpikcu,idealphase
@@ -13,36 +12,31 @@ info:
     cpe: cpe:2.3:a:influxdata:influxdb:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)influxdb - admin interface"})
-    max-request: 1
-    vendor: influxdata
-    product: influxdb
-    shodan-query:
-      - http.title:"influxdb - admin interface"
-      - influxdb
-      - x-influxdb-
     fofa-query: title="influxdb - admin interface"
     google-query: intitle:"influxdb - admin interface"
-  tags: panel,influxdb,influxdata,discovery
-
+    max-request: 1
+    product: influxdb
+    shodan-query:
+      - http.title:"InfluxDB - Admin Interface"
+      - http.title:"influxdb - admin interface"
+      - influxdb
+    vendor: influxdata
+  tags: discovery,influxdata,influxdb,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>InfluxDB - Admin Interface</title>"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        group: 1
+  - extractors:
+      - group: 1
         regex:
-          - '<b>InfluxDB<\/b> v([\d.]+)<\/p>'
-
+          - <b>InfluxDB<\/b> v([\d.]+)<\/p>
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>InfluxDB - Admin Interface</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

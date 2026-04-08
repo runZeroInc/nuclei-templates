@@ -1,7 +1,6 @@
 id: hongdian-default-login
-
 info:
-  name: Hongdian - Default Login
+  name: Hongdian Default Login
   author: gy741
   severity: high
   description: Hongdian default login information was detected.
@@ -13,45 +12,39 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 4
-  tags: hongdian,default-login,vuln
-
+  tags: default-login,hongdian,vuln
 http:
-  - raw:
-      - |
-        GET / HTTP/1.1
-        Host: {{Hostname}}
-        Authorization: Basic {{base64(username + ':' + password)}}
-        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-        Accept-Encoding: gzip, deflate
-      - |
-        GET / HTTP/1.1
-        Host: {{Hostname}}
-        Authorization: Basic {{base64(username + ':' + password)}}
-        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-        Accept-Encoding: gzip, deflate
-
+  - attack: pitchfork
+    matchers:
+      - part: header
+        type: word
+        words:
+          - text/html
+      - part: body
+        type: word
+        words:
+          - status_main.cgi
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
     payloads:
-      username:
-        - guest
-        - admin
       password:
         - guest
         - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "text/html"
-        part: header
-
-      - type: word
-        words:
-          - "status_main.cgi"
-        part: body
-
-      - type: status
-        status:
-          - 200
-
+      username:
+        - guest
+        - admin
+    raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+        Authorization: Basic {{base64(username + ':' + password)}}
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+        Accept-Encoding: gzip, deflate
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+        Authorization: Basic {{base64(username + ':' + password)}}
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+        Accept-Encoding: gzip, deflate

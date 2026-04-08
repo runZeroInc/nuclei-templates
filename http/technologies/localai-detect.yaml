@@ -1,5 +1,4 @@
 id: localai-detect
-
 info:
   name: LocalAI - Detect
   author: s4e-io
@@ -10,23 +9,21 @@ info:
     - https://github.com/mudler/LocalAI
     - https://localai.io/
   metadata:
-    verified: true
+    fofa-query: LocalAI API
     max-request: 1
-    vendor: mudler
     product: localai
     shodan-query: http.favicon.hash:-976853304
-  tags: localai,tech,detect,discovery
-
+    vendor: mudler
+    verified: true
+  tags: detect,discovery,localai,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
+  - host-redirects: true
     matchers:
-      - type: dsl
+      - condition: and
         dsl:
-          - 'contains_all(body, "alt=\"LocalAI Logo\"", "<title>LocalAI")'
-          - 'status_code == 200'
-        condition: and
-
+          - contains_all(body, "alt=\"LocalAI Logo\"", "<title>LocalAI")
+          - status_code == 200
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: openwrt-login
-
 info:
   name: Opentwrt Login / Configuration Interface
   author: For3stCo1d,TechbrunchFR
@@ -11,35 +10,33 @@ info:
     cpe: cpe:2.3:o:openwrt:openwrt:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)openwrt - luci"})
-    max-request: 2
-    vendor: openwrt
-    product: openwrt
-    shodan-query: http.title:"openwrt - luci"
     fofa-query: title="openwrt - luci"
     google-query: intitle:"openwrt - luci"
-  tags: openwrt,router,panel,discovery
-
+    max-request: 2
+    product: openwrt
+    shodan-query:
+      - http.title:"OpenWrt - LuCI"
+      - http.title:"openwrt - luci"
+    vendor: openwrt
+  tags: discovery,openwrt,panel,router
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/cgi-bin/luci/"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - '<title>OpenWrt'
-          - "Powered by LuCI"
-        condition: or
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '(?i)OpenWrt  ([A-Z0-9.]+)'
-
+          - (?i)OpenWrt  ([A-Z0-9.]+)
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>OpenWrt
+          - Powered by LuCI
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/cgi-bin/luci/'
+    stop-at-first-match: true

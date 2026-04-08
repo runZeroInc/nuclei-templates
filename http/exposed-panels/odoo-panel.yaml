@@ -1,5 +1,4 @@
 id: odoo-panel
-
 info:
   name: Odoo - Panel Detect
   author: DhiyaneshDK,righettod
@@ -8,48 +7,42 @@ info:
     cpe: cpe:2.3:a:odoo:odoo:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)odoo"})
-    verified: true
-    max-request: 2
-    vendor: odoo
-    product: odoo
-    shodan-query:
-      - http.title:"odoo"
-      - cpe:"cpe:2.3:a:odoo:odoo"
     fofa-query: title="odoo"
     google-query: intitle:"odoo"
-  tags: login,panel,odoo,discovery
-
+    max-request: 2
+    product: odoo
+    shodan-query:
+      - title:"Odoo"
+      - http.title:"odoo"
+      - cpe:"cpe:2.3:a:odoo:odoo"
+    vendor: odoo
+    verified: true
+  tags: discovery,login,odoo,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/web/login"
-      - "{{BaseURL}}"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - '<title>Odoo</title>'
-          - 'odoo.session_info'
-          - 'web.layout.odooscript'
-        condition: or
-
-      - type: word
-        part: body
+          - <title>Odoo</title>
+          - odoo.session_info
+          - web.layout.odooscript
+      - part: body
+        type: word
         words:
-          - 'Log in'
-
-      - type: word
-        part: header
+          - Log in
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/web/login'
+      - '{{BaseURL}}'
+    stop-at-first-match: true

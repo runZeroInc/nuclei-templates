@@ -1,5 +1,4 @@
 id: temenos-t24-login
-
 info:
   name: Temenos Transact Login Panel - Detect
   author: korteke
@@ -13,26 +12,24 @@ info:
     cpe: cpe:2.3:a:temenos:t24:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)t24 sign in"})
-    verified: true
     max-request: 1
+    product: t24
+    shodan-query: http.title:"t24 sign in"
     vendor: temenos
-  tags: panel,exposure,temenos,discovery
-
+    verified: true
+  tags: discovery,exposure,panel,temenos
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/servlet/BrowserServlet"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - '<title>T24 Sign in</title>'
-          - 'value="CREATE.SESSION"'
-        condition: and
-
-      - type: status
-        status:
+          - <title>T24 Sign in</title>
+          - value="CREATE.SESSION"
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/servlet/BrowserServlet'

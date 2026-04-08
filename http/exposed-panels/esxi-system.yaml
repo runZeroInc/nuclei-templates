@@ -1,5 +1,4 @@
 id: esxi-system
-
 info:
   name: ESXi System Login Panel - Detect
   author: dhiyaneshDK
@@ -11,27 +10,24 @@ info:
     cpe: cpe:2.3:o:vmware:esxi:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)esxuiapp"
+    fofa-query: body="esxuiapp"
     max-request: 1
-    vendor: vmware
     product: esxi
     shodan-query:
+      - html:"esxUiApp"
       - http.html:"esxuiapp"
       - cpe:"cpe:2.3:o:vmware:esxi"
-    fofa-query: body="esxuiapp"
-  tags: panel,esxi,vmware,discovery
-
+    vendor: vmware
+  tags: discovery,esxi,panel,vmware
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/ui/#/login'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - 'ng-app="esxUiApp"'
-
-      - type: status
-        status:
+          - ng-app="esxUiApp"
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/ui/#/login'

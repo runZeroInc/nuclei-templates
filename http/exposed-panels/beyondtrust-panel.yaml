@@ -1,5 +1,4 @@
 id: beyondtrust-panel
-
 info:
   name: BeyondTrust Login Panel - Detect
   author: r3dg33k,nuk3s3c
@@ -12,17 +11,16 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "(?i)BeyondInsight"
     max-request: 1
+    product: beyondinsight
+    shodan-query: http.html:"BeyondInsight"
     vendor: beyondtrust
-  tags: beyondtrust,pam,panel,discovery
-
+  tags: beyondtrust,discovery,pam,panel
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>BeyondInsight</title>
+    method: GET
     path:
       - '{{BaseURL}}/WebConsole/'
-
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>BeyondInsight</title>"
-

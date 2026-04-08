@@ -1,43 +1,36 @@
 id: telecom-gateway-default-login
-
 info:
   name: Telecom Gateway - Default Admin Login
   author: ritikchaddha
   severity: high
-  description: |
-    Telecom Gateway default admin credentials were discovered.
+  description: Telecom Gateway default admin login credentials were successful.
   metadata:
     max-request: 1
-  tags: default-login,telecom,gateway,vuln
-
+  tags: default-login,gateway,telecom,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <title>电信网关服务器管理后台</title>
+          - index-shang.php
+          - di.php
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /manager/login.php HTTP/1.1
         Host: {{Hostname}}
 
         Name={{username}}&Pass={{password}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>电信网关服务器管理后台</title>"
-          - "index-shang.php"
-          - "di.php"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

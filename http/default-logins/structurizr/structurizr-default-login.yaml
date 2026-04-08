@@ -1,25 +1,47 @@
 id: structurizr-default-login
-
 info:
   name: Structurizr - Default Login
   author: DhiyaneshDK
   severity: high
   description: |
-    Structurizr default login credentials were discovered.
+    Structurizr contains default credentials.
   reference:
     - https://docs.structurizr.com/onpremises/quickstart
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1199592666"
-    verified: true
-    max-request: 3
-    vendor: structurizr
-    product: on-premises_installation
-    shodan-query: http.favicon.hash:"1199592666"
     fofa-query: icon_hash=1199592666
-  tags: structurizr,default-login,vuln
-
+    max-request: 3
+    product: on-premises_installation
+    shodan-query: http.favicon.hash:1199592666
+    vendor: structurizr
+    verified: true
+  tags: default-login,structurizr,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - group: 1
+        internal: true
+        name: csrf
+        regex:
+          - name="_csrf" value="([0-9a-z-]+)"
+        type: regex
+    matchers:
+      - condition: and
+        part: body_3
+        type: word
+        words:
+          - <a href="/dashboard">
+          - Sign out
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - password
+      username:
+        - structurizr
+    raw:
       - |
         GET /signin HTTP/1.1
         Host: {{Hostname}}
@@ -34,32 +56,3 @@ http:
         GET /dashboard HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
-
-    attack: pitchfork
-    payloads:
-      username:
-        - "structurizr"
-      password:
-        - "password"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_3
-        words:
-          - '<a href="/dashboard">'
-          - 'Sign out'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        name: csrf
-        group: 1
-        regex:
-          - 'name="_csrf" value="([0-9a-z-]+)"'
-        internal: true
-

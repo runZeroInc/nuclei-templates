@@ -1,10 +1,9 @@
 id: tiny-filemanager-default-login
-
 info:
   name: Tiny File Manager - Default Login
   author: shelled
   severity: high
-  description: Tiny File Manager default login credentials were discovered.
+  description: Tiny File Manager contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://github.com/prasathmani/tinyfilemanager
     - https://tinyfilemanager.github.io/docs/
@@ -15,13 +14,40 @@ info:
     cpe: cpe:2.3:a:tinyfilemanager_project:tinyfilemanager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "Tiny File Manager"
-    verified: true
     max-request: 3
+    product: tinyfilemanager
+    shodan-query: html:"Tiny File Manager"
     vendor: tinyfilemanager_project
-  tags: default-login,tiny,filemanager,vuln
-
+    verified: true
+  tags: default-login,filemanager,tiny,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - internal: true
+        name: token
+        part: body
+        regex:
+          - ([a-f0-9]{64})
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - admin
+          - You are logged in
+          - Tiny File Manager
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      pass:
+        - admin@123
+      user:
+        - admin
+    raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
@@ -34,35 +60,4 @@ http:
       - |
         GET /?p= HTTP/1.1
         Host: {{Hostname}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - admin@123
     skip-variables-check: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'admin'
-          - 'You are logged in'
-          - 'Tiny File Manager'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        name: token
-        part: body
-        regex:
-          - '([a-f0-9]{64})'
-        internal: true
-

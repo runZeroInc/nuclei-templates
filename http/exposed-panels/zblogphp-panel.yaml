@@ -1,5 +1,4 @@
 id: zblogphp-panel
-
 info:
   name: Z-BlogPHP Panel - Detect
   author: princechaddha
@@ -12,29 +11,26 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "(?i)Z-BlogPHP"
     max-request: 1
+    product: zblogphp
+    shodan-query: http.html:"Z-BlogPHP"
     vendor: zblogcn
-  tags: panel,zblogphp,discovery
-
+  tags: discovery,panel,zblogphp
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - '<meta name="generator" content="Z-BlogPHP'
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '<meta name="generator" content="([:A-Z-a-z 0-9.]+)"'
-
+          - <meta name="generator" content="([:A-Z-a-z 0-9.]+)"
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <meta name="generator" content="Z-BlogPHP
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

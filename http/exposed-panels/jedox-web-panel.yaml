@@ -1,5 +1,4 @@
 id: jedox-web-panel
-
 info:
   name: Jedox Web Login Panel - Detect
   author: Team Syslifters / Christoph MAHRL,Aron MOLNAR,Patrick PIRKER,Michael WEDL
@@ -12,38 +11,38 @@ info:
     cpe: cpe:2.3:a:jedox:jedox:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)jedox web - login"}) || any(each(service["html.titles"]), {# matches "(?i)jedox web login"})
-    verified: true
-    max-request: 2
-    vendor: jedox
-    product: jedox
-    shodan-query:
-      - http.title:"jedox web - login"
-      - http.title:"jedox web login"
     fofa-query:
       - title="jedox web login"
       - title="jedox web - login"
-  tags: panel,jedox,detect,discovery
-
+    google-query:
+      - intitle:"Jedox Web Login"
+      - intitle:"jedox web login"
+      - intitle:"jedox web - login"
+    max-request: 2
+    product: jedox
+    shodan-query:
+      - title:"Jedox Web - Login"
+      - http.title:"jedox web - login"
+      - http.title:"jedox web login"
+    vendor: jedox
+    verified: true
+  tags: detect,discovery,jedox,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/ui/login/"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - "Jedox Web - Login"
-          - "guide-jedox-software"
-        condition: or
-
-      - type: status
-        status:
+          - Jedox Web - Login
+          - guide-jedox-software
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/ui/login/'
+    stop-at-first-match: true

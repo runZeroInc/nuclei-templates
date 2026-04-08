@@ -1,5 +1,4 @@
 id: exagrid-manager-panel
-
 info:
   name: ExaGrid Manager Login Panel - Detect
   author: pussycat0x
@@ -11,36 +10,32 @@ info:
     cpe: cpe:2.3:h:exagrid:backup_appliance:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)exagrid manager"})
-    verified: true
-    max-request: 1
-    vendor: exagrid
-    product: backup_appliance
-    shodan-query: http.title:"exagrid manager"
     fofa-query: title="exagrid manager"
     google-query: intitle:"exagrid manager"
-  tags: exagrid,manager,login,panel,discovery
-
+    max-request: 1
+    product: backup_appliance
+    shodan-query:
+      - title:"ExaGrid Manager"
+      - http.title:"exagrid manager"
+    vendor: exagrid
+    verified: true
+  tags: discovery,exagrid,login,manager,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "ExaGrid Manager"
-
-      - type: word
-        part: header
+          - ExaGrid Manager
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

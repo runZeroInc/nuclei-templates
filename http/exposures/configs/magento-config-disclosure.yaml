@@ -1,5 +1,4 @@
 id: magento-config-disclosure
-
 info:
   name: Magento Configuration Panel - Detect
   author: ptonewreckin,danigoland,geeknik
@@ -14,44 +13,39 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:magento:magento:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 3
+    product: magento
+    shodan-query: http.component:"Magento"
     vendor: magento
-  tags: magento,exposure,credential,config,vuln
-
+    verified: true
+  tags: config,credential,exposure,magento,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/app/etc/local.xml"
-      - "{{BaseURL}}/app/etc/local.xml.additional"
-      - "{{BaseURL}}/store/app/etc/local.xml"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "* Magento"
-          - "<dbname>"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/xml"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: xpath
-        part: body
+  - extractors:
+      - part: body
+        type: xpath
         xpath:
-          - "/config/global/resources/default_setup/connection/host"
-          - "/config/global/resources/default_setup/connection/username"
-          - "/config/global/resources/default_setup/connection/password"
-          - "/config/global/resources/default_setup/connection/dbname"
-
+          - /config/global/resources/default_setup/connection/host
+          - /config/global/resources/default_setup/connection/username
+          - /config/global/resources/default_setup/connection/password
+          - /config/global/resources/default_setup/connection/dbname
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '* Magento'
+          - <dbname>
+      - part: header
+        type: word
+        words:
+          - application/xml
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/app/etc/local.xml'
+      - '{{BaseURL}}/app/etc/local.xml.additional'
+      - '{{BaseURL}}/store/app/etc/local.xml'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: vidyo-login
-
 info:
   name: Vidyo Admin Login Panel - Detect
   author: johnk3r
@@ -12,24 +11,22 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1970367401"
     max-request: 2
+    product: vidyo
+    shodan-query: http.favicon.hash:-1970367401
     vendor: vidyo
-  tags: panel,vidyo,discovery
-
+  tags: discovery,panel,vidyo
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>Vidyo Admin</title>
+          - <title>VidyoRouter Configuration</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/admin/login.html?lang=en'
       - '{{BaseURL}}/vr2conf/login.html'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>Vidyo Admin</title>'
-          - '<title>VidyoRouter Configuration</title>'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

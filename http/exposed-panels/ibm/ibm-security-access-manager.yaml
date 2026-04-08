@@ -1,5 +1,4 @@
 id: ibm-security-access-manager
-
 info:
   name: IBM Security Access Manager Login Panel - Detect
   author: geeknik,righettod
@@ -14,33 +13,29 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)IBM Security Access Manager"})
     max-request: 1
-    vendor: ibm
     product: security_access_manager
-  tags: panel,ibm,login,detect,discovery
-
+    shodan-query: http.title:"IBM Security Access Manager"
+    vendor: ibm
+  tags: detect,discovery,ibm,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>IBM Security Access Manager</title>
+          - IBM Security <em>Access Manager</em>
+      - part: header
+        type: word
+        words:
+          - IBM Security Access Manager for Web
+      - condition: and
+        part: body
+        type: word
+        words:
+          - /mga/sps/authsvc/policy/forgot_username
+          - /mga/sps/authsvc/policy/forgot_password
     matchers-condition: or
-    matchers:
-      - type: word
-        words:
-          - "<title>IBM Security Access Manager</title>"
-          - "IBM Security <em>Access Manager</em>"
-        part: body
-        condition: or
-
-      - type: word
-        words:
-          - "IBM Security Access Manager for Web"
-        part: header
-
-      - type: word
-        words:
-          - "/mga/sps/authsvc/policy/forgot_username"
-          - "/mga/sps/authsvc/policy/forgot_password"
-        part: body
-        condition: and
-
+    method: GET
+    path:
+      - '{{BaseURL}}'

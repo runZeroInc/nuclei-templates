@@ -1,5 +1,4 @@
 id: crxde-lite
-
 info:
   name: CRXDE Lite - Exposure
   author: nadino
@@ -12,16 +11,14 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    max-request: 1
     verified: true
-  tags: aem,crxde,exposure,adobe,misconfig,vuln
-
+  tags: adobe,aem,crxde,exposure,misconfig,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/crx/de/index.jsp"
-
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "<title>CRXDE Lite</title>"
-
+          - <title>CRXDE Lite</title>
+    method: GET
+    path:
+      - '{{BaseURL}}/crx/de/index.jsp'

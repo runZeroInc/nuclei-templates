@@ -1,5 +1,4 @@
 id: wechat-info-leak
-
 info:
   name: WeChat agentinfo - Information Exposure
   author: SleepingBag945
@@ -12,25 +11,21 @@ info:
     cpe: cpe:2.3:a:tencent:wechat:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)wework_admin\\.normal_layout"
-    verified: true
-    max-request: 1
-    vendor: tencent
-    product: wechat
-    shodan-query: http.html:"wework_admin.normal_layout"
     fofa-query: body="wework_admin.normal_layout"
-  tags: wechat,exposure,tencent,vuln
-
+    max-request: 1
+    product: wechat
+    vendor: tencent
+    verified: true
+  tags: exposure,tencent,vuln,wechat
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - status_code_1 == 200 && contains(body_1,"errcode") && contains(body_1,"strcorpid")
+          - contains(body_1,"corpid")
+        type: dsl
+    raw:
       - |
         GET /cgi-bin/gateway/agentinfo HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
-
-    matchers:
-      - type: dsl
-        dsl:
-          - status_code_1 == 200 && contains(body_1,"errcode") && contains(body_1,"strcorpid")
-          - contains(body_1,"corpid")
-        condition: and
-

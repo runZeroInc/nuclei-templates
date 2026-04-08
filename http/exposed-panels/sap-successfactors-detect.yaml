@@ -1,5 +1,4 @@
 id: sap-successfactors-detect
-
 info:
   name: SAP SuccessFactors Login Panel - Detect
   author: tess
@@ -11,35 +10,32 @@ info:
     cpe: cpe:2.3:a:sap:successfactors:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - sap successfactors"})
-    verified: true
-    max-request: 2
-    vendor: sap
-    product: successfactors
-    shodan-query: http.title:"login - sap successfactors"
     fofa-query: title="login - sap successfactors"
     google-query: intitle:"login - sap successfactors"
-  tags: panel,sap,detect,discovery
-
+    max-request: 2
+    product: successfactors
+    shodan-query:
+      - title:"Login - SAP SuccessFactors"
+      - http.title:"login - sap successfactors"
+    vendor: sap
+    verified: true
+  tags: detect,discovery,panel,sap
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - SAP SuccessFactors
+          - sap-ui-core
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/sf/start'
-
     stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'SAP SuccessFactors'
-          - 'sap-ui-core'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: monitorr-panel
-
 info:
   name: Monitorr Panel - Detect
   author: ritikchaddha
@@ -8,23 +7,20 @@ info:
     cpe: cpe:2.3:a:monitorr:monitorr:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-211006074"
-    verified: true
-    max-request: 1
-    vendor: monitorr
-    product: monitorr
-    shodan-query: http.favicon.hash:"-211006074"
     fofa-query: icon_hash="-211006074"
-  tags: panel,monitorr,detect,discovery
-
+    max-request: 1
+    product: monitorr
+    shodan-query: http.favicon.hash:-211006074
+    vendor: monitorr
+    verified: true
+  tags: detect,discovery,monitorr,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'status_code == 200'
-          - 'contains_any(body, "content=\"Monitorr", "Monitorr is loading", "title=\"Monitorr Settings")'
-        condition: and
-
+          - status_code == 200
+          - contains_any(body, "content=\"Monitorr", "Monitorr is loading", "title=\"Monitorr Settings")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}'

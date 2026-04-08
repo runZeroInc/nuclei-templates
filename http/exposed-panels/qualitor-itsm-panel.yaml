@@ -1,5 +1,4 @@
 id: qualitor-itsm-panel
-
 info:
   name: Qualitor ITSM - Detect
   author: johnk3r
@@ -13,27 +12,20 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1217039701"
     max-request: 1
-    vendor: qualitor
-    product: qualitor
     shodan-query: http.favicon.hash:"-1217039701"
-  tags: panel,qualitor,discovery
-
+  tags: discovery,panel,qualitor
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    redirects: true
-    max-redirects: 1
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Qualitor Web</title>"
-
-      - type: status
-        status:
+          - <title>Qualitor Web</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 1
+    method: GET
+    path:
+      - '{{BaseURL}}'
+    redirects: true

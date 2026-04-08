@@ -1,5 +1,4 @@
 id: ws_ftp-server-web-transfer
-
 info:
   name: WS_FTP Server Web Transfer - Panel Detect
   author: johnk3r
@@ -10,34 +9,34 @@ info:
     cwe-id: CWE-200
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)ws_ftp server web transfer"}) || any(each(service["html.titles"]), {# matches "(?i)ad hoc transfer"})
-    verified: true
-    max-request: 1
-    vendor: progress
-    product: ws_ftp
-    shodan-query:
-      - http.title:"ws_ftp server web transfer"
-      - ws_ftp port:"22"
-      - http.title:"ad hoc transfer"
+    censys-query:
+      - services.http.request.uri="*/ThinClient/WTM/public/index.html"
+      - services.http.request.uri="*/thinclient/wtm/public/index.html"
     fofa-query:
       - title="ws_ftp server web transfer"
       - title="ad hoc transfer"
-    censys-query: services.http.request.uri="*/thinclient/wtm/public/index.html"
     google-query:
       - intitle:"ws_ftp server web transfer"
       - intitle:"ad hoc transfer"
-  tags: panel,ws_ftp,progress,discovery
-
+    max-request: 1
+    product: ws_ftp
+    shodan-query:
+      - http.title:"WS_FTP Server Web Transfer"
+      - ws_ftp port:22
+      - http.title:"ad hoc transfer"
+      - http.title:"ws_ftp server web transfer"
+    vendor: progress
+    verified: true
+  tags: discovery,panel,progress,ws_ftp
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    redirects: true
-    max-redirects: 3
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
           - contains(body, 'Web Transfer Client')
           - status_code == 200
-        condition: and
-
+        type: dsl
+    max-redirects: 3
+    method: GET
+    path:
+      - '{{BaseURL}}'
+    redirects: true

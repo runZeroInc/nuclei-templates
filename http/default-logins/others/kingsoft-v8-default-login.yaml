@@ -1,11 +1,9 @@
 id: kingsoft-v8-default-login
-
 info:
   name: Kingsoft 8 - Default Login
   author: ritikchaddha
   severity: high
-  description: |
-    Kingsoft default login credentials were discovered.
+  description: Kingsoft version 8 contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://idc.wanyunshuju.com/aqld/2123.html
   classification:
@@ -14,35 +12,30 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: kingsoft,default-login,vuln
-
+  tags: default-login,kingsoft,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - ADMIN
+          - userSession
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /inter/ajax.php?cmd=get_user_login_cmd HTTP/1.1
         Host: {{Hostname}}
 
         {"get_user_login_cmd":{"name":"{{username}}","password":"{{md5(password)}}"}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "ADMIN"
-          - "userSession"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

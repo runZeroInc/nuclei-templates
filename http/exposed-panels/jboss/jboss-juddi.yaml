@@ -1,5 +1,4 @@
 id: jboss-juddi-panel
-
 info:
   name: JBoss WS JUDDI Console Panel - Detect
   author: DhiyaneshDk
@@ -15,35 +14,31 @@ info:
     cpe: cpe:2.3:a:redhat:jboss_enterprise_web_platform:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)jboss ws"
-    verified: true
-    max-request: 2
-    vendor: redhat
-    product: jboss_enterprise_web_platform
-    shodan-query: http.html:"jboss ws"
     fofa-query: body="jboss ws"
-  tags: panel,jboss,juddi,redhat,discovery
-
+    max-request: 2
+    product: jboss_enterprise_web_platform
+    shodan-query:
+      - html:"JBoss WS"
+      - http.html:"jboss ws"
+    vendor: redhat
+    verified: true
+  tags: discovery,jboss,juddi,panel,redhat
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/juddi/"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "JBoss JUDDI"
-
-      - type: word
-        part: header
+          - JBoss JUDDI
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/juddi/'
+    stop-at-first-match: true

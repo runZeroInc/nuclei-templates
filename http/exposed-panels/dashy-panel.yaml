@@ -1,5 +1,4 @@
 id: dashy-panel
-
 info:
   name: Dashy Panel - Detect
   author: ritikchaddha
@@ -10,31 +9,27 @@ info:
     cpe: cpe:2.3:a:dashy:dashy:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1013024216"
-    verified: true
-    max-request: 1
-    vendor: dashy
-    product: dashy
-    shodan-query: http.favicon.hash:"-1013024216"
     fofa-query: icon_hash=-1013024216
-  tags: panel,dashy,detect,discovery
-
+    max-request: 1
+    product: dashy
+    shodan-query: http.favicon.hash:-1013024216
+    vendor: dashy
+    verified: true
+  tags: dashy,detect,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - '<title>Dashy'
-          - 'content="Dashy'
-          - '/css/dashy.'
-          - 'web-icons/dashy-logo.png'
-        condition: and
-
-      - type: status
-        status:
+          - <title>Dashy
+          - content="Dashy
+          - /css/dashy.
+          - web-icons/dashy-logo.png
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

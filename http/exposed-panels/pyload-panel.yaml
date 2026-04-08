@@ -1,5 +1,4 @@
 id: pyload-panel
-
 info:
   name: PyLoad Login - Panel
   author: DhiyaneshDk
@@ -12,14 +11,6 @@ info:
     cpe: cpe:2.3:a:pyload:pyload:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - pyload"}) || service["http.body"] matches "(?i)pyload" || any(each(service["html.titles"]), {# matches "(?i)pyload"})
-    verified: true
-    max-request: 2
-    vendor: pyload
-    product: pyload
-    shodan-query:
-      - http.title:"login - pyload"
-      - http.html:"pyload"
-      - http.title:"pyload"
     fofa-query:
       - body="pyload"
       - title="login - pyload"
@@ -27,28 +18,32 @@ info:
     google-query:
       - intitle:"pyload"
       - intitle:"login - pyload"
+    max-request: 2
+    product: pyload
+    shodan-query:
+      - title:"Login - pyLoad"
+      - http.title:"login - pyload"
+      - http.html:"pyload"
+      - http.title:"pyload"
+    vendor: pyload
+    verified: true
     zoomeye-query: app="pyLoad"
-  tags: panel,pyload,login,discovery
-
+  tags: discovery,login,panel,pyload
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login"
-
-    stop-at-first-match: true
-    host-redirects: true
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        words:
-          - 'Login - pyLoad'
-          - 'alt="Pyload'
+      - case-insensitive: true
         condition: or
-        case-insensitive: true
-
-      - type: status
-        status:
+        type: word
+        words:
+          - Login - pyLoad
+          - alt="Pyload
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login'
+    stop-at-first-match: true

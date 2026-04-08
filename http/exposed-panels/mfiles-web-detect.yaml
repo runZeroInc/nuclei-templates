@@ -1,5 +1,4 @@
 id: mfiles-web-detect
-
 info:
   name: M-Files Web Login Panel - Detect
   author: Nodauf
@@ -13,33 +12,30 @@ info:
     cpe: cpe:2.3:a:m-files:m-files:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)m-files web"
-    verified: true
-    max-request: 2
-    vendor: m-files
-    product: m-files
-    shodan-query: http.html:"m-files web"
     fofa-query: body="m-files web"
-  tags: panel,m-files,discovery
-
+    max-request: 2
+    product: m-files
+    shodan-query:
+      - http.html:"M-Files Web"
+      - http.html:"m-files web"
+    vendor: m-files
+    verified: true
+  tags: discovery,m-files,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/Login.aspx"
-
-    stop-at-first-match: true
-
-    matchers-condition: or
-    matchers:
-      - type: regex
-        part: body
+  - matchers:
+      - part: body
         regex:
-          - '<title>(.*)M-Files Web(.*)</title>'
-
-      - type: word
+          - <title>(.*)M-Files Web(.*)</title>
+        type: regex
+      - condition: or
         part: body
+        type: word
         words:
-          - 'M-Files user'
-          - 'M-Files authentication'
-        condition: or
-
+          - M-Files user
+          - M-Files authentication
+    matchers-condition: or
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/Login.aspx'
+    stop-at-first-match: true

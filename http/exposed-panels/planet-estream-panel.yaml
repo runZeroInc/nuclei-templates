@@ -1,5 +1,4 @@
 id: planet-estream-panel
-
 info:
   name: Planet eStream Login Panel - Detect
   author: arafatansari
@@ -11,33 +10,30 @@ info:
     cpe: cpe:2.3:a:planetestream:planet_estream:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - planet estream"})
-    verified: true
-    max-request: 1
-    vendor: planetestream
-    product: planet_estream
-    shodan-query: http.title:"login - planet estream"
     fofa-query: title="login - planet estream"
     google-query: intitle:"login - planet estream"
-  tags: panel,planet,estream,planetestream,discovery
-
+    max-request: 1
+    product: planet_estream
+    shodan-query:
+      - title:"Login - Planet eStream"
+      - http.title:"login - planet estream"
+    vendor: planetestream
+    verified: true
+  tags: discovery,estream,panel,planet,planetestream
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Login.aspx"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
+        type: word
         words:
-          - 'Login - Planet eStream'
-          - 'Powered by Planet eStream'
-          - 'aria-label="Planet eStream Website'
-        condition: or
-
-      - type: status
-        status:
+          - Login - Planet eStream
+          - Powered by Planet eStream
+          - aria-label="Planet eStream Website
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/Login.aspx'

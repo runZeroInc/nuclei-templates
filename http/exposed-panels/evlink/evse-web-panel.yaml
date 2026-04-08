@@ -1,5 +1,4 @@
 id: evse-web-panel
-
 info:
   name: EVSE Web Interface Panel - Detection
   author: ritikchaddha
@@ -8,33 +7,32 @@ info:
     cpe: cpe:2.3:o:schneider-electric:evlink_charging_station_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)evse web interface"})
-    verified: true
-    max-request: 2
-    vendor: schneider-electric
-    product: evlink_charging_station_firmware
-    shodan-query: http.title:"evse web interface"
-    fofa-query: title="evse web interface"
+    fofa-query:
+      - title="EVSE Web Interface"
+      - title="evse web interface"
     google-query: intitle:"evse web interface"
-  tags: panel,evlink,evse,login,detect,schneider-electric,discovery
-
+    max-request: 2
+    product: evlink_charging_station_firmware
+    shodan-query:
+      - title:"EVSE Web Interface"
+      - http.title:"evse web interface"
+    vendor: schneider-electric
+    verified: true
+  tags: detect,discovery,evlink,evse,login,panel,schneider-electric
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/cgi-bin/cgiServer?worker=LoginForm"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "EVSE Web Interface</title>"
-          - "Charging station</title>"
-        condition: or
-
-      - type: status
-        status:
+          - EVSE Web Interface</title>
+          - Charging station</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/cgi-bin/cgiServer?worker=LoginForm'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: greenbone-panel
-
 info:
   name: Greenbone Security Assistant Panel - Detect
   author: pbuff07
@@ -10,28 +9,27 @@ info:
     cpe: cpe:2.3:a:greenbone:greenbone_security_assistant:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)greenbone security assistant"})
-    verified: true
-    max-request: 1
-    vendor: greenbone
-    product: greenbone_security_assistant
-    shodan-query: http.title:"greenbone security assistant"
     fofa-query: title="greenbone security assistant"
     google-query: intitle:"greenbone security assistant"
-  tags: panel,greenbone,login,discovery
-
+    max-request: 1
+    product: greenbone_security_assistant
+    shodan-query:
+      - http.title:"Greenbone Security Assistant"
+      - http.title:"greenbone security assistant"
+    vendor: greenbone
+    verified: true
+    zoomeye-query: title="Greenbone Security Assistant"
+  tags: discovery,greenbone,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Greenbone Security Assistant</title>"
-
-      - type: status
-        status:
+          - <title>Greenbone Security Assistant</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

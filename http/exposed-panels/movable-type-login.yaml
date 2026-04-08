@@ -1,5 +1,4 @@
 id: movable-type-login
-
 info:
   name: Movable Type Pro Login Panel - Detect
   author: dhiyaneshDk
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:a:sixapart:movable_type:*:*:*:*:-:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)サインイン \\| movable type pro"})
-    max-request: 2
-    vendor: sixapart
-    product: movable_type
-    shodan-query:
-      - http.title:"サインイン | movable type pro"
     fofa-query: title="サインイン | movable type pro"
     google-query: intitle:"サインイン | movable type pro"
-  tags: panel,movable,sixapart,discovery
-
+    max-request: 2
+    product: movable_type
+    shodan-query:
+      - title:"サインイン | Movable Type Pro"
+      - cpe:"cpe:2.3:a:sixapart:movable_type"
+      - http.title:"サインイン | movable type pro"
+    vendor: sixapart
+  tags: discovery,movable,panel,sixapart
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - Movable Type Pro
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/mt/admin'
       - '{{BaseURL}}/mt.cgi'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Movable Type Pro"
-
-      - type: status
-        status:
-          - 200
-

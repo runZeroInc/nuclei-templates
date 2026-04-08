@@ -1,5 +1,4 @@
 id: saltstack-config-panel
-
 info:
   name: SaltStack Config Panel - Detect
   author: pussycat0x
@@ -12,24 +11,22 @@ info:
     cpe: cpe:2.3:a:saltstack:saltstack:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)SaltStack Config"})
-    verified: true
     max-request: 1
+    product: saltstack
+    shodan-query: title:"SaltStack Config"
     vendor: saltstack
-  tags: panel,vmware,login,saltstack,discovery
-
+    verified: true
+  tags: discovery,login,panel,saltstack,vmware
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "SaltStack Config"
-
-      - type: status
-        status:
+          - SaltStack Config
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

@@ -1,5 +1,4 @@
 id: wazuh-panel
-
 info:
   name: Wazuh Login Panel
   author: cyllective,daffainfo,idealphase
@@ -11,40 +10,35 @@ info:
     cpe: cpe:2.3:a:wazuh:wazuh:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)wazuh"})
-    max-request: 1
-    vendor: wazuh
-    product: wazuh
-    shodan-query: http.title:"wazuh"
-    fofa-query:
-      - title="wazuh"
-      - app="wazuh"
+    fofa-query: title="wazuh"
     google-query: intitle:"wazuh"
-  tags: panel,wazuh,login,discovery
-
+    max-request: 1
+    product: wazuh
+    shodan-query:
+      - http.title:"Wazuh"
+      - http.title:"wazuh"
+    vendor: wazuh
+  tags: discovery,login,panel,wazuh
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/app/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
+        regex:
+          - '&quot;(?:version|wazuhVersion)&quot;:&quot;([0-9.]+)&quot;'
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
         words:
           - '&quot;id&quot;:&quot;wazuh&quot;'
           - '&quot;title&quot;:&quot;Wazuh&quot;'
           - '&quot;icon&quot;:&quot;plugins/wazuh/img/icon_blue.png&quot;'
           - '&quot;url&quot;:&quot;/app/wazuh&quot;'
-        condition: or
-
-      - type: status
-        status:
+      - status:
           - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '&quot;(?:version|wazuhVersion)&quot;:&quot;([0-9.]+)&quot;'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/app/login'

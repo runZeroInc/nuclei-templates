@@ -1,5 +1,4 @@
 id: portainer-panel
-
 info:
   name: Portainer Login Panel - Detect
   author: ritikchaddha
@@ -10,38 +9,35 @@ info:
     cpe: cpe:2.3:a:portainer:portainer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)portainer"})
-    verified: true
-    max-request: 2
-    vendor: portainer
-    product: portainer
-    shodan-query: http.title:"portainer"
     fofa-query: title="portainer"
     google-query: intitle:"portainer"
-  tags: panel,portainer,detect,discovery
-
+    max-request: 2
+    product: portainer
+    shodan-query:
+      - title:"Portainer"
+      - http.title:"portainer"
+    vendor: portainer
+    verified: true
+  tags: detect,discovery,panel,portainer
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/#!/auth"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - '<title>Portainer'
-          - 'ng-app="portainer'
-          - 'content="Portainer'
-          - 'alt="Portainer'
-          - 'portainer.auth'
-        condition: or
-
-      - type: status
-        status:
+          - <title>Portainer
+          - ng-app="portainer
+          - content="Portainer
+          - alt="Portainer
+          - portainer.auth
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/#!/auth'
+    stop-at-first-match: true

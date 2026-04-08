@@ -1,5 +1,4 @@
 id: centreon-panel
-
 info:
   name: Centreon Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -11,36 +10,33 @@ info:
     cpe: cpe:2.3:a:centreon:centreon_web:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)centreon"})
-    max-request: 1
-    vendor: centreon
-    product: centreon_web
-    shodan-query: http.title:"centreon"
     fofa-query: title="centreon"
     google-query: intitle:"centreon"
-  tags: panel,centreon,login,discovery
-
+    max-request: 1
+    product: centreon_web
+    shodan-query:
+      - http.title:"Centreon"
+      - http.title:"centreon"
+    vendor: centreon
+  tags: centreon,discovery,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/centreon/index.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        condition: or
-        words:
-          - '<title>Centreon - IT & Network Monitoring</title>'
-          - '<input name="centreon_token" type="hidden"'
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - 'v. (.*)'
-
+          - v. (.*)
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>Centreon - IT & Network Monitoring</title>
+          - <input name="centreon_token" type="hidden"
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/centreon/index.php'

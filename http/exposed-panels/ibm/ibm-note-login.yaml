@@ -1,5 +1,4 @@
 id: ibm-note-login
-
 info:
   name: IBM iNotes Login Panel - Detect
   author: dhiyaneshDK,righettod
@@ -14,28 +13,24 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)IBM iNotes Login"})
     max-request: 2
-    vendor: ibm
     product: inotes
-  tags: ibm,edb,panel,login,detect,discovery
-
+    shodan-query: http.title:"IBM iNotes Login"
+    vendor: ibm
+  tags: detect,discovery,edb,ibm,login,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>IBM iNotes Login</title>
+          - Lotus iNotes Login Screen
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/names.nsf'
       - '{{BaseURL}}/webredir.nsf'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>IBM iNotes Login</title>'
-          - 'Lotus iNotes Login Screen'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

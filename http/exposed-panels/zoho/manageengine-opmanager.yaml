@@ -1,5 +1,4 @@
 id: manageengine-opmanager
-
 info:
   name: ZOHO ManageEngine OpManager Panel - Detect
   author: dhiyaneshDK,daffainfo
@@ -13,31 +12,28 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_opmanager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)opmanager plus"})
-    max-request: 1
-    vendor: zohocorp
-    product: manageengine_opmanager
-    shodan-query:
-      - http.title:"opmanager plus"
     fofa-query: title="opmanager plus"
     google-query: intitle:"opmanager plus"
-  tags: panel,zoho,manageengine,zohocorp,discovery
-
+    max-request: 1
+    product: manageengine_opmanager
+    shodan-query:
+      - http.title:"OpManager Plus"
+      - http.title:"opmanager plus"
+    vendor: zohocorp
+  tags: discovery,manageengine,panel,zoho,zohocorp
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <div class='opmIconsHolder'>
+          - <div class='opmLoginFieldHolder'>
+          - <div class='opmIconsRight'>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<div class='opmIconsHolder'>"
-          - "<div class='opmLoginFieldHolder'>"
-          - "<div class='opmIconsRight'>"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
