@@ -1,5 +1,4 @@
 id: snipeit-panel
-
 info:
   name: Snipe-IT Panel - Detect
   author: pikpikcu
@@ -12,22 +11,20 @@ info:
     cpe: cpe:2.3:a:snipeitapp:snipe-it:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    product: snipe-it
+    shodan-query: http.favicon.hash:431627549
     vendor: snipeitapp
-  tags: panel,snipeit,tech,discovery
-
+  tags: discovery,panel,snipeit,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "window.snipeit"
-
-      - type: status
-        status:
+          - window.snipeit
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

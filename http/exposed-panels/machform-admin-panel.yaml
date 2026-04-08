@@ -1,5 +1,4 @@
 id: machform-admin-panel
-
 info:
   name: MachForm Admin Panel - Detect
   author: ritikchaddha
@@ -13,29 +12,26 @@ info:
     cpe: cpe:2.3:a:machform:machform:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)MachForm Admin Panel"})
-    verified: true
     max-request: 1
+    product: machform
+    shodan-query: title:"MachForm Admin Panel"
     vendor: machform
-  tags: panel,machform,admin,discovery
-
+    verified: true
+  tags: admin,discovery,machform,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'alt="MachForm"'
-          - '<title>MachForm Admin Panel</title>'
-        condition: or
-
-      - type: status
-        status:
+          - alt="MachForm"
+          - <title>MachForm Admin Panel</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: bitwarden-vault-panel
-
 info:
   name: Bitwarden Web Vault Login Panel - Detect
   author: ritikchaddha
@@ -10,33 +9,30 @@ info:
     cpe: cpe:2.3:a:bitwarden:bitwarden:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)bitwarden web vault"})
-    verified: true
-    max-request: 1
-    vendor: bitwarden
-    product: bitwarden
-    shodan-query: http.title:"bitwarden web vault"
     fofa-query: title="bitwarden web vault"
     google-query: intitle:"bitwarden web vault"
-  tags: panel,bitwarden,vault,detect,discovery
-
+    max-request: 1
+    product: bitwarden
+    shodan-query:
+      - title:"Bitwarden Web Vault"
+      - http.title:"bitwarden web vault"
+    vendor: bitwarden
+    verified: true
+  tags: bitwarden,detect,discovery,panel,vault
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'Bitwarden Web Vault</title>'
-          - 'alt="Bitwarden'
-        condition: or
-
-      - type: status
-        status:
+          - Bitwarden Web Vault</title>
+          - alt="Bitwarden
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

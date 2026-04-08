@@ -1,5 +1,4 @@
 id: wso2-management-console
-
 info:
   name: WSO2 Management Console Login Panel - Detect
   author: dhiyaneshDK,johnk3r
@@ -13,35 +12,30 @@ info:
     cpe: cpe:2.3:a:wso2:api_manager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1398055326"
-    max-request: 1
-    vendor: wso2
-    product: api_manager
-    shodan-query: http.favicon.hash:"1398055326"
     fofa-query: icon_hash=1398055326
     google-query: inurl:"carbon/admin/login"
-  tags: panel,wso2,edb,discovery
-
+    max-request: 1
+    product: api_manager
+    shodan-query: http.favicon.hash:1398055326
+    vendor: wso2
+  tags: discovery,edb,panel,wso2
 http:
-  - method: GET
+  - extractors:
+      - kval:
+          - server
+        part: header
+        type: kval
+    matchers:
+      - condition: or
+        part: response
+        type: word
+        words:
+          - <title>WSO2 Management Console</title>
+          - WSO2 Carbon Server
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/carbon/admin/login.jsp'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: response
-        words:
-          - "<title>WSO2 Management Console</title>"
-          - "WSO2 Carbon Server"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: kval
-        part: header
-        kval:
-          - server
-

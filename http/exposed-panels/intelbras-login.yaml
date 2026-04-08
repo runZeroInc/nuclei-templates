@@ -1,5 +1,4 @@
 id: intelbras-login
-
 info:
   name: Intelbras Router Login Panel - Detect
   author: DhiyaneshDK
@@ -13,22 +12,21 @@ info:
     cpe: cpe:2.3:h:intelbras:iwr_3000n:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Intelbras"})
+    google-query: intitle:"Intelbras" "All Rights Reserved" -.com
     max-request: 1
+    product: iwr_3000n
+    shodan-query: http.title:"Intelbras"
     vendor: intelbras
-  tags: panel,edb,discovery
-
+  tags: discovery,edb,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/login.html'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "<title>Intelbras</title>"
-
-      - type: status
-        status:
+          - <title>Intelbras</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.html'

@@ -1,5 +1,4 @@
 id: froxlor-database-backup
-
 info:
   name: Froxlor Server Management Backup File - Detect
   author: tess
@@ -11,36 +10,33 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:froxlor:froxlor:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: froxlor
+    shodan-query: title:"Froxlor Server Management Panel"
     vendor: froxlor
-  tags: froxlor,backup,exposure,disclosure,vuln
-
+    verified: true
+  tags: backup,disclosure,exposure,froxlor,vuln
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - DROP TABLE IF EXISTS
+          - CREATE TABLE
+          - PRIMARY KEY
+      - condition: or
+        part: header
+        type: word
+        words:
+          - application/sql
+          - application/x-sql
+          - application/octet-stream
+          - text/plain
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/install/froxlor.sql'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "DROP TABLE IF EXISTS"
-          - "CREATE TABLE"
-          - "PRIMARY KEY"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/sql"
-          - "application/x-sql"
-          - "application/octet-stream"
-          - "text/plain"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

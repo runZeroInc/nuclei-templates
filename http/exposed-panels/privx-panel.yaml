@@ -1,5 +1,4 @@
 id: privx-panel
-
 info:
   name: SSH PrivX Login Panel - Detect
   author: korteke
@@ -14,22 +13,20 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)PrivX"})
     max-request: 1
+    product: privx
+    shodan-query: title:"PrivX"
     vendor: ssh
-  tags: panel,privx,discovery
-
+  tags: discovery,panel,privx
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/auth/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>PrivX</title>'
-
-      - type: status
-        status:
+          - <title>PrivX</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/auth/login'

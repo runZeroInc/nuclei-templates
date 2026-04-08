@@ -1,5 +1,4 @@
 id: privategpt-detect
-
 info:
   name: PrivateGPT - Detect
   author: ritikchaddha
@@ -10,27 +9,24 @@ info:
     - https://github.com/zylon-ai/private-gpt
   metadata:
     runzero-match: service["http.body"] matches "(?i)private gpt"
-    verified: true
     max-request: 1
     product: private-gpt
-  tags: panel,privategpt,detect,discovery,ai
-
+    shodan-query: html:"private gpt"
+    verified: true
+  tags: ai,detect,discovery,panel,privategpt
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - 'alt=PrivateGPT'
-          - 'title":"My Private GPT'
-          - 'content="My Private GPT'
-        condition: or
-
-      - type: status
-        status:
+          - alt=PrivateGPT
+          - title":"My Private GPT
+          - content="My Private GPT
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

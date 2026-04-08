@@ -1,5 +1,4 @@
 id: sugarcrm-panel
-
 info:
   name: SugarCRM Login Panel - Detect
   author: johnk3r
@@ -11,34 +10,31 @@ info:
     cpe: cpe:2.3:a:sugarcrm:sugarcrm:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sugarcrm"}) || service["http.body"] matches "(?i)sugarcrm inc\\. all rights reserved"
-    max-request: 2
-    vendor: sugarcrm
-    product: sugarcrm
-    shodan-query:
-      - http.title:"sugarcrm"
-      - http.html:"sugarcrm inc. all rights reserved"
-      - http.title:"sugar setup wizard"
     fofa-query:
       - title=sugarcrm
       - body="sugarcrm inc. all rights reserved"
-  tags: sugarcrm,panel,discovery
-
+    google-query:
+      - intitle:sugarcrm
+      - intext:"sugarcrm inc. all rights reserved"
+    max-request: 2
+    product: sugarcrm
+    shodan-query:
+      - http.title:sugarcrm
+      - http.html:"sugarcrm inc. all rights reserved"
+    vendor: sugarcrm
+  tags: discovery,panel,sugarcrm
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/index.php?action=Login&module=Users"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>SugarCRM</title>"
-
-      - type: status
-        status:
+          - <title>SugarCRM</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/index.php?action=Login&module=Users'
+    stop-at-first-match: true

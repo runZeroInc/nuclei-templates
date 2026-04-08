@@ -1,10 +1,9 @@
 id: zmanda-default-login
-
 info:
-  name: Zmanda - Default Login
+  name: Zmanda Default Login
   author: Techryptic (@Tech)
   severity: high
-  description: Zmanda default login credentials were discovered.
+  description: Zmanda default admin credentials admin:admin were discovered.
   reference:
     - https://www.zmanda.com
   classification:
@@ -13,10 +12,23 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: zmanda,default-login,vuln
-
+  tags: default-login,vuln,zmanda
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - type: word
+        words:
+          - ZMC - Backup Set Management
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /ZMC_Admin_Login HTTP/1.1
         Host: {{Hostname}}
@@ -24,21 +36,3 @@ http:
         Cookie: zmc_cookies_enabled=true
 
         login=AEE&last_page=&username={{username}}&password={{password}}&submit=Login&JS_SWITCH=JS_ON
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "ZMC - Backup Set Management"
-
-      - type: status
-        status:
-          - 200
-

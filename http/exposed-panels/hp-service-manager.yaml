@@ -1,5 +1,4 @@
 id: hp-service-manager
-
 info:
   name: HP Service Manager Login Panel - Detect
   author: dhiyaneshDK
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:a:hp:service_manager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)hp service manager"})
-    max-request: 2
-    vendor: hp
-    product: service_manager
-    shodan-query: http.title:"hp service manager"
     fofa-query: title="hp service manager"
     google-query: intitle:"hp service manager"
-  tags: panel,hp,service,discovery
-
+    max-request: 2
+    product: service_manager
+    shodan-query:
+      - http.title:"HP Service Manager"
+      - http.title:"hp service manager"
+    vendor: hp
+  tags: discovery,hp,panel,service
 http:
-  - method: GET
+  - matchers:
+      - regex:
+          - (?m)<title>HP Service Manager(.*)<\/title>
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/sm935/index.do'
       - '{{BaseURL}}/sm/ess.do'
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - '(?m)<title>HP Service Manager(.*)<\/title>'
-
-      - type: status
-        status:
-          - 200
-

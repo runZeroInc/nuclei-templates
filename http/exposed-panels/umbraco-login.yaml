@@ -1,5 +1,4 @@
 id: umbraco-login
-
 info:
   name: Umbraco Login Panel - Detect
   author: ola456,stvnhrlnd
@@ -13,35 +12,31 @@ info:
     cpe: cpe:2.3:a:umbraco:umbraco_cms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)umbraco"})
-    verified: true
-    max-request: 1
-    vendor: umbraco
-    product: umbraco_cms
-    shodan-query:
-      - http.title:"umbraco"
     fofa-query: title="umbraco"
     google-query: intitle:"umbraco"
-  tags: panel,umbraco,detect,discovery
-
+    max-request: 1
+    product: umbraco_cms
+    shodan-query:
+      - http.title:"Umbraco"
+      - http.title:"umbraco"
+    vendor: umbraco
+    verified: true
+  tags: detect,discovery,panel,umbraco
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/umbraco"
-      - "{{BaseURL}}/umbraco/login"
-
-    host-redirects: true
-    max-redirects: 3
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'Umbraco.Sys'
-          - '<umb-auth'
-        condition: or
-
-      - type: status
-        status:
+          - Umbraco.Sys
+          - <umb-auth
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 3
+    method: GET
+    path:
+      - '{{BaseURL}}/umbraco'
+      - '{{BaseURL}}/umbraco/login'

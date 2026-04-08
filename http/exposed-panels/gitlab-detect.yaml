@@ -1,5 +1,4 @@
 id: gitlab-detect
-
 info:
   name: Gitlab Login Panel - Detect
   author: ehsahil
@@ -11,38 +10,29 @@ info:
     cpe: cpe:2.3:a:gitlab:gitlab:*:*:*:*:community:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)gitlab"})
+    fofa-query: title="gitlab"
+    google-query: intitle:"gitlab"
     max-request: 1
-    vendor: gitlab
     product: gitlab
     shodan-query:
-      - http.title:"gitlab"
+      - http.title:"GitLab"
       - cpe:"cpe:2.3:a:gitlab:gitlab"
-      - http.html:"gitlab enterprise edition"
-      - http.html:"gitlab-ci.yml"
-    fofa-query:
-      - title="gitlab"
-      - body="gitlab enterprise edition"
-      - body="gitlab-ci.yml"
-    google-query: intitle:"gitlab"
-  tags: panel,gitlab,discovery
-
+      - http.title:"gitlab"
+    vendor: gitlab
+  tags: discovery,gitlab,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/users/sign_in"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: and
+        type: word
         words:
-          - 'GitLab'
-          - 'https://about.gitlab.com'
-        condition: and
-
-      - type: status
-        status:
+          - GitLab
+          - https://about.gitlab.com
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/users/sign_in'

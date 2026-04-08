@@ -1,5 +1,4 @@
 id: avigilon-panel
-
 info:
   name: Avigilon Login Panel - Detect
   author: robotshell
@@ -11,35 +10,32 @@ info:
     cpe: cpe:2.3:a:avigilon:avigilon_control_center:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - avigilon control center"})
-    verified: true
-    max-request: 1
-    vendor: avigilon
-    product: avigilon_control_center
-    shodan-query: http.title:"login - avigilon control center"
     fofa-query: title="login - avigilon control center"
     google-query: intitle:"login - avigilon control center"
-  tags: panel,avigilon,discovery
-
+    max-request: 1
+    product: avigilon_control_center
+    shodan-query:
+      - http.title:"Login - Avigilon Control Center"
+      - http.title:"login - avigilon control center"
+    vendor: avigilon
+    verified: true
+  tags: avigilon,discovery,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>Login - Avigilon Control Center Gateway</title>
+          - <title>Iniciar sesión - Puerta de enlace de Avigilon Control Center</title>
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/cfg/login'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Login - Avigilon Control Center Gateway</title>'
-          - '<title>Iniciar sesión - Puerta de enlace de Avigilon Control Center</title>'
-        condition: or
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: status
-        status:
-          - 200
-

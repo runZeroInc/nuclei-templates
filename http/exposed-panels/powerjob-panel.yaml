@@ -1,5 +1,4 @@
 id: powerjob-panel
-
 info:
   name: PowerJob Login Panel - Detect
   author: pikpikcu
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:a:powerjob:powerjob:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)PowerJob"})
-    verified: true
+    fofa-query: title="PowerJob"
     max-request: 1
+    product: powerjob
     vendor: powerjob
-  tags: panel,powerjob,discovery
-
+    verified: true
+  tags: discovery,panel,powerjob
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>PowerJob</title>"
-
-      - type: status
-        status:
+          - <title>PowerJob</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

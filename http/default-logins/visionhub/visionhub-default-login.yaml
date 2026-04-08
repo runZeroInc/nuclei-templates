@@ -1,10 +1,9 @@
 id: visionhub-default-login
-
 info:
-  name: VisionHub - Default Login
+  name: VisionHub Default Login
   author: Techryptic (@Tech)
   severity: high
-  description: VisionHub default login credentials were discovered.
+  description: VisionHub application default admin credentials were accepted.
   reference:
     - https://www.qognify.com/products/visionhub/
   classification:
@@ -13,37 +12,31 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 1
-  tags: visionhub,default-login,vuln
-
+  tags: default-login,visionhub,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - part: header
+        type: word
+        words:
+          - 'Set-Cookie: admin'
+      - negative: true
+        part: response
+        type: word
+        words:
+          - 'Set-Cookie: adminer_key'
+          - Log into OpenMage Admin Page
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /VisionHubWebApi/api/Login HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ':' + password)}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Set-Cookie: admin"
-        part: header
-
-      - type: word
-        words:
-          - "Set-Cookie: adminer_key"
-          - "Log into OpenMage Admin Page"
-        part: response
-        negative: true
-
-      - type: status
-        status:
-          - 200
-

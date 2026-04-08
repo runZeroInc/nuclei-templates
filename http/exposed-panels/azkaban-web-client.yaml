@@ -1,5 +1,4 @@
 id: azkaban-web-client
-
 info:
   name: Azkaban Web Client
   author: dhiyaneshDK
@@ -13,21 +12,19 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Azkaban Web Client"})
     max-request: 1
+    product: azkaban
+    shodan-query: http.title:"Azkaban Web Client"
     vendor: azkaban_project
-  tags: panel,azkaban,discovery
-
+  tags: azkaban,discovery,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - 'Azkaban Web Client'
-
-      - type: status
-        status:
+          - Azkaban Web Client
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

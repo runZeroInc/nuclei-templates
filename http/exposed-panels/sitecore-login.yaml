@@ -1,5 +1,4 @@
 id: sitecore-login
-
 info:
   name: Sitecore Login Panel - Detect
   author: dhiyaneshDK
@@ -12,21 +11,19 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Welcome to Sitecore"})
     max-request: 1
+    product: experience_platform
+    shodan-query: http.title:"Welcome to Sitecore"
     vendor: sitecore
-  tags: panel,sitecore,discovery
-
+  tags: discovery,panel,sitecore
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/sitecore/login/default.aspx'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '/sitecore/shell/Themes/Standard/Default/Login.css'
-
-      - type: status
-        status:
+          - /sitecore/shell/Themes/Standard/Default/Login.css
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/sitecore/login/default.aspx'

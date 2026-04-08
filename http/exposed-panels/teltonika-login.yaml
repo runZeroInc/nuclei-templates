@@ -1,5 +1,4 @@
 id: teltonika-login
-
 info:
   name: Teltonika Login Panel - Detect
   author: idealphase
@@ -13,22 +12,20 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:teltonika:rut900:*:*:*:*:*:*:*:*
   metadata:
+    google-query: intitle:"Teltonika -Web UI" | intitle:"Teltonika-RUT -Web UI" inurl:"/cgi-bin/luci"
     max-request: 1
+    product: rut900
     vendor: teltonika
-  tags: panel,teltonika,edb,discovery
-
+  tags: discovery,edb,panel,teltonika
 http:
-  - method: GET
+  - matchers:
+      - regex:
+          - <title>Teltonika(.*) - Web UI</title>
+        type: regex
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/cgi-bin/luci'
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - '<title>Teltonika(.*) - Web UI</title>'
-
-      - type: status
-        status:
-          - 200
-

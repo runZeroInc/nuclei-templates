@@ -1,5 +1,4 @@
 id: kubernetes-enterprise-manager
-
 info:
   name: Kubernetes Enterprise Manager Panel - Detect
   author: pussycat0x
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:kubernetes:kubernetes:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kubernetes web view"})
+    fofa-query:
+      - app="Kubernetes-Enterprise-Manager"
+      - title="kubernetes web view"
+      - app="kubernetes-enterprise-manager"
+    google-query: intitle:"kubernetes web view"
     max-request: 1
-    vendor: kubernetes
     product: kubernetes
     shodan-query: http.title:"kubernetes web view"
-    fofa-query:
-      - app="kubernetes-enterprise-manager"
-      - title="kubernetes web view"
-    google-query: intitle:"kubernetes web view"
-  tags: tech,kubernetes,panel,discovery
-
+    vendor: kubernetes
+  tags: discovery,kubernetes,panel,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "Kubernetes Enterprise Manager"
-
-      - type: status
-        status:
+          - Kubernetes Enterprise Manager
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

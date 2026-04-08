@@ -1,5 +1,4 @@
 id: kavita-panel-detect
-
 info:
   name: Kavita Login Panel - Detect
   author: ritikchaddha
@@ -13,32 +12,24 @@ info:
     cwe-id: CWE-200
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kavita"})
-    verified: true
-    max-request: 1
-    vendor: kavitareader
-    product: kavita
-    shodan-query:
-      - http.title:"kavita"
-      - http.html:"kavita"
-    fofa-query:
-      - title="kavita"
-      - body="kavita"
+    fofa-query: title="kavita"
     google-query: intitle:"kavita"
-  tags: panel,kavita,discovery
-
+    max-request: 1
+    product: kavita
+    shodan-query: http.title:"kavita"
+    vendor: kavitareader
+    verified: true
+  tags: discovery,kavita,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Kavita"
-
-      - type: status
-        status:
+          - <title>Kavita
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

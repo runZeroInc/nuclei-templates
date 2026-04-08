@@ -1,5 +1,4 @@
 id: vinchin-panel
-
 info:
   name: Vinchin Backup & Recovery Panel - Detect
   author: pussycat0x
@@ -10,26 +9,23 @@ info:
     cpe: cpe:2.3:a:vinchin:vinchin_backup_and_recovery:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)VinChin"
-    verified: true
     max-request: 1
+    product: vinchin_backup_and_recovery
+    shodan-query: html:"VinChin"
     vendor: vinchin
-  tags: panel,vinchin,login,discovery
-
+    verified: true
+  tags: discovery,login,panel,vinchin
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - part: body
+        type: word
+        words:
+          - Vinchin Backup & Recovery
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    host-redirects: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Vinchin Backup & Recovery'
-
-      - type: status
-        status:
-          - 200
-

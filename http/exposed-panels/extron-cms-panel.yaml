@@ -1,5 +1,4 @@
 id: ektron-cms-panel
-
 info:
   name: Ektron CMS Login Panel - Detect
   author: pikpikcu
@@ -11,34 +10,32 @@ info:
     cpe: cpe:2.3:a:ektron:ektron_content_management_system:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)ektron"
-    verified: true
-    max-request: 1
-    vendor: ektron
-    product: ektron_content_management_system
-    shodan-query:
-      - http.html:"ektron"
-      - cpe:"cpe:2.3:a:ektron:ektron_content_management_system"
     fofa-query:
+      - app="Ektron-CMS"
       - app="ektron-cms"
       - body="ektron"
-  tags: panel,ektron,cms,discovery
-
+    max-request: 1
+    product: ektron_content_management_system
+    shodan-query:
+      - http.html:"Ektron"
+      - http.html:"ektron"
+      - cpe:"cpe:2.3:a:ektron:ektron_content_management_system"
+    vendor: ektron
+    verified: true
+  tags: cms,discovery,ektron,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "EktronClientManager"
-          - "ektronTheme"
-          - "Ektron.ready"
-        condition: or
-
-      - type: status
-        status:
+          - EktronClientManager
+          - ektronTheme
+          - Ektron.ready
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

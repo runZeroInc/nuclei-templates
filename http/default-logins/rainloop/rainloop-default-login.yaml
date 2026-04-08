@@ -1,29 +1,46 @@
 id: rainloop-default-login
-
 info:
   name: Rainloop WebMail - Default Admin Login
   author: For3stCo1d
   severity: high
-  description: |
-    Rainloop WebMail default admin credentials were successful.
+  description: Rainloop WebMail default admin login credentials were successful.
   reference:
     - https://github.com/RainLoop/rainloop-webmail/issues/28
   classification:
     cpe: cpe:2.3:a:rainloop:webmail:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.bodies"]), {# matches "rainloop/"})
-    verified: true
-    max-request: 2
-    vendor: rainloop
-    product: webmail
-    shodan-query:
-      - cpe:"cpe:2.3:a:roundcube:webmail"
-      - http.component:"roundcube"
     fofa-query: app="RAINLOOP-WebMail"
-  tags: default-login,rainloop,webmail,foss,vuln
-
+    max-request: 2
+    product: webmail
+    vendor: rainloop
+    verified: true
+  tags: default-login,foss,rainloop,vuln,webmail
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - group: 1
+        internal: true
+        name: token
+        regex:
+          - token":"(.+?)"
+        type: regex
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"Action":"AdminLogin"'
+          - '"Result":true'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - 12345
+      user:
+        - admin
+    raw:
       - |
         GET /?/AdminAppData@no-mobile-0/0/15503332983847185/ HTTP/1.1
         Host: {{Hostname}}
@@ -33,31 +50,3 @@ http:
         Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
         Login={{user}}&Password={{pass}}&Action=AdminLogin&XToken={{token}}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-      pass:
-        - 12345
-
-    extractors:
-      - type: regex
-        name: token
-        internal: true
-        group: 1
-        regex:
-          - 'token":"(.+?)"'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"Action":"AdminLogin"'
-          - '"Result":true'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: joplin-panel
-
 info:
   name: Joplin Server Login - Panel
   author: pussycat0x
@@ -8,23 +7,20 @@ info:
     Joplin Server login panel detected.
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Joplin Server"})
-    verified: true
     max-request: 1
-  tags: panel,joplin,login,discovery
-
+    shodan-query: title:"Joplin Server"
+    verified: true
+  tags: discovery,joplin,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Joplin Server - Login</title>"
-
-      - type: status
-        status:
+          - <title>Joplin Server - Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

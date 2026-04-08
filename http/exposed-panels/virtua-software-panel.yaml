@@ -1,5 +1,4 @@
 id: virtua-software-panel
-
 info:
   name: Virtua Software Panel - Detect
   author: princechaddha
@@ -11,27 +10,23 @@ info:
     cpe: cpe:2.3:a:virtuasoftware:cobranca:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "876876147"
-    verified: true
-    max-request: 1
-    vendor: virtuasoftware
-    product: cobranca
-    shodan-query: http.favicon.hash:"876876147"
     fofa-query: icon_hash=876876147
-  tags: panel,virtua,virtuasoftware,discovery
-
+    max-request: 1
+    product: cobranca
+    shodan-query: http.favicon.hash:876876147
+    vendor: virtuasoftware
+    verified: true
+  tags: discovery,panel,virtua,virtuasoftware
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title id="tituloPagina">Virtua Software</title>'
-
-      - type: status
-        status:
+          - <title id="tituloPagina">Virtua Software</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

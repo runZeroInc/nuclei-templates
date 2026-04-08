@@ -1,5 +1,4 @@
 id: netdata-dashboard-detect
-
 info:
   name: Netdata Dashboard Panel - Detect
   author: pussycat0x
@@ -11,30 +10,26 @@ info:
     cpe: cpe:2.3:a:netdata:netdata:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)netdata dashboard"})
-    max-request: 1
-    vendor: netdata
-    product: netdata
-    shodan-query:
-      - server:"netdata embedded http server"
-      - http.title:"netdata dashboard"
-      - "server: netdata embedded http server"
     fofa-query: title="netdata dashboard"
     google-query: intitle:"netdata dashboard"
-  tags: netdata,panel,tech,discovery
-
+    max-request: 1
+    product: netdata
+    shodan-query:
+      - 'Server: NetData Embedded HTTP Server'
+      - http.title:"netdata dashboard"
+      - 'server: netdata embedded http server'
+    vendor: netdata
+  tags: discovery,netdata,panel,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '<title>netdata dashboard</title>'
-
-      - type: status
-        status:
+          - <title>netdata dashboard</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

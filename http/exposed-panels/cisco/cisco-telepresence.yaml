@@ -1,5 +1,4 @@
 id: cisco-telepresence
-
 info:
   name: Cisco TelePresence Login Panel - Detect
   author: dhiyaneshDk
@@ -11,27 +10,24 @@ info:
     cpe: cpe:2.3:a:cisco:telepresence_tc:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cisco Telepresence"})
-    verified: true
     max-request: 1
+    product: telepresence_tc
+    shodan-query: http.title:"Cisco Telepresence"
     vendor: cisco
-  tags: panel,cisco,discovery
-
+    verified: true
+  tags: cisco,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login.html"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "Cisco TelePresence MCU - login:"
-
-      - type: status
-        status:
+          - 'Cisco TelePresence MCU - login:'
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/login.html'

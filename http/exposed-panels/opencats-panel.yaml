@@ -1,5 +1,4 @@
 id: opencats-panel
-
 info:
   name: OpenCATS Login Panel - Detect
   author: arafatansari
@@ -11,32 +10,29 @@ info:
     cpe: cpe:2.3:a:opencats:opencats:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)opencats"})
-    verified: true
-    max-request: 2
-    vendor: opencats
-    product: opencats
-    shodan-query: http.title:"opencats"
     fofa-query: title="opencats"
     google-query: intitle:"opencats"
-  tags: panel,opencats,discovery
-
+    max-request: 2
+    product: opencats
+    shodan-query:
+      - title:"opencats"
+      - http.title:"opencats"
+    vendor: opencats
+    verified: true
+  tags: discovery,opencats,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/opencats/"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - '<title>opencats - Login</title>'
-          - '<!-- CATS_LOGIN -->'
-        condition: or
-
-      - type: status
-        status:
+          - <title>opencats - Login</title>
+          - <!-- CATS_LOGIN -->
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/opencats/'
+    stop-at-first-match: true

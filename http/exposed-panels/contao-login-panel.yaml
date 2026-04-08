@@ -1,5 +1,4 @@
 id: contao-login-panel
-
 info:
   name: Contao Login Panel - Detect
   author: princechaddha
@@ -11,35 +10,32 @@ info:
     cpe: cpe:2.3:a:contao:contao:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)contao open source cms" || any(each(service["html.titles"]), {# matches "(?i)contao"})
-    verified: true
-    max-request: 1
-    vendor: contao
-    product: contao
-    shodan-query:
-      - http.html:"contao open source cms"
-      - http.title:"contao"
-      - cpe:"cpe:2.3:a:contao:contao"
     fofa-query:
       - title="contao"
       - body="contao open source cms"
     google-query: intitle:"contao"
-  tags: panel,contao,discovery
-
+    max-request: 1
+    product: contao
+    shodan-query:
+      - http.html:"Contao Open Source CMS"
+      - http.title:"contao"
+      - http.html:"contao open source cms"
+      - cpe:"cpe:2.3:a:contao:contao"
+    vendor: contao
+    verified: true
+  tags: contao,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/contao/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "Contao Open Source CMS"
-          - "<h1>Login</h1>"
-        condition: and
-
-      - type: status
-        status:
+          - Contao Open Source CMS
+          - <h1>Login</h1>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/contao/login'

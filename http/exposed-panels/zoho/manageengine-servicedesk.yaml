@@ -1,5 +1,4 @@
 id: manageengine-servicedesk
-
 info:
   name: ZOHO ManageEngine ServiceDesk Panel - Detect
   author: dhiyaneshDK,righettod
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_servicedesk_plus:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)manageengine servicedesk plus"})
-    max-request: 1
-    vendor: zohocorp
-    product: manageengine_servicedesk_plus
-    shodan-query: http.title:"manageengine servicedesk plus"
     fofa-query: title="manageengine servicedesk plus"
     google-query: intitle:"manageengine servicedesk plus"
-  tags: panel,zoho,manageengine,zohocorp,discovery
-
+    max-request: 1
+    product: manageengine_servicedesk_plus
+    shodan-query:
+      - http.title:"ManageEngine ServiceDesk Plus"
+      - http.title:"manageengine servicedesk plus"
+    vendor: zohocorp
+  tags: discovery,manageengine,panel,zoho,zohocorp
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>ManageEngine ServiceDesk Plus</title>
+          - <title>ManageEngine ServiceDesk Plus - MSP</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>ManageEngine ServiceDesk Plus</title>'
-          - '<title>ManageEngine ServiceDesk Plus - MSP</title>'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

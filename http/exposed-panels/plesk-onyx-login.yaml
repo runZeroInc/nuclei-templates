@@ -1,5 +1,4 @@
 id: plesk-onyx-login
-
 info:
   name: Plesk Login Panel - Detect
   author: dhiyaneshDK,daffainfo,righettod
@@ -14,44 +13,40 @@ info:
     cpe: cpe:2.3:a:plesk:onyx:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)plesk onyx"
-    verified: true
-    max-request: 1
-    vendor: plesk
-    product: onyx
-    shodan-query:
-      - http.html:"plesk onyx" http.html:"plesk-build"
+    fofa-query: body="plesk onyx" http.html:"plesk-build"
     google-query:
       - inurl:login_up.php "Plesk Onyx"
       - inurl:login_up.php "plesk onyx"
-    fofa-query: body="plesk onyx" http.html:"plesk-build"
-  tags: panel,plesk,login,edb,discovery
-
+    max-request: 1
+    product: onyx
+    shodan-query:
+      - http.html:"Plesk Onyx" http.html:"plesk-build"
+      - http.html:"plesk onyx" http.html:"plesk-build"
+    vendor: plesk
+    verified: true
+  tags: discovery,edb,login,panel,plesk
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - alt="Plesk Onyx ([0-9.]+)"
+          - (?i)"urlArgs":"([0-9.-]+)"
+        type: regex
+    matchers:
+      - case-insensitive: true
+        condition: or
+        part: body
+        type: word
+        words:
+          - alt="Plesk Onyx
+          - plesk-build
+          - plesk-revision
+          - plesk-root
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login_up.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'alt="Plesk Onyx'
-          - 'plesk-build'
-          - 'plesk-revision'
-          - 'plesk-root'
-        condition: or
-        case-insensitive: true
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - 'alt="Plesk Onyx ([0-9.]+)"'
-          - '(?i)"urlArgs":"([0-9.-]+)"'
-

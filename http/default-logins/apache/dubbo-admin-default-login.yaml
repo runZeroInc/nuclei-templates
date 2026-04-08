@@ -1,10 +1,9 @@
 id: dubbo-admin-default-login
-
 info:
-  name: Apache Dubbo Default Credentials
+  name: Apache Dubbo - Default Admin Discovery
   author: ritikchaddha
   severity: high
-  description: Apache Dubbo default login credentials were discovered.
+  description: Apache Dubbo default admin credentials were discovered.
   reference:
     - https://www.cnblogs.com/wishwzp/p/9438658.html
   classification:
@@ -13,35 +12,30 @@ info:
     cwe-id: CWE-522
   metadata:
     max-request: 2
-  tags: dubbo,apache,default-login,vuln
-
+  tags: apache,default-login,dubbo,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/"
+  - attack: pitchfork
     headers:
+      Authorization: Basic {{base64(username + ':' + password)}}
       Content-Type: application/x-www-form-urlencoded
-      Authorization: "Basic {{base64(username + ':' + password)}}"
-
-    attack: pitchfork
-    payloads:
-      username:
-        - guest
-        - root
-      password:
-        - guest
-        - root
-
-    matchers-condition: and
     matchers:
-      - type: word
+      - condition: and
+        type: word
         words:
           - <title>Dubbo Admin</title>
           - /sysinfo/versions
-          - "{{username}}', '/logout')"
-        condition: and
-
-      - type: status
-        status:
+          - '{{username}}'', ''/logout'')'
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/'
+    payloads:
+      password:
+        - guest
+        - root
+      username:
+        - guest
+        - root

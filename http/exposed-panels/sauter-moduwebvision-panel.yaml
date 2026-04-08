@@ -1,5 +1,4 @@
 id: sauter-moduwebvision-panel
-
 info:
   name: SAUTER moduWeb Vision Panel - Detect
   author: righettod
@@ -12,30 +11,25 @@ info:
     cpe: cpe:2.3:o:sauter:moduweb_vision:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1663319756"
-    verified: true
-    max-request: 1
-    vendor: sauter
-    product: moduweb_vision
-    shodan-query: http.favicon.hash:"-1663319756"
     fofa-query: icon_hash=-1663319756
-  tags: panel,moduweb,sauter,login,discovery
-
+    max-request: 1
+    product: moduweb_vision
+    shodan-query: http.favicon.hash:-1663319756
+    vendor: sauter
+    verified: true
+  tags: discovery,login,moduweb,panel,sauter
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>SAUTER moduWeb Vision</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}/login'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>SAUTER moduWeb Vision</title>'
-
-      - type: status
-        status:
-          - 200
-

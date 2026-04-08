@@ -1,5 +1,4 @@
 id: fortiap-panel
-
 info:
   name: FortiAP Login Panel - Detect
   author: DhiyaneshDk
@@ -13,32 +12,29 @@ info:
     cpe: cpe:2.3:a:fortinet:fortiap:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiap"})
-    verified: true
-    max-request: 1
-    vendor: fortinet
-    product: fortiap
-    shodan-query: http.title:"fortiap"
     fofa-query: title="fortiap"
     google-query: intitle:"fortiap"
-  tags: panel,fortinet,fortiap,discovery
-
+    max-request: 1
+    product: fortiap
+    shodan-query:
+      - title:"FortiAP"
+      - http.title:"fortiap"
+    vendor: fortinet
+    verified: true
+  tags: discovery,fortiap,fortinet,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "<title>FortiAP</title>"
-
-      - type: word
-        part: header
+          - <title>FortiAP</title>
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

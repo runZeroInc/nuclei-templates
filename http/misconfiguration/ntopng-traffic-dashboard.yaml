@@ -1,5 +1,4 @@
 id: ntopng-traffic-dashboard
-
 info:
   name: Ntopng Traffic Dashboard - Detect
   author: theamanrawat
@@ -11,26 +10,24 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ntop:ntopng:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: ntopng
+    shodan-query: http.title:"ntopng - Traffic Dashboard"
     vendor: ntop
-  tags: misconfig,ntopng,dashboard,discovery
-
+    verified: true
+  tags: dashboard,discovery,misconfig,ntopng
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <title>ntopng - Traffic Dashboard</title>
+          - https://github.com/ntop/ntopng
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>ntopng - Traffic Dashboard</title>'
-          - 'https://github.com/ntop/ntopng'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

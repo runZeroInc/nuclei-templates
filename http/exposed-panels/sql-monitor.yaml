@@ -1,5 +1,4 @@
 id: sql-monitor
-
 info:
   name: SQL Monitor - Discovery
   author: dhiyaneshDK
@@ -11,25 +10,23 @@ info:
     cpe: cpe:2.3:a:red-gate:sql_monitor:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)sql monitor"
-    max-request: 1
-    vendor: red-gate
-    product: sql_monitor
-    shodan-query: http.html:"sql monitor"
     fofa-query: body="sql monitor"
-  tags: panel,red-gate,discovery
-
+    max-request: 1
+    product: sql_monitor
+    shodan-query:
+      - html:"SQL Monitor"
+      - http.html:"sql monitor"
+    vendor: red-gate
+  tags: discovery,panel,red-gate
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/Account/LogIn?returnUrl=%2F&hasAttemptedCookie=True'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<p>JavaScript needs to be enabled for SQL Monitor to work properly.</p>'
-
-      - type: status
-        status:
+          - <p>JavaScript needs to be enabled for SQL Monitor to work properly.</p>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/Account/LogIn?returnUrl=%2F&hasAttemptedCookie=True'

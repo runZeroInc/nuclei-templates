@@ -1,5 +1,4 @@
 id: fortinet-panel
-
 info:
   name: Fortinet Login Panel - Detect
   author: pikpikcu,daffainfo
@@ -11,29 +10,26 @@ info:
     cpe: cpe:2.3:a:fortinet:fortiportal:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)FORTINET LOGIN"})
-    verified: true
     max-request: 2
+    product: fortiportal
+    shodan-query: http.title:"FORTINET LOGIN"
     vendor: fortinet
-  tags: panel,fortinet,login,detect,discovery
-
+    verified: true
+  tags: detect,discovery,fortinet,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - 'FORTINET LOGIN</title>'
-
-      - type: status
-        status:
+          - FORTINET LOGIN</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: faraday-login
-
 info:
   name: Faraday Login Panel - Detect
   author: dhiyaneshDK
@@ -12,21 +11,19 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "(?i)faradayApp"
     max-request: 1
+    product: faraday
+    shodan-query: html:"faradayApp"
     vendor: faraday_project
-  tags: panel,faraday,discovery
-
+  tags: discovery,faraday,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/#/login'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - 'ng-app="faradayApp">'
-
-      - type: status
-        status:
+          - ng-app="faradayApp">
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/#/login'

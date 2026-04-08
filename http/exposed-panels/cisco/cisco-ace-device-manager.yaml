@@ -1,5 +1,4 @@
 id: cisco-ace-device-manager
-
 info:
   name: Cisco ACE 4710 Device Manager Login Panel - Detect
   author: dhiyaneshDk
@@ -12,22 +11,20 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "(?i)ACE 4710 Device Manager"
     max-request: 1
+    product: ace_4710_application_control_engine
+    shodan-query: html:"ACE 4710 Device Manager"
     vendor: cisco
-  tags: panel,cisco,discovery
-
+  tags: cisco,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.vm"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>ACE 4710 DM - Login</title>"
-
-      - type: status
-        status:
+          - <title>ACE 4710 DM - Login</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.vm'

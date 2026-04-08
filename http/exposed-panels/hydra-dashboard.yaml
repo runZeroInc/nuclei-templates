@@ -1,5 +1,4 @@
 id: hydra-dashboard
-
 info:
   name: Hydra Router Dashboard - Detect
   author: tess
@@ -11,30 +10,28 @@ info:
     cpe: cpe:2.3:a:hydra_project:hydra:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)hydra router dashboard"})
-    verified: true
-    max-request: 1
-    vendor: hydra_project
-    product: hydra
-    shodan-query: http.title:"hydra router dashboard"
     fofa-query: title="hydra router dashboard"
     google-query: intitle:"hydra router dashboard"
-  tags: panel,exposure,hydra,hydra_project,discovery
-
+    max-request: 1
+    product: hydra
+    shodan-query:
+      - title:"Hydra Router Dashboard"
+      - http.title:"hydra router dashboard"
+    vendor: hydra_project
+    verified: true
+  tags: discovery,exposure,hydra,hydra_project,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Hydra Router Dashboard
+          - 'screen: ''dashboard'''
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Hydra Router Dashboard"
-          - "screen: 'dashboard'"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

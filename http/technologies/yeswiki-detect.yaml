@@ -1,5 +1,4 @@
 id: yeswiki-detect
-
 info:
   name: YesWiki Panel - Detect
   author: ritikchaddha
@@ -11,29 +10,26 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:yeswiki:yeswiki:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: yeswiki
+    shodan-query: http.html:"yeswiki"
     vendor: yeswiki
-  tags: yeswiki,panel,tech,discovery
-
+    verified: true
+  tags: discovery,panel,tech,yeswiki
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - yeswiki-search
+          - yeswiki-base
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'yeswiki-search'
-          - 'yeswiki-base'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

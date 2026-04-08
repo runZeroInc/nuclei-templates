@@ -1,5 +1,4 @@
 id: kubeview-dashboard
-
 info:
   name: KubeView Dashboard - Detect
   author: ja1sh
@@ -11,32 +10,28 @@ info:
     cwe-id: CWE-200
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-379154636" || any(each(service["html.titles"]), {# matches "(?i)kubeview"})
-    verified: true
-    max-request: 1
-    vendor: kubeview_project
-    product: kubeview
-    shodan-query:
-      - http.favicon.hash:"-379154636"
-      - http.title:"kubeview"
     fofa-query:
       - icon_hash=-379154636
       - title="kubeview"
     google-query: intitle:"kubeview"
-  tags: exposure,k8s,kubernetes,kubeview,dashboard,panel,kubeview_project,discovery
-
+    max-request: 1
+    product: kubeview
+    shodan-query:
+      - http.favicon.hash:-379154636
+      - http.title:"kubeview"
+    vendor: kubeview_project
+    verified: true
+  tags: dashboard,discovery,exposure,k8s,kubernetes,kubeview,kubeview_project,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
           - <title>KubeView</title>
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

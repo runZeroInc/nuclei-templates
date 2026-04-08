@@ -1,5 +1,4 @@
 id: kiteworks-pcn-panel
-
 info:
   name: Kiteworks PCN Panel - Detect
   author: righettod
@@ -12,35 +11,30 @@ info:
     cpe: cpe:2.3:a:accellion:kiteworks:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-1215318992"
-    verified: true
-    max-request: 1
-    vendor: accellion
-    product: kiteworks
-    shodan-query: http.favicon.hash:"-1215318992"
     fofa-query: icon_hash=-1215318992
-  tags: panel,kiteworks,login,detect,accellion,discovery
-
+    max-request: 1
+    product: kiteworks
+    shodan-query: http.favicon.hash:-1215318992
+    vendor: accellion
+    verified: true
+  tags: accellion,detect,discovery,kiteworks,login,panel
 http:
-  - method: GET
+  - matchers:
+      - case-insensitive: true
+        condition: and
+        part: body
+        type: word
+        words:
+          - Secured by Kiteworks
+          - Return to sign in
+      - part: header
+        type: word
+        words:
+          - application/octet-stream
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login/locales/login_en.json'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Secured by Kiteworks'
-          - 'Return to sign in'
-        condition: and
-        case-insensitive: true
-
-      - type: word
-        part: header
-        words:
-          - 'application/octet-stream'
-
-      - type: status
-        status:
-          - 200
-

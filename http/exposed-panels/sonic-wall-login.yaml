@@ -1,5 +1,4 @@
 id: sonicwall-security-login
-
 info:
   name: SonicWall Network Security Login - Detect
   author: JustaAcat
@@ -9,32 +8,29 @@ info:
     cpe: cpe:2.3:h:sonicwall:tz_350:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sonicwall network security login"})
-    verified: true
-    max-request: 2
-    vendor: sonicwall
-    product: tz_350
-    shodan-query: http.title:"sonicwall network security login"
     fofa-query: title="sonicwall network security login"
     google-query: intitle:"sonicwall network security login"
-  tags: panel,sonicwall,login,discovery
-
+    max-request: 2
+    product: tz_350
+    shodan-query:
+      - title:"SonicWall Network Security Login"
+      - http.title:"sonicwall network security login"
+    vendor: sonicwall
+    verified: true
+  tags: discovery,login,panel,sonicwall
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/sonicui/7/login/"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
       - type: word
         words:
-          - "SonicWall Network Security Login"
-
-      - type: status
-        status:
+          - SonicWall Network Security Login
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/sonicui/7/login/'
+    stop-at-first-match: true

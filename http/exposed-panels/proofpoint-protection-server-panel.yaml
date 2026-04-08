@@ -1,5 +1,4 @@
 id: proofpoint-protection-server-panel
-
 info:
   name: Proofpoint Protection Server Panel - Detect
   author: johnk3r
@@ -10,36 +9,31 @@ info:
     cwe-id: CWE-200
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "942678640"
-    verified: true
-    max-request: 2
-    vendor: proofpoint
-    product: proofpoint protection server
-    shodan-query: http.favicon.hash:"942678640"
     fofa-query: icon_hash=942678640
-  tags: panel,proofpoint,login,detect,discovery
-
+    max-request: 2
+    product: proofpoint protection server
+    shodan-query: http.favicon.hash:942678640
+    vendor: proofpoint
+    verified: true
+  tags: detect,discovery,login,panel,proofpoint
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/euweb/login"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: or
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - '<TITLE>Proofpoint Protection Server'
-          - 'Proofpoint End User Application.'
-          - 'Powered by Proofpoint'
-        condition: or
-
-      - type: word
-        part: header
+          - <TITLE>Proofpoint Protection Server
+          - Proofpoint End User Application.
+          - Powered by Proofpoint
+      - part: header
+        type: word
         words:
-          - 'PPSAUTH='
-
+          - PPSAUTH=
+    matchers-condition: or
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/euweb/login'
+    stop-at-first-match: true

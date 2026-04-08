@@ -1,5 +1,4 @@
 id: oracle-business-control
-
 info:
   name: Oracle Commerce Business Control Center Login Panel - Detect
   author: dhiyaneshDk,righettod
@@ -13,34 +12,30 @@ info:
     cpe: cpe:2.3:a:oracle:commerce:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)oracle commerce"})
-    max-request: 2
-    vendor: oracle
-    product: commerce
-    shodan-query:
-      - http.title:"oracle commerce"
-      - cpe:"cpe:2.3:a:oracle:commerce"
     fofa-query: title="oracle commerce"
     google-query: intitle:"oracle commerce"
-  tags: oracle,login,panel,discovery
-
+    max-request: 2
+    product: commerce
+    shodan-query:
+      - http.title:"Oracle Commerce"
+      - http.title:"oracle commerce"
+      - cpe:"cpe:2.3:a:oracle:commerce"
+    vendor: oracle
+  tags: discovery,login,oracle,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        type: word
+        words:
+          - <title>Oracle Commerce Business Control Center</title>
+          - /atg/userprofiling/InternalProfileFormHandler.loginSuccessURL
+          - /atg/userprofiling/InternalProfileFormHandler.loginErrorURL
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/atg/bcc'
       - '{{BaseURL}}/atg/user/html/login.jsp'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>Oracle Commerce Business Control Center</title>'
-          - '/atg/userprofiling/InternalProfileFormHandler.loginSuccessURL'
-          - '/atg/userprofiling/InternalProfileFormHandler.loginErrorURL'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

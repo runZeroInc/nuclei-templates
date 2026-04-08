@@ -1,5 +1,4 @@
 id: graphite-browser
-
 info:
   name: Graphite Browser Login Panel - Detect
   author: 0x_Akoko
@@ -14,22 +13,20 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graphite Browser"})
     max-request: 1
+    product: graphite
+    shodan-query: http.title:"Graphite Browser"
     vendor: graphite_project
-  tags: graphite,panel,discovery
-
+  tags: discovery,graphite,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Graphite Browser</title>"
-
-      - type: status
-        status:
+          - <title>Graphite Browser</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/'

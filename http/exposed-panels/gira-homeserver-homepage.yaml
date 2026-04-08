@@ -1,5 +1,4 @@
 id: gira-homeserver-homepage
-
 info:
   name: Gira HomeServer 4 Login Panel - Detect
   author: tess
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:o:gira:gira_home_server_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Gira HomeServer 4"})
-    verified: true
     max-request: 1
+    product: gira_home_server_firmware
+    shodan-query: title:"Gira HomeServer 4"
     vendor: gira
-  tags: panel,gira,discovery
-
+    verified: true
+  tags: discovery,gira,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Gira HomeServer 4
+          - Home page
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Gira HomeServer 4"
-          - "Home page"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

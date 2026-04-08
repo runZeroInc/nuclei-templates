@@ -1,5 +1,4 @@
 id: sophos-fw-version-detect
-
 info:
   name: Sophos Firewall Login Panel - Detect
   author: organiccrap,daffainfo
@@ -11,40 +10,36 @@ info:
     cpe: cpe:2.3:o:sophos:sfos:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sophos"})
-    verified: true
-    max-request: 2
-    vendor: sophos
-    product: sfos
-    shodan-query: http.title:"sophos"
     fofa-query: title="sophos"
     google-query: intitle:"sophos"
-  tags: panel,sophos,discovery
-
+    max-request: 2
+    product: sfos
+    shodan-query:
+      - title:"Sophos"
+      - http.title:"sophos"
+    vendor: sophos
+    verified: true
+  tags: discovery,panel,sophos
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/webconsole/webpages/login.jsp"
-      - "{{BaseURL}}/userportal/webpages/myaccount/login.jsp"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - '<title>Sophos</title>'
-          - 'uiLangToHTMLLangAttributeValueMapping'
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - 'href="\/themes\/lite1\/css\/typography\.css\?version=(([0-9a-z]+)([0-9.]+))'
-
+          - href="\/themes\/lite1\/css\/typography\.css\?version=(([0-9a-z]+)([0-9.]+))
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>Sophos</title>
+          - uiLangToHTMLLangAttributeValueMapping
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/webconsole/webpages/login.jsp'
+      - '{{BaseURL}}/userportal/webpages/myaccount/login.jsp'
+    stop-at-first-match: true

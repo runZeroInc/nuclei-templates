@@ -1,5 +1,4 @@
 id: xnat-login
-
 info:
   name: XNAT Login Panel - Detect
   author: 0x_Akoko
@@ -11,28 +10,25 @@ info:
     cpe: cpe:2.3:a:xnat:xnat:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)xnat"})
-    verified: true
     max-request: 1
+    product: xnat
+    shodan-query: title:"xnat"
     vendor: xnat
-  tags: xnat,panel,discovery
-
+    verified: true
+  tags: discovery,panel,xnat
 http:
-  - method: GET
+  - matchers:
+      - type: word
+        words:
+          - <title>XNAT</title>
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/app/template/Login.vm'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>XNAT</title>'
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

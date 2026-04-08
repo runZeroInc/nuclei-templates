@@ -1,5 +1,4 @@
 id: incapptic-connect-panel
-
 info:
   name: Ivanti Incapptic Connect Panel - Detect
   author: righettod
@@ -13,39 +12,34 @@ info:
     cpe: cpe:2.3:a:ivanti:incapptic_connect:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)incapptic"}) || service["favicon.ico.image.mmh3"] == "-1067582922"
-    max-request: 2
-    vendor: ivanti
-    product: incapptic_connect
-    shodan-query:
-      - http.title:"incapptic"
-      - http.favicon.hash:"-1067582922"
     fofa-query:
       - icon_hash=-1067582922
       - title="incapptic"
     google-query: intitle:"incapptic"
-  tags: panel,ivanti,incapptic-connect,discovery
-
+    max-request: 2
+    product: incapptic_connect
+    shodan-query:
+      - http.title:"incapptic"
+      - http.favicon.hash:-1067582922
+    vendor: ivanti
+  tags: discovery,incapptic-connect,ivanti,panel
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - condition: and
+        dsl:
+          - status_code==200
+          - contains(tolower(body), 'incapptic')
+        type: dsl
+      - condition: and
+        dsl:
+          - status_code==200
+          - ('-1067582922' == mmh3(base64_py(body)))
+        type: dsl
+    matchers-condition: or
+    max-redirects: 3
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/static/img/custom_icons/favicon.ico'
-
-    host-redirects: true
-    max-redirects: 3
     stop-at-first-match: true
-
-    matchers-condition: or
-    matchers:
-      - type: dsl
-        dsl:
-          - "status_code==200"
-          - "contains(tolower(body), 'incapptic')"
-        condition: and
-
-      - type: dsl
-        dsl:
-          - "status_code==200"
-          - "('-1067582922' == mmh3(base64_py(body)))"
-        condition: and
-

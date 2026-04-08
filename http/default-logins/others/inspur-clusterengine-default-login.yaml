@@ -1,54 +1,46 @@
 id: inspur-clusterengine-default-login
-
 info:
   name: Inspur Clusterengine 4 - Default Admin Login
   author: ritikchaddha
   severity: high
-  description: |
-    Inspur Clusterengine default admin credentials were discovered.
+  description: Inspur Clusterengine version 4 default admin login credentials were successful.
   reference:
     - https://blog.csdn.net/qq_36197704/article/details/115665793
   classification:
     cpe: cpe:2.3:a:inspur:clusterengine:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)TSCEV4\\.0"})
-    max-request: 1
-    vendor: inspur
-    product: clusterengine
     fofa-query: title="TSCEV4.0"
-  tags: default-login,inspur,clusterengine,vuln
-
+    max-request: 1
+    product: clusterengine
+    vendor: inspur
+  tags: clusterengine,default-login,inspur,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - part: body
+        type: word
+        words:
+          - '"exitcode":0'
+      - condition: and
+        part: header
+        type: word
+        words:
+          - username=admin|pwd
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      password:
+        - 123456
+      username:
+        - admin|pwd
+    raw:
       - |
         POST /login HTTP/1.1
         Host: {{Hostname}}
 
         op=login&username={{username}}&password={{password}}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin|pwd
-      password:
-        - 123456
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"exitcode":0'
-
-      - type: word
-        part: header
-        words:
-          - "username=admin|pwd"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

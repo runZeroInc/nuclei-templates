@@ -1,5 +1,4 @@
 id: aws-s3-explorer
-
 info:
   name: Amazon Web Services S3 Explorer - Detect
   author: DhiyaneshDk
@@ -13,28 +12,25 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:amazon:aws_javascript_s3_explorer:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    google-query: inurl:s3.amazonaws.com intitle:"AWS S3 Explorer"
     max-request: 1
+    product: aws_javascript_s3_explorer
     vendor: amazon
-  tags: s3,edb,misconfig,aws,amazon,vuln
-
+    verified: true
+  tags: amazon,aws,edb,misconfig,s3,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.html"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>AWS S3 Explorer</title>'
-
-      - type: word
-        part: header
+          - <title>AWS S3 Explorer</title>
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.html'

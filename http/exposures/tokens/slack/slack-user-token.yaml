@@ -1,5 +1,4 @@
 id: slack-user-token
-
 info:
   name: Slack User token disclosure
   author: Ice3man,DhiyaneshDK
@@ -11,26 +10,34 @@ info:
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/slack-user-token.yaml
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/slack-user-token.txt
   metadata:
+    max-request: 1
     verified: true
-  tags: exposure,token,slack,vuln
-
+  tags: exposure,slack,token,vuln
 flow: http(1) && http(2)
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers:
-      - type: regex
-        part: body
+  - matchers:
+      - internal: true
         name: token
+        part: body
         regex:
-          - 'xoxp-[0-9A-Za-z\\-]{74}'
-          - '(xox[pe](?:-[0-9]{10,13}){3}-[a-zA-Z0-9-]{28,34})'
-        internal: true
-
-  - raw:
+          - xoxp-[0-9A-Za-z\\-]{74}
+          - (xox[pe](?:-[0-9]{10,13}){3}-[a-zA-Z0-9-]{28,34})
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'
+  - extractors:
+      - dsl:
+          - token
+        type: dsl
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains_all(body, "is_admin", "is_app_user", "is_email_confirmed")
+          - contains(content_type, "application/json")
+        type: dsl
+    raw:
       - |
         @Host: https://slack.com:443
         POST /api/users.list?pretty=1 HTTP/1.1
@@ -47,17 +54,3 @@ http:
 
         {{token}}
         ------WebKitFormBoundaryDL3VHEC7cFaxeAhK--
-
-    matchers:
-      - type: dsl
-        dsl:
-          - status_code == 200
-          - contains_all(body, "is_admin", "is_app_user", "is_email_confirmed")
-          - contains(content_type, "application/json")
-        condition: and
-
-    extractors:
-      - type: dsl
-        dsl:
-          - token
-

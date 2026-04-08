@@ -1,5 +1,4 @@
 id: issabel-login
-
 info:
   name: Issabel Login Panel - Detect
   author: pikpikcu
@@ -11,25 +10,23 @@ info:
     cpe: cpe:2.3:a:issabel:pbx:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Issabel"})
+    fofa-query: title="Issabel"
     max-request: 1
+    product: pbx
     vendor: issabel
-  tags: issabel,panel,discovery
-
+  tags: discovery,issabel,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - '<a href="http://www.issabel.org"'
-          - '<title>Issabel - Login page</title>'
-        condition: or
-
-      - type: status
-        status:
+          - <a href="http://www.issabel.org"
+          - <title>Issabel - Login page</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

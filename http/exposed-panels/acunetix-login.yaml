@@ -1,5 +1,4 @@
 id: acunetix-login
-
 info:
   name: Acunetix Login Panel - Detect
   author: tess
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:a:acunetix:web_vulnerability_scanner:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Acunetix"})
-    verified: true
     max-request: 1
+    product: web_vulnerability_scanner
+    shodan-query: title:"Acunetix"
     vendor: acunetix
-  tags: panel,acunetix,discovery
-
+    verified: true
+  tags: acunetix,discovery,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>Acunetix</title>
+          - assets/images/invicti-acunetix-logo.svg
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/#/login'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>Acunetix</title>"
-          - "assets/images/invicti-acunetix-logo.svg"
-        condition: or
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
-

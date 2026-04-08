@@ -1,5 +1,4 @@
 id: adminer-panel-detect
-
 info:
   name: Adminer Login Panel - Detect
   author: random_robbie,meme-lord
@@ -13,43 +12,39 @@ info:
     cpe: cpe:2.3:a:adminer:adminer:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login - adminer"})
-    max-request: 741
-    vendor: adminer
-    product: adminer
-    shodan-query:
-      - cpe:"cpe:2.3:a:adminer:adminer"
-      - http.title:"login - adminer"
     fofa-query:
       - title="login - adminer"
       - app="adminer" && body="4.7.8"
     google-query: intitle:"login - adminer"
-  tags: panel,fuzz,adminer,login,sqli,discovery
-
+    hunter-query: app.name="adminer"&&web.body="4.7.8"
+    max-request: 741
+    product: adminer
+    shodan-query:
+      - cpe:"cpe:2.3:a:adminer:adminer"
+      - http.title:"login - adminer"
+    vendor: adminer
+  tags: adminer,discovery,fuzz,login,panel,sqli
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - <span class="version">([0-9.]+)
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains(body, "System<td>")
+          - contains_any(body, "- Adminer</title>>", "Adminer</a>")
+        type: dsl
+    payloads:
+      path: helpers/wordlists/adminer-paths.txt
+    raw:
       - |
         GET {{path}} HTTP/1.1
         Host: {{Hostname}}
         Accept: application/json, text/plain, */*
         Referer: {{BaseURL}}
-
-    payloads:
-      path: helpers/wordlists/adminer-paths.txt
-
-    threads: 50
     stop-at-first-match: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains(body, "System<td>")'
-          - 'contains_any(body, "- Adminer</title>>", "Adminer</a>")'
-        condition: and
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '<span class="version">([0-9.]+)'
-
+    threads: 50

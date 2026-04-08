@@ -1,5 +1,4 @@
 id: cwp-webpanel
-
 info:
   name: Control Web Panel Login Panel - Detect
   author: ffffffff0x
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:a:control-webpanel:webpanel:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)CWP \\|用户"})
+    fofa-query: title=="CWP |用户" || title=="Login | CentOS WebPanel" || body="CentOS WebPanel"
     max-request: 1
+    product: webpanel
     vendor: control-webpanel
-  tags: panel,centos,discovery
-
+  tags: centos,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: or
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'Login | CentOS WebPanel'
-          - 'CWP |用户'
-          - 'http://centos-webpanel.com'
-          - 'CentOS WebPanel'
-        condition: or
-
-      - type: word
-        part: header
+          - Login | CentOS WebPanel
+          - CWP |用户
+          - http://centos-webpanel.com
+          - CentOS WebPanel
+      - part: header
+        type: word
         words:
-          - "cwpsrv"
-
+          - cwpsrv
+    matchers-condition: or
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: jamf-login
-
 info:
   name: Jamf Pro Login Panel - Detect
   author: DhiyaneshDk
@@ -11,26 +10,23 @@ info:
     cpe: cpe:2.3:a:jamf:jamf:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Jamf Pro"})
-    verified: true
     max-request: 1
+    product: jamf
+    shodan-query: title:"Jamf Pro"
     vendor: jamf
-  tags: panel,jamf,discovery
-
+    verified: true
+  tags: discovery,jamf,panel
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - regex:
+          - <title>Jamf Pro Login(.*)</title>
+        type: regex
+      - status:
+          - 401
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - '<title>Jamf Pro Login(.*)</title>'
-
-      - type: status
-        status:
-          - 401
-

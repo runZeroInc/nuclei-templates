@@ -1,5 +1,4 @@
 id: amp-application-panel
-
 info:
   name: Application Management Panel - Detect
   author: DhiyaneshDK
@@ -11,28 +10,26 @@ info:
     cpe: cpe:2.3:a:cubecoders:amp:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)amp - application management panel"})
-    verified: true
-    max-request: 1
-    vendor: cubecoders
-    product: amp
-    shodan-query: http.title:"amp - application management panel"
     fofa-query: title="amp - application management panel"
     google-query: intitle:"amp - application management panel"
-  tags: panel,amp,cubecoders,discovery
-
+    max-request: 1
+    product: amp
+    shodan-query:
+      - title:"AMP - Application Management Panel"
+      - http.title:"amp - application management panel"
+    vendor: cubecoders
+    verified: true
+  tags: amp,cubecoders,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
+  - matchers:
+      - type: word
+        words:
+          - <title>AMP - Application Management Panel</title>
+      - part: header
+        type: word
+        words:
+          - text/html
     matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>AMP - Application Management Panel</title>"
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,11 +1,9 @@
 id: netsus-default-login
-
 info:
   name: NetSUS Server Default Login
   author: princechaddha
   severity: high
-  description: |
-    NetSUS Server default admin credentials were discovered.
+  description: NetSUS Server default admin credentials were discovered.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -14,34 +12,29 @@ info:
     runzero-match: any(each(service["html.titles"]), {# matches "NetSUS Server Login"})
     max-request: 1
     shodan-query: http.title:"NetSUS Server Login"
-  tags: netsus,default-login,vuln
-
+  tags: default-login,netsus,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - 'Location: dashboard.php'
+          - PHPSESSID=
+      - status:
+          - 302
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - webadmin
+      username:
+        - webadmin
+    raw:
       - |
         POST /webadmin/index.php HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         loginwith=suslogin&username={{username}}&password={{password}}&submit=
-
-    attack: pitchfork
-    payloads:
-      username:
-        - webadmin
-      password:
-        - webadmin
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - 'Location: dashboard.php'
-          - 'PHPSESSID='
-        condition: and
-
-      - type: status
-        status:
-          - 302
-

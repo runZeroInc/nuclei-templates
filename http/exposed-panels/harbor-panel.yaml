@@ -1,5 +1,4 @@
 id: harbor-panel
-
 info:
   name: Harbor Login Panel - Detect
   author: daffainfo,righettod
@@ -13,34 +12,30 @@ info:
     cpe: cpe:2.3:a:linuxfoundation:harbor:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "657337228"
-    verified: true
-    max-request: 4
-    vendor: linuxfoundation
-    product: harbor
-    shodan-query: http.favicon.hash:"657337228"
     fofa-query: icon_hash=657337228
-  tags: panel,harbor,linuxfoundation,detect,login,discovery
-
+    max-request: 4
+    product: harbor
+    shodan-query: http.favicon.hash:657337228
+    vendor: linuxfoundation
+    verified: true
+  tags: detect,discovery,harbor,linuxfoundation,login,panel
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - (?i)"harbor_version":\s*"([a-z0-9.\-]+)"
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains_any(to_lower(body), "<title>harbor</title>", "<harbor-app>", "harbor_version")
+        type: dsl
+    method: GET
     path:
       - '{{BaseURL}}/api/v2.0/systeminfo'
       - '{{BaseURL}}/api/systeminfo'
       - '{{BaseURL}}/account/sign-in'
       - '{{BaseURL}}/harbor/sign-in'
-
     stop-at-first-match: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains_any(to_lower(body), "<title>harbor</title>", "<harbor-app>", "harbor_version")'
-        condition: and
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '(?i)"harbor_version":\s*"([a-z0-9.\-]+)"'
-

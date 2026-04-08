@@ -1,5 +1,4 @@
 id: xweb500-panel
-
 info:
   name: Xweb500 Login Panel - Detect
   author: princechaddha
@@ -10,23 +9,21 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:emerson:dixell_xweb-500_firmware:*:*:*:*:*:*:*:*
   metadata:
+    google-query: inurl:"xweb500.cgi"
     max-request: 1
+    product: dixell_xweb-500_firmware
     vendor: emerson
-  tags: panel,xweb500,discovery
-
+  tags: discovery,panel,xweb500
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cgi-bin/xweb500.cgi"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Xweb500</title>"
-
-      - type: status
-        status:
+          - <title>Xweb500</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/cgi-bin/xweb500.cgi'

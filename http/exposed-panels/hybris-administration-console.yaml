@@ -1,5 +1,4 @@
 id: hybris-administration-console
-
 info:
   name: Hybris Administration Console Login Panel - Detect
   author: princechaddha
@@ -11,31 +10,28 @@ info:
     cpe: cpe:2.3:a:sap:hybris:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)hybris"})
-    verified: true
-    max-request: 1
-    vendor: sap
-    product: hybris
-    shodan-query: http.title:"hybris"
     fofa-query: title="hybris"
     google-query: intitle:"hybris"
-  tags: panel,hybris,sap,discovery
-
+    max-request: 1
+    product: hybris
+    shodan-query:
+      - title:"Hybris"
+      - http.title:"hybris"
+    vendor: sap
+    verified: true
+  tags: discovery,hybris,panel,sap
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "hybris administration console"
-
-      - type: status
-        status:
+          - hybris administration console
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

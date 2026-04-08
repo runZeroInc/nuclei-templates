@@ -1,5 +1,4 @@
 id: archibus-webcentral-panel
-
 info:
   name: Archibus Web Central Login - Panel Detect
   author: righettod,PJBorah,Hardik-Rathod
@@ -13,38 +12,32 @@ info:
     cpe: cpe:2.3:a:archibus:web_central:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "889652940"
-    verified: true
-    max-request: 3
-    vendor: archibus
-    product: web_central
-    shodan-query: http.favicon.hash:"889652940"
     fofa-query: icon_hash=889652940
-  tags: panel,archibus,discovery
-
+    max-request: 3
+    product: web_central
+    shodan-query: http.favicon.hash:889652940
+    vendor: archibus
+    verified: true
+  tags: archibus,discovery,panel
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - type: word
+        words:
+          - ARCHIBUS
+      - condition: or
+        type: word
+        words:
+          - Continue As a Guest
+          - login
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/archibus/login.axvw'
       - '{{BaseURL}}/archibus/schema/ab-core/views/sign-in/ab-sign-in.jsp'
-
-    host-redirects: true
-    max-redirects: 2
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "ARCHIBUS"
-
-      - type: word
-        words:
-          - "Continue As a Guest"
-          - "login"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

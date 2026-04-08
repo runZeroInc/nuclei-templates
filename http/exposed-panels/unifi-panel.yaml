@@ -1,5 +1,4 @@
 id: unifi-panel
-
 info:
   name: UniFi Network Login Panel - Detect
   author: TechbrunchFR
@@ -12,25 +11,22 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)UniFi Network"})
     max-request: 1
+    product: unifi_network_application
+    shodan-query: http.title:"UniFi Network"
     vendor: ui
-  tags: unifi,ubnt,panel,discovery
-
+  tags: discovery,panel,ubnt,unifi
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "<title>UniFi Network</title>"
-
-      - type: status
-        status:
+          - <title>UniFi Network</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
