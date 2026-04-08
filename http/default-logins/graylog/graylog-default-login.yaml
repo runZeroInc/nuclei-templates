@@ -9,7 +9,7 @@ info:
     - https://go2docs.graylog.org/current/setting_up_graylog/rest_api.html
     - https://archivedocs.graylog.org/en/2.5/pages/installation/virtual_machine_appliances.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Graylog Web Interface"})
+    runzero-match: service["product"] contains "Graylog:Graylog"
     fofa-query: 'app="Graylog" || title="Graylog Web Interface"'
     max-request: 2
     product: graylog
