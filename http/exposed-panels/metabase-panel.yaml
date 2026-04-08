@@ -1,5 +1,4 @@
 id: metabase-panel
-
 info:
   name: Metabase Login Panel - Detect
   author: revblock,daffainfo
@@ -11,39 +10,36 @@ info:
     cpe: cpe:2.3:a:metabase:metabase:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)metabase"})
-    max-request: 1
-    vendor: metabase
-    product: metabase
-    shodan-query: http.title:"metabase"
     fofa-query:
       - title="metabase"
       - app="metabase"
     google-query: intitle:"metabase"
-  tags: panel,metabase,login,discovery
-
+    max-request: 1
+    product: metabase
+    shodan-query:
+      - http.title:"Metabase"
+      - http.title:"metabase"
+    vendor: metabase
+  tags: discovery,login,metabase,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/auth/login"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "<title>Metabase</title>"
-          - "window.MetabaseBootstrap"
-          - "window.MetabaseRoot"
-        condition: and
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
           - '"(v\d+.\d+.\d+.?\d?)"'
-
+        type: regex
+    matchers:
+      - status:
+          - 200
+        type: status
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <title>Metabase</title>
+          - window.MetabaseBootstrap
+          - window.MetabaseRoot
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/auth/login'

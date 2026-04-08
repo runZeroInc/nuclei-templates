@@ -1,5 +1,4 @@
 id: scalingo-api-token
-
 info:
   name: Scalingo API Token
   author: DhiyaneshDK
@@ -8,17 +7,15 @@ info:
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/scalingo-api-token.go
     - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/scalingo-api-token.yaml
   metadata:
+    max-request: 1
     verified: true
-  tags: exposure,token,scalingo,vuln
-
+  tags: exposure,scalingo,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - \b(tk-us-[a-zA-Z0-9-_]{48})(?:['|\"|\n|\r|\s|\x60|;]|$)
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

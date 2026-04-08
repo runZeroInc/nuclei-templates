@@ -1,5 +1,4 @@
 id: amcrest-login
-
 info:
   name: Amcrest Login
   author: DhiyaneshDK
@@ -12,31 +11,31 @@ info:
     cpe: cpe:2.3:h:amcrest:ip2m-853ew:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)amcrest"
-    max-request: 1
-    vendor: amcrest
-    product: ip2m-853ew
-    shodan-query:
-      - http.html:"amcrest"
-      - http.html:"amcrest" "ldap user"
     fofa-query:
       - body="amcrest" "ldap user"
       - body="amcrest"
-  tags: panel,camera,amcrest,edb,discovery
-
+    google-query:
+      - intext:"amcrest" "LDAP User"
+      - intext:"amcrest" "ldap user"
+    max-request: 1
+    product: ip2m-853ew
+    shodan-query:
+      - html:"amcrest"
+      - http.html:"amcrest" "ldap user"
+      - http.html:"amcrest"
+    vendor: amcrest
+  tags: amcrest,camera,discovery,edb,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        type: word
+        words:
+          - Amcrest Technologies
+          - LDAPUser
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Amcrest Technologies"
-          - "LDAPUser"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

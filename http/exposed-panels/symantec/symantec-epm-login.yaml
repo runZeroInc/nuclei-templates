@@ -1,5 +1,4 @@
 id: symantec-epm-login
-
 info:
   name: Symantec Endpoint Protection Manager Login Panel - Detect
   author: princechaddha
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:a:symantec:endpoint_protection_manager:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)symantec endpoint protection manager"})
-    max-request: 1
-    vendor: symantec
-    product: endpoint_protection_manager
-    shodan-query: http.title:"symantec endpoint protection manager"
     fofa-query: title="symantec endpoint protection manager"
     google-query: intitle:"symantec endpoint protection manager"
-  tags: symantec,panel,login,discovery
-
+    max-request: 1
+    product: endpoint_protection_manager
+    shodan-query:
+      - http.title:"Symantec Endpoint Protection Manager"
+      - http.title:"symantec endpoint protection manager"
+    vendor: symantec
+  tags: discovery,login,panel,symantec
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Symantec Endpoint Protection Manager</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>Symantec Endpoint Protection Manager</title>"
-        part: body
-
-      - type: status
-        status:
-          - 200
-

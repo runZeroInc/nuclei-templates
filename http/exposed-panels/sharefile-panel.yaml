@@ -1,5 +1,4 @@
 id: sharefile-panel
-
 info:
   name: Sharefile Login - Panel
   author: irshad ahamed
@@ -12,29 +11,27 @@ info:
     cpe: cpe:2.3:a:citrix:sharefile:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sharefile login"})
-    verified: true
-    max-request: 1
-    vendor: citrix
-    product: sharefile
-    shodan-query: http.title:"sharefile login"
     fofa-query: title="sharefile login"
     google-query: intitle:"sharefile login"
-  tags: sharefile,login,panel,detect,citrix,discovery
-
+    max-request: 1
+    product: sharefile
+    shodan-query:
+      - title:"ShareFile Login"
+      - http.title:"sharefile login"
+    vendor: citrix
+    verified: true
+  tags: citrix,detect,discovery,login,panel,sharefile
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Authentication/Login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
-          - 'ShareFile Login'
-          - 'password'
-        condition: and
-
-      - type: status
-        status:
+          - ShareFile Login
+          - password
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/Authentication/Login'

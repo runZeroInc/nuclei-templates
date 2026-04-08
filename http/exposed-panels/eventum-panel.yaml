@@ -1,5 +1,4 @@
 id: eventum-panel
-
 info:
   name: Eventum Login Panel - Detect
   author: princechaddha
@@ -11,35 +10,30 @@ info:
     cpe: cpe:2.3:a:mysql:eventum:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "305412257"
-    verified: true
-    max-request: 1
-    vendor: mysql
-    product: eventum
-    shodan-query: http.favicon.hash:"305412257"
     fofa-query: icon_hash=305412257
-  tags: panel,eventum,mysql,discovery
-
+    max-request: 1
+    product: eventum
+    shodan-query: http.favicon.hash:305412257
+    vendor: mysql
+    verified: true
+  tags: discovery,eventum,mysql,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: or
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - '<title>Login - Eventum</title>'
-          - 'title="Eventum Issues search"'
-        condition: or
-
-      - type: word
+          - <title>Login - Eventum</title>
+          - title="Eventum Issues search"
+      - condition: and
         part: body
+        type: word
         words:
           - 'Database Error:'
-          - 'There seems to be a problem connecting to the database server specified in your configuration file'
-        condition: and
-
+          - There seems to be a problem connecting to the database server specified in your configuration file
+    matchers-condition: or
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: ruckus-unleashed-panel
-
 info:
   name: Ruckus Wireless Unleashed Login Panel - Detect
   author: idealphase
@@ -13,32 +12,32 @@ info:
     cpe: cpe:2.3:o:ruckuswireless:unleashed_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)unleashed login"})
-    max-request: 1
-    vendor: ruckuswireless
-    product: unleashed_firmware
-    shodan-query: http.title:"unleashed login"
     fofa-query: title="unleashed login"
-  tags: panel,ruckus,ruckuswireless,discovery
-
+    google-query:
+      - intitle:"Unleashed Login"
+      - intitle:"unleashed login"
+    max-request: 1
+    product: unleashed_firmware
+    shodan-query:
+      - http.title:"Unleashed Login"
+      - http.title:"unleashed login"
+    vendor: ruckuswireless
+  tags: discovery,panel,ruckus,ruckuswireless
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/admin/login.jsp"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>Unleashed Login</title>"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        group: 1
+  - extractors:
+      - group: 1
         regex:
-          - '<link href="css\/font-awesome\.min\.css\?(.+)" rel="stylesheet">'
-
+          - <link href="css\/font-awesome\.min\.css\?(.+)" rel="stylesheet">
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Unleashed Login</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/admin/login.jsp'

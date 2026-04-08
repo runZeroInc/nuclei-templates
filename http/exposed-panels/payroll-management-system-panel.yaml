@@ -1,5 +1,4 @@
 id: payroll-management-system-panel
-
 info:
   name: Payroll Management System Web Login Panel - Detect
   author: idealphase
@@ -11,27 +10,24 @@ info:
     cpe: cpe:2.3:a:payroll_management_system_project:payroll_management_system:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Admin \\| Employee's Payroll Management System"})
-    verified: true
     max-request: 1
+    product: payroll_management_system
+    shodan-query: http.title:"Admin | Employee's Payroll Management System"
     vendor: payroll_management_system_project
-  tags: panel,payroll,discovery
-
+    verified: true
+  tags: discovery,panel,payroll
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Admin | Employee's Payroll Management System</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>Admin | Employee's Payroll Management System</title>"
-
-      - type: status
-        status:
-          - 200
-

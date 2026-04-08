@@ -1,5 +1,4 @@
 id: ftm-manager-panel
-
 info:
   name: Financial Transaction Manager Login Panel - Detect
   author: idealphase
@@ -11,33 +10,33 @@ info:
     cpe: cpe:2.3:a:ibm:financial_transaction_manager:*:*:*:*:digital_payments:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)ftm manager" || any(each(service["html.titles"]), {# matches "(?i)ftm manager"})
-    verified: true
-    max-request: 1
-    vendor: ibm
-    product: financial_transaction_manager
-    shodan-query:
-      - http.html:"ftm manager"
-      - http.title:"ftm manager"
     fofa-query:
       - title="ftm manager"
       - body="ftm manager"
-  tags: panel,ftm,ibm,discovery
-
+    google-query:
+      - intitle:"FTM manager"
+      - intitle:"ftm manager"
+    max-request: 1
+    product: financial_transaction_manager
+    shodan-query:
+      - http.html:"FTM manager"
+      - http.html:"ftm manager"
+      - http.title:"ftm manager"
+    vendor: ibm
+    verified: true
+  tags: discovery,ftm,ibm,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'FTM Manager'
-          - 'login-panel'
-        condition: and
-
-      - type: status
-        status:
+          - FTM Manager
+          - login-panel
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: vmware-nsx-login
-
 info:
   name: VMware NSX Login Panel - Detect
   author: DhiyaneshDk
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:a:vmware:nsx-t_data_center:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)vmw_nsx_logo-black-triangle-500w\\.png"
-    verified: true
     max-request: 1
+    product: nsx-t_data_center
+    shodan-query: html:"vmw_nsx_logo-black-triangle-500w.png"
     vendor: vmware
-  tags: panel,vmware,discovery
-
+    verified: true
+  tags: discovery,panel,vmware
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - <title>VMware Appliance Management</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/login.jsp'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>VMware Appliance Management</title>'
-
-      - type: status
-        status:
-          - 200
-

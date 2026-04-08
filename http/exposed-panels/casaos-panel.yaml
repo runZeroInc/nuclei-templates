@@ -1,5 +1,4 @@
 id: casaos-panel
-
 info:
   name: CasaOS Login Panel - Detect
   author: DhiyaneshDK
@@ -11,30 +10,27 @@ info:
     cpe: cpe:2.3:o:icewhale:casaos:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)CasaOS"
-    verified: true
     max-request: 2
+    product: casaos
+    shodan-query: html:"CasaOS"
     vendor: icewhale
-  tags: panel,casaos,login,detect,discovery
-
+    verified: true
+  tags: casaos,detect,discovery,login,panel
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - condition: or
+        type: word
+        words:
+          - /CasaOS-UI/
+          - We're sorry but CasaOS
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/#/login'
-
     stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "/CasaOS-UI/"
-          - "We're sorry but CasaOS"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-

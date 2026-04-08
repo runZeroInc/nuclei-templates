@@ -1,5 +1,4 @@
 id: asus-router-panel
-
 info:
   name: Asus Router Login Panel - Detect
   author: arafatansari
@@ -10,25 +9,23 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:asus:rt-n53:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: rt-n53
+    shodan-query: 'Server: httpd/2.0 port:8080'
     vendor: asus
-  tags: panel,asus,router,iot,discovery
-
+    verified: true
+  tags: asus,discovery,iot,panel,router
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Main_Login.asp"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - '<title>ASUS Login</title>'
-          - 'Sign in with your ASUS router account'
-        condition: or
-
-      - type: status
-        status:
+          - <title>ASUS Login</title>
+          - Sign in with your ASUS router account
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/Main_Login.asp'

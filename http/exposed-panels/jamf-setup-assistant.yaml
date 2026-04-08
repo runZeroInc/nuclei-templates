@@ -1,5 +1,4 @@
 id: jamf-setup-assistant
-
 info:
   name: Jamf Pro Setup Assistant Panel - Detect
   author: ritikchaddha
@@ -11,23 +10,21 @@ info:
     cpe: cpe:2.3:a:jamf:jamf:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)Jamf Pro Setup"
-    verified: true
     max-request: 1
+    product: jamf
+    shodan-query: http.html:"Jamf Pro Setup"
     vendor: jamf
-  tags: jamf,setup,panel,discovery
-
+    verified: true
+  tags: discovery,jamf,panel,setup
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/setupAssistant.html"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "Jamf Pro Setup Assistant"
-
-      - type: status
-        status:
+          - Jamf Pro Setup Assistant
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/setupAssistant.html'

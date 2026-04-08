@@ -1,5 +1,4 @@
 id: kafka-center-login
-
 info:
   name: Apache Kafka Control Center Login Panel - Detect
   author: dhiyaneshDK
@@ -11,31 +10,27 @@ info:
     cpe: cpe:2.3:a:apache:kafka:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kafka center"}) || any(each(service["html.titles"]), {# matches "(?i)kafka consumer offset monitor"})
-    max-request: 1
-    vendor: apache
-    product: kafka
-    shodan-query:
-      - http.title:"kafka center"
-      - http.title:"kafka consumer offset monitor"
-      - http.title:"ui for apache kafka"
     fofa-query:
       - title="kafka center"
       - title="kafka consumer offset monitor"
-      - title="ui for apache kafka"
     google-query:
       - intitle:"kafka center"
       - intitle:"kafka consumer offset monitor"
-  tags: panel,kafka,apache,discovery
-
+    max-request: 1
+    product: kafka
+    shodan-query:
+      - http.title:"Kafka Center"
+      - http.title:"kafka center"
+      - http.title:"kafka consumer offset monitor"
+    vendor: apache
+  tags: apache,discovery,kafka,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
+  - host-redirects: true
     matchers:
       - type: word
         words:
-          - '<title>Kafka Center</title>'
-
+          - <title>Kafka Center</title>
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

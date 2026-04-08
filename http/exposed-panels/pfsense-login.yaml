@@ -1,5 +1,4 @@
 id: pfsense-login
-
 info:
   name: pfSense Login Panel - Detect
   author: idealphase
@@ -14,32 +13,32 @@ info:
     cpe: cpe:2.3:a:pfsense:pfsense:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)pfsense - login"})
-    max-request: 1
-    vendor: pfsense
-    product: pfsense
-    shodan-query: http.title:"pfsense - login"
     fofa-query: title="pfsense - login"
-  tags: panel,pfsense,discovery
-
+    google-query:
+      - intitle:"pfSense - Login"
+      - intitle:"pfsense - login"
+    max-request: 1
+    product: pfsense
+    shodan-query:
+      - http.title:"pfSense - Login"
+      - http.title:"pfsense - login"
+    vendor: pfsense
+  tags: discovery,panel,pfsense
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>pfSense - Login</title>"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        group: 1
+  - extractors:
+      - group: 1
         regex:
-          - '<script src="\/js\/pfSense\.js\?(.+)"><\/script>'
-
+          - <script src="\/js\/pfSense\.js\?(.+)"><\/script>
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>pfSense - Login</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: rubocop-config
-
 info:
   name: Rubocop Configuration - Detect
   author: DhiyaneshDk
@@ -14,27 +13,25 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:rubocop_project:rubocop:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: rubocop
+    shodan-query: html:"rubocop.yml"
     vendor: rubocop_project
-  tags: exposure,files,config,ruby,vuln
-
+    verified: true
+  tags: config,exposure,files,ruby,vuln
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - 'AllCops:'
+          - 'Include:'
+          - 'Exclude:'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/.rubocop.yml'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "AllCops:"
-          - "Include:"
-          - "Exclude:"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

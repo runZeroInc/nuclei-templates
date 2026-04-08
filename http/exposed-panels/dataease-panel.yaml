@@ -1,5 +1,4 @@
 id: dataease-panel
-
 info:
   name: Dataease - Login Panel
   author: DhiyaneshDK
@@ -12,27 +11,25 @@ info:
     cpe: cpe:2.3:a:dataease:dataease:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)dataease"
-    verified: true
-    max-request: 1
-    vendor: dataease
-    product: dataease
-    shodan-query: http.html:"dataease"
     fofa-query: body="dataease"
-  tags: login,panel,dataease,discovery
-
+    max-request: 1
+    product: dataease
+    shodan-query:
+      - html:"Dataease"
+      - http.html:"dataease"
+    vendor: dataease
+    verified: true
+  tags: dataease,discovery,login,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/#/login?redirect=%2F"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "DataEase doesn't work"
-
-      - type: status
-        status:
+          - DataEase doesn't work
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/#/login?redirect=%2F'

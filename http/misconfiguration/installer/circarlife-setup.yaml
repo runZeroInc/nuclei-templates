@@ -1,5 +1,4 @@
 id: circarlife-installer
-
 info:
   name: CirCarLife - Installer
   author: geeknik
@@ -13,32 +12,29 @@ info:
     cwe-id: CWE-284
     cpe: cpe:2.3:h:circontrol:circarlife:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: circarlife
+    shodan-query: title:"- setup" html:"Modem setup"
     vendor: circontrol
-  tags: scada,circontrol,circarlife,setup,exposure,panel,installer,misconfig,vuln
-
+    verified: true
+  tags: circarlife,circontrol,exposure,installer,misconfig,panel,scada,setup,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/html/setup.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
+  - matchers:
+      - part: header
+        type: word
         words:
-          - "CirCarLife Scada"
-
-      - type: word
+          - CirCarLife Scada
+      - condition: and
+        type: word
         words:
-          - "<title>- setup</title>"
-          - "Network setup"
-          - "Modem setup"
-          - "Security setup"
-        condition: and
-
-      - type: status
-        status:
+          - <title>- setup</title>
+          - Network setup
+          - Modem setup
+          - Security setup
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/html/setup.html'

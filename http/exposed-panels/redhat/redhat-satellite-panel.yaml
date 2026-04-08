@@ -1,5 +1,4 @@
 id: redhat-satellite-panel
-
 info:
   name: Red Hat Satellite Panel - Detect
   author: princechaddha
@@ -10,34 +9,31 @@ info:
     cpe: cpe:2.3:a:redhat:satellite:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)redhat"
-    verified: true
     max-request: 1
+    product: satellite
+    shodan-query: http.html:"redhat" "Satellite"
     vendor: redhat
-  tags: panel,redhat,satellite,discovery
-
+    verified: true
+  tags: discovery,panel,redhat,satellite
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/users/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "Satellite"
-          - "redhat"
-          - "LoginPage"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
           - '&quot;version&quot;:&quot;([0-9.]+)&quot;,'
-
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Satellite
+          - redhat
+          - LoginPage
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/users/login'

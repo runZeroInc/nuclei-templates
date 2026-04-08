@@ -1,5 +1,4 @@
 id: dell-openmanager-login
-
 info:
   name: Dell OpenManage Switch Administrator Login Panel - Detect
   author: dhiyaneshDK
@@ -12,24 +11,22 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "(?i)Dell OpenManage Switch Administrator"
     max-request: 2
+    product: openmanage
+    shodan-query: html:"Dell OpenManage Switch Administrator"
     vendor: dell
-  tags: panel,dell,discovery
-
+  tags: dell,discovery,panel
 http:
-  - method: GET
+  - matchers:
+      - type: word
+        words:
+          - <title>Dell OpenManage Switch Administrator</title>
+      - condition: and
+        type: word
+        words:
+          - <TITLE>Log In</TITLE>
+          - device/logOff_up_menu1.htm
+    matchers-condition: or
+    method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/config/authentication_page.htm'
-
-    matchers-condition: or
-    matchers:
-      - type: word
-        words:
-          - '<title>Dell OpenManage Switch Administrator</title>'
-
-      - type: word
-        words:
-          - '<TITLE>Log In</TITLE>'
-          - 'device/logOff_up_menu1.htm'
-        condition: and
-

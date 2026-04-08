@@ -1,5 +1,4 @@
 id: pulsar-adminui-panel
-
 info:
   name: Pulsar Admin UI Panel - Detect
   author: ritikchaddha
@@ -11,34 +10,31 @@ info:
     cpe: cpe:2.3:a:apache:pulsar:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)pulsar admin ui"}) || any(each(service["html.titles"]), {# matches "(?i)pulsar admin console"})
-    verified: true
-    max-request: 1
-    vendor: apache
-    product: pulsar
-    shodan-query:
-      - http.title:"pulsar admin ui"
-      - http.title:"pulsar admin console"
     fofa-query:
       - title="pulsar admin ui"
       - title="pulsar admin console"
     google-query:
       - intitle:"pulsar admin ui"
       - intitle:"pulsar admin console"
-  tags: panel,pulsar,pulsarui,admin,apache,discovery
-
+    max-request: 1
+    product: pulsar
+    shodan-query:
+      - title:"Pulsar Admin UI"
+      - http.title:"pulsar admin ui"
+      - http.title:"pulsar admin console"
+    vendor: apache
+    verified: true
+  tags: admin,apache,discovery,panel,pulsar,pulsarui
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - Pulsar Admin UI
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/#/login?redirect=%2F'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Pulsar Admin UI'
-
-      - type: status
-        status:
-          - 200
-

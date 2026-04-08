@@ -1,5 +1,4 @@
 id: nport-web-console
-
 info:
   name: NPort Web Console Login Panel - Detect
   author: prajiteshsingh
@@ -13,24 +12,22 @@ info:
     cpe: cpe:2.3:o:moxa:nport_6450-t_firmware:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)NPort Web Console"})
-    verified: true
     max-request: 1
+    product: nport_6450-t_firmware
+    shodan-query: title:"NPort Web Console"
     vendor: moxa
-  tags: panel,nport,discovery
-
+    verified: true
+  tags: discovery,nport,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "NPort Web Console"
-
-      - type: status
-        status:
+          - NPort Web Console
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

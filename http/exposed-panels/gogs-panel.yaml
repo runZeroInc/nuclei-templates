@@ -1,5 +1,4 @@
 id: gogs-panel
-
 info:
   name: Gogs Login Panel - Detect
   author: DhiyaneshDk,daffainfo
@@ -13,48 +12,46 @@ info:
     cpe: cpe:2.3:a:gogs:gogs:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "917966895" || service["favicon.ico.image.mmh3"] == "1935513730" || any(each(service["html.titles"]), {# matches "(?i)sign in - gogs"}) || service["favicon.ico.image.mmh3"] == "-449283196"
-    verified: true
-    max-request: 1
-    vendor: gogs
-    product: gogs
-    shodan-query:
-      - http.title:"sign in - gogs"
-      - cpe:"cpe:2.3:a:gogs:gogs"
-      - set-cookie:"i_like_gogs="
-      - http.favicon.hash:"-449283196"
-      - http.favicon.hash:"917966895"
-      - http.favicon.hash:"1935513730"
-      - http.title:"installation - gogs"
     fofa-query:
       - title="sign in - gogs"
-      - "set-cookie: i_like_gogs="
+      - 'Set-Cookie: i_like_gogs='
       - icon_hash="-449283196"
       - icon_hash="917966895"
       - icon_hash="1935513730"
-  tags: panel,gogs,discovery
-
+    google-query:
+      - intitle:"Sign In - Gogs"
+      - intitle:"sign in - gogs"
+    max-request: 1
+    product: gogs
+    shodan-query:
+      - title:"Sign In - Gogs"
+      - http.title:"sign in - gogs"
+      - cpe:"cpe:2.3:a:gogs:gogs"
+      - 'Set-Cookie: i_like_gogs='
+      - http.favicon.hash:-449283196
+      - http.favicon.hash:917966895
+      - http.favicon.hash:1935513730
+    vendor: gogs
+    verified: true
+  tags: discovery,gogs,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/user/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<meta property="og:description" content="Gogs is a painless self-hosted Git service.">'
-          - '<meta name="description" content="Gogs is a painless self-hosted Git service" />'
-          - "<title>Sign In - Gogs</title>"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        group: 1
+  - extractors:
+      - group: 1
         regex:
-          - "Version: ([0-9.]+) Page:"
-
+          - 'Version: ([0-9.]+) Page:'
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <meta property="og:description" content="Gogs is a painless self-hosted Git service.">
+          - <meta name="description" content="Gogs is a painless self-hosted Git service" />
+          - <title>Sign In - Gogs</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/user/login'

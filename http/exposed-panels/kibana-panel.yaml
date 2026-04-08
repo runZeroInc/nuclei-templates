@@ -1,5 +1,4 @@
 id: kibana-panel
-
 info:
   name: Kibana Login Panel - Detect
   author: petruknisme,daffainfo,c-sh0
@@ -11,37 +10,34 @@ info:
     cpe: cpe:2.3:a:elastic:kibana:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)kibana"})
-    max-request: 3
-    vendor: elastic
-    product: kibana
-    shodan-query: http.title:"kibana"
     fofa-query: title="kibana"
     google-query: intitle:"kibana"
-  tags: panel,kibana,elastic,discovery
-
+    max-request: 3
+    product: kibana
+    shodan-query:
+      - http.title:"Kibana"
+      - http.title:"kibana"
+    vendor: elastic
+  tags: discovery,elastic,kibana,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/login"
-      - "{{BaseURL}}/app/kibana"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: or
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - "<title>Kibana</title>"
-          - "<title>Elastic</title>"
-          - "<title>Kibana Login</title>"
-        condition: or
-
-      - type: regex
-        part: header
+          - <title>Kibana</title>
+          - <title>Elastic</title>
+          - <title>Kibana Login</title>
+      - part: header
         regex:
-          - '(?i)(Kbn-Name)'
-
+          - (?i)(Kbn-Name)
+        type: regex
+    matchers-condition: or
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/login'
+      - '{{BaseURL}}/app/kibana'
+    stop-at-first-match: true

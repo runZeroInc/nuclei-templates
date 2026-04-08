@@ -1,5 +1,4 @@
 id: teampass-ldap
-
 info:
   name: Teampass LDAP Debug Config - Detect
   author: josecosta
@@ -14,33 +13,30 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:teampass:teampass:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="TEAMPASS"
     max-request: 1
+    product: teampass
     vendor: teampass
-  tags: exposure,teampass,ldap,logs,vuln
-
+    verified: true
+  tags: exposure,ldap,logs,teampass,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/files/ldap.debug.txt"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: header
+        type: word
         words:
-          - 'base_dn'
-          - 'search_base'
-          - 'bind_dn'
-          - 'bind_passwd'
-        condition: and
-
-      - type: word
-        part: header
+          - base_dn
+          - search_base
+          - bind_dn
+          - bind_passwd
+      - part: header
+        type: word
         words:
-          - 'text/plain'
-
-      - type: status
-        status:
+          - text/plain
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/files/ldap.debug.txt'

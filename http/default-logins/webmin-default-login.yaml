@@ -1,5 +1,4 @@
 id: webmin-default-login
-
 info:
   name: Webmin - Default Login
   author: pussycat0x
@@ -14,13 +13,33 @@ info:
     cpe: cpe:2.3:a:webmin:webmin:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Webmin"})
-    verified: true
     max-request: 2
+    product: webmin
+    shodan-query: title:"Webmin"
     vendor: webmin
-  tags: webmin,default-login,vuln
-
+    verified: true
+  tags: default-login,vuln,webmin
 http:
-  - raw:
+  - attack: pitchfork
+    host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Webmin
+          - Backup Configuration Files
+          - Webmin Actions Log
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         POST /session_login.cgi HTTP/1.1
         Host: {{Hostname}}
@@ -37,26 +56,3 @@ http:
         Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
         Referer: {{RootURL}}
         Accept-Encoding: gzip, deflate
-
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    host-redirects: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Webmin"
-          - "Backup Configuration Files"
-          - "Webmin Actions Log"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

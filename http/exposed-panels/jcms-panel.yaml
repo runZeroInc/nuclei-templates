@@ -1,5 +1,4 @@
 id: jalios-jcms-panel
-
 info:
   name: Jalios JCMS Login Panel - Detect
   author: righettod
@@ -13,32 +12,30 @@ info:
     cpe: cpe:2.3:a:jalios:jcms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)jalios jcms"
-    verified: true
-    max-request: 2
-    vendor: jalios
-    product: jcms
-    shodan-query: http.html:"jalios jcms"
     fofa-query: body="jalios jcms"
-  tags: panel,jalios,jcms,discovery
-
+    max-request: 2
+    product: jcms
+    shodan-query:
+      - html:"Jalios JCMS"
+      - http.html:"jalios jcms"
+    vendor: jalios
+    verified: true
+  tags: discovery,jalios,jcms,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/front/privateLogin.jsp"
-
-    host-redirects: true
-    max-redirects: 2
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'content="Jalios JCMS'
-          - 'jalios-login'
-          - "JCMS_login"
-          - "/jcms/"
-        condition: or
-
+          - content="Jalios JCMS
+          - jalios-login
+          - JCMS_login
+          - /jcms/
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/front/privateLogin.jsp'
+    stop-at-first-match: true

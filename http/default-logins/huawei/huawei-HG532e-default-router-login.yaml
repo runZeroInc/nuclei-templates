@@ -1,7 +1,6 @@
 id: huawei-HG532e-default-login
-
 info:
-  name: Huawei HG532e - Default Credential
+  name: Huawei HG532e Default Credential
   author: pussycat0x
   severity: high
   description: Huawei HG532e default admin credentials were discovered.
@@ -13,11 +12,25 @@ info:
   metadata:
     runzero-match: service["http.body"] matches "HG532e"
     max-request: 1
+    product: hg532e
+    shodan-query: http.html:"HG532e"
     vendor: huawei
   tags: default-login,huawei,vuln
-
 http:
-  - raw:
+  - matchers:
+      - part: header
+        type: word
+        words:
+          - 'Set-Cookie: SessionID'
+      - part: body
+        type: word
+        words:
+          - <title>replace</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /index/login.cgi HTTP/1.1
         Host: {{Hostname}}
@@ -25,20 +38,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         Username=user&Password=MDRmODk5NmRhNzYzYjdhOTY5YjEwMjhlZTMwMDc1NjllYWYzYTYzNTQ4NmRkYWIyMTFkNTEyYzg1YjlkZjhmYg%3D%3D
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
-        words:
-          - 'Set-Cookie: SessionID'
-
-      - type: word
-        part: body
-        words:
-          - "<title>replace</title>"
-
-      - type: status
-        status:
-          - 200
-

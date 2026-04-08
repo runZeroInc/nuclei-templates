@@ -1,11 +1,10 @@
 id: goip-default-login
-
 info:
-  name: GoIP GSM VoIP Gateway - Default Login
+  name: GoIP GSM VoIP Gateway - Default Password
   author: drfabiocastro
   severity: high
   description: |
-    GoIP GSM VoIP Gateway default login credentials were discovered.
+    GoIP GSM VoIP Gateway Default Password, Allows attackers to send, receive sms and calls.
   reference:
     - http://en.dbltek.com/
     - https://medium.com/@hackatnow/how-to-create-a-python-script-to-find-goip-gsm-gateway-on-shodan-and-send-sms-ussd-via-goip-e2e203f5d339
@@ -18,39 +17,34 @@ info:
     max-request: 12
     shodan-query: 'HTTP/1.0 401 Please Authenticate\r\nWWW-Authenticate: Basic realm="Please Login"'
   tags: default-login,goip,gsm,vuln
-
 http:
-  - raw:
-      - |
-        GET /default/en_US/status.html HTTP/1.1
-        Host: {{Hostname}}
-        Authorization: Basic {{base64(username + ':' + password)}}
-
-    attack: clusterbomb
+  - attack: clusterbomb
+    host-redirects: true
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - Status
+          - GoIP
+          - Summary
+          - Logout
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
     payloads:
+      password:
+        - admin
+        - root
+        - 1234
       username:
         - admin
         - root
         - sms
         - user
-      password:
-        - admin
-        - root
-        - 1234
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Status"
-          - "GoIP"
-          - "Summary"
-          - "Logout"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
+    raw:
+      - |
+        GET /default/en_US/status.html HTTP/1.1
+        Host: {{Hostname}}
+        Authorization: Basic {{base64(username + ':' + password)}}

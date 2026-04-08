@@ -1,11 +1,9 @@
 id: nagiosxi-default-login
-
 info:
   name: Nagios XI Default Admin Login - Detect
   author: ritikchaddha
   severity: critical
-  description: |
-    Nagios XI default admin credentials were detected.
+  description: Nagios XI default admin login credentials were detected.
   reference:
     - https://nagiosxi.demos.nagios.com/nagiosxi/login.php?redirect=/nagiosxi/index.php%3f&noauth=1
   classification:
@@ -15,13 +13,43 @@ info:
     cpe: cpe:2.3:a:nagios:nagios_xi:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Nagios XI"})
-    verified: true
     max-request: 6
+    product: nagios_xi
+    shodan-query: title:"Nagios XI"
     vendor: nagios
-  tags: nagios,nagiosxi,default-login,vuln
-
+    verified: true
+  tags: default-login,nagios,nagiosxi,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - group: 1
+        internal: true
+        name: nsp
+        part: body
+        regex:
+          - name="nsp" value="(.*)">
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: and
+        part: body_3
+        type: word
+        words:
+          - Home Dashboard</a>
+          - Admin</a>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    payloads:
+      password:
+        - nagiosadmin
+        - nagiosxi
+      username:
+        - nagiosadmin
+        - root
+    raw:
       - |
         GET /nagiosxi/login.php HTTP/1.1
         Host: {{Hostname}}
@@ -34,38 +62,4 @@ http:
       - |
         GET /nagiosxi/index.php HTTP/1.1
         Host: {{Hostname}}
-
-    payloads:
-      username:
-        - nagiosadmin
-        - root
-      password:
-        - nagiosadmin
-        - nagiosxi
-    attack: pitchfork
     stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_3
-        words:
-          - 'Home Dashboard</a>'
-          - 'Admin</a>'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        name: nsp
-        part: body
-        group: 1
-        regex:
-          - 'name="nsp" value="(.*)">'
-        internal: true
-

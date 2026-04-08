@@ -1,5 +1,4 @@
 id: ibm-maximo-login
-
 info:
   name: IBM Maximo Login Panel - Detect
   author: ritikchaddha,righettod
@@ -14,39 +13,33 @@ info:
     cpe: cpe:2.3:a:ibm:maximo_asset_management:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "-399298961"
-    verified: true
-    max-request: 1
-    vendor: ibm
-    product: maximo_asset_management
-    shodan-query: http.favicon.hash:"-399298961"
     fofa-query: icon_hash=-399298961
-  tags: maximo,panel,ibm,login,detect,discovery
-
+    max-request: 1
+    product: maximo_asset_management
+    shodan-query: http.favicon.hash:-399298961
+    vendor: ibm
+    verified: true
+  tags: detect,discovery,ibm,login,maximo,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/maximo/webclient/login/login.jsp?appservauth=true"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        words:
-          - "maximo-icon.png"
-          - "IBM"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
         regex:
-          - '(?i)Copyright\s+IBM\s+Corp\.\s+([0-9-]+)'
-
+          - (?i)Copyright\s+IBM\s+Corp\.\s+([0-9-]+)
+        type: regex
+    host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - maximo-icon.png
+          - IBM
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/maximo/webclient/login/login.jsp?appservauth=true'

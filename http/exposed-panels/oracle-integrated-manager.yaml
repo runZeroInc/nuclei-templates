@@ -1,5 +1,4 @@
 id: oracle-integrated-manager
-
 info:
   name: Oracle Integrated Lights Out Manager Login Panel - Detect
   author: dhiyaneshDk
@@ -12,29 +11,26 @@ info:
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Oracle\\(R\\) Integrated Lights Out Manager"})
     max-request: 1
+    product: integrated_lights_out_manager_firmware
+    shodan-query: http.title:"Oracle(R) Integrated Lights Out Manager"
     vendor: oracle
-  tags: oracle,login,panel,discovery
-
+  tags: discovery,login,oracle,panel
 http:
-  - method: GET
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - id="hostname">([a-z0-9-]+)<\/span><\/td>
+        type: regex
+    matchers:
+      - part: body
+        type: word
+        words:
+          - <title>Oracle(R) Integrated Lights Out Manager - Login</title>
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/iPages/i_login.asp'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>Oracle(R) Integrated Lights Out Manager - Login</title>'
-        part: body
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - 'id="hostname">([a-z0-9-]+)<\/span><\/td>'
-

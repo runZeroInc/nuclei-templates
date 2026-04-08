@@ -1,5 +1,4 @@
 id: appsuite-panel
-
 info:
   name: Appsuite Login Panel - Detect
   author: DhiyaneshDK
@@ -8,32 +7,29 @@ info:
     cpe: cpe:2.3:a:open-xchange:open-xchange_appsuite:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "(?i)appsuite"
-    verified: true
-    max-request: 1
-    vendor: open-xchange
-    product: open-xchange_appsuite
-    shodan-query: http.html:"appsuite"
     fofa-query: body="appsuite"
-  tags: panel,appsuite,detect,open-xchange,discovery
-
+    max-request: 1
+    product: open-xchange_appsuite
+    shodan-query:
+      - html:"Appsuite"
+      - http.html:"appsuite"
+    vendor: open-xchange
+    verified: true
+  tags: appsuite,detect,discovery,open-xchange,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/appsuite/"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: and
         part: body
+        type: word
         words:
-          - "/appsuite"
-          - "io-ox-login"
-        condition: and
-
-      - type: status
-        status:
+          - /appsuite
+          - io-ox-login
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/appsuite/'

@@ -1,5 +1,4 @@
 id: ovpn-config-exposed
-
 info:
   name: OVPN Configuration Download Page - Detect
   author: tess
@@ -9,29 +8,26 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:openvpn:connect:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: connect
+    shodan-query: http.title:"OVPN Config Download"
     vendor: openvpn
-  tags: config,ovpn,exposure,vuln
-
+    verified: true
+  tags: config,exposure,ovpn,vuln
 http:
-  - method: GET
+  - host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - OVPN Config Download
+          - Config List
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'OVPN Config Download'
-          - 'Config List'
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

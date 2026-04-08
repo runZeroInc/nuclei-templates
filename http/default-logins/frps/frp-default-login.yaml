@@ -1,7 +1,6 @@
 id: frp-default-login
-
 info:
-  name: FRP - Default Login
+  name: FRP Default Login
   author: pikpikcu
   severity: high
   description: FRP default login credentials were discovered.
@@ -11,31 +10,26 @@ info:
     cwe-id: CWE-798
   metadata:
     max-request: 1
-  tags: frp,default-login,vuln
-
+  tags: default-login,frp,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"proxies":'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         GET /api/proxy/tcp HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ':' + password)}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"proxies":'
-        part: body
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

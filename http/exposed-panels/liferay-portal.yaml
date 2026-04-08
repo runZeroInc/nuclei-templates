@@ -1,5 +1,4 @@
 id: liferay-portal
-
 info:
   name: Liferay Login Panel - Detect
   author: organiccrap,dwisiswant0,ricardomaia
@@ -14,45 +13,40 @@ info:
     cpe: cpe:2.3:a:liferay:liferay_portal:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "129457226"
-    verified: true
+    fofa-query: icon_hash=129457226
     max-request: 3
-    vendor: liferay
     product: liferay_portal
     shodan-query:
-      - http.favicon.hash:"129457226"
+      - http.favicon.hash:129457226
       - cpe:"cpe:2.3:a:liferay:liferay_portal"
-    fofa-query: icon_hash=129457226
-  tags: panel,liferay,portal,discovery
-
+    vendor: liferay
+    verified: true
+  tags: discovery,liferay,panel,portal
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/api/jsonws"
-      - "{{BaseURL}}/api/jsonws/invoke"
-
-    matchers-condition: or
-    stop-at-first-match: true
-    matchers:
-      - type: word
+  - extractors:
+      - group: 2
+        name: version
         part: header
+        regex:
+          - (i?)Liferay-Portal:.*?(\d+\.?.*?)\s
+        type: regex
+    matchers:
+      - case-insensitive: true
+        part: header
+        type: word
         words:
-          - "Liferay-Portal"
-        case-insensitive: true
-
-      - type: word
+          - Liferay-Portal
+      - condition: or
         part: body
+        type: word
         words:
           - <title>json-web-services-api</title>
           - There are no services matching that phrase.
           - Unable to deserialize object
-        condition: or
-
-    extractors:
-      - type: regex
-        part: header
-        name: version
-        group: 2
-        regex:
-          - '(i?)Liferay-Portal:.*?(\d+\.?.*?)\s'
-
+    matchers-condition: or
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/api/jsonws'
+      - '{{BaseURL}}/api/jsonws/invoke'
+    stop-at-first-match: true

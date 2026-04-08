@@ -1,10 +1,9 @@
 id: arl-default-login
-
 info:
-  name: ARL Default Credentials
+  name: ARL Default Admin Login
   author: pikpikcu
   severity: high
-  description: ARL default login credentials were discovered.
+  description: An ARL default admin login was discovered.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
@@ -13,33 +12,28 @@ info:
     runzero-match: service["http.url"] contains ":5003/" && service["http.body"] contains "Powered by TCC" && service["http.body"] contains "ARL"
     max-request: 1
   tags: arl,default-login,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"message": "success"'
+          - '"username": "admin"'
+          - '"type": "login"'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - arlpass
+      username:
+        - admin
+    raw:
       - |
         POST /api/user/login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json; charset=UTF-8
 
         {"username":"{{username}}","password":"{{password}}"}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - arlpass
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        condition: and
-        words:
-          - '"message": "success"'
-          - '"username": "admin"'
-          - '"type": "login"'
-
-      - type: status
-        status:
-          - 200
-

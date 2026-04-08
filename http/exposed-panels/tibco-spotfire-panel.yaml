@@ -1,5 +1,4 @@
 id: tibco-spotfire-panel
-
 info:
   name: TIBCO Spotfire Login Panel - Detect
   author: righettod
@@ -11,26 +10,25 @@ info:
   classification:
     cpe: cpe:2.3:a:tibco:spotfire_server:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 2
+    product: spotfire_server
+    shodan-query: TIBCO Spotfire Server
     vendor: tibco
-  tags: panel,tibco,login,detect,discovery
-
+    verified: true
+  tags: detect,discovery,login,panel,tibco
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/spotfire/login.html"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - '<title>TIBCO Spotfire Server'
-          - 'content="TIBCO Spotfire'
-          - '/spotfire/ui/'
-        condition: or
-
+          - <title>TIBCO Spotfire Server
+          - content="TIBCO Spotfire
+          - /spotfire/ui/
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/spotfire/login.html'
+    stop-at-first-match: true

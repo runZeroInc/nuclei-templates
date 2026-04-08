@@ -1,5 +1,4 @@
 id: burp-collaborator-detect
-
 info:
   name: Burp Collaborator Server - Detect
   author: lum8rjack
@@ -14,31 +13,28 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:portswigger:burp_suite:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
+    product: burp_suite
+    shodan-query: 'Server: Burp Collaborator'
     vendor: portswigger
-  tags: burp,tech,detect,discovery
-
+    verified: true
+  tags: burp,detect,discovery,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: header
-        words:
-          - "Server: Burp Collaborator https://burpcollaborator.net/"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: header
-        group: 1
         regex:
-          - "(?:X-(Collaborator-Version: [0-9]))"
-
+          - '(?:X-(Collaborator-Version: [0-9]))'
+        type: regex
+    matchers:
+      - part: header
+        type: word
+        words:
+          - 'Server: Burp Collaborator https://burpcollaborator.net/'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

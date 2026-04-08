@@ -1,5 +1,4 @@
 id: aircube-dashboard-panel
-
 info:
   name: airCube Dashboard Login Panel - Detect
   author: theamanrawat
@@ -11,24 +10,22 @@ info:
     cpe: cpe:2.3:h:ui:aircube:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)AirCube Dashboard"})
-    verified: true
     max-request: 1
+    product: aircube
+    shodan-query: http.title:"AirCube Dashboard"
     vendor: ui
-  tags: panel,aircube,discovery
-
+    verified: true
+  tags: aircube,discovery,panel
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - AirCube Dashboard
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'AirCube Dashboard'
-
-      - type: status
-        status:
-          - 200
-

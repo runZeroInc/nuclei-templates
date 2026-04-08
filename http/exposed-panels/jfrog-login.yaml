@@ -1,5 +1,4 @@
 id: jfrog-login
-
 info:
   name: JFrog Login Panel - Detect
   author: dhiyaneshDK
@@ -14,22 +13,21 @@ info:
     cpe: cpe:2.3:a:jfrog:artifactory:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)JFrog"})
-    verified: true
     max-request: 2
+    product: artifactory
+    shodan-query: http.title:"JFrog"
     vendor: jfrog
-  tags: panel,jfrog,edb,detect,login,discovery
-
+    verified: true
+  tags: detect,discovery,edb,jfrog,login,panel
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        dsl:
+          - status_code==200 && contains(body, "<title>JFrog")
+          - status_code==200 && ("-595620639" == mmh3(base64_py(body)))
+        type: dsl
+    method: GET
     path:
       - '{{BaseURL}}/ui/login/'
       - '{{BaseURL}}/ui/favicon.ico'
-
     stop-at-first-match: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code==200 && contains(body, "<title>JFrog")'
-          - "status_code==200 && (\"-595620639\" == mmh3(base64_py(body)))"
-        condition: or
-

@@ -1,5 +1,4 @@
 id: tenda-11n-wireless-router-panel
-
 info:
   name: Tenda 11n Wireless Router - Admin Panel
   author: idealphase
@@ -14,23 +13,22 @@ info:
     cpe: cpe:2.3:h:tenda:11n:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Tenda 11N Wireless Router Login Screen"})
+    google-query: intitle:"Tenda 11N Wireless Router Login Screen"
     max-request: 1
+    product: 11n
+    shodan-query: http.title:"Tenda 11N Wireless Router Login Screen"
     vendor: tenda
-  tags: panel,tenda,discovery
-
+  tags: discovery,panel,tenda
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login.asp"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Tenda 11N Wireless Router Login Screen</title>"
-
-      - type: status
-        status:
+          - <title>Tenda 11N Wireless Router Login Screen</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.asp'

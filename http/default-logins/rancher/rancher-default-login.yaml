@@ -1,11 +1,9 @@
 id: rancher-default-login
-
 info:
   name: Rancher Default Login
   author: princechaddha
   severity: high
-  description: |
-    Rancher default admin credentials were discovered.
+  description: Rancher default admin credentials were discovered. Rancher is an open-source multi-cluster orchestration platform that lets operations teams deploy, manage and secure enterprise Kubernetes.
   reference:
     - https://github.com/rancher/rancher
     - https://rancher.com/docs/rancher/v2.5/en/admin-settings/authentication/local/
@@ -16,10 +14,32 @@ info:
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "464587962"
     max-request: 2
-  tags: default-login,rancher,kubernetes,devops,cloud,vuln
-
+  tags: cloud,default-login,devops,kubernetes,rancher,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    extractors:
+      - group: 1
+        internal: true
+        name: csrf
+        part: header
+        regex:
+          - 'Set-Cookie: CSRF=([a-z0-9]+)'
+        type: regex
+    matchers:
+      - status:
+          - 200
+        type: status
+      - part: header
+        type: word
+        words:
+          - R_SESS=token
+    matchers-condition: and
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         GET /v3/settings/first-login HTTP/1.1
         Host: {{Hostname}}
@@ -33,31 +53,3 @@ http:
         Content-Length: 136
 
         {"username":"{{username}}","password":"{{password}}","description":"UI Session","responseType":"cookie","labels":{"ui-session":"true"}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - 'R_SESS=token'
-        part: header
-
-    extractors:
-      - type: regex
-        name: csrf
-        group: 1
-        internal: true
-        part: header
-        regex:
-          - 'Set-Cookie: CSRF=([a-z0-9]+)'
-

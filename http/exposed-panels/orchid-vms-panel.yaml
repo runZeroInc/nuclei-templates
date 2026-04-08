@@ -1,5 +1,4 @@
 id: orchid-vms-panel
-
 info:
   name: Orchid Core VMS Panel - Detect
   author: princechaddha
@@ -11,27 +10,25 @@ info:
     cpe: cpe:2.3:a:ipconfigure:orchid_core_vms:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)orchid core vms"})
-    max-request: 1
-    vendor: ipconfigure
-    product: orchid_core_vms
-    shodan-query: http.title:"orchid core vms"
     fofa-query: title="orchid core vms"
     google-query: intitle:"orchid core vms"
-  tags: panel,orchid,ipconfigure,discovery
-
+    max-request: 1
+    product: orchid_core_vms
+    shodan-query:
+      - http.title:"Orchid Core VMS"
+      - http.title:"orchid core vms"
+    vendor: ipconfigure
+  tags: discovery,ipconfigure,orchid,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<title>Orchid Core VMS - IPConfigure, Inc.</title>"
-
-      - type: status
-        status:
+          - <title>Orchid Core VMS - IPConfigure, Inc.</title>
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

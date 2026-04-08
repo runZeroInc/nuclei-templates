@@ -1,5 +1,4 @@
 id: fortiadc-panel
-
 info:
   name: FortiADC Login Panel - Detect
   author: DhiyaneshDk
@@ -13,32 +12,29 @@ info:
     cpe: cpe:2.3:a:fortinet:fortiadc:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)fortiadc"})
-    verified: true
-    max-request: 1
-    vendor: fortinet
-    product: fortiadc
-    shodan-query: http.title:"fortiadc"
     fofa-query: title="fortiadc"
     google-query: intitle:"fortiadc"
-  tags: panel,fortinet,discovery
-
+    max-request: 1
+    product: fortiadc
+    shodan-query:
+      - title:"FortiADC"
+      - http.title:"fortiadc"
+    vendor: fortinet
+    verified: true
+  tags: discovery,fortinet,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/ui/#navigate/Login"
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - "<title>FortiADC</title>"
-
-      - type: word
-        part: header
+          - <title>FortiADC</title>
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/ui/#navigate/Login'

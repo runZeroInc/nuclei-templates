@@ -1,5 +1,4 @@
 id: bookstack-panel
-
 info:
   name: BookStack Login Panel - Detect
   author: cyllective,daffainfo
@@ -13,41 +12,37 @@ info:
     cpe: cpe:2.3:a:bookstackapp:bookstack:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)bookstack"})
-    max-request: 1
-    vendor: bookstackapp
-    product: bookstack
-    shodan-query: http.title:"bookstack"
     fofa-query: title="bookstack"
     google-query: intitle:"bookstack"
-  tags: panel,bookstack,bookstackapp,discovery
-
+    max-request: 1
+    product: bookstack
+    shodan-query:
+      - http.title:"BookStack"
+      - http.title:"bookstack"
+    vendor: bookstackapp
+  tags: bookstack,bookstackapp,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: body
-        condition: or
+        regex:
+          - (?:app\.js|(?:print\-)?styles\.css)\?version=([\w\.\-]+)["']>
+        type: regex
+    matchers:
+      - condition: or
+        part: body
+        type: word
         words:
-          - '<title>BookStack</title>'
-          - '<span class="logo-text">BookStack</span>'
-
-      - type: word
-        part: header
+          - <title>BookStack</title>
+          - <span class="logo-text">BookStack</span>
+      - part: header
+        type: word
         words:
           - 'Set-Cookie: bookstack_session'
-
-      - type: status
-        status:
+      - status:
           - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '(?:app\.js|(?:print\-)?styles\.css)\?version=([\w\.\-]+)["'']>'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login'

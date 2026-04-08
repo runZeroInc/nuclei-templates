@@ -1,43 +1,37 @@
 id: kettle-default-login
-
 info:
   name: Kettle - Default Login
   author: For3stCo1d
   severity: medium
-  description: Kettle default login credentials were discovered.
+  description: Kettle contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N
     cvss-score: 5.8
     cwe-id: CWE-522
   metadata:
     runzero-match: any(each(service["http.head.wwwAuthentications"]), {# contains 'realm="Kettle'})
-    verified: true
     max-request: 1
     shodan-query: basic realm="Kettle"
+    verified: true
   tags: default-login,kettle,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/"
+  - attack: pitchfork
     headers:
-      Authorization: "Basic {{base64(username + ':' + password)}}"
-
-    attack: pitchfork
+      Authorization: Basic {{base64(username + ':' + password)}}
+    matchers:
+      - part: body
+        type: word
+        words:
+          - Kettle slave server
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/'
     payloads:
-      username:
-        - cluster
       password:
         - cluster
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Kettle slave server'
-
-      - type: status
-        status:
-          - 200
-
+      username:
+        - cluster

@@ -1,5 +1,4 @@
 id: pega-web-panel
-
 info:
   name: Pega Infinity Login Panel - Detect
   author: powerexploit,righettod
@@ -14,42 +13,37 @@ info:
     cpe: cpe:2.3:a:pega:platform:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)pega platform"})
-    verified: true
+    fofa-query: title="pega platform"
+    google-query:
+      - inurl:"/prweb/PRAuth/app/default"
+      - intitle:"pega platform"
+      - inurl:"/prweb/prauth/app/default"
     max-request: 2
-    vendor: pega
     product: platform
     shodan-query:
+      - title:"Pega Platform"
       - http.title:"pega platform"
-      - http.title:"pega"
-    fofa-query:
-      - title="pega platform"
-      - title="pega"
-    google-query:
-      - inurl:"/prweb/prauth/app/default"
-  tags: panel,pega,discovery
-
+    vendor: pega
+    verified: true
+  tags: discovery,panel,pega
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/prweb/PRAuth/app/default/"
-
-    stop-at-first-match: true
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
+      - condition: or
         part: body
+        type: word
         words:
-          - 'alt="Pega Infinity'
-          - 'alt="Pega Logo'
-          - 'id = "pegaLogin'
-          - 'Pega Platform'
-        condition: or
-
-      - type: status
-        status:
+          - alt="Pega Infinity
+          - alt="Pega Logo
+          - id = "pegaLogin
+          - Pega Platform
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/prweb/PRAuth/app/default/'
+    stop-at-first-match: true

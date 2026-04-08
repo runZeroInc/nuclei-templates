@@ -1,11 +1,10 @@
 id: tooljet-default-login
-
 info:
   name: ToolJet - Default Login
   author: random-robbie
   severity: high
   description: |
-    ToolJet default login credentials were discovered.
+    ToolJet contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
     - https://docs.tooljet.com/docs/contributing-guide/setup/docker/
   classification:
@@ -15,42 +14,38 @@ info:
     cpe: cpe:2.3:a:tooljet:tooljet:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)tooljet"})
-    verified: true
     max-request: 1
+    product: tooljet
+    shodan-query: title:"tooljet"
     vendor: tooljet
+    verified: true
   tags: default-login,tooljet,vuln
-
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"auth_token":'
+          - '"organization_id":'
+      - part: header
+        type: word
+        words:
+          - application/json
+      - status:
+          - 201
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - password
+      username:
+        - dev@tooljet.io
+    raw:
       - |
         POST /api/authenticate HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
 
         {"email":"{{username}}","password":"{{password}}"}
-
-    attack: pitchfork
-    payloads:
-      username:
-        - dev@tooljet.io
-      password:
-        - password
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"auth_token":'
-          - '"organization_id":'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-
-      - type: status
-        status:
-          - 201
-

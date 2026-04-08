@@ -1,5 +1,4 @@
 id: airflow-admin-login-panel
-
 info:
   name: Apache Airflow Admin Login Panel
   author: pdteam
@@ -13,45 +12,35 @@ info:
     cpe: cpe:2.3:a:apache:airflow:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)sign in - airflow"}) || any(each(service["html.titles"]), {# matches "(?i)airflow - dags"})
-    max-request: 2
-    vendor: apache
-    product: airflow
-    shodan-query:
-      - http.title:"sign in - airflow"
-      - http.title:"airflow - dags" || http.html:"apache airflow"
-      - product:"redis"
-      - http.html:"apache airflow"
-      - http.title:"airflow - dags"
-      - http.title:"airflow"
     fofa-query:
       - apache airflow
       - title="airflow - dags" || http.html:"apache airflow"
       - title="sign in - airflow"
-      - body="apache airflow"
-      - title="airflow - dags"
-      - title="airflow"
     google-query:
       - intitle:"airflow - dags" || http.html:"apache airflow"
       - intitle:"sign in - airflow"
-  tags: panel,apache,airflow,admin,discovery
-
+    max-request: 2
+    product: airflow
+    shodan-query:
+      - title:"Sign In - Airflow"
+      - http.title:"airflow - dags" || http.html:"apache airflow"
+      - http.title:"sign in - airflow"
+      - product:"redis"
+    vendor: apache
+  tags: admin,airflow,apache,discovery,panel
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/login/"
-      - "{{BaseURL}}/admin/airflow/login"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
-          - "Airflow - Login"
-          - "Sign In - Airflow"
-        condition: or
-
-      - type: status
-        status:
+          - Airflow - Login
+          - Sign In - Airflow
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login/'
+      - '{{BaseURL}}/admin/airflow/login'
+    stop-at-first-match: true

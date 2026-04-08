@@ -1,5 +1,4 @@
 id: openx-panel
-
 info:
   name: OpenX/Revive Adserver Login Panel - Detect
   author: pikpikcu,righettod
@@ -13,51 +12,44 @@ info:
     cpe: cpe:2.3:a:revive-adserver:revive_adserver:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)revive adserver"}) || service["favicon.ico.image.mmh3"] == "106844876"
-    verified: true
-    max-request: 2
-    vendor: revive-adserver
-    product: revive_adserver
-    shodan-query:
-      - http.title:"revive adserver"
-      - http.favicon.hash:"106844876"
     fofa-query:
       - icon_hash=106844876
       - title="revive adserver"
-      - icon_hash="106844876"
     google-query: intitle:"revive adserver"
-  tags: panel,openx,revive,adserver,login,revive-adserver,discovery
-
+    max-request: 2
+    product: revive_adserver
+    shodan-query:
+      - title:"Revive Adserver"
+      - http.title:"revive adserver"
+      - http.favicon.hash:106844876
+    vendor: revive-adserver
+    verified: true
+  tags: adserver,discovery,login,openx,panel,revive,revive-adserver
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/www/admin/index.php"
-      - "{{BaseURL}}/admin/index.php"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - (.*)- http://www.openx.org
+        type: regex
+      - group: 1
+        part: body
+        regex:
+          - v=([0-9a-z.\-]+)
+        type: regex
     matchers:
-      - type: regex
+      - condition: or
         part: body
         regex:
-          - '<title>OpenX</title>'
-          - '<title>Revive Adserver</title>'
-        condition: or
-
-      - type: status
-        status:
+          - <title>OpenX</title>
+          - <title>Revive Adserver</title>
+        type: regex
+      - status:
           - 200
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '(.*)- http://www.openx.org'
-
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - 'v=([0-9a-z.\-]+)'
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/www/admin/index.php'
+      - '{{BaseURL}}/admin/index.php'
+    stop-at-first-match: true
