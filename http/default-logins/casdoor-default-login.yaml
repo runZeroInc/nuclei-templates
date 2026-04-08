@@ -9,7 +9,7 @@ info:
     - https://casdoor.org/docs/basic/core-concepts/
     - https://github.com/casdoor/casdoor
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Casdoor"}) && service["http.body"] matches "(?i)casdoor"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Casdoor"})
     fofa-query: 'title="Casdoor" || body="casdoor"'
     max-request: 2
     product: casdoor
