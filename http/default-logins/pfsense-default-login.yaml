@@ -8,7 +8,7 @@ info:
   reference:
     - https://docs.netgate.com/pfsense/en/latest/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)pfSense"})
+    runzero-match: service["product"] contains "pfSense:pfSense" || service["product"] contains "Netgate:pfSense"
     fofa-query: 'title="pfSense"'
     max-request: 2
     product: pfsense
