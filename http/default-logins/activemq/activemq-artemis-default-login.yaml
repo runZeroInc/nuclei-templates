@@ -26,10 +26,22 @@ http:
         type: regex
     headers:
       Content-Type: application/json
+      X-Requested-With: XMLHttpRequest
     matchers:
-      - type: word
+      - dsl:
+          - contains(content_type, "application/json")
+        type: dsl
+      - condition: and
+        part: body
+        type: word
         words:
           - '{"credentials"'
+          - '"principals":['
+          - org.apache.activemq
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
     method: POST
     path:
       - '{{BaseURL}}/console/auth/login'
