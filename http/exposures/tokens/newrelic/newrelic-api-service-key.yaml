@@ -1,5 +1,4 @@
 id: newrelic-api-service-key
-
 info:
   name: New Relic API Service Key
   author: DhiyaneshDK
@@ -8,19 +7,20 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/newrelic.yml
     - https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys
     - https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#user-key
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: newrelic,exposure,tokens,vuln
-
+    verified: true
+  tags: exposure,newrelic,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - (?i)\b(nrak-[a-z0-9]{27})\b
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

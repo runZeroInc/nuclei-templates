@@ -9,6 +9,9 @@ info:
     - https://mp.weixin.qq.com/s/wH5luLISE_G381W2ssv93g
     - https://github.com/zan8in/afrog/blob/main/v2/pocs/afrog-pocs/vulnerability/weaver-oa-workrelate-file-upload.yaml
   classification:
+    cwe-id:
+      - CWE-434
+      - CWE-94
     cpe: cpe:2.3:a:weaver:e-cology:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive

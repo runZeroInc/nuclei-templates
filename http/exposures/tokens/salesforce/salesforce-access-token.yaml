@@ -1,5 +1,4 @@
 id: salesforce-access-token
-
 info:
   name: Salesforce Access Token
   author: DhiyaneshDK
@@ -8,19 +7,20 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/salesforce.yml
     - https://help.salesforce.com/s/articleView?id=sf.remoteaccess_access_tokens.htm&type=5
     - https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: salesforce,exposure,tokens,vuln
-
+    verified: true
+  tags: exposure,salesforce,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - \b(00[a-zA-Z0-9]{13}![a-zA-Z0-9._]{96})(?:\b|$|[^a-zA-Z0-9._])
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

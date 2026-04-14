@@ -1,5 +1,4 @@
 id: odbc-connection-string
-
 info:
   name: ODBC Connection String
   author: DhiyaneshDK
@@ -8,19 +7,19 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/odbc.yml
     - https://docs.aws.amazon.com/redshift/latest/mgmt/configure-odbc-connection.html
     - https://docs.microsoft.com/en-us/azure/data-explorer/kusto/api/connection-strings/kusto
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: odbc,exposure,tokens,vuln
-
+    verified: true
+  tags: exposure,odbc,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - (?i)(?:User|User\sId|UserId|Uid)\s*=\s*([^\s;]{3,100})\s*;[\ \t]*.{0,10}[\ \t]*(?:Password|Pwd)\s*=\s*([^\t\ ;]{3,100})\s*(?:[;]|$)
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

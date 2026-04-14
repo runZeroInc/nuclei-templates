@@ -1,5 +1,4 @@
 id: huggingface-user-access-token
-
 info:
   name: HuggingFace User Access Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/huggingface.yml
     - https://huggingface.co/docs/hub/security-tokens
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: huggingface,exposure,tokens,vuln,ai
-
+    verified: true
+  tags: ai,exposure,huggingface,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '\b(hf_[a-zA-Z]{34})\b'
-
+          - \b(hf_[a-zA-Z]{34})\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

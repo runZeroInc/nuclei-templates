@@ -8,6 +8,9 @@ info:
   reference:
     - https://www.exploit-db.com/exploits/50632
   classification:
+    cwe-id:
+      - CWE-79
+      - CWE-83
     cpe: cpe:2.3:a:beyondtrust:remote_support:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive

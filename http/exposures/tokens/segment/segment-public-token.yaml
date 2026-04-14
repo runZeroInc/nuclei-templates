@@ -1,5 +1,4 @@
 id: segment-public-token
-
 info:
   name: Segment Public API Token
   author: DhiyaneshDK
@@ -8,19 +7,19 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/segment.yml
     - https://segment.com/docs/api/public-api/
     - https://segment.com/blog/how-segment-proactively-protects-customer-api-tokens/
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: segment,token,exposure,vuln
-
+    verified: true
+  tags: exposure,segment,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '(sgp_[a-zA-Z0-9]{64})'
-
+          - (sgp_[a-zA-Z0-9]{64})
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

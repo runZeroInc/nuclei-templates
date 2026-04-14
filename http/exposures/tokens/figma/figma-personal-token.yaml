@@ -1,5 +1,4 @@
 id: figma-personal-token
-
 info:
   name: Figma Personal Access Token
   author: DhiyaneshDK
@@ -8,19 +7,19 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/rules/figma.yml
     - https://www.figma.com/developers/api
     - https://www.figma.com/developers/api#access-tokens
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: figma,exposure,token,vuln
-
+    verified: true
+  tags: exposure,figma,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - (?i)figma.{0,20}\b([0-9a-f]{4}-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

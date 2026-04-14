@@ -1,32 +1,15 @@
 id: pinata-api-key
-
 info:
   name: Pinata API Key - Expose
   author: 0xpugal
   severity: info
-  tags: pinata,exposure,api-keys,tokens,vuln
-
+  classification:
+    cwe-id:
+      - CWE-540
+  tags: api-keys,exposure,pinata,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    redirects: false
-    matchers:
-      - type: word
-        words:
-          - "pinata_api_key"
-          - "pinata_api_secret"
-          - "pinataKey"
-          - "pinataSecret"
-          - "pinata-key"
-          - "pinata_secret"
-        case-insensitive: true
-        condition: or
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - (?i)pinata[_\-.]?(?:api[_\-.]?)?key\s*[:=]\s*['"]?([A-Za-z0-9_\-]+)['"]?
           - (?i)pinata[_\-.]?(?:api[_\-.]?)?secret\s*[:=]\s*['"]?([A-Za-z0-9_\-]+)['"]?
@@ -39,4 +22,19 @@ http:
           - (?i)(?:const|let|var)?\s*pinata[_\-.]?(?:api[_\-.]?)?key\s*=\s*['"]([A-Za-z0-9_\-]+)['"]
           - (?i)(?:const|let|var)?\s*pinata[_\-.]?(?:api[_\-.]?)?secret\s*=\s*['"]([A-Za-z0-9_\-]+)['"]
           - (?i)pinata[^A-Za-z0-9]{0,8}([A-Za-z0-9_\-]{16,128})
-
+        type: regex
+    matchers:
+      - case-insensitive: true
+        condition: or
+        type: word
+        words:
+          - pinata_api_key
+          - pinata_api_secret
+          - pinataKey
+          - pinataSecret
+          - pinata-key
+          - pinata_secret
+    method: GET
+    path:
+      - '{{BaseURL}}'
+    redirects: false

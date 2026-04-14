@@ -9,6 +9,8 @@ info:
     - https://www.exploit-db.com/exploits/51940
     - https://cxsecurity.com/issue/WLB-2024040004
   classification:
+    cwe-id:
+      - CWE-89
     cpe: cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenCart"})

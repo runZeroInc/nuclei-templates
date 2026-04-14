@@ -1,5 +1,4 @@
 id: docker-hub-pat
-
 info:
   name: Docker Hub Personal Access Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/dockerhub.yml
     - https://docs.docker.com/security/for-developers/access-tokens/
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: docker,exposure,tokens,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - \b(dckr_pat_[a-zA-Z0-9_-]{27})(?:$|[^a-zA-Z0-9_-])
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

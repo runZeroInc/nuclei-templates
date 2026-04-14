@@ -1,5 +1,4 @@
 id: postman-key
-
 info:
   name: Postman API Key
   author: DhiyaneshDK
@@ -8,19 +7,19 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/rules/postman.yml
     - https://learning.postman.com/docs/developer/intro-api/
     - https://learning.postman.com/docs/developer/postman-api/authentication/
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: postman,keys,token,api,exposure,vuln
-
+    verified: true
+  tags: api,exposure,keys,postman,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '\b(PMAK-[a-zA-Z0-9]{24}-[a-zA-Z0-9]{34})\b'
-
+          - \b(PMAK-[a-zA-Z0-9]{24}-[a-zA-Z0-9]{34})\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

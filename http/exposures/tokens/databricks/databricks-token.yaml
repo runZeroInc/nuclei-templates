@@ -1,5 +1,4 @@
 id: databricks-token
-
 info:
   name: Databricks API Token
   author: DhiyaneshDK
@@ -8,19 +7,20 @@ info:
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/databricks-api-token.yaml
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/databricks-api-token.go
     - https://docs.databricks.com/en/dev-tools/auth/pat.html
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: databricks,exposure,tokens,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - (?i)\b(dapi[a-h0-9]{32})(?:['|\"|\n|\r|\s|\x60|;]|$)
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

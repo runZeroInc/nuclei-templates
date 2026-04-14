@@ -1,21 +1,21 @@
 id: braintree-access-token
-
 info:
   name: PayPal Braintree Access Token Disclosure
   author: Ice3man
   severity: info
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
     max-request: 1
-  tags: exposure,token,paypal,vuln
-
+  tags: exposure,paypal,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - 'access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}'
-
+          - access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

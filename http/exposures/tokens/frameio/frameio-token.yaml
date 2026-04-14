@@ -1,5 +1,4 @@
 id: frameio-token
-
 info:
   name: Frameio API Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/frameio-api-token.yaml
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/frameio-api-token.go
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: frameio,exposure,tokens,vuln
-
+    verified: true
+  tags: exposure,frameio,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - fio-u-(?i)[a-z0-9\-_=]{64}
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

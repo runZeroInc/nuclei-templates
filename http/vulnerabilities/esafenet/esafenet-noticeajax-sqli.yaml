@@ -5,6 +5,9 @@ info:
   severity: high
   description: |
     CDGServer3 NoticeAjax Interface Sql Injection.
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)电子文档安全管理系统"})
     fofa-query: title="电子文档安全管理系统",body="CDGServer3/"

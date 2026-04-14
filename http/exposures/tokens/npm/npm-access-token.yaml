@@ -1,5 +1,4 @@
 id: npm-access-token
-
 info:
   name: NPM Access Token (fine-grained)
   author: DhiyaneshDK
@@ -9,44 +8,41 @@ info:
     - https://docs.npmjs.com/about-access-tokens
     - https://github.com/github/roadmap/issues/557
     - https://github.blog/changelog/2022-12-06-limit-scope-of-npm-tokens-with-the-new-granular-access-tokens/
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: npm,token,exposure,vuln
-
+    verified: true
+  tags: exposure,npm,token,vuln
 flow: http(1) && http(2)
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers:
-      - type: regex
-        part: body
+  - matchers:
+      - internal: true
         name: token
+        part: body
         regex:
-          - "(npm_[A-Za-z0-9]{36})"
-        internal: true
-
-  - raw:
+          - (npm_[A-Za-z0-9]{36})
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'
+  - disable-path-automerge: true
+    extractors:
+      - dsl:
+          - token
+        type: dsl
+    matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains(body, "username")
+          - contains(content_type, "application/json")
+        type: dsl
+    raw:
       - |
         @Host: https://registry.npmjs.org:443
         GET /-/whoami HTTP/1.1
         Host: registry.npmjs.org
         Authorization: Bearer {{token}}
-
-    disable-path-automerge: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains(body, "username")'
-          - 'contains(content_type, "application/json")'
-        condition: and
-
-    extractors:
-      - type: dsl
-        dsl:
-          - token
-

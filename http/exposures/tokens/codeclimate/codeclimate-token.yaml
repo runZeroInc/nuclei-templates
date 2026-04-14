@@ -1,5 +1,4 @@
 id: codeclimate-token
-
 info:
   name: CodeClimate Token
   author: DhiyaneshDK
@@ -8,19 +7,20 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/codeclimate.yml
     - https://github.com/codeclimate/ruby-test-reporter/issues/34
     - https://docs.codeclimate.com/docs/finding-your-test-coverage-token#should-i-keep-my-test-reporter-id-secret
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: codeclimate,token,exposure,vuln
-
+    verified: true
+  tags: codeclimate,exposure,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '(?i)codeclima.{0,50}\b([a-f0-9]{64})\b'
-
+          - (?i)codeclima.{0,50}\b([a-f0-9]{64})\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

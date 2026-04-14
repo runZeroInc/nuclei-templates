@@ -1,5 +1,4 @@
 id: prestashop-blocktestimonial-file-upload
-
 info:
   name: Prestashop Blocktestimonial Modules - File Upload Vulnerability
   author: MaStErChO
@@ -8,20 +7,34 @@ info:
     - https://3xploit7.blogspot.com/2016/12/pretashop-blocktestimonial-upload-shell.html
     - https://github.com/indoxploit-coders/blocktestimonial-file-upload
     - https://exploit.linuxsec.org/prestashop-module-blocktestimonial-file-upload-auto-exploit
+  classification:
+    cwe-id:
+      - CWE-434
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    max-request: 2
-    vendor: apollotheme
-    product: ap_pagebuilder
     framework: prestashop
-    shodan-query: "http.component:\"prestashop\""
-  tags: intrusive,file-upload,blocktestimonial,prestashop,vuln
+    max-request: 2
+    product: ap_pagebuilder
+    shodan-query: http.component:"prestashop"
+    vendor: apollotheme
+  tags: blocktestimonial,file-upload,intrusive,prestashop,vuln
 variables:
-  filename: '{{rand_base(7, "abc")}}'
   data: '{{rand_base(6, "abc")}}'
-
+  filename: '{{rand_base(7, "abc")}}'
 http:
-  - raw:
+  - host-redirects: true
+    matchers:
+      - part: body_1
+        type: word
+        words:
+          - Your testimonial was submitted successfully.
+      - part: body_2
+        type: word
+        words:
+          - '{{data}}'
+    matchers-condition: and
+    max-redirects: 3
+    raw:
       - |
         POST /modules/blocktestimonial/addtestimonial.php HTTP/1.1
         Host: {{Hostname}}
@@ -57,19 +70,3 @@ http:
       - |
         GET /upload/{{filename}}.html HTTP/1.1
         Host: {{Hostname}}
-
-    host-redirects: true
-    max-redirects: 3
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_1
-        words:
-          - "Your testimonial was submitted successfully."
-
-      - type: word
-        part: body_2
-        words:
-          - "{{data}}"
-

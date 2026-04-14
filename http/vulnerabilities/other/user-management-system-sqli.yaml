@@ -1,5 +1,4 @@
 id: user-management-system-sqli
-
 info:
   name: User Management/Registration & Login v3.0 - SQL Injection
   author: f0xy
@@ -9,15 +8,31 @@ info:
   reference:
     - https://www.exploit-db.com/exploits/51695
     - https://phpgurukul.com/user-registration-login-and-user-management-system-with-admin-panel/
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)Registration and Login System"})
-    verified: true
     max-request: 2
     shodan-query: title:"Registration and Login System"
-  tags: sqli,auth-bypass,user-management,vuln
-
+    verified: true
+  tags: auth-bypass,sqli,user-management,vuln
 http:
-  - raw:
+  - host-redirects: true
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - Admin Dashboard
+          - Manage Users
+          - Signout
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    raw:
       - |
         POST /admin HTTP/1.1
         Host: {{Hostname}}
@@ -27,21 +42,3 @@ http:
       - |
         GET /admin/dashboard.php HTTP/1.1
         Host: {{Hostname}}
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Admin Dashboard"
-          - "Manage Users"
-          - "Signout"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

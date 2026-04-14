@@ -7,6 +7,11 @@ info:
     Remote Code Execution Vulnerability in Dahua Intelligent IoT Integrated Management Platform via GetClassValue.jsp.
   reference:
     - https://github.com/zan8in/afrog/blob/main/pocs/afrog-pocs/vulnerability/dahua-icc-getclassvalue-rce.yaml
+  classification:
+    cwe-id:
+      - CWE-470
+      - CWE-78
+      - CWE-94
   metadata:
     fofa-query: app="dahua-智能物联综合管理平台"
     max-request: 1

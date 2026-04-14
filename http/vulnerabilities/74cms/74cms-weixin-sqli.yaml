@@ -8,6 +8,8 @@ info:
   reference:
     - https://cn-sec.com/archives/25900.html
   classification:
+    cwe-id:
+      - CWE-89
     cpe: cpe:2.3:a:74cms:74cms:*:*:*:*:*:*:*:*
   metadata:
     fofa-query: app="骑士-74CMS"

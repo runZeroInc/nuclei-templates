@@ -1,5 +1,4 @@
 id: cache-poisoning-xss
-
 info:
   name: Cache Poisoning - Stored XSS
   author: melbadry9,xelkomy,akincibor
@@ -9,16 +8,24 @@ info:
     - https://blog.melbadry9.xyz/fuzzing/nuclei-cache-poisoning
     - https://portswigger.net/research/practical-web-cache-poisoning
     - https://portswigger.net/web-security/web-cache-poisoning
+  classification:
+    cwe-id:
+      - CWE-80
   metadata:
     max-request: 2
-  tags: cache,generic,xss,vuln
+  tags: cache,generic,vuln,xss
 variables:
-  cache_key: "{{to_lower(rand_base(6))}}"
-  cache_header: "{{to_lower(rand_base(6))}}"
+  cache_header: '{{to_lower(rand_base(6))}}'
+  cache_key: '{{to_lower(rand_base(6))}}'
   xss_payload: '"></script><script>alert(document.domain);</script>'
-
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - contains(body_2, cache_header)
+          - contains(body_2, xss_payload)
+        type: dsl
+    raw:
       - |
         GET /?{{cache_key}}=1 HTTP/1.1
         Host: {{Hostname}}
@@ -28,11 +35,3 @@ http:
       - |
         GET /?{{cache_key}}=1 HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - contains(body_2, cache_header)
-          - contains(body_2, xss_payload)
-        condition: and
-

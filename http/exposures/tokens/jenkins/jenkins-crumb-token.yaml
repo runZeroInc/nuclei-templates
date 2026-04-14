@@ -1,5 +1,4 @@
 id: jenkins-crumb-token
-
 info:
   name: Jenkins Token or Crumb
   author: DhiyaneshDK
@@ -8,19 +7,20 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/jenkins.yml
     - https://www.jenkins.io/blog/2018/07/02/new-api-token-system/
     - https://www.jenkins.io/doc/book/security/csrf-protection/
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: jenkins,crumb,token,exposure,vuln
-
+    verified: true
+  tags: crumb,exposure,jenkins,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '(?i)jenkins.{0,10}(?:crumb)?.{0,10}\b([0-9a-f]{32,36})\b'
-
+          - (?i)jenkins.{0,10}(?:crumb)?.{0,10}\b([0-9a-f]{32,36})\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'
