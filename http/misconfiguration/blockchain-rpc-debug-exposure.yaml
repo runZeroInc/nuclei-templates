@@ -1,7 +1,7 @@
 id: blockchain-rpc-debug-exposure
 info:
   name: Blockchain RPC Debug Trace Methods - Exposure
-  author: PentesterTN
+  author: 0xBassia
   severity: medium
   description: |
     The blockchain RPC endpoint has debug-level tracing methods enabled (debug_traceTransaction, debug_traceBlockByNumber, trace_block, trace_filter). These methods return complete EVM execution traces including opcodes, stack values, and memory contents, enabling smart contract reverse engineering and targeted attacks.
@@ -18,35 +18,34 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-    shodan-query: "jsonrpc"
+    shodan-query: jsonrpc
     verified: true
   tags: blockchain,debug,misconfig,rpc,trace,web3
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"jsonrpc"'
+          - '"error"'
+          - missing value for required argument
+      - negative: true
+        part: body
+        type: word
+        words:
+          - does not exist
+          - not available
+          - not found
+          - not supported
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
 
         {"jsonrpc":"2.0","method":"debug_traceTransaction","params":[],"id":1}
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"jsonrpc"'
-          - '"error"'
-          - "missing value for required argument"
-        condition: and
-      - type: word
-        part: body
-        words:
-          - "does not exist"
-          - "not available"
-          - "not found"
-          - "not supported"
-        negative: true
-      - type: status
-        status:
-          - 200
-        # digest: 4b0a00483046022100d328ad18152b4487057d31f121b826293a9ffd84f4acd8710e9bcbee4422ca31022100f7a6056f4aceb7fa6a4c406d2c4135e47782249d73e5dc3df5ef2b03f6b360ee:922c64590222798bb761d5b6d8e72950

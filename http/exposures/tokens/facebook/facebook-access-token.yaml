@@ -1,5 +1,4 @@
 id: facebook-access-token
-
 info:
   name: Facebook Access Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/facebook.yml
     - https://developers.facebook.com/docs/facebook-login/access-tokens/
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: facebook,token,exposure,vuln
-
+    verified: true
+  tags: exposure,facebook,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '\b(EAACEdEose0cBA[a-zA-Z0-9]+)\b'
-
+          - \b(EAACEdEose0cBA[a-zA-Z0-9]+)\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

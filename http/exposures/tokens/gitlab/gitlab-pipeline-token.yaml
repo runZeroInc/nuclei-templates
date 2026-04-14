@@ -1,5 +1,4 @@
 id: gitlab-pipeline-token
-
 info:
   name: GitLab Pipeline Trigger Token
   author: DhiyaneshDK
@@ -9,19 +8,19 @@ info:
     - https://docs.gitlab.com/ee/ci/triggers/
     - https://gitlab.com/gitlab-org/gitlab/-/issues/371396
     - https://gitlab.com/gitlab-org/gitlab/-/issues/388379
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: gitlab,token,exposure,vuln
-
+    verified: true
+  tags: exposure,gitlab,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '\b(glptt-[0-9a-f]{40})\b'
-
+          - \b(glptt-[0-9a-f]{40})\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

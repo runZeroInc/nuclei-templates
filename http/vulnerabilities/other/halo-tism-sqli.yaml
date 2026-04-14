@@ -7,6 +7,9 @@ info:
     A Time-Based SQL Injection vulnerability in Halo ITSM allows unauthenticated attackers to execute malicious SQL queries by leveraging time delays, potentially leading to data exfiltration, privilege escalation, or full system compromise.
   reference:
     - https://slcyber.io/assetnote-security-research-center/loose-types-sink-ships-pre-authentication-sql-injection-in-halo-itsm/
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "489905671"
     max-request: 1
@@ -14,9 +17,17 @@ info:
     verified: true
   tags: halo,itsm,sqli,time-based-sqli,vuln
 variables:
-  string: "{{rand_text_numeric(10)}}"
+  string: '{{rand_text_numeric(10)}}'
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - duration>=6
+          - status_code == 200
+          - contains(content_type, "application/json")
+          - contains(body, "ok")
+        type: dsl
+    raw:
       - |
         @timeout: 20s
         POST /api/Notify HTTP/1.1
@@ -31,11 +42,3 @@ http:
           "lastactiontime": "2025-03-03T10:00:00",
           "chatlog": "{{randstr}}"
         }
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration>=6'
-          - 'status_code == 200'
-          - 'contains(content_type, "application/json")'
-          - 'contains(body, "ok")'
-        condition: and

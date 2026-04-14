@@ -1,5 +1,4 @@
 id: xmlrpc-pingback-ssrf
-
 info:
   name: XMLRPC Pingback SSRF
   author: geeknik
@@ -7,13 +6,20 @@ info:
   description: XMLRPC Pingback leads to SSRF.
   reference:
     - https://hackerone.com/reports/406387
+  classification:
+    cwe-id:
+      - CWE-918
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
-  tags: xmlrpc,hackerone,ssrf,generic,vuln
-
+  tags: generic,hackerone,ssrf,vuln,xmlrpc
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
+    raw:
       - |
         POST /xmlrpc/pingback HTTP/1.1
         Host: {{Hostname}}
@@ -28,10 +34,3 @@ http:
         </param>
         </params>
         </methodCall>
-
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "http"
-

@@ -1,5 +1,4 @@
 id: apache-solr-file-read
-
 info:
   name: Apache Solr <=8.8.1 - Local File Inclusion
   author: DhiyaneshDk,philippedelteil
@@ -12,13 +11,31 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23,CWE-73
   metadata:
     max-request: 3
-  tags: apache,solr,lfi,vuln
-
+  tags: apache,lfi,solr,vuln
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: core
+        regex:
+          - '"name"\:"(.*?)"'
+        type: regex
+    matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - bit app support
+          - fonts
+          - extensions
+      - regex:
+          - 'root:.*:0:0:'
+        type: regex
+    matchers-condition: or
+    raw:
       - |
         GET /solr/admin/cores?wt=json HTTP/1.1
         Host: {{Hostname}}
@@ -34,28 +51,4 @@ http:
         Host: {{Hostname}}
         Accept-Language: en
         Connection: close
-
     stop-at-first-match: true
-
-    matchers-condition: or
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "bit app support"
-          - "fonts"
-          - "extensions"
-        condition: and
-
-      - type: regex
-        regex:
-          - "root:.*:0:0:"
-
-    extractors:
-      - type: regex
-        name: core
-        group: 1
-        regex:
-          - '"name"\:"(.*?)"'
-        internal: true
-

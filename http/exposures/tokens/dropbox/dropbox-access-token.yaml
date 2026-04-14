@@ -1,5 +1,4 @@
 id: dropbox-access-token
-
 info:
   name: Dropbox Access Token
   author: DhiyaneshDK
@@ -9,19 +8,20 @@ info:
     - https://developers.dropbox.com/oauth-guide
     - https://www.dropbox.com/developers/
     - https://www.dropbox.com/developers/documentation/http/documentation
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: dropbox,exposure,tokens,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - \b(sl\.[a-zA-Z0-9_-]{130,152})(?:$|[^a-zA-Z0-9_-])
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

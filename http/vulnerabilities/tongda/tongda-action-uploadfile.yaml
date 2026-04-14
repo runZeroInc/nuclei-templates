@@ -1,5 +1,4 @@
 id: tongda-action-uploadfile
-
 info:
   name: Tongda OA v2017 action_upload - Arbitrary File Upload
   author: SleepingBag945
@@ -10,20 +9,30 @@ info:
     - https://github.com/PeiQi0/PeiQi-WIKI-Book/blob/main/docs/wiki/oa/%E9%80%9A%E8%BE%BEOA/%E9%80%9A%E8%BE%BEOA%20v2017%20action_upload.php%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E.md
     - https://github.com/shadow1ng/fscan/blob/main/WebScan/pocs/tongda-v2017-uploadfile.yml
   classification:
+    cwe-id:
+      - CWE-434
     cpe: cpe:2.3:a:tongda2000:office_anywhere_2017:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
-    max-request: 2
-    vendor: tongda2000
-    product: office_anywhere_2017
     fofa-query: app="TDXK-通达OA"
-  tags: tongda,fileupload,intrusive,router,vuln
+    max-request: 2
+    product: office_anywhere_2017
+    vendor: tongda2000
+    verified: true
+  tags: fileupload,intrusive,router,tongda,vuln
 variables:
-  string: "tongda-action-uploadfile"
-
+  string: tongda-action-uploadfile
 http:
-  - raw:
+  - matchers:
+      - part: body_2
+        type: word
+        words:
+          - '{{md5(string)}}'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /module/ueditor/php/action_upload.php?action=uploadfile HTTP/1.1
         Host: {{Hostname}}
@@ -58,15 +67,3 @@ http:
       - |
         GET {{randstr}}.php HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - '{{md5(string)}}'
-
-      - type: status
-        status:
-          - 200
-

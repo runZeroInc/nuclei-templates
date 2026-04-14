@@ -1,5 +1,4 @@
 id: fastly-token
-
 info:
   name: Fastly API Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/fastly-api-token.yaml
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/fastly-api-token.go
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: fastly,exposure,tokens,vuln
-
+    verified: true
+  tags: exposure,fastly,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - (?i)(?:fastly)(?:[0-9a-z\-_\t .]{0,20})(?:[\s|']|[\s|"]){0,3}(?:=|>|:=|\|\|:|<=|=>|:)(?:'|\"|\s|=|\x60){0,5}([a-z0-9=_\-]{32})(?:['|\"|\n|\r|\s|\x60|;]|$)
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

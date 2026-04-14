@@ -1,40 +1,37 @@
 id: avtech-dvr-ssrf
-
 info:
   name: AVTECH DVR - SSRF
   author: ritikchaddha
   severity: medium
   description: |
     AVTECH DVR device, Search.cgi can be accessed directly. Search.cgi is responsible for searching and accessing cameras in the local network. Search.cgi provides the cgi_query function.
+  classification:
+    cwe-id:
+      - CWE-918
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "(?i)login\" product:\"Avtech"})
-    verified: true
+    fofa-query: app="AVTECH-视频监控"
     max-request: 1
     shodan-query: title:"login" product:"Avtech"
-    fofa-query: app="AVTECH-视频监控"
-  tags: ssrf,avtech,unauth,iot,vuln
-
+    verified: true
+  tags: avtech,iot,ssrf,unauth,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cgi-bin/nobody/Search.cgi?action=scan"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'Search.Device'
-          - 'Proto='
-          - 'IPAddress='
-        condition: and
-
-      - type: word
-        part: header
+          - Search.Device
+          - Proto=
+          - IPAddress=
+      - part: header
+        type: word
         words:
           - text/plain
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/cgi-bin/nobody/Search.cgi?action=scan'

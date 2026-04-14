@@ -1,5 +1,4 @@
 id: xss-deprecated-header
-
 info:
   name: XSS-Protection Header - Cross-Site Scripting
   author: joshlarsen
@@ -11,31 +10,28 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cvss-score: 0
+    cwe-id:
+      - CWE-79
   metadata:
     max-request: 1
-  tags: xss,misconfig,generic,vuln
-
+  tags: generic,misconfig,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: header
-        regex:
-          - "(?i)x-xss-protection: 0"
-        negative: true
-
-      - type: regex
-        part: header
-        regex:
-          - "(?i)x-xss-protection: 1+"
-
-    extractors:
-      - type: kval
-        part: header
-        kval:
+  - extractors:
+      - kval:
           - x_xss_protection
-
+        part: header
+        type: kval
+    matchers:
+      - negative: true
+        part: header
+        regex:
+          - '(?i)x-xss-protection: 0'
+        type: regex
+      - part: header
+        regex:
+          - '(?i)x-xss-protection: 1+'
+        type: regex
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

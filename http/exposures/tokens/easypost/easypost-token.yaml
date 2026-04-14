@@ -1,5 +1,4 @@
 id: easypost-token
-
 info:
   name: Easypost API Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/easypost-api-token.yaml
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/easypost-api-token.go
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: easypost,exposure,tokens,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - EZAK(?i)[a-z0-9]{54}
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

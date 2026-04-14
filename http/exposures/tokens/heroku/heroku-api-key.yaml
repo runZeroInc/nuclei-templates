@@ -1,5 +1,4 @@
 id: heroku-api-key
-
 info:
   name: Heroku API Key
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/heroku.yml
     - https://devcenter.heroku.com/articles/authentication
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: heroku,token,exposure,vuln
-
+    verified: true
+  tags: exposure,heroku,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '(?i)heroku.{0,20}key.{0,20}\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b'
-
+          - (?i)heroku.{0,20}key.{0,20}\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

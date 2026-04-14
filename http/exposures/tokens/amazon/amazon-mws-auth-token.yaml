@@ -1,21 +1,21 @@
 id: amazon-mws-auth-token
-
 info:
   name: Amazon MWS Auth Token
   author: puzzlepeaches
   severity: info
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
     max-request: 1
-  tags: exposure,token,aws,amazon,auth,vuln
-
+  tags: amazon,auth,aws,exposure,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - "amzn\\.mws\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-
+          - amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

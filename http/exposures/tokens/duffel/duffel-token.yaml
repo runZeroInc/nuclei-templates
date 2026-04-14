@@ -1,5 +1,4 @@
 id: duffel-token
-
 info:
   name: Duffel API Token
   author: DhiyaneshDK
@@ -7,19 +6,19 @@ info:
   reference:
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/duffel-api-token.yaml
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/duffel-api-token.go
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: duffel,exposure,tokens,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - duffel_(test|live)_(?i)[a-z0-9_\-=]{43}
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

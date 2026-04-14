@@ -1,5 +1,4 @@
 id: webpagetest-ssrf
-
 info:
   name: Web Page Test - Server Side Request Forgery (SSRF)
   author: pdteam
@@ -9,29 +8,27 @@ info:
     - https://thinkloveshare.com/hacking/preauth_remote_code_execution_web_page_test/
     - https://github.com/WPO-Foundation/webpagetest
   classification:
+    cwe-id:
+      - CWE-918
     cpe: cpe:2.3:a:webpagetest:webpagetest:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
     max-request: 1
-    vendor: webpagetest
     product: webpagetest
     shodan-query: title:"WebPageTest"
-  tags: ssrf,webpagetest,oast,vuln
-
+    vendor: webpagetest
+    verified: true
+  tags: oast,ssrf,vuln,webpagetest
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/jpeginfo/jpeginfo.php?url={{interactsh-url}}"
-
+  - matchers:
+      - type: word
+        words:
+          - File is not a JPEG Image
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
     matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "File is not a JPEG Image"
-
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "http"
-
+    method: GET
+    path:
+      - '{{BaseURL}}/jpeginfo/jpeginfo.php?url={{interactsh-url}}'

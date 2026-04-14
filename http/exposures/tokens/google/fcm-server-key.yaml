@@ -1,5 +1,4 @@
 id: fcm-server-key
-
 info:
   name: FCM Server Key
   author: absshax
@@ -7,18 +6,18 @@ info:
   description: FCM Server Key is leaked.
   reference:
     - https://abss.me/posts/fcm-takeover
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
     max-request: 1
-  tags: exposure,token,google,vuln
-
+  tags: exposure,google,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - "AAAA[a-zA-Z0-9_-]{7}:[a-zA-Z0-9_-]{140}"
-
+          - AAAA[a-zA-Z0-9_-]{7}:[a-zA-Z0-9_-]{140}
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

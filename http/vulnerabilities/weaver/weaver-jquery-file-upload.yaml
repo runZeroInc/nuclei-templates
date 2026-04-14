@@ -7,6 +7,8 @@ info:
   reference:
     - https://github.com/w-digital-scanner/w9scan/blob/master/plugins/weaver_oa/2158.py
   classification:
+    cwe-id:
+      - CWE-434
     cpe: cpe:2.3:a:weaver:e-office:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive

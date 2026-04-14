@@ -1,5 +1,4 @@
 id: sauce-token
-
 info:
   name: Sauce Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/sauce.yml
     - https://docs.saucelabs.com/dev/api/
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: sauce,token,exposure,vuln
-
+    verified: true
+  tags: exposure,sauce,token,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - '(?i)sauce.{0,50}\b([a-f0-9-]{36})\b'
-
+          - (?i)sauce.{0,50}\b([a-f0-9-]{36})\b
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

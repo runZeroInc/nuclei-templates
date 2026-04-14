@@ -1,5 +1,4 @@
 id: jamf-blind-xxe
-
 info:
   name: JAMF Blind XXE / SSRF
   author: pdteam
@@ -7,13 +6,25 @@ info:
   description: Blind XXE / SSRF exists in JAMF which is a company that provides enterprise-level software solutions for managing and securing Apple devices in organizations.
   reference:
     - https://www.synack.com/blog/a-deep-dive-into-xxe-injection/
+  classification:
+    cwe-id:
+      - CWE-611
+      - CWE-918
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
-  tags: xxe,ssrf,jamf,vuln
-
+  tags: jamf,ssrf,vuln,xxe
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
+      - type: word
+        words:
+          - com.jamfsoftware.jss
+    matchers-condition: and
+    raw:
       - |
         POST /client HTTP/1.1
         Host: {{Hostname}}
@@ -42,15 +53,3 @@ http:
             </commandData>
           </content>
         </ns2:jamfMessage>
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "http"
-
-      - type: word
-        words:
-          - "com.jamfsoftware.jss"
-

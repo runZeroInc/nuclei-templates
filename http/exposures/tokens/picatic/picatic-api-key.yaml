@@ -1,21 +1,20 @@
 id: picatic-api-key
-
 info:
   name: Picatic API Key Disclosure
   author: Ice3man
   severity: info
+  classification:
+    cwe-id:
+      - CWE-540
   metadata:
     max-request: 1
   tags: exposure,token,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
-          - 'sk_live_[0-9a-z]{32}'
-
+          - sk_live_[0-9a-z]{32}
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

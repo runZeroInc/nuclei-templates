@@ -1,5 +1,4 @@
 id: freshbooks-accesstoken
-
 info:
   name: Freshbooks Access Token
   author: DhiyaneshDK
@@ -7,19 +6,20 @@ info:
   reference:
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/freshbooks-access-token.yaml
     - https://github.com/returntocorp/semgrep-rules/blob/develop/generic/secrets/gitleaks/freshbooks-access-token.go
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
-  tags: freshbooks,exposure,tokens,vuln
-
+    verified: true
+  tags: exposure,freshbooks,tokens,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - (?i)(?:freshbooks)(?:[0-9a-z\-_\t .]{0,20})(?:[\s|']|[\s|"]){0,3}(?:=|>|:=|\|\|:|<=|=>|:)(?:'|\"|\s|=|\x60){0,5}([a-z0-9]{64})(?:['|\"|\n|\r|\s|\x60|;]|$)
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

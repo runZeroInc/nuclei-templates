@@ -1,5 +1,4 @@
 id: elastic-cloud-api-key
-
 info:
   name: Elastic Cloud API Key Detection
   author: Chemo850
@@ -8,30 +7,30 @@ info:
     Detects Elastic Cloud API keys used for programmatic access to the Elastic Cloud and serverless APIs.
   reference:
     - https://www.elastic.co/docs/deploy-manage/api-keys/elastic-cloud-api-keys
+  classification:
+    cwe-id:
+      - CWE-522
+      - CWE-540
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: elastic,exposure,tokens,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
+  - extractors:
+      - part: body
+        regex:
+          - essu_[A-Za-z0-9+/]{80}AAAAA[A-Za-z0-9+/=]{7}
+        type: regex
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "essu_"
-      - type: regex
-        part: body
+          - essu_
+      - part: body
         regex:
           - essu_[A-Za-z0-9+/]{80}AAAAA[A-Za-z0-9+/=]{7}
-
-    extractors:
-      - type: regex
-        part: body
-        regex:
-          - essu_[A-Za-z0-9+/]{80}AAAAA[A-Za-z0-9+/=]{7}
-
+        type: regex
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
