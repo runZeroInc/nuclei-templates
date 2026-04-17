@@ -27,7 +27,7 @@ info:
     shodan-query: title:"Graylog Web Interface"
     vendor: graylog
     verified: true
-  tags: auth,default-login,graylog,logging
+  tags: default-login,graylog,logging
 variables:
   password: admin
   username: admin
