@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - (sgp_[a-zA-Z0-9]{64})
+        # digest: 4b0a0048304602210081567aaef2abddc85138b9e7c1ec75900d9986a5a9e2609f2ad4d6cec1032060022100fbe309da1398e52f96eea6d072484b1b85868a2ac9c5a4a1ba4587db91cda4d4:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

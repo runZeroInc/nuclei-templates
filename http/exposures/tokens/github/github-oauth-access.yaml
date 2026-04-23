@@ -21,6 +21,8 @@ http:
       - part: body
         regex:
           - \b(gho_[a-zA-Z0-9]{36})\b
+        # digest: 490a00463044022058859b2cb4d56ca157b954871e1709143d50b4cc9d252175c4313147d9d80941022028e55a6ef0a796f98343f02968ce301fae9a6d69ab54207fbb32e46d30225a86:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

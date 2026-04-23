@@ -41,6 +41,8 @@ http:
           - deceptive request routing
       - status:
           - 400
+        # digest: 490a00463044022039ce484b8a14d10acf343ba146e02b8801868a45fe60f3337e3d3e1e603f5bef02207aaf00475a18bfbc28cca4829722e94ae9801a291660e43a00167b01bb030553:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     payloads:

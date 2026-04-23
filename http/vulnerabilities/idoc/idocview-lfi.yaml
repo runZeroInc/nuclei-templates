@@ -22,6 +22,8 @@ http:
         part: body
         regex:
           - '"srcUrl":"\/([a-z/0-9_.]+)"'
+        # digest: 4b0a00483046022100bd5e0176947e0d20994b079647e23404fe59c1818a6ed2125be357473d0c9d5d022100f23f7240774661cc3a59fcd2662e959606cf1b2019c61b030ebc48eaafc88016:922c64590222798bb761d5b6d8e72950
+
         type: regex
     matchers:
       - condition: and

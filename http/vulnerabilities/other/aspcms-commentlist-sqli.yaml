@@ -24,6 +24,8 @@ http:
         type: regex
     matchers:
       - condition: and
+        # digest: 4a0a00473045022100b6cb6beed88a2dd901c401f23ce544a582694318eb7b31f54a864cfdb07f1d7902205947f55b1b84b853fdef7f68a05d61ed599b3f9e81de0949686a595b09ad4967:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code_1 == 200
           - contains(body,'clistbox') && contains(body,'UserID,GroupID,LoginName,Password')

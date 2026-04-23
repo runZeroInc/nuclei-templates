@@ -20,6 +20,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a0046304402202d10376d3eb84c94492433f6d07761814ce59a95171ce0c4dab10c4745afd46202201a64e5dd53a07d27bcbfa88cc3c776a3c9ddb87a5c4c2b90f770fac5d2c15fe4:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(content_type,"text/xml")
           - contains(body,"OK")

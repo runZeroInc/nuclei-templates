@@ -30,6 +30,8 @@ http:
           - text/plain
       - status:
           - 200
+        # digest: 4a0a0047304502203952a49f2cfc9d438d183af557461af429664f589f02bc21260edbc822387e26022100cb6645f6a7001bf0ac62cb84a9971a46ba66c094f657bb97dea0caf7ac39f9ed:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

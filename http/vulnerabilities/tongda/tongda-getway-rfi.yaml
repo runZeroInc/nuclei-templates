@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a0046304402202ba04763c58de63b0f135c96ae00a24a77dbe7c49aab1ddff73b4bcf2e2d723a022000a9f748ed88b39bdeab062977ef2e8cc4a41d0027fe23492747aedb302302a8:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(body_1, "ERROR URL")
           - contains(body_2, 'GET') || contains(body_2, 'POST')

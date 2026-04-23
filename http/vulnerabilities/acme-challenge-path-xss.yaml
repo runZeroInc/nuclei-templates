@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4b0a00483046022100ecd37df29ea4514944ce624ca57b347014f55b86a9664b0e6a9416586de9e824022100b141263f1358d891076f7d2812848e80906ec618ab18ee1f633231b1be6f4fe3:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains(body, "<script>alert(document.domain)</script>")

@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - \b(hf_[a-zA-Z]{34})\b
+        # digest: 4a0a00473045022100c885b61bd7fa883900fbbbe1df5dce97addbdeb9bc0b319caac6a0e29f6e2db3022002e35353b9cff69cf9bb85bb2bb8ebc6bd2369ff1d4ff4d4bbeb8b45a5897c85:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

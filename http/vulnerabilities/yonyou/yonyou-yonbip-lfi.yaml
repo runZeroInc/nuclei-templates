@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a0046304402200b49e7a86b40cf72f28e80e4bf2372aa9f67be7f5f24d7b49dbeea4f9d286edb02206c8058f92b5d4480f78b806d508e7c560160355f1da0c12e2e87723ca1dcbea7:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - regex('root:.*:0:0:', body)
           - contains(content_type, "application/javascript")

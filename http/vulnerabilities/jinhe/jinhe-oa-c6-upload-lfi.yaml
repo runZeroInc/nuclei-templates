@@ -27,6 +27,8 @@ http:
           - FolderTotal=1
       - status:
           - 200
+        # digest: 4b0a00483046022100d357c0688f37741e0398e8b448f1bba257eaacfdd091861e4383449a4f36b095022100946705a813c3c6013172cc56fd2ea4ba7b29996dc8b0fdd537d3f4292c9e557f:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

@@ -28,6 +28,8 @@ http:
           - '"td_oa"'
       - status:
           - 200
+        # digest: 490a00463044022038bb087a29979439f1068d931838bbbd31e30f37e69dde7f0adc20bd688c4b0602205ad1b1f22e118b3507446537b1272c1a0eb61e96392858ebf811492b985ac27d:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

@@ -23,6 +23,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4b0a004830460221009deea447d2c06607ea87780c8c410330580e2693548570d24c7c17458984af49022100c9c687ebe04e7b35924dc4c60af36115de953defaf78b5d535fd665124f73d39:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains_all(header, 'application/json','ecology_')

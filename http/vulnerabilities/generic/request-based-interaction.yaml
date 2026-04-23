@@ -25,6 +25,7 @@ http:
         type: word
         words:
           - dns
+          # digest: 4a0a004730450220111530ab5f2800f2b54a27c0f816326bedc33d91f300950dddebbffa6e173894022100e110ad94eafce83fc91cb495f63c78edee098dc76067ab5103aeab5f1e652ca3:922c64590222798bb761d5b6d8e72950
     matchers-condition: or
     raw:
       - |+
@@ -57,4 +58,4 @@ http:
         Cache-Control: no-transform
         Accept: */*
 
-    unsafe: true
+    unsafe: true # Use Unsafe HTTP library for malformed HTTP requests.

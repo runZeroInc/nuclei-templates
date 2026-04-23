@@ -34,6 +34,8 @@ http:
           - image/png
       - status:
           - 200
+        # digest: 4b0a00483046022100efa47ceb51790c25fa5e7e06c3a04fa3ac178451420b59fdfefbbe6ad8239a250221009f6e842f98d62ff26f2ff1db66f3fbdb96ac376f1a40cbde39cb9dc455509e0c:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

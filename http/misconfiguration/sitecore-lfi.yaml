@@ -25,6 +25,8 @@ http:
           - <Signature
       - status:
           - 200
+        # digest: 4a0a00473045022050f20330000196f1e3c613dca575a9239f1f7732c0b31858577bd97431c4d5ce022100e7f12acb35d87d3254d35be90476407acd8aa0332b94da74cec15d754a3c4095:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

@@ -26,6 +26,8 @@ http:
           - </web-app>
       - status:
           - 200
+        # digest: 4a0a0047304502210084df97c31856cab8157eea242482fd78c82c95e8877313aea8198b70bef5f52802203ec36471693b7ccb85323e4758d0a2da2c662816d651366c890e2f655cc9d50c:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

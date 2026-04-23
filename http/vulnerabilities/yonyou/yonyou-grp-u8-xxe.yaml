@@ -25,6 +25,7 @@ http:
       - type: word
         words:
           - <R9PACKET>
+          # digest: 4a0a00473045022012ada7d8391fa098ff9008b3f8352a24b1f212164b5c5cffdd217315b701b1670221008a70a3c851370744c046064fc77f99306fc67b26413fa3f05bd46970c041a44a:922c64590222798bb761d5b6d8e72950
     matchers-condition: and
     raw:
       - |

@@ -29,6 +29,8 @@ http:
           - datauser =
       - status:
           - 200
+        # digest: 490a004630440220233dac2c5301fcd96fc115c6862cdcf4928772113e836bb0714b6ca9a3b27467022024252017c267c054a266900b484ca4c8cb9683639026f44d791f22531265069a:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

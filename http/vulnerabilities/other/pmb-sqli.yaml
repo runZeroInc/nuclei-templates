@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4b0a00483046022100b6444fad96856c11a5d34843346caa910e151bc51421bba1b91d755c48992865022100dc90a05f15da0fe3b07c2555995478c0c2ec2d95899b0027f15afedf579746e3:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(content_type, "text/html")
           - contains(header, "PmbOpac")

@@ -17,6 +17,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4b0a00483046022100be24fcc1811eacaf4c147b5cf67b9d66bb1452a4d6ea3a9412104da99fa04d1b0221008e72636fe4b508dcd7a0afd0654ca67e7343db6a342b85d06e3ed5f8478aae2b:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains(body,"<configuration>") && contains(body,"password=")

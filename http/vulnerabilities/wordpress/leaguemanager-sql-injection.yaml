@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a0047304502205e48ea78a9fa7c0d09dc07f706430acfa57791acb6108614edff6077ce7b922b022100812b0c784953f115dca770208c17e882476752e95fdca5db8981d6bfa0f80193:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration>=6
           - status_code == 200

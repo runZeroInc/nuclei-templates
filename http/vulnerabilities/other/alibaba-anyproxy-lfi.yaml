@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4b0a00483046022100a586bd6b24c2acd77cf1fc53e174815cc088430c3f220b06913c9cb45bf31a150221008cc46b4761b6a87285782c3b624f10f62430e1b1dd1e504d3cfed641182fa537:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - regex('root:.*:0:0:', body)
           - contains(body, '\"id\":')

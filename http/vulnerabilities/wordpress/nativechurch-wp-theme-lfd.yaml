@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a0046304402206a70a4e524d612fa0f75a589d70695f548758a63bd09f73f6516e24db37df3f902201f50eed108b5fb535664ba07badb118d92b5118ebc947e816cb2ea02853ced5b:922c64590222798bb761d5b6d8e72950
+
         part: body
         type: word
         words:

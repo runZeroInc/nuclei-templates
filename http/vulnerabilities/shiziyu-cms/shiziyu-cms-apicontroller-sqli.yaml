@@ -24,6 +24,8 @@ http:
           - c8c605999f3d8352d7bb792cf3fdb25
       - status:
           - 404
+        # digest: 490a00463044022077f94ac9cc0a8398187eefc566bd3ea918834dbb58d0c54cebdb402942d62a4402205f4cc1a45964f87e2d318b72c2bd203ad8054403826690a124123e657a430c48:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

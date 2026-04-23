@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - (pypi-AgEIcHlwaS5vcmc[a-zA-Z0-9_-]{50,})
+        # digest: 4a0a00473045022100bab102836acfb3fc9f93f16f39f09b4f5f9da7fff01fdf3a1e4636e7c431cde202200311a4ef0993c3d023948420d9e5067b71ffb9ae4ad84f4c93a427b078aef801:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

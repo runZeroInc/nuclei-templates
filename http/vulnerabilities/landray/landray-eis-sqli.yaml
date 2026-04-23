@@ -21,6 +21,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a004630440220476b7ba82d44eeb5ab72ab981a8b240e77abccb93621e5b2385778f819f74e8002203f5a3e5faaf2657a094d2bb0c198d23739d230ea75bbe775c4ef94ee6aa9b59b:922c64590222798bb761d5b6d8e72950
+
         type: word
         words:
           - Microsoft SQL Server

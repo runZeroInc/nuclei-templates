@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - fio-u-(?i)[a-z0-9\-_=]{64}
+        # digest: 4a0a00473045022100928358fd1930c66d8dead16f3b34e474ea94ac60aeb1161680008164b041c86802204420aeef192e343aeafec1f8099374a570790896b59fe59026bb63ecdb621433:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

@@ -28,6 +28,8 @@ http:
           - '{{md5({{num}})}}'
       - status:
           - 200
+        # digest: 4a0a00473045022100e23caf95f177224e2b8ed474fd400387cd787c62d8ced2337dd94a739b803e89022072437647ce20b22ed796c3b39f02121b841d28ad590bb14719c404f4ee6d9307:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

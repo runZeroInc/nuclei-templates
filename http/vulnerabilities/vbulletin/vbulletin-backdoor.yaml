@@ -32,6 +32,8 @@ http:
   - host-redirects: true
     matchers:
       - condition: and
+        # digest: 4a0a0047304502210081d30ca62ebadd13ddcc3211df58100e30151ecf11316b3b55ec08d0f990e4140220307df182652d100e6f09c9c10b4266fe7c4099c21a65e615ccc54e8e89e6ee1b:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(body, '{{md5(num)}}')
           - status_code == 200

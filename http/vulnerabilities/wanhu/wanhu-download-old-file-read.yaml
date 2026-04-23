@@ -27,6 +27,8 @@ http:
           - display-name
       - status:
           - 200
+        # digest: 4b0a004830460221009c7d2d4addba03b9e8599279a823884e36099e582dc41ed0dc92c387c648a847022100c2bde9992155232d8f7812a3df01e0562285bf3415fcc18c9755c1a00321cb44:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

@@ -29,6 +29,8 @@ http:
           - 新建目录
       - status:
           - 200
+        # digest: 4a0a004730450220074f8dbba3da5004ba081c5d8509635f6a5a390aba1a70e6804d554855b697b5022100feebe7a0a60280d7d7844e83dceb4c5d6dee68cbdd3c655ba910d7e49bec61e5:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

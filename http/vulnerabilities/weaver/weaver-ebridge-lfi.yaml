@@ -26,6 +26,8 @@ http:
         name: idname
         regex:
           - '"id":"(.*?)"'
+        # digest: 4a0a004730450221008b9a83e63770885bd76e60c82b89f36f4ff4d44133a5ac476bddc6c8cb3921620220579ab8e57095763d278a4f71a642c46aa781b666950979c7ad829f6cba6c258f:922c64590222798bb761d5b6d8e72950
+
         type: regex
     matchers:
       - condition: and

@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a004730450220242147f6365a3c670ce77383ec26752269391f3e7e9efb3cbf2d7f1381a2de27022100aa3b582b7725ae82150f89a9d5545fd00bf210caebe926402ab5d2f97050be14:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains_all(body, "<list>" ,"<string>user()" ,"<length>")
           - contains(header, "text/xml")

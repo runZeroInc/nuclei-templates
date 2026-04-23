@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4b0a004830460221008c50ecd1b5d18c107083b776ad9b90609275e357cd3ffd1c20378d692516ebfe022100c292789352bf963ba2a8e410b2801a331463739cbaac64a520fc6c8b2932340b:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains_all(body, "Network Diagnostic:", "disconnect the user")

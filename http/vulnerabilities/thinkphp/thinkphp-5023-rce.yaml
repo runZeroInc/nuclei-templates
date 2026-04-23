@@ -26,6 +26,8 @@ http:
           - ThinkPHP
       - status:
           - 200
+        # digest: 4b0a00483046022100e8f739a7a86484f7fc20f94f6279a931ab839542655ac0ba99b4dc74eb0fc361022100c1b7eada165de76aa1af250fb9d12d0239aeeb0db7910a255eeb087326bceb06:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: POST

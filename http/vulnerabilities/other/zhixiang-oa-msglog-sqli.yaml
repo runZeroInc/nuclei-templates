@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a004630440220417d328babf1dc7ef3a901bef49e49fe773d35eb5a94b0eb716c83aa6df2fe8d02201ca21e149437761d5f60d0a3abaacf155c9274ff42d6e01d3eaf217ef5177202:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 500
           - contains(body, "43f845fa0c8aef9104f8e1b07625ecf8")

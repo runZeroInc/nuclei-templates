@@ -24,6 +24,8 @@ http:
           - mySQL query error
       - status:
           - 200
+        # digest: 4b0a00483046022100abc2db9a695e350524673b69d7ddcf734952048ca336424e2992014b17fe9c09022100e9202bfdc3e85b7ebbaf6bd3f79ac062f6f77be0bf781c53af6bd23f15b25da5:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     max-redirects: 3

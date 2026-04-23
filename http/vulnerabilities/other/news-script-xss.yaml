@@ -17,6 +17,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a00463044022079d21c595f07baf3116e5339ec84010b5b423b8a7121d664e1f20a6757af0d1d0220298ebbe050375234c3d6d2de8b0dbf8159f62647dc63bd7f48580091f2d2ff97:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains_all(body, "News Script PHP Pro", "<script>alert(document.domain)</script>")
           - contains(content_type, "text/html")

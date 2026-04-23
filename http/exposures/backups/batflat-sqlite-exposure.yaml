@@ -20,11 +20,13 @@ info:
 http:
   - matchers:
       - binary:
-          - 53514c69746520666f726d6174203300
+          - 53514c69746520666f726d6174203300 # "SQLite format 3\0" hex
         part: body
         type: binary
       - status:
           - 200
+        # digest: 490a00463044022076f8e6232eaec37e5008504b0fea523843033c16549829e5403cd11f3f088d3d02203a0a7fe7e8ffba82b35d1084447eff55a15ce4cde24be7978eb84ae2a8a0036a:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

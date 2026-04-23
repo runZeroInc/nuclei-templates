@@ -30,6 +30,8 @@ http:
           - Cod::respond()
       - status:
           - 200
+        # digest: 4b0a00483046022100f4391f792d11ce2639c76f7c37bb49cac6987142d3a60a61eee0aab7d0874c2c022100ad5be27faf4ac8fc8df4bc02258daf659b86ec81720200f4094cd66fdcf84e64:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET
