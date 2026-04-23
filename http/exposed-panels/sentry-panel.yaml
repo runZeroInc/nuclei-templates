@@ -27,12 +27,15 @@ http:
         part: body
         regex:
           - (?i)"current":\s*"([0-9a-z.-]+)"
+        # digest: 4b0a004830460221008bb3c66d6381523b0a0eaa32985566f168985f37f32515ddfe608c80b949139e022100c056685d8756922ca34869f912cdc70e5d507322fd4fe136d4b84ba6eb174330:922c64590222798bb761d5b6d8e72950
+
         type: regex
     matchers:
       - condition: and
         dsl:
           - status_code == 200
           - contains(body, "/sentry/") && contains(body, "Login")
+          - regex("(?i)<title>[^<]*sentry[^<]*</title>", body)
         type: dsl
     max-redirects: 3
     method: GET
