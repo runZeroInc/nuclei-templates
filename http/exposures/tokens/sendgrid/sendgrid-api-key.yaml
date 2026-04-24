@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - (?i)\b(SG\.(?i)[a-z0-9=_\-\.]{66})(?:['|\"|\n|\r|\s|\x60|;]|$)
+        # digest: 4a0a00473045022008de1e31d52e47d85196284a9c75026d1c996835cd7b101fe5e106a7a2ac1497022100a88325e271661ee7f77c6bc5a8563ef69981f87d78f6df8ad3e3e506c16a7877:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

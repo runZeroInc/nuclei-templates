@@ -27,6 +27,8 @@ http:
           - dns
       - regex:
           - ^success$
+        # digest: 4a0a00473045022100eae15ce10488412dd3a232a44220a6088e9dc437350d182a2acd807a93a25a3402201cbe57d556c72d1e7a5aef45143f2aab70461867200883034779ffa736dd3a5b:922c64590222798bb761d5b6d8e72950
+
         type: regex
     matchers-condition: and
     method: GET

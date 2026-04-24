@@ -16,6 +16,8 @@ http:
   - matchers:
       - condition: and
         part: body
+        # digest: 4a0a00473045022100bd5f2293770a604d203c13fdc072e4612387c192b6d5aac89d047a3fa02a46070220417b24e1d26c11797d74c5acee6b1b84a74f3128ae93be7a2dd3335de92a1c99:922c64590222798bb761d5b6d8e72950
+
         type: word
         words:
           - taskResponse

@@ -33,6 +33,8 @@ http:
         Host: {{Hostname}}
   - matchers:
       - condition: and
+        # digest: 4b0a00483046022100a1427ee890b2013312ca3ccd0ae189fa139aa2c75f91d9707c942d4ffe208554022100d11dbbd6659d89cd17a9bac27fb2e8d822d84f02f0385c5b6c2baa0daf7421a0:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration >= 6
           - contains(body,"All members")

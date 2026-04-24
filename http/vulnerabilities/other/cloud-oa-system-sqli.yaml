@@ -32,6 +32,8 @@ http:
           - text/xml
       - status:
           - 500
+        # digest: 4a0a00473045022100d386542cce5eff5f85853522f380647a1062a669e6bfa6f5b47492e623a8d50402200be0b8c6adc502fe3431743b98499d3d4894903b2146776cce65664f7873a101:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

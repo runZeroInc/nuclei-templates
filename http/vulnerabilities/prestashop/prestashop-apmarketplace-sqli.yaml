@@ -18,6 +18,8 @@ http:
   - host-redirects: true
     matchers:
       - condition: and
+        # digest: 4a0a0047304502203be229c0bdaab9a715716d8e67df653a23d9f324d90d049ed39e36da45697b47022100b2c3ed23208ba09f0998b86a02fbabece53ff819b1724555d4a79e83418cab8a:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration>=6
           - contains(body, "module-apmarketplace-passwordrecovery")

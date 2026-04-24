@@ -24,6 +24,8 @@ http:
           - var next=window.confirm("确定删除文件吗？");
       - status:
           - 200
+        # digest: 4a0a0047304502207748c375e2b85574850663ca9b42ab165cbc1bd3f85805aaa786fef1dc5c64a302210096d98640772c9fa9c3cfade6c74c4f4494c42d370141960adcc852444a1a3fb6:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

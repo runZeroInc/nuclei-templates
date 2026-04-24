@@ -28,6 +28,8 @@ http:
           - PHPSESSID=
           - register_for/?rid=
       - negative: true
+        # digest: 4b0a00483046022100a20f36821d8cc53b7911a4a3509f1c11fe2cb7b73426b83e8edb0f13322f946b02210085bc751a47cfbc97fc4b986b7c77c7a0de0daa00199c805b8768f272ec8c3c45:922c64590222798bb761d5b6d8e72950
+
         part: header_2
         type: word
         words:

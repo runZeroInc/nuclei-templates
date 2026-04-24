@@ -1,0 +1,42 @@
+id: fortisandbox-panel
+info:
+  name: Fortinet FortiSandbox Panel - Detect
+  author: Umut ÖZEN
+  severity: info
+  description: |
+    Fortinet FortiSandbox login panel was discovered.
+  reference:
+    - https://www.fortinet.com/products/sandbox/fortisandbox
+  classification:
+    cpe: cpe:2.3:a:fortinet:fortisandbox:*:*:*:*:*:*:*:*
+  metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FortiSandbox"})
+    max-request: 1
+    product: fortisandbox
+    shodan-query: title:"FortiSandbox"
+    vendor: fortinet
+    verified: true
+  tags: fortinet,fortisandbox,panel,tech
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+      - "{{BaseURL}}/fsa/login"
+    stop-at-first-match: true
+    host-redirects: true
+    max-redirects: 2
+    matchers-condition: or
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "<title>FortiSandbox</title>"
+          - "fsa_login_logo"
+          - "/images/fsa_logo"
+          - "FortiSandbox"
+        condition: or
+        case-insensitive: true
+      - type: regex
+        part: header
+        regex:
+          - 'Set-Cookie: FSA_SESSION_ID='

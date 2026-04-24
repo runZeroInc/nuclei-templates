@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a0046304402207ddb3107c113a2c1ea18d8288b2f529e129a208fbffd3d83e0f80b33326fccf5022029224d51ce0316b91d7fec12562f90d96bedd6b3cbbfb562d8c146fca88b6dee:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration>=6
           - contains(body, "{\"success\":true}")

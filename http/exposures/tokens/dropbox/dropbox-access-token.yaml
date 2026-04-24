@@ -21,6 +21,8 @@ http:
       - part: body
         regex:
           - \b(sl\.[a-zA-Z0-9_-]{130,152})(?:$|[^a-zA-Z0-9_-])
+        # digest: 4a0a00473045022100ea0091526bc78d6ef6fa9dfe2f11dc24eff027e819b8278fefece18a3e79076c0220076434b6470f4073e68e184924129910c2abe68cf7b853150d1151875d165dd5:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

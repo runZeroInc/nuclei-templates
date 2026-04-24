@@ -22,6 +22,8 @@ http:
         part: body_1
         regex:
           - ([a-zA-Z0-9]+)\.tmp\.mht
+        # digest: 4b0a00483046022100ae78d60f724300e3633a841a4b685b9168c48d7337ffc4f98c7fdd292b4f53ba02210094df4341ed60b3eee41ef109fb3aed4db69dfa6790834a8a58437f04b0bdb826:922c64590222798bb761d5b6d8e72950
+
         type: regex
     matchers:
       - condition: and

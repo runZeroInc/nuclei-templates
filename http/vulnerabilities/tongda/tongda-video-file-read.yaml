@@ -27,6 +27,8 @@ http:
           - $ATTACH_PATH
       - status:
           - 200
+        # digest: 4b0a00483046022100e89de150c00cf551dc26905ac5772805dd6946a4e18bfce129c496a503aeff5b022100aabd82f0c792687b80e65c5e3dfdd9438eef41cbdb390908df07c6f48a7c6f0f:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

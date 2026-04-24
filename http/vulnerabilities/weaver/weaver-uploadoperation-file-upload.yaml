@@ -33,6 +33,8 @@ http:
         type: regex
     matchers:
       - condition: and
+        # digest: 490a0046304402200f9de6852759a67370506c239d1ed081cc4b5a28d302cee398c0b1256f2e71e402207b23a87fe31ea03add685f1f74af0911e5af1a757f60db214d3d3c99f998487c:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code_1 == 200 && contains(body_1,'workrelate/plan/util/ViewDoc')
           - status_code_2 == 200 && contains(body_2, 'println')

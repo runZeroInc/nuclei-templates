@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - (?i)(?:droneci)(?:[0-9a-z\-_\t .]{0,20})(?:[\s|']|[\s|"]){0,3}(?:=|>|:=|\|\|:|<=|=>|:)(?:'|\"|\s|=|\x60){0,5}([a-z0-9]{32})(?:['|\"|\n|\r|\s|\x60|;]|$)
+        # digest: 4a0a00473045022100ee6658cc70e0c68b9ee7b00f2d48cb1c5ad5e62cea156b29fdca1f190cb4bf0702200db1b47a31acc749bcc08440d911dc293a41752e3f3b45906e7aaf28c32907db:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

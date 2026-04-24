@@ -20,6 +20,8 @@ http:
   - extractors:
       - group: 1
         internal: true
+        # digest: 4a0a0047304502202e951e7878ebf6dc67f66ee5cabfa6afe4a879f5e6c9fbf4cec5e7033624f5f3022100f0d7274633a9bde18b353658f5ae04792d7268bae3ecabf47d6619da26c3aa6c:922c64590222798bb761d5b6d8e72950
+
         name: apikey
         regex:
           - '"home":"(.*?)",'

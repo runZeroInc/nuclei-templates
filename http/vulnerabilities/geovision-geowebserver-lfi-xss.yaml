@@ -26,6 +26,8 @@ http:
         name: lfi
         type: dsl
       - condition: and
+        # digest: 4a0a00473045022100a16b53a625d9b169c6e33b0753fd23872f7577fe7c2541bf3a7599a897ccf27f02207b3b070c513af9c34b0c8e6b720b03434a4a6e2007433f8dc8749dfa905ea47e:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains_all(body, "<script>alert(document.domain)</script>={\"AeDebug")
           - contains(content_type, "text/html")

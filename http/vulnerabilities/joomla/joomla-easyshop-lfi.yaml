@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a00473045022100fc7660c09e1c4d5405fd07be8b9e4757af9c92dd725764011af0cb383c4b777a02206d7eee530e946e27674aa99a35b55ae2711cd8e1e1f9f91b3335a1980be84826:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains_all(body, "<?php", "class JConfig {")
           - contains_any(body, "$user", "$password", "$dbtype")

@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a0047304502203bec25f4a3e6890f9f2ef16da58793624aab9890733db7fde42d38cb7455abeb0221009faf228c949e51c31a5f02c9bb367fe4b33557199af3bccfbe00efa5ba7ce6c2:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - regex("uid=([0-9(a-z)]+) gid=([0-9(a-z)]+) groups=([0-9(a-z)]+)", body)

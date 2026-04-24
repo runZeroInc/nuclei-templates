@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4b0a0048304602210083495d42fe4263c8362cf6a21d9d80f6fd9c1830fc500ce012229005ae3ac9470221009a82102e98b342e51b2c771d84f24e5effddf845e34c1dc0bf1dcc3c898cf04d:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code_1 == 200
           - contains(body_1,"bit app support") && contains(body_1,"extensions") && contains(body_1,"fonts")

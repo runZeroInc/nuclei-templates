@@ -27,6 +27,8 @@ http:
         type: regex
       - status:
           - 401
+        # digest: 4b0a00483046022100b0d28b8426f2b607f5cdabd8a73edac420f8bcf86715c56f99af43d739235751022100b6b5f7a38b2c01aa936005bdceb834a99f4ab885cd053a9936fbe02b758ec4b7:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

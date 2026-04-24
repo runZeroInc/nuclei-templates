@@ -21,6 +21,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a00473045022100cdb8e465fe37fbd9d7be4660af720464692724688ca343518cdabe9f6545e62b0220141d48c1133b36c00aed7e8a8e7e038cac325dce9abf9dc676157797972a5c31:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration>=7
           - contains(content_type, "text/html")

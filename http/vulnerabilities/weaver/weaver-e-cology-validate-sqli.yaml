@@ -23,6 +23,8 @@ http:
           - '{{result}}'
       - status:
           - 200
+        # digest: 4a0a0047304502205eb8024be4bf4b8f9737e359a800208db027ddca1a1a65b46b70e95962f6b1b8022100f8d8c26edb7cecbe7c3eddf321f3c84e39223952f5b9aac2056b8b3911039512:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

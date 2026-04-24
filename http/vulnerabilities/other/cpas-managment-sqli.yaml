@@ -28,6 +28,8 @@ http:
         Host: {{Hostname}}
   - matchers:
       - condition: and
+        # digest: 4a0a004730450221009d238698eb3912378244298a2a7f3918605500b5291b16d6a0138ae374d9f5140220123320b76f8145c069dbc2983261cdf5b5b0e2e4bd756984e7fd2470099e5f39:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration>=7
           - contains(content_type, "text/plain")

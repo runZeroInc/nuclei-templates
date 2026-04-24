@@ -51,6 +51,8 @@ http:
         part: body
         regex:
           - '"session_id"\s*:\s*"([^"]+)"'
+        # digest: 4a0a00473045022100e00306b41b81eea00c263b49f012117e604bb7537173fb5fac66eec0538a801402205d8125a741df7c9b3d9558186a257f48dd04d8a1e5f7e89364cb10478d576de1:922c64590222798bb761d5b6d8e72950
+
         type: regex
     matchers:
       - condition: and

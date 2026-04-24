@@ -26,6 +26,8 @@ http:
           - Construtoras
       - status:
           - 200
+        # digest: 4a0a00473045022025f8bbf33c089eac1ed06e6118e1ff7556af9322adf8e89e14d18b57dd3527c10221008708ead38d0dc530b2e63723e9003db4e0039fb4781c419b8b0f066d2b4daec5:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

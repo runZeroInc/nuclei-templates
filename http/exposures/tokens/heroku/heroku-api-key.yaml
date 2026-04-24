@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - (?i)heroku.{0,20}key.{0,20}\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b
+        # digest: 490a0046304402206d3244d5c39eec98c83fb7aeef18c02087c2222d3feda30ddd415b3cc4a817d6022011db7765679c505253952da21667c3008fed7918094a09f8c39b23b2196d1bb9:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

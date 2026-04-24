@@ -18,6 +18,8 @@ http:
       - part: body
         regex:
           - duffel_(test|live)_(?i)[a-z0-9_\-=]{43}
+        # digest: 4b0a00483046022100956c3682a439452f547635b9904a5f12fd286c177141cdbcb585eaefbbe99063022100a15ba212b11ffe9aad0f8a2fe87a1f4065eb302a211a5b0b50bc540a38ed596d:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

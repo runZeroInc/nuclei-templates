@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 490a0046304402206cfcfaeda16a8145182f46e445b900c53db60050b874879f83539ea69ca8f9c602206c14a0af516cf56a72dee4f88b84c7059b3b6f2fcf24f68d41434bad6706fe16:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code_2 == 200
           - contains(content_type_2, "text/html")

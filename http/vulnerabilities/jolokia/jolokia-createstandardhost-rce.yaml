@@ -17,6 +17,8 @@ http:
           - 200
         type: status
       - condition: and
+        # digest: 4a0a004730450220374c25fcb52f2315f06a5fbbb01c50df754ce9cc9a5df0684a999e31b86ecb8e02210097425887a712bfe31abf41ba02b00010a7f65cff61abf8d684df9e86c6cf98ca:922c64590222798bb761d5b6d8e72950
+
         part: body
         type: word
         words:

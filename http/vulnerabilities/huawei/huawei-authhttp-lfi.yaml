@@ -27,6 +27,8 @@ http:
         type: regex
       - status:
           - 200
+        # digest: 4a0a004730450221009042545177d6a693d33297a54b6f4ac4335677a74dcf97bd9a9dcf928e1ad4dc022035312c845e9511e1a9a1e61c3f7e81b090a16a365bacda0673199cfde4c59acd:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

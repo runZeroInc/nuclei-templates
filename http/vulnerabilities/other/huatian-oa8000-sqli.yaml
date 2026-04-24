@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a0047304502210097e06939a78a8fbe67eaf53d10dd193791d9d05c05dcf18475d34edf84db1c53022029da31705736648c9c3ef64b6e97f8198808a87b449c9d070d44acdd042d1dbe:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains(content_type, "text/xml")

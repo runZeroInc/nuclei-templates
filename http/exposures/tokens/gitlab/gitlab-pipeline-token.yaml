@@ -20,6 +20,8 @@ http:
       - part: body
         regex:
           - \b(glptt-[0-9a-f]{40})\b
+        # digest: 4a0a004730450220781bb1b3d0704a647fe9b83ae49200ffaae6eb67bde019c912160f16162b603b022100f95f7ce162df9d263f262060c70eb9f49fd75abb200014c6014d99a9e4e01357:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

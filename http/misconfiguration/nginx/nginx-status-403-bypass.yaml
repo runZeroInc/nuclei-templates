@@ -51,6 +51,8 @@ http:
     stop-at-first-match: true
   - matchers:
       - condition: and
+        # digest: 4a0a00473045022100dfd848ecc70909cd1d833ea5051419a90b3fffe0fa3be5cd7a5b338277caecb402204e75641d67e37ed61daebaba3b336e03f17c1493e9ee34515b038cb467575651:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains(body, "Active connections:")

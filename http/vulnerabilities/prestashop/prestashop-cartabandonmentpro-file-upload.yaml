@@ -63,6 +63,8 @@ http:
     stop-at-first-match: true
   - matchers:
       - condition: and
+        # digest: 4b0a00483046022100bd7b7673528eaa005f35f422f2c0776d1337665e18ba8479ffecfb8a045b5940022100e6971cc98aad2611bc1cc5f2e3c1fa0df5c58682d4582b0bb7dc542317b7e440:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(content_type, "image/png")
           - contains(body, "{{string}}")

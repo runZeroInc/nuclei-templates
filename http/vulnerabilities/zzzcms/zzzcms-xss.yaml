@@ -33,6 +33,8 @@ http:
           - text/html
       - status:
           - 200
+        # digest: 4a0a00473045022100a636f5485e6bc6e15368fed96b2b3aebfd4e19ddc500840aeb0fc4c3b139576102202e31ec8c5a7c694ffdb8c697da75d52da6b80f2a7ee307b7471b4ff626d46d6e:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

@@ -26,6 +26,8 @@ http:
       - dsl:
           - '"USERNAME: "+ username'
           - '"PASSWORD: "+ password'
+        # digest: 4a0a0047304502210087c62a6acd5f9b3b3d78962eadc6959137bce9024273df73141ff7469d24ba2d022057882ed59fe022d1222a93e60e3bff82e4c3efb77540178284e54cb19b4f63b1:922c64590222798bb761d5b6d8e72950
+
         type: dsl
     matchers:
       - condition: and

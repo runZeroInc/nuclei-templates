@@ -23,6 +23,8 @@ http:
           - 200
         type: status
       - condition: and
+        # digest: 4a0a00473045022100bc33114db7e0300617820d77161e51c7f23c316954023b109cae686707b2d94c0220558c2cb702e75e83e3976fde904f1cc16beb9e0ed735b62c2ad0af6561a0ef21:922c64590222798bb761d5b6d8e72950
+
         type: word
         words:
           - jcr:path

@@ -26,6 +26,8 @@ http:
         type: regex
     matchers:
       - condition: and
+        # digest: 4a0a00473045022100981582612f842ffd8a8223598cf61f3839022131b32d0f67f1a45c615ea9c49502204d0b5fd5c21428494d78d6f499ac52762214cee57b6487e0ddac21a8b430a5b3:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(body_1,"CustomInfo") && contains(header_1,"PHPSESSID")
           - contains(body_2,"src=\"custom/")

@@ -21,6 +21,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a00473045022100b3e07cc62f3e651d8c417b90791e083db0db3d1792ad5a84d6f108aac0851a55022006d8270908bc667961bc425830690709b436050a883d0a06dab9a55625b788ea:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(body, "\"><img src=x onerror=alert(document.domain)> </title>")
           - contains(content_type, "text/html")

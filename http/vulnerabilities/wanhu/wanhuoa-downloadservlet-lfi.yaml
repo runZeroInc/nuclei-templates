@@ -20,6 +20,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a004730450220478ebfa639ad618948fe7ba1f681fcc3317da9d341648a1a050c41ea2a8501180221009d3514c5e10b37b834d7981d23cf49e9dc7ccafdb556fa7cfb67a375f48f52e5:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains(body,'ccerp.password')

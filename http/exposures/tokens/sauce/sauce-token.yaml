@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - (?i)sauce.{0,50}\b([a-f0-9-]{36})\b
+        # digest: 4a0a00473045022100bd84b6620e24e602c2e5127201c1ddad9a58d573f17c11b4fce9b5071d459f9f022052f2cb5a9417e7169b1affa3df3f2c8ca250a61f24a7a15e1926e666a6e8ac01:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

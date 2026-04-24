@@ -26,6 +26,8 @@ http:
           - filename=config
       - status:
           - 200
+        # digest: 4a0a004730450220263512b6b2e31b66e869bf4f47cec97eecaa7bdfcb52ac9a5920211ba2e8a50c0221008991476dd785576d7d2a1aa29223dfa683bda50fba6014a8606725ea1839f54e:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

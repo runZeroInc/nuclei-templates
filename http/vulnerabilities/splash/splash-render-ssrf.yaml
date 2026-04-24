@@ -26,6 +26,8 @@ http:
           - Interactsh Server
       - status:
           - 200
+        # digest: 4a0a004730450221009d327319733c324239214c2314c31dd629454feabe4338cdcfeafd868bee464d02200a57589ba1d64b17bdfc73260cfb085790e906fdf2c258bbb9a8538a751f9733:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     method: GET

@@ -18,6 +18,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a00473045022021c107fa3e845ace2910bd49ecc80602f298ccd23ba9ac1a3de7c37621a5fb27022100ca0fedefd1482709b782cf7a811dddf7f224b709f2ac9fc735bacaa377d95bb1:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains_all(header, 'multipart/form-data', 'fileName=')
           - regex('root:.*:0:0:', body)

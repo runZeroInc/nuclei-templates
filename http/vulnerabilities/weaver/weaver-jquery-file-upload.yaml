@@ -30,6 +30,8 @@ http:
         type: regex
     matchers:
       - condition: and
+        # digest: 4a0a00473045022100b6b7ed8f057a6a9c3c6776360dadfc03eedc8c727de3f484fe9ba455656e0841022035bb58d371c0e93c0a9099061856fd4db1fdd6068a4d42fde5384ec698431a6a:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code_1 == 200
           - status_code_3 == 200 && contains(body_3,'{{string}}')

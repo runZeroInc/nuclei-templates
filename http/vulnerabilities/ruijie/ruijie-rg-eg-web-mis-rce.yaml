@@ -30,6 +30,8 @@ http:
       - '{{BaseURL}}'
   - matchers:
       - condition: and
+        # digest: 4a0a004730450220550ef8db3aeb918e2b592f04f51353a7d406d96b7b77382ac619f23902c1f15a0221009dcd6506352cb4a3241f0bbec250e2e6dd3d008ebba1442fe20d1bd01fe519f7:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - regex("uid=([0-9(a-z)]+) gid=([0-9(a-z)]+)", body)

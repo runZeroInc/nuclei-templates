@@ -25,6 +25,7 @@ http:
         type: word
         words:
           - 'User-Agent: Java'
+          # digest: 490a00463044022064d72da0179e45a35d41b15a5cc6e64f7b541cf9195a8c1df950ea63bfcfa6f8022049d1861aca3193ec6bf9e65f8a038713fbd933eeda48787870a654daed5d9005:922c64590222798bb761d5b6d8e72950
     matchers-condition: and
     raw:
       - |

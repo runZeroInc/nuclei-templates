@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a00473045022045df301ecefe9753cb0d688ad559fdf14aac57f9e8a3291a6d1a93791d1e12bf022100dd675cbbec53622701cf4a3200478a15393dca4f57e5912a5c2e91f3293fc49d:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - status_code == 200
           - contains(header, "text/html")

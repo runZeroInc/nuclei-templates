@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a0047304502201e08c6871edfa4b6717549560828271054d954bbebde18de785b840a312a911c022100959e7796b2456e1558c38ab0a523a80348e4d85901faae4be41ed83fcad67d79:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration>=6
           - status_code==500

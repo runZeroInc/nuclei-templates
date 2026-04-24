@@ -21,6 +21,8 @@ variables:
 http:
   - matchers:
       - condition: and
+        # digest: 490a0046304402204c482b0e133ea41cfc0d718c3b1658df2db2ffa25cc56dc61dae57f23d0b147b02201a97058ab98129bbd55438d69258b52e82910ec8bb37f9fe91f1567ddf1a90ba:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - duration>=6
           - status_code == 200

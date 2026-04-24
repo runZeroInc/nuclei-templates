@@ -19,6 +19,8 @@ http:
       - part: body
         regex:
           - (?i)[a-z0-9]{14}\.atlasv1\.[a-z0-9\-_=]{60,70}
+        # digest: 4a0a00473045022100dcb66a7e61480938f3edbddc5d61192bf0a080914bd9eb9dff54f38d1eeff9a1022077c7f4f1f8583026baaefd7c7de486fc35d71cbf80acde561fd9f9ef85a0bc75:922c64590222798bb761d5b6d8e72950
+
         type: regex
     method: GET
     path:

@@ -19,6 +19,8 @@ info:
 http:
   - matchers:
       - condition: and
+        # digest: 4a0a0047304502202ec7331459416fb7af4c7c8a121dba3fa3eeb3cb4940640d6355857532d5a230022100f4d9ce5142de4cd051a5c078f4fbf82edbdbccf0aea4ad079ffab7e39a24434b:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(body, "alert(document.domain)") && contains(body, "Joomla") && contains(tolower(body), "joombri")
           - contains(content_type, "text/html")
