@@ -41,4 +41,3 @@ http:
         part: header
         regex:
           - 'Set-Cookie: FSA_SESSION_ID='
-        # digest: 4b0a00483046022100c1e2183279eafb8d5eb385b1a9aa528fe1ce312d91a5cfdd2d9f4a9c1a72c4e80221008f3d97bbc9e87d63682692b6f60ac0ea55482bfe10e63b8d4f86d9a815eb3505:922c64590222798bb761d5b6d8e72950

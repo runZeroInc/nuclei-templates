@@ -56,4 +56,3 @@ http:
           - 'contains(content_type, "application/json")'
           - 'contains_all(body, "access_toke", "refresh_token")'
         condition: and
-        # digest: 4a0a0047304502205956ca43fb9a729b1db5e6ff70709e37f5e5dfd61132be75700e0998df088f99022100e303e69a985afdbaab56183235817896dcf9640398942860b08225758842417c:922c64590222798bb761d5b6d8e72950
