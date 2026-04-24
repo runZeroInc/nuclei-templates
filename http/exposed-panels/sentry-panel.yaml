@@ -33,6 +33,7 @@ http:
         dsl:
           - status_code == 200
           - contains(body, "/sentry/") && contains(body, "Login")
+          - regex("(?i)<title>[^<]*sentry[^<]*</title>", body)
         type: dsl
     max-redirects: 3
     method: GET
