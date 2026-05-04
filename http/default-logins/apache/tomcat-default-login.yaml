@@ -3,7 +3,7 @@ info:
   name: Apache Tomcat Manager Default Login
   author: pdteam,sinKettu,nybble04
   severity: high
-  description: Apache Tomcat Manager default login credentials were discovered. This template checks for multiple variations.
+  description: Apache Tomcat Manager default login credentials were discovered.
   reference:
     - https://www.rapid7.com/db/vulnerabilities/apache-tomcat-default-ovwebusr-password/
     - https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
@@ -11,7 +11,7 @@ info:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Apache Tomcat"})
-    max-request: 405
+    max-request: 25
     product: tomcat
     shodan-query: title:"Apache Tomcat"
     vendor: apache
@@ -20,6 +20,8 @@ http:
   - attack: clusterbomb
     matchers:
       - condition: and
+        # digest: 4a0a004730450221008a6ab244b09ee1e28170127512a9b09d826ac9ddccaea178849890752bcc634f022026fcfe47cddb090c3c1252869c544218e742e7b75bd75008f847994211cb13e0:922c64590222798bb761d5b6d8e72950
+
         part: body
         type: word
         words:

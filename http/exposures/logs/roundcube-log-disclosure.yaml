@@ -1,5 +1,4 @@
 id: roundcube-log-disclosure
-
 info:
   name: Roundcube Log Disclosure
   author: dhiyaneshDk,kazet
@@ -10,12 +9,31 @@ info:
   metadata:
     max-request: 16
   tags: exposure,logs,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/{{roundcube_path}}"
+  - extractors:
+      - dsl:
+          - content_length
+        # digest: 4a0a00473045022037525d105aaadfd43620a0da12bd29546262e9c975978f21f988be7c4958a601022100a037e8a64ee8e09058b8fdcd3b8ca7ca581ed61fb57143fc1dca021834782959:922c64590222798bb761d5b6d8e72950
 
+        type: dsl
+    matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - 'IMAP Error:'
+          - Message for
+          - 'DB Error:'
+          - 'PHP Error:'
+          - 'PHP Warning:'
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
+    max-size: 1000
+    method: GET
+    path:
+      - '{{BaseURL}}/{{roundcube_path}}'
     payloads:
       roundcube_path:
         - roundcube/logs/sendmail
@@ -34,27 +52,3 @@ http:
         - logs/sendmail.log
         - logs/errors.log
         - logs/errors
-    max-size: 1000
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "IMAP Error:"
-          - "Message for"
-          - "DB Error:"
-          - "IMAP Error:"
-          - "PHP Error:"
-          - "PHP Warning:"
-        condition: or
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: dsl
-        dsl:
-          - content_length
-
