@@ -10,6 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:o:zebra:zt220_firmware:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Zebra"}) || service["http.body"] matches "Zebra Technologies"
     verified: true
     max-request: 1
     vendor: zebra
