@@ -6,7 +6,7 @@ info:
   description: |
     Zebra default login credentials was discovered.
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Zebra"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Zebra"}) || service["http.body"] matches "Zebra Technologies"
     max-request: 4
     shodan-query: title:"Zebra"
     verified: true
