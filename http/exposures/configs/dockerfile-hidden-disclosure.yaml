@@ -1,5 +1,4 @@
 id: dockerfile-hidden-disclosure
-
 info:
   name: Dockerfile - Detect
   author: dhiyaneshDk
@@ -10,32 +9,29 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
     cvss-score: 5.3
-    cwe-id: CWE-200
+    cwe-id: CWE-200,CWE-552
   metadata:
     max-request: 3
-  tags: exposure,config,vuln
-
+  tags: config,exposure,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.dockerfile"
-      - "{{BaseURL}}/.Dockerfile"
-      - "{{BaseURL}}/Dockerfile"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
+  - matchers:
+      - part: body
         regex:
-          - '^(?:FROM(?:CACHE)?|RUN|ADD|WORKDIR|ENV|EXPOSE|\#)\s+[ -~]+'
-        part: body
-
-      - type: status
-        status:
+          - ^(?:FROM(?:CACHE)?|RUN|ADD|WORKDIR|ENV|EXPOSE|\#)\s+[ -~]+
+        type: regex
+      - status:
           - 200
+        type: status
+      - negative: true
+        # digest: 4b0a00483046022100d179462f21b992a9c0d30b03b74c08de0446097b68015ef3811dabe2747471dc022100b87d4751722e876ac16753a3cc179d0d8fe267c2757ec6c71bd00fc8130f50f6:922c64590222798bb761d5b6d8e72950
 
-      - type: word
         part: header
+        type: word
         words:
-          - "text/html"
-        negative: true
-
+          - text/html
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/.dockerfile'
+      - '{{BaseURL}}/.Dockerfile'
+      - '{{BaseURL}}/Dockerfile'
