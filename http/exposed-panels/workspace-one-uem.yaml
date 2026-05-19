@@ -24,11 +24,12 @@ info:
 http:
   - matchers:
       - condition: or
+        # digest: 4a0a00473045022100f4445604a8da4ab2fe05c028120da16041660308b12f530cc895ad4d1044697a02203832f967318d30994139a72ed29779d5eadcdcb00af0155bacd08e85e47dd600:922c64590222798bb761d5b6d8e72950
+
         part: body
         type: word
         words:
           - About VMware AirWatch
-          - content="AirWatch
           - /AirWatch/Images
     method: GET
     path:
