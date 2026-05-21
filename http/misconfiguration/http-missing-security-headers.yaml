@@ -1,7 +1,7 @@
 id: http-missing-security-headers
 info:
   name: HTTP Missing Security Headers
-  author: socketz,geeknik,G4L1T0,convisoappsec,kurohost,dawid-czarnecki,forgedhallpass,jub0bs,userdehghani,celbahraoui
+  author: socketz,geeknik,G4L1T0,convisoappsec,kurohost,dawid-czarnecki,forgedhallpass,jub0bs,userdehghani,celbahraoui,safejulian
   severity: info
   description: |
     This template searches for missing HTTP security headers. The impact of these missing headers can vary.
@@ -76,16 +76,16 @@ http:
         type: dsl
       - condition: and
         dsl:
-          - '!regex(''(?i)^content-type:'', header)'
+          - '!regex(''(?i)content-type:'', header)'
           - status_code == 200
         name: missing-content-type
         type: dsl
       - condition: and
-        # digest: 490a0046304402203f7232150ab897579994ba5186d8e46bf86eb13d4e268457111d5d186069225f022075ff4a7730f2ddfa1419958e74cac251a8e06c0751f7706cef72418cb7a5f11a:922c64590222798bb761d5b6d8e72950
+        # digest: 4b0a00483046022100de4b3a6468ef41ca1d8849f91bf21d9ba8a1d5eac12f93238dcfcbac9c2fa9ed022100fff99c6f6267833bc25981f3d2993bb01415ecac84be9eaee9dc1ab2e407f8fe:922c64590222798bb761d5b6d8e72950
 
         dsl:
-          - regex('(?i)^content-type:\s*text/html', header)
-          - '!regex(''(?i)^content-type:.*charset='', header)'
+          - regex('(?i)content-type:\s*text/html', header)
+          - '!regex(''(?i)content-type:.*charset='', header)'
           - status_code == 200
         name: content-type-charset-specification
         type: dsl
