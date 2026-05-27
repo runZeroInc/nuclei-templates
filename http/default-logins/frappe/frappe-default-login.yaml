@@ -9,6 +9,7 @@ info:
     - https://frappeframework.com
     - https://docs.erpnext.com
   metadata:
+    runzero-match: service["http.body"] matches "(?i)Login to Frappe"
     max-request: 1
     verified: true
   tags: default-login,erpnext,frappe
