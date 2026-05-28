@@ -11,7 +11,7 @@ info:
   reference:
     - https://reliablecontrols.com/products/mach-prowebsys/
   metadata:
-    runzero-match: servicde["http.body"] matches "(?i)MACH-ProWeb interface"
+    runzero-match: service["http.body"] matches "(?i)MACH-ProWeb interface"
     max-request: 1
     product: mach-system
     shodan-query: http.title:"Reliable Controls"
