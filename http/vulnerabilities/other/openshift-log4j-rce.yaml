@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:redhat:openshift_origin:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)OpenShift"})
     max-request: 1
     product: openshift_origin
     shodan-query: title:"OpenShift"

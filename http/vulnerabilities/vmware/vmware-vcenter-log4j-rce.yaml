@@ -18,7 +18,7 @@ info:
     cwe-id: CWE-502,CWE-77,CWE-78
     cpe: cpe:2.3:a:vmware:vcenter_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)VMware VCenter"})
     max-request: 1
     product: vcenter_server
     shodan-query: title:"VMware VCenter"

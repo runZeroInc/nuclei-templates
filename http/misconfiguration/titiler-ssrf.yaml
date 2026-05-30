@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-918
   metadata:
-    runzero-review: REJECT/2025-11-17/uses interactsh
+    runzero-match: service["http.body"] matches "(?i)TiTiler"
     max-request: 1
     shodan-query: html:"TiTiler"
     verified: true

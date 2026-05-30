@@ -12,7 +12,7 @@ info:
       - CWE-918
       - CWE-99
   metadata:
-    runzero-review: 'REJECT/2026-04-14/auto: interactsh (OAST callback)'
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Splash"})
     hunter-query: web.title="Splash" && header="TwistedWeb"
     max-request: 1
     shodan-query: title:"Splash"

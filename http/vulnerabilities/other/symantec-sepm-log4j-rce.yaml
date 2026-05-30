@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:symantec:endpoint_protection_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Symantec Endpoint Protection Manager"})
     max-request: 1
     product: endpoint_protection_manager
     shodan-query: title:"Symantec Endpoint Protection Manager"

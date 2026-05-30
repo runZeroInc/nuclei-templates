@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-502,CWE-77
     cpe: cpe:2.3:a:fortinet:fortiportal:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: service["http.body"] matches "(?i)FortiPortal"
     max-request: 1
     product: fortiportal
     shodan-query: html:"FortiPortal"

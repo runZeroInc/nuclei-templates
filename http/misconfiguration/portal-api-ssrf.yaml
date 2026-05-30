@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-918
   metadata:
-    runzero-review: REJECT/2025-11-17/uses interactsh
+    runzero-match: service["http.body"] matches "(?i)/_proxy/api/v3/"
     fofa-query: body="/_proxy/api/v3/"
     max-request: 1
     verified: true

@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-918
     cpe: cpe:2.3:a:gradio_project:gradio:*:*:*:*:*:python:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: service["http.body"] matches "(?i)__gradio_mode__" || any(each(service["html.titles"]), {# matches "(?i)gradio"})
     fofa-query:
       - body="__gradio_mode__"
       - title="gradio"

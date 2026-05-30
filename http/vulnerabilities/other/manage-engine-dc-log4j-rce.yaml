@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:zohocorp:manageengine_desktop_central:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)ManageEngine Desktop Central"})
     max-request: 1
     product: manageengine_desktop_central
     shodan-query: title:"ManageEngine Desktop Central"
