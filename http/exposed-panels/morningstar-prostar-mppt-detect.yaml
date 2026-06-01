@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.morningstarcorp.com/products/prostar-mppt/
   metadata:
-    runzero-match: service["http.body"] matches `(?i)LVInit('Prostar MPPT')`
+    runzero-match: runzero-match: any(each(service["html.titles"]), {# matches "^Prostar MPPT - Live Data"})
     max-request: 1
     product: prostar-mppt
     shodan-query: http.title:"Prostar MPPT - Live Data"
