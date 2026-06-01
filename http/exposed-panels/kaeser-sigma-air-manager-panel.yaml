@@ -7,7 +7,7 @@ info:
   reference:
     - https://www.kaeser.com/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)KAESER CONNECT – SIGMA AIR MANAGER"
+    runzero-match: service["http.body"] matches "(?i)SIGMA AIR MANAGER"
     shodan-query: http.title:"SIGMA AIR MANAGER"
     verified: true
   tags: detect,discovery,kaeser,login,panel
