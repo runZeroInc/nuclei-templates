@@ -10,7 +10,7 @@ info:
     - https://github.com/Skyvern-AI/skyvern
     - https://skyvern.com
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^Skyvern"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Skyvern"})
     max-request: 1
     product: skyvern
     shodan-query: 'http.title:"Skyvern"'

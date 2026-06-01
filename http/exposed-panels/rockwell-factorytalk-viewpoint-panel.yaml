@@ -11,7 +11,7 @@ info:
   reference:
     - https://www.rockwellautomation.com/en-us/products/software/factorytalk/operationsuite/view/factorytalk-viewpoint.html
   metadata:
-    runzero-match: service["http.body"] matches "^FactoryTalk ViewPoint"
+    runzero-match: service["http.body"] matches "FactoryTalk ViewPoint"
     max-request: 1
     product: factorytalk-viewpoint
     shodan-query: 'http.title:"FactoryTalk ViewPoint"'

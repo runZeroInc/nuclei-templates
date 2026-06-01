@@ -9,7 +9,7 @@ info:
   reference:
     - https://github.com/PromtEngineer/localGPT
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^LocalGPT"})
+    runzero-match: any(each(service["html.titles"]), {# matches "LocalGPT"})
     max-request: 1
     product: localgpt
     shodan-query: 'http.title:"LocalGPT"'

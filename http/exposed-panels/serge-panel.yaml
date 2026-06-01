@@ -9,7 +9,7 @@ info:
     - https://github.com/serge-chat/serge
     - https://serge.chat
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^Serge - Powered by LLaMa"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Serge - Powered by LLaMa"})
     max-request: 1
     product: serge
     shodan-query: 'http.title:"Serge" port:8008'

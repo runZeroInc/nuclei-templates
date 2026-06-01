@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.outbackpower.com/outback-products/communications/detail/mate3s
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^Outback Power"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Outback Power"})
     max-request: 1
     product: mate3s
     shodan-query: http.title:"Outback Power"

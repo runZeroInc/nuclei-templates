@@ -9,7 +9,7 @@ info:
   reference:
     - https://github.com/ItzCrazyKns/Perplexica
   metadata:
-    runzero-match: service["http.body"] matches `(?i)Chat with the internet, chat with Perplexica`
+    runzero-match: runzero-match: any(each(service["html.titles"]), {# matches "Perplexica"})
     max-request: 1
     product: perplexica
     shodan-query: 'http.title:"Perplexica"'

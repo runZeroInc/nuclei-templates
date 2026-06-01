@@ -10,7 +10,7 @@ info:
     - https://github.com/baptisteArno/typebot.io
     - https://typebot.io
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^Typebot"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Typebot"})
     max-request: 1
     product: typebot
     shodan-query: 'http.title:"Typebot"'

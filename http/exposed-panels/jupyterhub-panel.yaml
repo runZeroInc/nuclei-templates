@@ -9,7 +9,7 @@ info:
     - https://github.com/jupyterhub/jupyterhub
     - https://jupyter.org/hub
   metadata:
-    runzero-match: runzero-match: any(each(service["html.titles"]), {# matches "^JupyterHub"})
+    runzero-match: runzero-match: any(each(service["html.titles"]), {# matches "JupyterHub"})
     max-request: 1
     product: jupyterhub
     shodan-query: 'http.title:"JupyterHub"'

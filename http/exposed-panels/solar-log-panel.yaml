@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.solar-log.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^Solar-Log"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Solar-Log"})
     max-request: 1
     product: solar-log
     shodan-query: 'http.title:"Solar-Log"'
