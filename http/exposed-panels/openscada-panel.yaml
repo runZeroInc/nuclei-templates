@@ -11,7 +11,7 @@ info:
     - https://oscada.org
     - https://sourceforge.net/projects/oscada/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)OpenSCADA"
+    runzero-match: any(each(service["html.titles"]), {# matches "^OpenSCADA:"}) 
     max-request: 1
     product: openscada
     shodan-query: 'http.title:"OpenSCADA" port:10002'

@@ -10,7 +10,7 @@ info:
     - https://github.com/Arize-ai/phoenix
     - https://phoenix.arize.com
   metadata:
-    runzero-match: service["http.body"] matches `content\s*=\s*"Arize Phoenix"`
+    runzero-match: service["http.body"] matches `(?i)Arize Phoenix`
     max-request: 1
     product: phoenix
     shodan-query: 'http.title:"Phoenix" port:6006 http.html:"arize"'

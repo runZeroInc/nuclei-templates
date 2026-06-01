@@ -8,7 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:o:grandstream:ucm6200_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches `tl.account.ucm.js`
+    runzero-match: service["http.body"] matches "(?i)tl\\.account\\.ucm\\.js"
     max-request: 1
     shodan-query: "tl.account.ucm.js"
     vendor: grandstream

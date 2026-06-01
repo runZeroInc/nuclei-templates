@@ -10,7 +10,7 @@ info:
     - https://github.com/Netflix/metaflow-ui
     - https://metaflow.org
   metadata:
-    runzero-match: service["http.body"] matches "(?i)window.METAFLOW_SERVICE"
+    runzero-match: service["http.body"] matches "(?i)window\.METAFLOW_SERVICE"
     max-request: 1
     product: Metaflow UI
     shodan-query: 'http.title:"Metaflow UI"'

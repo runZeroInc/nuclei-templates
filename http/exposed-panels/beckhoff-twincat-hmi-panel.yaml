@@ -12,7 +12,7 @@ info:
     - https://www.beckhoff.com/en-en/products/automation/twincat/te2xxx-twincat-3-target/te2000.html
     - https://infosys.beckhoff.com/english.php?content=../content/1033/te2000_tc3_hmi_engineering/index.html
   metadata:
-    runzero-match: service["http.body"] matches "(?i)TwinCAT*Beckhoff"
+    runzero-match: service["http.body"] matches "(?i)TwinCAT" && service["http.body"] matches "(?i)Beckhoff"
     max-request: 1
     product: twincat-hmi
     shodan-query: http.html:"TwinCAT" http.html:"Beckhoff"
