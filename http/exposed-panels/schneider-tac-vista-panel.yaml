@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.se.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TAC Vista Webstation"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^TAC Vista Webstation"})
     max-request: 2
     product: tac-vista
     shodan-query: 'http.title:"TAC Vista"'

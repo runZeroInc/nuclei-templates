@@ -9,7 +9,7 @@ info:
   reference:
     - https://github.com/mcmonkeyprojects/SwarmUI
   metadata:
-    runzero-match: service["http.body"] matches "(?i)SwarmUI"
+    runzero-match: runzero-match: any(each(service["html.titles"]), {# matches "^SwarmUI"})
     max-request: 1
     product: SwarmUI
     shodan-query: 'http.title:"SwarmUI"'
