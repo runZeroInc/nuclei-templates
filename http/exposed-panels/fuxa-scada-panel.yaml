@@ -11,7 +11,7 @@ info:
   reference:
     - https://github.com/frangoteam/FUXA
   metadata:
-    runzero-match: service["http.body"] matches "(?i)powered by frangoteam"
+    runzero-match: service["http.body"] matches "(?i)powered by" && service["http.body"] matches "(?i)frango" && service["http.body"] matches "(?i)team"
     max-request: 1
     product: fuxa
     shodan-query: http.title:"FUXA"
