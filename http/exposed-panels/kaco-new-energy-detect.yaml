@@ -10,7 +10,7 @@ info:
   reference:
     - https://kaco-newenergy.com/
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1341442175" and any(each(service["html.titles"]), {# matches "^KACO new energy$"})
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1341442175" && any(each(service["html.titles"]), {# matches "^KACO new energy$"})
     max-request: 1
     product: solar-inverter
     shodan-query: http.title:"KACO new energy"
