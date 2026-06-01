@@ -9,7 +9,7 @@ info:
     - https://frappeframework.com
     - https://docs.erpnext.com
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Login to Frappe" && (service["http.body"] matches `(?i)frappe.csrf_token` OR service["http.body"] matches `(?i)frappe.boot` OR service["http.body"] matches `(?i)frappe-web.bundle`)
+    runzero-match: service["http.body"] matches "(?i)Login to Frappe" or service["http.body"] matches "(?i)frappe\\.csrf_token" or service["http.body"] matches "(?i)frappe\\.boot" or service["http.body"] matches "(?i)frappe-web\\.bundle"
     max-request: 1
     verified: true
   tags: default-login,erpnext,frappe
