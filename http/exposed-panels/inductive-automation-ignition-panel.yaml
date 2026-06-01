@@ -13,7 +13,7 @@ info:
     - https://inductiveautomation.com/ignition/
     - https://docs.inductiveautomation.com/docs/8.1/ignition-gateway-interface
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Ignition Gateway"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Ignition Gateway"})
     max-request: 1
     product: ignition
     shodan-query: http.title:"Ignition Gateway"

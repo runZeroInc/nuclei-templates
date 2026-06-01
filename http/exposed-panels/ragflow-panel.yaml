@@ -10,7 +10,7 @@ info:
     - https://github.com/infiniflow/ragflow
     - https://ragflow.io
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)RAGFlow"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^RAGFlow"})
     max-request: 1
     product: ragflow
     shodan-query: 'http.title:"RAGFlow"'

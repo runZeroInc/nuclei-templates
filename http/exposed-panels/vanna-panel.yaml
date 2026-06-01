@@ -9,7 +9,7 @@ info:
     - https://github.com/vanna-ai/vanna
     - https://vanna.ai
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Vanna Agents Chat"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Vanna Agents Chat"})
     max-request: 1
     product: vanna
     shodan-query: 'http.title:"Vanna"'

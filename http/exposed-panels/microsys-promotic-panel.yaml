@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.microsys.cz/en/products/promotic/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)PROMOTIC"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^PROMOTIC"})
     max-request: 1
     product: promotic
     shodan-query: 'http.title:"PROMOTIC"'

@@ -10,7 +10,7 @@ info:
     - https://github.com/TaskingAI/TaskingAI
     - https://www.tasking.ai
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TaskingAI \\| Console"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^TaskingAI \\| Console"})
     max-request: 1
     product: taskingai
     shodan-query: 'http.title:"TaskingAI | Console"'

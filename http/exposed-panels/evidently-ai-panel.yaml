@@ -9,7 +9,7 @@ info:
     - https://github.com/evidentlyai/evidently
     - https://www.evidentlyai.com
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Evidently"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Evidently"})
     max-request: 1
     product: evidently
     shodan-query: 'http.title:"Evidently"'

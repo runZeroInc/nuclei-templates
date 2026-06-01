@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.echelon.com/products/ilon-smartserver/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)i\\.LON SmartServer"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^i\\.LON SmartServer"})
     max-request: 1
     product: ilon-smartserver
     shodan-query: 'http.title:"i.LON SmartServer"'

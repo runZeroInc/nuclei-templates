@@ -9,7 +9,7 @@ info:
     - https://github.com/tensorflow/tensorboard
     - https://www.tensorflow.org/tensorboard
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)TensorBoard"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^TensorBoard"})
     max-request: 1
     product: tensorboard
     shodan-query: 'http.title:"TensorBoard"'

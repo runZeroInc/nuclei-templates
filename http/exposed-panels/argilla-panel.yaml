@@ -10,7 +10,7 @@ info:
     - https://github.com/argilla-io/argilla
     - https://argilla.io
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Argilla"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Argilla"})
     max-request: 1
     product: Argilla
     shodan-query: 'http.title:"Argilla"'

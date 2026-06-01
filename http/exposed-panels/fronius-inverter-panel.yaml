@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.fronius.com/en/solar-energy/private-customers/products-solutions/solar-inverters
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Fronius Inverter"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Fronius Inverter"})
     max-request: 1
     product: fronius-inverter
     shodan-query: 'http.title:"Fronius Inverter"'

@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.ginverter.com/en/product/monitor/shinelink-x.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Growatt Shinelink"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Growatt Shinelink"})
     max-request: 1
     product: shinelink
     shodan-query: 'http.title:"Growatt Shinelink"'

@@ -9,7 +9,7 @@ info:
   reference:
     - https://lmstudio.ai
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)LM Studio Chat"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^LM Studio Chat"})
     max-request: 1
     product: lmstudio
     shodan-query: 'http.title:"LM Studio Chat"'

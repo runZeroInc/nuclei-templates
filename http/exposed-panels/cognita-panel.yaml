@@ -10,7 +10,7 @@ info:
     - https://github.com/truefoundry/cognita
     - https://truefoundry.com/cognita
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Sign in to Cognita"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Sign in to Cognita"})
     max-request: 1
     product: cognita
     shodan-query: 'http.title:"Cognita"'

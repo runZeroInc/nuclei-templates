@@ -10,7 +10,7 @@ info:
     - https://github.com/kubeflow/pipelines
     - https://www.kubeflow.org
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Kubeflow Pipelines"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Kubeflow Pipelines"})
     max-request: 1
     product: Kubeflow Pipelines
     shodan-query: 'http.title:"Kubeflow Pipelines"'

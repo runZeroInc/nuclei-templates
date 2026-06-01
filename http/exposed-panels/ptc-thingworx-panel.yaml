@@ -11,7 +11,7 @@ info:
   reference:
     - https://www.ptc.com/en/products/thingworx
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Thingworx"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Thingworx"})
     max-request: 1
     product: thingworx
     shodan-query: 'http.title:"Thingworx"'

@@ -11,7 +11,7 @@ info:
   reference:
     - https://www.moxa.com/en/products/industrial-network-infrastructure/network-management-software/mxview-series/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)MXview One Central Manager"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^MXview One Central Manager"})
     max-request: 1
     product: mxview
     shodan-query: http.title:"MXview One Central Manager"

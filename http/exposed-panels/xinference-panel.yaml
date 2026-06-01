@@ -10,7 +10,7 @@ info:
     - https://github.com/xorbitsai/inference
     - https://inference.readthedocs.io
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Xinference"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Xinference"})
     max-request: 1
     product: xinference
     shodan-query: 'http.title:"Xinference"'

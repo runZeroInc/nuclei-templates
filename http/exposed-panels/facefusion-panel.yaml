@@ -9,7 +9,7 @@ info:
     - https://github.com/facefusion/facefusion
     - https://facefusion.io
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)FaceFusion"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^FaceFusion"})
     max-request: 1
     product: facefusion
     shodan-query: 'http.title:"FaceFusion"'

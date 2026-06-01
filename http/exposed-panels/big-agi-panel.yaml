@@ -10,7 +10,7 @@ info:
     - https://github.com/enricoros/big-AGI
     - https://big-agi.com
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)big-AGI"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^big-AGI"})
     max-request: 1
     product: big-agi
     shodan-query: 'http.title:"big-AGI"'

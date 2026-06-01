@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.janitza.com/gridvis.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)GridVis"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^GridVis"})
     max-request: 1
     product: gridvis
     shodan-query: http.title:"GridVis"

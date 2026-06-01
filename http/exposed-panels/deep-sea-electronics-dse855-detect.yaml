@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.deepseaelectronics.com/products/auto-mains-failure-modules/855.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)DSE 855"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^DSE 855"})
     max-request: 1
     product: dse855
     shodan-query: http.title:"DSE 855"
