@@ -9,7 +9,7 @@ info:
     - https://github.com/letta-ai/letta
     - https://www.letta.com
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^Letta"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Letta$"})
     max-request: 1
     product: Letta
     shodan-query: 'http.title:"Letta"'

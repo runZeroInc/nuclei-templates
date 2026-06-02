@@ -9,7 +9,7 @@ info:
     - https://smith.langchain.com/
     - https://docs.smith.langchain.com/
   metadata:
-    runzero-match: runzero-match: any(each(service["html.titles"]), {# matches "^LangSmith"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^LangSmith"})
     max-request: 1
     product: langsmith
     shodan-query: 'http.title:"LangSmith"'
