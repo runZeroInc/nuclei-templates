@@ -10,7 +10,7 @@ info:
     - https://github.com/Netflix/metaflow-ui
     - https://metaflow.org
   metadata:
-    runzero-match: runzero-match: any(each(service["html.titles"]), {# matches "^Metaflow UI"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Metaflow UI"})
     max-request: 1
     product: Metaflow UI
     shodan-query: 'http.title:"Metaflow UI"'
