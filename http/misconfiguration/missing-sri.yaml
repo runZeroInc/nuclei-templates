@@ -28,6 +28,7 @@ http:
         type: xpath
         xpath:
           - //link[@rel='stylesheet' and contains(@href, '//') and (not(@integrity) or not(matches(translate(@integrity, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ+/-=', 'abcdefghijklmnopqrstuvwxyz+/-='), '^sha(256|384|512)-')))]
+          # digest: 490a00463044021f63e08858895b3515d836088cf04f75785353b95b09030504685489a941f701022100e90cf38982c35a031c20ce5fb862cc944b09f82cd78c7f69d82504661c37326b:922c64590222798bb761d5b6d8e72950
         # digest: 490a00463044021f63e08858895b3515d836088cf04f75785353b95b09030504685489a941f701022100e90cf38982c35a031c20ce5fb862cc944b09f82cd78c7f69d82504661c37326b:922c64590222798bb761d5b6d8e72950
     matchers:
       - part: body
