@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:sonicwall:network_security_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "SonicWall Network Security"})
     max-request: 1
     product: network_security_manager
     shodan-query: title:"SonicWall Network Security"

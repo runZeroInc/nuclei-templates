@@ -11,6 +11,7 @@ info:
     cwe-id:
       - CWE-918
   metadata:
+    runzero-match: service["http.body"] matches "/_proxy/api/v3/"
     fofa-query: body="/_proxy/api/v3/"
     max-request: 1
     verified: true

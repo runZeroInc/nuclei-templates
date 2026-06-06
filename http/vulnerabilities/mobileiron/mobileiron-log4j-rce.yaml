@@ -18,6 +18,7 @@ info:
     cwe-id: CWE-917
     cpe: cpe:2.3:a:ivanti:mobileiron:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "MobileIron"
     max-request: 1
     product: mobileiron
     shodan-query: http.html:"MobileIron"

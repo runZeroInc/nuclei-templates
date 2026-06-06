@@ -16,6 +16,7 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-502,CWE-77
   metadata:
+    runzero-match: service["http.body"] matches "VMware Horizon"
     max-request: 1
     shodan-query: http.html:"VMware Horizon"
     verified: true

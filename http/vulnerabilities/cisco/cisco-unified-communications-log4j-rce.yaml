@@ -15,6 +15,7 @@ info:
     cwe-id: CWE-502,CWE-77
     cpe: cpe:2.3:a:cisco:unified_communications_domain_manager:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Cisco Unified"})
     max-request: 1
     product: unified_communications_domain_manager
     shodan-query: title:"Cisco Unified"

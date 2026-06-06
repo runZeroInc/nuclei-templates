@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-502,CWE-77
     cpe: cpe:2.3:a:citrix:xenapp:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "/citrix/xenapp"
     max-request: 1
     product: xenapp
     shodan-query: html:"/citrix/xenapp"

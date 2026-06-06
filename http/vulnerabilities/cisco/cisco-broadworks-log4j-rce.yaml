@@ -13,6 +13,7 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-502,CWE-77
   metadata:
+    runzero-match: service["product"] matches "(?i)Cisco.BroadWorks"
     fofa-query: Cisco BroadWorks
     max-request: 1
   tags: cisco,cve,cve2021,jndi,kev,log4j,oast,rce,vuln

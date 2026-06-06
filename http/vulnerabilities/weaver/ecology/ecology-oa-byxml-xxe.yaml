@@ -10,6 +10,7 @@ info:
       - CWE-611
       - CWE-918
   metadata:
+    runzero-match: service["product"] matches "(?i)泛微.协同办公OA"
     fofa-query: app="泛微-协同办公OA"
     max-request: 1
     shodan-query: ecology_JSessionid

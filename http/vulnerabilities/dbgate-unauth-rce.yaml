@@ -15,6 +15,7 @@ info:
       - CWE-78
       - CWE-94
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1198579728"
     max-request: 1
     shodan-query: http.favicon.hash:1198579728
   tags: dbgate,electron,http,oast,oss,rce,vuln

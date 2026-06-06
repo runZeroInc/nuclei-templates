@@ -13,6 +13,7 @@ info:
     cvss-score: 6.8
     cwe-id: CWE-918
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "1550906681"
     max-request: 1
     shodan-query: http.favicon.hash:1550906681
   tags: ssrf,oast,openbmcs,edb,misconfig,vuln

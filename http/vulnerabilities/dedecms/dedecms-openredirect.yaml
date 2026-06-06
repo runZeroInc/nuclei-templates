@@ -12,6 +12,7 @@ info:
     cwe-id: CWE-601
     cpe: cpe:2.3:a:dedecms:dedecms:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "power by dedecms\" \\|\\| title:\"dedecms"
     max-request: 1
     product: dedecms
     shodan-query: http.html:"power by dedecms" || title:"dedecms"

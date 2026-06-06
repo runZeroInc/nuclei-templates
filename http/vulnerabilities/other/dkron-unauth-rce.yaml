@@ -9,6 +9,7 @@ info:
   reference:
     - https://github.com/distribworks/dkron/
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Dkron"})
     verified: true
     fofa-query: title="Dkron"
     shodan-query: title:"Dkron"

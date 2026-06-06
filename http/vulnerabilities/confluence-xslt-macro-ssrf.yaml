@@ -13,6 +13,7 @@ info:
     cve-id: CVE-2024-29415
     cwe-id: CWE-611,CWE-918
   metadata:
+    runzero-match: service["favicon.ico.image.mmh3"] == "-305179312"
     fofa-query: icon_hash="-305179312"
     max-request: 2
     product: confluence

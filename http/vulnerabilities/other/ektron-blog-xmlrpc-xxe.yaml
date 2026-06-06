@@ -14,6 +14,7 @@ info:
       - CWE-611
       - CWE-918
   metadata:
+    runzero-match: service["http.body"] matches "EktronClientManager"
     max-request: 2
     shodan-query: http.html:"EktronClientManager"
     verified: false

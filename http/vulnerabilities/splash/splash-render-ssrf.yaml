@@ -12,6 +12,7 @@ info:
       - CWE-918
       - CWE-99
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "Splash"})
     hunter-query: web.title="Splash" && header="TwistedWeb"
     max-request: 1
     shodan-query: title:"Splash"

@@ -18,6 +18,7 @@ info:
     cwe-id: CWE-502,CWE-77,CWE-78
     cpe: cpe:2.3:a:vmware:vcenter_server:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "VMware VCenter"})
     max-request: 1
     product: vcenter_server
     shodan-query: title:"VMware VCenter"

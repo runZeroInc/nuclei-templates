@@ -14,6 +14,7 @@ info:
       - CWE-502
       - CWE-94
   metadata:
+    runzero-match: service["product"] matches "(?i)HIKVISION.iSecure.Center"
     fofa-query: app="HIKVISION-iSecure-Center"
     max-request: 1
     verified: true

@@ -14,6 +14,7 @@ info:
     cwe-id: CWE-601
     cpe: cpe:2.3:a:zeit:next.js:*:*:*:*:*:*:*:*
   metadata:
+    runzero-match: service["http.body"] matches "/_next/static"
     max-request: 1
     product: next.js
     shodan-query: html:"/_next/static"
