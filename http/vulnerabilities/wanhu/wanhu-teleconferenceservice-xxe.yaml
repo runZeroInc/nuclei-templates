@@ -12,7 +12,7 @@ info:
     cwe-id:
       - CWE-611
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: service["product"] matches "(?i)万户网络.ezOFFICE"
     fofa-query: app="万户网络-ezOFFICE"
     max-request: 1
     verified: true

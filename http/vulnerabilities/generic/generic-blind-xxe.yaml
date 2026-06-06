@@ -8,7 +8,6 @@ info:
     cwe-id:
       - CWE-611
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: blind,generic,vuln,xxe
 http:

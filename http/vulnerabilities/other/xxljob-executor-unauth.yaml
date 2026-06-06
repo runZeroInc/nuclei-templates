@@ -12,7 +12,7 @@ info:
   classification:
     cpe: cpe:2.3:a:xuxueli:xxl-job:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: service["product"] matches "(?i)XXL.JOB"
     verified: true
     max-request: 2
     vendor: xuxueli

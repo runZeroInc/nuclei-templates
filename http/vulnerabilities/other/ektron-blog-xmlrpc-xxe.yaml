@@ -14,7 +14,7 @@ info:
       - CWE-611
       - CWE-918
   metadata:
-    runzero-review: REJECT/2026-01-21/uses interactsh
+    runzero-match: service["http.body"] matches "EktronClientManager"
     max-request: 2
     shodan-query: http.html:"EktronClientManager"
     verified: false

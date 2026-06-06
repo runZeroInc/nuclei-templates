@@ -13,7 +13,6 @@ info:
       - CWE-918
       - CWE-99
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 2
     verified: true
   tags: packetstorm,ssrf,unauth,vuln,wordpress,wp,wp-plugin,wpscan

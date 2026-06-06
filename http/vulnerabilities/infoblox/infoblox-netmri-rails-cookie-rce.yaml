@@ -16,7 +16,7 @@ info:
   classification:
     cwe-id: CWE-502
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "netmri"})
     verified: true
     max-request: 1
     vendor: infoblox
