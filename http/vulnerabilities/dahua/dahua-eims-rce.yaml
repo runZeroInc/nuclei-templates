@@ -13,7 +13,6 @@ info:
       - CWE-77
       - CWE-78
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     fofa-query: <title>eims</title>
     max-request: 1
     verified: true

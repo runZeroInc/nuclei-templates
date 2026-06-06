@@ -18,7 +18,6 @@ info:
     cwe-id: CWE-77,CWE-95
     cpe: cpe:2.3:a:apache:ofbiz:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     product: ofbiz
     shodan-query: http.html:"Apache OFBiz"

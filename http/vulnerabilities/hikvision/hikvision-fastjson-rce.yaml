@@ -14,7 +14,6 @@ info:
       - CWE-502
       - CWE-94
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     fofa-query: app="HIKVISION-iSecure-Center"
     max-request: 1
     verified: true

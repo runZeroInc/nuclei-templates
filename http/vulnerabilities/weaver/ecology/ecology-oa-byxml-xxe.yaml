@@ -10,7 +10,6 @@ info:
       - CWE-611
       - CWE-918
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     fofa-query: app="泛微-协同办公OA"
     max-request: 1
     shodan-query: ecology_JSessionid

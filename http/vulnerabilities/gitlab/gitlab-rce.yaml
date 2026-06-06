@@ -16,7 +16,7 @@ info:
     cwe-id: CWE-20,CWE-77,CWE-78
     cpe: cpe:2.3:a:gitlab:gitlab:*:*:*:*:enterprise:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/excluding tag intrusive, uses interactsh
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     max-request: 2
     product: gitlab
     shodan-query: http.title:"GitLab"

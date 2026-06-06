@@ -11,7 +11,6 @@ info:
       - CWE-918
     cpe: cpe:2.3:a:microsoft:office_web_apps_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     fofa-query: body="Provide a link that opens Word"
     max-request: 1
     product: office_web_apps_server

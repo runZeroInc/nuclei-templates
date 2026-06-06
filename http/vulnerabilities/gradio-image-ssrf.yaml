@@ -13,7 +13,6 @@ info:
     cwe-id: CWE-918
     cpe: cpe:2.3:a:gradio_project:gradio:*:*:*:*:*:python:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     fofa-query:
       - body="__gradio_mode__"
       - title="gradio"

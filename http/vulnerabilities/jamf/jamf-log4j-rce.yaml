@@ -17,7 +17,6 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:jamf:self_service:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     product: self_service
     shodan-query: http.html:"JamF"

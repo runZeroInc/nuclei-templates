@@ -18,7 +18,6 @@ info:
     cwe-id: CWE-917
     cpe: cpe:2.3:a:ivanti:mobileiron:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     product: mobileiron
     shodan-query: http.html:"MobileIron"

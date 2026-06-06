@@ -14,7 +14,6 @@ info:
     cwe-id: CWE-502,CWE-77
     cpe: cpe:2.3:a:cisco:webex_meetings_online:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     product: webex_meetings_online
     shodan-query: title:"Cisco WebEx"

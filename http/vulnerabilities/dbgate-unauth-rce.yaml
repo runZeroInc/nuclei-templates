@@ -15,7 +15,6 @@ info:
       - CWE-78
       - CWE-94
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     shodan-query: http.favicon.hash:1198579728
   tags: dbgate,electron,http,oast,oss,rce,vuln

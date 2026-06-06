@@ -15,7 +15,6 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:vmware:vrealize_operations_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
     product: vrealize_operations_manager
     shodan-query: title:"vRealize Operations Manager"

@@ -16,7 +16,6 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:apache:log4j:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     fofa-query: app="致远互联-OA"
     max-request: 1
     product: log4j

@@ -10,7 +10,6 @@ info:
       - CWE-918
       - CWE-99
   metadata:
-    runzero-review: REJECT/2026-01-09/uses interactsh
     fofa-query: body= "/wp-content/plugins/jetpack/"
     max-request: 2
     verified: false

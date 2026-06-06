@@ -16,7 +16,6 @@ info:
     cpe: cpe:2.3:a:gradio_project:gradio:*:*:*:*:python:*:*:*
     epss-percentile: 0.36659
   metadata:
-    runzero-review: 'REJECT/2026-04-08/auto: interactsh (OAST callback)'
     max-request: 2
     product: gradio
     shodan-query: html:"__gradio_mode__"
