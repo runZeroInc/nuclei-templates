@@ -8,7 +8,7 @@ info:
   reference:
     - https://github.com/odoo/odoo/issues/13812
   metadata:
-    runzero-match: service["product"] matches "(?i)Odoo".html."web.login"
+    runzero-match: service["product"] matches "(?i)Odoo"
     max-request: 1
     shodan-query: http.component:"Odoo" html:"web/login"
     verified: true
