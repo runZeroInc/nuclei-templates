@@ -10,14 +10,15 @@ info:
     - https://www.iana.org/assignments/ikev2-parameters
     - https://www.rfc-editor.org/rfc/rfc7634
   metadata:
-    fofa-query: "port=\"500\" && protocol=\"isakmp\""
+    fofa-query: port="500" && protocol="isakmp"
     max-request: 6
-    shodan-query: "port:500 product:IKE"
+    shodan-query: port:500 product:IKE
     verified: true
   tags: ike,ikev2,ipsec,js,network,udp,vpn
 javascript:
-  - pre-condition: |
-      isUDPPortOpen(Host, Port);
+  - args:
+      Host: '{{Host}}'
+      Port: "500"
     code: |
       let c = require("nuclei/net");
 
@@ -216,22 +217,20 @@ javascript:
       }
 
       Export(output);
-    args:
-      Host: "{{Host}}"
-      Port: "500"
-    matchers-condition: and
+    extractors:
+      - name: transforms
+        regex:
+          - PROBE:[^:]+:accepted:[^\n]+
+        # digest: 4a0a00473045022100e0da17854e305f1e02c933fbe9efe56213b9fa5ccc814e9d288b9817a1a5e2e102203478464a4f83ca9128ff705db6e5c913adb9cbbe3ba5d62fe0ce1e5aeaf04904:922c64590222798bb761d5b6d8e72950
+
+        type: regex
     matchers:
-      - type: dsl
-        dsl:
-          - "success == true"
+      - dsl:
+          - success == true
+        type: dsl
       - type: word
         words:
-          - "PROBE:"
-          - ":accepted:"
-        condition: or
-    extractors:
-      - type: regex
-        name: transforms
-        regex:
-          - 'PROBE:[^\n]+'
-        # digest: 4a0a0047304502205cfb2d48b6dd2413c49e56e1a0f65608dbb2bf7a59c952e73cc2b48e9209e4b2022100a0342ff581ee3003a706d0fca9d451d896ee0624cddd1e74edb7d0651bee9c7f:922c64590222798bb761d5b6d8e72950
+          - ':accepted:'
+    matchers-condition: and
+    pre-condition: |
+      isUDPPortOpen(Host, Port);
