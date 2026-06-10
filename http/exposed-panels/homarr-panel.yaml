@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:homarr:homarr:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Homarr"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Homarr$"})
     fofa-query: title="Homarr"
     max-request: 1
     product: homarr
