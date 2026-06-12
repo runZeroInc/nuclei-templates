@@ -6,7 +6,7 @@ info:
   description: |
     Ivanti Sentry panel was detected.
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "967636089"
+    runzero-match: any(each(service["html.titles"]), {# matches "^Ivanti"}) && service["http.body"] matches "(?i)sentry"
     max-request: 1
     product: sentry
     shodan-query: http.favicon.hash:967636089
