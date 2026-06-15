@@ -8,7 +8,7 @@ info:
   reference:
     - https://stackstorm.com/
   metadata:
-    runzero-match: service["http.body"] matches "StackStorm Web UI"
+    runzero-match: any(each(service["html.titles"]), {# matches "^StackStorm Web UI"})
     max-request: 1
     product: stackstorm
     shodan-query: html:"StackStorm Web UI"
