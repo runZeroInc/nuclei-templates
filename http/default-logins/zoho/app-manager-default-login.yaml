@@ -9,7 +9,7 @@ info:
     - https://www.manageengine.com/products/applications_manager/
   metadata:
     runzero-match: any(each(service["html.titles"]), {# matches "Applications Manager Login Screen"})
-    max-request: 1
+    max-request: 3
     shodan-query: title:"Applications Manager Login Screen"
     verified: true
   tags: default-login,manageengine,vuln,zoho
