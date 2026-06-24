@@ -21,7 +21,7 @@ info:
       - CWE-502
       - CWE-78
   metadata:
-    runzero-review: REJECT/2025-11-07/excluding tag intrusive, uses interactsh
+    runzero-review: REJECT/2025-11-07/excluding tag intrusive
     fofa-query: title="VMware Appliance Management"
     max-request: 2
     shodan-query: title:"VMware Appliance Management"

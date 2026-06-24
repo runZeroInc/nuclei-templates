@@ -18,7 +18,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:vmware:vrealize_operations:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "vRealize Operations Tenant App"})
     max-request: 1
     product: vrealize_operations
     shodan-query: http.title:"vRealize Operations Tenant App"

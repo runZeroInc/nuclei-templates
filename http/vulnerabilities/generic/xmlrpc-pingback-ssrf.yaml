@@ -10,7 +10,6 @@ info:
     cwe-id:
       - CWE-918
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
     max-request: 1
   tags: generic,hackerone,ssrf,vuln,xmlrpc
 http:

@@ -16,7 +16,7 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-306
   metadata:
-    runzero-review: REJECT/2026-03-03/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "Dagu"})
     verified: true
     max-request: 1
     vendor: dagu-org

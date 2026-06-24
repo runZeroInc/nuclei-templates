@@ -12,7 +12,7 @@ info:
     cvss-score: 10
     cwe-id: CWE-912
   metadata:
-    runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
+    runzero-match: service["http.body"] matches "(?i)ZTE Corporation" and service["service.transport"] contains "tcp"
     max-request: 1
     shodan-query: http.html:"ZTE Corporation"
     verified: true

@@ -12,7 +12,7 @@ info:
       - CWE-502
       - CWE-94
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: service["product"] matches "(?i)致远互联.OA"
     fofa-query: app="致远互联-OA"
     max-request: 1
     verified: true

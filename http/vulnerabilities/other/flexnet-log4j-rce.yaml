@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-502,CWE-77
     cpe: cpe:2.3:a:flexera:flexnet_publisher:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "Flexnet"})
     max-request: 1
     product: flexnet_publisher
     shodan-query: title:"Flexnet"

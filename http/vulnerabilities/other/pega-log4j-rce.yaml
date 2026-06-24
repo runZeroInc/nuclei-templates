@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:pega:platform:*:*:*:*:*:*:*:*
   metadata:
-    runzero-review: REJECT/2025-11-07/uses interactsh
+    runzero-match: any(each(service["html.titles"]), {# matches "Pega"})
     max-request: 2
     product: platform
     shodan-query: title:"Pega"
