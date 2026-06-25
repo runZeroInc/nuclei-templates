@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.fortinet.com/products/management/fortianalyzer
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "FortiAnalyzer"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^FortiAnalyzer"})
     max-request: 1
     shodan-query: 'http.title:"FortiAnalyzer"'
   tags: fortianalyzer,fortinet,ics,network,panel,vpn
