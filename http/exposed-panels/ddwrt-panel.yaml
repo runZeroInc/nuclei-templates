@@ -8,7 +8,7 @@ info:
   reference:
     - https://dd-wrt.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "DD-WRT"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^DD-WRT"})
     max-request: 1
     shodan-query: 'http.title:"DD-WRT"'
   tags: ddwrt,panel,router
