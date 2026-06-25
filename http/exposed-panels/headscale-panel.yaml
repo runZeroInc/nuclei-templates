@@ -10,7 +10,7 @@ info:
     - https://github.com/juanfont/headscale
     - https://headscale.net
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "headscale"})
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)headscale"})
     max-request: 1
     shodan-query: http.title:"headscale"
   tags: detect,headscale,panel,vpn,wireguard
