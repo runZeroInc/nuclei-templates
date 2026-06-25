@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.arraynetworks.com/products/ag-series.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Array Networks Pilot Login"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Array Networks Pilot Login"})
     max-request: 1
     shodan-query: 'http.title:"Array Networks Pilot Login"'
   tags: array-networks,network,panel,ssl-vpn,vpn

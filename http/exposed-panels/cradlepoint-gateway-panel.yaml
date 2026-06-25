@@ -10,7 +10,7 @@ info:
   reference:
     - https://cradlepoint.com/products/netcloud-manager/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "CradlePoint"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^CradlePoint"})
     max-request: 1
     shodan-query: http.title:"CradlePoint" http.html:"Administration Login"
   tags: cradlepoint,detect,gateway,panel,router,vpn
