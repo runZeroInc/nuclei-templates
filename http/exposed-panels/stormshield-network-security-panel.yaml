@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.stormshield.com/products/network-security/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Stormshield Network Security - Portal"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Stormshield Network Security - Portal$"})
     max-request: 3
     shodan-query: http.title:"Stormshield Network Security - Portal"
   tags: detect,firewall,network-security,panel,stormshield,vpn

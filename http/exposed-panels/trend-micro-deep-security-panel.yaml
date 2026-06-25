@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.trendmicro.com/en_us/business/products/hybrid-cloud/deep-security.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Deep Security Manager"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Trend Micro Deep Security Manager"})
     max-request: 1
     shodan-query: 'http.title:"Deep Security Manager"'
   tags: deep-security,panel,trend-micro,vpn

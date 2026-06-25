@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.ui.com/edgemax/edgerouter/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "EdgeOS"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^EdgeOS"})
     max-request: 1
     shodan-query: 'http.title:"EdgeOS"'
   tags: edgerouter,panel,router,ubiquiti,vpn
