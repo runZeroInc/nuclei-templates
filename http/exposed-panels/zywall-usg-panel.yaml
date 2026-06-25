@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.zyxel.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "ZyWALL"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^ZyWALL"})
     max-request: 1
     shodan-query: 'http.title:"ZyWALL"'
   tags: firewall,panel,zywall,zyxel
