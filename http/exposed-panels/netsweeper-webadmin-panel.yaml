@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.netsweeper.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Netsweeper"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Netsweeper WebAdmin$"})
     max-request: 1
     shodan-query: 'http.title:"Netsweeper"'
   tags: netsweeper,panel,vpn,webfilter

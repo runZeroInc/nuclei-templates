@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.nokia.com/networks/solutions/nuage-networks-virtualized-services-platform/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Nuage Networks"})
+    runzero-review: REJECT/2026-06-25/No results on Shodan, no details on the reference.
     max-request: 1
     shodan-query: 'http.title:"Nuage Networks" ssl.cert.subject.cn:"VSPCA"'
   tags: network,nokia,nuage,panel,sdn,vpn,vsp

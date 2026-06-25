@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.netgate.com/
   metadata:
-    runzero-match: service["http.body"] matches "Netgate"
+    runzero-match: any(each(service["html.titles"]), {# matches "^Netgate pfSense Plus - Login$"})
     max-request: 1
     shodan-query: 'http.html:"Netgate"'
   tags: firewall,netgate,panel,pfsense
