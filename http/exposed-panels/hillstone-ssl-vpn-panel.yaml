@@ -11,6 +11,7 @@ info:
     - https://www.hillstonenet.com/products/next-generation-firewalls/
   metadata:
     max-request: 1
+    runzero-review: REJECT/2026-06-25/No SG-6000 specific web portals found
     shodan-query: 'ssl.cert.subject.cn:"SG-6000" ssl.cert.subject.org:"Hillstone Networks"'
   tags: hillstone,ics,network,panel,ssl-vpn,vpn
 http:
