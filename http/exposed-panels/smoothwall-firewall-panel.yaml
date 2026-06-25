@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.smoothwall.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Smoothwall"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^(?i)Smoothwall"})
     max-request: 1
     shodan-query: 'http.title:"Smoothwall"'
   tags: firewall,panel,smoothwall,vpn

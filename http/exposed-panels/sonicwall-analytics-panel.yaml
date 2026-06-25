@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.sonicwall.com/products/network-security-manager/
   metadata:
-    runzero-match: service["http.body"] matches "SonicWall Analytics"
+    runzero-match: any(each(service["html.titles"]), {# matches "^SonicWall Analytics"})
     max-request: 1
     shodan-query: 'http.html:"SonicWall Analytics"'
   tags: analytics,firewall,panel,sonicwall,vpn

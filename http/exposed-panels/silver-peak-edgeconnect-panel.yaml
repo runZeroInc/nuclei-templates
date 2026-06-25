@@ -10,7 +10,7 @@ info:
   reference:
     - https://www.arubanetworks.com/products/sd-wan/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Welcome to EdgeConnect"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Welcome to EdgeConnect$"})
     max-request: 1
     shodan-query: 'http.title:"Welcome to EdgeConnect"'
   tags: aruba,edgeconnect,network,panel,sdwan,silver-peak,vpn
