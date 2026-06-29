@@ -9,6 +9,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    runzero-review: REJECT/2026-06-29/No results found that match the detection logic in this template.  FeatherPanel is a minecraft server host, but real world FeatherPanels seem to use custom favicons.
     max-request: 1
     verified: true
   tags: discovery,featherpanel,login,panel

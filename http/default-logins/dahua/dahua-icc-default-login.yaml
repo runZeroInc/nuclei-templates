@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.dahuasecurity.com/
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "-1935899595"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-1935899595" && service["http.body"] matches "客户端会小于800"
     fofa-query: icon_hash="-1935899595" && body="*客户端会小于800*"
     product: icc
     vendor: dahua
