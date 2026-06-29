@@ -13,30 +13,36 @@ info:
     vendor: apache
   tags: apache,casbin-mcp-gateway,default-login
 http:
-  - raw:
+  - attack: pitchfork
+    matchers:
+      - part: content_type
+        type: word
+        words:
+          - application/json
+      - condition: and
+        part: body
+        type: word
+        words:
+          - '"token":'
+          - '"user":'
+      - status:
+          - 200
+        # digest: 4a0a00473045022071f13bac2989a38518e31d3cb0af6f25d66e517dcd71c36db89305d98e3dfd71022100ec4eb4c633cdf250fc8ada4a26bc7048701f4cd02ce7b7fc456fddf1cff20cf3:922c64590222798bb761d5b6d8e72950
+
+        type: status
+    matchers-condition: and
+    payloads:
+      password:
+        - password123
+        - password456
+      username:
+        - alice
+        - bob
+    raw:
       - |
         POST /login HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/json
 
         {"username":"{{username}}","password":"{{password}}"}
-    attack: pitchfork
-    payloads:
-      username:
-        - alice
-        - bob
-      password:
-        - password123
-        - password456
     stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"token":'
-          - '"user":'
-        condition: and
-      - type: status
-        status:
-          - 200
-        # digest: 4a0a00473045022100be37ef141fcc4781ce5b7d3740eda42da36cf0ca31536350f7aa4384ebac9a700220230a8214e247c99d98bf79d969dbbdf3ca94a29023d7054687926369431f351a:922c64590222798bb761d5b6d8e72950
