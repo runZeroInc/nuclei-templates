@@ -1,5 +1,4 @@
 id: caa-fingerprint
-
 info:
   name: CAA Record
   author: pdteam
@@ -11,21 +10,22 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: dns,caa,discovery
-
+  tags: caa,discovery,dns
 dns:
-  - name: "{{FQDN}}"
-    type: CAA
+  - extractors:
+      - group: 1
+        part: answer
+        regex:
+          - issue "(.*)"
+          - issuewild "(.*)"
+          - iodef "(.*)"
+        # digest: 4b0a00483046022100b457768e899a74ac8b817b13b2fb78fa3fa4e76546df342d6696f333e283723b022100bb3a8002d61cd3840e8f4e6c1df97429cc92aa5f4a6295efa2481c5d0d8a2f5f:922c64590222798bb761d5b6d8e72950
+
+        type: regex
     matchers:
-      - type: regex
-        regex:
-          - "IN\\s+CAA\\s+(.+)"
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - 'issue "(.*)"'
-          - 'issuewild "(.*)"'
-          - 'iodef "(.*)"'
-
+      - part: answer
+        type: word
+        words:
+          - CAA
+    name: '{{FQDN}}'
+    type: CAA
