@@ -1,5 +1,4 @@
 id: smb-shares
-
 info:
   name: SMB Shares - Enumeration
   author: pussycat0x
@@ -9,50 +8,57 @@ info:
   reference:
     - https://nmap.org/nsedoc/scripts/smb-enum-shares.html
   metadata:
-    verified: true
     max-request: 1
     shodan-query: port:445
-    product: dionaea
-    vendor: dionaea
-  tags: js,network,smb,enum,auth,vuln
-
+    verified: true
+  tags: auth,enum,js,network,smb
 javascript:
-  - pre-condition: |
-      isPortOpen(Host,Port);
-    code: |
-      var m = require("nuclei/smb");
-      var c = m.SMBClient();
-      var response = c.ListShares(Host, Port, User, Pass);
-      Export(response);
-
-    args:
-      Host: "{{Host}}"
+  - args:
+      Host: '{{Host}}'
+      Pass: '{{password}}'
       Port: "445"
-      User: "{{usernames}}"
-      Pass: "{{passwords}}"
+      User: '{{username}}'
     attack: clusterbomb
-    payloads:
-      usernames:
-        - ' '
-        - 'admin'
-        - 'administrator'
-        - 'guest'
-      passwords:
-        - ' '
-        - 'admin'
-        - 'password'
-        - 'guest'
+    code: |
+      try {
+          var smb = require("nuclei/smb");
+          var client = smb.SMBClient();
 
-    stop-at-first-match: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'response != "[]"'
-          - 'success == true'
-        condition: and
+          var shares = client.ListShares(Host, Port, User, Pass);
 
+          if (shares && shares.length > 0) {
+              Export(shares);
+          } else {
+              Export([]);
+          }
+      } catch (e) {
+          Export([]);
+      }
     extractors:
-      - type: dsl
-        dsl:
+      - dsl:
           - response
+        # digest: 4b0a00483046022100e841dcb39531a29149cdef2b76ac5ae7dcd08253b9e122780e1c2180f030e062022100f4320fa42459105f809991e4e0dd80b30f834123ba4e40b1bc9a29e932c5817f:922c64590222798bb761d5b6d8e72950
 
+        type: dsl
+    matchers:
+      - condition: and
+        dsl:
+          - success == true
+          - response != "[]"
+        type: dsl
+    payloads:
+      password:
+        - ""
+        - administrator
+        - admin
+        - password
+        - guest
+      username:
+        - ""
+        - administrator
+        - admin
+        - guest
+    pre-condition: |
+      isPortOpen(Host, Port);
+    stop-at-first-match: true
+    threads: 1
