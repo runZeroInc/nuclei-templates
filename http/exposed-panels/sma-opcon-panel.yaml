@@ -8,7 +8,7 @@ info:
   reference:
     - https://smatechnologies.com/product-opcon
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "SMA OpCon"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^SMA OpCon Solution Manager$"})
     max-request: 2
     shodan-query: http.title:"SMA OpCon"
     verified: true

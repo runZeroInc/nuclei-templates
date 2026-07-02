@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:fortinet:fortiadc:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "FortiADC"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^FortiADC$"})
     fofa-query: title="fortiadc"
     google-query: intitle:"fortiadc"
     max-request: 1

@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:cisco:telepresence_mcu_software:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Cisco Telepresence"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Cisco Telepresence"})
     max-request: 1
     product: telepresence_mcu_software
     shodan-query: http.title:"Cisco Telepresence"
