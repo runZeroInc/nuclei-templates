@@ -13,7 +13,7 @@ info:
     cvss-score: 0.0
     cwe-id: CWE-200
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "OpenRemote"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^OpenRemote"}) || service["favicon.ico.image.mmh3"] == "690482597"
     fofa-query: 'title="OpenRemote"'
     max-request: 2
     shodan-query: 'http.title:"OpenRemote"'
