@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:avaya:aura_system_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["product"] matches "(?i)avaya.aura.system.manager"
+    runzero-match: service["http.body"] matches `Avaya Aura(?:.){0,16}<\/sup>\s{0,3}System Manager`
     max-request: 1
     product: aura_system_manager
     vendor: avaya
