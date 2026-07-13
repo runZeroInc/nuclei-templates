@@ -11,6 +11,7 @@ info:
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "^NUUO Network Video Recorder Login$"})
     max-request: 1
   tags: discovery,edb,iot,nuuo,panel
 http:
