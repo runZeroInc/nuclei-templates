@@ -1,6 +1,6 @@
 id: minio-default-login
 info:
-  name: Minio Default Login
+  name: Minio - Default Login
   author: pikpikcu
   severity: high
   description: Minio default admin credentials were discovered.
@@ -13,9 +13,9 @@ info:
     cpe: cpe:2.3:a:minio:minio:*:*:*:*:*:*:*:*
   metadata:
     runzero-match: service["http.body"] matches "symfony Profiler"
-    max-request: 2
+    max-request: 3
     product: minio
-    shodan-query: http.html:"symfony Profiler"
+    shodan-query: title:"MinIO Console"
     vendor: minio
     verified: true
   tags: default-login,minio,vuln
