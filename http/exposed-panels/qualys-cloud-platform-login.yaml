@@ -9,7 +9,7 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Qualys"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Qualys"})
     max-request: 2
     product: qualys_cloud_platform
     shodan-query: http.title:"Qualys"
