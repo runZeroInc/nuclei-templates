@@ -8,7 +8,7 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: runzero-match: service["http.body"] matches "(?i)login - bizzy"
+    runzero-match: service["http.body"] matches "(?i)login - bizzy"
     max-request: 1
     verified: true
   tags: bizzy,discovery,login,panel
