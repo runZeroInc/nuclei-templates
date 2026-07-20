@@ -8,6 +8,7 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
+    runzero-review: REJECT/2026-07-20/Insufficient metadata, example html body shows no shodan results
     max-request: 1
     verified: true
   tags: bizzy,discovery,login,panel
