@@ -1,5 +1,4 @@
 id: wix-takeover
-
 info:
   name: Wix Takeover Detection
   author: harshinsecurity,philippedelteil,zy9ard3
@@ -9,35 +8,30 @@ info:
     - https://github.com/EdOverflow/can-i-take-over-xyz/issues/231
   metadata:
     max-request: 1
-  tags: takeover,wix,vuln
-
+  tags: takeover,vuln,wix
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
+  - extractors:
+      - dsl:
+          - cname
+        # digest: 4a0a00473045022100866312995e9566ab0eda84936f40d3f693beeca2d21d612bfb41dd8a459b7c5b02206fc03e87c818e7bba6f1b994435d3efcb400c898da136468b63dfb81bc9f2d07:922c64590222798bb761d5b6d8e72950
 
-    matchers-condition: and
+        type: dsl
     matchers:
-      - type: dsl
-        dsl:
+      - dsl:
           - Host != ip
-
+        type: dsl
       - type: word
         words:
-          - 'Error ConnectYourDomain occurred'
-          - 'wixErrorPagesApp'
-        condition: and
-
-      - type: status
-        status:
+          - ConnectYourDomain Error | Wix.com
+      - status:
           - 404
-
-      - type: dsl
+        type: status
+      - condition: or
         dsl:
-          - '!contains(host,"wix.com")'
-
-    extractors:
-      - type: dsl
-        dsl:
-          - cname
-
+          - '!contains(host,".wix.com")'
+          - '!contains(host,".wixdns.net")'
+        type: dsl
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
