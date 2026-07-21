@@ -1,5 +1,4 @@
 id: unauthenticated-jenkins
-
 info:
   name: Jenkins Dashboard - Unauthenticated Access
   author: dhiyaneshDK
@@ -8,22 +7,21 @@ info:
   metadata:
     max-request: 2
   tags: jenkins,vuln
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/jenkins/"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
+        type: word
         words:
           - Dashboard [Jenkins]
-
-      - type: status
-        status:
+          - Dashboard - Jenkins
+      - status:
           - 200
+        # digest: 4a0a00473045022100e64a2a17dba56cc34880fa5cc27d4b79c95ca290a381b793e09cbc41ff159161022008df8a52719d22b7d8fe18428e7c9586ca0918901b620d6b0b3da72596de0fd7:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/jenkins/'
+    stop-at-first-match: true
