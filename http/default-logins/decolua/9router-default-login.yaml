@@ -9,7 +9,7 @@ info:
     - https://github.com/decolua/9router
     - https://deepwiki.com/decolua/9router/13.1-authentication-and-token-issues
   metadata:
-    runzero-match: service["http.body"] matches "9Router"
+    runzero-match: any(each(service["html.titles"]), {# matches "^9Router"})
     fofa-query: body="9Router"
     max-request: 2
     product: 9router
