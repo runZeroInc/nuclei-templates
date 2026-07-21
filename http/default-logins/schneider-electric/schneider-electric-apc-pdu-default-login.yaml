@@ -1,7 +1,7 @@
-id: apc-pdu-default-login
+id: schneider-electric-apc-pdu-default-login
 
 info:
-  name: APC Rack PDU Default Login
+  name: Schneider Electric APC Rack PDU - Default Login
   author: tdiderich
   severity: high
   description: |
