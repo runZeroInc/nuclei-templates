@@ -9,7 +9,7 @@ info:
     - https://github.com/botpress/botpress
     - https://botpress.com/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)@botpress/ui-admin"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)@botpress/ui-admin"})
     max-request: 1
     product: botpress
     shodan-query: 'http.html:"@botpress/ui-admin"'

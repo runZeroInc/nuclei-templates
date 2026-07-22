@@ -12,7 +12,7 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cvss-score: 0.0
   metadata:
-    runzero-match: service["http.body"] matches "SonicWall SMA"
+    runzero-match: any(each(service["http.bodies"]), {# matches "SonicWall SMA"})
     fofa-query: body=“SonicWall SMA”
     max-request: 2
     shodan-query: html:“SonicWall SMA”

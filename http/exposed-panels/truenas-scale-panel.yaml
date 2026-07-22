@@ -10,7 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:h:ixsystems:truenas:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)truenas"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)truenas"})
     fofa-query: body="truenas"
     max-request: 1
     product: truenas

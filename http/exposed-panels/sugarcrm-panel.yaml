@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:sugarcrm:sugarcrm:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sugarcrm"}) || service["http.body"] matches "(?i)sugarcrm inc\\. all rights reserved"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)sugarcrm"}) || any(each(service["http.bodies"]), {# matches "(?i)sugarcrm inc\\. all rights reserved"})
     fofa-query:
       - title=sugarcrm
       - body="sugarcrm inc. all rights reserved"

@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/better-wp-security/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/plugins/better-wp-security/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/plugins/better-wp-security/"})
     max-request: 1
     verified: true
     fofa-query: body="/plugins/better-wp-security/"

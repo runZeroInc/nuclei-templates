@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-89
     cpe: cpe:2.3:a:dedecms:dedecms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)DedeCms"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)DedeCms"})
     max-request: 1
     product: dedecms
     shodan-query: http.html:"DedeCms"

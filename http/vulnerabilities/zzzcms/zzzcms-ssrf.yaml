@@ -11,7 +11,7 @@ info:
       - CWE-918
     cpe: cpe:2.3:a:zzzcms:zzzcms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "ZzzCMS"
+    runzero-match: any(each(service["http.bodies"]), {# matches "ZzzCMS"})
     fofa-query: title="ZzzCMS"
     max-request: 1
     product: zzzcms

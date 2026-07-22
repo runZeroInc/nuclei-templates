@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-918
   metadata:
-    runzero-match: service["http.body"] matches "TiTiler"
+    runzero-match: any(each(service["http.bodies"]), {# matches "TiTiler"})
     max-request: 1
     shodan-query: html:"TiTiler"
     verified: true

@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/updraftplus/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/updraftplus"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/updraftplus"})
     verified: true
     max-request: 1
     fofa-query: body="/wp-content/plugins/updraftplus"

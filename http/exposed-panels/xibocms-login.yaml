@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:springsignage:xibo:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/xibosignage/xibo-cms"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/xibosignage/xibo-cms"})
     max-request: 1
     product: xibo
     shodan-query: http.html:"/xibosignage/xibo-cms"

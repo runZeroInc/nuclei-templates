@@ -10,7 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:pyload:pyload:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)pyload"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)pyload"})
     max-request: 1
     product: pyload
     shodan-query: html:"pyload"

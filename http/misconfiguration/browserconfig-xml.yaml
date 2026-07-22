@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.sygnal.com/lessons/browserconfig-xml
   metadata:
-    runzero-match: service["http.body"] matches "(?i)browserconfig\\.xml"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)browserconfig\\.xml"})
     verified: true
     max-request: 1
     shodan-query: html:"browserconfig.xml"

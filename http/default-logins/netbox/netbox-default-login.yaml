@@ -9,7 +9,7 @@ info:
     - https://github.com/netbox-community/netbox-docker
     - https://docs.netbox.dev/en/stable/integrations/rest-api/#authenticating-to-the-api
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NetBox"}) && service["http.body"] contains "netbox-community"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)NetBox"}) && any(each(service["http.bodies"]), {# contains "netbox-community"})
     fofa-query: 'title="NetBox" || body="netbox-community"'
     max-request: 2
     product: netbox

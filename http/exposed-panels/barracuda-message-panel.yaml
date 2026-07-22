@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.barracuda.com/products/email-protection/message-archiver
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "1436966696" || any([service["http.body"], service["last.http.body"]], {# matches "/css/archiver.css"})
+    runzero-match: service["favicon.ico.image.mmh3"] == "1436966696" || any(each(service["http.bodies"]), {# matches "/css/archiver.css"})
     max-request: 1
     shodan-query: http.favicon.hash:1436966696 http.html:"/css/archiver.css"
   tags: barracuda,panel,login,discovery

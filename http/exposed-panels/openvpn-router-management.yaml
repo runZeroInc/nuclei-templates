@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:openvpn:openvpn:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)router management - server openvpn" || any(each(service["html.titles"]), {# matches "(?i)openvpn-admin"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)router management - server openvpn"}) || any(each(service["html.titles"]), {# matches "(?i)openvpn-admin"})
     fofa-query:
       - body="router management - server openvpn"
       - title="openvpn-admin"

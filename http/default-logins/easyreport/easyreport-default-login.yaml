@@ -6,7 +6,7 @@ info:
   classification:
     cwe-id: CWE-798
   metadata:
-    runzero-match: service["http.body"] matches "(?i)EasyReport-A Sample and Easy to Use Web Reporting System"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)EasyReport-A Sample and Easy to Use Web Reporting System"})
     fofa-query: body="EasyReport-A Sample and Easy to Use Web Reporting System"
     max-request: 1
     verified: true

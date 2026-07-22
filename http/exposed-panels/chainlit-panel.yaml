@@ -9,7 +9,7 @@ info:
     - https://github.com/Chainlit/chainlit
     - https://chainlit.io/
   metadata:
-    runzero-match: service["http.body"] matches `(?i)content\s*=\s*"https://github.com/Chainlit/chainlit"`
+    runzero-match: any(each(service["http.bodies"]), {# matches `(?i)content\s*=\s*"https://github.com/Chainlit/chainlit"`})
     max-request: 1
     product: chainlit
     shodan-query: 'http.html:"chainlit"'

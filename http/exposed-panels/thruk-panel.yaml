@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:thruk:thruk:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)thruk"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)thruk"})
     fofa-query:
       - title=="Thruk Monitoring Webinterface"
       - title=="thruk monitoring webinterface"

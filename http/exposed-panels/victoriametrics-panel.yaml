@@ -10,7 +10,7 @@ info:
     - https://victoriametrics.com/
     - https://docs.victoriametrics.com/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)VictoriaMetrics"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)VictoriaMetrics"})
     verified: true
     max-request: 1
     shodan-query: http.html:"VictoriaMetrics"

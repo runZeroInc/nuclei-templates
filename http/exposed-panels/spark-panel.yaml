@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:spark:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/apps/imt/html/" || any(each(service["html.titles"]), {# matches "(?i)spark master at"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/apps/imt/html/"}) || any(each(service["html.titles"]), {# matches "(?i)spark master at"})
     fofa-query:
       - title="spark master at"
       - body="/apps/imt/html/"

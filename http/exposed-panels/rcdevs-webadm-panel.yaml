@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.rcdevs.com/solutions/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)WebADM"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)WebADM"})
     verified: true
     max-request: 4
     shodan-query: http.html:"WebADM"

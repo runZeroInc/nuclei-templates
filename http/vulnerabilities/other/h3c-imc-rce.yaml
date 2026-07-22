@@ -11,7 +11,7 @@ info:
     cvss-score: 10
     cwe-id: CWE-77,CWE-78
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/imc/javax\\.faces\\.resource/images/login_help\\.png\\.jsf\\?ln=primefaces-imc-new-webui"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/imc/javax\\.faces\\.resource/images/login_help\\.png\\.jsf\\?ln=primefaces-imc-new-webui"})
     fofa-query: body="/imc/javax.faces.resource/images/login_help.png.jsf?ln=primefaces-imc-new-webui"
     max-request: 2
   tags: h3c-imc,rce,vuln

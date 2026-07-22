@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.leicabiosystems.com/digital-pathology/eslidemanager/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)eSlideManager - Login"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)eSlideManager - Login"})
     verified: true
     max-request: 1
     shodan-query: html:"eSlideManager - Login"

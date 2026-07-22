@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:tinyfilemanager_project:tinyfilemanager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "Tiny File Manager"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Tiny File Manager"})
     max-request: 3
     product: tinyfilemanager
     shodan-query: html:"Tiny File Manager"

@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/table-of-contents-plus/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/table-of-contents-plus/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/table-of-contents-plus/"})
     verified: true
     max-request: 3
     vendor: developer

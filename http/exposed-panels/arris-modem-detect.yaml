@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:commscope:dg3450:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)phy\\.htm"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)phy\\.htm"})
     fofa-query: body="phy.htm"
     max-request: 1
     product: dg3450

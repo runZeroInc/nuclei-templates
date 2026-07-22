@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:magnolia-cms:magnolia_cms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "Magnolia is a registered trademark"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Magnolia is a registered trademark"})
     max-request: 3
     product: magnolia_cms
     shodan-query: html:"Magnolia is a registered trademark"

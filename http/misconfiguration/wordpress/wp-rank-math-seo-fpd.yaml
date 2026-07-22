@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/seo-by-rank-math/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/seo-by-rank-math/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/seo-by-rank-math/"})
     verified: true
     max-request: 3
     vendor: developer

@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-89
   metadata:
-    runzero-match: service["http.body"] matches "(?i)CheckSilverlightInstalled"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)CheckSilverlightInstalled"})
     fofa-query: body="CheckSilverlightInstalled"
     max-request: 1
     verified: true

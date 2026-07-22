@@ -12,7 +12,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: service["http.body"] matches "Camunda Welcome"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Camunda Welcome"})
     max-request: 2
     shodan-query: http.html:"Camunda Welcome"
     verified: true

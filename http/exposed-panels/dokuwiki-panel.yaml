@@ -11,7 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:dokuwiki:dokuwiki:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/dokuwiki/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/dokuwiki/"})
     verified: true
     max-request: 1
     vendor: dokuwiki

@@ -10,7 +10,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: service["http.body"] matches "Lucee"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Lucee"})
     fofa-query: app="Lucee-Engine"
     max-request: 1
     shodan-query: html:"Lucee"

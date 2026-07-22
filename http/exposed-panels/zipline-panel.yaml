@@ -9,7 +9,7 @@ info:
   reference:
     - https://github.com/diced/zipline
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Zipline"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Zipline"})
     verified: true
     max-request: 1
     vendor: diced

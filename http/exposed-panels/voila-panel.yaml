@@ -10,7 +10,7 @@ info:
     - https://github.com/voila-dashboards/voila
     - https://voila.readthedocs.io
   metadata:
-    runzero-match: service["http.body"] matches "(?i)voila-notebooks"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)voila-notebooks"})
     max-request: 1
     product: Voilà
     shodan-query: 'html:"/voila/"'

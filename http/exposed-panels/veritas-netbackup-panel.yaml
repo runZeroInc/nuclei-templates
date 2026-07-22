@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.veritas.com/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Veritas NetBackup OpsCenter Analytics"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Veritas NetBackup OpsCenter Analytics"})
     verified: true
     max-request: 1
     shodan-query: html:"Veritas NetBackup OpsCenter Analytics"

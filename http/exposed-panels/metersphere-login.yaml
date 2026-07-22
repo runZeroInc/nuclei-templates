@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:metersphere:metersphere:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)metersphere"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)metersphere"})
     max-request: 2
     vendor: metersphere
     product: metersphere

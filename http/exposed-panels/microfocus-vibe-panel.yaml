@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:microfocus:vibe:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)micro focus vibe"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)micro focus vibe"})
     fofa-query: body="micro focus vibe"
     max-request: 1
     product: vibe

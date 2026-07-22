@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/themes/astra/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/themes/astra/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/themes/astra/"})
     max-request: 1
     verified: true
     shodan-query: html:"/themes/astra/"

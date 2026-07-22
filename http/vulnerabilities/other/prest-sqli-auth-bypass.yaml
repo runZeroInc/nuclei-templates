@@ -9,7 +9,7 @@ info:
   reference:
     - https://github.com/advisories/GHSA-wm25-j4gw-6vr3
   metadata:
-    runzero-match: service["http.body"] matches "(?i)authorization token is empty"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)authorization token is empty"})
     verified: true
     max-request: 1
     shodan-query: html:"authorization token is empty"

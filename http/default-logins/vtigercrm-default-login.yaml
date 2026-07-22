@@ -10,7 +10,7 @@ info:
     - https://github.com/vtiger-crm/vtigercrm
     - https://code.vtiger.com/vtiger/vtigercrm
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Powered by vtiger CRM"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Powered by vtiger CRM"})
     verified: true
     max-request: 2
     shodan-query: html:"Powered by vtiger CRM"

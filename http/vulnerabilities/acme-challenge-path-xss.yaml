@@ -12,7 +12,7 @@ info:
     cwe-id:
       - CWE-80
   metadata:
-    runzero-match: service["http.body"] matches "(?i)acme-challenge"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)acme-challenge"})
     shodan-query: html:"acme-challenge"
   tags: acme,misconfig,vuln,xss
 http:

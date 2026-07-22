@@ -8,7 +8,7 @@ info:
   remediation: |
     Change the default administrator password immediately. Update firmware to the latest version which generates random passwords on factory reset.
   metadata:
-    runzero-match: service["http.body"] matches "(?i)tl\\.account\\.ucm\\.js"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)tl\\.account\\.ucm\\.js"})
     max-request: 1
     shodan-query: tl.account.ucm.js
     vendor: grandstream

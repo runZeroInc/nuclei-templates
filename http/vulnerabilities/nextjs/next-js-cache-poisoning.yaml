@@ -10,7 +10,7 @@ info:
     - https://github.com/valentin-panov/nextjs-no-cache-issue
     - https://zhero-web-sec.github.io/research-and-things/nextjs-and-cache-poisoning-a-quest-for-the-black-hole
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/_next/static"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/_next/static"})
     fofa-query: body="/_next/static"
     framework: node.js
     product: next.js

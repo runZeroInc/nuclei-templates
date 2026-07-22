@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/sg-cachepress/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/plugins/sg-cachepress/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/plugins/sg-cachepress/"})
     max-request: 1
     verified: true
     shodan-query: html:"/plugins/sg-cachepress/"

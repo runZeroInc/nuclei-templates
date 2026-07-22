@@ -11,7 +11,7 @@ info:
     - https://www.se.com/ww/en/work/products/product-launch/scada/
     - https://www.se.com/us/en/faqs/FA298792/
   metadata:
-    runzero-match: service["http.body"] matches `(?:ClearSCADA|Geo SCADA Expert) Home`
+    runzero-match: any(each(service["http.bodies"]), {# matches `(?:ClearSCADA|Geo SCADA Expert) Home`})
     max-request: 1
     product: clearscada
     shodan-query: 'http.title:"ClearSCADA"'

@@ -12,7 +12,7 @@ info:
     cvss-score: 6.8
     cwe-id: CWE-918
   metadata:
-    runzero-match: service["http.body"] matches "Umbraco"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Umbraco"})
     verified: true
     max-request: 3
     shodan-query: http.html:"Umbraco"

@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:audiocodes:420hd_ip_phone_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Audiocodes"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Audiocodes"})
     max-request: 1
     product: 420hd_ip_phone_firmware
     shodan-query: http.html:"Audiocodes"

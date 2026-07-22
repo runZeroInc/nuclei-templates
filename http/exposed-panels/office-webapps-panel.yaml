@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-668
     cpe: cpe:2.3:a:microsoft:office_web_apps_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)provide a link that opens word"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)provide a link that opens word"})
     fofa-query: body="provide a link that opens word"
     max-request: 2
     product: office_web_apps_server

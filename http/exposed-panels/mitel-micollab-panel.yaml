@@ -10,7 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:mitel:micollab:*:*:*:*:-:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)MiCollab End User Portal" || service["favicon.ico.image.mmh3"] == "-1922044295"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)MiCollab End User Portal"}) || service["favicon.ico.image.mmh3"] == "-1922044295"
     fofa-query:
       - '"MiCollab End User Portal" && title=="Redirecting..."'
       - icon_hash="-1922044295"

@@ -12,7 +12,7 @@ info:
     - https://www.scadabr.com.br/
     - https://github.com/ScadaBR/ScadaBR
   metadata:
-    runzero-match: service["http.body"] matches "(?i)ScadaBR Software"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)ScadaBR Software"})
     max-request: 1
     product: scadabr
     shodan-query: http.title:"ScadaBR"

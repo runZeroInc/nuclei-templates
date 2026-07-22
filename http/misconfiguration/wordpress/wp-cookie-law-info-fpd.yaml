@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/cookie-law-info/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/cookie-law-info/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/cookie-law-info/"})
     verified: true
     max-request: 3
     vendor: developer

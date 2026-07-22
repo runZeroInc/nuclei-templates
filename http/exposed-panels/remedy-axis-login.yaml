@@ -8,7 +8,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:bmc:remedy_action_request_system:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)BMC Remedy"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)BMC Remedy"})
     max-request: 3
     product: remedy_action_request_system
     shodan-query: http.html:"BMC Remedy"

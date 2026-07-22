@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:telosalliance:omnia_mpx_node:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Omnia MPX"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Omnia MPX"})
     max-request: 1
     product: omnia_mpx_node
     shodan-query: http.html:"Omnia MPX"

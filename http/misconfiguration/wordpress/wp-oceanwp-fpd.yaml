@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/themes/oceanwp/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/themes/oceanwp/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/themes/oceanwp/"})
     verified: true
     max-request: 3
     vendor: developer

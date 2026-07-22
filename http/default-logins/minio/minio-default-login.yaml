@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:minio:minio:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "symfony Profiler"
+    runzero-match: any(each(service["http.bodies"]), {# matches "symfony Profiler"})
     max-request: 3
     product: minio
     shodan-query: title:"MinIO Console"

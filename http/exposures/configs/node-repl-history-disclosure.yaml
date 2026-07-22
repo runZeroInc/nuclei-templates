@@ -10,7 +10,7 @@ info:
     - https://nodejs.org/api/repl.html#persistent-history
     - https://joshtronic.com/2022/12/18/nodejs-repl-history/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)\\.node_repl_history"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)\\.node_repl_history"})
     max-request: 2
     verified: true
     shodan-query: http.html:".node_repl_history"

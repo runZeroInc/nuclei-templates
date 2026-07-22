@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/safe-svg/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/safe-svg/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/safe-svg/"})
     verified: true
     max-request: 3
     vendor: developer

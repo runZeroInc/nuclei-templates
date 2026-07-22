@@ -11,7 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:oracle:e-business_suite:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Oracle UIX"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Oracle UIX"})
     verified: true
     max-request: 1
     vendor: oracle

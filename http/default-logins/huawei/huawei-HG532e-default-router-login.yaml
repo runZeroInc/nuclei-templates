@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:h:huawei:hg532e:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "HG532e"
+    runzero-match: any(each(service["http.bodies"]), {# matches "HG532e"})
     max-request: 1
     product: hg532e
     shodan-query: http.html:"HG532e"

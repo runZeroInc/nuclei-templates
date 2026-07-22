@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:vmware:esxi:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)esxuiapp"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)esxuiapp"})
     fofa-query: body="esxuiapp"
     max-request: 1
     product: esxi

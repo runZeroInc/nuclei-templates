@@ -14,7 +14,7 @@ info:
     - https://cheatsheetseries.owasp.org/cheatsheets/Information_Leakage.html
     - https://symfony.com/doc/current/deployment.html
   metadata:
-    runzero-match: service["http.body"] matches "(?i)symfony\\.lock"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)symfony\\.lock"})
     verified: true
     max-request: 1
     vendor: symfony

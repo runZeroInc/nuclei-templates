@@ -13,7 +13,7 @@ info:
     cwe-id:
       - CWE-89
   metadata:
-    runzero-match: service["http.body"] matches "(?i)yyoa"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)yyoa"})
     fofa-query: body="yyoa" && app="致远互联-OA"
     max-request: 1
     verified: true

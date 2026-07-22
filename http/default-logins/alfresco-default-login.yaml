@@ -9,7 +9,7 @@ info:
     - https://docs.alfresco.com/content-services/community/admin/admin-console/
     - https://docs.alfresco.com/community5.0/references/RESTful-RepositoryLoginPost.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Alfresco"}) && service["http.body"] contains "/share/res/js/alfresco"
+    runzero-match: any(each(service["html.titles"]), {# matches "Alfresco"}) && any(each(service["http.bodies"]), {# contains "/share/res/js/alfresco"})
     fofa-query: 'title="Alfresco" || body="/share/res/js/alfresco"'
     max-request: 2
     product: alfresco-content-services

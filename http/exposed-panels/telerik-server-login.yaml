@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:progress:telerik_report_server:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Telerik Report Server"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Telerik Report Server"})
     max-request: 1
     product: telerik_report_server
     shodan-query: http.html:"Telerik Report Server"

@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:trendnet:tew-827dru_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)tew-827dru"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)tew-827dru"})
     fofa-query: body="tew-827dru"
     max-request: 1
     product: tew-827dru_firmware

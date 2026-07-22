@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.fronius.com/en/solar-energy/installers-partners/technical-data/all-products/system-monitoring/hardware/fronius-datamanager-2-0
   metadata:
-    runzero-match: service["http.body"] matches `(?i)Fronius Datalogger Web`
+    runzero-match: any(each(service["http.bodies"]), {# matches `(?i)Fronius Datalogger Web`})
     max-request: 1
     product: fronius-datalogger-web
     shodan-query: 'http.title:"Fronius Datalogger Web"'

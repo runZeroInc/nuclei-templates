@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:lenovo:fan_power_controller:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)fan and power controller"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)fan and power controller"})
     fofa-query: body="fan and power controller"
     max-request: 2
     product: fan_power_controller

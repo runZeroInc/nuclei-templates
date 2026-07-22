@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-89
   metadata:
-    runzero-match: service["http.body"] matches "(?i)远程通CHANJET_Remote"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)远程通CHANJET_Remote"})
     fofa-query: body="远程通CHANJET_Remote"
     max-request: 2
     verified: true

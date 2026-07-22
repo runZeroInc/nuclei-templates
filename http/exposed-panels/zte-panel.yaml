@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:h:zte:nr8120a:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)ZTE Corporation"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)ZTE Corporation"})
     max-request: 1
     product: nr8120a
     shodan-query: http.html:"ZTE Corporation"

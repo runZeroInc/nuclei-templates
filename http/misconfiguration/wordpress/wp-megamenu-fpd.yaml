@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/megamenu/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/plugins/megamenu"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/plugins/megamenu"})
     max-request: 1
     verified: true
     shodan-query: html:"/plugins/megamenu"

@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ez:ez_publish:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)eZ Publish"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)eZ Publish"})
     max-request: 1
     product: ez_publish
     shodan-query: http.html:"eZ Publish"

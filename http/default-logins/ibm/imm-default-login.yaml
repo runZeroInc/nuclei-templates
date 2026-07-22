@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:h:ibm:integrated_management_module:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)ibmdojo"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)ibmdojo"})
     fofa-query: integrated management module
     max-request: 1
     product: integrated_management_module

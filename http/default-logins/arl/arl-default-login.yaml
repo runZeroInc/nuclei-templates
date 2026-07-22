@@ -9,7 +9,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: service["http.url"] contains ":5003/" && service["http.body"] contains "Powered by TCC" && service["http.body"] contains "ARL"
+    runzero-match: service["http.url"] contains ":5003/" && any(each(service["http.bodies"]), {# contains "Powered by TCC"}) && any(each(service["http.bodies"]), {# contains "ARL"})
     max-request: 1
   tags: arl,default-login,vuln
 http:

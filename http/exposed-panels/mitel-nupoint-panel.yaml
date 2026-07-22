@@ -7,7 +7,7 @@ info:
   description: |
     Mitel NuPoint Unified Messaging login panel was detected.
   metadata:
-    runzero-match: service["http.body"] matches "(?i)mitel networks" || service["favicon.ico.image.mmh3"] == "-1922044295" || service["http.body"] matches "(?i)micollab end user portal"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)mitel networks"}) || service["favicon.ico.image.mmh3"] == "-1922044295" || any(each(service["http.bodies"]), {# matches "(?i)micollab end user portal"})
     verified: true
     max-request: 1
     vendor: mitel

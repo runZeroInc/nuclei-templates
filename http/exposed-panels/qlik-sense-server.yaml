@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:qlik:qlik_sense:*:*:*:*:windows:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qlik-sense"}) || service["favicon.ico.image.mmh3"] == "-74348711" || service["http.body"] matches "(?i)qlik"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)qlik-sense"}) || service["favicon.ico.image.mmh3"] == "-74348711" || any(each(service["http.bodies"]), {# matches "(?i)qlik"})
     fofa-query:
       - app="Qlik-Sense"
       - app="qlik-sense"
