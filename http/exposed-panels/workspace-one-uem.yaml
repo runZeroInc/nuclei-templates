@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:workspace_one_uem:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)airwatch"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)airwatch"})
     fofa-query: body="airwatch"
     max-request: 1
     product: workspace_one_uem

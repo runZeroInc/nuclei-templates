@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:eq-3:homematic_ccu3_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)homematic"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)homematic"})
     fofa-query: body="homematic"
     max-request: 1
     product: homematic_ccu3_firmware

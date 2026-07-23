@@ -10,7 +10,7 @@ info:
     - https://wordpress.org/themes/storefront/
     - https://woocommerce.com/products/storefront/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/themes/storefront/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/themes/storefront/"})
     max-request: 3
     vendor: wordpress
     product: storefront

@@ -9,7 +9,7 @@ info:
   reference:
     - https://github.com/railsadminteam/rails_admin
   metadata:
-    runzero-match: service["http.body"] matches "(?i)RailsAdmin"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)RailsAdmin"})
     max-request: 2
     verified: true
     shodan-query: http.html:"RailsAdmin"

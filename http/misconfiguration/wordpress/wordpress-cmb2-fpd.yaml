@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/cmb2/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/cmb2/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/cmb2/"})
     verified: true
     max-request: 3
     vendor: developer

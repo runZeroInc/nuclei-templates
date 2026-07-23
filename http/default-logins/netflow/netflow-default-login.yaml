@@ -8,7 +8,7 @@ info:
   classification:
     cpe: cpe:2.3:a:zohocorp:manageengine_netflow_analyzer:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "Login - Netflow Analyzer"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Login - Netflow Analyzer"})
     max-request: 1
     product: manageengine_netflow_analyzer
     shodan-query: html:"Login - Netflow Analyzer"

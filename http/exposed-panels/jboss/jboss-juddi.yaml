@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:jboss_enterprise_web_platform:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)jboss ws"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)jboss ws"})
     fofa-query: body="jboss ws"
     max-request: 2
     product: jboss_enterprise_web_platform

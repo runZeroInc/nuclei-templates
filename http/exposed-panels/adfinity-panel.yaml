@@ -9,7 +9,7 @@ info:
   reference:
     - https://easi.net/en/solutions/adfinity
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Adfinity"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Adfinity"})
     max-request: 1
     verified: true
     shodan-query: http.html:"Adfinity"

@@ -13,7 +13,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-918
   metadata:
-    runzero-match: service["http.body"] matches "BentoML"
+    runzero-match: any(each(service["http.bodies"]), {# matches "BentoML"})
     max-request: 1
     vendor: bentoml
     product: bentoml

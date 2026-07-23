@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:h:generex:cs141:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "CS141"
+    runzero-match: any(each(service["http.bodies"]), {# matches "CS141"})
     max-request: 3
     product: cs141
     shodan-query: http.html:"CS141"

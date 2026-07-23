@@ -9,7 +9,7 @@ info:
   reference:
     - https://prettier.io/docs/en/ignore.html
   metadata:
-    runzero-match: service["http.body"] matches "(?i)\\.prettierignore"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)\\.prettierignore"})
     verified: true
     max-request: 2
     vendor: prettier

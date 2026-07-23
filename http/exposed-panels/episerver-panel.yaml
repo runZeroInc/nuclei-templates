@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:episerver:episerver:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)epihash"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)epihash"})
     max-request: 1
     product: episerver
     shodan-query: html:"epihash"

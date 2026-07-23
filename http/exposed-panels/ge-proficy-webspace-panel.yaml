@@ -11,7 +11,7 @@ info:
   reference:
     - https://www.ge.com/digital/applications/hmi-scada/proficy-webspace
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Proficy WebSpace"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Proficy WebSpace"})
     max-request: 1
     product: proficy-webspace
     shodan-query: 'http.title:"Proficy WebSpace"'

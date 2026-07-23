@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:ruijie:rg-uac_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)get_verify_info"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)get_verify_info"})
     fofa-query: body="get_verify_info"
     max-request: 1
     product: rg-uac_firmware

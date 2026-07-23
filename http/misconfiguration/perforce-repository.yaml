@@ -9,7 +9,7 @@ info:
   reference:
     - https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/P4IGNORE.html
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Perforce"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Perforce"})
     max-request: 1
     verified: true
     shodan-query: html:"Perforce"

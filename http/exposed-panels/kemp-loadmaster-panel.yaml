@@ -9,7 +9,7 @@ info:
   reference:
     - https://kemptechnologies.com/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Kemp Login Screen"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Kemp Login Screen"})
     verified: true
     max-request: 1
     shodan-query: html:"Kemp Login Screen"

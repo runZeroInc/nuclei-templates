@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:open-emr:openemr:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "OpenEMR"
+    runzero-match: any(each(service["http.bodies"]), {# matches "OpenEMR"})
     fofa-query: app="OpenEMR"
     max-request: 1
     product: openemr

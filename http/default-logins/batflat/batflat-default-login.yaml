@@ -11,7 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:batflat:batflat:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] contains "Powered by Batflat"
+    runzero-match: any(each(service["http.bodies"]), {# contains "Powered by Batflat"})
     google-query: intext:"Powered by Batflat."
     max-request: 1
     product: batflat

@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:red-gate:sql_monitor:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)sql monitor"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)sql monitor"})
     fofa-query: body="sql monitor"
     max-request: 1
     product: sql_monitor

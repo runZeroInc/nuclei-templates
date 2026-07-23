@@ -9,7 +9,7 @@ info:
   reference:
     - https://docs.dependencytrack.org
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Dependency-Track"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Dependency-Track"})
     verified: true
     max-request: 1
     shodan-query: html:"Dependency-Track"

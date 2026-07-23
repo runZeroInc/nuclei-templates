@@ -6,7 +6,7 @@ info:
   description: |
     Weaver Ecology exposes a debug API endpoint that allows invocation of `cn.hutool.core.util.RuntimeUtil.execForStr`, resulting in remote command execution. Successful exploitation allows an attacker to execute arbitrary operating system commands on the target server.
   metadata:
-    runzero-match: service["http.body"] matches "/build/ecodesdk/static/js/lib\\.js"
+    runzero-match: any(each(service["http.bodies"]), {# matches "/build/ecodesdk/static/js/lib\\.js"})
     fofa-query: body="/build/ecodesdk/static/js/lib.js"
     max-request: 1
     product: ecology

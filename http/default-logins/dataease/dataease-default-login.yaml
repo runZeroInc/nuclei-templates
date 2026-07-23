@@ -11,7 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:dataease_project:dataease:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "Dataease"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Dataease"})
     max-request: 1
     product: dataease
     shodan-query: html:"Dataease"

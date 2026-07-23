@@ -12,7 +12,7 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-20,CWE-22,CWE-73
   metadata:
-    runzero-match: service["http.body"] matches "(?i)__gradio_mode__" || any(each(service["html.titles"]), {# matches "(?i)gradio"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)__gradio_mode__"}) || any(each(service["html.titles"]), {# matches "(?i)gradio"})
     fofa-query:
       - body="__gradio_mode__"
       - title="gradio"

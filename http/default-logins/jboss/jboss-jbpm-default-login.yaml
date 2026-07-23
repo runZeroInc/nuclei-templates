@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:redhat:jbpm:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "JBossWS"
+    runzero-match: any(each(service["http.bodies"]), {# matches "JBossWS"})
     max-request: 12
     product: jbpm
     shodan-query: html:"JBossWS"

@@ -4,7 +4,7 @@ info:
   author: ritikchaddha
   severity: high
   metadata:
-    runzero-match: service["http.body"] matches "/userRpm/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "/userRpm/"})
     max-request: 1
     shodan-query: html:"/userRpm/"
     verified: true

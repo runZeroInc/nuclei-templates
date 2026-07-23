@@ -10,7 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:microsoft:remote_desktop:*:*:*:*:android:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)rd web access"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)rd web access"})
     fofa-query: body="rd web access"
     max-request: 1
     product: remote_desktop

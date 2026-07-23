@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.soplanning.org/en/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)soplanning"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)soplanning"})
     fofa-query: body="soplanning"
     max-request: 1
     product: soplanning

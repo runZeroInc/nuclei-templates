@@ -8,7 +8,7 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "-197006674" || service["http.body"] matches "(?i)Powered by EspoCRM"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-197006674" || any(each(service["http.bodies"]), {# matches "(?i)Powered by EspoCRM"})
     fofa-query: body="Powered by EspoCRM"
     max-request: 1
     product: espocrm

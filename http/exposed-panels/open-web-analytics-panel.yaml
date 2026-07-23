@@ -7,7 +7,7 @@ info:
   description: |
     Detects the presence of Open Web Analytics login page.
   metadata:
-    runzero-match: service["http.body"] matches "(?i)OWA CONFIG SETTINGS"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)OWA CONFIG SETTINGS"})
     verified: true
     max-request: 1
     shodan-query: html:"OWA CONFIG SETTINGS"

@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.tibco.com/products/managed-file-transfer
   metadata:
-    runzero-match: service["http.body"] matches "(?i)TIBCO Managed"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)TIBCO Managed"})
     verified: true
     max-request: 1
     shodan-query: html:"TIBCO Managed"

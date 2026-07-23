@@ -10,7 +10,7 @@ info:
     - https://github.com/labring/FastGPT
     - https://fastgpt.in
   metadata:
-    runzero-match: service["http.body"] matches "(?i)FastGPT 是一个"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)FastGPT 是一个"})
     max-request: 1
     product: fastgpt
     shodan-query: 'http.title:"FastGPT"'

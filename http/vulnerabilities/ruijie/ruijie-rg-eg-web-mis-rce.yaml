@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-77
   metadata:
-    runzero-match: service["http.body"] matches "(?i)请输入您的RG-EG易网关的用户名和密码"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)请输入您的RG-EG易网关的用户名和密码"})
     fofa-query: body="请输入您的RG-EG易网关的用户名和密码"
     max-request: 2
     verified: true

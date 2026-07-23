@@ -10,7 +10,7 @@ info:
     - https://wordpress.org/plugins/members/
     - https://pentest-tools.com/vulnerabilities-exploits/wordpress-members-membership-and-user-role-editor-plugin-error-log-disclosure_28354
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/members"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/members"})
     max-request: 1
     vendor: wordpress
     product: members

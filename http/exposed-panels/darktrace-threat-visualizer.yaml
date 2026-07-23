@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:darktrace:threat_visualizer:*:*:*:*:android:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)darktrace threat visualizer"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)darktrace threat visualizer"})
     fofa-query: body="darktrace threat visualizer"
     max-request: 1
     product: threat_visualizer

@@ -6,7 +6,7 @@ info:
   description: |
     Default Nginx Proxy Manager credentials was discovered.
   metadata:
-    runzero-match: service["http.body"] matches "Nginx Proxy Manager"
+    runzero-match: any(each(service["http.bodies"]), {# matches "Nginx Proxy Manager"})
     max-request: 1
     shodan-query: html:"Nginx Proxy Manager"
     verified: true

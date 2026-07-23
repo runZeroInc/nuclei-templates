@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:apache:superset:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "1582430156" || service["http.body"] matches "(?i)apache superset"
+    runzero-match: service["favicon.ico.image.mmh3"] == "1582430156" || any(each(service["http.bodies"]), {# matches "(?i)apache superset"})
     fofa-query:
       - body="apache superset"
       - icon_hash=1582430156

@@ -6,7 +6,7 @@ info:
   classification:
     cpe: cpe:2.3:o:zyxel:vmg1312-b10d_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)vmg1312-b10d"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)vmg1312-b10d"})
     fofa-query: body="vmg1312-b10d"
     max-request: 1
     product: vmg1312-b10d_firmware

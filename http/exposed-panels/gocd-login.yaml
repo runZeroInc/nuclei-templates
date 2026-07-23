@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:thoughtworks:gocd:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)create a pipeline - go"}) || service["http.body"] matches "(?i)gocd version"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)create a pipeline - go"}) || any(each(service["http.bodies"]), {# matches "(?i)gocd version"})
     fofa-query:
       - title="create a pipeline - go" html:"gocd version"
       - body="gocd version"

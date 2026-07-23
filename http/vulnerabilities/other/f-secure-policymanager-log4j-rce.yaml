@@ -14,7 +14,7 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-77
   metadata:
-    runzero-match: service["http.body"] matches "F-Secure Policy Manager"
+    runzero-match: any(each(service["http.bodies"]), {# matches "F-Secure Policy Manager"})
     verified: true
     max-request: 1
     shodan-query: html:"F-Secure Policy Manager"

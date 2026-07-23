@@ -12,7 +12,7 @@ info:
     - https://www.opto22.com/products/product-container/groov-epic
     - https://www.opto22.com/products/product-container/groov-rio
   metadata:
-    runzero-match: service["http.body"] matches `(?i)<i>groov</i> is a registered trademark of Opto 22.`
+    runzero-match: any(each(service["http.bodies"]), {# matches `(?i)<i>groov</i> is a registered trademark of Opto 22.`})
     max-request: 1
     product: groov
     shodan-query: 'http.title:"groov"'

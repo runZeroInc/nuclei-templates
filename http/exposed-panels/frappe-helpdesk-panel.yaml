@@ -10,7 +10,7 @@ info:
     - https://frappe.io/helpdesk
     - https://github.com/frappe/helpdesk
   metadata:
-    runzero-match: service["http.body"] matches "(?i)window\\.frappe_version"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)window\\.frappe_version"})
     verified: true
     max-request: 1
     shodan-query: http.html:"window.frappe_version"

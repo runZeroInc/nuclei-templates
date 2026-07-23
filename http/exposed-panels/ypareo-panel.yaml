@@ -10,7 +10,7 @@ info:
     - https://www.ypareo.com/legacy
     - https://www.ymag.fr/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)ypareo"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)ypareo"})
     verified: true
     max-request: 4
     shodan-query: http.html:"ypareo"

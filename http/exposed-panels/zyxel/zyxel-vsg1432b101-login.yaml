@@ -5,7 +5,7 @@ info:
   author: princechaddha
   severity: info
   metadata:
-    runzero-match: service["http.body"] matches "(?i)VSG1432-B101"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)VSG1432-B101"})
     verified: true
     max-request: 1
     shodan-query: http.html:"VSG1432-B101"

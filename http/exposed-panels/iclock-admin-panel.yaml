@@ -8,7 +8,7 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    runzero-match: service["http.body"] matches "(?i)iClock Automatic"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)iClock Automatic"})
     verified: true
     max-request: 2
     shodan-query: html:"iClock Automatic"

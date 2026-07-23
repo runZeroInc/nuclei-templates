@@ -14,7 +14,7 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-532
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/plugins/nextgen-gallery-pro"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/plugins/nextgen-gallery-pro"})
     verified: true
     fofa-query: body="/plugins/nextgen-gallery-pro"
   tags: wordpress,wp,wp-plugin,nextgen-gallery-pro,log,exposure

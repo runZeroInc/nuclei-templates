@@ -9,7 +9,7 @@ info:
   reference:
     - https://www.quilium.io/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)CMS Quilium"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)CMS Quilium"})
     verified: true
     max-request: 2
     shodan-query: http.html:"CMS Quilium"

@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ektron:ektron_content_management_system:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)ektron"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)ektron"})
     fofa-query:
       - app="Ektron-CMS"
       - app="ektron-cms"

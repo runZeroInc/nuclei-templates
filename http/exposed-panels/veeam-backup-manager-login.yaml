@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-200
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)veeam backup enterprise manager"}) || service["favicon.ico.image.mmh3"] == "169658321" || service["http.body"] matches "(?i)Veeam"
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)veeam backup enterprise manager"}) || service["favicon.ico.image.mmh3"] == "169658321" || any(each(service["http.bodies"]), {# matches "(?i)Veeam"})
     fofa-query:
       - title="veeam backup enterprise manager"
       - icon_hash="169658321"

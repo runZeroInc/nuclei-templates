@@ -9,7 +9,7 @@ info:
     - http://www.networktechinc.com/download/d-environment-monitor-16.html
     - http://www.networktechinc.com/pdf/man154.pdf
   metadata:
-    runzero-match: service["http.body"] matches "ENVIROMUX"
+    runzero-match: any(each(service["http.bodies"]), {# matches "ENVIROMUX"})
     fofa-query: body="ENVIROMUX"
     max-request: 1
     shodan-query: html:"ENVIROMUX"

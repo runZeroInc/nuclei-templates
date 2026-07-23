@@ -10,7 +10,7 @@ info:
     - https://plausible.io/
     - https://github.com/plausible/analytics
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Plausible"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Plausible"})
     verified: true
     max-request: 1
     shodan-query: html:"Plausible"

@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:plesk:onyx:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)plesk onyx"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)plesk onyx"})
     fofa-query: body="plesk onyx" http.html:"plesk-build"
     google-query:
       - inurl:login_up.php "Plesk Onyx"

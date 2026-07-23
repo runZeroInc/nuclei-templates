@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:ocomon_project:ocomon:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)ocomon"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)ocomon"})
     fofa-query: body="ocomon"
     max-request: 1
     product: ocomon

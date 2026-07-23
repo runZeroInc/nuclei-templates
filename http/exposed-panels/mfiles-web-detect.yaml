@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:m-files:m-files:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)m-files web"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)m-files web"})
     fofa-query: body="m-files web"
     max-request: 2
     product: m-files

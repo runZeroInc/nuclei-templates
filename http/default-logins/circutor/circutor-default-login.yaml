@@ -9,7 +9,7 @@ info:
   reference:
     - https://circutor.com/en/products/line-tcprs1/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Line-TCPRS1"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Line-TCPRS1"})
     verified: true
     max-request: 1
     vendor: circutor

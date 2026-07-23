@@ -6,7 +6,7 @@ info:
   description: |
     Identified an exposed MagnusBilling login panel.
   metadata:
-    runzero-match: service["http.body"] matches "(?i)MagnusBilling"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)MagnusBilling"})
     max-request: 1
     shodan-query: html:"MagnusBilling"
     verified: true

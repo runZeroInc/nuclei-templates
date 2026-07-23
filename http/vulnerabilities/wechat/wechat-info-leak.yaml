@@ -10,7 +10,7 @@ info:
   classification:
     cpe: cpe:2.3:a:tencent:wechat:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)wework_admin\\.normal_layout"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)wework_admin\\.normal_layout"})
     fofa-query: body="wework_admin.normal_layout"
     max-request: 1
     product: wechat

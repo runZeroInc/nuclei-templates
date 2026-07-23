@@ -8,7 +8,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:redhat:satellite:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)redhat"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)redhat"})
     max-request: 1
     product: satellite
     shodan-query: http.html:"redhat" "Satellite"

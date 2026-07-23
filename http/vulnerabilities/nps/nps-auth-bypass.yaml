@@ -9,7 +9,7 @@ info:
   reference:
     - https://mari0er.club/post/nps.html/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)window\\.nps"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)window\\.nps"})
     verified: true
     max-request: 1
     shodan-query: html:"window.nps"

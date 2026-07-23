@@ -9,7 +9,7 @@ info:
   reference:
     - https://wekan.fi/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)Wekan"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)Wekan"})
     verified: true
     max-request: 1
     shodan-query: html:"Wekan"

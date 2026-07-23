@@ -9,7 +9,7 @@ info:
   reference:
     - https://wordpress.org/plugins/yith-woocommerce-wishlist/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/wp-content/plugins/yith-woocommerce-wishlist/"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/yith-woocommerce-wishlist/"})
     verified: true
     max-request: 3
     vendor: yithemes

@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:squirrelmail:squirrelmail:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "1511806001" || any([service["http.body"], service["last.http.body"]], {# matches "(?i)squirrelmail"})
+    runzero-match: service["favicon.ico.image.mmh3"] == "1511806001" || any(each(service["http.bodies"]), {# matches "(?i)squirrelmail"})
     fofa-query: title="squirrelmail"
     google-query: intitle:"squirrelmail"
     max-request: 4

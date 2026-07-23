@@ -1,7 +1,7 @@
-id: apc-pdu-default-login
+id: schneider-electric-apc-pdu-default-login
 
 info:
-  name: APC Rack PDU Default Login
+  name: Schneider Electric APC Rack PDU - Default Login
   author: tdiderich
   severity: high
   description: |
@@ -10,7 +10,7 @@ info:
     # User manual with default credentials
     - https://iportal2.schneider-electric.com/Contents/docs/UPS-PMAR-9LLJMN_R0_EN.PDF
   metadata:
-    runzero-match: (asset["hw"] matches `Schneider\s+Electric` || asset["os"] matches `Schneider\s+Electric\s+AOS`) && any(each(service["html.titles"]), {# matches `APC \| Log On`}) || (any(each(service["html.titles"]), {# matches `Log On`}) && service["http.body"] matches `(?i)class="apclogo"|href="https?://www.apc\.com"`)
+    runzero-match: (asset["hw"] matches `Schneider\s+Electric` || asset["os"] matches `Schneider\s+Electric\s+AOS`) && any(each(service["html.titles"]), {# matches `APC \| Log On`}) || (any(each(service["html.titles"]), {# matches `Log On`}) && any(each(service["http.bodies"]), {# matches `(?i)class="apclogo"|href="https?://www.apc\.com"`}))
   tags: default-login,apc,pdu,runzero
 
 http:

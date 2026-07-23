@@ -6,7 +6,7 @@ info:
   classification:
     cpe: cpe:2.3:o:microchip:syncserver_s650_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)symmetricom syncserver"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)symmetricom syncserver"})
     fofa-query: body="symmetricom syncserver"
     max-request: 1
     product: syncserver_s650_firmware

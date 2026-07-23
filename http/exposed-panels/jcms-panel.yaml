@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jalios:jcms:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)jalios jcms"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)jalios jcms"})
     fofa-query: body="jalios jcms"
     max-request: 2
     product: jcms

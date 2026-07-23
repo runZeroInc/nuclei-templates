@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:elastic:logstash:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "logstash"
+    runzero-match: any(each(service["http.bodies"]), {# matches "logstash"})
     max-request: 1
     product: logstash
     shodan-query: html:"logstash"

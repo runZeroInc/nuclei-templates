@@ -11,7 +11,7 @@ info:
   reference:
     - https://www.codesys.com/products/codesys-runtime/web-visualization.html
   metadata:
-    runzero-match: service["http.body"] matches "(?i)WEBVISU LOGIN"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)WEBVISU LOGIN"})
     max-request: 1
     product: webvisu
     shodan-query: 'html:"WEBVISU LOGIN"'

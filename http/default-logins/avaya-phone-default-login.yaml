@@ -10,7 +10,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: service["http.body"] matches `(?i)Avaya J1\d9 Phone`
+    runzero-match: any(each(service["http.bodies"]), {# matches `(?i)Avaya J1\d9 Phone`})
     max-requests: 1
     shodan-query: html:"Avaya J179 Phone"
     verified: true

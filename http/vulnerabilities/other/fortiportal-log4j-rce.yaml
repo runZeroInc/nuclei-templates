@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-502,CWE-77
     cpe: cpe:2.3:a:fortinet:fortiportal:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "FortiPortal"
+    runzero-match: any(each(service["http.bodies"]), {# matches "FortiPortal"})
     max-request: 1
     product: fortiportal
     shodan-query: html:"FortiPortal"

@@ -9,7 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:oracle:access_manager:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/oam/pages/css/login_page\\.css" || any(each(service["html.titles"]), {# matches "(?i)oracle access management"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/oam/pages/css/login_page\\.css"}) || any(each(service["html.titles"]), {# matches "(?i)oracle access management"})
     fofa-query:
       - title="Oracle Access Management"
       - title="oracle access management"

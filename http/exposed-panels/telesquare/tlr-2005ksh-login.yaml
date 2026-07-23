@@ -9,7 +9,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:telesquare:tlr-2005ksh_firmware:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "(?i)tlr-2005ksh"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)tlr-2005ksh"})
     fofa-query: body="tlr-2005ksh"
     max-request: 1
     product: tlr-2005ksh_firmware

@@ -11,7 +11,7 @@ info:
     cwe-id:
       - CWE-78
   metadata:
-    runzero-match: service["http.body"] matches "(?i)/cgi-bin/login_mgr\\.cgi"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/cgi-bin/login_mgr\\.cgi"})
     fofa-query: body="/cgi-bin/login_mgr.cgi" && body="cmd=cgi_get_ssl_info"
     max-request: 1
     verified: true

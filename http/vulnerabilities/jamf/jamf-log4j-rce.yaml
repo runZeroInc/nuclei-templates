@@ -17,7 +17,7 @@ info:
     cwe-id: CWE-77
     cpe: cpe:2.3:a:jamf:self_service:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["http.body"] matches "JamF"
+    runzero-match: any(each(service["http.bodies"]), {# matches "JamF"})
     max-request: 1
     product: self_service
     shodan-query: http.html:"JamF"

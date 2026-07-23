@@ -9,7 +9,7 @@ info:
     - https://www.aveva.com/en/products/intouch-hmi/
     - https://www.aveva.com/en/products/intouch-access-anywhere/
   metadata:
-    runzero-match: service["http.body"] matches "(?i)InTouch Access Anywhere Server"
+    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)InTouch Access Anywhere Server"})
     max-request: 1
     product: aveva-intouch-access-anywhere
     shodan-query: http.html:"InTouch Access Anywhere"
