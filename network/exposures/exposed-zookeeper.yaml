@@ -1,27 +1,66 @@
 id: exposed-zookeeper
-
 info:
   name: Apache ZooKeeper - Unauthenticated Access
-  author: pdteam
+  author: pdteam,munzzyy
   severity: high
-  description: Apache ZooKeeper was able to be accessed without any required authentication.
+  description: |
+    Apache ZooKeeper was able to be accessed without any required authentication. Since four-letter word commands are disabled by default (ZK 3.5.3+) unless explicitly whitelisted via zookeeper.4lw.commands.whitelist, a plain "envi" check alone can miss instances that are still fully readable. A second request speaks the native ZooKeeper client protocol directly (connect handshake followed by a getChildren call on "/") to confirm read access to the actual znode tree regardless of the whitelist configuration.
+  impact: |
+    An unauthenticated attacker can read the ZooKeeper znode tree, exposing service configuration, cluster topology, Kafka broker registrations, and other sensitive coordination metadata. Write access may also be possible depending on ACL configuration.
+  remediation: |
+    Enable SASL/Kerberos or mutual TLS authentication on ZooKeeper. Restrict network access to port 2181 via firewall rules, and set zookeeper.requireClientAuthScheme to enforce client authentication.
   reference:
     - https://zookeeper.apache.org/security.html
+    - https://github.com/h1thub/Unauthorized-zookeeper
+    - https://zookeeper.apache.org/doc/r3.5.5/zookeeperAdmin.html#sc_zkCommands
+  classification:
+    cwe-id:
+      - CWE-306
   metadata:
-    max-request: 1
-  tags: network,zookeeper,unauth,exposure,tcp,discovery
-
+    fofa-query: protocol="zookeeper"
+    max-request: 2
+    shodan-query: 'X-Powered-By: ZooKeeper'
+    verified: true
+  tags: discovery,exposure,network,tcp,unauth,zookeeper
+flow: tcp(1) || tcp(2)
 tcp:
-  - inputs:
-      - data: "envi\r\nquit\r\n"
-
+  - extractors:
+      - regex:
+          - "zookeeper\\.version=([^\r\n]+)"
+        type: regex
     host:
-      - "{{Hostname}}"
-    port: 2181
-    read-size: 2048
-
+      - '{{Hostname}}'
+    inputs:
+      - data: "envi\r\nquit\r\n"
     matchers:
       - type: word
         words:
-          - "zookeeper.version"
+          - zookeeper.version
+    port: 2181
+    read-size: 2048
+  - extractors:
+      - part: raw
+        regex:
+          - zookeeper
+        # digest: 490a00463044022067a8ae96b6af41ed2c2281ce8824b87b062940f238002c2aecdd80273a11cd6002207da35a41411385ca92e243240ea4cf9e8d9f7546a62e6cbeaf14152370aa6877:922c64590222798bb761d5b6d8e72950
 
+        type: regex
+    host:
+      - '{{Hostname}}'
+    inputs:
+      - data: 0000002d000000000000000000000000000075300000000000000000000000100000000000000000000000000000000000
+        read: 1024
+        type: hex
+      - data: 0000000e0000000100000008000000012f00
+        read: 4096
+        type: hex
+    matchers:
+      - part: raw
+        type: word
+        words:
+          - zookeeper
+      - dsl:
+          - len(raw) > 70
+        type: dsl
+    matchers-condition: and
+    port: 2181

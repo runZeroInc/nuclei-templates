@@ -1,58 +1,49 @@
 id: reflected-xss
-
 info:
   name: Reflected Cross-Site Scripting
   author: pdteam,0xKayala,AmirHossein Raeisi
   severity: medium
   metadata:
     max-request: 1
-  tags: xss,rxss,dast,vuln
-
+  tags: dast,rxss,vuln,xss
 variables:
-  first: "{{rand_int(10000, 99999)}}"
-
+  first: '{{rand_int(10000, 99999)}}'
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "POST"'
-          - 'method == "GET"'
-        condition: or
-
+  - fuzzing:
+      - fuzz:
+          - '{{url_encode(reflection)}}'
+        mode: single
+        part: body
+        type: postfix
+      - fuzz:
+          - '{{url_encode(reflection)}}'
+        mode: single
+        part: query
+        type: postfix
+      - fuzz:
+          - '{{url_encode(reflection)}}'
+        mode: single
+        part: path
+        type: postfix
+    matchers:
+      - part: body
+        type: word
+        words:
+          - '{{reflection}}'
+      - part: content_type
+        type: word
+        words:
+          - text/html
+          # digest: 490a0046304402201afa406cdff69b73d8ad54dd7735e3d539d8277354b82934c2fcb75150b42f85022004d803fa1e704ff9d1862a75f55ade437c4a18168b33b177d4127ea9305f108f:922c64590222798bb761d5b6d8e72950
+    matchers-condition: and
     payloads:
       reflection:
-        - "'\"><{{first}}>"
-
-    fuzzing:
-      - part: body
-        type: postfix
-        mode: single
-        fuzz:
-          - "{{url_encode(reflection)}}"
-
-      - part: query
-        type: postfix
-        mode: single
-        fuzz:
-          - "{{url_encode(reflection)}}"
-
-      - part: path
-        type: postfix
-        mode: single
-        fuzz:
-          - "{{url_encode(reflection)}}"
-
+        - '''"><{{first}}>'
+    pre-condition:
+      - condition: or
+        dsl:
+          - method == "POST"
+          - method == "GET"
+          - method == "PUT"
+        type: dsl
     stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "{{reflection}}"
-
-      - type: word
-        part: content_type
-        words:
-          - "text/html"
-

