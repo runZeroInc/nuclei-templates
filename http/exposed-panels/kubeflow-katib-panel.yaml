@@ -9,7 +9,7 @@ info:
     - https://github.com/kubeflow/katib
     - https://www.kubeflow.org/docs/components/katib/
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "dashboard_lib\\.bundle\\.js"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Kubeflow Central Dashboard$"})
     max-request: 1
     product: katib
     shodan-query: 'html:"dashboard_lib.bundle.js"'

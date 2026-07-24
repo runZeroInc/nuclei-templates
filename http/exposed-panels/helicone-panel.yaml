@@ -9,7 +9,7 @@ info:
     - https://github.com/Helicone/helicone
     - https://helicone.ai
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "^Helicone - Open-Source Generative AI Platform for Developers"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Helicone - Open-Source Generative AI Platform for Developers$"})
     max-request: 1
     product: helicone
     shodan-query: 'http.title:"Helicone"'
