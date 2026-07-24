@@ -1,26 +1,15 @@
 id: open-redirect
-
 info:
   name: Open Redirect Detection
   author: princechaddha,AmirHossein Raeisi
   severity: medium
   metadata:
     max-request: 1
-  tags: redirect,dast,vuln
-
+  tags: dast,redirect,vuln
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
-
-    payloads:
-      redirect:
-        - "oast.me"
-
-    fuzzing:
-      - part: query
-        mode: single
+  - fuzzing:
+      - fuzz:
+          - https://{{redirect}}
         keys:
           - AuthState
           - URL
@@ -157,28 +146,38 @@ http:
           - validate_url
           - DirectTo
           - relay
-
-        fuzz:
-          - "https://{{redirect}}"
-
-      - part: query
         mode: single
+        parts:
+          - query
+          - body
+      - fuzz:
+          - https://{{redirect}}
+        mode: single
+        parts:
+          - query
+          - body
         values:
-          - "https?://" # Replace HTTP URLs with alternatives
-        fuzz:
-          - "https://{{redirect}}"
-
-    stop-at-first-match: true
-    matchers-condition: and
+          - https?:// # Replace HTTP URLs with alternatives
     matchers:
-      - type: regex
-        part: header
+      - part: header
         regex:
-          - '(?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)(?:[a-zA-Z0-9\-_\.@]*)oast\.me\/?(\/|[^.].*)?$' # https://regex101.com/r/idfD2e/1
-
-      - type: status
-        status:
+          - (?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)(?:[a-zA-Z0-9\-_\.@]*)oast\.me\/?(\/|[^.].*)?$ # https://regex101.com/r/idfD2e/1
+        type: regex
+      - status:
           - 301
           - 302
           - 307
+        # digest: 490a004630440220099586c444f668b4e6020d6a808c246ee5ac3e294705488d1ba5acdd6508bb10022004dc9a31bd11257b46b2a49fc035d89f22af5f2de3916a2f8e2cff33ed7c16d6:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    payloads:
+      redirect:
+        - oast.me
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
+    stop-at-first-match: true

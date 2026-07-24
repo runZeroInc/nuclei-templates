@@ -1,5 +1,4 @@
 id: reflection-ssti
-
 info:
   name: Reflected SSTI Arithmetic Based
   author: pdteam
@@ -9,20 +8,25 @@ info:
     - https://github.com/DiogoMRSilva/websitesVulnerableToSSTI#list-of-seversneeds-update
   metadata:
     max-request: 14
-  tags: ssti,dast,vuln
-
+  tags: dast,ssti,vuln
 variables:
-  first: "{{rand_int(1000, 9999)}}"
-  second: "{{rand_int(1000, 9999)}}"
-  result: "{{to_number(first)*to_number(second)}}"
-
+  first: '{{rand_int(1000, 9999)}}'
+  result: '{{to_number(first)*to_number(second)}}'
+  second: '{{rand_int(1000, 9999)}}'
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
-
-    skip-variables-check: true
+  - fuzzing:
+      - fuzz:
+          - '{{ssti}}'
+        parts:
+          - query
+          - body
+        type: postfix
+    matchers:
+      - part: body
+        type: word
+        words:
+          - '{{result}}'
+          # digest: 4b0a00483046022100e98c0448d99ab0ca09f1c0a06b25ddeac849b63c9bdceb7dda7b2b49bdf77d2702210084316996739eb648565920b9c66ba441f68ddf5b9c5241f89f143ba8933324bd:922c64590222798bb761d5b6d8e72950
     payloads:
       ssti:
         - '{{concat("${", "{{first}}*{{second}}", "}")}}'
@@ -39,17 +43,11 @@ http:
         - '{{concat("#set($x=", "{{first}}*{{second}}", ")${x}")}}'
         - '{{concat("@(", "{{first}}*{{second}}", ")")}}'
         - '{{concat("{@", "{{first}}*{{second}}", "}")}}'
-
-    fuzzing:
-      - part: query
-        type: postfix
-        fuzz:
-          - "{{ssti}}"
-
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
+    skip-variables-check: true
     stop-at-first-match: true
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "{{result}}"
-

