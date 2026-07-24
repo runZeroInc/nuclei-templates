@@ -9,7 +9,7 @@ info:
     - https://github.com/lm-sys/FastChat
     - https://github.com/lm-sys/FastChat/blob/main/fastchat/serve/gradio_web_server.py
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "notice_markdown"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "\"notice_markdown\","})
     max-request: 1
     product: fastchat
     shodan-query: 'html:"notice_markdown" html:"Chat with Open Large Language Models"'
