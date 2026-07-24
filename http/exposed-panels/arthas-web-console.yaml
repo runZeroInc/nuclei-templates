@@ -8,7 +8,7 @@ info:
   reference:
     - https://arthas.aliyun.com/doc/web-console.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Arthas Console"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Arthas Console$"})
     fofa-query: title="Arthas Console"
     max-request: 1
     product: arthas

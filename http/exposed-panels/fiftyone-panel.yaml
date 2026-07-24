@@ -9,7 +9,7 @@ info:
     - https://github.com/voxel51/fiftyone
     - https://docs.voxel51.com
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "FiftyOne"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^FiftyOne$"})
     max-request: 1
     product: fiftyone
     shodan-query: 'http.title:"FiftyOne"'

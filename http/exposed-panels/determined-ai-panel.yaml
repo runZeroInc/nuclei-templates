@@ -9,7 +9,7 @@ info:
     - https://github.com/determined-ai/determined
     - https://docs.determined.ai
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "Determined Deep Learning Training Platform"})
+    runzero-match: any(each(service["http.titles"]), {# matches "^Determined$"})
     max-request: 1
     product: determined
     shodan-query: 'html:"Determined Deep Learning Training Platform"'

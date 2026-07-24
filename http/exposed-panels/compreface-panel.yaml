@@ -9,7 +9,7 @@ info:
     - https://github.com/exadel-inc/CompreFace
     - https://exadel.com/compreface/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "CompreFace"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^CompreFace$"})
     max-request: 1
     product: compreface
     shodan-query: 'http.title:"CompreFace"'

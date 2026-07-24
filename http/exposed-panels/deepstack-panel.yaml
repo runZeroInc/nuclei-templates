@@ -10,7 +10,7 @@ info:
     - https://deepstack.cc
     - http://dev.deepstack.cc
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "DeepStack Activated"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^DeepStack$"})
     max-request: 1
     product: deepstack
     shodan-query: 'html:"DeepStack Activated"'

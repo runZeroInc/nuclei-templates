@@ -9,7 +9,7 @@ info:
     - https://github.com/aimhubio/aim
     - https://aimstack.io
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "Open-source, self-hosted AI experiment tracking tool"})
+    runzero-match: any(each(service["http.bodies"]), {# matches `content="Open-source, self-hosted AI experiment tracking tool`})
     max-request: 1
     product: aim
     shodan-query: 'html:"Open-source, self-hosted AI experiment tracking tool"'

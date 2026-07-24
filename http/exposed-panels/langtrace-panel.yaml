@@ -9,7 +9,7 @@ info:
     - https://github.com/Scale3-Labs/langtrace
     - https://langtrace.ai
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Langtrace"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Langtrace$"})
     max-request: 1
     product: langtrace
     shodan-query: 'http.title:"Langtrace"'

@@ -9,7 +9,7 @@ info:
     - https://prodi.gy
     - https://prodi.gy/docs
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Prodigy"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Prodigy$"})
     max-request: 1
     product: prodigy
     shodan-query: 'http.title:"Prodigy" http.favicon.hash:-953245195'
