@@ -1,5 +1,4 @@
 id: dns-saas-service-detection
-
 info:
   name: DNS SaaS Service Detection
   author: noah @thesubtlety,pdteam
@@ -11,74 +10,63 @@ info:
     - https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/
   metadata:
     max-request: 1
-  tags: dns,service,discovery
-
+  tags: discovery,dns,service
 dns:
-  - name: "{{FQDN}}"
-    type: CNAME
-
-    extractors:
-      - type: dsl
-        dsl:
+  - extractors:
+      - dsl:
           - cname
-
-    matchers-condition: or
+        type: dsl
     matchers:
-      - type: word
+      - name: ms-office
         part: answer
-        name: ms-office
+        type: word
         words:
           - outlook.com
           - office.com
-
-      - type: word
+      - name: azure
         part: answer
-        name: azure
+        type: word
         words:
-          - "azure-api.net"
-          - "azure.com"
-          - "azure-mobile.net"
-          - "azurecontainer.io"
-          - "azurecr.io"
-          - "azuredatalakestore.net"
-          - "azureedge.net"
-          - "azurefd.net"
-          - "azurehdinsight.net"
-          - "azurewebsites.net"
-          - "azurewebsites.windows.net"
-          - "blob.core.windows.net"
-          - "cloudapp.azure.com"
-          - "cloudapp.net"
-          - "database.windows.net"
-          - "redis.cache.windows.net"
-          - "search.windows.net"
-          - "servicebus.windows.net"
-          - "visualstudio.com"
-          - "-msedge.net"
-          - "msappproxy.net"
-          - "trafficmanager.net"
-
-      - type: word
+          - azure-api.net
+          - azure.com
+          - azure-mobile.net
+          - azurecontainer.io
+          - azurecr.io
+          - azuredatalakestore.net
+          - azureedge.net
+          - azurefd.net
+          - azurehdinsight.net
+          - azurewebsites.net
+          - azurewebsites.windows.net
+          - blob.core.windows.net
+          - cloudapp.azure.com
+          - cloudapp.net
+          - database.windows.net
+          - redis.cache.windows.net
+          - search.windows.net
+          - servicebus.windows.net
+          - visualstudio.com
+          - -msedge.net
+          - msappproxy.net
+          - trafficmanager.net
+      - name: zendesk
         part: answer
-        name: zendesk
+        type: word
         words:
-          - "zendesk.com"
-
-      - type: word
+          - zendesk.com
+      - name: announcekit
         part: answer
-        name: announcekit
+        type: word
         words:
-          - "cname.announcekit.app"
-
-      - type: word
+          - cname.announcekit.app
+      - name: wix
         part: answer
-        name: wix
+        type: word
         words:
-          - "wixdns.net"
-
-      - type: word
+          - wixdns.net
+      - name: akamai-cdn
         part: answer
-        name: akamai-cdn
+        type: word
         words:
           - akadns.net
           - akagtm.org
@@ -100,10 +88,9 @@ dns:
           - akasripcn.net
           - edgekey.net
           - edgesuite.net
-
-      - type: word
+      - name: cloudflare-cdn
         part: answer
-        name: cloudflare-cdn
+        type: word
         words:
           - cloudflare.net
           - cloudflare-dm-cmpimg.com
@@ -122,176 +109,153 @@ dns:
           - cloudflaressl.com
           - cloudflarestatus.com
           - sn-cloudflare.com
-
-      - type: word
+      - name: amazon-cloudfront
         part: answer
-        name: amazon-cloudfront
+        type: word
         words:
           - cloudfront.net
-
-      - type: word
+      - name: salesforce
         part: answer
-        name: salesforce
+        type: word
         words:
           - salesforce.com
           - siteforce.com
           - force.com
-
-      - type: word
+      - name: amazon-aws
         part: answer
-        name: amazon-aws
+        type: word
         words:
           - amazonaws.com
           - elasticbeanstalk.com
           - awsglobalaccelerator.com
-
-      - type: word
+      - name: fastly-cdn
         part: answer
-        name: fastly-cdn
+        type: word
         words:
           - fastly.net
-
-      - type: word
+      - name: netlify
         part: answer
-        name: netlify
+        type: word
         words:
           - netlify.app
           - netlify.com
           - netlifyglobalcdn.com
-
-      - type: word
+      - name: vercel
         part: answer
-        name: vercel
+        type: word
         words:
           - vercel.app
-
-      - type: word
+      - name: sendgrid
         part: answer
-        name: sendgrid
+        type: word
         words:
           - sendgrid.net
           - sendgrid.com
-
-      - type: word
+      - name: qualtrics
         part: answer
-        name: qualtrics
+        type: word
         words:
           - qualtrics.com
-
-      - type: word
+      - name: heroku
         part: answer
-        name: heroku
+        type: word
         words:
           - herokuapp.com
           - herokucdn.com
           - herokudns.com
           - herokussl.com
           - herokuspace.com
-
-      - type: word
+      - name: gitlab
         part: answer
-        name: gitlab
+        type: word
         words:
           - gitlab.com
           - gitlab.io
-
-      - type: word
+      - name: perforce-akana
         part: answer
-        name: perforce-akana
+        type: word
         words:
           - akana.com
           - apiportal.akana.com
-
-      - type: word
+      - name: skilljar
         part: answer
-        name: skilljar
+        type: word
         words:
           - skilljarapp.com
-
-      - type: word
+      - name: datagrail
         part: answer
-        name: datagrail
+        type: word
         words:
           - datagrail.io
-
-      - type: word
+      - name: platform.sh
         part: answer
-        name: platform.sh
+        type: word
         words:
           - platform.sh
-
-      - type: word
+      - name: folloze
         part: answer
-        name: folloze
+        type: word
         words:
           - folloze.com
-
-      - type: word
+      - name: pendo-receptive
         part: answer
-        name: pendo-receptive
+        type: word
         words:
           - receptive.io
           - pendo.io
-
-      - type: word
+      - name: discourse
         part: answer
-        name: discourse
+        type: word
         words:
           - bydiscourse.com
           - discourse-cdn.com
           - discourse.cloud
           - discourse.org
           - hosted-by-discourse.com
-
-      - type: word
+      - name: adobe-marketo
         part: answer
-        name: adobe-marketo
+        type: word
         words:
           - marketo.com
           - marketo.co.uk
           - mktoweb.com
           - mktossl.com
           - mktoweb.com
-
-      - type: word
+      - name: adobe-marketo
         part: answer
-        name: adobe-marketo - 'mkto-.{5,8}\.com'
-
-      - type: word
+        regex:
+          - mkto-.{5,8}\.com
+        type: regex
+      - name: adobe-marketo
         part: answer
-        name: adobe-marketo
+        type: word
         words:
           - marketo.com
-
-      - type: word
+      - name: rock-content
         part: answer
-        name: rock-content
+        type: word
         words:
           - postclickmarketing.com
           - rockcontent.com
           - rockstage.io
-
-      - type: word
+      - name: rocketlane
         part: answer
-        name: rocketlane
+        type: word
         words:
           - rocketlane.com
-
-      - type: word
+      - name: webflow
         part: answer
-        name: webflow
+        type: word
         words:
           - proxy-ssl.webflow.com
-
-      - type: word
+      - name: stacker-hq
         part: answer
-        name: stacker-hq
+        type: word
         words:
           - stacker.app
-
-      - type: word
+      - name: hubspot
         part: answer
-        name: hubspot
+        type: word
         words:
           - hs-analytics.net
           - hs-banner.com
@@ -314,17 +278,15 @@ dns:
           - hubspotusercontent-na1.net
           - sidekickopen90.com
           - usemessages.com
-
-      - type: word
+      - name: gitbook
         part: answer
-        name: gitbook
+        type: word
         words:
           - gitbook.com
           - gitbook.io
-
-      - type: word
+      - name: google-firebase
         part: answer
-        name: google-firebase
+        type: word
         words:
           - fcm.googleapis.com
           - firebase.com
@@ -342,44 +304,39 @@ dns:
           - firebaselogging.googleapis.com
           - firebaseperusertopics-pa.googleapis.com
           - firebaseremoteconfig.googleapis.com
-
-      - type: word
+      - name: zendesk
         part: answer
-        name: zendesk
+        type: word
         words:
           - zdassets.com
           - zdorigin.com
-          - "zendesk.com"
+          - zendesk.com
           - zopim.com
-
-      - type: word
+      - name: imperva
         part: answer
-        name: imperva
+        type: word
         words:
           - incapdns.net
           - incapsula.com
-
-      - type: word
+      - name: proofpoint
         part: answer
-        name: proofpoint
+        type: word
         words:
           - infoprtct.com
           - metanetworks.com
           - ppe-hosted.com
           - pphosted.com
           - proofpoint.com
-
-      - type: word
+      - name: q4-investor-relations
         part: answer
-        name: q4-investor-relations
+        type: word
         words:
           - q4inc.com
           - q4ir.com
           - q4web.com
-
-      - type: word
+      - name: google-hosted
         part: answer
-        name: google-hosted
+        type: word
         words:
           - appspot.com
           - cloudfunctions.net
@@ -390,48 +347,45 @@ dns:
           - googlehosted.com
           - googlehosted.l.googleusercontent.com
           - run.app
-
-      - type: word
+      - name: wp-engine
         part: answer
-        name: wp-engine
+        type: word
         words:
           - wpengine.com
-
-      - type: word
+      - name: github
         part: answer
-        name: github
+        type: word
         words:
           - github.com
           - github.io
           - githubusercontent.com
-
-      - type: word
+      - name: ghost
         part: answer
-        name: ghost
+        type: word
         words:
           - ghost.io
-
-      - type: word
+      - name: digital-ocean
         part: answer
-        name: digital-ocean
+        type: word
         words:
           - ondigitalocean.app
-
-      - type: word
+      - name: typedream
         part: answer
-        name: typedream
+        type: word
         words:
           - ontypedream.com
-
-      - type: word
+      - name: oracle-eloqua-marketing
         part: answer
-        name: oracle-eloqua-marketing
+        type: word
         words:
           - hs.eloqua.com
-
-      - type: regex
-        part: answer
+      - part: answer
         regex:
           - "IN\tCNAME\\t(.+)$"
-          - "IN\\s*CNAME\\t(.+)$"
+          - IN\s*CNAME\t(.+)$
+        # digest: 4a0a00473045022100a5e6566cbc34e307d53f0363898397e0151bf99fe92eef618a3f36c953c5144902204d2c19933d240a8c9d2c74e7285160a9b57182d6b4a36ca65e8b7793ec621032:922c64590222798bb761d5b6d8e72950
 
+        type: regex
+    matchers-condition: or
+    name: '{{FQDN}}'
+    type: CNAME
