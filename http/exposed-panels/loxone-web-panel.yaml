@@ -5,7 +5,7 @@ info:
   author: DhiyaneshDk
   severity: info
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "(?i)<title>Webinterface</title>"})
+    runzero-match: any(each(service["http.titles"]), {# matches "^Webinterface$"})
     verified: true
     max-request: 1
     shodan-query: html:"<title>Webinterface</title>"
