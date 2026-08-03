@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.se.com/ww/en/product-range/62111-ecostruxure-building-operation/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Building Operation WebStation"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Building Operation WebStation$"})
     max-request: 1
     shodan-query: 'http.title:"Building Operation WebStation"'
   tags: bms,ecostruxure,ics,panel,schneider,webstation

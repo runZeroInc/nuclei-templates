@@ -8,7 +8,7 @@ info:
   reference:
     - https://support.oneidentity.com/technical-documents/one-identity-safeguard-for-privileged-passwords
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "Safeguard for Privileged Passwords"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "^Safeguard for Privileged Passwords$"})
     max-request: 1
     product: safeguard_for_privileged_passwords
     shodan-query: http.html:"Safeguard for Privileged Passwords"

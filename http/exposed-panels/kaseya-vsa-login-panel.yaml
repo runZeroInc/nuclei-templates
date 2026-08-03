@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.kaseya.com/products/vsa/
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "/vsapres/web20/core/login\\.aspx"})
+    runzero-match: any(each(service["http.bodies"]), {# matches `/vsapres/web20/core/login\.aspx`})
     max-request: 1
     shodan-query: http.html:"/vsapres/web20/core/login.aspx"
     verified: true

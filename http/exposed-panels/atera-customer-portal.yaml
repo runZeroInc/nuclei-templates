@@ -8,7 +8,7 @@ info:
   reference:
     - https://support.atera.com/hc/en-us
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Atera - Customers Portal"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Atera - Customers Portal$"})
     max-request: 1
     shodan-query: http.title:"Atera - Customers Portal"
     verified: true

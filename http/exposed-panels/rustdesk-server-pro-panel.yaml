@@ -9,7 +9,7 @@ info:
     - https://rustdesk.com/docs/en/self-host/rustdesk-server-pro/console/
     - https://github.com/rustdesk/rustdesk-server-pro
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "RustDesk API Admin"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^RustDesk API Admin$"})
     max-request: 1
     shodan-query: http.title:"RustDesk API Admin"
     verified: true

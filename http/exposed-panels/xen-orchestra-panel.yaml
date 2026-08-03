@@ -9,7 +9,7 @@ info:
     - https://docs.xcp-ng.org/management/manage-at-scale/xo-web-ui/
     - https://github.com/vatesfr/xen-orchestra
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Xen Orchestra"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Xen Orchestra$"})
     max-request: 1
     product: xen_orchestra
     shodan-query: http.title:"Xen Orchestra"

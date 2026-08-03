@@ -8,7 +8,7 @@ info:
   reference:
     - https://docs.pingidentity.com/pingfederate/latest/getting_started_with_pingfederate/pf_get_started_w_pf.html
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "/pingfederate/dist/styles\\.css"})
+    runzero-match: any(each(service["http.bodies"]), {# matches `/pingfederate/dist/styles\.css`})
     max-request: 1
     product: pingfederate
     shodan-query: http.html:"/pingfederate/dist/styles.css"

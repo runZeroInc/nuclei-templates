@@ -9,7 +9,7 @@ info:
     - https://docs.xcp-ng.org/management/manage-locally/xo-lite/
     - https://github.com/vatesfr/xen-orchestra
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "XO Lite"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^XO Lite$"})
     max-request: 1
     product: xo_lite
     shodan-query: http.title:"XO Lite"

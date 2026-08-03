@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.unitrends.com/products/backup-and-disaster-recovery/backup-appliance/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Unitrends"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Unitrends$"})
     max-request: 1
     product: recovery_series
     shodan-query: http.title:"Unitrends" -hostname:unitrends.com -hostname:kaseya.com

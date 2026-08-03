@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.scalecomputing.com/sc-platform
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Scale System"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Scale System$"})
     max-request: 1
     shodan-query: http.title:"Scale System"
   tags: hc3,hci,login,panel,scale-computing,virtualization

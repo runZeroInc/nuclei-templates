@@ -9,7 +9,7 @@ info:
     - https://www.nakivo.com/
     - https://helpcenter.nakivo.com/User-Guide/Content/Home.htm
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "NAKIVO Backup & Replication"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^NAKIVO Backup & Replication"})
     max-request: 1
     product: backup_and_replication
     shodan-query: http.title:"NAKIVO Backup & Replication" port:4443

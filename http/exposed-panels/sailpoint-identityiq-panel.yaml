@@ -8,7 +8,7 @@ info:
   reference:
     - https://documentation.sailpoint.com/identityiq/help/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "SailPoint IdentityIQ"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^SailPoint IdentityIQ$"})
     max-request: 1
     product: identityiq
     shodan-query: http.title:"SailPoint IdentityIQ"
