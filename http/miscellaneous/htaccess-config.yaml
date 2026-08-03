@@ -1,29 +1,25 @@
 id: htaccess-config
-
 info:
   name: HTaccess config file
   author: Yash Anand @yashanand155
   severity: info
   metadata:
     max-request: 6
-  tags: miscellaneous,misc,config,vuln
-
+  tags: config,misc,miscellaneous,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.htaccess"
-      - "{{BaseURL}}/example.htaccess"
-      - "{{BaseURL}}/_.htaccess"
-      - "{{BaseURL}}/sample.htaccess"
-      - "{{BaseURL}}/a.htaccess"
-      - "{{BaseURL}}/htaccess_for_page_not_found_redirects.htaccess"
+  - matchers:
+      - condition: and
+        # digest: 490a0046304402205e7ff2640f89fc288d8d8600063973255ec004330b7f9d9bca963573ab3bf458022051448be3326dafa3a52a5c8a78bc4908cb373bac5bb7bea6905c9c3c11726093:922c64590222798bb761d5b6d8e72950
 
-    stop-at-first-match: true
-    matchers:
-      - type: word
+        type: word
         words:
           - RewriteRule
           - </IfModule>
           - <IfModule
-        condition: and
-
+    method: GET
+    path:
+      - '{{BaseURL}}/.htaccess'
+      - '{{BaseURL}}/.htaccess.bak'
+      - '{{BaseURL}}/.htaccess.txt'
+      - '{{BaseURL}}/.htaccess.old'
+    stop-at-first-match: true
