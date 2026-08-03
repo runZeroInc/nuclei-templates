@@ -8,7 +8,7 @@ info:
   reference:
     - https://docs.cribl.io/stream/
   metadata:
-    runzero-match: any(each(service["http.titles"]), {# matches "^Cribl LogStream$"}) || any(each(service["http.titles"]), {# matches "^Cribl Stream$"}) || any(each(service["http.titles"]), {# matches "^Cribl$"})
+    runzero-match: any(each(service["http.titles"]), {# matches "^Cribl\s*(LogStream|Stream|)$"})
     max-request: 1
     shodan-query: 'http.html:"Cribl LogStream"'
   tags: cribl,logstream,panel,stream
