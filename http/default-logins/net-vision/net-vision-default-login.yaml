@@ -9,7 +9,7 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
     cwe-id: CWE-798
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Net Vision UPS"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Net Vision UPS Monitor$"})
     max-request: 2
     product: net-vision
     shodan-query: title:"Net Vision UPS"
