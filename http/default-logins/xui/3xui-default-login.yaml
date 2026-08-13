@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-798
     cpe: cpe:2.3:a:mhsanaei:3x-ui:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "sign in"})
+    runzero-match: any(each(service["html.titles"]), {# matches "sign in"}) && service["http.head.cookieNames"] matches "^3x-ui$"
     fofa-query: 'title="3x-ui"'
     max-request: 3
     product: 3x-ui
