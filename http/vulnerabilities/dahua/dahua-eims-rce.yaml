@@ -13,7 +13,7 @@ info:
       - CWE-77
       - CWE-78
   metadata:
-    runzero-match: service["product"] matches "(?i)大华.EIMS"
+    runzero-match: any(each(service["html.titles"]), {# matches "^eims"})
     fofa-query: <title>eims</title>
     max-request: 1
     verified: true
