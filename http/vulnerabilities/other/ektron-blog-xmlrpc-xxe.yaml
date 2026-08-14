@@ -26,6 +26,7 @@ http:
         dsl:
           - status_code == 200
           - contains(body, "EktronClientManager")
+        internal: true
         type: dsl
     raw:
       - |
