@@ -1,9 +1,10 @@
 id: argocd-login
 info:
   name: Argo CD Login Panel
-  author: Adam Crosser,daffainfo,aringo
+  author: Adam Crosser,daffainfo,aringo,righettod
   severity: info
-  description: An Argo CD login panel was discovered.
+  description: |
+    ArgoCD was detected - A declarative, GitOps continuous delivery tool for Kubernetes.
   reference:
     - https://argoproj.github.io/cd/
   classification:
@@ -20,21 +21,35 @@ http:
   - extractors:
       - json:
           - .Version
+        # digest: 4b0a00483046022100c36ca31848e38eda3096905b44b9ddca8ac1a59e5421d6a3f9d3a20654cdbfca02210096d184e6f905b8db2fe9cdecaa37b2644ba0f2840ff3c76e86e45e4fcebf457f:922c64590222798bb761d5b6d8e72950
+
         type: json
     matchers:
       - condition: and
         dsl:
-          - contains(to_lower(header_1), 'grpc-metadata-content-type')
+          - contains(to_lower(body_1), '<title>argo cd</title>')
           - status_code_1 == 200
         type: dsl
       - condition: and
         dsl:
-          - contains(body_2, 'appLabelKey')
-          - contains(body_2, 'resourceOverrides')
+          - contains(to_lower(body_2), 'argocd control plane')
+          - status_code_2 == 200
+        type: dsl
+      - condition: and
+        dsl:
+          - contains(to_lower(body_3), 'argocd.argoproj.io')
+          - status_code_3 == 200
+        type: dsl
+      - condition: and
+        dsl:
+          - contains(to_lower(header_4), 'grpc-metadata-content-type')
+          - status_code_4 == 200
         type: dsl
     matchers-condition: or
     method: GET
     path:
-      - '{{BaseURL}}/api/version'
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/swagger.json'
       - '{{BaseURL}}/api/v1/settings'
+      - '{{BaseURL}}/api/version'
     stop-at-first-match: true
