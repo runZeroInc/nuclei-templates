@@ -27,17 +27,29 @@ http:
     matchers:
       - condition: and
         dsl:
-          - contains(to_lower(header_1), 'grpc-metadata-content-type')
+          - contains(to_lower(body_1), '<title>argo cd</title>')
           - status_code_1 == 200
         type: dsl
       - condition: and
         dsl:
-          - contains(body_2, 'appLabelKey')
-          - contains(body_2, 'resourceOverrides')
+          - contains(to_lower(body_2), 'argocd control plane')
+          - status_code_2 == 200
+        type: dsl
+      - condition: and
+        dsl:
+          - contains(to_lower(body_3), 'argocd.argoproj.io')
+          - status_code_3 == 200
+        type: dsl
+      - condition: and
+        dsl:
+          - contains(to_lower(header_4), 'grpc-metadata-content-type')
+          - status_code_4 == 200
         type: dsl
     matchers-condition: or
     method: GET
     path:
-      - '{{BaseURL}}/api/version'
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/swagger.json'
       - '{{BaseURL}}/api/v1/settings'
+      - '{{BaseURL}}/api/version'
     stop-at-first-match: true
