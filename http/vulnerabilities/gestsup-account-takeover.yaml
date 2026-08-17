@@ -6,18 +6,20 @@ info:
   description: GestSup contains an authentication bypass vulnerability allowing attackers to take over user accounts, leading to full compromise including data disclosure and modification.
   impact: |
     An attacker could bypass the authentication process and access the application as an administrator user by modifying the usermail field to a controlled email address and requesting a password reset.
-  remediation: Apply necessary security patches or updates provided by the vendor to secure the ticket_user_db.php endpoint and ensure proper authentication checks are in place.
+  remediation: |
+    Apply necessary security patches or updates provided by the vendor to secure the ticket_user_db.php endpoint and ensure proper authentication checks are in place.
   reference:
     - https://www.synacktiv.com/advisories/multiple-vulnerabilities-on-gestsup-3244
     - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23163
     - https://doc.gestsup.fr/install/
   classification:
+    cve-id: CVE-2024-23163
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
     cvss-score: 9.8
     cwe-id: CWE-287
     cpe: cpe:2.3:a:gestsup:gestsup:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "-283003760"
+    runzero-reject: any(each(service["html.titles"]), {# matches "^GestSup"}) || service["favicon.ico.image.mmh3"] == "-283003760"
     fofa-query: title="GestSup"
     max-request: 1
     product: gestsup

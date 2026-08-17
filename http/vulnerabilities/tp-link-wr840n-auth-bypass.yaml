@@ -1,4 +1,4 @@
-id: tp-link-wr840n-auth-bypass
+id: cve-2018-11714
 info:
   name: TP-LINK WR840N v6 up to 0.9.1 4.16 - Improper Authentication
   author: DhiyaneshDK
@@ -11,15 +11,18 @@ info:
     Update TP-Link WR840N v6 router to firmware version later than 0.9.1 4.16 that addresses the authentication bypass vulnerability.
   reference:
     - https://github.com/Shuanunio/CVE_Requests/blob/main/TP-Link/WR840N%20v6/ACL%20bypass%20Vulnerability%20in%20TP-Link%20TL-WR840N.md
-    - https://nvd.nist.gov/vuln/detail/CVE-2024-57050
+    - https://nvd.nist.gov/vuln/detail/CVE-2018-11714
+    - https://www.exploit-db.com/exploits/44781/
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+    cve-id: CVE-2018-11714
+    cwe-id: CWE-384
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
     cvss-score: 9.8
-    cwe-id: CWE-287
-    epss-score: 0.00043
-    epss-percentile: 0.1187
+    epss-score: 0.35365
+    epss-percentile: 0.98312
+    cpe: cpe:2.3:o:tp-link:tl-wr840n_firmware:0.9.1_3.16:*:*:*:*:*:*:*,cpe:2.3:h:tp-link:tl-wr840n:5.0:*:*:*:*:*:*:*,cpe:2.3:o:tp-link:tl-wr841n_firmware:0.9.1_4.16:*:*:*:*:*:*:*,cpe:2.3:h:tp-link:tl-wr841n:13.0:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "WR840N"})
+    runzero-match: asset["hw_vendor"] == "TP-Link" && asset["hw_product"] == "WR840N"
     fofa-query: body="WR840N"
     max-request: 1
     verified: true
