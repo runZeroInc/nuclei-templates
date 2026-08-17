@@ -19,7 +19,7 @@ info:
     cwe-id: CWE-287
     cpe: cpe:2.3:a:gestsup:gestsup:*:*:*:*:*:*:*:*
   metadata:
-    runzero-reject: any(each(service["html.titles"]), {# matches "^GestSup"}) || service["favicon.ico.image.mmh3"] == "-283003760"
+    runzero-review: REJECT/2026-08-17/potentially leaves behind compromised artifacts
     fofa-query: title="GestSup"
     max-request: 1
     product: gestsup
