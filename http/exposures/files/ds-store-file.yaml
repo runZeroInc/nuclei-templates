@@ -1,42 +1,37 @@
 id: ds-store-file
-
 info:
   name: DS_Store File - Exposed
   author: 0w4ys,pwnhxl
-  severity: info
+  severity: low
   description: A .DS_Store file was found. This file may contain names of files that exist on the server, including backups or other files that aren't meant to be publicly available.
   reference:
     - https://github.com/lijiejie/ds_store_exp
   metadata:
     max-request: 1
-  tags: exposure,files,ds_store,config,vuln
-
+  tags: config,ds_store,exposure,files,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.DS_Store"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
+  - matchers:
+      - condition: or
         dsl:
-          - "contains(hex_encode(body), '44534442')"
-          - "contains(hex_encode(body), '0000000142756431')"
-        condition: or
-
-      - type: dsl
+          - contains(hex_encode(body), '44534442')
+          - contains(hex_encode(body), '0000000142756431')
+        type: dsl
+      - dsl:
+          - "contains(to_lower(body), '\0<\0h\0t\0m\0l')"
+          - "contains(to_lower(body), '\0<\0b\0o\0d\0y')"
         negative: true
-        dsl:
-          - "contains(to_lower(body), '\u0000<\u0000h\u0000t\u0000m\u0000l')"
-          - "contains(to_lower(body), '\u0000<\u0000b\u0000o\u0000d\u0000y')"
+        type: dsl
+      - dsl:
+          - status_code == 200
+        type: dsl
+      - condition: or
+        # digest: 490a00463044022000d2cb917ba5f28abce9cc549e89ed18151914a6f61b35ebb39dcb572eb582ab02206005c5adbf6740c7314f4325e6e87561a4a3724d3515c634f5866de8625a8022:922c64590222798bb761d5b6d8e72950
 
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-
-      - type: dsl
         dsl:
           - 'contains(to_lower(header), "accept-ranges: bytes")'
-          - 'contains(to_lower(header), "octet-stream")'
-        condition: or
-
+          - contains(to_lower(header), "octet-stream")
+        type: dsl
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/.DS_Store'
