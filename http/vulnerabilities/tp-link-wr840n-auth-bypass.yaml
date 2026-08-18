@@ -1,4 +1,4 @@
-id: cve-2018-11714
+id: tp-link-wr840n-auth-bypass
 info:
   name: TP-LINK WR840N v6 up to 0.9.1 4.16 - Improper Authentication
   author: DhiyaneshDK
