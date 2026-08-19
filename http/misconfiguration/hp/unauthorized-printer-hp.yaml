@@ -1,5 +1,4 @@
 id: unauthorized-printer-hp
-
 info:
   name: Unauthorized HP office pro printer
   author: pussycat0x,r3naissance
@@ -9,24 +8,22 @@ info:
     cpe: cpe:2.3:h:hp:officejet_pro_8730_m9l80a:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    vendor: hp
     product: officejet_pro_8730_m9l80a
     shodan-query: http.title:"Hp Officejet pro"
-  tags: hp,iot,unauth,misconfig,vuln
-
+    vendor: hp
+  tags: hp,intrusive,iot,misconfig,unauth,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/hp/device/webAccess/index.htm?content=security"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - '<title>(HP Officejet Pro([ 0-9A-Za-z]+)|HP Designjet([ 0-9A-Za-z]+).*)<\/title>'
-
-      - type: status
-        status:
+  - matchers:
+      - regex:
+          - <title>(HP Officejet Pro([ 0-9A-Za-z]+)|HP Designjet([ 0-9A-Za-z]+).*)<\/title>
+        type: regex
+      - status:
           - 200
+        # digest: 4b0a00483046022100f4f3d043bf799d480335bd622cf4c82150eda8a37711127daf245acf613c0759022100f1edd61b4f0a1ccf5778e0e9baf6f6118d96e427ab7720278a47799e101f7fc3:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/hp/device/webAccess/index.htm?content=security'

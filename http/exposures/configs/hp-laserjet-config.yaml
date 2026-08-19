@@ -1,5 +1,4 @@
 id: hp-laserjet-config
-
 info:
   name: HP LaserJet Configuration Exposure
   author: DhiyaneshDk
@@ -15,35 +14,32 @@ info:
     cvss-score: 5.3
     cwe-id: CWE-200
   metadata:
-    verified: true
-    max-request: 3
-    vendor: hp
-    product: laserjet
-    shodan-query: http.title:"HP LaserJet"
     fofa-query: title="HP LaserJet"
     google-query: intitle:"HP LaserJet" inurl:info_configuration
-  tags: hp,laserjet,printer,iot,config,exposure,misconfig
-
+    max-request: 3
+    product: laserjet
+    shodan-query: http.title:"HP LaserJet"
+    vendor: hp
+    verified: true
+  tags: config,exposure,hp,intrusive,iot,laserjet,misconfig,printer
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/hp/device/this.LCDispatcher?nav=hp.Config"
-      - "{{BaseURL}}/info_configuration.html?tab=Home&menu=DevConfig"
-      - "{{BaseURL}}/SSI/info_configuration.htm"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: or
         part: body
+        type: word
         words:
-          - "Configuration Page"
-          - "Device Configuration"
-          - "set_config_deviceinfo"
-        condition: or
-
-      - type: status
-        status:
+          - Configuration Page
+          - Device Configuration
+          - set_config_deviceinfo
+      - status:
           - 200
+        # digest: 4a0a00473045022100bff635f7e867d9d98faca764ca55938170014c2a36d3bff9dd0423f529da95970220469cb6250fa07858c9cc3353ebb38ffbe8cc0ae076baf95865f15e92010965a1:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/hp/device/this.LCDispatcher?nav=hp.Config'
+      - '{{BaseURL}}/info_configuration.html?tab=Home&menu=DevConfig'
+      - '{{BaseURL}}/SSI/info_configuration.htm'
+    stop-at-first-match: true
