@@ -6,7 +6,7 @@ info:
   description: |
     easy TimePro login panel was discovered.
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "easy TimePro"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^easy TimePro$"})
     product: easy-timepro
     shodan-query: http.title:"easy TimePro"
     verified: true
