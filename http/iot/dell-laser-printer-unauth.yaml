@@ -6,11 +6,11 @@ info:
   description: |
     The Dell Laser Printer web interface was accessible without authentication.
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Laser Printer"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Laser Printer$"})
     max-request: 1
     shodan-query: title="Laser Printer"
     verified: true
-  tags: dell,discovery,iot,misconfig,printer,unauth,vuln
+  tags: dell,discovery,intrusive,iot,misconfig,printer,unauth,vuln
 flow: http(1) && http(2)
 http:
   - extractors:
@@ -34,6 +34,8 @@ http:
           - status_code == 200
           - contains_all(body, 'Security','Security')
         internal: true
+        # digest: 4b0a00483046022100d91f58f0d9fc8f04eac145caf29ff6c8563637872846aa085887fae1de56e1f5022100e8e6b952f4c46410605a86660d9d55d5297d3a1ed4d359b2efc7440ade744bce:922c64590222798bb761d5b6d8e72950
+
         type: dsl
     method: GET
     path:
