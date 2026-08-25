@@ -9,7 +9,7 @@ info:
     - https://github.com/karakeep-app/karakeep
     - https://docs.karakeep.app/api/karakeep-api/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Karakeep"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Karakeep$"})
     fofa-query: title="Karakeep"
     max-request: 3
     product: karakeep

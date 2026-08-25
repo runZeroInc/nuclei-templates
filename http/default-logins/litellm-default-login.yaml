@@ -8,7 +8,7 @@ info:
   reference:
     - https://github.com/BerriAI/litellm
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "LiteLLM"})
+    runzero-match: any(each(service["http.titles"]), {# matches "^LiteLLM"})
     max-request: 1
     shodan-query: http.html:"LiteLLM"
   tags: default-login,litellm,misconfig

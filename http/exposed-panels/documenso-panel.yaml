@@ -9,7 +9,7 @@ info:
     - https://github.com/documenso/documenso
     - https://documenso.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Documenso"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Documenso$"})
     fofa-query: title="Documenso"
     max-request: 1
     product: documenso

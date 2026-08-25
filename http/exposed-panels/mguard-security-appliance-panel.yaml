@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.phoenixcontact.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "mGuard"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^mGuard$"})
     max-request: 1
     shodan-query: http.title:"mGuard"
   tags: discovery,login,panel,phoenixcontact

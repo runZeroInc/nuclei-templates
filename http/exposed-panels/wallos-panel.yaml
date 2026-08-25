@@ -9,7 +9,7 @@ info:
     - https://github.com/ellite/Wallos
     - https://wallosapp.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Wallos - Subscription Tracker"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Wallos - Subscription Tracker$"})
     fofa-query: title="Wallos - Subscription Tracker"
     max-request: 1
     product: wallos
