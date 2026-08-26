@@ -9,7 +9,7 @@ info:
     - https://github.com/inventree/InvenTree
     - https://inventree.org/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "InvenTree"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^InvenTree"})
     fofa-query: title="InvenTree"
     max-request: 1
     product: inventree

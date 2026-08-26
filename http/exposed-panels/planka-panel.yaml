@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:planka:planka:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "PLANKA is the kanban-style project mastering tool"})
+    runzero-match: any(each(service["http.titles"]), {# matches "^PLANKA"})
     max-request: 1
     product: planka
     shodan-query: http.html:"PLANKA is the kanban-style project mastering tool"

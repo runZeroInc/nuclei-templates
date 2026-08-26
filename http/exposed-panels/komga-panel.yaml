@@ -9,7 +9,7 @@ info:
     - https://github.com/gotson/komga
     - https://komga.org/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Komga"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Komga$"})
     fofa-query: title="Komga"
     max-request: 1
     product: komga

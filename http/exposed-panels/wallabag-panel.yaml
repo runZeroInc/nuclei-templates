@@ -10,7 +10,7 @@ info:
     - https://wallabag.org/
     - https://doc.wallabag.org/developer/api/methods.html
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "wallabag"})
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)wallabag$"})
     fofa-query: title="wallabag"
     max-request: 2
     product: wallabag
