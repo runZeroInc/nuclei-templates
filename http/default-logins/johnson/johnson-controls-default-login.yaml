@@ -10,7 +10,7 @@ info:
   classification:
     cwe-id: CWE-798
   metadata:
-    runzero-match: service["product"] matches "(?i)johnson.controls.frick.quantum"
+    runzero-match: any(each(service["http.bodies"]), {# matches "images/quantum-unity-logo.png"})
     fofa-query: header="PrimeUnity" || body="Quantum HD"
     max-request: 6
     product: frick-quantum-hd
