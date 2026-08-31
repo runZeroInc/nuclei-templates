@@ -9,7 +9,7 @@ info:
     - https://github.com/silverbulletmd/silverbullet
     - https://silverbullet.md/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "SilverBullet"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^SilverBullet$"})
     fofa-query: title="SilverBullet"
     max-request: 1
     product: silverbullet

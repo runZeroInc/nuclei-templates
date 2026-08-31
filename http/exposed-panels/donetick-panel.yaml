@@ -9,7 +9,7 @@ info:
     - https://github.com/donetick/donetick
     - https://donetick.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Donetick"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Donetick$"})
     fofa-query: title="Donetick"
     max-request: 1
     product: donetick

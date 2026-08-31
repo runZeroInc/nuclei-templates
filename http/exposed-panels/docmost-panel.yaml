@@ -9,7 +9,7 @@ info:
     - https://github.com/docmost/docmost
     - https://docmost.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Docmost"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Docmost$"})
     fofa-query: title="Docmost"
     max-request: 1
     product: docmost

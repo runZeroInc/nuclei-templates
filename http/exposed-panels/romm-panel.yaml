@@ -10,7 +10,7 @@ info:
     - https://romm.app/
     - https://docs.romm.app/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "RomM"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^RomM$"})
     fofa-query: title="RomM"
     max-request: 1
     product: romm
