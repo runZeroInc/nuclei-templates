@@ -1,5 +1,4 @@
 id: wp-duplicate-page-fpd
-
 info:
   name: WordPress Duplicate Page - Full Path Disclosure
   author: DhiyaneshDk
@@ -9,21 +8,20 @@ info:
   reference:
     - https://wordpress.org/plugins/duplicate-page/
   metadata:
-    verified: true
     max-request: 1
-    publicwww-query: "/plugins/duplicate-page"
-  tags: wp,wordpress,wp-plugin,fpd,duplicate-page,misconfig
-
+    publicwww-query: /plugins/duplicate-page
+    verified: true
+  tags: duplicate-page,fpd,misconfig,vuln,wordpress,wp,wp-plugin
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wp-content/plugins/duplicate-page/duplicatepage.php"
+  - matchers:
+      - condition: and
+        # digest: 4a0a00473045022100aa67282a6cc74209fcc75ead5acc0eed7f66c189d62cb86c784f3fb92b7939a4022014953c93d6e268adeab0f36595feeb29771584161926086ef587f64ceba339af:922c64590222798bb761d5b6d8e72950
 
-    matchers:
-      - type: dsl
         dsl:
-          - 'contains_all(body, "Fatal error", "Uncaught Error") || contains_all(body, "Warning:", "failed to open stream")'
-          - 'status_code == 200 || status_code == 500'
-          - 'contains(body, "duplicate-page")'
-        condition: and
-
+          - contains_all(body, "Fatal error", "Uncaught Error") || contains_all(body, "Warning:", "failed to open stream")
+          - status_code == 200 || status_code == 500
+          - contains(body, "duplicate-page")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/duplicate-page/duplicatepage.php'

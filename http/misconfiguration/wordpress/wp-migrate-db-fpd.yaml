@@ -1,5 +1,4 @@
 id: wp-migrate-db-fpd
-
 info:
   name: WordPress WP Migrate DB - Full Path Disclosure
   author: pussycat0x
@@ -10,21 +9,20 @@ info:
     - https://wordpress.org/plugins/wp-migrate-db/
   metadata:
     runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/wp-migrate-db/"})
-    max-request: 1
-    publicwww-query: "/wp-content/plugins/wp-migrate-db/"
     fofa-query: body="/wp-content/plugins/wp-migrate-db/"
-  tags: wordpress,wp,wp-plugin,fpd,wp-migrate-db,wpmdb
-
+    max-request: 1
+    publicwww-query: /wp-content/plugins/wp-migrate-db/
+  tags: fpd,vuln,wordpress,wp,wp-migrate-db,wp-plugin,wpmdb
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wp-content/plugins/wp-migrate-db/wp-migrate-db.php"
+  - matchers:
+      - condition: and
+        # digest: 4b0a00483046022100cc79cb19645a6b3f8abef342b10081fc1671977ee2be836994cfaf6af5147ff10221008f50a1019e7c794fbec1aa0537ca3c0f1a259fb8ac6092cdeed1b01d800b84fc:922c64590222798bb761d5b6d8e72950
 
-    matchers:
-      - type: dsl
         dsl:
-          - 'contains_all(body, "Fatal error", "Uncaught Error:") || contains_all(body, "Warning:", "failed to open stream")'
-          - 'status_code == 200 || status_code == 500'
-          - 'contains(body, "wp-migrate-db")'
-        condition: and
-
+          - contains_all(body, "Fatal error", "Uncaught Error:") || contains_all(body, "Warning:", "failed to open stream")
+          - status_code == 200 || status_code == 500
+          - contains(body, "wp-migrate-db")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/wp-migrate-db/wp-migrate-db.php'

@@ -1,5 +1,4 @@
 id: wp-the-events-calendar-fpd
-
 info:
   name: WordPress The Events Calendar - Full Path Disclosure
   author: ritikchaddha
@@ -10,27 +9,25 @@ info:
     - https://wordpress.org/plugins/the-events-calendar/
   metadata:
     runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/wp-content/plugins/the-events-calendar/"})
-    verified: true
-    max-request: 3
-    vendor: developer
-    product: the-events-calendar
-    framework: wordpress
     fofa-query: body="/wp-content/plugins/the-events-calendar/"
-  tags: wp,wordpress,wp-plugin,fpd,events-calendar,exposure
-
+    framework: wordpress
+    max-request: 3
+    product: the-events-calendar
+    vendor: developer
+    verified: true
+  tags: events-calendar,exposure,fpd,vuln,wordpress,wp,wp-plugin
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wp-content/plugins/the-events-calendar/src/Tribe/Main.php"
-      - "{{BaseURL}}/wp-content/plugins/the-events-calendar/src/Tribe/Admin/Admin.php"
-      - "{{BaseURL}}/wp-content/plugins/the-events-calendar/common/src/Tribe/Main.php"
+  - matchers:
+      - condition: and
+        # digest: 490a0046304402202e549c5c078dd9a42b92c6058f7429eebce274648ab6c5b6bc07f658e5cad4ab0220530569773916c4e95bdd641d68c4e121a2d79cc126ebe111c1916c6251cba2bb:922c64590222798bb761d5b6d8e72950
 
-    stop-at-first-match: true
-
-    matchers:
-      - type: dsl
         dsl:
-          - 'status_code == 200'
-          - 'contains_all(body, "Fatal error", "the-events-calendar", "Uncaught Error:")'
-        condition: and
-
+          - status_code == 200
+          - contains_all(body, "Fatal error", "the-events-calendar", "Uncaught Error:")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/the-events-calendar/src/Tribe/Main.php'
+      - '{{BaseURL}}/wp-content/plugins/the-events-calendar/src/Tribe/Admin/Admin.php'
+      - '{{BaseURL}}/wp-content/plugins/the-events-calendar/common/src/Tribe/Main.php'
+    stop-at-first-match: true

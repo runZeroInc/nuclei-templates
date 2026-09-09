@@ -1,5 +1,4 @@
 id: cisco-ucm-cluster-enum
-
 info:
   name: Cisco Unified Communications Manager - Cluster Enumeration
   author: Morgan Robertson
@@ -10,44 +9,38 @@ info:
     - https://developer.cisco.com/site/user-data-services/develop-and-test/api-reference/#servers
   metadata:
     runzero-match: service["product"] contains "Cisco:Unified Communications Manager"
-    verified: true
-    product: unified_communications_manager
-    vendor: cisco
-    shodan-query: http.title:"Unified Communications Self Care Portal"
     fofa-query: title="Unified Communications Self Care Portal"
-  tags: cisco,ucm,misconfig
-
+    product: unified_communications_manager
+    shodan-query: http.title:"Unified Communications Self Care Portal"
+    vendor: cisco
+    verified: true
+  tags: cisco,misconfig,ucm,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cucm-uds/servers"
-
+  - extractors:
+      - name: cluster_nodes
+        type: xpath
+        xpath:
+          - /servers/server
+          # digest: 4a0a0047304502210083fa0eb2b5d188720caacb79daa30888251a535be4f2ffd7b8a9b7be1af32eef02201c62bf87857fbe2fc94fa9e4f3d6ee197d5e771436898bd3911755a50f6ae76a:922c64590222798bb761d5b6d8e72950
     headers:
       Accept: application/xml
-
-    matchers-condition: and
     matchers:
-      - type: status
-        status:
+      - status:
           - 200
-
-      - type: word
+        type: status
+      - condition: or
         part: header
+        type: word
         words:
-          - "text/xml"
-          - "application/xml"
-        condition: or
-
-      - type: word
+          - text/xml
+          - application/xml
+      - condition: and
         part: body
+        type: word
         words:
-          - '<servers uri'
-          - '<server>'
-        condition: and
-
-    extractors:
-      - type: xpath
-        name: cluster_nodes
-        xpath:
-          - "/servers/server"
-
+          - <servers uri
+          - <server>
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/cucm-uds/servers'

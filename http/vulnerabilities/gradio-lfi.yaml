@@ -23,7 +23,7 @@ info:
       - http.html:"__gradio_mode__"
       - http.title:"gradio"
     vendor: gradio_app
-  tags: file-inclusion,gradio,lfi
+  tags: file-inclusion,gradio,lfi,vuln
 http:
   - matchers:
       - condition: and
@@ -40,6 +40,8 @@ http:
           - application/json
       - status:
           - 200
+        # digest: 4a0a0047304502205b234e516e91526ee9828c0f72f09ca13d9cfed7a2e4926849b8fc53aea797df022100d3624ace0982ccd16ce30e9cc1ab2ff28dbb18a2d335f9373ebc355b66e18c56:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     raw:

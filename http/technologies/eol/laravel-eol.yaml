@@ -14,7 +14,7 @@ info:
     product: laravel
     vendor: laravel
     verified: true
-  tags: eol,framework,laravel,tech
+  tags: discovery,eol,framework,laravel,tech
 http:
   - extractors:
       - group: 1
@@ -30,6 +30,8 @@ http:
         regex:
           - '"laravel/framework":\s*"\^([0-9]+\.[0-9]+)'
           - '&quot;laravelVersion&quot;:&quot;([0-9.]+)&quot;'
+        # digest: 4a0a0047304502206cdfa852912bc553ae3a670ca85f0af008a5524b855ae049a92dcacf8392f480022100d9ff3452eb64add4fb78ce425894a33485b20cc1bd2bc4345fa9df10c3adc94a:922c64590222798bb761d5b6d8e72950
+
         type: regex
     matchers:
       - dsl:

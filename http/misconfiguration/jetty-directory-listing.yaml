@@ -1,5 +1,4 @@
 id: jetty-directory-listing
-
 info:
   name: Eclipse Jetty - Directory Listing Enabled
   author: ritikchaddha
@@ -16,28 +15,26 @@ info:
     - https://cwe.mitre.org/data/definitions/548.html
   metadata:
     runzero-match: service["http.head.server"] matches "Jetty"
-    verified: true
-    max-request: 5
-    shodan-query: "Server: Jetty"
     fofa-query: server="Jetty"
-  tags: jetty,misconfig,exposure,listing,eclipse
-
+    max-request: 5
+    shodan-query: 'Server: Jetty'
+    verified: true
+  tags: eclipse,exposure,jetty,listing,misconfig,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/"
-      - "{{BaseURL}}/static/"
-      - "{{BaseURL}}/resources/"
-      - "{{BaseURL}}/assets/"
-      - "{{BaseURL}}/files/"
+  - matchers:
+      - condition: and
+        # digest: 4b0a004830460221009ad2fb5d280a1feea5076bff3d00228a7f14deca1c281df2ec9a3c81c46f3bd8022100d626a11051449805fa4b581646a24f1e19f7bd560e41c66624c5225818e58332:922c64590222798bb761d5b6d8e72950
 
-    stop-at-first-match: true
-
-    matchers:
-      - type: dsl
         dsl:
           - 'contains_any(body, "Directory listing for", "Index of /", "[To Parent Directory]", "Directory: /")'
-          - 'contains_all(response, "Jetty", "jetty-dir.css")'
-          - 'status_code == 200'
-        condition: and
-
+          - contains_all(response, "Jetty", "jetty-dir.css")
+          - status_code == 200
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/'
+      - '{{BaseURL}}/static/'
+      - '{{BaseURL}}/resources/'
+      - '{{BaseURL}}/assets/'
+      - '{{BaseURL}}/files/'
+    stop-at-first-match: true

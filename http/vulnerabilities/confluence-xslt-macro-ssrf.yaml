@@ -19,7 +19,7 @@ info:
     product: confluence
     vendor: atlassian
     verified: true
-  tags: atlassian,confluence,cve,cve2024,macro,ssrf,xslt
+  tags: atlassian,confluence,cve,cve2024,macro,ssrf,vuln,xslt
 flow: http(1) || http(2)
 http:
   - body: |
@@ -60,6 +60,8 @@ http:
       Content-Type: application/json
     matchers:
       - condition: and
+        # digest: 4a0a00473045022100f28f90ff1b0ca3170da1e6d4064c287685299f9eae602fd21b232efa5ddf62920220440b643ef5ea89a2c87b269a0855751cef190c490abbdb08cd97569a50280cd1:922c64590222798bb761d5b6d8e72950
+
         dsl:
           - contains(body, "contextConfigLocation")
           - contains(interactsh_protocol, "http")

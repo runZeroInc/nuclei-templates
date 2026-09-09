@@ -1,5 +1,4 @@
 id: nextgen-gallery-pro-error-log
-
 info:
   name: WordPress NextGEN Gallery Pro - Error Log Disclosure
   author: ritikchaddha
@@ -15,34 +14,30 @@ info:
     cwe-id: CWE-532
   metadata:
     runzero-match: any(each(service["http.bodies"]), {# matches "(?i)/plugins/nextgen-gallery-pro"})
-    verified: true
     fofa-query: body="/plugins/nextgen-gallery-pro"
-  tags: wordpress,wp,wp-plugin,nextgen-gallery-pro,log,exposure
-
+    verified: true
+  tags: exposure,log,nextgen-gallery-pro,vuln,wordpress,wp,wp-plugin
 flow: http(1) && http(2)
-
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    redirects: true
-    matchers:
-      - type: word
+  - matchers:
+      - internal: true
         part: body
+        type: word
         words:
-          - "nextgen"
-        internal: true
-
-  - method: GET
+          - nextgen
+    method: GET
     path:
-      - "{{BaseURL}}/wp-content/debug.log"
+      - '{{BaseURL}}'
+    redirects: true
+  - matchers:
+      - condition: and
+        # digest: 480a00453043021f6b97198613d60ba3db217cd091dc8716150b45da5ef65aa5ba2f7d93c584be02201553e85e807b91f3d0491cfca6561d4d08ccde173527f59b0071b042f2db70ab:922c64590222798bb761d5b6d8e72950
 
-    matchers:
-      - type: dsl
         dsl:
-          - 'regex("[[0-9]{2}-[a-zA-Z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2} [A-Z]{3}] PHP", body)'
-          - 'contains_any(body, "PHP Warning:", "PHP Notice:", "Undefined array", "Undefined variable")'
-          - 'status_code == 200'
-        condition: and
-
+          - regex("[[0-9]{2}-[a-zA-Z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2} [A-Z]{3}] PHP", body)
+          - contains_any(body, "PHP Warning:", "PHP Notice:", "Undefined array", "Undefined variable")
+          - status_code == 200
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/debug.log'

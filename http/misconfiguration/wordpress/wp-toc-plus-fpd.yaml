@@ -1,5 +1,4 @@
 id: wp-toc-plus-fpd
-
 info:
   name: WordPress Plugin Table of Contents Plus - Full Path Disclosure
   author: ritikchaddha
@@ -15,26 +14,24 @@ info:
     - https://wpscan.com/plugins/table-of-contents-plus/
   metadata:
     runzero-match: any(each(service["http.bodies"]), {# matches "(?i)wp-content/plugins/table-of-contents-plus"})
-    verified: true
-    max-request: 3
-    vendor: michael
-    product: table-of-contents-plus
     fofa-query: body="wp-content/plugins/table-of-contents-plus"
-  tags: wp,wordpress,wp-plugin,table-of-contents-plus,fpd,exposure
-
+    max-request: 3
+    product: table-of-contents-plus
+    vendor: michael
+    verified: true
+  tags: exposure,fpd,table-of-contents-plus,vuln,wordpress,wp,wp-plugin
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wp-content/plugins/table-of-contents-plus/toc-plus.php"
-      - "{{BaseURL}}/wp-content/plugins/table-of-contents-plus/toc.php"
-      - "{{BaseURL}}/wp-content/plugins/table-of-contents-plus/includes/class-toc.php"
+  - matchers:
+      - condition: and
+        # digest: 4a0a00473045022100d18ee9a060605f33c3f27974744f654ddd729c091461b5b7ee9dbcef8e7ba15202207107f3160604340735e5414a6c2a9738fe2dd95afb2432fc545eda7b13052e02:922c64590222798bb761d5b6d8e72950
 
-    stop-at-first-match: true
-
-    matchers:
-      - type: dsl
         dsl:
-          - 'status_code == 200'
-          - 'contains_all(body, "Fatal error", "undefined function", "table-of-contents-plus")'
-        condition: and
-
+          - status_code == 200
+          - contains_all(body, "Fatal error", "undefined function", "table-of-contents-plus")
+        type: dsl
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/table-of-contents-plus/toc-plus.php'
+      - '{{BaseURL}}/wp-content/plugins/table-of-contents-plus/toc.php'
+      - '{{BaseURL}}/wp-content/plugins/table-of-contents-plus/includes/class-toc.php'
+    stop-at-first-match: true
