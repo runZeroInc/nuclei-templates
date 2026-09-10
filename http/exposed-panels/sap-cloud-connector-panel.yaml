@@ -8,7 +8,7 @@ info:
   reference:
     - https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "Cloud Connector Login"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "Cloud Connector Login"}) && any(each(service["http.titles"]), {# matches "^Login$"})
     max-request: 1
     shodan-query: http.html:"Cloud Connector Login"
   tags: discovery,login,panel,sap
