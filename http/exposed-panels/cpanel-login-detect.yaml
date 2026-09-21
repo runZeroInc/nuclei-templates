@@ -5,7 +5,7 @@ info:
   severity: info
   description: cPanel login panel was detected.
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "cPanel Login"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^cPanel Login$"})
     max-request: 1
     shodan-query: title:"cPanel Login"
     verified: true

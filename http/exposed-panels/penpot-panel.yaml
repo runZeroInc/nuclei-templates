@@ -8,7 +8,7 @@ info:
   reference:
     - https://help.penpot.app/technical-guide/getting-started/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Penpot"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Penpot"})
     fofa-query: title="Penpot
     max-request: 1
     product: penpot
