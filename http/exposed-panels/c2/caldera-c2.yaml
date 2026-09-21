@@ -1,8 +1,7 @@
 id: caldera-c2
-
 info:
   name: Caldera C2 - Detect
-  author: pussycat0x
+  author: pussycat0x,s4e-io
   severity: info
   description: |
     MITRE Caldera™ is a cyber security platform designed to easily automate adversary emulation, assist manual red-teams, and automate incident response.
@@ -12,26 +11,26 @@ info:
   classification:
     cpe: cpe:2.3:a:mitre:caldera:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
-    max-request: 1
-    vendor: mitre
-    product: caldera
     fofa-query: http.favicon.hash:-636718605
-  tags: c2,ir,osint,caldera,panel,vuln
-
+    max-request: 1
+    product: caldera
+    vendor: mitre
+    verified: true
+  tags: c2,caldera,ir,osint,panel,vuln
 http:
-  - method: GET
+  - matchers:
+      - condition: or
+        part: body
+        type: word
+        words:
+          - <title>Login | CALDERA</title>
+          - <title>Magma | Caldera</title>
+      - status:
+          - 200
+        # digest: 490a004630440220069439492a5a04fc618c29bf57f260c10c5595756a871ee60b6a22b3aaeb1f0002206a4dd1469ac85765a06908085196edb2de2ea7c15292732b887ff9e8f20aa618:922c64590222798bb761d5b6d8e72950
+
+        type: status
+    matchers-condition: and
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Login | CALDERA</title>'
-
-      - type: status
-        status:
-          - 200
-
