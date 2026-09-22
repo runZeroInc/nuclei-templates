@@ -1,0 +1,37 @@
+id: senaite-detect
+info:
+  name: SENAITE - Detect
+  author: rxerium
+  severity: info
+  description: |
+    SENAITE open-source laboratory information management system was detected.
+  reference:
+    - https://www.senaite.com/
+    - https://github.com/senaite/senaite.core
+  metadata:
+    max-request: 1
+    product: senaite
+    shodan-query: 'http.html:"++plone++senaite.core.static"'
+    vendor: senaite
+    verified: true
+  tags: detect,lims,science,senaite,tech
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    host-redirects: true
+    max-redirects: 3
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '++plone++senaite.core.static/'
+      - type: regex
+        part: body
+        regex:
+          - '(?i)<title>[^<]*SENAITE[^<]*</title>'
+      - type: status
+        status:
+          - 200
+        # digest: 490a004630440220296650664c758cbd8b50731eda318428b946929ec9ad251bbd7693ad23343fc002201541704b3fa1879a40897accdf8de9ba044137b65c6fdf356d887bca09f431da:922c64590222798bb761d5b6d8e72950
