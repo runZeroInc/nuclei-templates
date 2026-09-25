@@ -1,40 +1,79 @@
 id: niagara-fox-info-enum
-
 info:
   name: Niagara Fox Protocol Information Enumeration
   author: pussycat0x
   severity: info
   description: |
-    Niagara Fox Protocol is a building automation protocol used between the Niagara software systems by Tridium.
+    Niagara Fox Protocol is a building automation protocol used between the Niagara software systems by Tridium. Detects both plaintext Fox (1911) and Fox over TLS (FoxS, 4911).
   reference:
     - https://nmap.org/nsedoc/scripts/fox-info.html
   metadata:
-    verified: true
-    max-request: 1
+    max-request: 2
     shodan-query: product:"Niagara Fox"
-  tags: network,fox,niagara,enum,tcp,discovery
+    verified: true
+  tags: discovery,enum,fox,network,niagara,tcp,tls
 tcp:
-  - inputs:
-      - data: "fox a 1 -1 fox hello\n{\nfox.version=s:1.0\nid=i:1\n};;\n"
+  - extractors:
+      - regex:
+          - fox\.version=s:([\w.]+)
+          - hostName=s:([\w.-]+)
+          - hostAddress=s:([\w.:-]+)
+          - station\.name=s:([\w .-]+)
+          - app\.name=s:([\w .-]+)
+          - app\.version=s:([\w.-]+)
+          - vm\.name=s:([\w .()-]+)
+          - vm\.version=s:([\w.-]+)
+          - os\.name=s:([\w .-]+)
+          - os\.version=s:([\w.-]+)
+          - brandId=s:([\w.-]+)
+        type: regex
     host:
-      - "{{Hostname}}"
-    port: 1911
-
+      - '{{Hostname}}'
+    inputs:
+      - data: |
+          fox a 1 -1 fox hello
+          {
+          fox.version=s:1.0
+          id=i:1
+          };;
     matchers:
-      - type: word
+      - condition: and
+        type: word
         words:
-          - "fox.version"
+          - 'fox.version=s:'
+          - 'app.name=s:'
+    port: 1911
+    read-size: 1024
+  - extractors:
+      - regex:
+          - fox\.version=s:([\w.]+)
+          - hostName=s:([\w.-]+)
+          - hostAddress=s:([\w.:-]+)
+          - station\.name=s:([\w .-]+)
+          - app\.name=s:([\w .-]+)
+          - app\.version=s:([\w.-]+)
+          - vm\.name=s:([\w .()-]+)
+          - vm\.version=s:([\w.-]+)
+          - os\.name=s:([\w .-]+)
+          - os\.version=s:([\w.-]+)
+          - brandId=s:([\w.-]+)
+        # digest: 490a004630440220678e83d7da788fe7e10ca1d2f6b2b307740f82b2f058e856e12151ba6620ea2a0220244f34bd5ed0f137d47b3c112fef48f37fc369262b8843e19848900324d6fd2c:922c64590222798bb761d5b6d8e72950
 
-    extractors:
-      - type: regex
-        regex:
-          - "fox.version=s:([0-9.]+)"
-          - "hostName=s:([0-9.]+)"
-          - "hostAddress=s:([0-9.]+)"
-          - "app.name=s:([A-Za-z0-9]+)"
-          - "app.version=s:([0-9.]+)"
-          - "vm.name=s:([A-Za-z ()0-9]+)"
-          - "vm.version=s:([0-9._-a-z]+)"
-          - "os.name=s:([A-Z]+)"
-          - "os.version=s:([0-9.]+)"
-
+        type: regex
+    host:
+      - tls://{{Hostname}}
+    inputs:
+      - data: |
+          fox a 1 -1 fox hello
+          {
+          fox.version=s:1.0
+          id=i:1
+          };;
+    matchers:
+      - condition: and
+        type: word
+        words:
+          - 'fox.version=s:'
+          - 'app.name=s:'
+    port: 4911
+    read-size: 1024
