@@ -8,7 +8,7 @@ info:
   reference:
     - https://www.sciencelogic.com/
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "-209017361"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-209017361" || any(each(service["html.titles"]), {# matches "^ScienceLogic EM7"})
     fofa-query:
       - icon_hash="-209017361"
       - title="ScienceLogic EM7"
