@@ -8,7 +8,7 @@ info:
   reference:
     - https://secomea.com/gatemanager-access-management-server/
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "-498882777"
+    runzero-match: service["favicon.ico.image.mmh3"] == "-498882777" && any(each(service["html.titles"]), {# matches "GateManager"})
     fofa-query:
       - icon_hash="-498882777"
     max-request: 1
