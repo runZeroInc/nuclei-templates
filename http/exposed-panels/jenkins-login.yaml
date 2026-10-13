@@ -1,7 +1,7 @@
 id: jenkins-login
 info:
   name: Jenkins Login Detected
-  author: pdteam
+  author: pdteam,bhutch
   severity: info
   description: Jenkins is an open source automation server.
   remediation: Ensure proper access.
@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:jenkins:jenkins:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["favicon.ico.image.mmh3"] == "81586312"
+    runzero-match: service["product"] contains "Jenkins:Jenkins"
     fofa-query: icon_hash=81586312
     max-request: 1
     product: jenkins
@@ -22,10 +22,25 @@ info:
     vendor: jenkins
   tags: discovery,jenkins,panel
 http:
-  - matchers:
-      - type: word
+  - extractors:
+      - kval:
+          - x_jenkins
+        # digest: 490a00463044022021fa9dff9ead5a5ccb4d7aee28ffc3aea4c18245a17a4195d4c533dce1edd813022045c64c93d86c17a63c3f709ffacd2a3f7db15006f9fed9931968fea045a298af:922c64590222798bb761d5b6d8e72950
+
+        name: version
+        type: kval
+    matchers:
+      - condition: or
+        part: body
+        type: word
         words:
-          - Sign in [Jenkins]
+          - j_spring_security_check
+          - j_acegi_security_check
+      - condition: or
+        dsl:
+          - contains(tolower(all_headers), 'x-jenkins')
+          - contains_any(body, 'resURL=', 'data-rooturl')
+        type: dsl
       - status:
           - 200
         type: status

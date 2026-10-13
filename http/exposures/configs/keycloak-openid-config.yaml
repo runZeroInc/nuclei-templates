@@ -1,5 +1,4 @@
 id: keycloak-openid-config
-
 info:
   name: Keycloak OpenID Configuration - Detect
   author: rodnt
@@ -13,26 +12,17 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 2
-  tags: keycloak,config,exposure,vuln
-
+  tags: config,exposure,keycloak,vuln
 http:
-  - method: GET
+  - matchers:
+      - condition: and
+        # digest: 4b0a00483046022100a639e2765990ea6b096799d8a4fa2912d7c2edef38dfc6930cab913872ed0bfb022100a7b9304945d2b17b6f7f5f90d59825ae8d87dcf0eedb8263ce8960800c55a3f5:922c64590222798bb761d5b6d8e72950
+
+        dsl:
+          - status_code == 200
+          - contains_all(body, "protocol/openid-connect", "jwks_uri", "issuer")
+        type: dsl
+    method: GET
     path:
-      - "{{BaseURL}}/.well-known/openid-configuration"
-      - "{{BaseURL}}/auth/realms/master/.well-known/openid-configuration"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - 'issuer'
-          - 'authorization_endpoint'
-          - 'token_endpoint'
-          - 'userinfo_endpoint'
-          - 'jwks_uri'
-        condition: and
-
+      - '{{BaseURL}}/.well-known/openid-configuration'
+      - '{{BaseURL}}/auth/realms/master/.well-known/openid-configuration'

@@ -6,7 +6,7 @@ info:
   description: |
     IDEMIA BIOMetrics application  default login credentials were discovered.
   reference:
-    - https://www.google.com/search?q=idemia+password%3D+"12345"
+    - https://www.google.com/search?q=idemia+password%3D+%2212345%22
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N
     cvss-score: 5.8
@@ -35,6 +35,8 @@ http:
           - Invalid Password
       - status:
           - 200
+        # digest: 490a0046304402200c8b4723466658c1a85ab7fb18fd391d4575fe9949ed9c4eef6ba1c30b3a2261022027b06a0ab65d7dfabf9f819087f322191fb1153a0bc07b0029e6534c96c88003:922c64590222798bb761d5b6d8e72950
+
         type: status
     matchers-condition: and
     payloads:

