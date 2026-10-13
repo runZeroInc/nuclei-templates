@@ -10,7 +10,7 @@ info:
     - https://hermes-agent.nousresearch.com/docs/
     - https://nousresearch.com
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Hermes Agent"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Sign in — Hermes Agent"})
     max-request: 1
     product: hermes-agent
     shodan-query: http.title:"Hermes Agent"

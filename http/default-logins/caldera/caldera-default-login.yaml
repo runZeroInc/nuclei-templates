@@ -15,7 +15,7 @@ info:
   classification:
     cwe-id: CWE-798
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Caldera"})
+    runzero-match: service["product"] contains "MITRE:CALDERA"
     fofa-query: title="Caldera"
     max-request: 4
     product: caldera
