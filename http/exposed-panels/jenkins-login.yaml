@@ -1,7 +1,7 @@
 id: jenkins-login
 info:
   name: Jenkins Login Detected
-  author: pdteam
+  author: pdteam,bhutch
   severity: info
   description: Jenkins is an open source automation server.
   remediation: Ensure proper access.

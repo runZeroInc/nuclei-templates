@@ -1,45 +1,41 @@
 id: matrix-detect
-
 info:
   name: Matrix Server Detect
   author: erethon
   severity: info
   description: Detects Matrix servers based on .well-known entries. See https://en.wikipedia.org/wiki/Matrix_(protocol)
   reference:
-    - https://spec.matrix.org/v1.3/server-server-api/#getwell-knownmatrixserver, https://spec.matrix.org/v1.3/client-server-api/#getwell-knownmatrixclient
+    - https://spec.matrix.org/v1.3/client-server-api/#getwell-knownmatrixclient
+    - https://spec.matrix.org/v1.3/server-server-api/#getwell-knownmatrixserver
   metadata:
     max-request: 2
-  tags: tech,matrix,discovery
-
+  tags: discovery,matrix,tech
 http:
-  - method: GET
-    redirects: true
-    max-redirects: 2
-    path:
-      - "{{BaseURL}}/.well-known/matrix/server"
-      - "{{BaseURL}}/.well-known/matrix/client"
+  - extractors:
+      - json:
+          - ."m.server" | select( . != null )
+          - ."m.homeserver" | .base_url | select( . != null )
+          - ."m.identity_server" | .base_url | select( . != null )
+        # digest: 4a0a0047304502207db80fd0fdb5f1fff9848d96d93c8b21d34eba1ecb14af675380f1e1da36a1b2022100c6ba2266e4490575febc1511ec7cf2c333b764a7a6c243edaf818b535074c39f:922c64590222798bb761d5b6d8e72950
 
-    matchers-condition: and
+        part: body
+        type: json
     matchers:
-      - type: regex
-        regex:
+      - regex:
           - '"m\.([a-z]+)":'
-
-      - type: word
+        type: regex
+      - negative: true
         part: header
+        type: word
         words:
           - text/html
-        negative: true
-
-      - type: status
-        status:
+      - status:
           - 200
-
-    extractors:
-      - type: json
-        part: body
-        json:
-          - '."m.server" | select( . != null )'
-          - '."m.homeserver" | .base_url | select( . != null )'
-          - '."m.identity_server" | .base_url | select( . != null )'
-
+        type: status
+    matchers-condition: and
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}/.well-known/matrix/server'
+      - '{{BaseURL}}/.well-known/matrix/client'
+    redirects: true

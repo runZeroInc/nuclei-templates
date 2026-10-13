@@ -1,3863 +1,3297 @@
 id: tech-detect
-
 info:
   name: Wappalyzer Technology Detection
   author: hakluke,righettod,matejsmycka
   severity: info
   metadata:
     max-request: 1
-  tags: tech,discovery
-
+  tags: discovery,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-
-    matchers-condition: or
+  - host-redirects: true
     matchers:
-      - type: regex
+      - condition: or
         name: mollom
+        part: body
         regex:
           - <img[^>]+\.mollom\.com
-        condition: or
-        part: body
-
-      - type: word
+        type: regex
+      - condition: and
         name: atlassian-jira
-        words:
-          - "Project Management Software"
-          - "atlassian.com/software/jira"
-        condition: and
         part: body
-
-      - type: regex
+        type: word
+        words:
+          - Project Management Software
+          - atlassian.com/software/jira
+      - condition: or
         name: genexus
+        part: body
         regex:
           - <link[^>]+?id="gxtheme_css_reference"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: flat-ui
+        part: body
         regex:
           - <link[^>]* href=[^>]+flat-ui(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dovetailwrp
+        part: body
         regex:
           - <link[^>]* href="\/DovetailWRP\/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: highcharts
+        part: body
         regex:
           - <svg[^>]*><desc>Created with Highcharts ([\d.]*)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: videojs
+        part: body
         regex:
           - <div[^>]+class="video-js+">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: tictail
+        part: body
         regex:
           - <link[^>]*tictail\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: wikinggruppen
+        part: body
         regex:
           - <!-- WIKINGGRUPPEN
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: slimbox
+        part: body
         regex:
           - <link [^>]*href="[^/]*slimbox(?:-rtl)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: cs-cart
+        part: body
         regex:
           - '&nbsp;Powered by (?:<a href=[^>]+cs-cart\.com|CS-Cart)'
           - \.cm-noscript[^>]+</style>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: directadmin
+        part: body
         regex:
           - <a[^>]+>DirectAdmin</a> Web Control Panel
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xenforo
+        part: body
         regex:
           - (?:jQuery\.extend\(true, XenForo|Forum software by XenForo™|<!--XF:branding|<html[^>]+id="XenForo")
           - '<html id="XF" '
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: imperia-cms
+        part: body
         regex:
           - '<imp:live-info sysid="[0-9a-f-]+"(?: node_id="[0-9/]*")? *\/>'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: vanilla
+        part: body
         regex:
           - <body id="(?:DiscussionsPage|vanilla)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: kibana
+        part: body
         regex:
           - <title>Kibana</title>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bonfire
+        part: body
         regex:
           - Powered by <a[^>]+href="https?://(?:www\.)?cibonfire\.com[^>]*>Bonfire v([^<]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: ipb
+        part: body
         regex:
           - <link[^>]+ipb_[^>]+\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: smf
+        part: body
         regex:
           - credits/?" title="Simple Machines Forum" target="_blank" class="new_win">SMF ([0-9.]+)</a>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xcharts
+        part: body
         regex:
           - <link[^>]* href="[^"]*xcharts(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: proximis-unified-commerce
+        part: body
         regex:
           - <html[^>]+data-ng-app="RbsChangeApp"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: arc-publishing
+        part: body
         regex:
           - <div [^>]*id="pb-root"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: nvd3
+        part: body
         regex:
           - <link[^>]* href=[^>]+nv\.d3(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: arastta
+        part: body
         regex:
           - Powered by <a [^>]*href="https?://(?:www\.)?arastta\.org[^>]+>Arastta
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: cgit
+        part: body
         regex:
           - <[^>]+id='cgit'
           - generated by <a href='http://git\.zx2c4\.com/cgit/about/'>cgit v([\d.a-z-]+)</a>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: strikingly
+        part: body
         regex:
           - <!-- Powered by Strikingly\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: contentful
+        part: body
         regex:
           - <[^>]+(?:https?:)?//(?:assets|downloads|images|videos)\.(?:ct?fassets\.net|contentful\.com)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: microsoft-asp.net
+        part: body
         regex:
           - <input[^>]+name="__VIEWSTATE
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: inspectlet
+        part: body
         regex:
           - <!-- (?:Begin|End) Inspectlet Embed Code -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: moodle
+        part: body
         regex:
           - <img[^>]+moodlelogo
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: minibb
+        part: body
         regex:
           - <a href="[^"]+minibb[^<]+</a>[^<]+\n<!--End of copyright link
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: handlebars
+        part: body
         regex:
           - <[^>]*type=[^>]text\/x-handlebars-template
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: materialize-css
+        part: body
         regex:
           - <link[^>]* href="[^"]*materialize(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: orocommerce
+        part: body
         regex:
           - <script [^>]+data-requiremodule="oro/
           - <script [^>]+data-requiremodule="oroui/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: lightspeed-ecom
+        part: body
         regex:
           - <!-- \[START\] 'blocks/head\.rain' -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: woocommerce
+        part: body
         regex:
           - <!-- WooCommerce
           - <link rel='[^']+' id='woocommerce-(?:layout|smallscreen|general)-css'  href='https?://[^/]+/wp-content/plugins/woocommerce/assets/css/woocommerce(?:-layout|-smallscreen)?\.css?ver=([\d.]+)'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: cpanel
+        part: body
         regex:
           - <!-- cPanel
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phpmyadmin
+        part: body
         regex:
           - '!\[CDATA\[[^<]*PMA_VERSION:\"([\d.]+)'
           - '(?: \| phpMyAdmin ([\d.]+)<\/title>|PMA_sendHeaderLocation\(|<link [^>]*href="[^"]*phpmyadmin\.css\.php)'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: hcaptcha
+        part: body
         regex:
           - <style[^>]+[^<]+#cf-hcaptcha-container[^<]+</style>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: styled-components
+        part: body
         regex:
           - <style[^>]*data-styled(?:-components)?[\s"]
           - <style[^>]+data-styled-version="([0-9]+)"
-          - "<[^>]+sc-component-id: sc-"
-        condition: or
-        part: body
-
-      - type: regex
+          - '<[^>]+sc-component-id: sc-'
+        type: regex
+      - condition: or
         name: youtrack
+        part: body
         regex:
           - no-title="YouTrack">
           - data-reactid="[^"]+">youTrack ([0-9.]+)<
           - type="application/opensearchdescription\+xml" title="YouTrack"/>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: grandnode
-        regex:
-          - "(?:<!--GrandNode |<a[^>]+grandnode - Powered by |Powered by: <a[^>]+nopcommerce)"
-        condition: or
         part: body
-
-      - type: regex
+        regex:
+          - '(?:<!--GrandNode |<a[^>]+grandnode - Powered by |Powered by: <a[^>]+nopcommerce)'
+        type: regex
+      - condition: or
         name: oxid-eshop
+        part: body
         regex:
           - <!--[^-]*OXID eShop
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: doxygen
+        part: body
         regex:
           - (?:<!-- Generated by Doxygen ([\d.]+)|<link[^>]+doxygen\.css)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: afterbuy
+        part: body
         regex:
           - <dd>This OnlineStore is brought to you by ViA-Online GmbH Afterbuy\. Information and contribution at https://www\.afterbuy\.de</dd>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: chevereto
+        part: body
         regex:
           - Powered by <a href="https?://chevereto\.com">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gallery
+        part: body
         regex:
           - <div id="gsNavBar" class="gcBorder1">
           - <a href="http://gallery\.sourceforge\.net"><img[^>]+Powered by Gallery\s*(?:(?:v|Version)\s*([0-9.]+))?
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: redoc
-        regex:
-          - "<redoc "
-        condition: or
         part: body
-
-      - type: regex
+        regex:
+          - '<redoc '
+        type: regex
+      - condition: or
         name: open-web-analytics
+        part: body
         regex:
           - <!-- (?:Start|End) Open Web Analytics Tracker -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: jsdelivr
+        part: body
         regex:
           - <[^>]+?//cdn\.jsdelivr\.net/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: user.com
+        part: body
         regex:
           - <div[^>]+/id="ue_widget"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: smart-ad-server
+        part: body
         regex:
           - <img[^>]+smartadserver\.com\/call
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: comandia
+        part: body
         regex:
           - <link[^>]+=['"]//cdn\.mycomandia\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: shellinabox
+        part: body
         regex:
           - <title>Shell In A Box</title>
           - must be enabled for ShellInABox</noscript>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: websocket
+        part: body
         regex:
           - <link[^>]+rel=["']web-socket["']
           - <(?:link|a)[^>]+href=["']wss?://
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gravatar
+        part: body
         regex:
           - <[^>]+gravatar\.com/avatar/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: php-nuke
+        part: body
         regex:
           - <[^>]+Powered by PHP-Nuke
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: essential-js-2
+        part: body
         regex:
           - '<[^>]+ class ?= ?"(?:e-control|[^"]+ e-control)(?: )[^"]* e-lib\b'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: wolf-cms
+        part: body
         regex:
           - (?:<a href="[^>]+wolfcms\.org[^>]+>Wolf CMS(?:</a>)? inside|Thank you for using <a[^>]+>Wolf CMS)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: shapecss
+        part: body
         regex:
           - <link[^>]* href="[^"]*shapecss(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: zabbix
+        part: body
         regex:
           - <body[^>]+zbxCallPostScripts
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phpbb
+        part: body
         regex:
           - Powered by <a[^>]+phpBB
           - <div class=phpbb_copyright>
           - <[^>]+styles/(?:sub|pro)silver/theme
           - <img[^>]+i_icon_mini
           - <table class="[^"]*forumline
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sweetalert
+        part: body
         regex:
           - <link[^>]+?href="[^"]+sweet-alert(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: semantic-ui
+        part: body
         regex:
           - <link[^>]+semantic(?:\.min)\.css"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: teamcity
+        part: body
         regex:
           - <span class="versionTag"><span class="vWord">Version</span> ([\d\.]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sapper
+        part: body
         regex:
           - <script[^>]*>__SAPPER__
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: contao
+        part: body
         regex:
           - <!--[^>]+powered by (?:TYPOlight|Contao)[^>]*-->
           - <link[^>]+(?:typolight|contao)\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: wpcache
+        part: body
         regex:
           - <!--[^>]+wpCache
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: yii
+        part: body
         regex:
           - Powered by <a href="http://www\.yiiframework\.com/" rel="external">Yii Framework</a>
           - <input type="hidden" value="[a-zA-Z0-9]{40}" name="YII_CSRF_TOKEN" \/>
           - <!\[CDATA\[YII-BLOCK-(?:HEAD|BODY-BEGIN|BODY-END)\]
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bugzilla
+        part: body
         regex:
           - href="enter_bug\.cgi">
           - <main id="bugzilla-body"
           - <a href="https?://www\.bugzilla\.org/docs/([0-9.]+)/[^>]+>Help<
           - <span id="information" class="header_addl_info">version ([\d.]+)<
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: adriver
+        part: body
         regex:
           - (?:<embed[^>]+(?:src="https?://mh\d?\.adriver\.ru/|flashvars="[^"]*(?:http:%3A//(?:ad|mh\d?)\.adriver\.ru/|adriver_banner))|<(?:(?:iframe|img)[^>]+src|a[^>]+href)="https?://ad\.adriver\.ru/)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: papaya-cms
+        part: body
         regex:
           - <link[^>]*/papaya-themes/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: posterous
+        part: body
         regex:
           - <div class="posterous
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: umbraco
+        part: body
         regex:
           - powered by <a href=[^>]+umbraco
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: strato
+        part: body
         regex:
           - <a href="http://www\.strato\.de/" target="_blank">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: microsoft-word
+        part: body
         regex:
           - (?:<html [^>]*xmlns:w="urn:schemas-microsoft-com:office:word"|<w:WordDocument>|<div [^>]*class="?WordSection1[" >]|<style[^>]*>[^>]*@page WordSection1)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: coinhive-captcha
+        part: body
         regex:
           - (?:<div[^>]+class="coinhive-captcha[^>]+data-key|<div[^>]+data-key[^>]+class="coinhive-captcha)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: adminer
+        part: body
         regex:
           - Adminer</a> <span class="version">([\d.]+)</span>
           - onclick="bodyClick\(event\);" onload="verifyVersion\('([\d.]+)'\);">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: tilda
+        part: body
         regex:
           - <link[^>]* href=[^>]+tilda(?:cdn|\.ws|-blocks)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xtcommerce
+        part: body
         regex:
           - <div class="copyright">[^<]+<a[^>]+>xt:Commerce
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: oracle-commerce
+        part: body
         regex:
           - <[^>]+_dyncharset
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: elementor
+        part: body
         regex:
           - <div class=(?:"|')[^"']*elementor
           - <section class=(?:"|')[^"']*elementor
           - <link [^>]*href=(?:"|')[^"']*elementor/assets
           - <link [^>]*href=(?:"|')[^"']*uploads/elementor/css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dart
+        part: body
         regex:
           - /(?:<script)[^>]+(?:type="application/dart")/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: glyphicons
+        part: body
         regex:
           - (?:<link[^>]* href=[^>]+glyphicons(?:\.min)?\.css|<img[^>]* src=[^>]+glyphicons)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: jetshop
+        part: body
         regex:
           - <(?:div|aside) id="jetshop-branding">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: business-catalyst
+        part: body
         regex:
           - <!-- BC_OBNW -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: boldgrid
+        part: body
         regex:
           - <link rel=["']stylesheet["'] [^>]+boldgrid
           - <link rel=["']stylesheet["'] [^>]+post-and-page-builder
           - <link[^>]+s\d+\.boldgrid\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: zurb-foundation
+        part: body
         regex:
           - <link[^>]+foundation[^>"]+css
           - <div [^>]*class="[^"]*(?:small|medium|large)-\d{1,2} columns
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: shoptet
+        part: body
         regex:
           - <link [^>]*href="https?://cdn\.myshoptet\.com/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phpalbum
+        part: body
         regex:
           - <!--phpalbum ([.\d\s]+)-->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: rbs-change
+        part: body
         regex:
           - <html[^>]+xmlns:change=
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: appnexus
+        part: body
         regex:
           - <(?:iframe|img)[^>]+adnxs\.(?:net|com)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: lightbox
+        part: body
         regex:
           - <link [^>]*href="[^"]+lightbox(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: shopware
+        part: body
         regex:
           - <title>Shopware ([\d\.]+) [^<]+
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: webmine
+        part: body
         regex:
           - <iframe[^>]+src=[\'"]https://webmine\.cz/miner\?key=
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: fluxbb
+        part: body
         regex:
           - <p id="poweredby">[^<]+<a href="https?://fluxbb\.org/">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gemius
+        part: body
         regex:
           - <a [^>]*onclick="gemius_hit
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sql-buddy
+        part: body
         regex:
           - (?:<title>SQL Buddy</title>|<[^>]+onclick="sideMainClick\("home\.php)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: jenkins
+        part: body
         regex:
           - <span class="jenkins_ver"><a href="https://jenkins\.io/">Jenkins ver\. ([\d.]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: t-soft
+        part: body
         regex:
           - <a href="http://www\.tsoft\.com\.tr" target="_blank" title="T-Soft E-ticaret Sistemleri">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: datocms
+        part: body
         regex:
           - <[^>]+https://www\.datocms-assets\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sonarqubes
+        part: body
         regex:
           - <link href="/css/sonar\.css\?v=([\d.]+)
           - <title>SonarQube</title>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sizmek
+        part: body
         regex:
           - (?:<a [^>]*href="[^/]*//[^/]*serving-sys\.com/|<img [^>]*src="[^/]*//[^/]*serving-sys\.com/)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: koken
+        part: body
         regex:
           - <html lang="en" class="k-source-essays k-lens-essays">
           - <!--\s+KOKEN DEBUGGING
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: freetextbox
+        part: body
         regex:
           - <!-- \* FreeTextBox v\d \((\d+\.\d+\.\d+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: uknowva
+        part: body
         regex:
           - <a[^>]+>Powered by uKnowva</a>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: comscore
+        part: body
         regex:
           - <iframe[^>]* (?:id="comscore"|scr=[^>]+comscore)|\.scorecardresearch\.com/beacon\.js|COMSCORE\.beacon
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: fast-search-for-sharepoint
+        part: body
         regex:
           - <input[^>]+ name="ParametricSearch
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: adverticum
+        part: body
         regex:
           - <div (?:id="[a-zA-Z0-9_]*" )?class="goAdverticum"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: clarity
+        part: body
         regex:
           - <clr-main-container
           - <link [^>]*href="[^"]*clr-ui(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: elm-ui
+        part: body
         regex:
           - <style>[\s\S]*\.explain > \.s[\s\S]*\.explain > \.ctr > \.s
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bigace
+        part: body
         regex:
           - (?:Powered by <a href="[^>]+BIGACE|<!--\s+Site is running BIGACE)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: microsoft-powerpoint
+        part: body
         regex:
           - (?:<html [^>]*xmlns:w="urn:schemas-microsoft-com:office:powerpoint"|<link rel="?Presentation-XML"? href="?[^"]+\.xml"?>|<o:PresentationFormat>[^<]+</o:PresentationFormat>[^!]+<o:Slides>\d+</o:Slides>(?:[^!]+<o:Version>([\d.]+)</o:Version>)?)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: angularjs
+        part: body
         regex:
           - <(?:div|html)[^>]+ng-app=
           - <ng-app
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: froala-editor
+        part: body
         regex:
           - <[^>]+class="[^"]*(?:fr-view|fr-box)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: odoo
+        part: body
         regex:
           - <link[^>]* href=[^>]+/web/css/(?:web\.assets_common/|website\.assets_frontend/)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: shinystat
+        part: body
         regex:
           - <img[^>]*\s+src=['"]?https?://www\.shinystat\.com/cgi-bin/shinystat\.cgi\?[^'"\s>]*['"\s/>]
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: blip.tv
+        part: body
         regex:
           - <(?:param|embed|iframe)[^>]+blip\.tv/play
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: slick
+        part: body
         regex:
           - <link [^>]+(?:/([\d.]+)/)?slick-theme\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: flyspray
+        part: body
         regex:
           - (?:<a[^>]+>Powered by Flyspray|<map id="projectsearchform)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: fact-finder
+        part: body
         regex:
           - <!-- Factfinder
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: vp-asp
+        part: body
         regex:
           - <a[^>]+>Powered By VP-ASP Shopping Cart</a>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: koobi
+        part: body
         regex:
           - <!--[^K>-]+Koobi ([a-z\d.]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: clickfunnels
+        part: body
         regex:
           - <meta property="cf:app_domain" content="app\.clickfunnels\.com"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: k2
+        part: body
         regex:
           - '<!--(?: JoomlaWorks "K2"| Start K2)'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: ant-design
+        part: body
         regex:
           - <[^>]*class="ant-(?:btn|col|row|layout|breadcrumb|menu|pagination|steps|select|cascader|checkbox|calendar|form|input-number|input|mention|rate|radio|slider|switch|tree-select|time-picker|transfer|upload|avatar|badge|card|carousel|collapse|list|popover|tooltip|table|tabs|tag|timeline|tree|alert|modal|message|notification|progress|popconfirm|spin|anchor|back-top|divider|drawer)
           - <i class="anticon anticon-
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: zk
+        part: body
         regex:
           - <!-- ZK [.\d\s]+-->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: meebo
+        part: body
         regex:
           - (?:<iframe id="meebo-iframe"|Meebo\('domReady'\))
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: stripe
+        part: body
         regex:
           - <input[^>]+data-stripe
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: veoxa
+        part: body
         regex:
           - <img [^>]*src="[^"]+tracking\.veoxa\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sphinx
+        part: body
         regex:
           - Created using <a href="https?://(?:www\.)?sphinx-doc\.org/">Sphinx</a> ([0-9.]+)\.
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: nuxt.js
+        part: body
         regex:
           - <div [^>]*id="__nuxt"
           - <script [^>]*>window\.__NUXT__
-        condition: or
-        part: body
-
-      - type: word
-        part: response
+        type: regex
+      - condition: or
         name: next.js
+        part: response
+        type: word
         words:
-          - '<script id="__NEXT_DATA__"'
+          - <script id="__NEXT_DATA__"
           - 'X-Powered-By: Next.js'
-        condition: or
-
-      - type: regex
+      - condition: or
+        name: astro
+        part: body
+        type: word
+        words:
+          - content="Astro
+          - data-astro-cid
+          - <astro-island
+      - condition: or
         name: angular
+        part: body
         regex:
           - <[^>]+ ng-version="([\d.]+)"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gravity-forms
+        part: body
         regex:
           - <div class=(?:"|')[^>]*gform_wrapper
           - <div class=(?:"|')[^>]*gform_body
           - <ul [^>]*class=(?:"|')[^>]*gform_fields
           - <link [^>]*href=(?:"|')[^>]*wp-content/plugins/gravityforms/css/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: ultracart
+        part: body
         regex:
           - <form [^>]*action="[^"]*\/cgi-bin\/UCEditor\?(?:[^"]*&)?merchantId=[^"]
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: carbon-ads
+        part: body
         regex:
           - <[a-z]+ [^>]*id="carbonads-container"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: vue.js
+        part: body
         regex:
           - <[^>]+\sdata-v(?:ue)?-
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: koala-framework
+        part: body
         regex:
           - <!--[^>]+This website is powered by Koala Web Framework CMS
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: mobirise
+        part: body
         regex:
           - <!-- Site made with Mobirise Website Builder v([\d.]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: vimeo
+        part: body
         regex:
           - (?:<(?:param|embed)[^>]+vimeo\.com/moogaloop|<iframe[^>]player\.vimeo\.com)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: tiddlywiki
+        part: body
         regex:
           - <[^>]*type=[^>]text\/vnd\.tiddlywiki
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: invenio
+        part: body
         regex:
           - (?:Powered by|System)\s+(?:CERN )?<a (?:class="footer" )?href="http://(?:cdsware\.cern\.ch(?:/invenio)?|invenio-software\.org|cern\.ch/invenio)(?:/)?">(?:CDS )?Invenio</a>\s*v?([\d\.]+)?
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: chamilo
+        part: body
         regex:
           - '">Chamilo ([\d.]+)</a>'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: nuvemshop
+        part: body
         regex:
           - <a target="_blank" title="Nuvemshop"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: outlook-web-app
+        part: body
         regex:
           - <link\s[^>]*href="[^"]*?([\d.]+)/themes/resources/owafont\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: pygments
+        part: body
         regex:
           - <link[^>]+pygments\.css["']
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: codeigniter
+        part: body
         regex:
           - <input[^>]+name="ci_csrf_token"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: smartsite
+        part: body
         regex:
           - <[^>]+/smartsite\.(?:dws|shtml)\?id=
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: epoch
+        part: body
         regex:
           - <link[^>]+?href="[^"]+epoch(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: elog
+        part: body
         regex:
           - <title>ELOG Logbook Selection</title>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sympa
+        part: body
         regex:
           - <a href="https?://www\.sympa\.org">\s*Powered by Sympa\s*</a>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xwiki
+        part: body
         regex:
           - <html[^>]data-xwiki-[^>]>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: fastspring
+        part: body
         regex:
           - <a [^>]*href="https?://sites\.fastspring\.com
           - <form [^>]*action="https?://sites\.fastspring\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: flarum
+        part: body
         regex:
           - <div id="flarum-loading"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bigdump
+        part: body
         regex:
           - '<!-- <h1>BigDump: Staggered MySQL Dump Importer ver\. ([\d.b]+)'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: project-wonderful
+        part: body
         regex:
           - <div[^>]+id="pw_adbox_
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gitlab
+        part: body
         regex:
           - <meta content="https?://[^/]+/assets/gitlab_logo-
           - <header class="navbar navbar-fixed-top navbar-gitlab with-horizontal-nav">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: redmine
+        part: body
         regex:
           - Powered by <a href="[^>]+Redmine
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: vbulletin
         regex:
           - <div id="copyright">Powered by vBulletin
-        condition: or
-
-      - type: word
-        name: vbulletin
-        words:
-          - "vBulletin.version"
-          - 'content="vBulletin'
+        type: regex
+      - name: vbulletin
         part: body
-
-      - type: regex
+        type: word
+        words:
+          - vBulletin.version
+          - content="vBulletin
+      - condition: or
         name: meteor
+        part: body
         regex:
           - <link[^>]+__meteor-css__
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: asciinema
+        part: body
         regex:
           - <asciinema-player
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: apostrophecms
+        part: body
         regex:
           - <[^>]+data-apos-refreshable[^>]
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: prettyphoto
+        part: body
         regex:
           - (?:<link [^>]*href="[^"]*prettyPhoto(?:\.min)?\.css|<a [^>]*rel="prettyPhoto)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: ikiwiki
+        part: body
         regex:
           - <link rel="alternate" type="application/x-wiki" title="Edit this page" href="[^"]*/ikiwiki\.cgi
           - <a href="/(?:cgi-bin/)?ikiwiki\.cgi\?do=
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: spree
+        part: body
         regex:
           - (?:<link[^>]*/assets/store/all-[a-z\d]{32}\.css[^>]+>|<script>\s*Spree\.(?:routes|translations|api_key))
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: swiftlet
+        part: body
         regex:
           - Powered by <a href="[^>]+Swiftlet
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: locomotive
+        part: body
         regex:
           - <link[^>]*/sites/[a-z\d]{24}/theme/stylesheets
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dtg
+        part: body
         regex:
           - <a[^>]+Site Powered by DTG
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: koha
+        part: body
         regex:
           - <input name="koha_login_context" value="intranet" type="hidden">
           - <a href="/cgi-bin/koha/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: foswiki
+        part: body
         regex:
           - <div class="foswiki(?:Copyright|Page|Main)">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: pligg
+        part: body
         regex:
           - <span[^>]+id="xvotes-0
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: yui-doc
+        part: body
         regex:
           - (?:<html[^>]* yuilibrary\.com/rdf/[\d.]+/yui\.rdf|<body[^>]+class="yui3-skin-sam)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: mailchimp
+        part: body
         regex:
           - <form [^>]*data-mailchimp-url
           - <form [^>]*id="mc-embedded-subscribe-form"
           - <form [^>]*name="mc-embedded-subscribe-form"
           - <input [^>]*id="mc-email"
           - <!-- Begin MailChimp Signup Form -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: mattermost
+        part: body
         regex:
           - <noscript> To use Mattermost, please enable JavaScript\. </noscript>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: typo3-cms
+        part: body
         regex:
           - <link[^>]+ href="/?typo3(?:conf|temp)/
           - <img[^>]+ src="/?typo3(?:conf|temp)/
           - This website is powered by TYPO3
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: percussion
+        part: body
         regex:
           - <[^>]+class="perc-region"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: svelte
+        part: body
         regex:
           - <[^>]+class=\"[^\"]+\ssvelte-[\w]*\"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: tumblr
+        part: body
         regex:
           - <iframe src="[^>]+tumblr\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: adobe-experience-manager
+        part: body
         regex:
           - <div class="[^"]*parbase
           - '<div[^>]+data-component-path="[^"+]jcr:'
           - <div class="[^"]*aem-Grid
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: chorus
+        part: body
         regex:
           - <meta data-chorus-version=
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: kubernetes-dashboard
+        part: body
         regex:
           - <html ng-app="kubernetesDashboard">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: yahoo!-tag-manager
+        part: body
         regex:
           - <!-- (?:End )?Yahoo! Tag Manager -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gitiles
+        part: body
         regex:
           - Powered by <a href="https://gerrit\.googlesource\.com/gitiles/">Gitiles<
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: slimbox-2
+        part: body
         regex:
           - <link [^>]*href="[^/]*slimbox2(?:-rtl)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: fortune3
+        part: body
         regex:
           - (?:<link [^>]*href="[^\/]*\/\/www\.fortune3\.com\/[^"]*siterate\/rate\.css|Powered by <a [^>]*href="[^"]+fortune3\.com)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bloomreach
+        part: body
         regex:
           - <[^>]+/binaries/(?:[^/]+/)*content/gallery/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: moguta.cms
+        part: body
         regex:
           - <link[^>]+href=["'][^"]+mg-(?:core|plugins|templates)/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: php-fusion
+        part: body
         regex:
           - Powered by <a href="[^>]+php-fusion
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: jekyll
+        part: body
         regex:
           - Powered by <a href="https?://jekyllrb\.com"[^>]*>Jekyll</
           - <!-- Created with Jekyll Now -
           - <!-- Begin Jekyll SEO tag
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: vigbo
+        part: body
         regex:
           - <link[^>]* href=[^>]+(?:\.vigbo\.com|\.gophotoweb\.com)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: apache-jspwiki
+        part: body
         regex:
           - <html[^>]* xmlns:jspwiki=
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: wp-statistics
+        part: body
         regex:
           - <!-- Analytics by WP-Statistics v([\d.]+) -
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: squiz-matrix
+        part: body
         regex:
           - <!--\s+Running (?:MySource|Squiz) Matrix
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: squarespace
+        part: body
         regex:
           - <!-- This is Squarespace\. -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phenomic
+        part: body
         regex:
           - <[^>]+id="phenomic(?:root)?"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: opencms
+        part: body
         regex:
           - <link href="/opencms/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: farapy
+        part: body
         regex:
           - <!-- Powered by FaraPy.
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: octopress
+        part: body
         regex:
           - Powered by <a href="http://octopress\.org">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dm-polopoly
+        part: body
         regex:
           - <(?:link [^>]*href|img [^>]*src)="/polopoly_fs/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: saber
+        part: body
         regex:
           - <div [^>]*id="_saber"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sap-commerce-cloud
+        part: body
         regex:
           - <[^>]+/(?:sys_master|hybr|_ui/(?:responsive/)?(?:desktop|common(?:/images|/img)?))/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: atlassian-statuspage
+        part: body
         regex:
           - <a[^>]*href="https?://(?:www\.)?statuspage\.io/powered-by[^>]+>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: recaptcha
+        part: body
         regex:
           - <div[^>]+id="recaptcha_image
           - <link[^>]+recaptcha
           - <div[^>]+class="g-recaptcha"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: wowza-media-server
+        part: body
         regex:
           - '<title>Wowza Media Server \d+ ((?:\w+ Edition )?\d+\.[\d\.]+(?: build\d+)?)?'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: artifactory
+        part: body
         regex:
           - '<span class="version">Artifactory(?: Pro)?(?: Power Pack)?(?: ([\d.]+))?'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: pelican
+        part: body
         regex:
           - powered by <a href="[^>]+getpelican\.com
           - powered by <a href="https?://pelican\.notmyidea\.org
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: microsoft-excel
+        part: body
         regex:
           - (?:<html [^>]*xmlns:w="urn:schemas-microsoft-com:office:excel"|<!--\s*(?:START|END) OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD\s*-->|<div [^>]*x:publishsource="?Excel"?)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: oracle-commerce-cloud
+        part: body
         regex:
           - <[^>]+id="oracle-cc"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: django
+        part: body
         regex:
           - (?:powered by <a[^>]+>Django ?([\d.]+)?<\/a>|<input[^>]*name=["']csrfmiddlewaretoken["'][^>]*>)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: wikkawiki
+        part: body
         regex:
           - Powered by <a href="[^>]+WikkaWiki
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xampp
+        part: body
         regex:
           - '<title>XAMPP(?: Version ([\d\.]+))?</title>'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: polymer
+        part: body
         regex:
           - (?:<polymer-[^>]+|<link[^>]+rel="import"[^>]+/polymer\.html")
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: livewire
+        part: body
         regex:
           - '<[^>]{1,512}\bwire:'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gitlist
+        part: body
         regex:
           - <p>Powered by <a[^>]+>GitList ([\d.]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: methode
+        part: body
         regex:
           - '<!-- Methode uuid: "[a-f\d]+" ?-->'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: pirobase-cms
+        part: body
         regex:
           - <(?:script|link)[^>]/site/[a-z0-9/._-]+/resourceCached/[a-z0-9/._-]+
           - <input[^>]+cbi:///cms/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: welcart
+        part: body
         regex:
           - <link[^>]+?href="[^"]+usces_default(?:\.min)?\.css
           - '<!-- Welcart version : v([\d.]+)'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: question2answer
+        part: body
         regex:
           - <!-- Powered by Question2Answer
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: nopcommerce
-        regex:
-          - "(?:<!--Powered by nopCommerce|Powered by: <a[^>]+nopcommerce)"
-        condition: or
         part: body
-
-      - type: regex
+        regex:
+          - '(?:<!--Powered by nopCommerce|Powered by: <a[^>]+nopcommerce)'
+        type: regex
+      - condition: or
         name: swiper-slider
+        part: body
         regex:
           - <[^>]+=swiper-container
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: punbb
+        part: body
         regex:
           - Powered by <a href="[^>]+punbb
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: webdev
+        part: body
         regex:
           - <!-- [a-zA-Z0-9_]+ [\d/]+ [\d:]+ WebDev \d\d ([\d.]+) -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bulma
+        part: body
         regex:
           - <link[^>]+?href="[^"]+bulma(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: react
+        part: body
         regex:
           - <[^>]+data-react
           - Web site created using create-react-app
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: highstock
+        part: body
         regex:
           - <svg[^>]*><desc>Created with Highstock ([\d.]*)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: otrs
+        part: body
         regex:
           - '<!--\s+OTRS: Copyright'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: livefyre
+        part: body
         regex:
           - <[^>]+(?:id|class)="livefyre
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: joomla
+        part: body
         regex:
           - (?:<div[^>]+id="wrapper_r"|<(?:link|script)[^>]+(?:feed|components)/com_|<table[^>]+class="pill)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: tailwindcss
+        part: body
         regex:
           - <link[^>]+?href="[^"]+tailwindcss(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xonic
+        part: body
         regex:
           - Powered by <a href="http://www\.xonic-solutions\.de/index\.php" target="_blank">xonic-solutions Shopsoftware</a>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: volusion
+        part: body
         regex:
           - <link [^>]*href="[^"]*/vspfiles/
           - <body [^>]*data-vn-page-name
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: x-cart
+        part: body
         regex:
           - 'Powered by X-Cart(?: (\d+))? <a[^>]+href="http://www\.x-cart\.com/"[^>]*>'
           - <a[^>]+href="[^"]*(?:\?|&)xcart_form_id=[a-z\d]{32}(?:&|$)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: ad-ebis
+        part: body
         regex:
           - <!-- EBiS contents tag
           - <!--EBiS tag
           - <!-- Tag EBiS
           - <!-- EBiS common tag
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: solodev
+        part: body
         regex:
           - <div class=["']dynamicDiv["'] id=["']dd\.\d\.\d(?:\.\d)?["']>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: element-ui
+        part: body
         regex:
           - <(?:div|button) class="el-(?:table-column|table-filter|popper|pagination|pager|select-group|form|form-item|color-predefine|color-hue-slider|color-svpanel|color-alpha-slider|color-dropdown|color-picker|badge|tree|tree-node|select|message|dialog|checkbox|checkbox-button|checkbox-group|container|steps|carousel|menu|menu-item|submenu|menu-item-group|button|button-group|card|table|select-dropdown|row|tabs|notification|radio|progress|progress-bar|tag|popover|tooltip|cascader|cascader-menus|cascader-menu|time-spinner|spinner|spinner-inner|transfer|transfer-panel|rate|slider|dropdown|dropdown-menu|textarea|input|input-group|popup-parent|radio-group|main|breadcrumb|time-range-picker|date-range-picker|year-table|date-editor|range-editor|time-spinner|date-picker|time-panel|date-table|month-table|picker-panel|collapse|collapse-item|alert|select-dropdown|select-dropdown__empty|select-dropdown__wrap|select-dropdown__list|scrollbar|switch|carousel|upload|upload-dragger|upload-list|upload-cover|aside|input-number|header|message-box|footer|radio-button|step|autocomplete|autocomplete-suggestion|loading-parent|loading-mask|loading-spinner|)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: magento
+        part: body
         regex:
           - <script [^>]+data-requiremodule="mage/
           - <script [^>]+data-requiremodule="Magento_
           - <script type="text/x-magento-init">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: yahoo-advertising
+        part: body
         regex:
           - <iframe[^>]+adserver\.yahoo\.com
           - <img[^>]+clicks\.beap\.bc\.yahoo\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: redis-object-cache
+        part: body
         regex:
           - <!--\s+Performance optimized by Redis Object Cache
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: revslider
+        part: body
         regex:
           - <link[^>]* href=[\'"][^']+revslider[/\w-]+\.css\?ver=([0-9.]+)[\'"]
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gx-webmanager
+        part: body
         regex:
           - <!--\s+Powered by GX
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: oscommerce
+        part: body
         regex:
           - <br />Powered by <a href="https?://www\.oscommerce\.com
           - <(?:input|a)[^>]+name="osCsid"
           - <(?:tr|td|table)class="[^"]*infoBoxHeading
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gerrit
+        part: body
         regex:
           - '>Gerrit Code Review</a>\s*"\s*\(([0-9.]+)\)'
           - <(?:div|style) id="gerrit_
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: jtl-shop
+        part: body
         regex:
           - (?:<input[^>]+name="JTLSHOP|<a href="jtl\.php)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: shopatron
+        part: body
         regex:
           - <body class="shopatron
           - <img[^>]+mediacdn\.shopatron\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dokeos
+        part: body
         regex:
           - (?:Portal <a[^>]+>Dokeos|@import "[^"]+dokeos_blue)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: mantisbt
+        part: body
         regex:
           - <img[^>]+ alt="Powered by Mantis Bugtracker
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: atlassian-fisheye
+        part: body
         regex:
           - <title>(?:Log in to )?FishEye (?:and Crucible )?([\d.]+)?</title>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: paypal
+        part: body
         regex:
           - <input[^>]+_s-xclick
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: nette-framework
+        part: body
         regex:
           - <input[^>]+data-nette-rules
           - <div[^>]+id="snippet-
           - <input[^>]+id="frm-
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: squirrelmail
+        part: body
         regex:
           - '<small>SquirrelMail version ([.\d]+)[^<]*<br '
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: webtrends
+        part: body
         regex:
           - <img[^>]+id="DCSIMG"[^>]+webtrends
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gambio
+        part: body
         regex:
           - (?:<link[^>]* href="templates/gambio/|<a[^>]content\.php\?coID=\d|<!-- gambio eof -->|<!--[\s=]+Shopsoftware by Gambio GmbH \(c\))
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: store-systems
+        part: body
         regex:
           - Shopsystem von <a href=[^>]+store-systems\.de"|\.mws_boxTop
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: google-tag-manager
+        part: body
         regex:
           - googletagmanager\.com/ns\.html[^>]+></iframe>
           - <!-- (?:End )?Google Tag Manager -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: a-frame
+        part: body
         regex:
           - <a-scene[^<>]*>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dreamweaver
+        part: body
         regex:
           - <!--[^>]*(?:InstanceBeginEditable|Dreamweaver([^>]+)target|DWLayoutDefaultTable)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: atlassian-confluence
+        part: body
         regex:
           - Powered by <a href=[^>]+atlassian\.com/software/confluence(?:[^>]+>Atlassian Confluence</a> ([\d.]+))?
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: youtube
+        part: body
         regex:
           - <(?:param|embed|iframe)[^>]+youtube(?:-nocookie)?\.com/(?:v|embed)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bigware
+        part: body
         regex:
           - (?:Diese <a href=[^>]+bigware\.de|<a href=[^>]+/main_bigware_\d+\.php)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: owl-carousel
+        part: body
         regex:
           - <link [^>]*href="[^"]+owl\.carousel(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: modx
+        part: body
         regex:
           - <a[^>]+>Powered by MODX</a>
           - <(?:link|script)[^>]+assets/snippets/
           - <form[^>]+id="ajaxSearch_form
           - <input[^>]+id="ajaxSearch_input
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: kendo-ui
+        part: body
         regex:
           - <link[^>]*\s+href=[^>]*styles/kendo\.common(?:\.min)?\.css[^>]*/>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: opentext-web-solutions
+        part: body
         regex:
           - <!--[^>]+published by Open Text Web Solutions
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: hubspot
+        part: body
         regex:
           - <!-- Start of Async HubSpot
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: jahia-dx
+        part: body
         regex:
           - <script id="staticAssetAggregatedJavascrip
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: liveinternet
+        part: body
         regex:
           - <script[^<>]*>[^]{0,128}?src\s*=\s*['"]//counter\.yadro\.ru/hit(?:;\S+)?\?(?:t\d+\.\d+;)?r
           - <!--LiveInternet counter-->
           - <!--/LiveInternet-->
           - <a href="http://www\.liveinternet\.ru/click"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sdl-tridion
+        part: body
         regex:
           - <img[^>]+_tcm\d{2,3}-\d{6}\.
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: microsoft-publisher
+        part: body
         regex:
           - (?:<html [^>]*xmlns:w="urn:schemas-microsoft-com:office:publisher"|<!--[if pub]><xml>)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: adobe-coldfusion
+        part: body
         regex:
           - <!-- START headerTags\.cfm
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xeora
+        part: body
         regex:
           - <input type="hidden" name="_sys_bind_\d+" id="_sys_bind_\d+" />
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gogs
+        part: body
         regex:
           - '<div class="ui left">\n\s+© \d{4} Gogs Version: ([\d.]+) Page:'
           - <button class="ui basic clone button" id="repo-clone-ssh" data-link="gogs@
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: quick.cms
+        part: body
         regex:
           - <a href="[^>]+opensolution\.org/">CMS by
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phpwind
+        part: body
         regex:
           - (?:Powered|Code) by <a href="[^"]+phpwind\.net
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: pure-css
+        part: body
         regex:
           - <link[^>]+(?:([\d.])+/)?pure(?:-min)?\.css
           - <div[^>]+class="[^"]*pure-u-(?:sm-|md-|lg-|xl-)?\d-\d
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: zanox
+        part: body
         regex:
           - <img [^>]*src="[^"]+ad\.zanox\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: syntaxhighlighter
+        part: body
         regex:
           - <(?:script|link)[^>]*sh(?:Core|Brush|ThemeDefault)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: flexcmp
+        part: body
         regex:
           - <!--[^>]+FlexCMP[^>v]+v\. ([\d.]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: green-valley-cms
+        part: body
         regex:
           - <img[^>]+/dsresource\?objectid=
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: hugo
+        part: body
         regex:
           - powered by <a [^>]*href="http://hugo\.spf13\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: rdoc
+        part: body
         regex:
           - <link[^>]+href="[^"]*rdoc-style\.css
           - Generated by <a[^>]+href="https?://rdoc\.rubyforge\.org[^>]+>RDoc</a> ([\d.]*\d)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: localfocus
+        part: body
         regex:
           - <iframe[^>]+\blocalfocus\b
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: trac
+        part: body
         regex:
           - <a id="tracpowered
           - Powered by <a href="[^"]*"><strong>Trac(?:[ /]([\d.]+))?
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: mybb
+        part: body
         regex:
           - (?:<script [^>]+\s+<!--\s+lang\.no_new_posts|<a[^>]* title="Powered By MyBB)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: thelia
+        part: body
         regex:
           - <(?:link|style|script)[^>]+/assets/frontOffice/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: webxpay
+        part: body
         regex:
           - Powered by <a href="https://www\.webxpay\.com">WEBXPAY<
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sitecore
+        part: body
         regex:
           - <img[^>]+src="[^>]*/~/media/[^>]+\.ashx
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: photoshelter
+        part: body
         regex:
           - <!--\s+#+ Powered by the PhotoShelter Beam platform
           - <link[^>]+c\.photoshelter\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: airform
+        part: body
         regex:
           - <form[^>]+?action="[^"]*airform\.io[^>]+?>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: clientexec
+        part: body
         regex:
           - clientexec\.[^>]*\s?=\s?[^>]*;
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: font-awesome
+        part: body
         regex:
           - <link[^>]* href=[^>]+(?:([\d.]+)/)?(?:css/)?font-awesome(?:\.min)?\.css
           - <link[^>]* href=[^>]*?(?:F|f)o(?:n|r)t-?(?:A|a)wesome(?:[^>]*?([0-9a-fA-F]{7,40}|[\d]+(?:.[\d]+(?:.[\d]+)?)?)|)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: disqus
+        part: body
         regex:
           - <div[^>]+id="disqus_thread"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: 1c-bitrix
+        part: body
         regex:
           - (?:<link[^>]+components/bitrix|(?:src|href)="/bitrix/(?:js|templates))
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: less
+        part: body
         regex:
           - <link[^>]+ rel="stylesheet/less"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gitweb
+        part: body
         regex:
           - <!-- git web interface version ([\d.]+)?
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gatsby
+        part: body
         regex:
           - <div id="___gatsby">
           - <style id="gatsby-inlined-css">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: rainloop
+        part: body
         regex:
           - <link[^>]href="rainloop/v/([0-9.]+)/static/apple-touch-icon\.png/>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: animate.css
+        part: body
         regex:
           - <link [^>]+(?:/([\d.]+)/)?animate\.(?:min\.)?css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: mediawiki
+        part: body
         regex:
           - <body[^>]+class="mediawiki"
           - <(?:a|img)[^>]+>Powered by MediaWiki</a>
           - <a[^>]+/Special:WhatLinksHere/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: gov.uk-frontend
+        part: body
         regex:
           - <body[^>]+govuk-template__body
           - <a[^>]+govuk-link
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: milligram
+        part: body
         regex:
           - <link[^>]+?href="[^"]+milligram(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: virtuemart
+        part: body
         regex:
           - <div id="vmMainPage
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: ibm-websphere-commerce
+        part: body
         regex:
           - href="(?:\/|[^>]+)webapp\/wcs\/
-        condition: or
-        part: body
-
-      - type: word
+        type: regex
+      - condition: or
         name: ibm-websphere-application-server
+        part: body
+        type: word
         words:
           - 'SRVE0255E:'
-          - 'A WebGroup/Virtual Host to handle'
-        condition: or
-        part: body
-
-      - type: word
+          - A WebGroup/Virtual Host to handle
+      - condition: or
         name: ibm-websphere-application-server
+        part: all_headers
+        type: word
         words:
           - '$wsep:'
           - '$WSEP:'
-        condition: or
-        part: all_headers
-
-      - type: regex
+      - condition: or
         name: bootstrap
+        part: body
         regex:
           - <style>/\*!\* Bootstrap v(\d\.\d\.\d)
           - <link[^>]+?href=[^"]/css/([\d.]+)/bootstrap\.(?:min\.)?css
           - <link[^>]+?href="[^"]*bootstrap(?:\.min)?\.css
           - <div[^>]+class="[^"]*glyphicon glyphicon-
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: combeenation
+        part: body
         regex:
           - <iframe[^>]+src="[^>]+portal\.combeenation\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bem
+        part: body
         regex:
           - <[^>]+data-bem
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: adzerk
+        part: body
         regex:
           - <iframe [^>]*src="[^"]+adzerk\.net
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bootstrap-table
+        part: body
         regex:
           - <link[^>]+href="[^>]*bootstrap-table(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: amp
+        part: body
         regex:
           - <html[^>]* (?:amp|⚡)[^-]
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: salesforce
+        part: body
         regex:
           - <[^>]+="brandQuaternaryFgrs"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: splunk
+        part: body
         regex:
           - '<p class="footer">&copy; [-\d]+ Splunk Inc\.(?: Splunk ([\d\.]+(?: build [\d\.]*\d)?))?[^<]*</p>'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: google-analytics
+        part: body
         regex:
           - <amp-analytics [^>]*type=["']googleanalytics["']
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: awesomplete
+        part: body
         regex:
           - <link[^>]+href="[^>]*awesomplete(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: scrollreveal
+        part: body
         regex:
           - <[^>]+data-sr(?:-id)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: akaunting
+        part: body
         regex:
           - <link[^>]+akaunting-green\.css
           - 'Powered By Akaunting: <a [^>]*href="https?://(?:www\.)?akaunting\.com[^>]+>'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: salesforce-commerce-cloud
+        part: body
         regex:
           - <[^>]+demandware\.edgesuite
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: pdf.js
+        part: body
         regex:
           - <\/div>\s*<!-- outerContainer -->\s*<div\s*id="printContainer"><\/div>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: rebelmouse
+        part: body
         regex:
           - <!-- Powered by RebelMouse\.
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: apigee
+        part: body
         regex:
           - <script>[^>]{0,50}script src=[^>]/profiles/apigee
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: yabb
+        part: body
         regex:
           - Powered by <a href="[^>]+yabbforum
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phabricator
+        part: body
         regex:
           - <[^>]+(?:class|id)="phabricator-
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: melis-platform
+        part: body
         regex:
           - <!-- Rendered with Melis CMS V2
           - <!-- Rendered with Melis Platform
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: material-design-lite
+        part: body
         regex:
           - <link[^>]* href="[^"]*material(?:\.[\w]+-[\w]+)?(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sobi-2
+        part: body
         regex:
           - (?:<!-- start of Sigsiu Online Business Index|<div[^>]* class="sobi2)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sweetalert2
+        part: body
         regex:
           - <link[^>]+?href="[^"]+sweetalert2(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: quick.cart
+        part: body
         regex:
           - <a href="[^>]+opensolution\.org/">(?:Shopping cart by|Sklep internetowy)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: indico
+        part: body
         regex:
           - Powered by\s+(?:CERN )?<a href="http://(?:cdsware\.cern\.ch/indico/|indico-software\.org|cern\.ch/indico)">(?:CDS )?Indico( [\d\.]+)?
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: bigcommerce
+        part: body
         regex:
           - <link href=[^>]+cdn\d+\.bigcommerce\.com/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: headjs
+        part: body
         regex:
           - <[^>]*data-headjs-load
-        condition: or
-        part: body
-
-      - type: word
+        type: regex
+      - case-insensitive: true
         name: gitea
-        words:
-          - 'Powered by Gitea'
         part: body
-        case-insensitive: true
-
-      - type: regex
+        type: word
+        words:
+          - Powered by Gitea
+      - condition: or
         name: all-in-one-seo-pack
+        part: body
         regex:
           - '<!-- All in One SEO Pack ([\d.]+) '
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: fast-esp
+        part: body
         regex:
           - <form[^>]+id="fastsearch"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: banshee
+        part: body
         regex:
           - Built upon the <a href="[^>]+banshee-php\.org/">[a-z]+</a>(?:v([\d.]+))?
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: docker
+        part: body
         regex:
           - <!-- This comment is expected by the docker HEALTHCHECK  -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: cargo
+        part: body
         regex:
           - <link [^>]+Cargo feed
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: sentry
+        part: body
         regex:
           - '<script[^>]*>\s*Raven\.config\(''[^'']*'', \{\s+release: ''([0-9\.]+)'''
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: visual-website-optimizer
+        part: body
         regex:
           - <!-- (?:Start|End) Visual Website Optimizer A?Synchronous Code -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: twiki
+        part: body
         regex:
           - <img [^>]*(?:title|alt)="This site is powered by the TWiki collaboration platform
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: javadoc
+        part: body
         regex:
           - <!-- Generated by javadoc -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: tamago
+        part: body
         regex:
           - <link [^>]*href="http://tamago\.temonalab\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: haddock
+        part: body
         regex:
           - <p>Produced by <a href="http://www\.haskell\.org/haddock/">Haddock</a> version ([0-9.]+)</p>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: lightmon-engine
+        part: body
         regex:
           - <!-- Lightmon Engine Copyright Lightmon
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: swell
+        part: body
         regex:
           - <[^>]*swell\.is
           - <[^>]*swell\.store
           - <[^>]*schema\.io
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: infusionsoft
+        part: body
         regex:
           - <input [^>]*name="infusionsoft_version" [^>]*value="([^>]*)" [^>]*\/>
           - <input [^>]*value="([^>]*)" [^>]*name="infusionsoft_version" [^>]*\/>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: avangate
+        part: body
         regex:
           - <link[^>]* href="https?://edge\.avangate\.net/
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: duda
+        part: body
         regex:
           - <div[^>]*id="P6iryBW0Wu"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: yandex.direct
+        part: body
         regex:
           - <yatag class="ya-partner__ads">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: xmb
+        part: body
         regex:
           - <!-- Powered by XMB
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: wp-rocket
+        part: body
         regex:
           - <!--[^>]+WP Rocket
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: silverstripe
+        part: body
         regex:
           - Powered by <a href="[^>]+SilverStripe
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: irroba
+        part: body
         regex:
           - <a[^>]*href="https://www\.irroba\.com\.br
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: uikit
+        part: body
         regex:
           - <[^>]+class="[^"]*(?:uk-container|uk-section)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: vignette
+        part: body
         regex:
           - <[^>]+="vgn-?ext
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: intershop
+        part: body
         regex:
           - <ish-root
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: alpine.js
+        part: body
         regex:
           - <[^>]+[^\w-]x-data[^\w-][^<]+
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: mermaid
+        part: body
         regex:
           - <div [^>]*class=["']mermaid["']>
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: aurelia
+        part: body
         regex:
           - <[^>]+aurelia-app=[^>]
           - <[^>]+data-main=[^>]aurelia-bootstrapper
           - <[^>]+au-target-id=[^>]\d
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: coppermine
+        part: body
         regex:
           - <!--Coppermine Photo Gallery ([\d.]+)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: reddit
+        part: body
         regex:
           - (?:<a[^>]+Powered by Reddit|powered by <a[^>]+>reddit<)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: motocms
+        part: body
         regex:
           - <link [^>]*href="[^>]*\/mt-content\/[^>]*\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: shopify
+        part: body
         regex:
           - <link[^>]+=['"]//cdn\.shopify\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: yahoo!-ecommerce
+        part: body
         regex:
           - <link[^>]+store\.yahoo\.net
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: google-font-api
+        part: body
         regex:
           - <link[^>]* href=[^>]+fonts\.(?:googleapis|google)\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: indexhibit
+        part: body
         regex:
           - <(?:link|a href) [^>]+ndxz-studio
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: particles.js
+        part: body
         regex:
           - <div id="particles-js">
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: ionicons
+        part: body
         regex:
           - <link[^>]* href=[^>]+ionicons(?:\.min)?\.css
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: nextgen-gallery
+        part: body
         regex:
           - <!-- <meta name="NextGEN" version="([\d.]+)" /> -->
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: roundcube
+        part: body
         regex:
           - <title>RoundCube
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: advanced-web-stats
+        part: body
         regex:
           - aws\.src = [^<]+caphyon-analytics
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: riskified
+        part: body
         regex:
           - <[^>]*beacon\.riskified\.com
           - <[^>]*c\.riskified\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dnn
+        part: body
         regex:
           - <!-- by DotNetNuke Corporation
           - <!-- DNN Platform
           - /js/dnncore.js?cdv
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: w3-total-cache
+        part: body
         regex:
           - <!--[^>]+W3 Total Cache
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: tessitura
+        part: body
         regex:
           - '<!--[^>]+Tessitura Version: (\d*\.\d*\.\d*)?'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: synology-diskstation
+        part: body
         regex:
           - <noscript><div class='syno-no-script'
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: whooshkaa
+        part: body
         regex:
           - <iframe src="[^>]+whooshkaa\.com
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: cubecart
+        part: body
         regex:
           - (?:Powered by <a href=[^>]+cubecart\.com|<p[^>]+>Powered by CubeCart)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: powergap
+        part: body
         regex:
           - <a[^>]+title="POWERGAP
           - <input type="hidden" name="shopid"
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: amcharts
+        part: body
         regex:
           - <svg[^>]*><desc>JavaScript chart by amCharts ([\d.]*)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: webflow
+        part: body
         regex:
           - <html[^>]+data-wf-site
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: dokuwiki
+        part: body
         regex:
           - <div[^>]+id="dokuwiki__>
           - <a[^>]+href="#dokuwiki__
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: jquery-pjax
+        part: body
         regex:
           - <div[^>]+data-pjax-container
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phpdocumentor
+        part: body
         regex:
           - <!-- Generated by phpDocumentor
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: owncloud
+        part: body
         regex:
           - <a href="https://owncloud\.com" target="_blank">ownCloud Inc\.</a><br/>Your Cloud, Your Data, Your Way!
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: hexo
+        part: body
         regex:
           - Powered by <a href="https?://hexo\.io/?"[^>]*>Hexo</
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: atlassian-bitbucket
+        part: body
         regex:
           - <li>Atlassian Bitbucket <span title="[a-z0-9]+" id="product-version" data-commitid="[a-z0-9]+" data-system-build-number="[a-z0-9]+"> v([\d.]+)<
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: phppgadmin
+        part: body
         regex:
           - (?:<title>phpPgAdmin</title>|<span class="appname">phpPgAdmin)
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: adnegah
+        part: body
         regex:
           - <iframe [^>]*src="[^"]+adnegah\.net
-        condition: or
-        part: body
-
-      - type: regex
+        type: regex
+      - condition: or
         name: lithium
-        regex:
-          - " <a [^>]+Powered by Lithium"
-        condition: or
         part: body
-
-      - type: word
-        name: a-blog-cms
+        regex:
+          - ' <a [^>]+Powered by Lithium'
+        type: regex
+      - name: a-blog-cms
+        type: word
         words:
-          - 'content="a-blog cms'
-
-      - type: word
-        name: adobe-golive
+          - content="a-blog cms
+      - name: adobe-golive
+        type: word
         words:
-          - 'content="Adobe GoLive'
-
-      - type: word
-        name: advantshop
+          - content="Adobe GoLive
+      - name: advantshop
+        type: word
         words:
-          - 'content="AdVantShop.NET'
-
-      - type: word
-        name: ave-cms
+          - content="AdVantShop.NET
+      - name: ave-cms
         part: header
+        type: word
         words:
-          - "AVE.cms"
-
-      - type: word
-        name: alterian
+          - AVE.cms
+      - name: alterian
+        type: word
         words:
-          - "alterian"
-
-      - type: word
-        name: amiro.cms
+          - alterian
+      - name: amiro.cms
+        type: word
         words:
-          - "= Amiro.CMS (c) ="
-
-      - type: word
-        name: apache-lenya
+          - = Amiro.CMS (c) =
+      - name: apache-lenya
+        type: word
         words:
-          - 'content="Apache Lenya"'
-
-      - type: word
-        name: backdrop-cms
+          - content="Apache Lenya"
+      - name: backdrop-cms
+        type: word
         words:
-          - 'content="Backdrop CMS'
-
-      - type: word
-        name: baseKit
+          - content="Backdrop CMS
+      - name: baseKit
+        type: word
         words:
-          - 'content="BaseKit"'
-
-      - type: word
-        name: Big Cartel
+          - content="BaseKit"
+      - name: Big Cartel
+        type: word
         words:
-          - 'content="Big Cartel"'
-
-      - type: word
-        name: blogger
+          - content="Big Cartel"
+      - name: blogger
+        type: word
         words:
-          - "content='blogger'"
-
-      - type: word
-        name: bolt
+          - content='blogger'
+      - name: bolt
+        type: word
         words:
-          - 'content="Bolt"'
-
-      - type: word
-        name: bricolage-cms
+          - content="Bolt"
+      - name: bricolage-cms
+        type: word
         words:
-          - 'content="Bricolage'
-
-      - type: word
-        name: c1-cms
+          - content="Bricolage
+      - name: c1-cms
+        type: word
         words:
-          - 'content="Composite C1 CMS'
-
-      - type: word
-        name: cm4all
+          - content="Composite C1 CMS
+      - name: cm4all
+        type: word
         words:
-          - 'content="www.cm4all.com"'
-
-      - type: word
-        name: cms-tool.net
+          - content="www.cm4all.com"
+      - name: cms-tool.net
+        type: word
         words:
-          - 'content="CMS Tool www.cms-tool.net"'
-
-      - type: word
-        name: cms-tool.net
+          - content="CMS Tool www.cms-tool.net"
+      - name: cms-tool.net
+        type: word
         words:
-          - 'content="CMS Tool www.cms-tool.net"'
-
-      - type: word
-        name: cms-made-simple
+          - content="CMS Tool www.cms-tool.net"
+      - name: cms-made-simple
+        type: word
         words:
-          - 'content="CMS Made Simple'
-
-      - type: word
-        name: cmsimple_XH
+          - content="CMS Made Simple
+      - name: cmsimple_XH
+        type: word
         words:
-          - 'content="CMSimple_XH'
-
-      - type: word
-        name: canalblog
+          - content="CMSimple_XH
+      - name: canalblog
+        type: word
         words:
-          - 'content="CanalBlog'
-
-      - type: word
-        name: coffeecup
+          - content="CanalBlog
+      - name: coffeecup
+        type: word
         words:
-          - 'content="CoffeeCup'
-
-      - type: word
-        name: commonspot
+          - content="CoffeeCup
+      - name: commonspot
+        type: word
         words:
-          - 'content="CommonSpot'
-
-      - type: word
-        name: contenido-cms
+          - content="CommonSpot
+      - name: contenido-cms
+        type: word
         words:
-          - 'content="CMS CONTENIDO'
-
-      - type: word
-        name: contensis-cms
+          - content="CMS CONTENIDO
+      - name: contensis-cms
+        type: word
         words:
-          - 'content="Contensis CMS'
-
-      - type: word
-        name: contentxxl
+          - content="Contensis CMS
+      - name: contentxxl
+        type: word
         words:
-          - 'content="contentXXL'
-
-      - type: word
-        name: convio
+          - content="contentXXL
+      - name: convio
+        type: word
         words:
-          - 'content="Convio CMS"'
-
-      - type: word
-        name: coremedia-cms
+          - content="Convio CMS"
+      - name: coremedia-cms
+        type: word
         words:
-          - 'content="CoreMedia'
-
-      - type: word
-        name: corepublish
+          - content="CoreMedia
+      - name: corepublish
+        type: word
         words:
-          - 'content="CorePublish'
-
-      - type: word
-        name: diafan.cms
+          - content="CorePublish
+      - name: diafan.cms
+        type: word
         words:
-          - 'content="DIAFAN.CMS'
-
-      - type: word
-        name: danneo
+          - content="DIAFAN.CMS
+      - name: danneo
+        type: word
         words:
-          - 'content="CMS Danneo'
-
-      - type: word
-        name: dim-works
+          - content="CMS Danneo
+      - name: dim-works
+        type: word
         words:
-          - "Dim Works Kernel"
-
-      - type: word
-        name: discourse
+          - Dim Works Kernel
+      - name: discourse
+        type: word
         words:
           - 'content="Discourse '
-
-      - type: word
-        name: hycus
+      - name: hycus
+        type: word
         words:
-          - 'content="Hycus'
-
-      - type: word
-        name: doteasy
+          - content="Hycus
+      - name: doteasy
+        type: word
         words:
-          - 'content="Doteasy Website Creator"'
-
-      - type: word
-        name: duda
+          - content="Doteasy Website Creator"
+      - name: duda
+        type: word
         words:
-          - "<!-- RT CSS Include d-css-runtime-desktop-one-package-new-->"
-
-      - type: word
-        name: dynamicweb
+          - <!-- RT CSS Include d-css-runtime-desktop-one-package-new-->
+      - name: dynamicweb
+        type: word
         words:
           - 'content="Dynamicweb '
-
-      - type: word
-        name: E+-cms
+      - name: E+-cms
+        type: word
         words:
           - 'content="e-plus '
-
-      - type: word
-        name: e-monsite
+      - name: e-monsite
+        type: word
         words:
-          - 'content="e-monsite (e-monsite.com)"'
-
-      - type: word
-        name: ecshop
+          - content="e-monsite (e-monsite.com)"
+      - name: ecshop
+        type: word
         words:
           - 'content="ECSHOP '
-
-      - type: word
-        name: easysite
+      - name: easysite
+        type: word
         words:
           - 'content="Ideagen - WCM '
-
-      - type: word
-        name: episerver
+      - name: episerver
+        type: word
         words:
-          - 'src="https://dl.episerver.net/'
-
-      - type: word
-        name: everweb
+          - src="https://dl.episerver.net/
+      - name: everweb
+        type: word
         words:
           - 'content="EverWeb '
-
-      - type: word
-        name: fork-cms
+      - name: fork-cms
+        type: word
         words:
-          - 'content="Fork CMS"'
-
-      - type: word
-        name: zeta-producer
+          - content="Fork CMS"
+      - name: zeta-producer
+        type: word
         words:
           - 'content="Zeta Producer '
-
-      - type: word
-        name: gx-web-manager
+      - name: gx-web-manager
+        type: word
         words:
-          - 'content="GX WebManager'
-
-      - type: word
-        name: getsimple-cms
+          - content="GX WebManager
+      - name: getsimple-cms
+        type: word
         words:
-          - 'content="GetSimple"'
-
-      - type: word
-        name: ghost
+          - content="GetSimple"
+      - name: ghost
+        type: word
         words:
           - 'content="Ghost '
-
-      - type: word
-        name: go-daddy-website-builder
+      - name: go-daddy-website-builder
+        type: word
         words:
-          - 'content="Starfield Technologies; Go Daddy Website Builder'
-
-      - type: word
-        name: government-site-builder
+          - content="Starfield Technologies; Go Daddy Website Builder
+      - name: government-site-builder
+        type: word
         words:
-          - 'content="Government Site Builder"'
-
-      - type: word
-        name: graffiticms
+          - content="Government Site Builder"
+      - name: graffiticms
+        type: word
         words:
-          - 'content="Graffiti CMS'
-
-      - type: word
-        name: grav-cms
+          - content="Graffiti CMS
+      - name: grav-cms
+        type: word
         words:
-          - 'content="GravCMS"'
-
-      - type: word
-        name: drupal
+          - content="GravCMS"
+      - name: drupal
+        type: word
         words:
-          - 'content="Drupal'
-
-      - type: word
-        name: webnode
+          - content="Drupal
+      - name: webnode
+        type: word
         words:
-          - 'content="Webnode'
-
-      - type: word
-        name: shopsys
+          - content="Webnode
+      - name: shopsys
+        type: word
         words:
-          - "'Shopsys\\"
-
-      - type: word
-        name: pluck-cms
+          - '''Shopsys\'
+      - name: pluck-cms
+        type: word
         words:
           - 'content="pluck '
-
-      - type: word
-        name: homestead
+      - name: homestead
+        type: word
         words:
-          - 'content="Homestead SiteBuilder"'
-
-      - type: word
-        name: hostedshop
+          - content="Homestead SiteBuilder"
+      - name: hostedshop
+        type: word
         words:
-          - 'content="HostedShop"'
-
-      - type: word
-        name: imagecms
+          - content="HostedShop"
+      - name: imagecms
+        type: word
         words:
-          - 'content="ImageCMS"'
-
-      - type: word
-        name: immediacy
+          - content="ImageCMS"
+      - name: immediacy
+        type: word
         words:
-          - 'content="Immediacy .NET CMS'
-
-      - type: word
-        name: impresscms
+          - content="Immediacy .NET CMS
+      - name: impresscms
+        type: word
         words:
-          - 'content="ImpressCMS"'
-
-      - type: word
-        name: impresspages-cms
+          - content="ImpressCMS"
+      - name: impresspages-cms
+        type: word
         words:
-          - 'content="ImpressPages"'
-
-      - type: word
-        name: infopark-cms-fiona
+          - content="ImpressPages"
+      - name: infopark-cms-fiona
+        type: word
         words:
-          - 'content="Rails Connector for Infopark CMS Fiona'
-
-      - type: word
-        name: instantcms
+          - content="Rails Connector for Infopark CMS Fiona
+      - name: instantcms
+        type: word
         words:
-          - 'content="InstantCMS"'
-
-      - type: word
-        name: interactsh
+          - content="InstantCMS"
+      - name: interactsh
         part: header
+        type: word
         words:
-          - "X-Interactsh-Version"
-
-      - type: word
-        name: interred
+          - X-Interactsh-Version
+      - name: interred
+        type: word
         words:
           - 'content="InterRed '
-
-      - type: word
-        name: jadu-cms
+      - name: jadu-cms
+        type: word
         words:
-          - "//www.jadu.net"
-
-      - type: word
-        name: jieqi-cms
+          - //www.jadu.net
+      - name: jieqi-cms
+        type: word
         words:
-          - 'content="jieqi.com"'
-
-      - type: word
-        name: justsystems-homepage-builder
+          - content="jieqi.com"
+      - name: justsystems-homepage-builder
+        type: word
         words:
-          - 'content="JustSystems Homepage Builder'
-
-      - type: word
-        name: kvs-cms
+          - content="JustSystems Homepage Builder
+      - name: kvs-cms
+        type: word
         words:
           - 'content="Kernel Video Sharing '
-
-      - type: word
-        name: komodo-cms
+      - name: komodo-cms
+        type: word
         words:
-          - 'content="Komodo CMS"'
-
-      - type: word
-        name: kryptronic
+          - content="Komodo CMS"
+      - name: kryptronic
+        type: word
         words:
-          - 'content="Kryptronic Software"'
-
-      - type: word
-        name: labrador-cms
+          - content="Kryptronic Software"
+      - name: labrador-cms
+        type: word
         words:
-          - "by Labrador CMS"
-
-      - type: word
-        name: lauyan-toweb
+          - by Labrador CMS
+      - name: lauyan-toweb
+        type: word
         words:
           - 'content="Lauyan TOWeb '
-
-      - type: word
-        name: liveedit
+      - name: liveedit
+        type: word
         words:
-          - 'content="http://www.getLiveEdit.com"'
-
-      - type: word
-        name: logicommerce
+          - content="http://www.getLiveEdit.com"
+      - name: logicommerce
+        type: word
         words:
-          - 'content="LogiCommerce"'
-
-      - type: word
-        name: loja-integrada
+          - content="LogiCommerce"
+      - name: loja-integrada
+        type: word
         words:
-          - 'content="Loja Integrada"'
-
-      - type: word
-        name: mabisy
+          - content="Loja Integrada"
+      - name: mabisy
+        type: word
         words:
-          - 'content="Mabisy"'
-
-      - type: word
-        name: mambo
+          - content="Mabisy"
+      - name: mambo
+        type: word
         words:
-          - 'content="Mambo -'
-
-      - type: word
-        name: melody
+          - content="Mambo -
+      - name: melody
+        type: word
         words:
-          - 'content="Melody CMS"'
-
-      - type: word
-        name: metro-publisher
+          - content="Melody CMS"
+      - name: metro-publisher
+        type: word
         words:
           - 'content="Metro Publisher '
-
-      - type: word
-        name: midgard-cms
+      - name: midgard-cms
+        type: word
         words:
-          - 'powered">Midgard CMS'
-
-      - type: word
-        name: mijnwebwinkel
+          - powered">Midgard CMS
+      - name: mijnwebwinkel
+        type: word
         words:
-          - 'content="Mijnwebwinkel"'
-
-      - type: word
-        name: mintox
+          - content="Mijnwebwinkel"
+      - name: mintox
+        type: word
         words:
-          - "MintoxPlaceHolder"
-
-      - type: word
-        name: movable-type
+          - MintoxPlaceHolder
+      - name: movable-type
+        type: word
         words:
-          - 'content="JetBrains PhpStorm/Intercat/Movable Type'
-
-      - type: word
-        name: netvolution
+          - content="JetBrains PhpStorm/Intercat/Movable Type
+      - name: netvolution
+        type: word
         words:
-          - 'content="Netvolution WCM"'
-
-      - type: word
-        name: nucleus
+          - content="Netvolution WCM"
+      - name: nucleus
+        type: word
         words:
           - 'content="Nucleus CMS '
-
-      - type: word
-        name: nukeviet
+      - name: nukeviet
+        type: word
         words:
           - 'content="NukeViet '
-
-      - type: word
-        name: one.com
+      - name: one.com
+        type: word
         words:
-          - 'content="One.com Web Editor"'
-
-      - type: word
-        name: opennemas
+          - content="One.com Web Editor"
+      - name: opennemas
+        type: word
         words:
           - 'content="OpenNemas '
-
-      - type: word
-        name: orchard
+      - name: orchard
+        type: word
         words:
-          - 'content="Orchard"'
-
-      - type: word
-        name: orthodox-web-solutions
+          - content="Orchard"
+      - name: orthodox-web-solutions
+        type: word
         words:
           - 'content="Orthodox Web Solutions '
-
-      - type: word
-        name: osclass
+      - name: osclass
+        type: word
         words:
-          - "oc-includes/osclass/"
-
-      - type: word
-        name: oxatis
+          - oc-includes/osclass/
+      - name: oxatis
+        type: word
         words:
           - 'content="Oxatis '
-
-      - type: word
-        name: phpshop
+      - name: phpshop
+        type: word
         words:
           - 'content="PHPShop CMS '
-
-      - type: word
-        name: phpvide
+      - name: phpvide
+        type: word
         words:
-          - 'content="PHPVibe"'
-
-      - type: word
-        name: pagecloud
+          - content="PHPVibe"
+      - name: pagecloud
+        type: word
         words:
-          - 'content="Pagecloud"'
-
-      - type: word
-        name: pagekit
+          - content="Pagecloud"
+      - name: pagekit
+        type: word
         words:
-          - 'content="Pagekit"'
-
-      - type: word
-        name: parallels-presence-builder
+          - content="Pagekit"
+      - name: parallels-presence-builder
+        type: word
         words:
           - 'content="Parallels Presence Builder '
-
-      - type: word
-        name: ritecms
+      - name: ritecms
+        type: word
         words:
-          - 'content="RiteCMS'
-
-      - type: word
-        name: rcms
+          - content="RiteCMS
+      - name: rcms
+        type: word
         words:
           - 'content="rCMS '
-
-      - type: word
-        name: rvsitebuilder
+      - name: rvsitebuilder
+        type: word
         words:
-          - 'content="Rvglobalsoft"'
-
-      - type: word
-        name: subrion-cms
+          - content="Rvglobalsoft"
+      - name: subrion-cms
+        type: word
         words:
-          - 'content="Subrion CMS'
-
-      - type: word
-        name: rapidweaver
+          - content="Subrion CMS
+      - name: rapidweaver
+        type: word
         words:
-          - 'content="RapidWeaver"'
-
-      - type: word
-        name: sumoshop
+          - content="RapidWeaver"
+      - name: sumoshop
+        type: word
         words:
-          - 'content="SUMOshop"'
-
-      - type: word
-        name: sana-commerce
+          - content="SUMOshop"
+      - name: sana-commerce
+        type: word
         words:
-          - 'content="Sana Commerce"'
-
-      - type: word
-        name: sandvox
+          - content="Sana Commerce"
+      - name: sandvox
+        type: word
         words:
           - 'content="Sandvox '
-
-      - type: word
-        name: seamless-cms
+      - name: seamless-cms
+        type: word
         words:
           - 'content="OpenCities '
-
-      - type: word
-        name: serendipity
+      - name: serendipity
+        type: word
         words:
           - 'content="Serendipity '
-
-      - type: word
-        name: shopfactory
+      - name: shopfactory
+        type: word
         words:
           - 'content="ShopFactory '
-
-      - type: word
-        name: clockwork
-        words:
-          - "X-Clockwork-Id:"
-          - "X-Clockwork-Version:"
+      - name: clockwork
         part: header
-
-      - type: word
-        name: symfony
+        type: word
         words:
-          - "Set-Cookie: symfony="
+          - 'X-Clockwork-Id:'
+          - 'X-Clockwork-Version:'
+      - name: symfony
         part: header
-
-      - type: word
-        name: laravel
+        type: word
         words:
-          - "Set-Cookie: laravel_session="
+          - 'Set-Cookie: symfony='
+      - name: laravel
         part: header
-
-      - type: word
+        type: word
+        words:
+          - 'Set-Cookie: laravel_session='
+      - condition: and
         name: new_laravel
-        words:
-          - "Set-Cookie: {{DN}}_session="
-          - "Set-Cookie: XSRF-TOKEN="
-        condition: and
         part: header
-
-      - type: word
-        name: express
+        type: word
         words:
-          - "X-Powered-By: Express"
+          - 'Set-Cookie: {{DN}}_session='
+          - 'Set-Cookie: XSRF-TOKEN='
+      - name: express
         part: header
-
-      - type: word
-        name: rails
+        type: word
         words:
-          - 'meta content="authenticity_token" name="csrf-param'
+          - 'X-Powered-By: Express'
+      - name: rails
         part: body
-
-      - type: word
+        type: word
+        words:
+          - meta content="authenticity_token" name="csrf-param
+      - condition: or
         name: angular
-        words:
-          - 'ng-app="'
-          - "<ng-app"
-          - "*ngIf="
-          - "ng-controller="
-        condition: or
         part: body
-
-      - type: word
-        name: lighttpd
+        type: word
         words:
-          - "lighttpd"
+          - ng-app="
+          - <ng-app
+          - '*ngIf='
+          - ng-controller=
+      - name: lighttpd
         part: header
-
-      - type: word
-        name: lighttpd
+        type: word
         words:
-          - "lighttpd"
+          - lighttpd
+      - name: lighttpd
         part: header
-
-      - type: word
-        name: wsgiserver
+        type: word
         words:
-          - "WSGIServer"
+          - lighttpd
+      - name: wsgiserver
         part: header
-
-      - type: word
-        name: simplehttp
+        type: word
         words:
-          - "SimpleHTTP"
+          - WSGIServer
+      - name: simplehttp
         part: header
-
-      - type: word
-        name: twistedweb
+        type: word
         words:
-          - "TwistedWeb"
+          - SimpleHTTP
+      - name: twistedweb
         part: header
-
-      - type: word
-        name: tsm
+        type: word
         words:
-          - "TSM_HTTP"
+          - TwistedWeb
+      - name: tsm
         part: header
-
-      - type: word
-        name: ms-iis
+        type: word
         words:
-          - "Microsoft-IIS"
+          - TSM_HTTP
+      - name: ms-iis
         part: header
-
-      - type: word
-        name: ms-httpapi
+        type: word
         words:
-          - "Microsoft-HTTPAPI"
+          - Microsoft-IIS
+      - name: ms-httpapi
         part: header
-
-      - type: word
-        name: darkhttpd
+        type: word
         words:
-          - "darkhttpd"
+          - Microsoft-HTTPAPI
+      - name: darkhttpd
         part: header
-
-      - type: word
-        name: cherrypy
+        type: word
         words:
-          - "CherryPy"
+          - darkhttpd
+      - name: cherrypy
         part: header
-
-      - type: word
-        name: cherokee
+        type: word
         words:
-          - "Cherokee"
+          - CherryPy
+      - name: cherokee
         part: header
-
-      - type: word
-        name: caddy
+        type: word
         words:
-          - "Caddy"
+          - Cherokee
+      - name: caddy
         part: header
-
-      - type: word
-        name: jetty
+        type: word
         words:
-          - "Jetty"
+          - Caddy
+      - name: jetty
         part: header
-
-      - type: word
-        name: nginx
+        type: word
         words:
-          - "Server: nginx"
+          - Jetty
+      - name: nginx
         part: header
-
-      - type: word
-        name: php
+        type: word
         words:
-          - "X-Powered-By: PHP"
-          - "PHPSESSID"
+          - 'Server: nginx'
+      - name: php
         part: header
-
-      - type: word
+        type: word
+        words:
+          - 'X-Powered-By: PHP'
+          - PHPSESSID
+      - condition: or
         name: node
-        words:
-          - "Server: NodeJS"
-          - "X-Powered-By: nodejs"
-        condition: or
         part: header
-
-      - type: word
+        type: word
+        words:
+          - 'Server: NodeJS'
+          - 'X-Powered-By: nodejs'
+      - condition: or
         name: python
-        words:
-          - "Python/2."
-          - "Python/3."
-          - "CPython/3."
-        condition: or
         part: header
-
-      - type: word
-        name: jenkins
+        type: word
         words:
-          - "X-Jenkins"
+          - Python/2.
+          - Python/3.
+          - CPython/3.
+      - name: jenkins
         part: header
-
-
-      - type: word
-        name: cloudflare
+        type: word
         words:
-          - "cloudflare"
+          - X-Jenkins
+      - name: cloudflare
         part: server
-
-      - type: regex
-        name: cloudflare
-        regex:
-          - ".*"
+        type: word
+        words:
+          - cloudflare
+      - name: cloudflare
         part: cf_cache_status
-
-      - type: regex
-        name: cloudflare
         regex:
-          - ".*"
+          - .*
+        type: regex
+      - name: cloudflare
         part: cf_ray
-
-      - type: word
-        name: akamai
-        words:
-          - "AkamaiGHost"
-        part: header
-
-      - type: word
-        name: sucuri
-        words:
-          - "Sucuri/Cloudproxy"
-        part: header
-
-      - type: word
-        name: Imperva
-        words:
-          - "X-Iinfo:"
-        part: header
-
-      - type: word
-        name: ddos-guard
-        words:
-          - "ddos-guard"
-        part: header
-
-      - type: word
-        name: dosarrest
-        words:
-          - "DOSarrest"
-          - "X-DIS-Request-ID:"
-        part: header
-
-      - type: word
-        name: arvancloud
-        words:
-          - "ArvanCloud"
-          - "AR-Request-ID:"
-        part: header
-
-      - type: word
-        name: aem_cms
-        words:
-          - "/etc/clientlibs/"
-          - "/content/dam/"
-        part: body
-
-      - type: word
-        name: lotus-domino
-        words:
-          - "Server: Lotus-Domino"
-        part: header
-
-      - type: word
-        name: mongo-express-web-gui
-        words:
-          - "Set-Cookie: mongo-express="
-        part: header
-
-      - type: word
-        name: pf-sense-ui
-        words:
-          - "Login to pfSense"
-
-      - type: word
-        name: weave-scope-dashboard
-        words:
-          - "<title>Weave Scope</title>"
-          - "__WEAVEWORKS_CSRF_TOKEN"
-          - "__CSRF_TOKEN_PLACEHOLDER__"
-        condition: and
-        part: body
-
-      - type: word
-        name: mida-eframework
-        words:
-          - "<title>Mida eFramework</title>"
-          - "Server: Mida eFramework"
-        condition: or
-        part: response
-
-      - type: word
-        name: SEEEMS-CMS
-        words:
-          - "SEEEMS.CMS"
-          - "SEEEMS.FRAMEWORK"
-        condition: or
-        part: body
-
-      - type: regex
-        name: awselb
         regex:
-          - "awselb"
+          - .*
+        type: regex
+      - name: akamai
         part: header
-
-      - type: word
+        type: word
+        words:
+          - AkamaiGHost
+      - name: sucuri
+        part: header
+        type: word
+        words:
+          - Sucuri/Cloudproxy
+      - name: Imperva
+        part: header
+        type: word
+        words:
+          - 'X-Iinfo:'
+      - name: ddos-guard
+        part: header
+        type: word
+        words:
+          - ddos-guard
+      - name: dosarrest
+        part: header
+        type: word
+        words:
+          - DOSarrest
+          - 'X-DIS-Request-ID:'
+      - name: arvancloud
+        part: header
+        type: word
+        words:
+          - ArvanCloud
+          - 'AR-Request-ID:'
+      - name: aem_cms
+        part: body
+        type: word
+        words:
+          - /etc/clientlibs/
+          - /content/dam/
+      - name: lotus-domino
+        part: header
+        type: word
+        words:
+          - 'Server: Lotus-Domino'
+      - name: mongo-express-web-gui
+        part: header
+        type: word
+        words:
+          - 'Set-Cookie: mongo-express='
+      - name: pf-sense-ui
+        type: word
+        words:
+          - Login to pfSense
+      - condition: and
+        name: weave-scope-dashboard
+        part: body
+        type: word
+        words:
+          - <title>Weave Scope</title>
+          - __WEAVEWORKS_CSRF_TOKEN
+          - __CSRF_TOKEN_PLACEHOLDER__
+      - condition: or
+        name: mida-eframework
+        part: response
+        type: word
+        words:
+          - <title>Mida eFramework</title>
+          - 'Server: Mida eFramework'
+      - condition: or
+        name: SEEEMS-CMS
+        part: body
+        type: word
+        words:
+          - SEEEMS.CMS
+          - SEEEMS.FRAMEWORK
+      - name: awselb
+        part: header
+        regex:
+          - awselb
+        type: regex
+      - condition: and
         name: pfsense
-        words:
-          - "Login to pfSense"
-          - "<title>pfSense - Login</title>"
-          - "maintained by Netgate"
         part: body
-        condition: and
-
-      - type: word
-        name: monit
-        part: header
+        type: word
         words:
-          - "Server: monit"
-
-      - type: word
-        name: thinkphp
+          - Login to pfSense
+          - <title>pfSense - Login</title>
+          - maintained by Netgate
+      - name: monit
         part: header
+        type: word
         words:
-          - "ThinkPHP"
-
-      - type: word
-        name: apollo
+          - 'Server: monit'
+      - name: thinkphp
+        part: header
+        type: word
+        words:
+          - ThinkPHP
+      - name: apollo
         part: body
+        type: word
         words:
-          - "initApollo)(i.ApolloTargetServer.Self)"
-
-      - type: word
+          - initApollo)(i.ApolloTargetServer.Self)
+      - condition: and
         name: paloalto-network
         part: body
+        type: word
         words:
-          - "<!-- BEGIN PAN_FORM_CONTENT -->"
-          - "js/pan/"
-        condition: and
-
-      - type: word
-        name: sailsjs
+          - <!-- BEGIN PAN_FORM_CONTENT -->
+          - js/pan/
+      - name: sailsjs
         part: header
+        type: word
         words:
-          - "X-Powered-By: Sails"
-
-      - type: word
-        name: tengine
+          - 'X-Powered-By: Sails'
+      - name: tengine
         part: server
+        type: word
         words:
-          - "Tengine"
-
-      - type: word
-        name: tornado
+          - Tengine
+      - name: tornado
         part: header
+        type: word
         words:
-          - "TornadoServer/"
-
-      - type: word
-        name: uvicorn
+          - TornadoServer/
+      - name: uvicorn
         part: server
+        type: word
         words:
-          - "uvicorn"
-
-      - type: word
-        name: istio-envoy
+          - uvicorn
+      - name: istio-envoy
         part: server
+        type: word
         words:
-          - "istio-envoy"
-
-      - type: word
+          - istio-envoy
+      - case-insensitive: true
         name: clickhouse
         part: header
+        type: word
         words:
-          - "X-ClickHouse-Summary"
-        case-insensitive: true
-
-      - type: word
-        name: coolify
+          - X-ClickHouse-Summary
+      - name: coolify
+        type: word
         words:
-          - 'content="Coolify'
-
-      - type: word
+          - content="Coolify
+      - name: iqmessenger
         part: body
-        name: iqmessenger
+        type: word
         words:
-          - "<title>IQ Messenger</title>"
-
-      - type: word
+          - <title>IQ Messenger</title>
+      - name: sagemcom-tr069
         part: header
-        name: sagemcom-tr069
+        type: word
         words:
-          - 'realm="Sagemcom TR-069"'
-
-      - type: word
+          - realm="Sagemcom TR-069"
+      - name: fastpanel
         part: body
-        name: fastpanel
+        type: word
         words:
-          - "<title>FASTPANEL</title>"
-
-      - type: word
+          - <title>FASTPANEL</title>
+      - name: axema-vaka
         part: body
-        name: axema-vaka
+        type: word
         words:
-          - "<title>Vaka</title>"
-
-      - type: word
+          - <title>Vaka</title>
+      - name: ksenia-security
         part: body
-        name: ksenia-security
+        type: word
         words:
-          - "<title>Ksenia Lares WebServer</title>"
-
-      - type: word
-        part: body
+          - <title>Ksenia Lares WebServer</title>
+      - condition: or
         name: topdesk
-        words:
-          - "/tas/css/auth.css"
-          - "topdeskidploginforwardurl"
-        condition: or
-
-      - type: word
         part: body
-        name: usergate-utm
+        type: word
         words:
-          - "<title>UserGate UTM</title>"
-
-      - type: word
+          - /tas/css/auth.css
+          - topdeskidploginforwardurl
+      - name: usergate-utm
         part: body
-        name: usergate-ngfw
+        type: word
         words:
-          - "<title>UserGate NGFW</title>"
-
-      - type: word
+          - <title>UserGate UTM</title>
+      - name: usergate-ngfw
         part: body
-        name: mikrotik-routeros
+        type: word
         words:
-          - "<title>RouterOS router configuration page</title>"
-
-      - type: word
+          - <title>UserGate NGFW</title>
+      - name: mikrotik-routeros
         part: body
-        name: satel-ethm1-plus
+        type: word
         words:
-          - "<title>ETHM-1 Plus</title>"
-
-      - type: word
+          - <title>RouterOS router configuration page</title>
+      - name: satel-ethm1-plus
         part: body
-        name: qlik-sense
+        type: word
         words:
-          - "<title>Qlik Sense login page</title>"
-
-      - type: word
+          - <title>ETHM-1 Plus</title>
+      - name: qlik-sense
+        part: body
+        type: word
+        words:
+          - <title>Qlik Sense login page</title>
+      - name: wit-redy
         part: header
-        name: wit-redy
+        type: word
         words:
-          - "Server: REDY-Process"
-
-      - type: word
+          - 'Server: REDY-Process'
+      - name: entels-entec
         part: body
-        name: entels-entec
+        type: word
         words:
-          - 'href="css/img/ENTEK.ico"'
-
-      - type: word
+          - href="css/img/ENTEK.ico"
+      - name: macroscop
         part: body
-        name: macroscop
+        type: word
         words:
-          - "<title>Macroscop Web Client</title>"
-          - "<title>macroscop</title>"
-
-      - type: word
+          - <title>Macroscop Web Client</title>
+          - <title>macroscop</title>
+      - name: etic-telecom
         part: body
-        name: etic-telecom
+        type: word
         words:
-          - "<title>Etic Telecom</title>"
-
-      - type: word
+          - <title>Etic Telecom</title>
+      - name: checkpoint-quantum-spark
         part: body
-        name: checkpoint-quantum-spark
+        type: word
         words:
-          - 'content="Quantum Spark Security Appliance - Login"'
-
+          - content="Quantum Spark Security Appliance - Login"
+          # digest: 490a00463044022034a9525ce9da531319a29b323ef0bf50586206b952ac5dba38e22db9e414d933022000b10ca1e351a14c6c31591d5cd709039f17a8acd63774bd474418075f388c96:922c64590222798bb761d5b6d8e72950
+    matchers-condition: or
+    max-redirects: 2
+    method: GET
+    path:
+      - '{{BaseURL}}'

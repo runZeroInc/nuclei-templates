@@ -1,5 +1,4 @@
 id: xff-403-bypass
-
 info:
   name: X-Forwarded-For 403-forbidden bypass
   author: vavkamil
@@ -7,10 +6,15 @@ info:
   description: Template to detect 403 forbidden endpoint bypass behind Nginx/Apache proxy & load balancers, based on X-Forwarded-For header.
   metadata:
     max-request: 3
-  tags: fuzzing,xff-403-bypass,vuln
-
+  tags: fuzzing,vuln,xff-403-bypass
 http:
-  - raw:
+  - matchers:
+      - dsl:
+          - status_code_1 == 403 && status_code_2 == 200 && status_code_3 == 403
+        # digest: 4a0a0047304502204605ca9382c3d571e1f7132d09cf568d6dcfbb7a7e0cfeb87a6bcaf486ed2641022100acefec8e9090fe9eccde6e12a79eb5092c1ced9b76c47c86a4898efb5b2fdef0:922c64590222798bb761d5b6d8e72950
+
+        type: dsl
+    raw:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
@@ -20,9 +24,7 @@ http:
         Host: {{Hostname}}
         Accept: */*
         X-Forwarded-For: 127.0.0.1, 0.0.0.0, 192.168.0.1, 10.0.0.1, 172.16.0.1
-
-    matchers:
-      - type: dsl
-        dsl:
-          - "status_code_1 == 403 && status_code_2 != 403"
-
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+        Accept: */*

