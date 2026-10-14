@@ -8,7 +8,7 @@ info:
   reference:
     - https://github.com/apache/skywalking-horizon-ui
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "SkyWalking Horizon UI"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^SkyWalking Horizon UI$"})
     max-request: 1
     product: skywalking
     shodan-query: title:"SkyWalking Horizon UI"
