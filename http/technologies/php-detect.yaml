@@ -1,5 +1,4 @@
 id: php-detect
-
 info:
   name: PHP Detect
   author: y0no
@@ -7,33 +6,28 @@ info:
   classification:
     cpe: cpe:2.3:a:php:php:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 1
-    vendor: php
     product: php
-    shodan-query: "X-Powered-By: PHP"
-  tags: tech,php,discovery
-
+    shodan-query: 'X-Powered-By: PHP'
+    vendor: php
+    verified: true
+  tags: discovery,php,tech
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - extractors:
+      - group: 1
         part: header
-        words:
-          - "PHP"
-
-      - type: status
-        status:
-          - 200
-
-    extractors:
-      - type: regex
-        part: header
-        group: 1
         regex:
-          - "X-Powered-By: PHP/([0-9.]+)"
+          - (?i)PHP/([0-9.]+)
+        # digest: 4b0a00483046022100d5abafe187b39ebcc616ae3e805934a9ec53c6c3fee06dbc842c13b26d285e68022100e198dfd892a8550cfd0bff457f019e3ca9a93fa193bb3a10b0cb56987d7cad3b:922c64590222798bb761d5b6d8e72950
 
+        type: regex
+    host-redirects: true
+    matchers:
+      - dsl:
+          - contains(header, "PHP/") || contains(header, "PHPSESSID") || contains(header, ".php")
+        type: dsl
+    max-redirects: 2
+    raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
