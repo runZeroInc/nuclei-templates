@@ -4,7 +4,7 @@ info:
   author: Th3l0newolf
   severity: high
   description: |
-    Net Vision UPS Monitor default credentials were detected.
+    Net Vision UPS Monitor default credentials of "admin:public" were detected.
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
     cwe-id: CWE-798
