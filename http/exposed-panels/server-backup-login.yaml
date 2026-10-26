@@ -1,5 +1,4 @@
 id: server-backup-login
-
 info:
   name: Server Backup Manager SE Login Panel - Detect
   author: DhiyaneshDk,pathtaga
@@ -12,20 +11,18 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,paneil,idera,edb,discovery
-
+  tags: discovery,edb,idera,panel
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/login.zul'
-
-    matchers-condition: and
-    matchers:
+  - matchers:
       - type: word
         words:
-          - '<title>Idera Server Backup Manager SE  </title>'
-
-      - type: status
-        status:
+          - <title>Idera Server Backup Manager SE  </title>
+      - status:
           - 200
+        # digest: 4a0a00473045022100c7a90e3589fff1d98127264ec957d85e46a8cffa6b3f70570015e51f083d8e0702203217d38d8d32cf69eb1edc075823112fc116a2237ea051061f664efe3216faea:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/login.zul'
