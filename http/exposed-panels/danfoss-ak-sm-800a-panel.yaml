@@ -11,7 +11,7 @@ info:
     - https://raw.githubusercontent.com/msuiche/fromagegate/main/emulator/aksm800a_emulator.py
     - https://raw.githubusercontent.com/msuiche/fromagegate/main/captures/http-requests.jsonl
   metadata:
-    runzero-match: service["product"] contains "Danfoss:Danux"
+    runzero-match: asset["os"] contains "Danfoss:Danux"
     fofa-query: body="AK-SM 800A"
     product: AK-SM 800A
     shodan-query: html:"AK-SM 800A"
