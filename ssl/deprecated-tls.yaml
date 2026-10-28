@@ -1,47 +1,79 @@
 id: deprecated-tls
-
 info:
-  name: Deprecated TLS Detection
-  author: righettod,forgedhallpass
+  name: Deprecated SSL/TLS Protocols - Detect
+  author: righettod,forgedhallpass,goosvorbook
   severity: info
   description: |
-    Both TLS 1.1 and SSLv3 are deprecated in favor of stronger encryption.
+    The service accepts one or more deprecated SSL/TLS protocol versions: SSL 2.0, SSL 3.0, TLS 1.0 or TLS 1.1. These versions are prohibited or deprecated (RFC 6176, RFC 7568, RFC 8996) and are affected by known weaknesses such as DROWN and POODLE.
   remediation: |
-    Update the web server's TLS configuration to disable TLS 1.1 and SSLv3.
+    Disable SSL 2.0, SSL 3.0, TLS 1.0 and TLS 1.1 and only allow TLS 1.2 and TLS 1.3.
   reference:
     - https://ssl-config.mozilla.org/#config=intermediate
+    - https://datatracker.ietf.org/doc/html/rfc6176
+    - https://datatracker.ietf.org/doc/html/rfc7568
+    - https://datatracker.ietf.org/doc/html/rfc8996
+    - https://drownattack.com/
+  classification:
+    cwe-id:
+      - CWE-327
   metadata:
-    max-request: 3
+    max-request: 4
     shodan-query: ssl.version:sslv2 ssl.version:sslv3 ssl.version:tlsv1 ssl.version:tlsv1.1
+    verified: true
   tags: ssl,tls,vuln
+# SSL 2.0 is not supported by the ssl protocol (crypto/tls, zcrypto), so a raw
+# SSLv2 CLIENT-HELLO is sent. A match requires an SSLv2 two-byte record header
+# (high bit set) and a SERVER-HELLO (0x04) with server version 0x0002.
+tcp:
+  - extractors:
+      - dsl:
+          - '"ssl20"'
+          # digest: 4a0a00473045022017978f1ca6cae172137a36a0f3c43be519544f1910c2675e5d6c8085d3e64f1e022100905767372a08019171af11c0e23b627951f1f5cb9deb16e5097a803f7a4c378b:922c64590222798bb761d5b6d8e72950
+        name: ssl_2.0
+        type: dsl
+    host:
+      - '{{Hostname}}'
+    inputs:
+      - data: 802e0100020015000000100100800200800300800400800500800600400700c0a3f1c2d4e5b6978812345678abcdef01
+        type: hex
+    matchers:
+      - condition: and
+        dsl:
+          - len(raw) >= 11
+          - contains_any(substr(hex_encode(raw), 0, 1), '8', '9', 'a', 'b', 'c', 'd', 'e', 'f')
+        name: sslv2-record-header
+        type: dsl
+      - condition: and
+        dsl:
+          - substr(hex_encode(raw), 4, 6) == '04'
+          - substr(hex_encode(raw), 10, 14) == '0002'
+        name: sslv2-server-hello
+        type: dsl
+    matchers-condition: and
+    port: 443
+    read-size: 32
 ssl:
-  - address: "{{Host}}:{{Port}}"
-    min_version: tls11
-    max_version: tls11
-
+  - address: '{{Host}}:{{Port}}'
     extractors:
-      - type: json
+      - json:
+          - ' .tls_version'
         name: tls_1.1
-        json:
-          - " .tls_version"
-
-  - address: "{{Host}}:{{Port}}"
-    min_version: tls10
-    max_version: tls10
-
+        type: json
+    max_version: tls11
+    min_version: tls11
+  - address: '{{Host}}:{{Port}}'
     extractors:
-      - type: json
+      - json:
+          - ' .tls_version'
         name: tls_1.0
-        json:
-          - " .tls_version"
-
-  - address: "{{Host}}:{{Port}}"
-    min_version: ssl30
-    max_version: ssl30
-
+        type: json
+    max_version: tls10
+    min_version: tls10
+  - address: '{{Host}}:{{Port}}'
     extractors:
-      - type: json
+      - json:
+          - ' .tls_version'
         name: ssl_3.0
-        json:
-          - " .tls_version"
-
+        type: json
+    max_version: ssl30
+    min_version: ssl30
