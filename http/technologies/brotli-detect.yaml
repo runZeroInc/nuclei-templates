@@ -1,0 +1,61 @@
+id: brotli-compression
+
+info:
+  name: Brotli Compression Detect
+  author: n3integration
+  severity: info
+  description: |
+    Detects HTTP endpoints that appear to support Brotli-compression.
+
+    Based on three safe requests:
+      1. JSON baseline
+      2. JSON with an intentionally unsupported Content-Encoding
+      3. Brotli-compressed JSON
+
+    A match requires the unsupported encoding to return HTTP 415 while the
+    valid Brotli request behaves like the uncompressed baseline.
+  metadata:
+    verified: true
+    max-request: 1
+  tags: tech,brotli,discovery
+
+http:
+  - raw:
+      - |
+        POST / HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/json
+        Content-Length: 2
+
+        {}
+
+      - |
+        POST / HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/json
+        Content-Encoding: x-runzero-brotli-probe
+        Content-Length: 2
+
+        {}
+
+      - |
+        POST / HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/json
+        Content-Encoding: br
+        Content-Length: 6
+
+        {{hex_decode('8b00807b7d03')}}
+
+    req-condition: true
+    redirects: false
+    max-size: 2048
+
+    matchers:
+      - type: dsl
+        name: brotli-compression
+        condition: and
+        dsl:
+          - "status_code_2 == 415"
+          - "status_code_3 != 415"
+          - "status_code_3 == status_code_1"
