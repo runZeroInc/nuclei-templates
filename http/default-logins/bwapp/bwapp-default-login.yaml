@@ -9,6 +9,7 @@ info:
   classification:
     cwe-id: CWE-798
   metadata:
+    runzero-match: any(each(service["html.titles"]), {# matches "^bWAPP - Login$"})
     max-request: 1
   tags: bwapp,default-login,vuln
 http:

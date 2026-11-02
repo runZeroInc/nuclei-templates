@@ -9,7 +9,7 @@ info:
     - https://github.com/Infisical/infisical
     - https://infisical.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Infisical"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Infisical$"})
     fofa-query: title="Infisical"
     max-request: 2
     product: infisical
