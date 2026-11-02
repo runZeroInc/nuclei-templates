@@ -1,5 +1,4 @@
 id: haproxy-status
-
 info:
   name: HAProxy Statistics Page - Detect
   author: dhiyaneshDK
@@ -13,21 +12,26 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 2
-  tags: logs,haproxy,edb,misconfig,vuln
-
+  tags: edb,haproxy,logs,misconfig,vuln
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/haproxy-status"
-      - "{{BaseURL}}/haproxy?stats"
+  - extractors:
+      - group: 1
+        part: body
+        regex:
+          - HAProxy version ([^<]+)
+        # digest: 4b0a00483046022100e9a354e98e71d1e2ff583781aa80944b31f82aac37834c997b7d54a34fbdacbf022100afbe07bd6a48f5d669e4ed79b67f0b414c0c4fc66f5e0e209f8373b413b39f68:922c64590222798bb761d5b6d8e72950
 
-    matchers-condition: and
+        type: regex
     matchers:
       - type: word
         words:
-          - 'Statistics Report for HAProxy'
-
-      - type: status
-        status:
+          - Statistics Report for HAProxy
+      - status:
           - 200
-
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/haproxy-status'
+      - '{{BaseURL}}/haproxy?stats'
+    stop-at-first-match: true
