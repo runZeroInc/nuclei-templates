@@ -9,7 +9,7 @@ info:
     - https://github.com/ilmila/J2EEScan/blob/master/src/main/java/burp/j2ee/issues/impl/JBossAdminConsole.java
     - http://docs.jboss.org/jbossas/6/Admin_Console_Guide/en-US/html/Administration_Console_User_Guide-Accessing_the_Console.html
   metadata:
-    runzero-match: service["product"] matches "(?i)JBoss"
+    runzero-match: service["product"] contains "Red Hat:JBoss EAP"
     fofa-query: app="JBoss"
     max-request: 1
     product: jboss_application_server

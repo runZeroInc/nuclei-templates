@@ -15,7 +15,7 @@ info:
     cvss-score: 9.8
     cwe-id: CWE-1392
   metadata:
-    runzero-match: service["product"] matches "(?i)JBoss"
+    runzero-match: service["product"] contains "Red Hat:JBoss EAP"
     fofa-query: app="JBoss"
     max-request: 17
     product: jboss_application_server

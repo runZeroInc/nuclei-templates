@@ -11,7 +11,7 @@ info:
   classification:
     cpe: cpe:2.3:a:coollabs:coolify:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Coolify"})
+    runzero-match: any(each(service["html.titles"]), {# matches "Coolify$"})
     fofa-query: title="Coolify"
     max-request: 2
     product: coolify
