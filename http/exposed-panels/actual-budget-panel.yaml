@@ -9,7 +9,7 @@ info:
     - https://github.com/actualbudget/actual
     - https://actualbudget.org/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Actual"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Actual$"})
     max-request: 1
     product: actual_budget
     shodan-query: title:"Actual"
