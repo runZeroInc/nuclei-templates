@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:apache:shenyu:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Apache ShenYu Gateway"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Apache ShenYu Gateway$"})
     fofa-query: title="Apache ShenYu Gateway"
     product: shenyu
     shodan-query: http.title:"Apache ShenYu Gateway"

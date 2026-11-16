@@ -14,7 +14,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Gotify"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Gotify"})
     fofa-query: title="Gotify"
     product: server
     shodan-query: http.title:"Gotify"

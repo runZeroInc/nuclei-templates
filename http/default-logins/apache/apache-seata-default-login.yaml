@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:apache:seata:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Seata"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Seata$"})
     fofa-query: title="Seata"
     product: seata
     shodan-query: http.title:"Seata"
