@@ -13,7 +13,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "MaxKB"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^MaxKB$"})
     fofa-query: title="MaxKB"
     product: maxkb
     shodan-query: http.title:"MaxKB"

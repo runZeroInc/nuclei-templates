@@ -13,7 +13,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "Mobile Security Framework - MobSF"})
+    runzero-match: any(each(service["http.bodies"]), {# matches `meta name=\"description\" content=\"Mobile Security Framework - MobSF\"`})
     fofa-query: body="Mobile Security Framework - MobSF"
     product: mobsf
     shodan-query: http.html:"Mobile Security Framework - MobSF"

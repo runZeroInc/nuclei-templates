@@ -15,7 +15,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:yearning:yearning:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Yearning"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Yearning$"})
     fofa-query: title="Yearning"
     product: yearning
     shodan-query: http.title:"Yearning"

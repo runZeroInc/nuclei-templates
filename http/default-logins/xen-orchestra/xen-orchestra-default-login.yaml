@@ -16,7 +16,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Xen Orchestra"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Xen Orchestra$"})
     fofa-query: title="Xen Orchestra"
     product: xen_orchestra
     shodan-query: http.title:"Xen Orchestra"

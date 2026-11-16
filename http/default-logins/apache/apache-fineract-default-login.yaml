@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-522
     cpe: cpe:2.3:a:apache:fineract:*:*:*:*:*:*:*:*
   metadata:
-    runzero-match: service["product"] matches "(?i)apache.fineract"
+    runzero-review: REJECT/2026-11-16/No reliable match for fineract.
     product: fineract
     vendor: apache
     verified: true
