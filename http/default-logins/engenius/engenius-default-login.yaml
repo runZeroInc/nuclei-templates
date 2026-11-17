@@ -14,7 +14,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "EnGenius"})
+    runzero-match: asset["hw_vendor"] matches "EnGenius Technologies" && asset["os_device"] matches "WAP"
     fofa-query: 'body="EnGenius"'
     max-request: 2
     product: wireless_access_point

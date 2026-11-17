@@ -16,7 +16,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: service["product"] matches "(?i)powerhousedynamics.sitesage.gateway"
+    runzero-match: any(each(service["html.titles"]), {# matches "^SiteSage Gateway"})
     product: sitesage_gateway
     vendor: powerhousedynamics
   tags: default-login,gateway,powerhousedynamics,sitesage,wireless

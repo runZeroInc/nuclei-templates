@@ -14,7 +14,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "GW Security"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "button_login_ipcweb"}) && any(each(service["http.bodies"]), {# matches `GW Security Inc\. All Rights Reserved`})
     fofa-query: 'body="GW Security"'
     max-request: 3
     product: ip_camera

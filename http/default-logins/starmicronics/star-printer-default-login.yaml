@@ -14,7 +14,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: service["product"] matches "(?i)starmicronics.tsp100iii"
+    runzero-match: any(each(service["html.titles"]), {# matches "^TSP100III Network Utility$"})
     product: tsp100iii
     vendor: starmicronics
   tags: default-login,printer,star,starmicronics,tsp100iii

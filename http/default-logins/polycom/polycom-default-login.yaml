@@ -15,7 +15,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "Polycom Web Configuration Utility"})
+    runzero-match: any(each(service["http.bodies"]), {# matches "Polycom Web Configuration Utility</span>"})
     fofa-query: body="Polycom Web Configuration Utility"
     max-request: 5
     product: uc_software
