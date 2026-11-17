@@ -15,7 +15,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: service["product"] matches "(?i)symetrix.voip.interface"
+    runzero-review: REJECT/2026-11017/cannot reliably match this based on the given information.
     product: voip_interface
     vendor: symetrix
   tags: default-login,symetrix,voip

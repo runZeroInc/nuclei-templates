@@ -15,7 +15,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "AltaLink"})
+    runzero-match: asset["hw_vendor"] matches "Xerox" && asset["hw_family"] matches "AltaLink"
     fofa-query: 'body="AltaLink"'
     max-request: 3
     product: altalink
