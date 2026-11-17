@@ -14,7 +14,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "AnyLogic Team License Server"})
+    runzero-match: any(each(service["http.titles"]), {# matches "^AnyLogic Team License Server$"})
     fofa-query: 'body="AnyLogic Team License Server"'
     max-request: 1
     product: team_license_server

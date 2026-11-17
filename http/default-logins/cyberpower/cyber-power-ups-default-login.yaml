@@ -14,7 +14,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: any(each(service["http.bodies"]), {# matches "login_pass\\.cgi"})
+    runzero-match: asset["hw_vendor"] matches "CyberPower" && asset["hw_product"] matches "UPS"
     fofa-query: 'body="login_pass.cgi" && body="CyberPower"'
     max-request: 7
     product: remote_management_card
