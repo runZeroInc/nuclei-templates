@@ -14,7 +14,7 @@ info:
   classification:
     cwe-id: CWE-1392
   metadata:
-    runzero-match: asset["hw_vendor"] matches "Schneider Electric" && asset["hw_product"] matches "UPS"
+    runzero-match: any(each(service["html.titles"]), {# matches `APC \| Log On`}) || asset["hw_vendor"] matches "Schneider Electric" && asset["hw_product"] matches "UPS"
     fofa-query: 'title="APC | Log On"'
     max-request: 5
     product: ups_network_management_card
