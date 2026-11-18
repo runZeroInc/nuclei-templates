@@ -13,7 +13,7 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "Dinky"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^Dinky$"})
     fofa-query: title="Dinky"
     product: dinky
     shodan-query: http.title:"Dinky"
