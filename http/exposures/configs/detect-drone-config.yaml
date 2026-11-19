@@ -1,31 +1,42 @@
 id: detect-drone-config
-
 info:
   name: Drone - Configuration Detection
-  author: geeknik
+  author: geeknik,FLX
   severity: high
-  description: Drone configuration was discovered.
+  description: |
+    Drone CI configuration file was discovered. The exposed file can disclose pipeline definitions, container images and references to secrets.
   reference:
     - https://github.com/drone/drone
+    - https://docs.drone.io/pipeline/configuration/
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+    cvss-score: 5.3
+    cwe-id:
+      - CWE-200
   metadata:
     max-request: 1
-  tags: config,exposure,drone,discovery
-
+  tags: config,discovery,drone,exposure
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.drone.yml"
-
-    matchers-condition: and
-    matchers:
-      - type: word
+  - matchers:
+      - condition: and
+        part: body
+        regex:
+          - (?m)^kind:[ \t]*pipeline\s*$
+          - (?m)^steps:\s*$
+          - '(?m)^[ \t]+(image|commands|settings|environment):'
+        type: regex
+      - case-insensitive: true
+        negative: true
+        part: header
+        type: word
         words:
-          - "kind:"
-          - "name:"
-          - "steps:"
-        condition: and
-
-      - type: status
-        status:
+          - text/html
+      - status:
           - 200
+        # digest: 490a004630440220487ab449736a52d60334d81fead692f29d2619f9161cdd16405c19e6b4b7022a02200fb17f9faab99b7f3c8a6f5c6103e5774b1c1222f9763dd645a3e55083555d1f:922c64590222798bb761d5b6d8e72950
 
+        type: status
+    matchers-condition: and
+    method: GET
+    path:
+      - '{{BaseURL}}/.drone.yml'
