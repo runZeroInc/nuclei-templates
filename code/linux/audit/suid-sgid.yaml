@@ -1,5 +1,4 @@
 id: suid-sgid
-
 info:
   name: Root SUID/SGID File Check
   author: songyaeji
@@ -8,19 +7,18 @@ info:
     Files owned by root with SUID or SGID permissions could have led to privilege escalation.if misconfigured. This template detected such files for further review.
   reference:
     - https://isms.kisa.or.kr
-  tags: linux,local,audit,compliance,privesc,kisas
-
-self-contained: true
-
+  tags: audit,compliance,kisas,linux,local,privesc
 code:
   - engine:
       - sh
       - bash
+    matchers:
+      - part: response
+        regex:
+          - (?m)^-..[sS] # SUID
+          - (?m)^-.....[sS] # SGID
+          # digest: 4a0a0047304502205cae5f98f3f894c22efc0795d9e451ed9b2689f2e7cb475e2afba77f25edf51b022100c9aa6a324ea739e941df72691aa6f550b3841f579192bf4f78e0fb7403564f4b:922c64590222798bb761d5b6d8e72950
+        type: regex
     source: |
       find / -user root -type f \( -perm -4000 -o -perm -2000 \) -exec ls -lg {} \; 2>/dev/null | head -n 10
-
-    matchers:
-      - regex:
-          - "^-rws.*"   # SUID
-          - "^-..s.*"   # SGID
-
+self-contained: true
