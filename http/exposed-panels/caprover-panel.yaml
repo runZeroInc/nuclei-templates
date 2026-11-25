@@ -9,7 +9,7 @@ info:
     - https://github.com/caprover/caprover
     - https://caprover.com/
   metadata:
-    runzero-match: any(each(service["html.titles"]), {# matches "CapRover \\| Server Dashboard"})
+    runzero-match: any(each(service["html.titles"]), {# matches "^CapRover \\| Server Dashboard$"})
     fofa-query: title="CapRover | Server Dashboard"
     max-request: 1
     product: caprover
